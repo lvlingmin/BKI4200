@@ -1,0 +1,14 @@
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Localization\bin\Release\Localization.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Localization\bin\Release\Localization.pdb
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Localization\obj\Release\Localization.en-US.resources
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Localization\obj\Release\Localization.zh-CN.resources
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Localization\obj\Release\Localization.csproj.GenerateResource.Cache
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Localization\obj\Release\Localization.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Localization\obj\Release\Localization.pdb
+E:\博科软件\全自动化学发光\全自动化学发光\BioBaseCLIA(网口通讯_台式机)\Localization\bin\Release\Localization.dll
+E:\博科软件\全自动化学发光\全自动化学发光\BioBaseCLIA(网口通讯_台式机)\Localization\bin\Release\Localization.pdb
+E:\博科软件\全自动化学发光\全自动化学发光\BioBaseCLIA(网口通讯_台式机)\Localization\obj\Release\Localization.en-US.resources
+E:\博科软件\全自动化学发光\全自动化学发光\BioBaseCLIA(网口通讯_台式机)\Localization\obj\Release\Localization.zh-CN.resources
+E:\博科软件\全自动化学发光\全自动化学发光\BioBaseCLIA(网口通讯_台式机)\Localization\obj\Release\Localization.csproj.GenerateResource.Cache
+E:\博科软件\全自动化学发光\全自动化学发光\BioBaseCLIA(网口通讯_台式机)\Localization\obj\Release\Localization.dll
+E:\博科软件\全自动化学发光\全自动化学发光\BioBaseCLIA(网口通讯_台式机)\Localization\obj\Release\Localization.pdb

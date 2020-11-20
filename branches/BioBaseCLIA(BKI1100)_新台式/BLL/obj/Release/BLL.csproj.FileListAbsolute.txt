@@ -1,0 +1,16 @@
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\BLL.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\BLL.pdb
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\DAL.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\DBUtility.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\LTP.Common.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\Model.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\System.Windows.Forms.DataVisualization.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\System.Data.SQLite.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\DAL.pdb
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\DBUtility.pdb
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\bin\Release\Model.pdb
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\obj\Release\BLL.csprojAssemblyReference.cache
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\obj\Release\BLL.csproj.CoreCompileInputs.cache
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\obj\Release\BLL.csproj.CopyComplete
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\obj\Release\BLL.dll
+E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\BLL\obj\Release\BLL.pdb
