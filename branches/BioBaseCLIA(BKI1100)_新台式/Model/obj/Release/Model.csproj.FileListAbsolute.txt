@@ -1,5 +1,0 @@
-E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Model\bin\Release\Model.dll
-E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Model\bin\Release\Model.pdb
-E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
-E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Model\obj\Release\Model.dll
-E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(网口通讯)\Model\obj\Release\Model.pdb
