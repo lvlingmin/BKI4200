@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectXml>
+<ProjectNumber>32</ProjectNumber>
+<ShortName>P</ShortName>
+<FullName>P</FullName>
+<ProjectType>1</ProjectType>
+<DiluteCount>1</DiluteCount>
+<RangeType>3</RangeType>
+<VRangeType>1</VRangeType>
+<ValueRange1>男:&lt;2.92</ValueRange1>
+<ValueRange2>女:卵泡期:0.371-3.49 排卵期:0.458-1.9 黄体期:6.31-20.8 绝经期:&lt;1.02</ValueRange2>
+<ValueUnit>ng/ml</ValueUnit>
+<MinValue>0</MinValue>
+<MaxValue>50</MaxValue>
+<CalPointNumber>6</CalPointNumber>
+<CalPointConc>0,0.5,1.5,4.5,15,40</CalPointConc>
+<QCPointNumber>2</QCPointNumber>
+<QCPoints>S3,S5</QCPoints>
+<ProjectProcedure>S-30-ul;R1-30-ul;R2-30-ul;H-15-min;B-30-ul;H-5-min;W-300-ul;T-200-ul;D-10-s</ProjectProcedure>
+<CalMode>0</CalMode>
+<CalMethod>6</CalMethod>
+<CalculateMethod>0</CalculateMethod>
+<LoadType>1</LoadType>
+<ActiveStatus>1</ActiveStatus>
+<DiluteName>1</DiluteName>
+<ExpiryDate>365</ExpiryDate>
+<NoUsePro>500-ul</NoUsePro>
+</ProjectXml>
+
