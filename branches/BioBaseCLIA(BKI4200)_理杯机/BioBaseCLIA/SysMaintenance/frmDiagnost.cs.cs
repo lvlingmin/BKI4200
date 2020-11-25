@@ -4066,6 +4066,7 @@ namespace BioBaseCLIA.SysMaintenance
             buff = new byte[1];
             buff1 = new byte[1];
             GC.Collect();
+            frmReturn();
         }
         private void DealReceive(string order)
         {
@@ -9903,5 +9904,28 @@ namespace BioBaseCLIA.SysMaintenance
         //    }
         //}
 
+        private void frmReturn()
+        {
+            if (!bClose)
+            {
+                return;
+            }
+            timer1.Stop(); //返回就结束timer  jun add 20190426
+            NetCom3.Instance.ReceiveHandel -= dealAgingBack;
+            foreach (Thread a in threadList)
+            {
+                if (a != null && a.IsAlive)
+                    a.Abort();
+            }
+            //2018-08-31 ZLX add 试剂盘加载完成
+            fbtnReturn.Enabled = false;
+            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 0B B0 00 00"), 0);
+            NetCom3.Instance.SPQuery();
+            fbtnReturn.Enabled = true;
+            Invoke(new Action(() =>
+            {
+                this.Close();
+            }));
+        }
     }
 }
