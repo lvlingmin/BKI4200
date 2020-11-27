@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiagnost));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -221,6 +221,10 @@
             this.label58 = new System.Windows.Forms.Label();
             this.btnZx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.cmbConnDelay = new System.Windows.Forms.ComboBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.cmbSendDelay = new System.Windows.Forms.ComboBox();
+            this.label99 = new System.Windows.Forms.Label();
             this.txtFilePath = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.cmbZhenID = new System.Windows.Forms.ComboBox();
             this.lblDescribe = new System.Windows.Forms.Label();
@@ -423,10 +427,6 @@
             this.label84 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
-            this.cmbConnDelay = new System.Windows.Forms.ComboBox();
-            this.label100 = new System.Windows.Forms.Label();
-            this.cmbSendDelay = new System.Windows.Forms.ComboBox();
-            this.label99 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControlMy1.SuspendLayout();
             this.tabAddSample.SuspendLayout();
@@ -1271,6 +1271,7 @@
             this.cmbASElecMachine.Name = "cmbASElecMachine";
             this.cmbASElecMachine.Size = new System.Drawing.Size(160, 22);
             this.cmbASElecMachine.TabIndex = 2;
+            this.cmbASElecMachine.SelectedIndexChanged += new System.EventHandler(this.cmbASElecMachine_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -1877,6 +1878,7 @@
             this.cmbHElecMachine.Name = "cmbHElecMachine";
             this.cmbHElecMachine.Size = new System.Drawing.Size(160, 22);
             this.cmbHElecMachine.TabIndex = 2;
+            this.cmbHElecMachine.SelectedIndexChanged += new System.EventHandler(this.cmbHElecMachine_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -2424,6 +2426,7 @@
             this.cmbIElecMachine.Name = "cmbIElecMachine";
             this.cmbIElecMachine.Size = new System.Drawing.Size(160, 22);
             this.cmbIElecMachine.TabIndex = 2;
+            this.cmbIElecMachine.SelectedIndexChanged += new System.EventHandler(this.cmbIElecMachine_SelectedIndexChanged);
             // 
             // label45
             // 
@@ -3115,6 +3118,7 @@
             this.cmbWashElecMachine.Name = "cmbWashElecMachine";
             this.cmbWashElecMachine.Size = new System.Drawing.Size(160, 22);
             this.cmbWashElecMachine.TabIndex = 2;
+            this.cmbWashElecMachine.SelectedIndexChanged += new System.EventHandler(this.cmbWashElecMachine_SelectedIndexChanged);
             // 
             // label51
             // 
@@ -3315,6 +3319,51 @@
             this.groupBox21.TabIndex = 6;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "烧录程序";
+            // 
+            // cmbConnDelay
+            // 
+            this.cmbConnDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbConnDelay.Enabled = false;
+            this.cmbConnDelay.FormattingEnabled = true;
+            this.cmbConnDelay.Items.AddRange(new object[] {
+            "5000",
+            "10000"});
+            this.cmbConnDelay.Location = new System.Drawing.Point(107, 66);
+            this.cmbConnDelay.Name = "cmbConnDelay";
+            this.cmbConnDelay.Size = new System.Drawing.Size(100, 22);
+            this.cmbConnDelay.TabIndex = 25;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(12, 69);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(98, 14);
+            this.label100.TabIndex = 26;
+            this.label100.Text = "重连等待(ms):";
+            // 
+            // cmbSendDelay
+            // 
+            this.cmbSendDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSendDelay.Enabled = false;
+            this.cmbSendDelay.FormattingEnabled = true;
+            this.cmbSendDelay.Items.AddRange(new object[] {
+            "10",
+            "15",
+            "20"});
+            this.cmbSendDelay.Location = new System.Drawing.Point(334, 66);
+            this.cmbSendDelay.Name = "cmbSendDelay";
+            this.cmbSendDelay.Size = new System.Drawing.Size(100, 22);
+            this.cmbSendDelay.TabIndex = 24;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(238, 69);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(98, 14);
+            this.label99.TabIndex = 23;
+            this.label99.Text = "传输延迟(ms):";
             // 
             // txtFilePath
             // 
@@ -3951,141 +4000,141 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackSecondaryColor = System.Drawing.Color.Black;
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisX.InterlacedColor = System.Drawing.Color.AntiqueWhite;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.IsInterlaced = true;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.IsStartedFromZero = false;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisX.MajorTickMark.Enabled = false;
-            chartArea1.AxisX.MajorTickMark.Size = 0.5F;
-            chartArea1.AxisX.Maximum = 100D;
-            chartArea1.AxisX.ScaleView.Zoomable = false;
-            chartArea1.AxisX.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            chartArea1.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
-            chartArea1.AxisX.ScrollBar.Enabled = false;
-            chartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.Title = "采样位点";
-            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea1.AxisX.ToolTip = "采样位点";
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.IsStartedFromZero = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisY.MajorTickMark.Enabled = false;
-            chartArea1.AxisY.MajorTickMark.Size = 0F;
-            chartArea1.AxisY.Maximum = 40D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.MinorGrid.Enabled = true;
-            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.ScrollBar.Enabled = false;
-            chartArea1.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
-            chartArea1.AxisY.Title = "温度";
-            chartArea1.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea1.AxisY.ToolTip = "温度";
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY2.MajorGrid.Enabled = false;
-            chartArea1.AxisY2.MajorTickMark.Enabled = false;
-            chartArea1.AxisY2.Maximum = 20D;
-            chartArea1.AxisY2.Minimum = 0D;
-            chartArea1.AxisY2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
-            chartArea1.AxisY2.Title = "试剂盘温度";
-            chartArea1.AxisY2.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisY2.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea1.BackColor = System.Drawing.Color.White;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.LightBlue;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 100F;
-            chartArea1.Position.Width = 100F;
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.BackColor = System.Drawing.Color.White;
-            legend1.BackImageTransparentColor = System.Drawing.Color.White;
-            legend1.BorderWidth = 0;
-            legend1.DockedToChartArea = "ChartArea1";
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.MaximumAutoSize = 7F;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea4.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea4.AxisX.InterlacedColor = System.Drawing.Color.AntiqueWhite;
+            chartArea4.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea4.AxisX.IsInterlaced = true;
+            chartArea4.AxisX.IsLabelAutoFit = false;
+            chartArea4.AxisX.IsStartedFromZero = false;
+            chartArea4.AxisX.MajorGrid.Enabled = false;
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisX.MajorTickMark.Enabled = false;
+            chartArea4.AxisX.MajorTickMark.Size = 0.5F;
+            chartArea4.AxisX.Maximum = 100D;
+            chartArea4.AxisX.ScaleView.Zoomable = false;
+            chartArea4.AxisX.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            chartArea4.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            chartArea4.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea4.AxisX.ScrollBar.Enabled = false;
+            chartArea4.AxisX.ScrollBar.LineColor = System.Drawing.Color.White;
+            chartArea4.AxisX.Title = "采样位点";
+            chartArea4.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea4.AxisX.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea4.AxisX.ToolTip = "采样位点";
+            chartArea4.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea4.AxisY.IsStartedFromZero = false;
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea4.AxisY.MajorTickMark.Enabled = false;
+            chartArea4.AxisY.MajorTickMark.Size = 0F;
+            chartArea4.AxisY.Maximum = 40D;
+            chartArea4.AxisY.Minimum = 0D;
+            chartArea4.AxisY.MinorGrid.Enabled = true;
+            chartArea4.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea4.AxisY.ScrollBar.Enabled = false;
+            chartArea4.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
+            chartArea4.AxisY.Title = "温度";
+            chartArea4.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea4.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea4.AxisY.ToolTip = "温度";
+            chartArea4.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea4.AxisY2.MajorGrid.Enabled = false;
+            chartArea4.AxisY2.MajorTickMark.Enabled = false;
+            chartArea4.AxisY2.Maximum = 20D;
+            chartArea4.AxisY2.Minimum = 0D;
+            chartArea4.AxisY2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
+            chartArea4.AxisY2.Title = "试剂盘温度";
+            chartArea4.AxisY2.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea4.AxisY2.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea4.BackColor = System.Drawing.Color.White;
+            chartArea4.BackSecondaryColor = System.Drawing.Color.LightBlue;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 100F;
+            chartArea4.Position.Width = 100F;
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Alignment = System.Drawing.StringAlignment.Center;
+            legend4.BackColor = System.Drawing.Color.White;
+            legend4.BackImageTransparentColor = System.Drawing.Color.White;
+            legend4.BorderWidth = 0;
+            legend4.DockedToChartArea = "ChartArea1";
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend4.MaximumAutoSize = 7F;
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(243, 10);
             this.chart1.Margin = new System.Windows.Forms.Padding(0);
             this.chart1.Name = "chart1";
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.LegendText = "试剂盘温度   ";
-            series1.MarkerBorderColor = System.Drawing.Color.Black;
-            series1.MarkerColor = System.Drawing.Color.Black;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series1.Name = "reagent";
-            series1.XValueMember = "Time";
-            series1.YValueMembers = "Reagent";
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            series2.Legend = "Legend1";
-            series2.LegendText = "温育盘温度   ";
-            series2.MarkerBorderColor = System.Drawing.Color.Black;
-            series2.MarkerColor = System.Drawing.Color.Red;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series2.Name = "wenyu";
-            series2.XValueMember = "Time";
-            series2.YValueMembers = "Wenyu";
-            series2.YValuesPerPoint = 2;
-            series3.BorderWidth = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.LegendText = "清洗盘温度   ";
-            series3.MarkerBorderColor = System.Drawing.Color.Black;
-            series3.MarkerColor = System.Drawing.Color.Lime;
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series3.Name = "qingxi";
-            series3.XValueMember = "Time";
-            series3.YValueMembers = "Qingxi";
-            series3.YValuesPerPoint = 2;
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.LegendText = "底物温度   ";
-            series4.MarkerBorderColor = System.Drawing.Color.Black;
-            series4.MarkerColor = System.Drawing.Color.Black;
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
-            series4.Name = "diwu";
-            series4.XValueMember = "Time";
-            series4.YValueMembers = "Diwu";
-            series5.BorderWidth = 2;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Legend = "Legend1";
-            series5.LegendText = "清洗管路温度";
-            series5.MarkerBorderColor = System.Drawing.Color.Black;
-            series5.MarkerColor = System.Drawing.Color.Black;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series5.Name = "qxgl";
-            series6.ChartArea = "ChartArea1";
-            series6.IsVisibleInLegend = false;
-            series6.Legend = "Legend1";
-            series6.MarkerSize = 2;
-            series6.Name = "nothing";
-            dataPoint1.IsEmpty = true;
-            dataPoint1.IsVisibleInLegend = false;
-            series6.Points.Add(dataPoint1);
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
+            series19.BorderWidth = 2;
+            series19.ChartArea = "ChartArea1";
+            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series19.Legend = "Legend1";
+            series19.LegendText = "试剂盘温度   ";
+            series19.MarkerBorderColor = System.Drawing.Color.Black;
+            series19.MarkerColor = System.Drawing.Color.Black;
+            series19.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series19.Name = "reagent";
+            series19.XValueMember = "Time";
+            series19.YValueMembers = "Reagent";
+            series20.BorderWidth = 2;
+            series20.ChartArea = "ChartArea1";
+            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            series20.Legend = "Legend1";
+            series20.LegendText = "温育盘温度   ";
+            series20.MarkerBorderColor = System.Drawing.Color.Black;
+            series20.MarkerColor = System.Drawing.Color.Red;
+            series20.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series20.Name = "wenyu";
+            series20.XValueMember = "Time";
+            series20.YValueMembers = "Wenyu";
+            series20.YValuesPerPoint = 2;
+            series21.BorderWidth = 2;
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series21.Legend = "Legend1";
+            series21.LegendText = "清洗盘温度   ";
+            series21.MarkerBorderColor = System.Drawing.Color.Black;
+            series21.MarkerColor = System.Drawing.Color.Lime;
+            series21.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series21.Name = "qingxi";
+            series21.XValueMember = "Time";
+            series21.YValueMembers = "Qingxi";
+            series21.YValuesPerPoint = 2;
+            series22.BorderWidth = 2;
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series22.Legend = "Legend1";
+            series22.LegendText = "底物温度   ";
+            series22.MarkerBorderColor = System.Drawing.Color.Black;
+            series22.MarkerColor = System.Drawing.Color.Black;
+            series22.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
+            series22.Name = "diwu";
+            series22.XValueMember = "Time";
+            series22.YValueMembers = "Diwu";
+            series23.BorderWidth = 2;
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series23.Legend = "Legend1";
+            series23.LegendText = "清洗管路温度";
+            series23.MarkerBorderColor = System.Drawing.Color.Black;
+            series23.MarkerColor = System.Drawing.Color.Black;
+            series23.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series23.Name = "qxgl";
+            series24.ChartArea = "ChartArea1";
+            series24.IsVisibleInLegend = false;
+            series24.Legend = "Legend1";
+            series24.MarkerSize = 2;
+            series24.Name = "nothing";
+            dataPoint4.IsEmpty = true;
+            dataPoint4.IsVisibleInLegend = false;
+            series24.Points.Add(dataPoint4);
+            this.chart1.Series.Add(series19);
+            this.chart1.Series.Add(series20);
+            this.chart1.Series.Add(series21);
+            this.chart1.Series.Add(series22);
+            this.chart1.Series.Add(series23);
+            this.chart1.Series.Add(series24);
             this.chart1.Size = new System.Drawing.Size(565, 281);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "温度变化记录";
@@ -6282,51 +6331,6 @@
             this.label89.Size = new System.Drawing.Size(112, 14);
             this.label89.TabIndex = 4;
             this.label89.Text = "温育盘放管孔位:";
-            // 
-            // cmbConnDelay
-            // 
-            this.cmbConnDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbConnDelay.Enabled = false;
-            this.cmbConnDelay.FormattingEnabled = true;
-            this.cmbConnDelay.Items.AddRange(new object[] {
-            "5000",
-            "10000"});
-            this.cmbConnDelay.Location = new System.Drawing.Point(107, 66);
-            this.cmbConnDelay.Name = "cmbConnDelay";
-            this.cmbConnDelay.Size = new System.Drawing.Size(100, 22);
-            this.cmbConnDelay.TabIndex = 25;
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(12, 69);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(98, 14);
-            this.label100.TabIndex = 26;
-            this.label100.Text = "重连等待(ms):";
-            // 
-            // cmbSendDelay
-            // 
-            this.cmbSendDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSendDelay.Enabled = false;
-            this.cmbSendDelay.FormattingEnabled = true;
-            this.cmbSendDelay.Items.AddRange(new object[] {
-            "10",
-            "15",
-            "20"});
-            this.cmbSendDelay.Location = new System.Drawing.Point(334, 66);
-            this.cmbSendDelay.Name = "cmbSendDelay";
-            this.cmbSendDelay.Size = new System.Drawing.Size(100, 22);
-            this.cmbSendDelay.TabIndex = 24;
-            // 
-            // label99
-            // 
-            this.label99.AutoSize = true;
-            this.label99.Location = new System.Drawing.Point(238, 69);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(98, 14);
-            this.label99.TabIndex = 23;
-            this.label99.Text = "传输延迟(ms):";
             // 
             // frmDiagnost
             // 

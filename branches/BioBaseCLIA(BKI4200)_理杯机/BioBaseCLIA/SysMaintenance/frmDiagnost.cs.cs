@@ -331,8 +331,37 @@ namespace BioBaseCLIA.SysMaintenance
                 NetCom3.Instance.SingleQuery();
             }
             cmbHandPara.Enabled = true;
+
+            UpdateHandSteps();
         }
 
+        private void UpdateHandSteps()
+        {
+            if (cmbHandPara.SelectedIndex < 0 || cmbHElecMachine.SelectedIndex < 0) return;
+
+            string machine = string.Empty;
+            switch (cmbHElecMachine.Text) 
+            {
+                case "理杯块电机":
+                    machine = "01";
+                    break;
+                case "暂存盘电机":
+                    machine = "02";
+                    break;
+                case "垂直电机":
+                    machine = "03";
+                    break;
+                case "旋转电机":
+                    machine = "04";
+                    break;
+                default:
+                    return;
+            }
+
+            txtWashCurValue.Text =
+                GetCurrentSteps((cmbHandPara.SelectedIndex + 1).ToString().PadLeft(2, '0'),
+                machine, "01");
+        }
         private void btnHandAdd_Click(object sender, EventArgs e)
         {
             if (!NetCom3.totalOrderFlag)
@@ -499,6 +528,7 @@ namespace BioBaseCLIA.SysMaintenance
           }
            */
             btnSaveHand.Enabled = true;
+            UpdateHandSteps();
         }
 
         private void btnHand_Click(object sender, EventArgs e)
@@ -708,6 +738,8 @@ namespace BioBaseCLIA.SysMaintenance
             sendMonitor(NetCom3.Cover("EB 90 01 03 00"), 5);
             NetCom3.Instance.SingleQuery();
             btnHandAllInit.Enabled = true;
+
+            UpdateHandSteps();
         }
 
         private void btnHandOpen_Click(object sender, EventArgs e)
@@ -940,8 +972,148 @@ namespace BioBaseCLIA.SysMaintenance
                 NetCom3.Instance.SingleQuery();
             }
             cmbASPara.Enabled = true;
+
+            UpdateSampleSteps();
         }
 
+        /// <summary>
+        /// 更新加样机步数
+        /// </summary>
+        private void UpdateSampleSteps() 
+        {
+            if (cmbASPara.SelectedIndex < 0 || cmbASElecMachine.SelectedIndex < 0) return;
+            txtASCurrentPos.Text =
+                GetCurrentSteps(cmbASPara.SelectedIndex.ToString().PadLeft(2, '0'),
+                (cmbASElecMachine.SelectedIndex + 1).ToString().PadLeft(2, '0'), "0206");
+        }
+
+        /// <summary>
+        /// 获取步数
+        /// </summary>
+        /// <param name="parameter">参数名</param>
+        /// <param name="machinery">电机</param>
+        /// <param name="module">模块标志</param>
+        /// <returns></returns>
+        private string GetCurrentSteps(string parameter, string machinery, string module)
+        {
+            if (string.IsNullOrEmpty(parameter) ||
+                string.IsNullOrEmpty(machinery)) return string.Empty;
+
+            string steps = string.Empty;
+            List<string> results = GetResults(module);
+
+            string stepContent = string.Empty;
+            foreach (var item in results)
+            {
+                if (item.Substring(18).Trim().StartsWith(parameter + " " + machinery))
+                {
+                    stepContent = item.Substring(24).Trim();
+                    break;
+                }
+            }
+
+            StringBuilder tempSteps = new StringBuilder();
+            if (stepContent != string.Empty)
+            {
+                foreach (var item in stepContent.Split(' '))
+                {
+                    if (item != "00")
+                    {
+                        tempSteps.Append(item);
+                    }
+                }
+            }
+
+            if (string.IsNullOrEmpty(tempSteps.ToString())) return tempSteps.ToString();
+
+            return Convert.ToInt64(tempSteps.ToString(), 16).ToString();
+        }
+        private string GetCurrentWashSteps(string parameter, string machinery, string module)
+        {
+            if (string.IsNullOrEmpty(parameter) ||
+                string.IsNullOrEmpty(machinery)) return string.Empty;
+
+            string steps = string.Empty;
+            List<string> results = GetResults(module);
+
+            string stepContent = string.Empty;
+            foreach (var item in results)
+            {
+                if (item.Substring(18).Trim().StartsWith(parameter + " " + machinery))
+                {
+                    stepContent = item.Substring(24).Trim();
+                    break;
+                }
+            }
+
+            StringBuilder tempSteps = new StringBuilder();
+            if (stepContent != string.Empty)
+            {
+                if ((parameter == "02") && (machinery == "03"))
+                {
+                    string[] temp=stepContent.Split(' ');
+
+                    for (int i = 0; i < temp.Length; i++)
+                    {
+                        if (i == 0 || i == 1) continue;
+                        if (temp[i] != "00") 
+                        {
+                            tempSteps.Append(temp[i]);
+                        }
+                    }
+                    goto result;
+                }
+                foreach (var item in stepContent.Split(' '))
+                {
+                    if (item != "00")
+                    {
+                        tempSteps.Append(item);
+                    }
+                }
+            }
+
+            result:
+            if (string.IsNullOrEmpty(tempSteps.ToString())) return tempSteps.ToString();
+
+            return Convert.ToInt64(tempSteps.ToString(), 16).ToString();
+        }
+        /// <summary>
+        /// 返回配置文件中当前模块所有数据
+        /// </summary>
+        /// <param name="module">模块标志</param>
+        /// <returns>当前模块数据信息</returns>
+        private List<string> GetResults(string module)
+        {
+            List<string> results = new List<string>();
+            if (module == "0206")
+            {
+                if (GetData("02") != null)
+                    results.AddRange(GetData("02"));
+
+                if (GetData("06") != null)
+                    results.AddRange(GetData("06"));
+            }
+
+            if (module == "01")
+            {
+                if (GetData("01") != null)
+                    results.AddRange(GetData("01"));
+            }
+
+            if (module == "04")
+            {
+                if (GetData("04") != null)
+                    results.AddRange(GetData("04"));
+            }
+
+            if (module == "03")
+            {
+                if (GetData("03") != null)
+                    results.AddRange(GetData("03"));
+            }
+
+            return results;
+        }
         private void fbtnASAdd_Click(object sender, EventArgs e)
         {
             if (!NetCom3.totalOrderFlag)
@@ -1069,6 +1241,8 @@ namespace BioBaseCLIA.SysMaintenance
             }
             NetCom3.Delay(500);//lyq add 20201016 指令返回太快，增加一个点击停顿
             fbtnASSave.Enabled = true;
+
+            UpdateSampleSteps();
         }
 
         private void fbtnAsZReset_Click(object sender, EventArgs e)
@@ -1108,6 +1282,8 @@ namespace BioBaseCLIA.SysMaintenance
             sendMonitor(NetCom3.Cover("EB 90 02 00"), 5);
             NetCom3.Instance.SingleQuery();
             fbtnAsAllReset.Enabled = true;
+
+            UpdateSampleSteps();
         }
         private void fbtnSamReset_Click(object sender, EventArgs e)
         {
@@ -5590,8 +5766,35 @@ namespace BioBaseCLIA.SysMaintenance
             }
              */
             cmbWashPara.Enabled = true;
+
+            UpdateWashSteps();
         }
 
+        private void UpdateWashSteps() 
+        {
+            if (cmbWashPara.SelectedIndex < 0 
+                || cmbWashElecMachine.SelectedIndex < 0) return;
+
+            string wash = string.Empty;
+            switch (cmbWashElecMachine.Text) 
+            {
+                case "Z轴电机":
+                    wash = "01";
+                    break;
+                case "清洗盘电机":
+                    wash = "02";
+                    break;
+                case "压杯电机":
+                    wash = "03";
+                    break;
+                default:
+                    return;
+            }
+            txtWashCurrent.Text =
+                GetCurrentWashSteps((cmbWashPara.SelectedIndex + 1).ToString().PadLeft(2, '0'),
+                wash, "03");
+            
+        }
         private void fbtnWashAdd_Click(object sender, EventArgs e)
         {
             if (!NetCom3.totalOrderFlag)
@@ -5713,6 +5916,8 @@ namespace BioBaseCLIA.SysMaintenance
             NetCom3.Instance.SingleQuery();
             NetCom3.Delay(500);//lyq add 20201016 指令返回太快，增加一个点击停顿
             fbtnWashSave.Enabled = true;
+
+            UpdateWashSteps();
             /*
             if (cmbWashPara.SelectedItem == null)
             {
@@ -5905,6 +6110,8 @@ namespace BioBaseCLIA.SysMaintenance
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 03 00 00"), 5);// 20180524 zlx add
             NetCom3.Instance.SingleQuery();
             fbtnWashReset.Enabled = true;
+
+            UpdateWashSteps();
         }
 
         private void fbtnWashTrayReset_Click(object sender, EventArgs e)
@@ -7471,6 +7678,16 @@ namespace BioBaseCLIA.SysMaintenance
                 NetCom3.Instance.SingleQuery();
             }
             CmbIpara.Enabled = true;
+
+            UpdateIncubationSteps();
+        }
+
+        private void UpdateIncubationSteps()
+        {
+            if (CmbIpara.SelectedIndex < 0 || cmbIElecMachine.SelectedIndex < 0) return;
+            textBox2.Text =
+                GetCurrentSteps((CmbIpara.SelectedIndex + 1).ToString().PadLeft(2, '0'),
+                (cmbIElecMachine.SelectedIndex + 1).ToString().PadLeft(2, '0'), "04");
         }
 
         private void btnIAdd_Click(object sender, EventArgs e)
@@ -7573,6 +7790,8 @@ namespace BioBaseCLIA.SysMaintenance
             NetCom3.Instance.SingleQuery();
             NetCom3.Delay(500);//lyq add 20201016 指令返回太快，增加一个点击停顿
             btnISave.Enabled = true;
+
+            UpdateIncubationSteps();
         }
 
         private void btnIAllInit_Click(object sender, EventArgs e)
@@ -7586,6 +7805,8 @@ namespace BioBaseCLIA.SysMaintenance
             sendMonitor(NetCom3.Cover("EB 90 04 03 00"), 5);
             NetCom3.Instance.SingleQuery();
             btnIAllInit.Enabled = true;
+
+            UpdateIncubationSteps();
         }
 
         private void fbtnInTubeReset_Click(object sender, EventArgs e)
@@ -9811,18 +10032,17 @@ namespace BioBaseCLIA.SysMaintenance
             }
 
             List<string> data = new List<string>();
-
-            StreamReader sr = new StreamReader(path, Encoding.Default);
-            String line;
-            while ((line = sr.ReadLine()) != null)
+            using (StreamReader sr = new StreamReader(path, Encoding.Default))
             {
-                if (line.Contains("="))
-                    data.Add(line);
+                String line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (line.Contains("="))
+                        data.Add(line);
+                }
             }
 
-            List<string> finalData = data.Where(item => item.Substring(0, 2) == state).ToList();
-
-            return finalData;
+            return data.Where(item => item.Substring(0, 2) == state).ToList();
         }
         private void sendMonitor(string order, int orderType)
         {
@@ -9856,6 +10076,26 @@ namespace BioBaseCLIA.SysMaintenance
             ////////////
 
             NetCom3.Instance.Send(order, orderType);
+        }
+
+        private void cmbASElecMachine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateSampleSteps();
+        }
+
+        private void cmbIElecMachine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateIncubationSteps();
+        }
+
+        private void cmbHElecMachine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateHandSteps();
+        }
+
+        private void cmbWashElecMachine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateWashSteps();
         }
 
         /// <summary>
