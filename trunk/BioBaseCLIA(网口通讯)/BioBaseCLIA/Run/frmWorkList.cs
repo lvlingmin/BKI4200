@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using BioBaseCLIA.CalculateCurve;
@@ -4844,15 +4845,9 @@ namespace BioBaseCLIA.Run
                             //关闭仪器运行指示灯 2018-07-07
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 08 01"), 5);
                             NetCom3.Instance.SingleQuery();
-                            StopStopWatch();//终止倒计时
-                            if (btnRunStatus != null)
-                            {
-                                this.BeginInvoke(new Action(() =>
-                                {
-                                    btnRunStatus();
-                                }));
-                            }
                             
+                            StopWatchWithUpdateStatus();
+
                             if (StopList.Count > 0)
                             {
                                 if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2])
@@ -4879,7 +4874,21 @@ namespace BioBaseCLIA.Run
             }
             finally { }
         }
-
+        private void StopWatchWithUpdateStatus()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                //启动一个任务防止阻塞更新按钮操作
+                StopStopWatch();
+            });
+            if (btnRunStatus != null)
+            {
+                this.BeginInvoke(new Action(() =>
+                {
+                    btnRunStatus();
+                }));
+            }
+        }
         /// <summary>
         /// 判断清洗盘是否有管，LYN add 20171114
         /// </summary>
@@ -9190,7 +9199,12 @@ namespace BioBaseCLIA.Run
                         }
                     }
                     #endregion
-                    if (double.Parse(concentration) < MinValue)
+                    if (double.IsNaN(double.Parse(concentration)))
+                    {
+                        concentration = GetNanPmtConcentration(ItemName, Batch, pmt);
+                        result = "不在线性范围之内";
+                    }
+                    else if (double.Parse(concentration) < MinValue)
                     {
                         //concentration = "<" + MinValue;
                         concentration = (MinValue + 0.001).ToString();
@@ -9312,7 +9326,45 @@ namespace BioBaseCLIA.Run
 
             calNowFlag = false;
         }
+        /// <summary>
+        /// 浓度为无法计算的NaN值计算浓度
+        /// </summary>
+        /// <param name="name">项目名称</param>
+        /// <param name="batch">批号</param>
+        /// <param name="pmt">发光值</param>
+        /// <returns>显示.浓度</returns>
+        private string GetNanPmtConcentration(string name, string batch, int pmt)
+        {
+            string concentration = string.Empty;
+            DbHelperOleDb dbflag = new DbHelperOleDb(0);
+            int calMode = int.Parse(DbHelperOleDb.GetSingle(0,
+                @"select CalMode from tbProject where ShortName = '" + name + "'").ToString());
+            List<Data_Value> scaling = GetScalingResult(name, batch);
+            if (calMode == 0)
+            {
+                if (pmt > scaling[0].DataValue)
+                {
+                    concentration = "<" + scaling[0].Data;
+                }
+                else
+                {
+                    concentration = ">" + scaling[scaling.Count - 1].Data;
+                }
+            }
+            if (calMode == 2)
+            {
+                if (pmt < scaling[0].DataValue)
+                {
+                    concentration = "<" + scaling[0].Data;
+                }
+                else
+                {
+                    concentration = ">" + scaling[scaling.Count - 1].Data;
+                }
+            }
 
+            return concentration;
+        }
         /// <summary>
         /// 保存实验结果
         /// </summary>
