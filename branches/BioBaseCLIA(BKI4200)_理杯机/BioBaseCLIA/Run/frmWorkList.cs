@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using BioBaseCLIA.CalculateCurve;
@@ -5294,15 +5295,8 @@ namespace BioBaseCLIA.Run
                             //NetCom3.Instance.SingleQuery();
                             #endregion
 
-                            StopStopWatch();//终止倒计时
-                            if (btnRunStatus != null)
-                            {
-                                this.BeginInvoke(new Action(() =>
-                                {
-                                    btnRunStatus();
-                                }));
-                            }
-                            
+                            StopWatchWithUpdateStatus();
+
                             if (StopList.Count > 0)
                             {
                                 if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2] || frmMain.StopFlag[3])
@@ -5350,6 +5344,22 @@ namespace BioBaseCLIA.Run
                 IniUpdateAccess();
             }
             finally { }
+        }
+
+        private void StopWatchWithUpdateStatus()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                //启动一个任务防止阻塞更新按钮操作
+                StopStopWatch();
+            });
+            if (btnRunStatus != null)
+            {
+                this.BeginInvoke(new Action(() =>
+                {
+                    btnRunStatus();
+                }));
+            }
         }
         /// <summary>
         /// 判断清洗盘是否有管，LYN add 20171114
