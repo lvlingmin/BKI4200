@@ -10560,7 +10560,13 @@ namespace BioBaseCLIA.Run
         void AllPause()
         {
             frmMain.pauseFlag = true;
-            stopTimer.Stop();//倒计时暂停
+
+            //如果所有实验都已经开始就不再停止计时
+            if (new List<TestItem>((BindingList<TestItem>)this.dgvWorkListData.DataSource)
+                .Where(item => string.IsNullOrEmpty(item.TestStatus)).Count() > 1)
+            {
+                stopTimer.Stop();
+            }
         }
         /// <summary>
         /// 实验停止
