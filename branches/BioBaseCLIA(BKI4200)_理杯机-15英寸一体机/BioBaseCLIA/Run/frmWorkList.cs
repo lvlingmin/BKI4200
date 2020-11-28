@@ -9801,8 +9801,8 @@ namespace BioBaseCLIA.Run
                     }
                     else if (double.Parse(concentration) < MinValue)
                     {
-                        //concentration = "<" + MinValue;
-                        concentration = (MinValue + 0.001).ToString();
+                        concentration = "<" + MinValue;
+                        //concentration = (MinValue + 0.001).ToString();
                         result = "不在线性范围之内";
                     }
                     else if (double.Parse(concentration) > MaxValue * 1.2)
@@ -11561,6 +11561,11 @@ namespace BioBaseCLIA.Run
         private void dgvWorkListData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double num=CalculationConcentration("CEA", "CEA-20200911", 200);
         }
     }
     public class TestResultInfo
