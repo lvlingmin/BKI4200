@@ -9723,7 +9723,13 @@ namespace BioBaseCLIA.Run
                         }
                     }
                     #endregion
-                    if (double.Parse(concentration) < MinValue)
+
+                    if (double.IsNaN(double.Parse(concentration))) 
+                    {
+                        concentration = GetNanPmtConcentration(ItemName, Batch, pmt);
+                        result = "不在线性范围之内";
+                    }
+                    else if (double.Parse(concentration) < MinValue)
                     {
                         //concentration = "<" + MinValue;
                         concentration = ( MinValue+0.001).ToString();
@@ -9842,6 +9848,45 @@ namespace BioBaseCLIA.Run
             calNowFlag = false;
         }
 
+        /// <summary>
+        /// 浓度为无法计算的NaN值计算浓度
+        /// </summary>
+        /// <param name="name">项目名称</param>
+        /// <param name="batch">批号</param>
+        /// <param name="pmt">发光值</param>
+        /// <returns>显示.浓度</returns>
+        private string GetNanPmtConcentration(string name, string batch, int pmt)
+        {
+            string concentration = string.Empty;
+            DbHelperOleDb dbflag = new DbHelperOleDb(0);
+            int calMode = int.Parse(DbHelperOleDb.GetSingle(0,
+                @"select CalMode from tbProject where ShortName = '" + name + "'").ToString());
+            List<Data_Value> scaling = GetScalingResult(name, batch);
+            if (calMode == 0)
+            {
+                if (pmt > scaling[0].DataValue)
+                {
+                    concentration = "<" + scaling[0].Data;
+                }
+                else
+                {
+                    concentration = ">" + scaling[scaling.Count - 1].Data;
+                }
+            }
+            if (calMode == 2)
+            {
+                if (pmt < scaling[0].DataValue)
+                {
+                    concentration = "<" + scaling[0].Data;
+                }
+                else
+                {
+                    concentration = ">" + scaling[scaling.Count - 1].Data;
+                }
+            }
+
+            return concentration;
+        }
         /// <summary>
         /// 保存实验结果
         /// </summary>
@@ -10175,7 +10220,7 @@ namespace BioBaseCLIA.Run
 
             if (scalingResultTemp.Rows.Count > 0)
             {
-                string[] mainPoint = scalingResultTemp.Rows[0]["Points"].ToString().Replace("(", "").Replace(")", "").Split(';');
+                string[] mainPoint = scalingResultTemp.Rows[scalingResultTemp.Rows.Count - 1]["Points"].ToString().Replace("(", "").Replace(")", "").Split(';');
                 for (int i = 0; i < mainPoint.Length; i++)
                 {
                     string[] pointinfo = mainPoint[i].Split(',');
