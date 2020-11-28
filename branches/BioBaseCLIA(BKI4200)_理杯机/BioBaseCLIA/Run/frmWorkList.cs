@@ -9304,24 +9304,28 @@ namespace BioBaseCLIA.Run
             DbHelperOleDb db = new DbHelperOleDb(1);
             if (lis1.Count == lis2.Count)
             {
-                db = new DbHelperOleDb(1);
-                DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 1 where SampleID = " + int.Parse
-                           (dgvWorkListData.Rows[testid - 1].Cells["SampleID"].Value.ToString()));
-                for (int i = 0; i < dtSpInfo.Rows.Count; i++)
-                {
-                    try
-                    {
-                        if (int.Parse(dtSpInfo.Rows[i]["Position"].ToString())
-                        == int.Parse(dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString()))
-                        {
-                            dtSpInfo.Rows[i]["Status"] = "1";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        LogFile.Instance.Write("记录添加样本操作相同数据时出现的异常信息，暂时不需要进行处理" + ex.Message + "\n" + ex.StackTrace);
-                    }
-                }
+                Thread updateStatus = new Thread(() =>
+                 {
+                     DbHelperOleDb db2 = new DbHelperOleDb(1);
+                     DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 1 where SampleID = " + int.Parse
+                                (dgvWorkListData.Rows[testid - 1].Cells["SampleID"].Value.ToString()));
+                     for (int i = 0; i < dtSpInfo.Rows.Count; i++)
+                     {
+                         try
+                         {
+                             if (int.Parse(dtSpInfo.Rows[i]["Position"].ToString())
+                             == int.Parse(dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString()))
+                             {
+                                 dtSpInfo.Rows[i]["Status"] = "1";
+                             }
+                         }
+                         catch (Exception ex)
+                         {
+                             LogFile.Instance.Write("记录添加样本操作相同数据时出现的异常信息，暂时不需要进行处理" + ex.Message + "\n" + ex.StackTrace);
+                         }
+                     }
+                 });
+                updateStatus.Start();
             }
 
             #endregion
