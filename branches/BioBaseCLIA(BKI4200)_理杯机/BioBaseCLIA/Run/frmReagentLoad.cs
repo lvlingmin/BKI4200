@@ -535,7 +535,7 @@ namespace BioBaseCLIA.Run
             if (srdReagent.rgSelectedNo >= -1)
             {
                 if (srdReagent.rgSelectedNo == -1)
-                    RgSelectedNo = 19;
+                    RgSelectedNo = int.Parse((srdReagent.RgGroupNum-1).ToString());
                 else
                     RgSelectedNo = srdReagent.rgSelectedNo;
                 string sc = srdReagent.RgColor[GetSelectedNo].Name;
@@ -582,7 +582,9 @@ namespace BioBaseCLIA.Run
                 }
                 if (fg == -1)
                 {
-                    txtRgPosition.Text = (srdReagent.rgSelectedNo + 1).ToString();
+                    //txtRgPosition.Text = 20.ToString();
+                    txtRgPosition.Text = (RgSelectedNo + 1).ToString();
+                    //txtRgPosition.Text = (srdReagent.rgSelectedNo + 1).ToString();
                     cmbRgName.Text = "";
                     txtRgCode.Text = "";
                     txtRgBatch.Text = "";
