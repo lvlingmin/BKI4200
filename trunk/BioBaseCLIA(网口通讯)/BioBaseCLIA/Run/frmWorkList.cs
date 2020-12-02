@@ -4537,7 +4537,6 @@ namespace BioBaseCLIA.Run
                             case TestSchedule.ExperimentScheduleStep.AddLiquidTube:
                                 while (addLiquiding)
                                     goto waitTime;
-                                //测试
                                 if (sumTime >= TestStep.StartTime)
                                 {
                                     sumTime = TestStep.StartTime;
@@ -4650,7 +4649,6 @@ namespace BioBaseCLIA.Run
                             case TestSchedule.ExperimentScheduleStep.AddSingleR:
                                 while (addLiquiding)
                                     goto waitTime;
-                                //测试
                                 if (sumTime >= TestStep.StartTime)
                                 {
                                     sumTime = TestStep.StartTime;
@@ -4674,7 +4672,6 @@ namespace BioBaseCLIA.Run
                             case TestSchedule.ExperimentScheduleStep.AddBeads:
                                 while (addLiquiding)
                                     goto waitTime;
-                                //测试
                                 if (sumTime >= TestStep.StartTime)
                                 {
                                     sumTime = TestStep.StartTime;
@@ -4696,8 +4693,6 @@ namespace BioBaseCLIA.Run
                                 AddLiquidThread.Start(TestStep);
                                 break;
                             case TestSchedule.ExperimentScheduleStep.Incubation:
-                                //if (StopList.Contains(TestStep.TestID.ToString()))//2018-07-10 zlx add
-                                //    break;
                                 if (sumTime < TestStep.StartTime)
                                 {
                                     goto waitTime;
@@ -4709,7 +4704,6 @@ namespace BioBaseCLIA.Run
                                 BeginInvoke(TestStatusInfo, new object[] { "正在温育", TestStep.TestID });
                                 break;
                             case TestSchedule.ExperimentScheduleStep.Wash1:
-                                //测试
                                 if (sumTime >= TestStep.StartTime)
                                 {
                                     sumTime = TestStep.StartTime;
@@ -4751,7 +4745,6 @@ namespace BioBaseCLIA.Run
                                 }
                                 break;
                             case TestSchedule.ExperimentScheduleStep.WashTray:
-                                //测试
                                 if (sumTime >= TestStep.StartTime)
                                 {
                                     sumTime = TestStep.StartTime;
