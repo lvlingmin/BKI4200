@@ -602,6 +602,13 @@ namespace BioBaseCLIA
                 defineButton1.Enabled = false;
                 frmWorkList.btnRunStatus += new Action(RunBtnStatus);
                 frmWorkList.dbtnRackStatus += new Action(dbtnRackStatus);
+                
+                LogFile.Instance.Write("btnRunClick委托个数:" + btnRunClick.GetInvocationList().Count());
+                while (btnRunClick != null && btnRunClick.GetInvocationList().Length > 1)//保证只有一个委托 
+                {
+                    btnRunClick -= (Action<object, EventArgs>)btnRunClick.GetInvocationList()[0];
+                }
+                btnRunClick(sender, e);
                 btnRunClick(sender, e);
             }
             else if (btnGoonClick != null && pauseFlag)
