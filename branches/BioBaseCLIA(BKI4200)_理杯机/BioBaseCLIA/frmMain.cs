@@ -609,7 +609,6 @@ namespace BioBaseCLIA
                     btnRunClick -= (Action<object, EventArgs>)btnRunClick.GetInvocationList()[0];
                 }
                 btnRunClick(sender, e);
-                btnRunClick(sender, e);
             }
             else if (btnGoonClick != null && pauseFlag)
             {
