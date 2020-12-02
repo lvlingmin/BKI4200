@@ -2742,6 +2742,7 @@ namespace BioBaseCLIA.Run
         /// <param name="e"></param>
         void TestRun(object sender, EventArgs e)
         {
+            LogFile.Instance.Write("进入TestRun");
             if (NetCom3.Instance.stopsendFlag)
                 NetCom3.Instance.stopsendFlag = false;
             //2018-09-25 zlx add
@@ -4785,6 +4786,7 @@ namespace BioBaseCLIA.Run
         /// <param name="obj"></param>
         void GaTestRun(object obj)
         {
+            LogFile.Instance.Write("进入GaTestRun");
             sumTime = 0;
             completeTestNums = 0;
             try
