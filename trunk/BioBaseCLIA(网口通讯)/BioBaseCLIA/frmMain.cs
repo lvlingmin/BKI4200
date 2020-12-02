@@ -540,8 +540,13 @@ namespace BioBaseCLIA
                 defineButton3.BackgroundImage = Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
                 defineButton1.Enabled = false;
                 frmWorkList.btnRunStatus += new Action(RunBtnStatus);
+
+                LogFile.Instance.Write("btnRunClick委托个数:" + btnRunClick.GetInvocationList().Count());
+                while (btnRunClick != null && btnRunClick.GetInvocationList().Length > 1)//保证只有一个委托 
+                {
+                    btnRunClick -= (Action<object, EventArgs>)btnRunClick.GetInvocationList()[0];
+                }
                 btnRunClick(sender, e);
-               
             }
             else if (btnGoonClick != null && pauseFlag)
             {
