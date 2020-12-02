@@ -2712,6 +2712,7 @@ namespace BioBaseCLIA.Run
         /// <param name="e"></param>
         void TestRun(object sender, EventArgs e)
         {
+            LogFile.Instance.Write("进入TestRun");
             frmMessageShow frmMsgShow = new frmMessageShow();
             frmMain.StartFlag = true;
             if (NetCom3.Instance.stopsendFlag)
@@ -4398,6 +4399,7 @@ namespace BioBaseCLIA.Run
         /// <param name="obj"></param>
         void GaTestRun(object obj)
         {
+            LogFile.Instance.Write("进入GaTestRun");
             frmMessageShow frmMsgShow = new frmMessageShow();
             sumTime = 0;
             completeTestNums = 0;
