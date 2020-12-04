@@ -9338,6 +9338,7 @@ namespace BioBaseCLIA.Run
                      }
                  });
                 updateStatus.Start();
+                updateStatus.Join();
             }
 
             #endregion
