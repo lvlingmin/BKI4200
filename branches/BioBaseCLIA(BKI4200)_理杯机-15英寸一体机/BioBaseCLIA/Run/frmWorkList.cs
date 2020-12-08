@@ -9115,6 +9115,7 @@ namespace BioBaseCLIA.Run
                     {
                         listestid.Enqueue(int.Parse(dtWashTrayTubeStatus.Rows[24][2].ToString()));
                     }
+                    LogFile.Instance.Write(DateTime.Now + " testid " + dtWashTrayTubeStatus.Rows[24][2].ToString());
                     ReadThread = new Thread(new ParameterizedThreadStart(Read));
                     ReadThread.IsBackground = true;
                     ReadThread.Start();
@@ -9312,6 +9313,7 @@ namespace BioBaseCLIA.Run
                 {
                     testid = listestid.Dequeue();
                 }
+                LogFile.Instance.Write(DateTime.Now +  " testid " + testid);
             }
             double PMT = double.Parse(System.Convert.ToInt32("0x" + readData, 16).ToString());
             PMT = GetPMT(PMT);
@@ -9953,7 +9955,7 @@ namespace BioBaseCLIA.Run
         {
             if (lisTiEnd.Count == BToListTi.Count)
                 frmTestResult.BRun = false;
-            LogFile.Instance.Write("*********  发光值  ： " + testResult.PMT + "  **********");
+            LogFile.Instance.Write("*********  发光值  ： " + testResult.PMT + "  Id:" + testResult.TestID + "  **********");
             BTestResult.Add(testResult);
             TemporaryTestResult.Add(testResult);
             if (testResult.SampleType.Contains("标准品"))
