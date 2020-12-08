@@ -9419,6 +9419,9 @@ namespace BioBaseCLIA.Run
             string Batch = dgvWorkListData.Rows[testid - 1].Cells["RegentBatch"].Value.ToString();
             //获取当前反应管样本的类型
             string sampleType = dgvWorkListData.Rows[testid - 1].Cells["SampleType"].Value.ToString();
+
+            LogFile.Instance.Write(DateTime.Now + " sampleType " + sampleType + " testid " + testid);
+            
             db = new DbHelperOleDb(0);
             //查询当前项目范围
             //2018-08-03 zlx mod
@@ -9922,6 +9925,8 @@ namespace BioBaseCLIA.Run
             //2018-10-17 zlx mod
             testResult.SubstratePipe = dgvWorkListData.Rows[testid - 1].Cells["SubstratePipe"].Value.ToString();
             testResult.Unit = Unit;//2018-11-10 zlx add
+
+            LogFile.Instance.Write(DateTime.Now + " sampleType " + sampleType + " testid " + testid);
 
             SaveTestResultData(BToListTi, lis1, lis2);
 
