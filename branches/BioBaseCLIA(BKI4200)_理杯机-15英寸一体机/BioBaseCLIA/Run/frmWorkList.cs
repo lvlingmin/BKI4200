@@ -9318,37 +9318,6 @@ namespace BioBaseCLIA.Run
             int pmt = (int)PMT;
             LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "实验" + testid + "读数发光值为:" + pmt));
             CalculatResult(testid, pmt);
-            /*
-            int testid;
-            lock (readLocker)
-            {
-                while (listestid.Count < 1)
-                {
-                    Thread.Sleep(5);
-                }
-                lock (listestid)
-                {
-                    testid = listestid.Dequeue();
-                }
-            }
-            //int[] PMTS = { 1000, 4728, 4828, 4928,  110760, 120760, 110790,247240, 248240, 257240, 737016, 738016, 727016, 1744336, 1754336, 1755336, 5844848, 5854848, 5824848, 10824848, 10524848, 10864848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848 };
-            int[] PMTS = {110760, 120760, 110790, 247240, 248240, 257240, 737016, 738016, 727016, 1744336, 1754336, 1755336, 5844848, 5854848, 5824848, 10824848, 10524848, 10864848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848, 4728, 110760, 247240, 737016, 1754336, 5844848 };
-            //int[] PMTS = { 12192792,12192792, 11413104, 6525264, 6129800, 5071456, 4804736, 2964480, 3239216, 2481136, 2281352, 1829592, 1691824 };
-            // if (PMTS[testid] > Math.Pow(10, 5))
-            //    PMTS[testid] =(int)GetPMT(PMTS[testid]);
-            ////CalculatResult(testid, 110760);
-            //if (testid < 5)
-            //    CalculatResult(testid, 108);
-            //else if (testid < 10)
-            //    CalculatResult(testid, 908990);
-            //else if (testid < 15)
-            //    CalculatResult(testid, 2908990);
-            //else if (testid < 20)
-            //    CalculatResult(testid, 6908990);
-            //else
-            //    CalculatResult(testid, 1107602999);
-            CalculatResult(testid, PMTS[testid]);
-             */
         }
         /// <summary>
         /// 反应管完成结果计算
