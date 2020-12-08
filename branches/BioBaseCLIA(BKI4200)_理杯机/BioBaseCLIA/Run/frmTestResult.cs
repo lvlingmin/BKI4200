@@ -666,17 +666,11 @@ namespace BioBaseCLIA.Run
         #region 界面右侧按钮
         private void fbtnReturn_Click(object sender, EventArgs e)
         {
-            //2018-01-10 zlx add
-            if (CheckFormIsOpen("frmSampleLoad"))
-            {
-                frmSampleLoad frmSL = (frmSampleLoad)Application.OpenForms["frmSampleLoad"];
-                frmSL.Show();
-                frmSL.LoadData();
-            }
-            if (CheckFormIsOpen("frmWorkList")&&(frmWorkList.RunFlag==(int)RunFlagStart.Stoped||frmWorkList.RunFlag==(int)RunFlagStart.NoStart))//2019-01-11 zlx add
+            if (CheckFormIsOpen("frmWorkList"))
             {
                 frmWorkList frmWL = (frmWorkList)Application.OpenForms["frmWorkList"];
-                frmWL.Close();
+                frmWL.Show();
+                frmWL.BringToFront();
             }
             this.Close();
         }
