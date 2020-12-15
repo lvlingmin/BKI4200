@@ -13,6 +13,7 @@ using System.IO;
 using BioBaseCLIA.Run;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using Maticsoft.DBUtility;
 
 namespace BioBaseCLIA.SysMaintenance
 {
@@ -9726,6 +9727,114 @@ namespace BioBaseCLIA.SysMaintenance
             ////////////
 
             NetCom3.Instance.Send(order, orderType);
+        }
+
+        private void fbtnInitIni_Click(object sender, EventArgs e)
+        {
+            fbtnInitIni.Enabled = false;
+
+            #region 重新输入账号密码 重新确认
+            frmReconfirm fr = new frmReconfirm();
+            fr.ShowDialog(this);
+            if (frmReconfirm.userType == "" || frmReconfirm.userType != "1")
+            {
+                MessageBox.Show("初始化配置文件失败！");
+                goto errorEnd;
+            }
+            #endregion
+
+            #region 清空 ReagentTrayInfo.ini
+            for (int i = 1; i <= RegentNum; i++)
+            {
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "BachNum", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "TestCount", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "LeftReagent1", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "LeftReagent3", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "LeftReagent4", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + i.ToString(), "LoadDate", "", iniPathReagentTrayInfo);
+            }
+            #endregion
+            #region 清空 ReactTrayInfo.ini
+            for (int i = 1; i <= ReactTrayNum; i++)
+            {
+                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + i, "0", iniPathReactTrayInfo);
+            }
+            #endregion
+            #region 清空 WashTrayInfo.ini
+            for (int i = 1; i <= WashTrayNum; i++)
+            {
+                OperateIniFile.WriteIniData("TubePosition", "no" + i, "0", iniPathWashTrayInfo);
+            }
+            #endregion
+            #region 清空 SubstrateTube.ini
+
+            for (int i = 1; i <= 2; i++)
+            {
+                OperateIniFile.WriteIniData("Substrate" + i, "BarCode", "", iniPathSubstrateTube);
+                OperateIniFile.WriteIniData("Substrate" + i, "TestCount", "", iniPathSubstrateTube);
+                OperateIniFile.WriteIniData("Substrate" + i, "LeftCount", "", iniPathSubstrateTube);
+                OperateIniFile.WriteIniData("Substrate" + i, "LoadDate", "", iniPathSubstrateTube);
+                OperateIniFile.WriteIniData("Substrate" + i, "ValidDate", "", iniPathSubstrateTube);
+            }
+
+            OperateIniFile.WriteIniData("Tube", "Pos1", "0", iniPathSubstrateTube);
+            OperateIniFile.WriteIniData("Tube", "Pos2", "0", iniPathSubstrateTube);
+            OperateIniFile.WriteIniData("Tube", "Pos3", "0", iniPathSubstrateTube);
+            OperateIniFile.WriteIniData("Tube", "Pos4", "0", iniPathSubstrateTube);
+            OperateIniFile.WriteIniData("Tube", "TubeX", "0", iniPathSubstrateTube);
+            OperateIniFile.WriteIniData("Tube", "TubeY", "0", iniPathSubstrateTube);
+            OperateIniFile.WriteIniData("Tube", "TubePos", "1", iniPathSubstrateTube);
+            OperateIniFile.WriteIniData("Tube", "ReacTrayTub", "", iniPathSubstrateTube);
+
+            #endregion
+            #region 清空 ReportSort.ini
+            OperateIniFile.WriteIniData("RpSort", null, null, Directory.GetCurrentDirectory() + "\\ReportSort.ini");
+            #endregion
+
+            try
+            {
+                #region 清空BaseInfo.mdb
+                DbHelperOleDb.ExecuteSql(2, "delete from tbDepartment where DepartmentID > 0");
+                DbHelperOleDb.ExecuteSql(2, "delete from tbDoctor where DoctorID > 0");
+
+                #endregion
+                #region 清空 ProjectInfo.mdb
+                DbHelperOleDb.ExecuteSql(0, "delete from tbProject where ProjectID > 0");
+
+                #endregion
+                #region 清空 SupplyStatus.mdb
+                DbHelperOleDb.ExecuteSql(3, "delete from tbQC where QCID > 0");
+                DbHelperOleDb.ExecuteSql(3, "delete from tbReagent where ReagentID > 0");
+                DbHelperOleDb.ExecuteSql(3, "delete from tbSubstrate where SubstrateID > 0");
+                DbHelperOleDb.ExecuteSql(3, "delete from tbDilute where ID > 0");
+
+                #endregion
+                #region 清空 TestResult.mdb
+                DbHelperOleDb.ExecuteSql(1, "delete from tbSampleInfo where SampleID > 0");
+                DbHelperOleDb.ExecuteSql(1, "delete from tbAssayResult where AssayResultID > 0");
+                DbHelperOleDb.ExecuteSql(1, "delete from tbQCResult where QCResultID > 0");
+                DbHelperOleDb.ExecuteSql(1, "delete from tbScalingResult where ScalingResultID > 0");
+                DbHelperOleDb.ExecuteSql(1, "delete from tbMainScalCurve where MainCurveID > 0");
+
+                #endregion
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("初始化数据库失败，请重试！" + ex.ToString());
+                goto errorEnd;
+            }
+
+            //重启软件
+            MessageBox.Show("初始化完成，点击确定后退出软件！", "配置文件&数据库初始化");
+            fbtnInitIni.Enabled = true;
+            Environment.Exit(0);
+
+            errorEnd:
+            fbtnInitIni.Enabled = true;
         }
 
         /// <summary>

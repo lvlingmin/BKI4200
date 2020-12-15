@@ -29,63 +29,44 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiagnost));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBQLiquaid = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnGroupTest = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnInstruDiagnost = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnInstruMaintenance = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.tabControlMy1 = new BioBaseCLIA.CustomControl.TabControlMy();
             this.tabAddSample = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.txtAsPumpValue = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.fbtnAsPumpEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.fbtnAsArmXEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label13 = new System.Windows.Forms.Label();
             this.cmbAsArmX = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.txtHoleNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnRegentTrayEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.cmbRegentTray = new System.Windows.Forms.ComboBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.fbtnAdArmZEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.cmbAsArmZ = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.gbStepOrder = new System.Windows.Forms.GroupBox();
             this.textStepOrder = new BioBaseCLIA.CustomControl.userTextBoxBase();
-            this.btnOrderSend = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnregentReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnSamReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnAsMixArm = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnAsXReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnAsZReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnAsAllReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtASIncrem = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.txtASCurrentPos = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.fbtnASSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnASSub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnASAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbASElecMachine = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbASPara = new System.Windows.Forms.ComboBox();
@@ -93,37 +74,22 @@
             this.tabCupMake = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox36 = new System.Windows.Forms.GroupBox();
-            this.btnCupMake = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label47 = new System.Windows.Forms.Label();
             this.cmbCupMake = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numHole = new System.Windows.Forms.NumericUpDown();
-            this.fbtnHandZ = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
-            this.btnHandvertical = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label42 = new System.Windows.Forms.Label();
             this.cmbHandvertical = new System.Windows.Forms.ComboBox();
-            this.btnHand = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label59 = new System.Windows.Forms.Label();
             this.cmbHandIntegrate = new System.Windows.Forms.ComboBox();
             this.groupBox45 = new System.Windows.Forms.GroupBox();
-            this.btnHandClose = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnStchDiskTurn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnPutCupInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnHandOpen = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnHandZInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnHandYInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnHandXInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnHandAllInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox42 = new System.Windows.Forms.GroupBox();
             this.txtMoveIncrem = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.txtWashCurValue = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.btnSaveHand = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnHandSub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnHandAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbHElecMachine = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbHandPara = new System.Windows.Forms.ComboBox();
@@ -131,33 +97,20 @@
             this.tabIncubation = new System.Windows.Forms.TabPage();
             this.groupBox35 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.fbtnPressCup = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.cmbPressCup = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.fbtnMix1Arm = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.cmbMix1Arm = new System.Windows.Forms.ComboBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.txtMoveInHoleNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.fbtnINMove = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox34 = new System.Windows.Forms.GroupBox();
-            this.btnIYInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnInTubeReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnIAllInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnInTubeClear = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnPressCupZero = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnMix1Reset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnMix1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox33 = new System.Windows.Forms.GroupBox();
             this.txtIIncrem = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.btnISave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnISub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnIAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbIElecMachine = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.CmbIpara = new System.Windows.Forms.ComboBox();
@@ -165,44 +118,28 @@
             this.tabWashTray = new System.Windows.Forms.TabPage();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.groupBox39 = new System.Windows.Forms.GroupBox();
-            this.btnWashMix = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbWashMix = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox32 = new System.Windows.Forms.GroupBox();
-            this.btnLoopTurn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.functionButton1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label41 = new System.Windows.Forms.Label();
-            this.fbtnHoleTarget = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtHoleTarget = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.fbtnWashPressCupEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbWashPressCup = new System.Windows.Forms.ComboBox();
             this.label55 = new System.Windows.Forms.Label();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.fbtnWashZEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbWashZ = new System.Windows.Forms.ComboBox();
             this.label54 = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.cmbPeristalticPVol = new System.Windows.Forms.ComboBox();
-            this.fbtnPeristalticPSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnPeristalticPEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label53 = new System.Windows.Forms.Label();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.fbtnWashTubeClear = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnWashPressCupReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnWashZReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnWashTrayReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnWashReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.txtWashIncream = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.txtWashCurrent = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.fbtnWashSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnWashSub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnWashAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbWashElecMachine = new System.Windows.Forms.ComboBox();
             this.label51 = new System.Windows.Forms.Label();
             this.cmbWashPara = new System.Windows.Forms.ComboBox();
@@ -210,20 +147,20 @@
             this.tabPhotonPressure = new System.Windows.Forms.TabPage();
             this.groupBox37 = new System.Windows.Forms.GroupBox();
             this.textReadShow = new System.Windows.Forms.TextBox();
-            this.btnReadNum = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.numRepeat = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
             this.numXz = new System.Windows.Forms.NumericUpDown();
             this.label58 = new System.Windows.Forms.Label();
-            this.btnZx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.cmbConnDelay = new System.Windows.Forms.ComboBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.cmbSendDelay = new System.Windows.Forms.ComboBox();
+            this.label99 = new System.Windows.Forms.Label();
             this.txtFilePath = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.cmbZhenID = new System.Windows.Forms.ComboBox();
             this.lblDescribe = new System.Windows.Forms.Label();
             this.lblPercentage = new System.Windows.Forms.Label();
-            this.btnLoadProgram = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.pgbLoad = new System.Windows.Forms.ProgressBar();
-            this.btnSelectBin = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label74 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -233,7 +170,6 @@
             this.nudSpCodePos = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
             this.txtSpCode = new System.Windows.Forms.TextBox();
-            this.btnScanSpCode = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.chbReadExport = new System.Windows.Forms.CheckBox();
             this.label81 = new System.Windows.Forms.Label();
@@ -243,7 +179,6 @@
             this.txtReadShow = new System.Windows.Forms.TextBox();
             this.txtReadNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label60 = new System.Windows.Forms.Label();
-            this.fbtnRead = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox31 = new System.Windows.Forms.GroupBox();
             this.labqxgl = new System.Windows.Forms.Label();
@@ -253,10 +188,7 @@
             this.labreagent = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.chkQXGL = new System.Windows.Forms.CheckBox();
-            this.saveTo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.suspendAndContinue = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label76 = new System.Windows.Forms.Label();
-            this.beginAndStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label77 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
@@ -266,8 +198,6 @@
             this.chkRegent = new System.Windows.Forms.CheckBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox30 = new System.Windows.Forms.GroupBox();
-            this.saveSetting = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.restore = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.numUp = new System.Windows.Forms.NumericUpDown();
             this.numDown = new System.Windows.Forms.NumericUpDown();
             this.label71 = new System.Windows.Forms.Label();
@@ -278,10 +208,8 @@
             this.label64 = new System.Windows.Forms.Label();
             this.numOfSample = new System.Windows.Forms.NumericUpDown();
             this.groupBox29 = new System.Windows.Forms.GroupBox();
-            this.btnSelect = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtStandard = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnmakeStandard = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbStep = new System.Windows.Forms.ComboBox();
             this.label65 = new System.Windows.Forms.Label();
             this.cmbModelName = new System.Windows.Forms.ComboBox();
@@ -292,7 +220,6 @@
             this.rbtnRunLightClose = new System.Windows.Forms.RadioButton();
             this.rbtnWainOpen = new System.Windows.Forms.RadioButton();
             this.rbtnRunLightOpen = new System.Windows.Forms.RadioButton();
-            this.btnQuatoState = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -300,7 +227,6 @@
             this.chbTestExport = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.lblTestSamPos = new System.Windows.Forms.Label();
-            this.fbtnTestStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtTestPos = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.txtTestCV = new BioBaseCLIA.CustomControl.userNumTextBox();
@@ -329,11 +255,9 @@
             this.txtWashPosStart = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.fbtnWashTestStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.chbWashExport = new System.Windows.Forms.CheckBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.cmbwash = new System.Windows.Forms.ComboBox();
-            this.fbtnPerfusionStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -348,8 +272,6 @@
             this.txtTestErrorShow = new System.Windows.Forms.RichTextBox();
             this.txtAgingInfoShow = new System.Windows.Forms.RichTextBox();
             this.groupBox28 = new System.Windows.Forms.GroupBox();
-            this.fbtnWashAgingStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnWashAgingStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.chbWashIsTube = new System.Windows.Forms.CheckBox();
             this.txtAgingWashNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label62 = new System.Windows.Forms.Label();
@@ -357,8 +279,6 @@
             this.cmbArmRegentPos = new System.Windows.Forms.ComboBox();
             this.label63 = new System.Windows.Forms.Label();
             this.chbArmIsTube = new System.Windows.Forms.CheckBox();
-            this.fbtnArmAgingStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnArmAgingStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtArmAgingNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label61 = new System.Windows.Forms.Label();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
@@ -367,8 +287,6 @@
             this.rdbRackAbadon = new System.Windows.Forms.RadioButton();
             this.cmbRackPos = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.fbtnMoveAgingStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnMoveAgingStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtmoveNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.rdbtnWashIn = new System.Windows.Forms.RadioButton();
@@ -392,7 +310,6 @@
             this.label96 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
-            this.btnVersion = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox41 = new System.Windows.Forms.GroupBox();
             this.untxtInjection = new BioBaseCLIA.CustomControl.userNumTextBox();
@@ -401,17 +318,13 @@
             this.label82 = new System.Windows.Forms.Label();
             this.txtbox2 = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label73 = new System.Windows.Forms.Label();
-            this.fbtnExportToOldFile = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnexp = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.fbtnTestsStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbTestName = new System.Windows.Forms.ComboBox();
             this.untxtReadNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label87 = new System.Windows.Forms.Label();
             this.untxtSamplePos = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label85 = new System.Windows.Forms.Label();
             this.untxtSampleVol = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.fbtnTestS = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label83 = new System.Windows.Forms.Label();
             this.cbChange = new System.Windows.Forms.CheckBox();
             this.untxtPos1 = new BioBaseCLIA.CustomControl.userNumTextBox();
@@ -419,10 +332,99 @@
             this.label84 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
-            this.cmbConnDelay = new System.Windows.Forms.ComboBox();
-            this.label100 = new System.Windows.Forms.Label();
-            this.cmbSendDelay = new System.Windows.Forms.ComboBox();
-            this.label99 = new System.Windows.Forms.Label();
+            this.btnBQLiquaid = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnGroupTest = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnInstruDiagnost = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnInstruMaintenance = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnAsPumpEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnAsArmXEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnRegentTrayEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnAdArmZEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnOrderSend = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnregentReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnSamReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnAsMixArm = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnAsXReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnAsZReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnAsAllReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnASSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnASSub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnASAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnCupMake = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnHandZ = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandvertical = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHand = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandClose = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnStchDiskTurn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnPutCupInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandOpen = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandZInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandYInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandXInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandAllInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnSaveHand = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandSub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnHandAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnPressCup = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnMix1Arm = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnINMove = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnIYInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnInTubeReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnIAllInit = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnInTubeClear = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnPressCupZero = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnMix1Reset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnMix1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnISave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnISub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnIAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnWashMix = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnLoopTurn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.functionButton1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnHoleTarget = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashPressCupEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashZEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnPeristalticPSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnPeristalticPEx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashTubeClear = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashPressCupReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashZReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashTrayReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashSub = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnReadNum = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnZx = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnLoadProgram = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnSelectBin = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnScanSpCode = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnRead = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.saveTo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.suspendAndContinue = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.beginAndStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.saveSetting = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.restore = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnSelect = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnmakeStandard = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnQuatoState = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnTestStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashTestStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnPerfusionStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashAgingStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnWashAgingStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnArmAgingStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnArmAgingStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnMoveAgingStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnMoveAgingStart = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnVersion = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnExportToOldFile = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnexp = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnTestsStop = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnTestS = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.groupBox43 = new System.Windows.Forms.GroupBox();
+            this.fbtnInitIni = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.panel1.SuspendLayout();
             this.tabControlMy1.SuspendLayout();
             this.tabAddSample.SuspendLayout();
@@ -489,6 +491,7 @@
             this.groupBox40.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox41.SuspendLayout();
+            this.groupBox43.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -513,111 +516,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(175, 505);
             this.panel1.TabIndex = 48;
-            // 
-            // btnBQLiquaid
-            // 
-            this.btnBQLiquaid.BackColor = System.Drawing.Color.Transparent;
-            this.btnBQLiquaid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBQLiquaid.BackgroundImage")));
-            this.btnBQLiquaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBQLiquaid.EnabledSet = true;
-            this.btnBQLiquaid.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnBQLiquaid.FlatAppearance.BorderSize = 0;
-            this.btnBQLiquaid.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnBQLiquaid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnBQLiquaid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBQLiquaid.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBQLiquaid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBQLiquaid.Location = new System.Drawing.Point(25, 346);
-            this.btnBQLiquaid.Name = "btnBQLiquaid";
-            this.btnBQLiquaid.Size = new System.Drawing.Size(130, 60);
-            this.btnBQLiquaid.TabIndex = 25;
-            this.btnBQLiquaid.Text = "打开报警查询";
-            this.btnBQLiquaid.UseVisualStyleBackColor = false;
-            this.btnBQLiquaid.Click += new System.EventHandler(this.btnBQLiquaid_Click);
-            // 
-            // fbtnGroupTest
-            // 
-            this.fbtnGroupTest.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnGroupTest.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnGroupTest.BackgroundImage")));
-            this.fbtnGroupTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnGroupTest.EnabledSet = true;
-            this.fbtnGroupTest.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnGroupTest.FlatAppearance.BorderSize = 0;
-            this.fbtnGroupTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnGroupTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnGroupTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnGroupTest.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.fbtnGroupTest.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnGroupTest.Location = new System.Drawing.Point(25, 239);
-            this.fbtnGroupTest.Name = "fbtnGroupTest";
-            this.fbtnGroupTest.Size = new System.Drawing.Size(130, 60);
-            this.fbtnGroupTest.TabIndex = 24;
-            this.fbtnGroupTest.Text = "组合测试";
-            this.fbtnGroupTest.UseVisualStyleBackColor = false;
-            this.fbtnGroupTest.Click += new System.EventHandler(this.fbtnGroupTest_Click);
-            // 
-            // fbtnReturn
-            // 
-            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnReturn.BackgroundImage")));
-            this.fbtnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnReturn.EnabledSet = true;
-            this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnReturn.FlatAppearance.BorderSize = 0;
-            this.fbtnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnReturn.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.fbtnReturn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnReturn.Location = new System.Drawing.Point(25, 425);
-            this.fbtnReturn.Name = "fbtnReturn";
-            this.fbtnReturn.Size = new System.Drawing.Size(130, 60);
-            this.fbtnReturn.TabIndex = 22;
-            this.fbtnReturn.Text = "返回";
-            this.fbtnReturn.UseVisualStyleBackColor = false;
-            this.fbtnReturn.Click += new System.EventHandler(this.fbtnReturn_Click);
-            // 
-            // fbtnInstruDiagnost
-            // 
-            this.fbtnInstruDiagnost.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnInstruDiagnost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInstruDiagnost.BackgroundImage")));
-            this.fbtnInstruDiagnost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnInstruDiagnost.Enabled = false;
-            this.fbtnInstruDiagnost.EnabledSet = true;
-            this.fbtnInstruDiagnost.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnInstruDiagnost.FlatAppearance.BorderSize = 0;
-            this.fbtnInstruDiagnost.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInstruDiagnost.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInstruDiagnost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnInstruDiagnost.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.fbtnInstruDiagnost.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnInstruDiagnost.Location = new System.Drawing.Point(25, 132);
-            this.fbtnInstruDiagnost.Name = "fbtnInstruDiagnost";
-            this.fbtnInstruDiagnost.Size = new System.Drawing.Size(130, 60);
-            this.fbtnInstruDiagnost.TabIndex = 19;
-            this.fbtnInstruDiagnost.Text = "仪器调试";
-            this.fbtnInstruDiagnost.UseVisualStyleBackColor = false;
-            // 
-            // fbtnInstruMaintenance
-            // 
-            this.fbtnInstruMaintenance.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnInstruMaintenance.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInstruMaintenance.BackgroundImage")));
-            this.fbtnInstruMaintenance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnInstruMaintenance.EnabledSet = true;
-            this.fbtnInstruMaintenance.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnInstruMaintenance.FlatAppearance.BorderSize = 0;
-            this.fbtnInstruMaintenance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInstruMaintenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInstruMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnInstruMaintenance.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
-            this.fbtnInstruMaintenance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnInstruMaintenance.Location = new System.Drawing.Point(25, 25);
-            this.fbtnInstruMaintenance.Name = "fbtnInstruMaintenance";
-            this.fbtnInstruMaintenance.Size = new System.Drawing.Size(130, 60);
-            this.fbtnInstruMaintenance.TabIndex = 18;
-            this.fbtnInstruMaintenance.Text = "仪器维护";
-            this.fbtnInstruMaintenance.UseVisualStyleBackColor = false;
-            this.fbtnInstruMaintenance.Click += new System.EventHandler(this.fbtnInstruMaintenance_Click);
             // 
             // tabControlMy1
             // 
@@ -709,26 +607,6 @@
             this.label14.TabIndex = 61;
             this.label14.Text = "位置：";
             // 
-            // fbtnAsPumpEx
-            // 
-            this.fbtnAsPumpEx.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsPumpEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsPumpEx.BackgroundImage")));
-            this.fbtnAsPumpEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnAsPumpEx.EnabledSet = true;
-            this.fbtnAsPumpEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnAsPumpEx.FlatAppearance.BorderSize = 0;
-            this.fbtnAsPumpEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsPumpEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsPumpEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnAsPumpEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsPumpEx.Location = new System.Drawing.Point(298, 31);
-            this.fbtnAsPumpEx.Name = "fbtnAsPumpEx";
-            this.fbtnAsPumpEx.Size = new System.Drawing.Size(85, 25);
-            this.fbtnAsPumpEx.TabIndex = 57;
-            this.fbtnAsPumpEx.Text = "执行";
-            this.fbtnAsPumpEx.UseVisualStyleBackColor = false;
-            this.fbtnAsPumpEx.Click += new System.EventHandler(this.fbtnAsPumpEx_Click);
-            // 
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.fbtnAsArmXEx);
@@ -740,26 +618,6 @@
             this.groupBox12.TabIndex = 11;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "旋转轴";
-            // 
-            // fbtnAsArmXEx
-            // 
-            this.fbtnAsArmXEx.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsArmXEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsArmXEx.BackgroundImage")));
-            this.fbtnAsArmXEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnAsArmXEx.EnabledSet = true;
-            this.fbtnAsArmXEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnAsArmXEx.FlatAppearance.BorderSize = 0;
-            this.fbtnAsArmXEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsArmXEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsArmXEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnAsArmXEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsArmXEx.Location = new System.Drawing.Point(298, 24);
-            this.fbtnAsArmXEx.Name = "fbtnAsArmXEx";
-            this.fbtnAsArmXEx.Size = new System.Drawing.Size(85, 25);
-            this.fbtnAsArmXEx.TabIndex = 57;
-            this.fbtnAsArmXEx.Text = "执行";
-            this.fbtnAsArmXEx.UseVisualStyleBackColor = false;
-            this.fbtnAsArmXEx.Click += new System.EventHandler(this.fbtnAsArmXEx_Click);
             // 
             // label13
             // 
@@ -832,26 +690,6 @@
             this.label15.TabIndex = 63;
             this.label15.Text = "孔号：";
             // 
-            // btnRegentTrayEx
-            // 
-            this.btnRegentTrayEx.BackColor = System.Drawing.Color.Transparent;
-            this.btnRegentTrayEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRegentTrayEx.BackgroundImage")));
-            this.btnRegentTrayEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRegentTrayEx.EnabledSet = true;
-            this.btnRegentTrayEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRegentTrayEx.FlatAppearance.BorderSize = 0;
-            this.btnRegentTrayEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnRegentTrayEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnRegentTrayEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegentTrayEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnRegentTrayEx.Location = new System.Drawing.Point(298, 24);
-            this.btnRegentTrayEx.Name = "btnRegentTrayEx";
-            this.btnRegentTrayEx.Size = new System.Drawing.Size(85, 25);
-            this.btnRegentTrayEx.TabIndex = 57;
-            this.btnRegentTrayEx.Text = "执行";
-            this.btnRegentTrayEx.UseVisualStyleBackColor = false;
-            this.btnRegentTrayEx.Click += new System.EventHandler(this.btnRegentTrayEx_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -888,26 +726,6 @@
             this.groupBox11.TabIndex = 8;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "垂直轴";
-            // 
-            // fbtnAdArmZEx
-            // 
-            this.fbtnAdArmZEx.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnAdArmZEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAdArmZEx.BackgroundImage")));
-            this.fbtnAdArmZEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnAdArmZEx.EnabledSet = true;
-            this.fbtnAdArmZEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnAdArmZEx.FlatAppearance.BorderSize = 0;
-            this.fbtnAdArmZEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAdArmZEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAdArmZEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnAdArmZEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAdArmZEx.Location = new System.Drawing.Point(298, 24);
-            this.fbtnAdArmZEx.Name = "fbtnAdArmZEx";
-            this.fbtnAdArmZEx.Size = new System.Drawing.Size(85, 25);
-            this.fbtnAdArmZEx.TabIndex = 57;
-            this.fbtnAdArmZEx.Text = "执行";
-            this.fbtnAdArmZEx.UseVisualStyleBackColor = false;
-            this.fbtnAdArmZEx.Click += new System.EventHandler(this.fbtnAdArmZEx_Click);
             // 
             // label12
             // 
@@ -965,146 +783,6 @@
             this.textStepOrder.Size = new System.Drawing.Size(147, 23);
             this.textStepOrder.TabIndex = 17;
             this.textStepOrder.Text = "0";
-            // 
-            // btnOrderSend
-            // 
-            this.btnOrderSend.BackColor = System.Drawing.Color.Transparent;
-            this.btnOrderSend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrderSend.BackgroundImage")));
-            this.btnOrderSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOrderSend.EnabledSet = true;
-            this.btnOrderSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnOrderSend.FlatAppearance.BorderSize = 0;
-            this.btnOrderSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnOrderSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnOrderSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrderSend.Location = new System.Drawing.Point(176, 19);
-            this.btnOrderSend.Name = "btnOrderSend";
-            this.btnOrderSend.Size = new System.Drawing.Size(92, 23);
-            this.btnOrderSend.TabIndex = 1;
-            this.btnOrderSend.Text = "发送";
-            this.btnOrderSend.UseVisualStyleBackColor = false;
-            this.btnOrderSend.Click += new System.EventHandler(this.BtnOrderSend_Click);
-            // 
-            // fbtnregentReset
-            // 
-            this.fbtnregentReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnregentReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnregentReset.BackgroundImage")));
-            this.fbtnregentReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnregentReset.EnabledSet = true;
-            this.fbtnregentReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnregentReset.FlatAppearance.BorderSize = 0;
-            this.fbtnregentReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnregentReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnregentReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnregentReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnregentReset.Location = new System.Drawing.Point(19, 159);
-            this.fbtnregentReset.Name = "fbtnregentReset";
-            this.fbtnregentReset.Size = new System.Drawing.Size(100, 25);
-            this.fbtnregentReset.TabIndex = 14;
-            this.fbtnregentReset.Text = "试剂盘复位";
-            this.fbtnregentReset.UseVisualStyleBackColor = false;
-            this.fbtnregentReset.Click += new System.EventHandler(this.fbtnregentReset_Click);
-            // 
-            // fbtnSamReset
-            // 
-            this.fbtnSamReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnSamReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnSamReset.BackgroundImage")));
-            this.fbtnSamReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnSamReset.EnabledSet = true;
-            this.fbtnSamReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnSamReset.FlatAppearance.BorderSize = 0;
-            this.fbtnSamReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnSamReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnSamReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnSamReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnSamReset.Location = new System.Drawing.Point(170, 105);
-            this.fbtnSamReset.Name = "fbtnSamReset";
-            this.fbtnSamReset.Size = new System.Drawing.Size(100, 25);
-            this.fbtnSamReset.TabIndex = 13;
-            this.fbtnSamReset.Text = "样品盘复位";
-            this.fbtnSamReset.UseVisualStyleBackColor = false;
-            this.fbtnSamReset.Click += new System.EventHandler(this.fbtnSamReset_Click);
-            // 
-            // fbtnAsMixArm
-            // 
-            this.fbtnAsMixArm.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsMixArm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsMixArm.BackgroundImage")));
-            this.fbtnAsMixArm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnAsMixArm.EnabledSet = true;
-            this.fbtnAsMixArm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnAsMixArm.FlatAppearance.BorderSize = 0;
-            this.fbtnAsMixArm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsMixArm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsMixArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnAsMixArm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsMixArm.Location = new System.Drawing.Point(170, 159);
-            this.fbtnAsMixArm.Name = "fbtnAsMixArm";
-            this.fbtnAsMixArm.Size = new System.Drawing.Size(100, 25);
-            this.fbtnAsMixArm.TabIndex = 12;
-            this.fbtnAsMixArm.Text = "混匀臂正转";
-            this.fbtnAsMixArm.UseVisualStyleBackColor = false;
-            this.fbtnAsMixArm.Visible = false;
-            this.fbtnAsMixArm.Click += new System.EventHandler(this.fbtnAsMixArm_Click);
-            // 
-            // fbtnAsXReset
-            // 
-            this.fbtnAsXReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsXReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsXReset.BackgroundImage")));
-            this.fbtnAsXReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnAsXReset.EnabledSet = true;
-            this.fbtnAsXReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnAsXReset.FlatAppearance.BorderSize = 0;
-            this.fbtnAsXReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsXReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsXReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnAsXReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsXReset.Location = new System.Drawing.Point(170, 50);
-            this.fbtnAsXReset.Name = "fbtnAsXReset";
-            this.fbtnAsXReset.Size = new System.Drawing.Size(100, 25);
-            this.fbtnAsXReset.TabIndex = 5;
-            this.fbtnAsXReset.Text = "旋转轴复位";
-            this.fbtnAsXReset.UseVisualStyleBackColor = false;
-            this.fbtnAsXReset.Click += new System.EventHandler(this.fbtnAsXReset_Click);
-            // 
-            // fbtnAsZReset
-            // 
-            this.fbtnAsZReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsZReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsZReset.BackgroundImage")));
-            this.fbtnAsZReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnAsZReset.EnabledSet = true;
-            this.fbtnAsZReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnAsZReset.FlatAppearance.BorderSize = 0;
-            this.fbtnAsZReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsZReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsZReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnAsZReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsZReset.Location = new System.Drawing.Point(19, 105);
-            this.fbtnAsZReset.Name = "fbtnAsZReset";
-            this.fbtnAsZReset.Size = new System.Drawing.Size(100, 25);
-            this.fbtnAsZReset.TabIndex = 3;
-            this.fbtnAsZReset.Text = "垂直轴复位";
-            this.fbtnAsZReset.UseVisualStyleBackColor = false;
-            this.fbtnAsZReset.Click += new System.EventHandler(this.fbtnAsZReset_Click);
-            // 
-            // fbtnAsAllReset
-            // 
-            this.fbtnAsAllReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsAllReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsAllReset.BackgroundImage")));
-            this.fbtnAsAllReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnAsAllReset.EnabledSet = true;
-            this.fbtnAsAllReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnAsAllReset.FlatAppearance.BorderSize = 0;
-            this.fbtnAsAllReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsAllReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnAsAllReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnAsAllReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsAllReset.Location = new System.Drawing.Point(19, 51);
-            this.fbtnAsAllReset.Name = "fbtnAsAllReset";
-            this.fbtnAsAllReset.Size = new System.Drawing.Size(100, 25);
-            this.fbtnAsAllReset.TabIndex = 2;
-            this.fbtnAsAllReset.Text = "全部复位";
-            this.fbtnAsAllReset.UseVisualStyleBackColor = false;
-            this.fbtnAsAllReset.Click += new System.EventHandler(this.fbtnAsAllReset_Click);
             // 
             // groupBox5
             // 
@@ -1172,66 +850,6 @@
             this.label56.Size = new System.Drawing.Size(49, 14);
             this.label56.TabIndex = 73;
             this.label56.Text = "增量：";
-            // 
-            // fbtnASSave
-            // 
-            this.fbtnASSave.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnASSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnASSave.BackgroundImage")));
-            this.fbtnASSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnASSave.EnabledSet = true;
-            this.fbtnASSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnASSave.FlatAppearance.BorderSize = 0;
-            this.fbtnASSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnASSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnASSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnASSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnASSave.Location = new System.Drawing.Point(33, 147);
-            this.fbtnASSave.Name = "fbtnASSave";
-            this.fbtnASSave.Size = new System.Drawing.Size(57, 23);
-            this.fbtnASSave.TabIndex = 13;
-            this.fbtnASSave.Text = "保存";
-            this.fbtnASSave.UseVisualStyleBackColor = false;
-            this.fbtnASSave.Click += new System.EventHandler(this.fbtnASSave_Click);
-            // 
-            // fbtnASSub
-            // 
-            this.fbtnASSub.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnASSub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnASSub.BackgroundImage")));
-            this.fbtnASSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnASSub.EnabledSet = true;
-            this.fbtnASSub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnASSub.FlatAppearance.BorderSize = 0;
-            this.fbtnASSub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnASSub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnASSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnASSub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnASSub.Location = new System.Drawing.Point(248, 115);
-            this.fbtnASSub.Name = "fbtnASSub";
-            this.fbtnASSub.Size = new System.Drawing.Size(22, 23);
-            this.fbtnASSub.TabIndex = 12;
-            this.fbtnASSub.Text = "-";
-            this.fbtnASSub.UseVisualStyleBackColor = false;
-            this.fbtnASSub.Click += new System.EventHandler(this.fbtnASSub_Click);
-            // 
-            // fbtnASAdd
-            // 
-            this.fbtnASAdd.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnASAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnASAdd.BackgroundImage")));
-            this.fbtnASAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnASAdd.EnabledSet = true;
-            this.fbtnASAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnASAdd.FlatAppearance.BorderSize = 0;
-            this.fbtnASAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnASAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnASAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnASAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnASAdd.Location = new System.Drawing.Point(206, 114);
-            this.fbtnASAdd.Name = "fbtnASAdd";
-            this.fbtnASAdd.Size = new System.Drawing.Size(23, 23);
-            this.fbtnASAdd.TabIndex = 11;
-            this.fbtnASAdd.Text = "+";
-            this.fbtnASAdd.UseVisualStyleBackColor = false;
-            this.fbtnASAdd.Click += new System.EventHandler(this.fbtnASAdd_Click);
             // 
             // cmbASElecMachine
             // 
@@ -1322,26 +940,6 @@
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "理杯块";
             // 
-            // btnCupMake
-            // 
-            this.btnCupMake.BackColor = System.Drawing.Color.Transparent;
-            this.btnCupMake.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCupMake.BackgroundImage")));
-            this.btnCupMake.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCupMake.EnabledSet = true;
-            this.btnCupMake.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCupMake.FlatAppearance.BorderSize = 0;
-            this.btnCupMake.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCupMake.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCupMake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCupMake.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCupMake.Location = new System.Drawing.Point(299, 20);
-            this.btnCupMake.Name = "btnCupMake";
-            this.btnCupMake.Size = new System.Drawing.Size(71, 23);
-            this.btnCupMake.TabIndex = 57;
-            this.btnCupMake.Text = "执行";
-            this.btnCupMake.UseVisualStyleBackColor = false;
-            this.btnCupMake.Click += new System.EventHandler(this.btnCupMake_Click);
-            // 
             // label47
             // 
             this.label47.AutoSize = true;
@@ -1384,26 +982,6 @@
             this.numHole.Size = new System.Drawing.Size(120, 23);
             this.numHole.TabIndex = 61;
             // 
-            // fbtnHandZ
-            // 
-            this.fbtnHandZ.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnHandZ.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnHandZ.BackgroundImage")));
-            this.fbtnHandZ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnHandZ.EnabledSet = true;
-            this.fbtnHandZ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnHandZ.FlatAppearance.BorderSize = 0;
-            this.fbtnHandZ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnHandZ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnHandZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnHandZ.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnHandZ.Location = new System.Drawing.Point(299, 19);
-            this.fbtnHandZ.Name = "fbtnHandZ";
-            this.fbtnHandZ.Size = new System.Drawing.Size(71, 23);
-            this.fbtnHandZ.TabIndex = 57;
-            this.fbtnHandZ.Text = "执行";
-            this.fbtnHandZ.UseVisualStyleBackColor = false;
-            this.fbtnHandZ.Click += new System.EventHandler(this.fbtnHandZ_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -1429,26 +1007,6 @@
             this.groupBox38.TabStop = false;
             this.groupBox38.Text = "移管手";
             // 
-            // btnHandvertical
-            // 
-            this.btnHandvertical.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandvertical.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandvertical.BackgroundImage")));
-            this.btnHandvertical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandvertical.EnabledSet = true;
-            this.btnHandvertical.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandvertical.FlatAppearance.BorderSize = 0;
-            this.btnHandvertical.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandvertical.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandvertical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandvertical.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandvertical.Location = new System.Drawing.Point(299, 66);
-            this.btnHandvertical.Name = "btnHandvertical";
-            this.btnHandvertical.Size = new System.Drawing.Size(71, 23);
-            this.btnHandvertical.TabIndex = 5;
-            this.btnHandvertical.Text = "执行";
-            this.btnHandvertical.UseVisualStyleBackColor = false;
-            this.btnHandvertical.Click += new System.EventHandler(this.btnHandvertical_Click);
-            // 
             // label42
             // 
             this.label42.AutoSize = true;
@@ -1470,26 +1028,6 @@
             this.cmbHandvertical.Name = "cmbHandvertical";
             this.cmbHandvertical.Size = new System.Drawing.Size(199, 22);
             this.cmbHandvertical.TabIndex = 3;
-            // 
-            // btnHand
-            // 
-            this.btnHand.BackColor = System.Drawing.Color.Transparent;
-            this.btnHand.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHand.BackgroundImage")));
-            this.btnHand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHand.EnabledSet = true;
-            this.btnHand.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHand.FlatAppearance.BorderSize = 0;
-            this.btnHand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHand.Location = new System.Drawing.Point(299, 30);
-            this.btnHand.Name = "btnHand";
-            this.btnHand.Size = new System.Drawing.Size(71, 23);
-            this.btnHand.TabIndex = 2;
-            this.btnHand.Text = "执行";
-            this.btnHand.UseVisualStyleBackColor = false;
-            this.btnHand.Click += new System.EventHandler(this.btnHand_Click);
             // 
             // label59
             // 
@@ -1531,165 +1069,6 @@
             this.groupBox45.TabIndex = 12;
             this.groupBox45.TabStop = false;
             this.groupBox45.Text = "快捷操作";
-            // 
-            // btnHandClose
-            // 
-            this.btnHandClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandClose.BackgroundImage")));
-            this.btnHandClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandClose.EnabledSet = true;
-            this.btnHandClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandClose.FlatAppearance.BorderSize = 0;
-            this.btnHandClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandClose.Location = new System.Drawing.Point(206, 127);
-            this.btnHandClose.Name = "btnHandClose";
-            this.btnHandClose.Size = new System.Drawing.Size(113, 25);
-            this.btnHandClose.TabIndex = 20;
-            this.btnHandClose.Text = "抓手关闭";
-            this.btnHandClose.UseVisualStyleBackColor = false;
-            this.btnHandClose.Click += new System.EventHandler(this.btnHandClose_Click);
-            // 
-            // fbtnStchDiskTurn
-            // 
-            this.fbtnStchDiskTurn.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnStchDiskTurn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnStchDiskTurn.BackgroundImage")));
-            this.fbtnStchDiskTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnStchDiskTurn.EnabledSet = true;
-            this.fbtnStchDiskTurn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnStchDiskTurn.FlatAppearance.BorderSize = 0;
-            this.fbtnStchDiskTurn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnStchDiskTurn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnStchDiskTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnStchDiskTurn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnStchDiskTurn.Location = new System.Drawing.Point(19, 168);
-            this.fbtnStchDiskTurn.Name = "fbtnStchDiskTurn";
-            this.fbtnStchDiskTurn.Size = new System.Drawing.Size(113, 25);
-            this.fbtnStchDiskTurn.TabIndex = 19;
-            this.fbtnStchDiskTurn.Text = "暂存盘旋转";
-            this.fbtnStchDiskTurn.UseVisualStyleBackColor = false;
-            this.fbtnStchDiskTurn.Click += new System.EventHandler(this.fbtnStchDiskTurn_Click);
-            // 
-            // btnPutCupInit
-            // 
-            this.btnPutCupInit.BackColor = System.Drawing.Color.Transparent;
-            this.btnPutCupInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPutCupInit.BackgroundImage")));
-            this.btnPutCupInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPutCupInit.EnabledSet = true;
-            this.btnPutCupInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnPutCupInit.FlatAppearance.BorderSize = 0;
-            this.btnPutCupInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnPutCupInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnPutCupInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPutCupInit.Location = new System.Drawing.Point(206, 168);
-            this.btnPutCupInit.Name = "btnPutCupInit";
-            this.btnPutCupInit.Size = new System.Drawing.Size(113, 25);
-            this.btnPutCupInit.TabIndex = 18;
-            this.btnPutCupInit.Text = "理杯块电机复位";
-            this.btnPutCupInit.UseVisualStyleBackColor = false;
-            this.btnPutCupInit.Click += new System.EventHandler(this.btnPutCupInit_Click);
-            // 
-            // btnHandOpen
-            // 
-            this.btnHandOpen.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandOpen.BackgroundImage")));
-            this.btnHandOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandOpen.EnabledSet = true;
-            this.btnHandOpen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandOpen.FlatAppearance.BorderSize = 0;
-            this.btnHandOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandOpen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandOpen.Location = new System.Drawing.Point(19, 127);
-            this.btnHandOpen.Name = "btnHandOpen";
-            this.btnHandOpen.Size = new System.Drawing.Size(113, 25);
-            this.btnHandOpen.TabIndex = 7;
-            this.btnHandOpen.Text = "抓手打开";
-            this.btnHandOpen.UseVisualStyleBackColor = false;
-            this.btnHandOpen.Click += new System.EventHandler(this.btnHandOpen_Click);
-            // 
-            // btnHandZInit
-            // 
-            this.btnHandZInit.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandZInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandZInit.BackgroundImage")));
-            this.btnHandZInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandZInit.EnabledSet = true;
-            this.btnHandZInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandZInit.FlatAppearance.BorderSize = 0;
-            this.btnHandZInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandZInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandZInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandZInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandZInit.Location = new System.Drawing.Point(206, 84);
-            this.btnHandZInit.Name = "btnHandZInit";
-            this.btnHandZInit.Size = new System.Drawing.Size(113, 25);
-            this.btnHandZInit.TabIndex = 5;
-            this.btnHandZInit.Text = "旋转电机复位";
-            this.btnHandZInit.UseVisualStyleBackColor = false;
-            this.btnHandZInit.Click += new System.EventHandler(this.btnHandZInit_Click);
-            // 
-            // btnHandYInit
-            // 
-            this.btnHandYInit.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandYInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandYInit.BackgroundImage")));
-            this.btnHandYInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandYInit.EnabledSet = true;
-            this.btnHandYInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandYInit.FlatAppearance.BorderSize = 0;
-            this.btnHandYInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandYInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandYInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandYInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandYInit.Location = new System.Drawing.Point(19, 84);
-            this.btnHandYInit.Name = "btnHandYInit";
-            this.btnHandYInit.Size = new System.Drawing.Size(113, 25);
-            this.btnHandYInit.TabIndex = 4;
-            this.btnHandYInit.Text = "垂直电机复位";
-            this.btnHandYInit.UseVisualStyleBackColor = false;
-            this.btnHandYInit.Click += new System.EventHandler(this.btnHandYInit_Click);
-            // 
-            // btnHandXInit
-            // 
-            this.btnHandXInit.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandXInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandXInit.BackgroundImage")));
-            this.btnHandXInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandXInit.EnabledSet = true;
-            this.btnHandXInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandXInit.FlatAppearance.BorderSize = 0;
-            this.btnHandXInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandXInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandXInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandXInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandXInit.Location = new System.Drawing.Point(206, 41);
-            this.btnHandXInit.Name = "btnHandXInit";
-            this.btnHandXInit.Size = new System.Drawing.Size(113, 25);
-            this.btnHandXInit.TabIndex = 3;
-            this.btnHandXInit.Text = "暂存盘电机复位";
-            this.btnHandXInit.UseVisualStyleBackColor = false;
-            this.btnHandXInit.Click += new System.EventHandler(this.btnHandXInit_Click);
-            // 
-            // btnHandAllInit
-            // 
-            this.btnHandAllInit.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandAllInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandAllInit.BackgroundImage")));
-            this.btnHandAllInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandAllInit.EnabledSet = true;
-            this.btnHandAllInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandAllInit.FlatAppearance.BorderSize = 0;
-            this.btnHandAllInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandAllInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandAllInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandAllInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandAllInit.Location = new System.Drawing.Point(19, 41);
-            this.btnHandAllInit.Name = "btnHandAllInit";
-            this.btnHandAllInit.Size = new System.Drawing.Size(113, 25);
-            this.btnHandAllInit.TabIndex = 2;
-            this.btnHandAllInit.Text = "全部复位";
-            this.btnHandAllInit.UseVisualStyleBackColor = false;
-            this.btnHandAllInit.Click += new System.EventHandler(this.btnHandAllInit_Click);
             // 
             // groupBox42
             // 
@@ -1757,66 +1136,6 @@
             this.label48.Size = new System.Drawing.Size(49, 14);
             this.label48.TabIndex = 66;
             this.label48.Text = "增量：";
-            // 
-            // btnSaveHand
-            // 
-            this.btnSaveHand.BackColor = System.Drawing.Color.Transparent;
-            this.btnSaveHand.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveHand.BackgroundImage")));
-            this.btnSaveHand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSaveHand.EnabledSet = true;
-            this.btnSaveHand.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSaveHand.FlatAppearance.BorderSize = 0;
-            this.btnSaveHand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSaveHand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSaveHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveHand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSaveHand.Location = new System.Drawing.Point(33, 147);
-            this.btnSaveHand.Name = "btnSaveHand";
-            this.btnSaveHand.Size = new System.Drawing.Size(57, 23);
-            this.btnSaveHand.TabIndex = 13;
-            this.btnSaveHand.Text = "保存";
-            this.btnSaveHand.UseVisualStyleBackColor = false;
-            this.btnSaveHand.Click += new System.EventHandler(this.btnSaveHand_Click);
-            // 
-            // btnHandSub
-            // 
-            this.btnHandSub.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandSub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandSub.BackgroundImage")));
-            this.btnHandSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandSub.EnabledSet = true;
-            this.btnHandSub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandSub.FlatAppearance.BorderSize = 0;
-            this.btnHandSub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandSub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandSub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandSub.Location = new System.Drawing.Point(248, 115);
-            this.btnHandSub.Name = "btnHandSub";
-            this.btnHandSub.Size = new System.Drawing.Size(22, 23);
-            this.btnHandSub.TabIndex = 12;
-            this.btnHandSub.Text = "-";
-            this.btnHandSub.UseVisualStyleBackColor = false;
-            this.btnHandSub.Click += new System.EventHandler(this.btnHandSub_Click);
-            // 
-            // btnHandAdd
-            // 
-            this.btnHandAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnHandAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandAdd.BackgroundImage")));
-            this.btnHandAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHandAdd.EnabledSet = true;
-            this.btnHandAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnHandAdd.FlatAppearance.BorderSize = 0;
-            this.btnHandAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnHandAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnHandAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHandAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHandAdd.Location = new System.Drawing.Point(206, 114);
-            this.btnHandAdd.Name = "btnHandAdd";
-            this.btnHandAdd.Size = new System.Drawing.Size(23, 23);
-            this.btnHandAdd.TabIndex = 11;
-            this.btnHandAdd.Text = "+";
-            this.btnHandAdd.UseVisualStyleBackColor = false;
-            this.btnHandAdd.Click += new System.EventHandler(this.btnHandAdd_Click);
             // 
             // cmbHElecMachine
             // 
@@ -1904,26 +1223,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "压杯电机";
             // 
-            // fbtnPressCup
-            // 
-            this.fbtnPressCup.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnPressCup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPressCup.BackgroundImage")));
-            this.fbtnPressCup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnPressCup.EnabledSet = true;
-            this.fbtnPressCup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnPressCup.FlatAppearance.BorderSize = 0;
-            this.fbtnPressCup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPressCup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPressCup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnPressCup.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnPressCup.Location = new System.Drawing.Point(298, 18);
-            this.fbtnPressCup.Name = "fbtnPressCup";
-            this.fbtnPressCup.Size = new System.Drawing.Size(85, 25);
-            this.fbtnPressCup.TabIndex = 57;
-            this.fbtnPressCup.Text = "执行";
-            this.fbtnPressCup.UseVisualStyleBackColor = false;
-            this.fbtnPressCup.Click += new System.EventHandler(this.fbtnPressCup_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -1957,26 +1256,6 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "混匀臂";
-            // 
-            // fbtnMix1Arm
-            // 
-            this.fbtnMix1Arm.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1Arm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMix1Arm.BackgroundImage")));
-            this.fbtnMix1Arm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnMix1Arm.EnabledSet = true;
-            this.fbtnMix1Arm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnMix1Arm.FlatAppearance.BorderSize = 0;
-            this.fbtnMix1Arm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1Arm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1Arm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnMix1Arm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnMix1Arm.Location = new System.Drawing.Point(298, 18);
-            this.fbtnMix1Arm.Name = "fbtnMix1Arm";
-            this.fbtnMix1Arm.Size = new System.Drawing.Size(85, 25);
-            this.fbtnMix1Arm.TabIndex = 57;
-            this.fbtnMix1Arm.Text = "执行";
-            this.fbtnMix1Arm.UseVisualStyleBackColor = false;
-            this.fbtnMix1Arm.Click += new System.EventHandler(this.fbtnMix1Arm_Click);
             // 
             // label5
             // 
@@ -2041,26 +1320,6 @@
             this.label4.TabIndex = 61;
             this.label4.Text = "混匀孔位：";
             // 
-            // fbtnINMove
-            // 
-            this.fbtnINMove.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnINMove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnINMove.BackgroundImage")));
-            this.fbtnINMove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnINMove.EnabledSet = true;
-            this.fbtnINMove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnINMove.FlatAppearance.BorderSize = 0;
-            this.fbtnINMove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnINMove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnINMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnINMove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnINMove.Location = new System.Drawing.Point(296, 32);
-            this.fbtnINMove.Name = "fbtnINMove";
-            this.fbtnINMove.Size = new System.Drawing.Size(87, 25);
-            this.fbtnINMove.TabIndex = 57;
-            this.fbtnINMove.Text = "执行";
-            this.fbtnINMove.UseVisualStyleBackColor = false;
-            this.fbtnINMove.Click += new System.EventHandler(this.fbtnINMove_Click);
-            // 
             // groupBox34
             // 
             this.groupBox34.Controls.Add(this.btnIYInit);
@@ -2076,147 +1335,6 @@
             this.groupBox34.TabIndex = 13;
             this.groupBox34.TabStop = false;
             this.groupBox34.Text = "快捷操作";
-            // 
-            // btnIYInit
-            // 
-            this.btnIYInit.BackColor = System.Drawing.Color.Transparent;
-            this.btnIYInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIYInit.BackgroundImage")));
-            this.btnIYInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnIYInit.EnabledSet = true;
-            this.btnIYInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnIYInit.FlatAppearance.BorderSize = 0;
-            this.btnIYInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnIYInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnIYInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIYInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnIYInit.Location = new System.Drawing.Point(18, 106);
-            this.btnIYInit.Name = "btnIYInit";
-            this.btnIYInit.Size = new System.Drawing.Size(113, 25);
-            this.btnIYInit.TabIndex = 21;
-            this.btnIYInit.Text = "垂直电机复位";
-            this.btnIYInit.UseVisualStyleBackColor = false;
-            this.btnIYInit.Click += new System.EventHandler(this.btnIYInit_Click);
-            // 
-            // fbtnInTubeReset
-            // 
-            this.fbtnInTubeReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnInTubeReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInTubeReset.BackgroundImage")));
-            this.fbtnInTubeReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnInTubeReset.EnabledSet = true;
-            this.fbtnInTubeReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnInTubeReset.FlatAppearance.BorderSize = 0;
-            this.fbtnInTubeReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInTubeReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInTubeReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnInTubeReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnInTubeReset.Location = new System.Drawing.Point(192, 63);
-            this.fbtnInTubeReset.Name = "fbtnInTubeReset";
-            this.fbtnInTubeReset.Size = new System.Drawing.Size(113, 25);
-            this.fbtnInTubeReset.TabIndex = 20;
-            this.fbtnInTubeReset.Text = "温育盘复位";
-            this.fbtnInTubeReset.UseVisualStyleBackColor = false;
-            this.fbtnInTubeReset.Click += new System.EventHandler(this.fbtnInTubeReset_Click);
-            // 
-            // btnIAllInit
-            // 
-            this.btnIAllInit.BackColor = System.Drawing.Color.Transparent;
-            this.btnIAllInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIAllInit.BackgroundImage")));
-            this.btnIAllInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnIAllInit.EnabledSet = true;
-            this.btnIAllInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnIAllInit.FlatAppearance.BorderSize = 0;
-            this.btnIAllInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnIAllInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnIAllInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIAllInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnIAllInit.Location = new System.Drawing.Point(18, 63);
-            this.btnIAllInit.Name = "btnIAllInit";
-            this.btnIAllInit.Size = new System.Drawing.Size(113, 25);
-            this.btnIAllInit.TabIndex = 19;
-            this.btnIAllInit.Text = "全部复位";
-            this.btnIAllInit.UseVisualStyleBackColor = false;
-            this.btnIAllInit.Click += new System.EventHandler(this.btnIAllInit_Click);
-            // 
-            // fbtnInTubeClear
-            // 
-            this.fbtnInTubeClear.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnInTubeClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInTubeClear.BackgroundImage")));
-            this.fbtnInTubeClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnInTubeClear.EnabledSet = true;
-            this.fbtnInTubeClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnInTubeClear.FlatAppearance.BorderSize = 0;
-            this.fbtnInTubeClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInTubeClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInTubeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnInTubeClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnInTubeClear.Location = new System.Drawing.Point(18, 149);
-            this.fbtnInTubeClear.Name = "fbtnInTubeClear";
-            this.fbtnInTubeClear.Size = new System.Drawing.Size(113, 25);
-            this.fbtnInTubeClear.TabIndex = 18;
-            this.fbtnInTubeClear.Text = "温育盘清空";
-            this.fbtnInTubeClear.UseVisualStyleBackColor = false;
-            this.fbtnInTubeClear.Click += new System.EventHandler(this.fbtnInTubeClear_Click);
-            // 
-            // fbtnPressCupZero
-            // 
-            this.fbtnPressCupZero.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnPressCupZero.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPressCupZero.BackgroundImage")));
-            this.fbtnPressCupZero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnPressCupZero.EnabledSet = true;
-            this.fbtnPressCupZero.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnPressCupZero.FlatAppearance.BorderSize = 0;
-            this.fbtnPressCupZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPressCupZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPressCupZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnPressCupZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnPressCupZero.Location = new System.Drawing.Point(192, 106);
-            this.fbtnPressCupZero.Name = "fbtnPressCupZero";
-            this.fbtnPressCupZero.Size = new System.Drawing.Size(113, 25);
-            this.fbtnPressCupZero.TabIndex = 17;
-            this.fbtnPressCupZero.Text = "压杯电机复位";
-            this.fbtnPressCupZero.UseVisualStyleBackColor = false;
-            this.fbtnPressCupZero.Click += new System.EventHandler(this.fbtnPressCupZero_Click);
-            // 
-            // fbtnMix1Reset
-            // 
-            this.fbtnMix1Reset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1Reset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMix1Reset.BackgroundImage")));
-            this.fbtnMix1Reset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnMix1Reset.EnabledSet = true;
-            this.fbtnMix1Reset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnMix1Reset.FlatAppearance.BorderSize = 0;
-            this.fbtnMix1Reset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1Reset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnMix1Reset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnMix1Reset.Location = new System.Drawing.Point(18, 193);
-            this.fbtnMix1Reset.Name = "fbtnMix1Reset";
-            this.fbtnMix1Reset.Size = new System.Drawing.Size(113, 25);
-            this.fbtnMix1Reset.TabIndex = 16;
-            this.fbtnMix1Reset.Text = "混匀臂复位";
-            this.fbtnMix1Reset.UseVisualStyleBackColor = false;
-            this.fbtnMix1Reset.Visible = false;
-            this.fbtnMix1Reset.Click += new System.EventHandler(this.fbtnMix1Reset_Click);
-            // 
-            // fbtnMix1
-            // 
-            this.fbtnMix1.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMix1.BackgroundImage")));
-            this.fbtnMix1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnMix1.EnabledSet = true;
-            this.fbtnMix1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnMix1.FlatAppearance.BorderSize = 0;
-            this.fbtnMix1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMix1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnMix1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnMix1.Location = new System.Drawing.Point(192, 149);
-            this.fbtnMix1.Name = "fbtnMix1";
-            this.fbtnMix1.Size = new System.Drawing.Size(113, 25);
-            this.fbtnMix1.TabIndex = 15;
-            this.fbtnMix1.Text = "混匀开始";
-            this.fbtnMix1.UseVisualStyleBackColor = false;
-            this.fbtnMix1.Click += new System.EventHandler(this.fbtnMix1_Click);
             // 
             // groupBox33
             // 
@@ -2284,66 +1402,6 @@
             this.label44.Size = new System.Drawing.Size(49, 14);
             this.label44.TabIndex = 66;
             this.label44.Text = "增量：";
-            // 
-            // btnISave
-            // 
-            this.btnISave.BackColor = System.Drawing.Color.Transparent;
-            this.btnISave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnISave.BackgroundImage")));
-            this.btnISave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnISave.EnabledSet = true;
-            this.btnISave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnISave.FlatAppearance.BorderSize = 0;
-            this.btnISave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnISave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnISave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnISave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnISave.Location = new System.Drawing.Point(33, 147);
-            this.btnISave.Name = "btnISave";
-            this.btnISave.Size = new System.Drawing.Size(57, 23);
-            this.btnISave.TabIndex = 13;
-            this.btnISave.Text = "保存";
-            this.btnISave.UseVisualStyleBackColor = false;
-            this.btnISave.Click += new System.EventHandler(this.btnISave_Click);
-            // 
-            // btnISub
-            // 
-            this.btnISub.BackColor = System.Drawing.Color.Transparent;
-            this.btnISub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnISub.BackgroundImage")));
-            this.btnISub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnISub.EnabledSet = true;
-            this.btnISub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnISub.FlatAppearance.BorderSize = 0;
-            this.btnISub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnISub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnISub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnISub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnISub.Location = new System.Drawing.Point(248, 115);
-            this.btnISub.Name = "btnISub";
-            this.btnISub.Size = new System.Drawing.Size(22, 23);
-            this.btnISub.TabIndex = 12;
-            this.btnISub.Text = "-";
-            this.btnISub.UseVisualStyleBackColor = false;
-            this.btnISub.Click += new System.EventHandler(this.btnISub_Click);
-            // 
-            // btnIAdd
-            // 
-            this.btnIAdd.BackColor = System.Drawing.Color.Transparent;
-            this.btnIAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIAdd.BackgroundImage")));
-            this.btnIAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnIAdd.EnabledSet = true;
-            this.btnIAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnIAdd.FlatAppearance.BorderSize = 0;
-            this.btnIAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnIAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnIAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnIAdd.Location = new System.Drawing.Point(206, 114);
-            this.btnIAdd.Name = "btnIAdd";
-            this.btnIAdd.Size = new System.Drawing.Size(23, 23);
-            this.btnIAdd.TabIndex = 11;
-            this.btnIAdd.Text = "+";
-            this.btnIAdd.UseVisualStyleBackColor = false;
-            this.btnIAdd.Click += new System.EventHandler(this.btnIAdd_Click);
             // 
             // cmbIElecMachine
             // 
@@ -2430,26 +1488,6 @@
             this.groupBox39.TabStop = false;
             this.groupBox39.Text = "混匀电机";
             // 
-            // btnWashMix
-            // 
-            this.btnWashMix.BackColor = System.Drawing.Color.Transparent;
-            this.btnWashMix.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWashMix.BackgroundImage")));
-            this.btnWashMix.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnWashMix.EnabledSet = true;
-            this.btnWashMix.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnWashMix.FlatAppearance.BorderSize = 0;
-            this.btnWashMix.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnWashMix.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnWashMix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWashMix.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnWashMix.Location = new System.Drawing.Point(319, 21);
-            this.btnWashMix.Name = "btnWashMix";
-            this.btnWashMix.Size = new System.Drawing.Size(87, 34);
-            this.btnWashMix.TabIndex = 18;
-            this.btnWashMix.Text = "执行";
-            this.btnWashMix.UseVisualStyleBackColor = false;
-            this.btnWashMix.Click += new System.EventHandler(this.btnWashMix_Click);
-            // 
             // cmbWashMix
             // 
             this.cmbWashMix.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -2488,26 +1526,6 @@
             this.groupBox32.TabStop = false;
             this.groupBox32.Text = "孔位移动";
             // 
-            // btnLoopTurn
-            // 
-            this.btnLoopTurn.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoopTurn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoopTurn.BackgroundImage")));
-            this.btnLoopTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLoopTurn.EnabledSet = true;
-            this.btnLoopTurn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLoopTurn.FlatAppearance.BorderSize = 0;
-            this.btnLoopTurn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnLoopTurn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnLoopTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoopTurn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLoopTurn.Location = new System.Drawing.Point(337, 67);
-            this.btnLoopTurn.Name = "btnLoopTurn";
-            this.btnLoopTurn.Size = new System.Drawing.Size(80, 23);
-            this.btnLoopTurn.TabIndex = 20;
-            this.btnLoopTurn.Text = "循环执行";
-            this.btnLoopTurn.UseVisualStyleBackColor = false;
-            this.btnLoopTurn.Click += new System.EventHandler(this.btnLoopTurn_Click);
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(103, 66);
@@ -2515,26 +1533,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 18;
             this.textBox1.Text = "0";
-            // 
-            // functionButton1
-            // 
-            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
-            this.functionButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("functionButton1.BackgroundImage")));
-            this.functionButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.functionButton1.EnabledSet = true;
-            this.functionButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.functionButton1.FlatAppearance.BorderSize = 0;
-            this.functionButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.functionButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.functionButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.functionButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.functionButton1.Location = new System.Drawing.Point(256, 67);
-            this.functionButton1.Name = "functionButton1";
-            this.functionButton1.Size = new System.Drawing.Size(64, 23);
-            this.functionButton1.TabIndex = 17;
-            this.functionButton1.Text = "执行";
-            this.functionButton1.UseVisualStyleBackColor = false;
-            this.functionButton1.Click += new System.EventHandler(this.functionButton1_Click_1);
             // 
             // label41
             // 
@@ -2545,26 +1543,6 @@
             this.label41.Size = new System.Drawing.Size(49, 14);
             this.label41.TabIndex = 15;
             this.label41.Text = "转动：";
-            // 
-            // fbtnHoleTarget
-            // 
-            this.fbtnHoleTarget.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnHoleTarget.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnHoleTarget.BackgroundImage")));
-            this.fbtnHoleTarget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnHoleTarget.EnabledSet = true;
-            this.fbtnHoleTarget.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnHoleTarget.FlatAppearance.BorderSize = 0;
-            this.fbtnHoleTarget.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnHoleTarget.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnHoleTarget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnHoleTarget.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnHoleTarget.Location = new System.Drawing.Point(256, 18);
-            this.fbtnHoleTarget.Name = "fbtnHoleTarget";
-            this.fbtnHoleTarget.Size = new System.Drawing.Size(64, 23);
-            this.fbtnHoleTarget.TabIndex = 14;
-            this.fbtnHoleTarget.Text = "执行";
-            this.fbtnHoleTarget.UseVisualStyleBackColor = false;
-            this.fbtnHoleTarget.Click += new System.EventHandler(this.fbtnHoleTarget_Click_1);
             // 
             // txtHoleTarget
             // 
@@ -2607,26 +1585,6 @@
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "压杯电机";
             // 
-            // fbtnWashPressCupEx
-            // 
-            this.fbtnWashPressCupEx.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashPressCupEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashPressCupEx.BackgroundImage")));
-            this.fbtnWashPressCupEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashPressCupEx.EnabledSet = true;
-            this.fbtnWashPressCupEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashPressCupEx.FlatAppearance.BorderSize = 0;
-            this.fbtnWashPressCupEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashPressCupEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashPressCupEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashPressCupEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashPressCupEx.Location = new System.Drawing.Point(319, 27);
-            this.fbtnWashPressCupEx.Name = "fbtnWashPressCupEx";
-            this.fbtnWashPressCupEx.Size = new System.Drawing.Size(87, 34);
-            this.fbtnWashPressCupEx.TabIndex = 18;
-            this.fbtnWashPressCupEx.Text = "执行";
-            this.fbtnWashPressCupEx.UseVisualStyleBackColor = false;
-            this.fbtnWashPressCupEx.Click += new System.EventHandler(this.fbtnWashPressCupEx_Click);
-            // 
             // cmbWashPressCup
             // 
             this.cmbWashPressCup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -2660,26 +1618,6 @@
             this.groupBox24.TabIndex = 1;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "Z轴电机";
-            // 
-            // fbtnWashZEx
-            // 
-            this.fbtnWashZEx.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashZEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashZEx.BackgroundImage")));
-            this.fbtnWashZEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashZEx.EnabledSet = true;
-            this.fbtnWashZEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashZEx.FlatAppearance.BorderSize = 0;
-            this.fbtnWashZEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashZEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashZEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashZEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashZEx.Location = new System.Drawing.Point(319, 25);
-            this.fbtnWashZEx.Name = "fbtnWashZEx";
-            this.fbtnWashZEx.Size = new System.Drawing.Size(87, 34);
-            this.fbtnWashZEx.TabIndex = 15;
-            this.fbtnWashZEx.Text = "执行";
-            this.fbtnWashZEx.UseVisualStyleBackColor = false;
-            this.fbtnWashZEx.Click += new System.EventHandler(this.fbtnWashZEx_Click);
             // 
             // cmbWashZ
             // 
@@ -2728,46 +1666,6 @@
             this.cmbPeristalticPVol.Size = new System.Drawing.Size(121, 22);
             this.cmbPeristalticPVol.TabIndex = 16;
             // 
-            // fbtnPeristalticPSave
-            // 
-            this.fbtnPeristalticPSave.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnPeristalticPSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPeristalticPSave.BackgroundImage")));
-            this.fbtnPeristalticPSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnPeristalticPSave.EnabledSet = true;
-            this.fbtnPeristalticPSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnPeristalticPSave.FlatAppearance.BorderSize = 0;
-            this.fbtnPeristalticPSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPeristalticPSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPeristalticPSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnPeristalticPSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnPeristalticPSave.Location = new System.Drawing.Point(319, 35);
-            this.fbtnPeristalticPSave.Name = "fbtnPeristalticPSave";
-            this.fbtnPeristalticPSave.Size = new System.Drawing.Size(65, 24);
-            this.fbtnPeristalticPSave.TabIndex = 15;
-            this.fbtnPeristalticPSave.Text = "保存";
-            this.fbtnPeristalticPSave.UseVisualStyleBackColor = false;
-            this.fbtnPeristalticPSave.Click += new System.EventHandler(this.fbtnPeristalticPSave_Click);
-            // 
-            // fbtnPeristalticPEx
-            // 
-            this.fbtnPeristalticPEx.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnPeristalticPEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPeristalticPEx.BackgroundImage")));
-            this.fbtnPeristalticPEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnPeristalticPEx.EnabledSet = true;
-            this.fbtnPeristalticPEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnPeristalticPEx.FlatAppearance.BorderSize = 0;
-            this.fbtnPeristalticPEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPeristalticPEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPeristalticPEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnPeristalticPEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnPeristalticPEx.Location = new System.Drawing.Point(234, 36);
-            this.fbtnPeristalticPEx.Name = "fbtnPeristalticPEx";
-            this.fbtnPeristalticPEx.Size = new System.Drawing.Size(64, 23);
-            this.fbtnPeristalticPEx.TabIndex = 14;
-            this.fbtnPeristalticPEx.Text = "执行";
-            this.fbtnPeristalticPEx.UseVisualStyleBackColor = false;
-            this.fbtnPeristalticPEx.Click += new System.EventHandler(this.fbtnPeristalticPEx_Click);
-            // 
             // label53
             // 
             this.label53.AutoSize = true;
@@ -2791,102 +1689,6 @@
             this.groupBox19.TabIndex = 2;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "快捷操作";
-            // 
-            // fbtnWashTubeClear
-            // 
-            this.fbtnWashTubeClear.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTubeClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashTubeClear.BackgroundImage")));
-            this.fbtnWashTubeClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashTubeClear.EnabledSet = true;
-            this.fbtnWashTubeClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashTubeClear.FlatAppearance.BorderSize = 0;
-            this.fbtnWashTubeClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTubeClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTubeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashTubeClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashTubeClear.Location = new System.Drawing.Point(33, 190);
-            this.fbtnWashTubeClear.Name = "fbtnWashTubeClear";
-            this.fbtnWashTubeClear.Size = new System.Drawing.Size(100, 35);
-            this.fbtnWashTubeClear.TabIndex = 16;
-            this.fbtnWashTubeClear.Text = "清洗盘清空";
-            this.fbtnWashTubeClear.UseVisualStyleBackColor = false;
-            this.fbtnWashTubeClear.Click += new System.EventHandler(this.fbtnWashTubeClear_Click);
-            // 
-            // fbtnWashPressCupReset
-            // 
-            this.fbtnWashPressCupReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashPressCupReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashPressCupReset.BackgroundImage")));
-            this.fbtnWashPressCupReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashPressCupReset.EnabledSet = true;
-            this.fbtnWashPressCupReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashPressCupReset.FlatAppearance.BorderSize = 0;
-            this.fbtnWashPressCupReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashPressCupReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashPressCupReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashPressCupReset.Location = new System.Drawing.Point(206, 129);
-            this.fbtnWashPressCupReset.Name = "fbtnWashPressCupReset";
-            this.fbtnWashPressCupReset.Size = new System.Drawing.Size(100, 35);
-            this.fbtnWashPressCupReset.TabIndex = 3;
-            this.fbtnWashPressCupReset.Text = "压杯电机复位";
-            this.fbtnWashPressCupReset.UseVisualStyleBackColor = false;
-            this.fbtnWashPressCupReset.Click += new System.EventHandler(this.fbtnWashPressCupReset_Click);
-            // 
-            // fbtnWashZReset
-            // 
-            this.fbtnWashZReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashZReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashZReset.BackgroundImage")));
-            this.fbtnWashZReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashZReset.EnabledSet = true;
-            this.fbtnWashZReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashZReset.FlatAppearance.BorderSize = 0;
-            this.fbtnWashZReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashZReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashZReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashZReset.Location = new System.Drawing.Point(33, 129);
-            this.fbtnWashZReset.Name = "fbtnWashZReset";
-            this.fbtnWashZReset.Size = new System.Drawing.Size(100, 35);
-            this.fbtnWashZReset.TabIndex = 2;
-            this.fbtnWashZReset.Text = "Z轴复位";
-            this.fbtnWashZReset.UseVisualStyleBackColor = false;
-            this.fbtnWashZReset.Click += new System.EventHandler(this.fbtnWashZReset_Click);
-            // 
-            // fbtnWashTrayReset
-            // 
-            this.fbtnWashTrayReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTrayReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashTrayReset.BackgroundImage")));
-            this.fbtnWashTrayReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashTrayReset.EnabledSet = true;
-            this.fbtnWashTrayReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashTrayReset.FlatAppearance.BorderSize = 0;
-            this.fbtnWashTrayReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTrayReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTrayReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashTrayReset.Location = new System.Drawing.Point(206, 61);
-            this.fbtnWashTrayReset.Name = "fbtnWashTrayReset";
-            this.fbtnWashTrayReset.Size = new System.Drawing.Size(100, 35);
-            this.fbtnWashTrayReset.TabIndex = 1;
-            this.fbtnWashTrayReset.Text = "清洗盘复位";
-            this.fbtnWashTrayReset.UseVisualStyleBackColor = false;
-            this.fbtnWashTrayReset.Click += new System.EventHandler(this.fbtnWashTrayReset_Click);
-            // 
-            // fbtnWashReset
-            // 
-            this.fbtnWashReset.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashReset.BackgroundImage")));
-            this.fbtnWashReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashReset.EnabledSet = true;
-            this.fbtnWashReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashReset.FlatAppearance.BorderSize = 0;
-            this.fbtnWashReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashReset.Location = new System.Drawing.Point(33, 61);
-            this.fbtnWashReset.Name = "fbtnWashReset";
-            this.fbtnWashReset.Size = new System.Drawing.Size(100, 35);
-            this.fbtnWashReset.TabIndex = 0;
-            this.fbtnWashReset.Text = "全部复位";
-            this.fbtnWashReset.UseVisualStyleBackColor = false;
-            this.fbtnWashReset.Click += new System.EventHandler(this.fbtnWashReset_Click);
             // 
             // groupBox18
             // 
@@ -2954,66 +1756,6 @@
             this.label50.Size = new System.Drawing.Size(49, 14);
             this.label50.TabIndex = 66;
             this.label50.Text = "增量：";
-            // 
-            // fbtnWashSave
-            // 
-            this.fbtnWashSave.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashSave.BackgroundImage")));
-            this.fbtnWashSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashSave.EnabledSet = true;
-            this.fbtnWashSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashSave.FlatAppearance.BorderSize = 0;
-            this.fbtnWashSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashSave.Location = new System.Drawing.Point(33, 147);
-            this.fbtnWashSave.Name = "fbtnWashSave";
-            this.fbtnWashSave.Size = new System.Drawing.Size(57, 23);
-            this.fbtnWashSave.TabIndex = 13;
-            this.fbtnWashSave.Text = "保存";
-            this.fbtnWashSave.UseVisualStyleBackColor = false;
-            this.fbtnWashSave.Click += new System.EventHandler(this.fbtnWashSave_Click);
-            // 
-            // fbtnWashSub
-            // 
-            this.fbtnWashSub.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashSub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashSub.BackgroundImage")));
-            this.fbtnWashSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashSub.EnabledSet = true;
-            this.fbtnWashSub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashSub.FlatAppearance.BorderSize = 0;
-            this.fbtnWashSub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashSub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashSub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashSub.Location = new System.Drawing.Point(248, 115);
-            this.fbtnWashSub.Name = "fbtnWashSub";
-            this.fbtnWashSub.Size = new System.Drawing.Size(22, 23);
-            this.fbtnWashSub.TabIndex = 12;
-            this.fbtnWashSub.Text = "-";
-            this.fbtnWashSub.UseVisualStyleBackColor = false;
-            this.fbtnWashSub.Click += new System.EventHandler(this.fbtnWashSub_Click);
-            // 
-            // fbtnWashAdd
-            // 
-            this.fbtnWashAdd.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashAdd.BackgroundImage")));
-            this.fbtnWashAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashAdd.EnabledSet = true;
-            this.fbtnWashAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashAdd.FlatAppearance.BorderSize = 0;
-            this.fbtnWashAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashAdd.Location = new System.Drawing.Point(206, 114);
-            this.fbtnWashAdd.Name = "fbtnWashAdd";
-            this.fbtnWashAdd.Size = new System.Drawing.Size(23, 23);
-            this.fbtnWashAdd.TabIndex = 11;
-            this.fbtnWashAdd.Text = "+";
-            this.fbtnWashAdd.UseVisualStyleBackColor = false;
-            this.fbtnWashAdd.Click += new System.EventHandler(this.fbtnWashAdd_Click);
             // 
             // cmbWashElecMachine
             // 
@@ -3100,26 +1842,6 @@
             this.textReadShow.Size = new System.Drawing.Size(271, 150);
             this.textReadShow.TabIndex = 69;
             // 
-            // btnReadNum
-            // 
-            this.btnReadNum.BackColor = System.Drawing.Color.Transparent;
-            this.btnReadNum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReadNum.BackgroundImage")));
-            this.btnReadNum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnReadNum.EnabledSet = true;
-            this.btnReadNum.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReadNum.FlatAppearance.BorderSize = 0;
-            this.btnReadNum.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReadNum.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReadNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReadNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnReadNum.Location = new System.Drawing.Point(98, 122);
-            this.btnReadNum.Name = "btnReadNum";
-            this.btnReadNum.Size = new System.Drawing.Size(56, 29);
-            this.btnReadNum.TabIndex = 68;
-            this.btnReadNum.Text = "读数";
-            this.btnReadNum.UseVisualStyleBackColor = false;
-            this.btnReadNum.Click += new System.EventHandler(this.btnReadNum_Click);
-            // 
             // numRepeat
             // 
             this.numRepeat.Location = new System.Drawing.Point(98, 92);
@@ -3184,26 +1906,6 @@
             this.label58.TabIndex = 64;
             this.label58.Text = "旋转次数：";
             // 
-            // btnZx
-            // 
-            this.btnZx.BackColor = System.Drawing.Color.Transparent;
-            this.btnZx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZx.BackgroundImage")));
-            this.btnZx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnZx.EnabledSet = true;
-            this.btnZx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnZx.FlatAppearance.BorderSize = 0;
-            this.btnZx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnZx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnZx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnZx.Location = new System.Drawing.Point(98, 56);
-            this.btnZx.Name = "btnZx";
-            this.btnZx.Size = new System.Drawing.Size(56, 29);
-            this.btnZx.TabIndex = 58;
-            this.btnZx.Text = "执行";
-            this.btnZx.UseVisualStyleBackColor = false;
-            this.btnZx.Click += new System.EventHandler(this.btnZx_Click);
-            // 
             // groupBox21
             // 
             this.groupBox21.Controls.Add(this.cmbConnDelay);
@@ -3227,6 +1929,51 @@
             this.groupBox21.TabIndex = 6;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "烧录程序";
+            // 
+            // cmbConnDelay
+            // 
+            this.cmbConnDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbConnDelay.Enabled = false;
+            this.cmbConnDelay.FormattingEnabled = true;
+            this.cmbConnDelay.Items.AddRange(new object[] {
+            "5000",
+            "10000"});
+            this.cmbConnDelay.Location = new System.Drawing.Point(109, 66);
+            this.cmbConnDelay.Name = "cmbConnDelay";
+            this.cmbConnDelay.Size = new System.Drawing.Size(100, 22);
+            this.cmbConnDelay.TabIndex = 25;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(12, 69);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(98, 14);
+            this.label100.TabIndex = 26;
+            this.label100.Text = "重连等待(ms):";
+            // 
+            // cmbSendDelay
+            // 
+            this.cmbSendDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSendDelay.Enabled = false;
+            this.cmbSendDelay.FormattingEnabled = true;
+            this.cmbSendDelay.Items.AddRange(new object[] {
+            "10",
+            "15",
+            "20"});
+            this.cmbSendDelay.Location = new System.Drawing.Point(336, 66);
+            this.cmbSendDelay.Name = "cmbSendDelay";
+            this.cmbSendDelay.Size = new System.Drawing.Size(100, 22);
+            this.cmbSendDelay.TabIndex = 24;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(240, 69);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(98, 14);
+            this.label99.TabIndex = 23;
+            this.label99.Text = "传输延迟(ms):";
             // 
             // txtFilePath
             // 
@@ -3274,26 +2021,6 @@
             this.lblPercentage.TabIndex = 9;
             this.lblPercentage.Text = "0%";
             // 
-            // btnLoadProgram
-            // 
-            this.btnLoadProgram.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoadProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoadProgram.BackgroundImage")));
-            this.btnLoadProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLoadProgram.EnabledSet = true;
-            this.btnLoadProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLoadProgram.FlatAppearance.BorderSize = 0;
-            this.btnLoadProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLoadProgram.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLoadProgram.Location = new System.Drawing.Point(149, 192);
-            this.btnLoadProgram.Name = "btnLoadProgram";
-            this.btnLoadProgram.Size = new System.Drawing.Size(149, 34);
-            this.btnLoadProgram.TabIndex = 8;
-            this.btnLoadProgram.Text = "烧录程序";
-            this.btnLoadProgram.UseVisualStyleBackColor = false;
-            this.btnLoadProgram.Click += new System.EventHandler(this.btnLoadProgram_Click);
-            // 
             // pgbLoad
             // 
             this.pgbLoad.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -3301,26 +2028,6 @@
             this.pgbLoad.Name = "pgbLoad";
             this.pgbLoad.Size = new System.Drawing.Size(306, 23);
             this.pgbLoad.TabIndex = 7;
-            // 
-            // btnSelectBin
-            // 
-            this.btnSelectBin.BackColor = System.Drawing.Color.Transparent;
-            this.btnSelectBin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelectBin.BackgroundImage")));
-            this.btnSelectBin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSelectBin.EnabledSet = true;
-            this.btnSelectBin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSelectBin.FlatAppearance.BorderSize = 0;
-            this.btnSelectBin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSelectBin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSelectBin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectBin.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSelectBin.Location = new System.Drawing.Point(387, 103);
-            this.btnSelectBin.Name = "btnSelectBin";
-            this.btnSelectBin.Size = new System.Drawing.Size(45, 23);
-            this.btnSelectBin.TabIndex = 6;
-            this.btnSelectBin.Text = "...";
-            this.btnSelectBin.UseVisualStyleBackColor = false;
-            this.btnSelectBin.Click += new System.EventHandler(this.btnSelectBin_Click);
             // 
             // label74
             // 
@@ -3423,26 +2130,6 @@
             this.txtSpCode.Name = "txtSpCode";
             this.txtSpCode.Size = new System.Drawing.Size(177, 23);
             this.txtSpCode.TabIndex = 63;
-            // 
-            // btnScanSpCode
-            // 
-            this.btnScanSpCode.BackColor = System.Drawing.Color.Transparent;
-            this.btnScanSpCode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnScanSpCode.BackgroundImage")));
-            this.btnScanSpCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnScanSpCode.EnabledSet = true;
-            this.btnScanSpCode.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnScanSpCode.FlatAppearance.BorderSize = 0;
-            this.btnScanSpCode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnScanSpCode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnScanSpCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScanSpCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnScanSpCode.Location = new System.Drawing.Point(178, 17);
-            this.btnScanSpCode.Name = "btnScanSpCode";
-            this.btnScanSpCode.Size = new System.Drawing.Size(80, 29);
-            this.btnScanSpCode.TabIndex = 58;
-            this.btnScanSpCode.Text = "读取";
-            this.btnScanSpCode.UseVisualStyleBackColor = false;
-            this.btnScanSpCode.Click += new System.EventHandler(this.btnScanSpCode_Click);
             // 
             // groupBox22
             // 
@@ -3570,26 +2257,6 @@
             this.label60.TabIndex = 1;
             this.label60.Text = "次数：";
             // 
-            // fbtnRead
-            // 
-            this.fbtnRead.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnRead.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnRead.BackgroundImage")));
-            this.fbtnRead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnRead.EnabledSet = true;
-            this.fbtnRead.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnRead.FlatAppearance.BorderSize = 0;
-            this.fbtnRead.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnRead.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnRead.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnRead.Location = new System.Drawing.Point(37, 285);
-            this.fbtnRead.Name = "fbtnRead";
-            this.fbtnRead.Size = new System.Drawing.Size(75, 23);
-            this.fbtnRead.TabIndex = 0;
-            this.fbtnRead.Text = "开始读数";
-            this.fbtnRead.UseVisualStyleBackColor = false;
-            this.fbtnRead.Click += new System.EventHandler(this.fbtnRead_Click);
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox31);
@@ -3712,39 +2379,6 @@
             this.chkQXGL.UseVisualStyleBackColor = true;
             this.chkQXGL.CheckedChanged += new System.EventHandler(this.chkQXGL_CheckedChanged);
             // 
-            // saveTo
-            // 
-            this.saveTo.BackColor = System.Drawing.Color.Transparent;
-            this.saveTo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveTo.BackgroundImage")));
-            this.saveTo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.saveTo.EnabledSet = true;
-            this.saveTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveTo.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.saveTo.Location = new System.Drawing.Point(460, 115);
-            this.saveTo.Name = "saveTo";
-            this.saveTo.Size = new System.Drawing.Size(75, 25);
-            this.saveTo.TabIndex = 13;
-            this.saveTo.Text = "导出到";
-            this.saveTo.UseVisualStyleBackColor = true;
-            this.saveTo.Click += new System.EventHandler(this.saveTo_Click);
-            // 
-            // suspendAndContinue
-            // 
-            this.suspendAndContinue.BackColor = System.Drawing.Color.Transparent;
-            this.suspendAndContinue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("suspendAndContinue.BackgroundImage")));
-            this.suspendAndContinue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.suspendAndContinue.Enabled = false;
-            this.suspendAndContinue.EnabledSet = true;
-            this.suspendAndContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.suspendAndContinue.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.suspendAndContinue.Location = new System.Drawing.Point(460, 68);
-            this.suspendAndContinue.Name = "suspendAndContinue";
-            this.suspendAndContinue.Size = new System.Drawing.Size(75, 25);
-            this.suspendAndContinue.TabIndex = 4;
-            this.suspendAndContinue.Text = "暂停";
-            this.suspendAndContinue.UseVisualStyleBackColor = true;
-            this.suspendAndContinue.Click += new System.EventHandler(this.suspendAndContinue_Click);
-            // 
             // label76
             // 
             this.label76.AutoSize = true;
@@ -3754,22 +2388,6 @@
             this.label76.Size = new System.Drawing.Size(21, 14);
             this.label76.TabIndex = 27;
             this.label76.Text = "℃";
-            // 
-            // beginAndStop
-            // 
-            this.beginAndStop.BackColor = System.Drawing.Color.Transparent;
-            this.beginAndStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("beginAndStop.BackgroundImage")));
-            this.beginAndStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.beginAndStop.EnabledSet = true;
-            this.beginAndStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.beginAndStop.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.beginAndStop.Location = new System.Drawing.Point(460, 23);
-            this.beginAndStop.Name = "beginAndStop";
-            this.beginAndStop.Size = new System.Drawing.Size(75, 25);
-            this.beginAndStop.TabIndex = 3;
-            this.beginAndStop.Text = "开始";
-            this.beginAndStop.UseVisualStyleBackColor = true;
-            this.beginAndStop.Click += new System.EventHandler(this.beginAndStop_Click);
             // 
             // label77
             // 
@@ -3863,141 +2481,141 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackSecondaryColor = System.Drawing.Color.Black;
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea1.AxisX.InterlacedColor = System.Drawing.Color.AntiqueWhite;
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.IsInterlaced = true;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.IsStartedFromZero = false;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisX.MajorTickMark.Enabled = false;
-            chartArea1.AxisX.MajorTickMark.Size = 0.5F;
-            chartArea1.AxisX.Maximum = 100D;
-            chartArea1.AxisX.ScaleView.Zoomable = false;
-            chartArea1.AxisX.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.MediumAquamarine;
-            chartArea1.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
-            chartArea1.AxisX.ScrollBar.Enabled = false;
-            chartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.Title = "采样位点";
-            chartArea1.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea1.AxisX.ToolTip = "采样位点";
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.IsStartedFromZero = false;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
-            chartArea1.AxisY.MajorTickMark.Enabled = false;
-            chartArea1.AxisY.MajorTickMark.Size = 0F;
-            chartArea1.AxisY.Maximum = 40D;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.MinorGrid.Enabled = true;
-            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
-            chartArea1.AxisY.ScrollBar.Enabled = false;
-            chartArea1.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
-            chartArea1.AxisY.Title = "温度";
-            chartArea1.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea1.AxisY.ToolTip = "温度";
-            chartArea1.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY2.MajorGrid.Enabled = false;
-            chartArea1.AxisY2.MajorTickMark.Enabled = false;
-            chartArea1.AxisY2.Maximum = 20D;
-            chartArea1.AxisY2.Minimum = 0D;
-            chartArea1.AxisY2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
-            chartArea1.AxisY2.Title = "试剂盘温度";
-            chartArea1.AxisY2.TitleAlignment = System.Drawing.StringAlignment.Far;
-            chartArea1.AxisY2.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea1.BackColor = System.Drawing.Color.White;
-            chartArea1.BackSecondaryColor = System.Drawing.Color.LightBlue;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 100F;
-            chartArea1.Position.Width = 100F;
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Alignment = System.Drawing.StringAlignment.Center;
-            legend1.BackColor = System.Drawing.Color.White;
-            legend1.BackImageTransparentColor = System.Drawing.Color.White;
-            legend1.BorderWidth = 0;
-            legend1.DockedToChartArea = "ChartArea1";
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend1.MaximumAutoSize = 7F;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea2.AxisX.InterlacedColor = System.Drawing.Color.AntiqueWhite;
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX.IsInterlaced = true;
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.IsStartedFromZero = false;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisX.MajorTickMark.Enabled = false;
+            chartArea2.AxisX.MajorTickMark.Size = 0.5F;
+            chartArea2.AxisX.Maximum = 100D;
+            chartArea2.AxisX.ScaleView.Zoomable = false;
+            chartArea2.AxisX.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            chartArea2.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.MediumAquamarine;
+            chartArea2.AxisX.ScrollBar.ButtonStyle = System.Windows.Forms.DataVisualization.Charting.ScrollBarButtonStyles.SmallScroll;
+            chartArea2.AxisX.ScrollBar.Enabled = false;
+            chartArea2.AxisX.ScrollBar.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.Title = "采样位点";
+            chartArea2.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea2.AxisX.ToolTip = "采样位点";
+            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.IsStartedFromZero = false;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DarkGray;
+            chartArea2.AxisY.MajorTickMark.Enabled = false;
+            chartArea2.AxisY.MajorTickMark.Size = 0F;
+            chartArea2.AxisY.Maximum = 40D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.AxisY.MinorGrid.Enabled = true;
+            chartArea2.AxisY.MinorGrid.LineColor = System.Drawing.Color.LightGray;
+            chartArea2.AxisY.ScrollBar.Enabled = false;
+            chartArea2.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
+            chartArea2.AxisY.Title = "温度";
+            chartArea2.AxisY.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea2.AxisY.ToolTip = "温度";
+            chartArea2.AxisY2.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY2.MajorGrid.Enabled = false;
+            chartArea2.AxisY2.MajorTickMark.Enabled = false;
+            chartArea2.AxisY2.Maximum = 20D;
+            chartArea2.AxisY2.Minimum = 0D;
+            chartArea2.AxisY2.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Stacked;
+            chartArea2.AxisY2.Title = "试剂盘温度";
+            chartArea2.AxisY2.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea2.AxisY2.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea2.BackColor = System.Drawing.Color.White;
+            chartArea2.BackSecondaryColor = System.Drawing.Color.LightBlue;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 100F;
+            chartArea2.Position.Width = 100F;
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Alignment = System.Drawing.StringAlignment.Center;
+            legend2.BackColor = System.Drawing.Color.White;
+            legend2.BackImageTransparentColor = System.Drawing.Color.White;
+            legend2.BorderWidth = 0;
+            legend2.DockedToChartArea = "ChartArea1";
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.MaximumAutoSize = 7F;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(243, 10);
             this.chart1.Margin = new System.Windows.Forms.Padding(0);
             this.chart1.Name = "chart1";
             this.chart1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.LegendText = "试剂盘温度   ";
-            series1.MarkerBorderColor = System.Drawing.Color.Black;
-            series1.MarkerColor = System.Drawing.Color.Black;
-            series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
-            series1.Name = "reagent";
-            series1.XValueMember = "Time";
-            series1.YValueMembers = "Reagent";
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            series2.Legend = "Legend1";
-            series2.LegendText = "温育盘温度   ";
-            series2.MarkerBorderColor = System.Drawing.Color.Black;
-            series2.MarkerColor = System.Drawing.Color.Red;
-            series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series2.Name = "wenyu";
-            series2.XValueMember = "Time";
-            series2.YValueMembers = "Wenyu";
-            series2.YValuesPerPoint = 2;
-            series3.BorderWidth = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.LegendText = "清洗盘温度   ";
-            series3.MarkerBorderColor = System.Drawing.Color.Black;
-            series3.MarkerColor = System.Drawing.Color.Lime;
-            series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series3.Name = "qingxi";
-            series3.XValueMember = "Time";
-            series3.YValueMembers = "Qingxi";
-            series3.YValuesPerPoint = 2;
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.LegendText = "底物温度   ";
-            series4.MarkerBorderColor = System.Drawing.Color.Black;
-            series4.MarkerColor = System.Drawing.Color.Black;
-            series4.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
-            series4.Name = "diwu";
-            series4.XValueMember = "Time";
-            series4.YValueMembers = "Diwu";
-            series5.BorderWidth = 2;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Legend = "Legend1";
-            series5.LegendText = "清洗管路温度";
-            series5.MarkerBorderColor = System.Drawing.Color.Black;
-            series5.MarkerColor = System.Drawing.Color.Black;
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-            series5.Name = "qxgl";
-            series6.ChartArea = "ChartArea1";
-            series6.IsVisibleInLegend = false;
-            series6.Legend = "Legend1";
-            series6.MarkerSize = 2;
-            series6.Name = "nothing";
-            dataPoint1.IsEmpty = true;
-            dataPoint1.IsVisibleInLegend = false;
-            series6.Points.Add(dataPoint1);
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Series.Add(series5);
-            this.chart1.Series.Add(series6);
+            series7.BorderWidth = 2;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series7.Legend = "Legend1";
+            series7.LegendText = "试剂盘温度   ";
+            series7.MarkerBorderColor = System.Drawing.Color.Black;
+            series7.MarkerColor = System.Drawing.Color.Black;
+            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Square;
+            series7.Name = "reagent";
+            series7.XValueMember = "Time";
+            series7.YValueMembers = "Reagent";
+            series8.BorderWidth = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            series8.Legend = "Legend1";
+            series8.LegendText = "温育盘温度   ";
+            series8.MarkerBorderColor = System.Drawing.Color.Black;
+            series8.MarkerColor = System.Drawing.Color.Red;
+            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+            series8.Name = "wenyu";
+            series8.XValueMember = "Time";
+            series8.YValueMembers = "Wenyu";
+            series8.YValuesPerPoint = 2;
+            series9.BorderWidth = 2;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series9.Legend = "Legend1";
+            series9.LegendText = "清洗盘温度   ";
+            series9.MarkerBorderColor = System.Drawing.Color.Black;
+            series9.MarkerColor = System.Drawing.Color.Lime;
+            series9.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series9.Name = "qingxi";
+            series9.XValueMember = "Time";
+            series9.YValueMembers = "Qingxi";
+            series9.YValuesPerPoint = 2;
+            series10.BorderWidth = 2;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series10.Legend = "Legend1";
+            series10.LegendText = "底物温度   ";
+            series10.MarkerBorderColor = System.Drawing.Color.Black;
+            series10.MarkerColor = System.Drawing.Color.Black;
+            series10.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Triangle;
+            series10.Name = "diwu";
+            series10.XValueMember = "Time";
+            series10.YValueMembers = "Diwu";
+            series11.BorderWidth = 2;
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series11.Legend = "Legend1";
+            series11.LegendText = "清洗管路温度";
+            series11.MarkerBorderColor = System.Drawing.Color.Black;
+            series11.MarkerColor = System.Drawing.Color.Black;
+            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series11.Name = "qxgl";
+            series12.ChartArea = "ChartArea1";
+            series12.IsVisibleInLegend = false;
+            series12.Legend = "Legend1";
+            series12.MarkerSize = 2;
+            series12.Name = "nothing";
+            dataPoint2.IsEmpty = true;
+            dataPoint2.IsVisibleInLegend = false;
+            series12.Points.Add(dataPoint2);
+            this.chart1.Series.Add(series7);
+            this.chart1.Series.Add(series8);
+            this.chart1.Series.Add(series9);
+            this.chart1.Series.Add(series10);
+            this.chart1.Series.Add(series11);
+            this.chart1.Series.Add(series12);
             this.chart1.Size = new System.Drawing.Size(565, 281);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "温度变化记录";
@@ -4021,41 +2639,6 @@
             this.groupBox30.TabIndex = 3;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "采样设置";
-            // 
-            // saveSetting
-            // 
-            this.saveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveSetting.BackColor = System.Drawing.Color.Transparent;
-            this.saveSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveSetting.BackgroundImage")));
-            this.saveSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.saveSetting.EnabledSet = true;
-            this.saveSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveSetting.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.saveSetting.Location = new System.Drawing.Point(58, 182);
-            this.saveSetting.Name = "saveSetting";
-            this.saveSetting.Size = new System.Drawing.Size(75, 25);
-            this.saveSetting.TabIndex = 21;
-            this.saveSetting.Text = "更改设置";
-            this.saveSetting.UseVisualStyleBackColor = true;
-            this.saveSetting.Click += new System.EventHandler(this.saveSetting_Click);
-            // 
-            // restore
-            // 
-            this.restore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.restore.BackColor = System.Drawing.Color.Transparent;
-            this.restore.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("restore.BackgroundImage")));
-            this.restore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.restore.Enabled = false;
-            this.restore.EnabledSet = true;
-            this.restore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.restore.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.restore.Location = new System.Drawing.Point(146, 182);
-            this.restore.Name = "restore";
-            this.restore.Size = new System.Drawing.Size(75, 25);
-            this.restore.TabIndex = 22;
-            this.restore.Text = "取消";
-            this.restore.UseVisualStyleBackColor = true;
-            this.restore.Click += new System.EventHandler(this.restore_Click);
             // 
             // numUp
             // 
@@ -4218,26 +2801,6 @@
             this.groupBox29.TabStop = false;
             this.groupBox29.Text = "温控设置";
             // 
-            // btnSelect
-            // 
-            this.btnSelect.BackColor = System.Drawing.Color.Transparent;
-            this.btnSelect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelect.BackgroundImage")));
-            this.btnSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSelect.EnabledSet = true;
-            this.btnSelect.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSelect.FlatAppearance.BorderSize = 0;
-            this.btnSelect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSelect.Location = new System.Drawing.Point(94, 160);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(57, 23);
-            this.btnSelect.TabIndex = 70;
-            this.btnSelect.Text = "查询";
-            this.btnSelect.UseVisualStyleBackColor = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
             // txtStandard
             // 
             this.txtStandard.Location = new System.Drawing.Point(85, 114);
@@ -4254,26 +2817,6 @@
             this.label10.Size = new System.Drawing.Size(63, 14);
             this.label10.TabIndex = 68;
             this.label10.Text = "校准值：";
-            // 
-            // btnmakeStandard
-            // 
-            this.btnmakeStandard.BackColor = System.Drawing.Color.Transparent;
-            this.btnmakeStandard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnmakeStandard.BackgroundImage")));
-            this.btnmakeStandard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnmakeStandard.EnabledSet = true;
-            this.btnmakeStandard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnmakeStandard.FlatAppearance.BorderSize = 0;
-            this.btnmakeStandard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnmakeStandard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnmakeStandard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmakeStandard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnmakeStandard.Location = new System.Drawing.Point(157, 160);
-            this.btnmakeStandard.Name = "btnmakeStandard";
-            this.btnmakeStandard.Size = new System.Drawing.Size(57, 23);
-            this.btnmakeStandard.TabIndex = 13;
-            this.btnmakeStandard.Text = "执行";
-            this.btnmakeStandard.UseVisualStyleBackColor = false;
-            this.btnmakeStandard.Click += new System.EventHandler(this.makeStandard_Click);
             // 
             // cmbStep
             // 
@@ -4401,26 +2944,6 @@
             this.rbtnRunLightOpen.Text = "运行灯打开";
             this.rbtnRunLightOpen.UseVisualStyleBackColor = true;
             // 
-            // btnQuatoState
-            // 
-            this.btnQuatoState.BackColor = System.Drawing.Color.Transparent;
-            this.btnQuatoState.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuatoState.BackgroundImage")));
-            this.btnQuatoState.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnQuatoState.EnabledSet = true;
-            this.btnQuatoState.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnQuatoState.FlatAppearance.BorderSize = 0;
-            this.btnQuatoState.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnQuatoState.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnQuatoState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuatoState.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnQuatoState.Location = new System.Drawing.Point(33, 182);
-            this.btnQuatoState.Name = "btnQuatoState";
-            this.btnQuatoState.Size = new System.Drawing.Size(71, 28);
-            this.btnQuatoState.TabIndex = 58;
-            this.btnQuatoState.Text = "开始";
-            this.btnQuatoState.UseVisualStyleBackColor = false;
-            this.btnQuatoState.Click += new System.EventHandler(this.functionButton1_Click);
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -4513,26 +3036,6 @@
             this.lblTestSamPos.Size = new System.Drawing.Size(63, 14);
             this.lblTestSamPos.TabIndex = 0;
             this.lblTestSamPos.Text = "样本位：";
-            // 
-            // fbtnTestStart
-            // 
-            this.fbtnTestStart.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnTestStart.BackgroundImage")));
-            this.fbtnTestStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnTestStart.EnabledSet = true;
-            this.fbtnTestStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnTestStart.FlatAppearance.BorderSize = 0;
-            this.fbtnTestStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnTestStart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnTestStart.Location = new System.Drawing.Point(9, 144);
-            this.fbtnTestStart.Name = "fbtnTestStart";
-            this.fbtnTestStart.Size = new System.Drawing.Size(71, 28);
-            this.fbtnTestStart.TabIndex = 74;
-            this.fbtnTestStart.Text = "开始";
-            this.fbtnTestStart.UseVisualStyleBackColor = false;
-            this.fbtnTestStart.Click += new System.EventHandler(this.fbtnTestStart_Click);
             // 
             // txtTestPos
             // 
@@ -4934,26 +3437,6 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "操作";
             // 
-            // fbtnWashTestStart
-            // 
-            this.fbtnWashTestStart.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTestStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashTestStart.BackgroundImage")));
-            this.fbtnWashTestStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashTestStart.EnabledSet = true;
-            this.fbtnWashTestStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashTestStart.FlatAppearance.BorderSize = 0;
-            this.fbtnWashTestStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTestStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashTestStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashTestStart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashTestStart.Location = new System.Drawing.Point(6, 163);
-            this.fbtnWashTestStart.Name = "fbtnWashTestStart";
-            this.fbtnWashTestStart.Size = new System.Drawing.Size(71, 28);
-            this.fbtnWashTestStart.TabIndex = 96;
-            this.fbtnWashTestStart.Text = "开始";
-            this.fbtnWashTestStart.UseVisualStyleBackColor = false;
-            this.fbtnWashTestStart.Click += new System.EventHandler(this.fbtnWashTestStart_Click);
-            // 
             // chbWashExport
             // 
             this.chbWashExport.AutoSize = true;
@@ -5000,26 +3483,6 @@
             this.cmbwash.Name = "cmbwash";
             this.cmbwash.Size = new System.Drawing.Size(44, 22);
             this.cmbwash.TabIndex = 59;
-            // 
-            // fbtnPerfusionStart
-            // 
-            this.fbtnPerfusionStart.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnPerfusionStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPerfusionStart.BackgroundImage")));
-            this.fbtnPerfusionStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnPerfusionStart.EnabledSet = true;
-            this.fbtnPerfusionStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnPerfusionStart.FlatAppearance.BorderSize = 0;
-            this.fbtnPerfusionStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPerfusionStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPerfusionStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnPerfusionStart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnPerfusionStart.Location = new System.Drawing.Point(16, 182);
-            this.fbtnPerfusionStart.Name = "fbtnPerfusionStart";
-            this.fbtnPerfusionStart.Size = new System.Drawing.Size(71, 28);
-            this.fbtnPerfusionStart.TabIndex = 58;
-            this.fbtnPerfusionStart.Text = "开始";
-            this.fbtnPerfusionStart.UseVisualStyleBackColor = false;
-            this.fbtnPerfusionStart.Click += new System.EventHandler(this.fbtnPerfusionStart_Click);
             // 
             // label18
             // 
@@ -5202,45 +3665,6 @@
             this.groupBox28.TabStop = false;
             this.groupBox28.Text = "清洗盘";
             // 
-            // fbtnWashAgingStop
-            // 
-            this.fbtnWashAgingStop.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAgingStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashAgingStop.BackgroundImage")));
-            this.fbtnWashAgingStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashAgingStop.Enabled = false;
-            this.fbtnWashAgingStop.EnabledSet = true;
-            this.fbtnWashAgingStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashAgingStop.FlatAppearance.BorderSize = 0;
-            this.fbtnWashAgingStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAgingStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAgingStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashAgingStop.Location = new System.Drawing.Point(165, 226);
-            this.fbtnWashAgingStop.Name = "fbtnWashAgingStop";
-            this.fbtnWashAgingStop.Size = new System.Drawing.Size(75, 23);
-            this.fbtnWashAgingStop.TabIndex = 16;
-            this.fbtnWashAgingStop.Text = "停止";
-            this.fbtnWashAgingStop.UseVisualStyleBackColor = false;
-            this.fbtnWashAgingStop.Click += new System.EventHandler(this.fbtnWashAgingStop_Click);
-            // 
-            // fbtnWashAgingStart
-            // 
-            this.fbtnWashAgingStart.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAgingStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashAgingStart.BackgroundImage")));
-            this.fbtnWashAgingStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnWashAgingStart.EnabledSet = true;
-            this.fbtnWashAgingStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnWashAgingStart.FlatAppearance.BorderSize = 0;
-            this.fbtnWashAgingStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAgingStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnWashAgingStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnWashAgingStart.Location = new System.Drawing.Point(6, 226);
-            this.fbtnWashAgingStart.Name = "fbtnWashAgingStart";
-            this.fbtnWashAgingStart.Size = new System.Drawing.Size(75, 23);
-            this.fbtnWashAgingStart.TabIndex = 15;
-            this.fbtnWashAgingStart.Text = "开始";
-            this.fbtnWashAgingStart.UseVisualStyleBackColor = false;
-            this.fbtnWashAgingStart.Click += new System.EventHandler(this.fbtnWashAgingStart_Click);
-            // 
             // chbWashIsTube
             // 
             this.chbWashIsTube.AutoSize = true;
@@ -5348,45 +3772,6 @@
             this.chbArmIsTube.TabIndex = 11;
             this.chbArmIsTube.Text = "是否需夹反应管";
             this.chbArmIsTube.UseVisualStyleBackColor = true;
-            // 
-            // fbtnArmAgingStop
-            // 
-            this.fbtnArmAgingStop.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnArmAgingStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnArmAgingStop.BackgroundImage")));
-            this.fbtnArmAgingStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnArmAgingStop.Enabled = false;
-            this.fbtnArmAgingStop.EnabledSet = true;
-            this.fbtnArmAgingStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnArmAgingStop.FlatAppearance.BorderSize = 0;
-            this.fbtnArmAgingStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnArmAgingStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnArmAgingStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnArmAgingStop.Location = new System.Drawing.Point(165, 226);
-            this.fbtnArmAgingStop.Name = "fbtnArmAgingStop";
-            this.fbtnArmAgingStop.Size = new System.Drawing.Size(75, 23);
-            this.fbtnArmAgingStop.TabIndex = 10;
-            this.fbtnArmAgingStop.Text = "停止";
-            this.fbtnArmAgingStop.UseVisualStyleBackColor = false;
-            this.fbtnArmAgingStop.Click += new System.EventHandler(this.fbtnArmAgingStop_Click);
-            // 
-            // fbtnArmAgingStart
-            // 
-            this.fbtnArmAgingStart.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnArmAgingStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnArmAgingStart.BackgroundImage")));
-            this.fbtnArmAgingStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnArmAgingStart.EnabledSet = true;
-            this.fbtnArmAgingStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnArmAgingStart.FlatAppearance.BorderSize = 0;
-            this.fbtnArmAgingStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnArmAgingStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnArmAgingStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnArmAgingStart.Location = new System.Drawing.Point(6, 226);
-            this.fbtnArmAgingStart.Name = "fbtnArmAgingStart";
-            this.fbtnArmAgingStart.Size = new System.Drawing.Size(75, 23);
-            this.fbtnArmAgingStart.TabIndex = 9;
-            this.fbtnArmAgingStart.Text = "开始";
-            this.fbtnArmAgingStart.UseVisualStyleBackColor = false;
-            this.fbtnArmAgingStart.Click += new System.EventHandler(this.fbtnArmAgingStart_Click);
             // 
             // txtArmAgingNum
             // 
@@ -5502,45 +3887,6 @@
             this.label31.Text = "管架位置：";
             this.label31.Visible = false;
             // 
-            // fbtnMoveAgingStop
-            // 
-            this.fbtnMoveAgingStop.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnMoveAgingStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMoveAgingStop.BackgroundImage")));
-            this.fbtnMoveAgingStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnMoveAgingStop.Enabled = false;
-            this.fbtnMoveAgingStop.EnabledSet = true;
-            this.fbtnMoveAgingStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnMoveAgingStop.FlatAppearance.BorderSize = 0;
-            this.fbtnMoveAgingStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMoveAgingStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMoveAgingStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnMoveAgingStop.Location = new System.Drawing.Point(143, 226);
-            this.fbtnMoveAgingStop.Name = "fbtnMoveAgingStop";
-            this.fbtnMoveAgingStop.Size = new System.Drawing.Size(75, 23);
-            this.fbtnMoveAgingStop.TabIndex = 6;
-            this.fbtnMoveAgingStop.Text = "停止";
-            this.fbtnMoveAgingStop.UseVisualStyleBackColor = false;
-            this.fbtnMoveAgingStop.Click += new System.EventHandler(this.fbtnMoveAgingStop_Click);
-            // 
-            // fbtnMoveAgingStart
-            // 
-            this.fbtnMoveAgingStart.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnMoveAgingStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMoveAgingStart.BackgroundImage")));
-            this.fbtnMoveAgingStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnMoveAgingStart.EnabledSet = true;
-            this.fbtnMoveAgingStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnMoveAgingStart.FlatAppearance.BorderSize = 0;
-            this.fbtnMoveAgingStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMoveAgingStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnMoveAgingStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnMoveAgingStart.Location = new System.Drawing.Point(6, 226);
-            this.fbtnMoveAgingStart.Name = "fbtnMoveAgingStart";
-            this.fbtnMoveAgingStart.Size = new System.Drawing.Size(75, 23);
-            this.fbtnMoveAgingStart.TabIndex = 5;
-            this.fbtnMoveAgingStart.Text = "开始";
-            this.fbtnMoveAgingStart.UseVisualStyleBackColor = false;
-            this.fbtnMoveAgingStart.Click += new System.EventHandler(this.fbtnMoveAgingStart_Click);
-            // 
             // txtmoveNum
             // 
             this.txtmoveNum.IsNull = false;
@@ -5603,13 +3949,14 @@
             // 
             // versionQuery
             // 
+            this.versionQuery.Controls.Add(this.groupBox43);
             this.versionQuery.Controls.Add(this.groupBox40);
             this.versionQuery.Location = new System.Drawing.Point(4, 4);
             this.versionQuery.Name = "versionQuery";
             this.versionQuery.Padding = new System.Windows.Forms.Padding(3);
             this.versionQuery.Size = new System.Drawing.Size(808, 456);
             this.versionQuery.TabIndex = 12;
-            this.versionQuery.Text = "版本号";
+            this.versionQuery.Text = "版本号/工具";
             this.versionQuery.UseVisualStyleBackColor = true;
             // 
             // groupBox40
@@ -5774,25 +4121,6 @@
             this.label95.TabIndex = 50;
             this.label95.Text = "报警模组：";
             // 
-            // btnVersion
-            // 
-            this.btnVersion.BackColor = System.Drawing.Color.Transparent;
-            this.btnVersion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVersion.BackgroundImage")));
-            this.btnVersion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVersion.EnabledSet = true;
-            this.btnVersion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnVersion.FlatAppearance.BorderSize = 0;
-            this.btnVersion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnVersion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnVersion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVersion.Location = new System.Drawing.Point(110, 297);
-            this.btnVersion.Name = "btnVersion";
-            this.btnVersion.Size = new System.Drawing.Size(75, 23);
-            this.btnVersion.TabIndex = 2;
-            this.btnVersion.Text = "查询";
-            this.btnVersion.UseVisualStyleBackColor = false;
-            this.btnVersion.Click += new System.EventHandler(this.BtnVersion_Click);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox41);
@@ -5927,44 +4255,6 @@
             this.label73.Text = "取样次数：";
             this.label73.Visible = false;
             // 
-            // fbtnExportToOldFile
-            // 
-            this.fbtnExportToOldFile.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnExportToOldFile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnExportToOldFile.BackgroundImage")));
-            this.fbtnExportToOldFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnExportToOldFile.EnabledSet = true;
-            this.fbtnExportToOldFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnExportToOldFile.FlatAppearance.BorderSize = 0;
-            this.fbtnExportToOldFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnExportToOldFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnExportToOldFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnExportToOldFile.Location = new System.Drawing.Point(706, 244);
-            this.fbtnExportToOldFile.Name = "fbtnExportToOldFile";
-            this.fbtnExportToOldFile.Size = new System.Drawing.Size(75, 23);
-            this.fbtnExportToOldFile.TabIndex = 21;
-            this.fbtnExportToOldFile.Text = "导出记录";
-            this.fbtnExportToOldFile.UseVisualStyleBackColor = false;
-            this.fbtnExportToOldFile.Click += new System.EventHandler(this.FbtnExportToOldFile_Click);
-            // 
-            // fbtnexp
-            // 
-            this.fbtnexp.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnexp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnexp.BackgroundImage")));
-            this.fbtnexp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnexp.EnabledSet = true;
-            this.fbtnexp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnexp.FlatAppearance.BorderSize = 0;
-            this.fbtnexp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnexp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnexp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnexp.Location = new System.Drawing.Point(625, 244);
-            this.fbtnexp.Name = "fbtnexp";
-            this.fbtnexp.Size = new System.Drawing.Size(75, 23);
-            this.fbtnexp.TabIndex = 20;
-            this.fbtnexp.Text = "导出文件";
-            this.fbtnexp.UseVisualStyleBackColor = false;
-            this.fbtnexp.Click += new System.EventHandler(this.Fbtnexp_Click);
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(399, 22);
@@ -5974,26 +4264,6 @@
             this.textBox3.Size = new System.Drawing.Size(382, 211);
             this.textBox3.TabIndex = 18;
             this.textBox3.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
-            // 
-            // fbtnTestsStop
-            // 
-            this.fbtnTestsStop.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestsStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnTestsStop.BackgroundImage")));
-            this.fbtnTestsStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnTestsStop.Enabled = false;
-            this.fbtnTestsStop.EnabledSet = true;
-            this.fbtnTestsStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnTestsStop.FlatAppearance.BorderSize = 0;
-            this.fbtnTestsStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestsStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestsStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnTestsStop.Location = new System.Drawing.Point(211, 239);
-            this.fbtnTestsStop.Name = "fbtnTestsStop";
-            this.fbtnTestsStop.Size = new System.Drawing.Size(75, 23);
-            this.fbtnTestsStop.TabIndex = 17;
-            this.fbtnTestsStop.Text = "停止";
-            this.fbtnTestsStop.UseVisualStyleBackColor = false;
-            this.fbtnTestsStop.Click += new System.EventHandler(this.FbtnTestsStop_Click);
             // 
             // cmbTestName
             // 
@@ -6089,25 +4359,6 @@
             this.untxtSampleVol.TabIndex = 11;
             this.untxtSampleVol.Text = "10";
             // 
-            // fbtnTestS
-            // 
-            this.fbtnTestS.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnTestS.BackgroundImage")));
-            this.fbtnTestS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnTestS.EnabledSet = true;
-            this.fbtnTestS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnTestS.FlatAppearance.BorderSize = 0;
-            this.fbtnTestS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnTestS.Location = new System.Drawing.Point(93, 239);
-            this.fbtnTestS.Name = "fbtnTestS";
-            this.fbtnTestS.Size = new System.Drawing.Size(75, 23);
-            this.fbtnTestS.TabIndex = 10;
-            this.fbtnTestS.Text = "开始";
-            this.fbtnTestS.UseVisualStyleBackColor = false;
-            this.fbtnTestS.Click += new System.EventHandler(this.FbtnTestS_Click);
-            // 
             // label83
             // 
             this.label83.AutoSize = true;
@@ -6195,50 +4446,1832 @@
             this.label89.TabIndex = 4;
             this.label89.Text = "温育盘放管孔位:";
             // 
-            // cmbConnDelay
+            // btnBQLiquaid
             // 
-            this.cmbConnDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbConnDelay.Enabled = false;
-            this.cmbConnDelay.FormattingEnabled = true;
-            this.cmbConnDelay.Items.AddRange(new object[] {
-            "5000",
-            "10000"});
-            this.cmbConnDelay.Location = new System.Drawing.Point(109, 66);
-            this.cmbConnDelay.Name = "cmbConnDelay";
-            this.cmbConnDelay.Size = new System.Drawing.Size(100, 22);
-            this.cmbConnDelay.TabIndex = 25;
+            this.btnBQLiquaid.BackColor = System.Drawing.Color.Transparent;
+            this.btnBQLiquaid.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBQLiquaid.BackgroundImage")));
+            this.btnBQLiquaid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBQLiquaid.EnabledSet = true;
+            this.btnBQLiquaid.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnBQLiquaid.FlatAppearance.BorderSize = 0;
+            this.btnBQLiquaid.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBQLiquaid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBQLiquaid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBQLiquaid.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnBQLiquaid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnBQLiquaid.Location = new System.Drawing.Point(25, 346);
+            this.btnBQLiquaid.Name = "btnBQLiquaid";
+            this.btnBQLiquaid.Size = new System.Drawing.Size(130, 60);
+            this.btnBQLiquaid.TabIndex = 25;
+            this.btnBQLiquaid.Text = "打开报警查询";
+            this.btnBQLiquaid.UseVisualStyleBackColor = false;
+            this.btnBQLiquaid.Click += new System.EventHandler(this.btnBQLiquaid_Click);
             // 
-            // label100
+            // fbtnGroupTest
             // 
-            this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(12, 69);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(98, 14);
-            this.label100.TabIndex = 26;
-            this.label100.Text = "重连等待(ms):";
+            this.fbtnGroupTest.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnGroupTest.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnGroupTest.BackgroundImage")));
+            this.fbtnGroupTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnGroupTest.EnabledSet = true;
+            this.fbtnGroupTest.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnGroupTest.FlatAppearance.BorderSize = 0;
+            this.fbtnGroupTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnGroupTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnGroupTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnGroupTest.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.fbtnGroupTest.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnGroupTest.Location = new System.Drawing.Point(25, 239);
+            this.fbtnGroupTest.Name = "fbtnGroupTest";
+            this.fbtnGroupTest.Size = new System.Drawing.Size(130, 60);
+            this.fbtnGroupTest.TabIndex = 24;
+            this.fbtnGroupTest.Text = "组合测试";
+            this.fbtnGroupTest.UseVisualStyleBackColor = false;
+            this.fbtnGroupTest.Click += new System.EventHandler(this.fbtnGroupTest_Click);
             // 
-            // cmbSendDelay
+            // fbtnReturn
             // 
-            this.cmbSendDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSendDelay.Enabled = false;
-            this.cmbSendDelay.FormattingEnabled = true;
-            this.cmbSendDelay.Items.AddRange(new object[] {
-            "10",
-            "15",
-            "20"});
-            this.cmbSendDelay.Location = new System.Drawing.Point(336, 66);
-            this.cmbSendDelay.Name = "cmbSendDelay";
-            this.cmbSendDelay.Size = new System.Drawing.Size(100, 22);
-            this.cmbSendDelay.TabIndex = 24;
+            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnReturn.BackgroundImage")));
+            this.fbtnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnReturn.EnabledSet = true;
+            this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnReturn.FlatAppearance.BorderSize = 0;
+            this.fbtnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnReturn.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.fbtnReturn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnReturn.Location = new System.Drawing.Point(25, 425);
+            this.fbtnReturn.Name = "fbtnReturn";
+            this.fbtnReturn.Size = new System.Drawing.Size(130, 60);
+            this.fbtnReturn.TabIndex = 22;
+            this.fbtnReturn.Text = "返回";
+            this.fbtnReturn.UseVisualStyleBackColor = false;
+            this.fbtnReturn.Click += new System.EventHandler(this.fbtnReturn_Click);
             // 
-            // label99
+            // fbtnInstruDiagnost
             // 
-            this.label99.AutoSize = true;
-            this.label99.Location = new System.Drawing.Point(240, 69);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(98, 14);
-            this.label99.TabIndex = 23;
-            this.label99.Text = "传输延迟(ms):";
+            this.fbtnInstruDiagnost.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnInstruDiagnost.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInstruDiagnost.BackgroundImage")));
+            this.fbtnInstruDiagnost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnInstruDiagnost.Enabled = false;
+            this.fbtnInstruDiagnost.EnabledSet = true;
+            this.fbtnInstruDiagnost.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnInstruDiagnost.FlatAppearance.BorderSize = 0;
+            this.fbtnInstruDiagnost.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInstruDiagnost.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInstruDiagnost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnInstruDiagnost.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.fbtnInstruDiagnost.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnInstruDiagnost.Location = new System.Drawing.Point(25, 132);
+            this.fbtnInstruDiagnost.Name = "fbtnInstruDiagnost";
+            this.fbtnInstruDiagnost.Size = new System.Drawing.Size(130, 60);
+            this.fbtnInstruDiagnost.TabIndex = 19;
+            this.fbtnInstruDiagnost.Text = "仪器调试";
+            this.fbtnInstruDiagnost.UseVisualStyleBackColor = false;
+            // 
+            // fbtnInstruMaintenance
+            // 
+            this.fbtnInstruMaintenance.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnInstruMaintenance.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInstruMaintenance.BackgroundImage")));
+            this.fbtnInstruMaintenance.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnInstruMaintenance.EnabledSet = true;
+            this.fbtnInstruMaintenance.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnInstruMaintenance.FlatAppearance.BorderSize = 0;
+            this.fbtnInstruMaintenance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInstruMaintenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInstruMaintenance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnInstruMaintenance.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold);
+            this.fbtnInstruMaintenance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnInstruMaintenance.Location = new System.Drawing.Point(25, 25);
+            this.fbtnInstruMaintenance.Name = "fbtnInstruMaintenance";
+            this.fbtnInstruMaintenance.Size = new System.Drawing.Size(130, 60);
+            this.fbtnInstruMaintenance.TabIndex = 18;
+            this.fbtnInstruMaintenance.Text = "仪器维护";
+            this.fbtnInstruMaintenance.UseVisualStyleBackColor = false;
+            this.fbtnInstruMaintenance.Click += new System.EventHandler(this.fbtnInstruMaintenance_Click);
+            // 
+            // fbtnAsPumpEx
+            // 
+            this.fbtnAsPumpEx.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsPumpEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsPumpEx.BackgroundImage")));
+            this.fbtnAsPumpEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnAsPumpEx.EnabledSet = true;
+            this.fbtnAsPumpEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAsPumpEx.FlatAppearance.BorderSize = 0;
+            this.fbtnAsPumpEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsPumpEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsPumpEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnAsPumpEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnAsPumpEx.Location = new System.Drawing.Point(298, 31);
+            this.fbtnAsPumpEx.Name = "fbtnAsPumpEx";
+            this.fbtnAsPumpEx.Size = new System.Drawing.Size(85, 25);
+            this.fbtnAsPumpEx.TabIndex = 57;
+            this.fbtnAsPumpEx.Text = "执行";
+            this.fbtnAsPumpEx.UseVisualStyleBackColor = false;
+            this.fbtnAsPumpEx.Click += new System.EventHandler(this.fbtnAsPumpEx_Click);
+            // 
+            // fbtnAsArmXEx
+            // 
+            this.fbtnAsArmXEx.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsArmXEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsArmXEx.BackgroundImage")));
+            this.fbtnAsArmXEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnAsArmXEx.EnabledSet = true;
+            this.fbtnAsArmXEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAsArmXEx.FlatAppearance.BorderSize = 0;
+            this.fbtnAsArmXEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsArmXEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsArmXEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnAsArmXEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnAsArmXEx.Location = new System.Drawing.Point(298, 24);
+            this.fbtnAsArmXEx.Name = "fbtnAsArmXEx";
+            this.fbtnAsArmXEx.Size = new System.Drawing.Size(85, 25);
+            this.fbtnAsArmXEx.TabIndex = 57;
+            this.fbtnAsArmXEx.Text = "执行";
+            this.fbtnAsArmXEx.UseVisualStyleBackColor = false;
+            this.fbtnAsArmXEx.Click += new System.EventHandler(this.fbtnAsArmXEx_Click);
+            // 
+            // btnRegentTrayEx
+            // 
+            this.btnRegentTrayEx.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegentTrayEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRegentTrayEx.BackgroundImage")));
+            this.btnRegentTrayEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRegentTrayEx.EnabledSet = true;
+            this.btnRegentTrayEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRegentTrayEx.FlatAppearance.BorderSize = 0;
+            this.btnRegentTrayEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRegentTrayEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRegentTrayEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegentTrayEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnRegentTrayEx.Location = new System.Drawing.Point(298, 24);
+            this.btnRegentTrayEx.Name = "btnRegentTrayEx";
+            this.btnRegentTrayEx.Size = new System.Drawing.Size(85, 25);
+            this.btnRegentTrayEx.TabIndex = 57;
+            this.btnRegentTrayEx.Text = "执行";
+            this.btnRegentTrayEx.UseVisualStyleBackColor = false;
+            this.btnRegentTrayEx.Click += new System.EventHandler(this.btnRegentTrayEx_Click);
+            // 
+            // fbtnAdArmZEx
+            // 
+            this.fbtnAdArmZEx.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAdArmZEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAdArmZEx.BackgroundImage")));
+            this.fbtnAdArmZEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnAdArmZEx.EnabledSet = true;
+            this.fbtnAdArmZEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAdArmZEx.FlatAppearance.BorderSize = 0;
+            this.fbtnAdArmZEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAdArmZEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAdArmZEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnAdArmZEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnAdArmZEx.Location = new System.Drawing.Point(298, 24);
+            this.fbtnAdArmZEx.Name = "fbtnAdArmZEx";
+            this.fbtnAdArmZEx.Size = new System.Drawing.Size(85, 25);
+            this.fbtnAdArmZEx.TabIndex = 57;
+            this.fbtnAdArmZEx.Text = "执行";
+            this.fbtnAdArmZEx.UseVisualStyleBackColor = false;
+            this.fbtnAdArmZEx.Click += new System.EventHandler(this.fbtnAdArmZEx_Click);
+            // 
+            // btnOrderSend
+            // 
+            this.btnOrderSend.BackColor = System.Drawing.Color.Transparent;
+            this.btnOrderSend.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrderSend.BackgroundImage")));
+            this.btnOrderSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOrderSend.EnabledSet = true;
+            this.btnOrderSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnOrderSend.FlatAppearance.BorderSize = 0;
+            this.btnOrderSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnOrderSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnOrderSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrderSend.Location = new System.Drawing.Point(176, 19);
+            this.btnOrderSend.Name = "btnOrderSend";
+            this.btnOrderSend.Size = new System.Drawing.Size(92, 23);
+            this.btnOrderSend.TabIndex = 1;
+            this.btnOrderSend.Text = "发送";
+            this.btnOrderSend.UseVisualStyleBackColor = false;
+            this.btnOrderSend.Click += new System.EventHandler(this.BtnOrderSend_Click);
+            // 
+            // fbtnregentReset
+            // 
+            this.fbtnregentReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnregentReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnregentReset.BackgroundImage")));
+            this.fbtnregentReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnregentReset.EnabledSet = true;
+            this.fbtnregentReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnregentReset.FlatAppearance.BorderSize = 0;
+            this.fbtnregentReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnregentReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnregentReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnregentReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnregentReset.Location = new System.Drawing.Point(19, 159);
+            this.fbtnregentReset.Name = "fbtnregentReset";
+            this.fbtnregentReset.Size = new System.Drawing.Size(100, 25);
+            this.fbtnregentReset.TabIndex = 14;
+            this.fbtnregentReset.Text = "试剂盘复位";
+            this.fbtnregentReset.UseVisualStyleBackColor = false;
+            this.fbtnregentReset.Click += new System.EventHandler(this.fbtnregentReset_Click);
+            // 
+            // fbtnSamReset
+            // 
+            this.fbtnSamReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnSamReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnSamReset.BackgroundImage")));
+            this.fbtnSamReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnSamReset.EnabledSet = true;
+            this.fbtnSamReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnSamReset.FlatAppearance.BorderSize = 0;
+            this.fbtnSamReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnSamReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnSamReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnSamReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnSamReset.Location = new System.Drawing.Point(170, 105);
+            this.fbtnSamReset.Name = "fbtnSamReset";
+            this.fbtnSamReset.Size = new System.Drawing.Size(100, 25);
+            this.fbtnSamReset.TabIndex = 13;
+            this.fbtnSamReset.Text = "样品盘复位";
+            this.fbtnSamReset.UseVisualStyleBackColor = false;
+            this.fbtnSamReset.Click += new System.EventHandler(this.fbtnSamReset_Click);
+            // 
+            // fbtnAsMixArm
+            // 
+            this.fbtnAsMixArm.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsMixArm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsMixArm.BackgroundImage")));
+            this.fbtnAsMixArm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnAsMixArm.EnabledSet = true;
+            this.fbtnAsMixArm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAsMixArm.FlatAppearance.BorderSize = 0;
+            this.fbtnAsMixArm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsMixArm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsMixArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnAsMixArm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnAsMixArm.Location = new System.Drawing.Point(170, 159);
+            this.fbtnAsMixArm.Name = "fbtnAsMixArm";
+            this.fbtnAsMixArm.Size = new System.Drawing.Size(100, 25);
+            this.fbtnAsMixArm.TabIndex = 12;
+            this.fbtnAsMixArm.Text = "混匀臂正转";
+            this.fbtnAsMixArm.UseVisualStyleBackColor = false;
+            this.fbtnAsMixArm.Visible = false;
+            this.fbtnAsMixArm.Click += new System.EventHandler(this.fbtnAsMixArm_Click);
+            // 
+            // fbtnAsXReset
+            // 
+            this.fbtnAsXReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsXReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsXReset.BackgroundImage")));
+            this.fbtnAsXReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnAsXReset.EnabledSet = true;
+            this.fbtnAsXReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAsXReset.FlatAppearance.BorderSize = 0;
+            this.fbtnAsXReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsXReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsXReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnAsXReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnAsXReset.Location = new System.Drawing.Point(170, 50);
+            this.fbtnAsXReset.Name = "fbtnAsXReset";
+            this.fbtnAsXReset.Size = new System.Drawing.Size(100, 25);
+            this.fbtnAsXReset.TabIndex = 5;
+            this.fbtnAsXReset.Text = "旋转轴复位";
+            this.fbtnAsXReset.UseVisualStyleBackColor = false;
+            this.fbtnAsXReset.Click += new System.EventHandler(this.fbtnAsXReset_Click);
+            // 
+            // fbtnAsZReset
+            // 
+            this.fbtnAsZReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsZReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsZReset.BackgroundImage")));
+            this.fbtnAsZReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnAsZReset.EnabledSet = true;
+            this.fbtnAsZReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAsZReset.FlatAppearance.BorderSize = 0;
+            this.fbtnAsZReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsZReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsZReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnAsZReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnAsZReset.Location = new System.Drawing.Point(19, 105);
+            this.fbtnAsZReset.Name = "fbtnAsZReset";
+            this.fbtnAsZReset.Size = new System.Drawing.Size(100, 25);
+            this.fbtnAsZReset.TabIndex = 3;
+            this.fbtnAsZReset.Text = "垂直轴复位";
+            this.fbtnAsZReset.UseVisualStyleBackColor = false;
+            this.fbtnAsZReset.Click += new System.EventHandler(this.fbtnAsZReset_Click);
+            // 
+            // fbtnAsAllReset
+            // 
+            this.fbtnAsAllReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsAllReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnAsAllReset.BackgroundImage")));
+            this.fbtnAsAllReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnAsAllReset.EnabledSet = true;
+            this.fbtnAsAllReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAsAllReset.FlatAppearance.BorderSize = 0;
+            this.fbtnAsAllReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsAllReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAsAllReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnAsAllReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnAsAllReset.Location = new System.Drawing.Point(19, 51);
+            this.fbtnAsAllReset.Name = "fbtnAsAllReset";
+            this.fbtnAsAllReset.Size = new System.Drawing.Size(100, 25);
+            this.fbtnAsAllReset.TabIndex = 2;
+            this.fbtnAsAllReset.Text = "全部复位";
+            this.fbtnAsAllReset.UseVisualStyleBackColor = false;
+            this.fbtnAsAllReset.Click += new System.EventHandler(this.fbtnAsAllReset_Click);
+            // 
+            // fbtnASSave
+            // 
+            this.fbtnASSave.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnASSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnASSave.BackgroundImage")));
+            this.fbtnASSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnASSave.EnabledSet = true;
+            this.fbtnASSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnASSave.FlatAppearance.BorderSize = 0;
+            this.fbtnASSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnASSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnASSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnASSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnASSave.Location = new System.Drawing.Point(33, 147);
+            this.fbtnASSave.Name = "fbtnASSave";
+            this.fbtnASSave.Size = new System.Drawing.Size(57, 23);
+            this.fbtnASSave.TabIndex = 13;
+            this.fbtnASSave.Text = "保存";
+            this.fbtnASSave.UseVisualStyleBackColor = false;
+            this.fbtnASSave.Click += new System.EventHandler(this.fbtnASSave_Click);
+            // 
+            // fbtnASSub
+            // 
+            this.fbtnASSub.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnASSub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnASSub.BackgroundImage")));
+            this.fbtnASSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnASSub.EnabledSet = true;
+            this.fbtnASSub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnASSub.FlatAppearance.BorderSize = 0;
+            this.fbtnASSub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnASSub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnASSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnASSub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnASSub.Location = new System.Drawing.Point(248, 115);
+            this.fbtnASSub.Name = "fbtnASSub";
+            this.fbtnASSub.Size = new System.Drawing.Size(22, 23);
+            this.fbtnASSub.TabIndex = 12;
+            this.fbtnASSub.Text = "-";
+            this.fbtnASSub.UseVisualStyleBackColor = false;
+            this.fbtnASSub.Click += new System.EventHandler(this.fbtnASSub_Click);
+            // 
+            // fbtnASAdd
+            // 
+            this.fbtnASAdd.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnASAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnASAdd.BackgroundImage")));
+            this.fbtnASAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnASAdd.EnabledSet = true;
+            this.fbtnASAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnASAdd.FlatAppearance.BorderSize = 0;
+            this.fbtnASAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnASAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnASAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnASAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnASAdd.Location = new System.Drawing.Point(206, 114);
+            this.fbtnASAdd.Name = "fbtnASAdd";
+            this.fbtnASAdd.Size = new System.Drawing.Size(23, 23);
+            this.fbtnASAdd.TabIndex = 11;
+            this.fbtnASAdd.Text = "+";
+            this.fbtnASAdd.UseVisualStyleBackColor = false;
+            this.fbtnASAdd.Click += new System.EventHandler(this.fbtnASAdd_Click);
+            // 
+            // btnCupMake
+            // 
+            this.btnCupMake.BackColor = System.Drawing.Color.Transparent;
+            this.btnCupMake.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCupMake.BackgroundImage")));
+            this.btnCupMake.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCupMake.EnabledSet = true;
+            this.btnCupMake.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCupMake.FlatAppearance.BorderSize = 0;
+            this.btnCupMake.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCupMake.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCupMake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCupMake.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCupMake.Location = new System.Drawing.Point(299, 20);
+            this.btnCupMake.Name = "btnCupMake";
+            this.btnCupMake.Size = new System.Drawing.Size(71, 23);
+            this.btnCupMake.TabIndex = 57;
+            this.btnCupMake.Text = "执行";
+            this.btnCupMake.UseVisualStyleBackColor = false;
+            this.btnCupMake.Click += new System.EventHandler(this.btnCupMake_Click);
+            // 
+            // fbtnHandZ
+            // 
+            this.fbtnHandZ.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnHandZ.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnHandZ.BackgroundImage")));
+            this.fbtnHandZ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnHandZ.EnabledSet = true;
+            this.fbtnHandZ.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnHandZ.FlatAppearance.BorderSize = 0;
+            this.fbtnHandZ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnHandZ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnHandZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnHandZ.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnHandZ.Location = new System.Drawing.Point(299, 19);
+            this.fbtnHandZ.Name = "fbtnHandZ";
+            this.fbtnHandZ.Size = new System.Drawing.Size(71, 23);
+            this.fbtnHandZ.TabIndex = 57;
+            this.fbtnHandZ.Text = "执行";
+            this.fbtnHandZ.UseVisualStyleBackColor = false;
+            this.fbtnHandZ.Click += new System.EventHandler(this.fbtnHandZ_Click);
+            // 
+            // btnHandvertical
+            // 
+            this.btnHandvertical.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandvertical.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandvertical.BackgroundImage")));
+            this.btnHandvertical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandvertical.EnabledSet = true;
+            this.btnHandvertical.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandvertical.FlatAppearance.BorderSize = 0;
+            this.btnHandvertical.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandvertical.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandvertical.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandvertical.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandvertical.Location = new System.Drawing.Point(299, 66);
+            this.btnHandvertical.Name = "btnHandvertical";
+            this.btnHandvertical.Size = new System.Drawing.Size(71, 23);
+            this.btnHandvertical.TabIndex = 5;
+            this.btnHandvertical.Text = "执行";
+            this.btnHandvertical.UseVisualStyleBackColor = false;
+            this.btnHandvertical.Click += new System.EventHandler(this.btnHandvertical_Click);
+            // 
+            // btnHand
+            // 
+            this.btnHand.BackColor = System.Drawing.Color.Transparent;
+            this.btnHand.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHand.BackgroundImage")));
+            this.btnHand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHand.EnabledSet = true;
+            this.btnHand.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHand.FlatAppearance.BorderSize = 0;
+            this.btnHand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHand.Location = new System.Drawing.Point(299, 30);
+            this.btnHand.Name = "btnHand";
+            this.btnHand.Size = new System.Drawing.Size(71, 23);
+            this.btnHand.TabIndex = 2;
+            this.btnHand.Text = "执行";
+            this.btnHand.UseVisualStyleBackColor = false;
+            this.btnHand.Click += new System.EventHandler(this.btnHand_Click);
+            // 
+            // btnHandClose
+            // 
+            this.btnHandClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandClose.BackgroundImage")));
+            this.btnHandClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandClose.EnabledSet = true;
+            this.btnHandClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandClose.FlatAppearance.BorderSize = 0;
+            this.btnHandClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandClose.Location = new System.Drawing.Point(206, 127);
+            this.btnHandClose.Name = "btnHandClose";
+            this.btnHandClose.Size = new System.Drawing.Size(113, 25);
+            this.btnHandClose.TabIndex = 20;
+            this.btnHandClose.Text = "抓手关闭";
+            this.btnHandClose.UseVisualStyleBackColor = false;
+            this.btnHandClose.Click += new System.EventHandler(this.btnHandClose_Click);
+            // 
+            // fbtnStchDiskTurn
+            // 
+            this.fbtnStchDiskTurn.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnStchDiskTurn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnStchDiskTurn.BackgroundImage")));
+            this.fbtnStchDiskTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnStchDiskTurn.EnabledSet = true;
+            this.fbtnStchDiskTurn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnStchDiskTurn.FlatAppearance.BorderSize = 0;
+            this.fbtnStchDiskTurn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnStchDiskTurn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnStchDiskTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnStchDiskTurn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnStchDiskTurn.Location = new System.Drawing.Point(19, 168);
+            this.fbtnStchDiskTurn.Name = "fbtnStchDiskTurn";
+            this.fbtnStchDiskTurn.Size = new System.Drawing.Size(113, 25);
+            this.fbtnStchDiskTurn.TabIndex = 19;
+            this.fbtnStchDiskTurn.Text = "暂存盘旋转";
+            this.fbtnStchDiskTurn.UseVisualStyleBackColor = false;
+            this.fbtnStchDiskTurn.Click += new System.EventHandler(this.fbtnStchDiskTurn_Click);
+            // 
+            // btnPutCupInit
+            // 
+            this.btnPutCupInit.BackColor = System.Drawing.Color.Transparent;
+            this.btnPutCupInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPutCupInit.BackgroundImage")));
+            this.btnPutCupInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPutCupInit.EnabledSet = true;
+            this.btnPutCupInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPutCupInit.FlatAppearance.BorderSize = 0;
+            this.btnPutCupInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPutCupInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPutCupInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPutCupInit.Location = new System.Drawing.Point(206, 168);
+            this.btnPutCupInit.Name = "btnPutCupInit";
+            this.btnPutCupInit.Size = new System.Drawing.Size(113, 25);
+            this.btnPutCupInit.TabIndex = 18;
+            this.btnPutCupInit.Text = "理杯块电机复位";
+            this.btnPutCupInit.UseVisualStyleBackColor = false;
+            this.btnPutCupInit.Click += new System.EventHandler(this.btnPutCupInit_Click);
+            // 
+            // btnHandOpen
+            // 
+            this.btnHandOpen.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandOpen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandOpen.BackgroundImage")));
+            this.btnHandOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandOpen.EnabledSet = true;
+            this.btnHandOpen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandOpen.FlatAppearance.BorderSize = 0;
+            this.btnHandOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandOpen.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandOpen.Location = new System.Drawing.Point(19, 127);
+            this.btnHandOpen.Name = "btnHandOpen";
+            this.btnHandOpen.Size = new System.Drawing.Size(113, 25);
+            this.btnHandOpen.TabIndex = 7;
+            this.btnHandOpen.Text = "抓手打开";
+            this.btnHandOpen.UseVisualStyleBackColor = false;
+            this.btnHandOpen.Click += new System.EventHandler(this.btnHandOpen_Click);
+            // 
+            // btnHandZInit
+            // 
+            this.btnHandZInit.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandZInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandZInit.BackgroundImage")));
+            this.btnHandZInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandZInit.EnabledSet = true;
+            this.btnHandZInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandZInit.FlatAppearance.BorderSize = 0;
+            this.btnHandZInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandZInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandZInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandZInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandZInit.Location = new System.Drawing.Point(206, 84);
+            this.btnHandZInit.Name = "btnHandZInit";
+            this.btnHandZInit.Size = new System.Drawing.Size(113, 25);
+            this.btnHandZInit.TabIndex = 5;
+            this.btnHandZInit.Text = "旋转电机复位";
+            this.btnHandZInit.UseVisualStyleBackColor = false;
+            this.btnHandZInit.Click += new System.EventHandler(this.btnHandZInit_Click);
+            // 
+            // btnHandYInit
+            // 
+            this.btnHandYInit.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandYInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandYInit.BackgroundImage")));
+            this.btnHandYInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandYInit.EnabledSet = true;
+            this.btnHandYInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandYInit.FlatAppearance.BorderSize = 0;
+            this.btnHandYInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandYInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandYInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandYInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandYInit.Location = new System.Drawing.Point(19, 84);
+            this.btnHandYInit.Name = "btnHandYInit";
+            this.btnHandYInit.Size = new System.Drawing.Size(113, 25);
+            this.btnHandYInit.TabIndex = 4;
+            this.btnHandYInit.Text = "垂直电机复位";
+            this.btnHandYInit.UseVisualStyleBackColor = false;
+            this.btnHandYInit.Click += new System.EventHandler(this.btnHandYInit_Click);
+            // 
+            // btnHandXInit
+            // 
+            this.btnHandXInit.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandXInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandXInit.BackgroundImage")));
+            this.btnHandXInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandXInit.EnabledSet = true;
+            this.btnHandXInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandXInit.FlatAppearance.BorderSize = 0;
+            this.btnHandXInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandXInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandXInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandXInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandXInit.Location = new System.Drawing.Point(206, 41);
+            this.btnHandXInit.Name = "btnHandXInit";
+            this.btnHandXInit.Size = new System.Drawing.Size(113, 25);
+            this.btnHandXInit.TabIndex = 3;
+            this.btnHandXInit.Text = "暂存盘电机复位";
+            this.btnHandXInit.UseVisualStyleBackColor = false;
+            this.btnHandXInit.Click += new System.EventHandler(this.btnHandXInit_Click);
+            // 
+            // btnHandAllInit
+            // 
+            this.btnHandAllInit.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandAllInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandAllInit.BackgroundImage")));
+            this.btnHandAllInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandAllInit.EnabledSet = true;
+            this.btnHandAllInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandAllInit.FlatAppearance.BorderSize = 0;
+            this.btnHandAllInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandAllInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandAllInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandAllInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandAllInit.Location = new System.Drawing.Point(19, 41);
+            this.btnHandAllInit.Name = "btnHandAllInit";
+            this.btnHandAllInit.Size = new System.Drawing.Size(113, 25);
+            this.btnHandAllInit.TabIndex = 2;
+            this.btnHandAllInit.Text = "全部复位";
+            this.btnHandAllInit.UseVisualStyleBackColor = false;
+            this.btnHandAllInit.Click += new System.EventHandler(this.btnHandAllInit_Click);
+            // 
+            // btnSaveHand
+            // 
+            this.btnSaveHand.BackColor = System.Drawing.Color.Transparent;
+            this.btnSaveHand.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSaveHand.BackgroundImage")));
+            this.btnSaveHand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSaveHand.EnabledSet = true;
+            this.btnSaveHand.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSaveHand.FlatAppearance.BorderSize = 0;
+            this.btnSaveHand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSaveHand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSaveHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveHand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSaveHand.Location = new System.Drawing.Point(33, 147);
+            this.btnSaveHand.Name = "btnSaveHand";
+            this.btnSaveHand.Size = new System.Drawing.Size(57, 23);
+            this.btnSaveHand.TabIndex = 13;
+            this.btnSaveHand.Text = "保存";
+            this.btnSaveHand.UseVisualStyleBackColor = false;
+            this.btnSaveHand.Click += new System.EventHandler(this.btnSaveHand_Click);
+            // 
+            // btnHandSub
+            // 
+            this.btnHandSub.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandSub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandSub.BackgroundImage")));
+            this.btnHandSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandSub.EnabledSet = true;
+            this.btnHandSub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandSub.FlatAppearance.BorderSize = 0;
+            this.btnHandSub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandSub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandSub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandSub.Location = new System.Drawing.Point(248, 115);
+            this.btnHandSub.Name = "btnHandSub";
+            this.btnHandSub.Size = new System.Drawing.Size(22, 23);
+            this.btnHandSub.TabIndex = 12;
+            this.btnHandSub.Text = "-";
+            this.btnHandSub.UseVisualStyleBackColor = false;
+            this.btnHandSub.Click += new System.EventHandler(this.btnHandSub_Click);
+            // 
+            // btnHandAdd
+            // 
+            this.btnHandAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnHandAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHandAdd.BackgroundImage")));
+            this.btnHandAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHandAdd.EnabledSet = true;
+            this.btnHandAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnHandAdd.FlatAppearance.BorderSize = 0;
+            this.btnHandAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHandAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnHandAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHandAdd.Location = new System.Drawing.Point(206, 114);
+            this.btnHandAdd.Name = "btnHandAdd";
+            this.btnHandAdd.Size = new System.Drawing.Size(23, 23);
+            this.btnHandAdd.TabIndex = 11;
+            this.btnHandAdd.Text = "+";
+            this.btnHandAdd.UseVisualStyleBackColor = false;
+            this.btnHandAdd.Click += new System.EventHandler(this.btnHandAdd_Click);
+            // 
+            // fbtnPressCup
+            // 
+            this.fbtnPressCup.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnPressCup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPressCup.BackgroundImage")));
+            this.fbtnPressCup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnPressCup.EnabledSet = true;
+            this.fbtnPressCup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnPressCup.FlatAppearance.BorderSize = 0;
+            this.fbtnPressCup.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPressCup.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPressCup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnPressCup.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnPressCup.Location = new System.Drawing.Point(298, 18);
+            this.fbtnPressCup.Name = "fbtnPressCup";
+            this.fbtnPressCup.Size = new System.Drawing.Size(85, 25);
+            this.fbtnPressCup.TabIndex = 57;
+            this.fbtnPressCup.Text = "执行";
+            this.fbtnPressCup.UseVisualStyleBackColor = false;
+            this.fbtnPressCup.Click += new System.EventHandler(this.fbtnPressCup_Click);
+            // 
+            // fbtnMix1Arm
+            // 
+            this.fbtnMix1Arm.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1Arm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMix1Arm.BackgroundImage")));
+            this.fbtnMix1Arm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnMix1Arm.EnabledSet = true;
+            this.fbtnMix1Arm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnMix1Arm.FlatAppearance.BorderSize = 0;
+            this.fbtnMix1Arm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1Arm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1Arm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnMix1Arm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnMix1Arm.Location = new System.Drawing.Point(298, 18);
+            this.fbtnMix1Arm.Name = "fbtnMix1Arm";
+            this.fbtnMix1Arm.Size = new System.Drawing.Size(85, 25);
+            this.fbtnMix1Arm.TabIndex = 57;
+            this.fbtnMix1Arm.Text = "执行";
+            this.fbtnMix1Arm.UseVisualStyleBackColor = false;
+            this.fbtnMix1Arm.Click += new System.EventHandler(this.fbtnMix1Arm_Click);
+            // 
+            // fbtnINMove
+            // 
+            this.fbtnINMove.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnINMove.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnINMove.BackgroundImage")));
+            this.fbtnINMove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnINMove.EnabledSet = true;
+            this.fbtnINMove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnINMove.FlatAppearance.BorderSize = 0;
+            this.fbtnINMove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnINMove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnINMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnINMove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnINMove.Location = new System.Drawing.Point(296, 32);
+            this.fbtnINMove.Name = "fbtnINMove";
+            this.fbtnINMove.Size = new System.Drawing.Size(87, 25);
+            this.fbtnINMove.TabIndex = 57;
+            this.fbtnINMove.Text = "执行";
+            this.fbtnINMove.UseVisualStyleBackColor = false;
+            this.fbtnINMove.Click += new System.EventHandler(this.fbtnINMove_Click);
+            // 
+            // btnIYInit
+            // 
+            this.btnIYInit.BackColor = System.Drawing.Color.Transparent;
+            this.btnIYInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIYInit.BackgroundImage")));
+            this.btnIYInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIYInit.EnabledSet = true;
+            this.btnIYInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnIYInit.FlatAppearance.BorderSize = 0;
+            this.btnIYInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIYInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIYInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIYInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnIYInit.Location = new System.Drawing.Point(18, 106);
+            this.btnIYInit.Name = "btnIYInit";
+            this.btnIYInit.Size = new System.Drawing.Size(113, 25);
+            this.btnIYInit.TabIndex = 21;
+            this.btnIYInit.Text = "垂直电机复位";
+            this.btnIYInit.UseVisualStyleBackColor = false;
+            this.btnIYInit.Click += new System.EventHandler(this.btnIYInit_Click);
+            // 
+            // fbtnInTubeReset
+            // 
+            this.fbtnInTubeReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnInTubeReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInTubeReset.BackgroundImage")));
+            this.fbtnInTubeReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnInTubeReset.EnabledSet = true;
+            this.fbtnInTubeReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnInTubeReset.FlatAppearance.BorderSize = 0;
+            this.fbtnInTubeReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInTubeReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInTubeReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnInTubeReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnInTubeReset.Location = new System.Drawing.Point(192, 63);
+            this.fbtnInTubeReset.Name = "fbtnInTubeReset";
+            this.fbtnInTubeReset.Size = new System.Drawing.Size(113, 25);
+            this.fbtnInTubeReset.TabIndex = 20;
+            this.fbtnInTubeReset.Text = "温育盘复位";
+            this.fbtnInTubeReset.UseVisualStyleBackColor = false;
+            this.fbtnInTubeReset.Click += new System.EventHandler(this.fbtnInTubeReset_Click);
+            // 
+            // btnIAllInit
+            // 
+            this.btnIAllInit.BackColor = System.Drawing.Color.Transparent;
+            this.btnIAllInit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIAllInit.BackgroundImage")));
+            this.btnIAllInit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIAllInit.EnabledSet = true;
+            this.btnIAllInit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnIAllInit.FlatAppearance.BorderSize = 0;
+            this.btnIAllInit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIAllInit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIAllInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIAllInit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnIAllInit.Location = new System.Drawing.Point(18, 63);
+            this.btnIAllInit.Name = "btnIAllInit";
+            this.btnIAllInit.Size = new System.Drawing.Size(113, 25);
+            this.btnIAllInit.TabIndex = 19;
+            this.btnIAllInit.Text = "全部复位";
+            this.btnIAllInit.UseVisualStyleBackColor = false;
+            this.btnIAllInit.Click += new System.EventHandler(this.btnIAllInit_Click);
+            // 
+            // fbtnInTubeClear
+            // 
+            this.fbtnInTubeClear.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnInTubeClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInTubeClear.BackgroundImage")));
+            this.fbtnInTubeClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnInTubeClear.EnabledSet = true;
+            this.fbtnInTubeClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnInTubeClear.FlatAppearance.BorderSize = 0;
+            this.fbtnInTubeClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInTubeClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInTubeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnInTubeClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnInTubeClear.Location = new System.Drawing.Point(18, 149);
+            this.fbtnInTubeClear.Name = "fbtnInTubeClear";
+            this.fbtnInTubeClear.Size = new System.Drawing.Size(113, 25);
+            this.fbtnInTubeClear.TabIndex = 18;
+            this.fbtnInTubeClear.Text = "温育盘清空";
+            this.fbtnInTubeClear.UseVisualStyleBackColor = false;
+            this.fbtnInTubeClear.Click += new System.EventHandler(this.fbtnInTubeClear_Click);
+            // 
+            // fbtnPressCupZero
+            // 
+            this.fbtnPressCupZero.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnPressCupZero.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPressCupZero.BackgroundImage")));
+            this.fbtnPressCupZero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnPressCupZero.EnabledSet = true;
+            this.fbtnPressCupZero.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnPressCupZero.FlatAppearance.BorderSize = 0;
+            this.fbtnPressCupZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPressCupZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPressCupZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnPressCupZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnPressCupZero.Location = new System.Drawing.Point(192, 106);
+            this.fbtnPressCupZero.Name = "fbtnPressCupZero";
+            this.fbtnPressCupZero.Size = new System.Drawing.Size(113, 25);
+            this.fbtnPressCupZero.TabIndex = 17;
+            this.fbtnPressCupZero.Text = "压杯电机复位";
+            this.fbtnPressCupZero.UseVisualStyleBackColor = false;
+            this.fbtnPressCupZero.Click += new System.EventHandler(this.fbtnPressCupZero_Click);
+            // 
+            // fbtnMix1Reset
+            // 
+            this.fbtnMix1Reset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1Reset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMix1Reset.BackgroundImage")));
+            this.fbtnMix1Reset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnMix1Reset.EnabledSet = true;
+            this.fbtnMix1Reset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnMix1Reset.FlatAppearance.BorderSize = 0;
+            this.fbtnMix1Reset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1Reset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnMix1Reset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnMix1Reset.Location = new System.Drawing.Point(18, 193);
+            this.fbtnMix1Reset.Name = "fbtnMix1Reset";
+            this.fbtnMix1Reset.Size = new System.Drawing.Size(113, 25);
+            this.fbtnMix1Reset.TabIndex = 16;
+            this.fbtnMix1Reset.Text = "混匀臂复位";
+            this.fbtnMix1Reset.UseVisualStyleBackColor = false;
+            this.fbtnMix1Reset.Visible = false;
+            this.fbtnMix1Reset.Click += new System.EventHandler(this.fbtnMix1Reset_Click);
+            // 
+            // fbtnMix1
+            // 
+            this.fbtnMix1.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMix1.BackgroundImage")));
+            this.fbtnMix1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnMix1.EnabledSet = true;
+            this.fbtnMix1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnMix1.FlatAppearance.BorderSize = 0;
+            this.fbtnMix1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMix1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnMix1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnMix1.Location = new System.Drawing.Point(192, 149);
+            this.fbtnMix1.Name = "fbtnMix1";
+            this.fbtnMix1.Size = new System.Drawing.Size(113, 25);
+            this.fbtnMix1.TabIndex = 15;
+            this.fbtnMix1.Text = "混匀开始";
+            this.fbtnMix1.UseVisualStyleBackColor = false;
+            this.fbtnMix1.Click += new System.EventHandler(this.fbtnMix1_Click);
+            // 
+            // btnISave
+            // 
+            this.btnISave.BackColor = System.Drawing.Color.Transparent;
+            this.btnISave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnISave.BackgroundImage")));
+            this.btnISave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnISave.EnabledSet = true;
+            this.btnISave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnISave.FlatAppearance.BorderSize = 0;
+            this.btnISave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnISave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnISave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnISave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnISave.Location = new System.Drawing.Point(33, 147);
+            this.btnISave.Name = "btnISave";
+            this.btnISave.Size = new System.Drawing.Size(57, 23);
+            this.btnISave.TabIndex = 13;
+            this.btnISave.Text = "保存";
+            this.btnISave.UseVisualStyleBackColor = false;
+            this.btnISave.Click += new System.EventHandler(this.btnISave_Click);
+            // 
+            // btnISub
+            // 
+            this.btnISub.BackColor = System.Drawing.Color.Transparent;
+            this.btnISub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnISub.BackgroundImage")));
+            this.btnISub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnISub.EnabledSet = true;
+            this.btnISub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnISub.FlatAppearance.BorderSize = 0;
+            this.btnISub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnISub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnISub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnISub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnISub.Location = new System.Drawing.Point(248, 115);
+            this.btnISub.Name = "btnISub";
+            this.btnISub.Size = new System.Drawing.Size(22, 23);
+            this.btnISub.TabIndex = 12;
+            this.btnISub.Text = "-";
+            this.btnISub.UseVisualStyleBackColor = false;
+            this.btnISub.Click += new System.EventHandler(this.btnISub_Click);
+            // 
+            // btnIAdd
+            // 
+            this.btnIAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnIAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIAdd.BackgroundImage")));
+            this.btnIAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnIAdd.EnabledSet = true;
+            this.btnIAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnIAdd.FlatAppearance.BorderSize = 0;
+            this.btnIAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnIAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnIAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnIAdd.Location = new System.Drawing.Point(206, 114);
+            this.btnIAdd.Name = "btnIAdd";
+            this.btnIAdd.Size = new System.Drawing.Size(23, 23);
+            this.btnIAdd.TabIndex = 11;
+            this.btnIAdd.Text = "+";
+            this.btnIAdd.UseVisualStyleBackColor = false;
+            this.btnIAdd.Click += new System.EventHandler(this.btnIAdd_Click);
+            // 
+            // btnWashMix
+            // 
+            this.btnWashMix.BackColor = System.Drawing.Color.Transparent;
+            this.btnWashMix.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWashMix.BackgroundImage")));
+            this.btnWashMix.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnWashMix.EnabledSet = true;
+            this.btnWashMix.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnWashMix.FlatAppearance.BorderSize = 0;
+            this.btnWashMix.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnWashMix.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnWashMix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWashMix.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnWashMix.Location = new System.Drawing.Point(319, 21);
+            this.btnWashMix.Name = "btnWashMix";
+            this.btnWashMix.Size = new System.Drawing.Size(87, 34);
+            this.btnWashMix.TabIndex = 18;
+            this.btnWashMix.Text = "执行";
+            this.btnWashMix.UseVisualStyleBackColor = false;
+            this.btnWashMix.Click += new System.EventHandler(this.btnWashMix_Click);
+            // 
+            // btnLoopTurn
+            // 
+            this.btnLoopTurn.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoopTurn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoopTurn.BackgroundImage")));
+            this.btnLoopTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLoopTurn.EnabledSet = true;
+            this.btnLoopTurn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLoopTurn.FlatAppearance.BorderSize = 0;
+            this.btnLoopTurn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLoopTurn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLoopTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoopTurn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnLoopTurn.Location = new System.Drawing.Point(337, 67);
+            this.btnLoopTurn.Name = "btnLoopTurn";
+            this.btnLoopTurn.Size = new System.Drawing.Size(80, 23);
+            this.btnLoopTurn.TabIndex = 20;
+            this.btnLoopTurn.Text = "循环执行";
+            this.btnLoopTurn.UseVisualStyleBackColor = false;
+            this.btnLoopTurn.Click += new System.EventHandler(this.btnLoopTurn_Click);
+            // 
+            // functionButton1
+            // 
+            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
+            this.functionButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("functionButton1.BackgroundImage")));
+            this.functionButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.functionButton1.EnabledSet = true;
+            this.functionButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.functionButton1.FlatAppearance.BorderSize = 0;
+            this.functionButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.functionButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.functionButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.functionButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.functionButton1.Location = new System.Drawing.Point(256, 67);
+            this.functionButton1.Name = "functionButton1";
+            this.functionButton1.Size = new System.Drawing.Size(64, 23);
+            this.functionButton1.TabIndex = 17;
+            this.functionButton1.Text = "执行";
+            this.functionButton1.UseVisualStyleBackColor = false;
+            this.functionButton1.Click += new System.EventHandler(this.functionButton1_Click_1);
+            // 
+            // fbtnHoleTarget
+            // 
+            this.fbtnHoleTarget.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnHoleTarget.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnHoleTarget.BackgroundImage")));
+            this.fbtnHoleTarget.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnHoleTarget.EnabledSet = true;
+            this.fbtnHoleTarget.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnHoleTarget.FlatAppearance.BorderSize = 0;
+            this.fbtnHoleTarget.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnHoleTarget.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnHoleTarget.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnHoleTarget.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnHoleTarget.Location = new System.Drawing.Point(256, 18);
+            this.fbtnHoleTarget.Name = "fbtnHoleTarget";
+            this.fbtnHoleTarget.Size = new System.Drawing.Size(64, 23);
+            this.fbtnHoleTarget.TabIndex = 14;
+            this.fbtnHoleTarget.Text = "执行";
+            this.fbtnHoleTarget.UseVisualStyleBackColor = false;
+            this.fbtnHoleTarget.Click += new System.EventHandler(this.fbtnHoleTarget_Click_1);
+            // 
+            // fbtnWashPressCupEx
+            // 
+            this.fbtnWashPressCupEx.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashPressCupEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashPressCupEx.BackgroundImage")));
+            this.fbtnWashPressCupEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashPressCupEx.EnabledSet = true;
+            this.fbtnWashPressCupEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashPressCupEx.FlatAppearance.BorderSize = 0;
+            this.fbtnWashPressCupEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashPressCupEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashPressCupEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashPressCupEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnWashPressCupEx.Location = new System.Drawing.Point(319, 27);
+            this.fbtnWashPressCupEx.Name = "fbtnWashPressCupEx";
+            this.fbtnWashPressCupEx.Size = new System.Drawing.Size(87, 34);
+            this.fbtnWashPressCupEx.TabIndex = 18;
+            this.fbtnWashPressCupEx.Text = "执行";
+            this.fbtnWashPressCupEx.UseVisualStyleBackColor = false;
+            this.fbtnWashPressCupEx.Click += new System.EventHandler(this.fbtnWashPressCupEx_Click);
+            // 
+            // fbtnWashZEx
+            // 
+            this.fbtnWashZEx.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashZEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashZEx.BackgroundImage")));
+            this.fbtnWashZEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashZEx.EnabledSet = true;
+            this.fbtnWashZEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashZEx.FlatAppearance.BorderSize = 0;
+            this.fbtnWashZEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashZEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashZEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashZEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnWashZEx.Location = new System.Drawing.Point(319, 25);
+            this.fbtnWashZEx.Name = "fbtnWashZEx";
+            this.fbtnWashZEx.Size = new System.Drawing.Size(87, 34);
+            this.fbtnWashZEx.TabIndex = 15;
+            this.fbtnWashZEx.Text = "执行";
+            this.fbtnWashZEx.UseVisualStyleBackColor = false;
+            this.fbtnWashZEx.Click += new System.EventHandler(this.fbtnWashZEx_Click);
+            // 
+            // fbtnPeristalticPSave
+            // 
+            this.fbtnPeristalticPSave.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnPeristalticPSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPeristalticPSave.BackgroundImage")));
+            this.fbtnPeristalticPSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnPeristalticPSave.EnabledSet = true;
+            this.fbtnPeristalticPSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnPeristalticPSave.FlatAppearance.BorderSize = 0;
+            this.fbtnPeristalticPSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPeristalticPSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPeristalticPSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnPeristalticPSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnPeristalticPSave.Location = new System.Drawing.Point(319, 35);
+            this.fbtnPeristalticPSave.Name = "fbtnPeristalticPSave";
+            this.fbtnPeristalticPSave.Size = new System.Drawing.Size(65, 24);
+            this.fbtnPeristalticPSave.TabIndex = 15;
+            this.fbtnPeristalticPSave.Text = "保存";
+            this.fbtnPeristalticPSave.UseVisualStyleBackColor = false;
+            this.fbtnPeristalticPSave.Click += new System.EventHandler(this.fbtnPeristalticPSave_Click);
+            // 
+            // fbtnPeristalticPEx
+            // 
+            this.fbtnPeristalticPEx.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnPeristalticPEx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPeristalticPEx.BackgroundImage")));
+            this.fbtnPeristalticPEx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnPeristalticPEx.EnabledSet = true;
+            this.fbtnPeristalticPEx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnPeristalticPEx.FlatAppearance.BorderSize = 0;
+            this.fbtnPeristalticPEx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPeristalticPEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPeristalticPEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnPeristalticPEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnPeristalticPEx.Location = new System.Drawing.Point(234, 36);
+            this.fbtnPeristalticPEx.Name = "fbtnPeristalticPEx";
+            this.fbtnPeristalticPEx.Size = new System.Drawing.Size(64, 23);
+            this.fbtnPeristalticPEx.TabIndex = 14;
+            this.fbtnPeristalticPEx.Text = "执行";
+            this.fbtnPeristalticPEx.UseVisualStyleBackColor = false;
+            this.fbtnPeristalticPEx.Click += new System.EventHandler(this.fbtnPeristalticPEx_Click);
+            // 
+            // fbtnWashTubeClear
+            // 
+            this.fbtnWashTubeClear.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTubeClear.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashTubeClear.BackgroundImage")));
+            this.fbtnWashTubeClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashTubeClear.EnabledSet = true;
+            this.fbtnWashTubeClear.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashTubeClear.FlatAppearance.BorderSize = 0;
+            this.fbtnWashTubeClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTubeClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTubeClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashTubeClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnWashTubeClear.Location = new System.Drawing.Point(33, 190);
+            this.fbtnWashTubeClear.Name = "fbtnWashTubeClear";
+            this.fbtnWashTubeClear.Size = new System.Drawing.Size(100, 35);
+            this.fbtnWashTubeClear.TabIndex = 16;
+            this.fbtnWashTubeClear.Text = "清洗盘清空";
+            this.fbtnWashTubeClear.UseVisualStyleBackColor = false;
+            this.fbtnWashTubeClear.Click += new System.EventHandler(this.fbtnWashTubeClear_Click);
+            // 
+            // fbtnWashPressCupReset
+            // 
+            this.fbtnWashPressCupReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashPressCupReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashPressCupReset.BackgroundImage")));
+            this.fbtnWashPressCupReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashPressCupReset.EnabledSet = true;
+            this.fbtnWashPressCupReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashPressCupReset.FlatAppearance.BorderSize = 0;
+            this.fbtnWashPressCupReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashPressCupReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashPressCupReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashPressCupReset.Location = new System.Drawing.Point(206, 129);
+            this.fbtnWashPressCupReset.Name = "fbtnWashPressCupReset";
+            this.fbtnWashPressCupReset.Size = new System.Drawing.Size(100, 35);
+            this.fbtnWashPressCupReset.TabIndex = 3;
+            this.fbtnWashPressCupReset.Text = "压杯电机复位";
+            this.fbtnWashPressCupReset.UseVisualStyleBackColor = false;
+            this.fbtnWashPressCupReset.Click += new System.EventHandler(this.fbtnWashPressCupReset_Click);
+            // 
+            // fbtnWashZReset
+            // 
+            this.fbtnWashZReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashZReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashZReset.BackgroundImage")));
+            this.fbtnWashZReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashZReset.EnabledSet = true;
+            this.fbtnWashZReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashZReset.FlatAppearance.BorderSize = 0;
+            this.fbtnWashZReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashZReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashZReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashZReset.Location = new System.Drawing.Point(33, 129);
+            this.fbtnWashZReset.Name = "fbtnWashZReset";
+            this.fbtnWashZReset.Size = new System.Drawing.Size(100, 35);
+            this.fbtnWashZReset.TabIndex = 2;
+            this.fbtnWashZReset.Text = "Z轴复位";
+            this.fbtnWashZReset.UseVisualStyleBackColor = false;
+            this.fbtnWashZReset.Click += new System.EventHandler(this.fbtnWashZReset_Click);
+            // 
+            // fbtnWashTrayReset
+            // 
+            this.fbtnWashTrayReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTrayReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashTrayReset.BackgroundImage")));
+            this.fbtnWashTrayReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashTrayReset.EnabledSet = true;
+            this.fbtnWashTrayReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashTrayReset.FlatAppearance.BorderSize = 0;
+            this.fbtnWashTrayReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTrayReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTrayReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashTrayReset.Location = new System.Drawing.Point(206, 61);
+            this.fbtnWashTrayReset.Name = "fbtnWashTrayReset";
+            this.fbtnWashTrayReset.Size = new System.Drawing.Size(100, 35);
+            this.fbtnWashTrayReset.TabIndex = 1;
+            this.fbtnWashTrayReset.Text = "清洗盘复位";
+            this.fbtnWashTrayReset.UseVisualStyleBackColor = false;
+            this.fbtnWashTrayReset.Click += new System.EventHandler(this.fbtnWashTrayReset_Click);
+            // 
+            // fbtnWashReset
+            // 
+            this.fbtnWashReset.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashReset.BackgroundImage")));
+            this.fbtnWashReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashReset.EnabledSet = true;
+            this.fbtnWashReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashReset.FlatAppearance.BorderSize = 0;
+            this.fbtnWashReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashReset.Location = new System.Drawing.Point(33, 61);
+            this.fbtnWashReset.Name = "fbtnWashReset";
+            this.fbtnWashReset.Size = new System.Drawing.Size(100, 35);
+            this.fbtnWashReset.TabIndex = 0;
+            this.fbtnWashReset.Text = "全部复位";
+            this.fbtnWashReset.UseVisualStyleBackColor = false;
+            this.fbtnWashReset.Click += new System.EventHandler(this.fbtnWashReset_Click);
+            // 
+            // fbtnWashSave
+            // 
+            this.fbtnWashSave.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashSave.BackgroundImage")));
+            this.fbtnWashSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashSave.EnabledSet = true;
+            this.fbtnWashSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashSave.FlatAppearance.BorderSize = 0;
+            this.fbtnWashSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnWashSave.Location = new System.Drawing.Point(33, 147);
+            this.fbtnWashSave.Name = "fbtnWashSave";
+            this.fbtnWashSave.Size = new System.Drawing.Size(57, 23);
+            this.fbtnWashSave.TabIndex = 13;
+            this.fbtnWashSave.Text = "保存";
+            this.fbtnWashSave.UseVisualStyleBackColor = false;
+            this.fbtnWashSave.Click += new System.EventHandler(this.fbtnWashSave_Click);
+            // 
+            // fbtnWashSub
+            // 
+            this.fbtnWashSub.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashSub.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashSub.BackgroundImage")));
+            this.fbtnWashSub.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashSub.EnabledSet = true;
+            this.fbtnWashSub.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashSub.FlatAppearance.BorderSize = 0;
+            this.fbtnWashSub.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashSub.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashSub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashSub.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnWashSub.Location = new System.Drawing.Point(248, 115);
+            this.fbtnWashSub.Name = "fbtnWashSub";
+            this.fbtnWashSub.Size = new System.Drawing.Size(22, 23);
+            this.fbtnWashSub.TabIndex = 12;
+            this.fbtnWashSub.Text = "-";
+            this.fbtnWashSub.UseVisualStyleBackColor = false;
+            this.fbtnWashSub.Click += new System.EventHandler(this.fbtnWashSub_Click);
+            // 
+            // fbtnWashAdd
+            // 
+            this.fbtnWashAdd.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashAdd.BackgroundImage")));
+            this.fbtnWashAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashAdd.EnabledSet = true;
+            this.fbtnWashAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashAdd.FlatAppearance.BorderSize = 0;
+            this.fbtnWashAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnWashAdd.Location = new System.Drawing.Point(206, 114);
+            this.fbtnWashAdd.Name = "fbtnWashAdd";
+            this.fbtnWashAdd.Size = new System.Drawing.Size(23, 23);
+            this.fbtnWashAdd.TabIndex = 11;
+            this.fbtnWashAdd.Text = "+";
+            this.fbtnWashAdd.UseVisualStyleBackColor = false;
+            this.fbtnWashAdd.Click += new System.EventHandler(this.fbtnWashAdd_Click);
+            // 
+            // btnReadNum
+            // 
+            this.btnReadNum.BackColor = System.Drawing.Color.Transparent;
+            this.btnReadNum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReadNum.BackgroundImage")));
+            this.btnReadNum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReadNum.EnabledSet = true;
+            this.btnReadNum.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReadNum.FlatAppearance.BorderSize = 0;
+            this.btnReadNum.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReadNum.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReadNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReadNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnReadNum.Location = new System.Drawing.Point(98, 122);
+            this.btnReadNum.Name = "btnReadNum";
+            this.btnReadNum.Size = new System.Drawing.Size(56, 29);
+            this.btnReadNum.TabIndex = 68;
+            this.btnReadNum.Text = "读数";
+            this.btnReadNum.UseVisualStyleBackColor = false;
+            this.btnReadNum.Click += new System.EventHandler(this.btnReadNum_Click);
+            // 
+            // btnZx
+            // 
+            this.btnZx.BackColor = System.Drawing.Color.Transparent;
+            this.btnZx.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZx.BackgroundImage")));
+            this.btnZx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnZx.EnabledSet = true;
+            this.btnZx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnZx.FlatAppearance.BorderSize = 0;
+            this.btnZx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnZx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnZx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnZx.Location = new System.Drawing.Point(98, 56);
+            this.btnZx.Name = "btnZx";
+            this.btnZx.Size = new System.Drawing.Size(56, 29);
+            this.btnZx.TabIndex = 58;
+            this.btnZx.Text = "执行";
+            this.btnZx.UseVisualStyleBackColor = false;
+            this.btnZx.Click += new System.EventHandler(this.btnZx_Click);
+            // 
+            // btnLoadProgram
+            // 
+            this.btnLoadProgram.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoadProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoadProgram.BackgroundImage")));
+            this.btnLoadProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLoadProgram.EnabledSet = true;
+            this.btnLoadProgram.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLoadProgram.FlatAppearance.BorderSize = 0;
+            this.btnLoadProgram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadProgram.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnLoadProgram.Location = new System.Drawing.Point(149, 192);
+            this.btnLoadProgram.Name = "btnLoadProgram";
+            this.btnLoadProgram.Size = new System.Drawing.Size(149, 34);
+            this.btnLoadProgram.TabIndex = 8;
+            this.btnLoadProgram.Text = "烧录程序";
+            this.btnLoadProgram.UseVisualStyleBackColor = false;
+            this.btnLoadProgram.Click += new System.EventHandler(this.btnLoadProgram_Click);
+            // 
+            // btnSelectBin
+            // 
+            this.btnSelectBin.BackColor = System.Drawing.Color.Transparent;
+            this.btnSelectBin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelectBin.BackgroundImage")));
+            this.btnSelectBin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSelectBin.EnabledSet = true;
+            this.btnSelectBin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSelectBin.FlatAppearance.BorderSize = 0;
+            this.btnSelectBin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSelectBin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSelectBin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelectBin.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSelectBin.Location = new System.Drawing.Point(387, 103);
+            this.btnSelectBin.Name = "btnSelectBin";
+            this.btnSelectBin.Size = new System.Drawing.Size(45, 23);
+            this.btnSelectBin.TabIndex = 6;
+            this.btnSelectBin.Text = "...";
+            this.btnSelectBin.UseVisualStyleBackColor = false;
+            this.btnSelectBin.Click += new System.EventHandler(this.btnSelectBin_Click);
+            // 
+            // btnScanSpCode
+            // 
+            this.btnScanSpCode.BackColor = System.Drawing.Color.Transparent;
+            this.btnScanSpCode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnScanSpCode.BackgroundImage")));
+            this.btnScanSpCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnScanSpCode.EnabledSet = true;
+            this.btnScanSpCode.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnScanSpCode.FlatAppearance.BorderSize = 0;
+            this.btnScanSpCode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnScanSpCode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnScanSpCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScanSpCode.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnScanSpCode.Location = new System.Drawing.Point(178, 17);
+            this.btnScanSpCode.Name = "btnScanSpCode";
+            this.btnScanSpCode.Size = new System.Drawing.Size(80, 29);
+            this.btnScanSpCode.TabIndex = 58;
+            this.btnScanSpCode.Text = "读取";
+            this.btnScanSpCode.UseVisualStyleBackColor = false;
+            this.btnScanSpCode.Click += new System.EventHandler(this.btnScanSpCode_Click);
+            // 
+            // fbtnRead
+            // 
+            this.fbtnRead.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnRead.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnRead.BackgroundImage")));
+            this.fbtnRead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnRead.EnabledSet = true;
+            this.fbtnRead.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnRead.FlatAppearance.BorderSize = 0;
+            this.fbtnRead.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnRead.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnRead.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnRead.Location = new System.Drawing.Point(37, 285);
+            this.fbtnRead.Name = "fbtnRead";
+            this.fbtnRead.Size = new System.Drawing.Size(75, 23);
+            this.fbtnRead.TabIndex = 0;
+            this.fbtnRead.Text = "开始读数";
+            this.fbtnRead.UseVisualStyleBackColor = false;
+            this.fbtnRead.Click += new System.EventHandler(this.fbtnRead_Click);
+            // 
+            // saveTo
+            // 
+            this.saveTo.BackColor = System.Drawing.Color.Transparent;
+            this.saveTo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveTo.BackgroundImage")));
+            this.saveTo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.saveTo.EnabledSet = true;
+            this.saveTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveTo.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.saveTo.Location = new System.Drawing.Point(460, 115);
+            this.saveTo.Name = "saveTo";
+            this.saveTo.Size = new System.Drawing.Size(75, 25);
+            this.saveTo.TabIndex = 13;
+            this.saveTo.Text = "导出到";
+            this.saveTo.UseVisualStyleBackColor = true;
+            this.saveTo.Click += new System.EventHandler(this.saveTo_Click);
+            // 
+            // suspendAndContinue
+            // 
+            this.suspendAndContinue.BackColor = System.Drawing.Color.Transparent;
+            this.suspendAndContinue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("suspendAndContinue.BackgroundImage")));
+            this.suspendAndContinue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.suspendAndContinue.Enabled = false;
+            this.suspendAndContinue.EnabledSet = true;
+            this.suspendAndContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.suspendAndContinue.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.suspendAndContinue.Location = new System.Drawing.Point(460, 68);
+            this.suspendAndContinue.Name = "suspendAndContinue";
+            this.suspendAndContinue.Size = new System.Drawing.Size(75, 25);
+            this.suspendAndContinue.TabIndex = 4;
+            this.suspendAndContinue.Text = "暂停";
+            this.suspendAndContinue.UseVisualStyleBackColor = true;
+            this.suspendAndContinue.Click += new System.EventHandler(this.suspendAndContinue_Click);
+            // 
+            // beginAndStop
+            // 
+            this.beginAndStop.BackColor = System.Drawing.Color.Transparent;
+            this.beginAndStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("beginAndStop.BackgroundImage")));
+            this.beginAndStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.beginAndStop.EnabledSet = true;
+            this.beginAndStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.beginAndStop.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.beginAndStop.Location = new System.Drawing.Point(460, 23);
+            this.beginAndStop.Name = "beginAndStop";
+            this.beginAndStop.Size = new System.Drawing.Size(75, 25);
+            this.beginAndStop.TabIndex = 3;
+            this.beginAndStop.Text = "开始";
+            this.beginAndStop.UseVisualStyleBackColor = true;
+            this.beginAndStop.Click += new System.EventHandler(this.beginAndStop_Click);
+            // 
+            // saveSetting
+            // 
+            this.saveSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveSetting.BackColor = System.Drawing.Color.Transparent;
+            this.saveSetting.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("saveSetting.BackgroundImage")));
+            this.saveSetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.saveSetting.EnabledSet = true;
+            this.saveSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveSetting.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.saveSetting.Location = new System.Drawing.Point(58, 182);
+            this.saveSetting.Name = "saveSetting";
+            this.saveSetting.Size = new System.Drawing.Size(75, 25);
+            this.saveSetting.TabIndex = 21;
+            this.saveSetting.Text = "更改设置";
+            this.saveSetting.UseVisualStyleBackColor = true;
+            this.saveSetting.Click += new System.EventHandler(this.saveSetting_Click);
+            // 
+            // restore
+            // 
+            this.restore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.restore.BackColor = System.Drawing.Color.Transparent;
+            this.restore.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("restore.BackgroundImage")));
+            this.restore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.restore.Enabled = false;
+            this.restore.EnabledSet = true;
+            this.restore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.restore.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.restore.Location = new System.Drawing.Point(146, 182);
+            this.restore.Name = "restore";
+            this.restore.Size = new System.Drawing.Size(75, 25);
+            this.restore.TabIndex = 22;
+            this.restore.Text = "取消";
+            this.restore.UseVisualStyleBackColor = true;
+            this.restore.Click += new System.EventHandler(this.restore_Click);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.BackColor = System.Drawing.Color.Transparent;
+            this.btnSelect.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSelect.BackgroundImage")));
+            this.btnSelect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSelect.EnabledSet = true;
+            this.btnSelect.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSelect.FlatAppearance.BorderSize = 0;
+            this.btnSelect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSelect.Location = new System.Drawing.Point(94, 160);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(57, 23);
+            this.btnSelect.TabIndex = 70;
+            this.btnSelect.Text = "查询";
+            this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnmakeStandard
+            // 
+            this.btnmakeStandard.BackColor = System.Drawing.Color.Transparent;
+            this.btnmakeStandard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnmakeStandard.BackgroundImage")));
+            this.btnmakeStandard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnmakeStandard.EnabledSet = true;
+            this.btnmakeStandard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnmakeStandard.FlatAppearance.BorderSize = 0;
+            this.btnmakeStandard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnmakeStandard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnmakeStandard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmakeStandard.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnmakeStandard.Location = new System.Drawing.Point(157, 160);
+            this.btnmakeStandard.Name = "btnmakeStandard";
+            this.btnmakeStandard.Size = new System.Drawing.Size(57, 23);
+            this.btnmakeStandard.TabIndex = 13;
+            this.btnmakeStandard.Text = "执行";
+            this.btnmakeStandard.UseVisualStyleBackColor = false;
+            this.btnmakeStandard.Click += new System.EventHandler(this.makeStandard_Click);
+            // 
+            // btnQuatoState
+            // 
+            this.btnQuatoState.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuatoState.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuatoState.BackgroundImage")));
+            this.btnQuatoState.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnQuatoState.EnabledSet = true;
+            this.btnQuatoState.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnQuatoState.FlatAppearance.BorderSize = 0;
+            this.btnQuatoState.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnQuatoState.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnQuatoState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuatoState.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnQuatoState.Location = new System.Drawing.Point(33, 182);
+            this.btnQuatoState.Name = "btnQuatoState";
+            this.btnQuatoState.Size = new System.Drawing.Size(71, 28);
+            this.btnQuatoState.TabIndex = 58;
+            this.btnQuatoState.Text = "开始";
+            this.btnQuatoState.UseVisualStyleBackColor = false;
+            this.btnQuatoState.Click += new System.EventHandler(this.functionButton1_Click);
+            // 
+            // fbtnTestStart
+            // 
+            this.fbtnTestStart.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnTestStart.BackgroundImage")));
+            this.fbtnTestStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnTestStart.EnabledSet = true;
+            this.fbtnTestStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnTestStart.FlatAppearance.BorderSize = 0;
+            this.fbtnTestStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnTestStart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnTestStart.Location = new System.Drawing.Point(9, 144);
+            this.fbtnTestStart.Name = "fbtnTestStart";
+            this.fbtnTestStart.Size = new System.Drawing.Size(71, 28);
+            this.fbtnTestStart.TabIndex = 74;
+            this.fbtnTestStart.Text = "开始";
+            this.fbtnTestStart.UseVisualStyleBackColor = false;
+            this.fbtnTestStart.Click += new System.EventHandler(this.fbtnTestStart_Click);
+            // 
+            // fbtnWashTestStart
+            // 
+            this.fbtnWashTestStart.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTestStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashTestStart.BackgroundImage")));
+            this.fbtnWashTestStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashTestStart.EnabledSet = true;
+            this.fbtnWashTestStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashTestStart.FlatAppearance.BorderSize = 0;
+            this.fbtnWashTestStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTestStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashTestStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashTestStart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnWashTestStart.Location = new System.Drawing.Point(6, 163);
+            this.fbtnWashTestStart.Name = "fbtnWashTestStart";
+            this.fbtnWashTestStart.Size = new System.Drawing.Size(71, 28);
+            this.fbtnWashTestStart.TabIndex = 96;
+            this.fbtnWashTestStart.Text = "开始";
+            this.fbtnWashTestStart.UseVisualStyleBackColor = false;
+            this.fbtnWashTestStart.Click += new System.EventHandler(this.fbtnWashTestStart_Click);
+            // 
+            // fbtnPerfusionStart
+            // 
+            this.fbtnPerfusionStart.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnPerfusionStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnPerfusionStart.BackgroundImage")));
+            this.fbtnPerfusionStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnPerfusionStart.EnabledSet = true;
+            this.fbtnPerfusionStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnPerfusionStart.FlatAppearance.BorderSize = 0;
+            this.fbtnPerfusionStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPerfusionStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPerfusionStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnPerfusionStart.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.fbtnPerfusionStart.Location = new System.Drawing.Point(16, 182);
+            this.fbtnPerfusionStart.Name = "fbtnPerfusionStart";
+            this.fbtnPerfusionStart.Size = new System.Drawing.Size(71, 28);
+            this.fbtnPerfusionStart.TabIndex = 58;
+            this.fbtnPerfusionStart.Text = "开始";
+            this.fbtnPerfusionStart.UseVisualStyleBackColor = false;
+            this.fbtnPerfusionStart.Click += new System.EventHandler(this.fbtnPerfusionStart_Click);
+            // 
+            // fbtnWashAgingStop
+            // 
+            this.fbtnWashAgingStop.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAgingStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashAgingStop.BackgroundImage")));
+            this.fbtnWashAgingStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashAgingStop.Enabled = false;
+            this.fbtnWashAgingStop.EnabledSet = true;
+            this.fbtnWashAgingStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashAgingStop.FlatAppearance.BorderSize = 0;
+            this.fbtnWashAgingStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAgingStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAgingStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashAgingStop.Location = new System.Drawing.Point(165, 226);
+            this.fbtnWashAgingStop.Name = "fbtnWashAgingStop";
+            this.fbtnWashAgingStop.Size = new System.Drawing.Size(75, 23);
+            this.fbtnWashAgingStop.TabIndex = 16;
+            this.fbtnWashAgingStop.Text = "停止";
+            this.fbtnWashAgingStop.UseVisualStyleBackColor = false;
+            this.fbtnWashAgingStop.Click += new System.EventHandler(this.fbtnWashAgingStop_Click);
+            // 
+            // fbtnWashAgingStart
+            // 
+            this.fbtnWashAgingStart.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAgingStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnWashAgingStart.BackgroundImage")));
+            this.fbtnWashAgingStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnWashAgingStart.EnabledSet = true;
+            this.fbtnWashAgingStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnWashAgingStart.FlatAppearance.BorderSize = 0;
+            this.fbtnWashAgingStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAgingStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnWashAgingStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnWashAgingStart.Location = new System.Drawing.Point(6, 226);
+            this.fbtnWashAgingStart.Name = "fbtnWashAgingStart";
+            this.fbtnWashAgingStart.Size = new System.Drawing.Size(75, 23);
+            this.fbtnWashAgingStart.TabIndex = 15;
+            this.fbtnWashAgingStart.Text = "开始";
+            this.fbtnWashAgingStart.UseVisualStyleBackColor = false;
+            this.fbtnWashAgingStart.Click += new System.EventHandler(this.fbtnWashAgingStart_Click);
+            // 
+            // fbtnArmAgingStop
+            // 
+            this.fbtnArmAgingStop.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnArmAgingStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnArmAgingStop.BackgroundImage")));
+            this.fbtnArmAgingStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnArmAgingStop.Enabled = false;
+            this.fbtnArmAgingStop.EnabledSet = true;
+            this.fbtnArmAgingStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnArmAgingStop.FlatAppearance.BorderSize = 0;
+            this.fbtnArmAgingStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnArmAgingStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnArmAgingStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnArmAgingStop.Location = new System.Drawing.Point(165, 226);
+            this.fbtnArmAgingStop.Name = "fbtnArmAgingStop";
+            this.fbtnArmAgingStop.Size = new System.Drawing.Size(75, 23);
+            this.fbtnArmAgingStop.TabIndex = 10;
+            this.fbtnArmAgingStop.Text = "停止";
+            this.fbtnArmAgingStop.UseVisualStyleBackColor = false;
+            this.fbtnArmAgingStop.Click += new System.EventHandler(this.fbtnArmAgingStop_Click);
+            // 
+            // fbtnArmAgingStart
+            // 
+            this.fbtnArmAgingStart.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnArmAgingStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnArmAgingStart.BackgroundImage")));
+            this.fbtnArmAgingStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnArmAgingStart.EnabledSet = true;
+            this.fbtnArmAgingStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnArmAgingStart.FlatAppearance.BorderSize = 0;
+            this.fbtnArmAgingStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnArmAgingStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnArmAgingStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnArmAgingStart.Location = new System.Drawing.Point(6, 226);
+            this.fbtnArmAgingStart.Name = "fbtnArmAgingStart";
+            this.fbtnArmAgingStart.Size = new System.Drawing.Size(75, 23);
+            this.fbtnArmAgingStart.TabIndex = 9;
+            this.fbtnArmAgingStart.Text = "开始";
+            this.fbtnArmAgingStart.UseVisualStyleBackColor = false;
+            this.fbtnArmAgingStart.Click += new System.EventHandler(this.fbtnArmAgingStart_Click);
+            // 
+            // fbtnMoveAgingStop
+            // 
+            this.fbtnMoveAgingStop.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnMoveAgingStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMoveAgingStop.BackgroundImage")));
+            this.fbtnMoveAgingStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnMoveAgingStop.Enabled = false;
+            this.fbtnMoveAgingStop.EnabledSet = true;
+            this.fbtnMoveAgingStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnMoveAgingStop.FlatAppearance.BorderSize = 0;
+            this.fbtnMoveAgingStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMoveAgingStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMoveAgingStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnMoveAgingStop.Location = new System.Drawing.Point(143, 226);
+            this.fbtnMoveAgingStop.Name = "fbtnMoveAgingStop";
+            this.fbtnMoveAgingStop.Size = new System.Drawing.Size(75, 23);
+            this.fbtnMoveAgingStop.TabIndex = 6;
+            this.fbtnMoveAgingStop.Text = "停止";
+            this.fbtnMoveAgingStop.UseVisualStyleBackColor = false;
+            this.fbtnMoveAgingStop.Click += new System.EventHandler(this.fbtnMoveAgingStop_Click);
+            // 
+            // fbtnMoveAgingStart
+            // 
+            this.fbtnMoveAgingStart.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnMoveAgingStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnMoveAgingStart.BackgroundImage")));
+            this.fbtnMoveAgingStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnMoveAgingStart.EnabledSet = true;
+            this.fbtnMoveAgingStart.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnMoveAgingStart.FlatAppearance.BorderSize = 0;
+            this.fbtnMoveAgingStart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMoveAgingStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnMoveAgingStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnMoveAgingStart.Location = new System.Drawing.Point(6, 226);
+            this.fbtnMoveAgingStart.Name = "fbtnMoveAgingStart";
+            this.fbtnMoveAgingStart.Size = new System.Drawing.Size(75, 23);
+            this.fbtnMoveAgingStart.TabIndex = 5;
+            this.fbtnMoveAgingStart.Text = "开始";
+            this.fbtnMoveAgingStart.UseVisualStyleBackColor = false;
+            this.fbtnMoveAgingStart.Click += new System.EventHandler(this.fbtnMoveAgingStart_Click);
+            // 
+            // btnVersion
+            // 
+            this.btnVersion.BackColor = System.Drawing.Color.Transparent;
+            this.btnVersion.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVersion.BackgroundImage")));
+            this.btnVersion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVersion.EnabledSet = true;
+            this.btnVersion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnVersion.FlatAppearance.BorderSize = 0;
+            this.btnVersion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnVersion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnVersion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVersion.Location = new System.Drawing.Point(110, 297);
+            this.btnVersion.Name = "btnVersion";
+            this.btnVersion.Size = new System.Drawing.Size(75, 23);
+            this.btnVersion.TabIndex = 2;
+            this.btnVersion.Text = "查询";
+            this.btnVersion.UseVisualStyleBackColor = false;
+            this.btnVersion.Click += new System.EventHandler(this.BtnVersion_Click);
+            // 
+            // fbtnExportToOldFile
+            // 
+            this.fbtnExportToOldFile.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnExportToOldFile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnExportToOldFile.BackgroundImage")));
+            this.fbtnExportToOldFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnExportToOldFile.EnabledSet = true;
+            this.fbtnExportToOldFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnExportToOldFile.FlatAppearance.BorderSize = 0;
+            this.fbtnExportToOldFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnExportToOldFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnExportToOldFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnExportToOldFile.Location = new System.Drawing.Point(706, 244);
+            this.fbtnExportToOldFile.Name = "fbtnExportToOldFile";
+            this.fbtnExportToOldFile.Size = new System.Drawing.Size(75, 23);
+            this.fbtnExportToOldFile.TabIndex = 21;
+            this.fbtnExportToOldFile.Text = "导出记录";
+            this.fbtnExportToOldFile.UseVisualStyleBackColor = false;
+            this.fbtnExportToOldFile.Click += new System.EventHandler(this.FbtnExportToOldFile_Click);
+            // 
+            // fbtnexp
+            // 
+            this.fbtnexp.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnexp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnexp.BackgroundImage")));
+            this.fbtnexp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnexp.EnabledSet = true;
+            this.fbtnexp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnexp.FlatAppearance.BorderSize = 0;
+            this.fbtnexp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnexp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnexp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnexp.Location = new System.Drawing.Point(625, 244);
+            this.fbtnexp.Name = "fbtnexp";
+            this.fbtnexp.Size = new System.Drawing.Size(75, 23);
+            this.fbtnexp.TabIndex = 20;
+            this.fbtnexp.Text = "导出文件";
+            this.fbtnexp.UseVisualStyleBackColor = false;
+            this.fbtnexp.Click += new System.EventHandler(this.Fbtnexp_Click);
+            // 
+            // fbtnTestsStop
+            // 
+            this.fbtnTestsStop.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestsStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnTestsStop.BackgroundImage")));
+            this.fbtnTestsStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnTestsStop.Enabled = false;
+            this.fbtnTestsStop.EnabledSet = true;
+            this.fbtnTestsStop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnTestsStop.FlatAppearance.BorderSize = 0;
+            this.fbtnTestsStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestsStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestsStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnTestsStop.Location = new System.Drawing.Point(211, 239);
+            this.fbtnTestsStop.Name = "fbtnTestsStop";
+            this.fbtnTestsStop.Size = new System.Drawing.Size(75, 23);
+            this.fbtnTestsStop.TabIndex = 17;
+            this.fbtnTestsStop.Text = "停止";
+            this.fbtnTestsStop.UseVisualStyleBackColor = false;
+            this.fbtnTestsStop.Click += new System.EventHandler(this.FbtnTestsStop_Click);
+            // 
+            // fbtnTestS
+            // 
+            this.fbtnTestS.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnTestS.BackgroundImage")));
+            this.fbtnTestS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnTestS.EnabledSet = true;
+            this.fbtnTestS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnTestS.FlatAppearance.BorderSize = 0;
+            this.fbtnTestS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnTestS.Location = new System.Drawing.Point(93, 239);
+            this.fbtnTestS.Name = "fbtnTestS";
+            this.fbtnTestS.Size = new System.Drawing.Size(75, 23);
+            this.fbtnTestS.TabIndex = 10;
+            this.fbtnTestS.Text = "开始";
+            this.fbtnTestS.UseVisualStyleBackColor = false;
+            this.fbtnTestS.Click += new System.EventHandler(this.FbtnTestS_Click);
+            // 
+            // groupBox43
+            // 
+            this.groupBox43.Controls.Add(this.fbtnInitIni);
+            this.groupBox43.Location = new System.Drawing.Point(389, 26);
+            this.groupBox43.Name = "groupBox43";
+            this.groupBox43.Size = new System.Drawing.Size(391, 357);
+            this.groupBox43.TabIndex = 13;
+            this.groupBox43.TabStop = false;
+            this.groupBox43.Text = "工具按钮";
+            // 
+            // fbtnInitIni
+            // 
+            this.fbtnInitIni.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnInitIni.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInitIni.BackgroundImage")));
+            this.fbtnInitIni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnInitIni.EnabledSet = true;
+            this.fbtnInitIni.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnInitIni.FlatAppearance.BorderSize = 0;
+            this.fbtnInitIni.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInitIni.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInitIni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnInitIni.Location = new System.Drawing.Point(22, 36);
+            this.fbtnInitIni.Name = "fbtnInitIni";
+            this.fbtnInitIni.Size = new System.Drawing.Size(118, 23);
+            this.fbtnInitIni.TabIndex = 61;
+            this.fbtnInitIni.Text = "初始化配置文件";
+            this.fbtnInitIni.UseVisualStyleBackColor = false;
+            this.fbtnInitIni.Click += new System.EventHandler(this.fbtnInitIni_Click);
             // 
             // frmDiagnost
             // 
@@ -6357,6 +6390,7 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox41.ResumeLayout(false);
             this.groupBox41.PerformLayout();
+            this.groupBox43.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6747,5 +6781,7 @@
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.ComboBox cmbSendDelay;
         private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.GroupBox groupBox43;
+        private CustomControl.FunctionButton fbtnInitIni;
     }
 }
