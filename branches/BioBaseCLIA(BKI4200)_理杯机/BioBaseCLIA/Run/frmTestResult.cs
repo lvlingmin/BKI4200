@@ -671,6 +671,7 @@ namespace BioBaseCLIA.Run
                 frmWorkList frmWL = (frmWorkList)Application.OpenForms["frmWorkList"];
                 frmWL.Show();
                 frmWL.BringToFront();
+                return;
             }
             this.Close();
         }
