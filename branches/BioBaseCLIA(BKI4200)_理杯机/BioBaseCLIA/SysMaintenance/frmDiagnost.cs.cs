@@ -10148,7 +10148,11 @@ namespace BioBaseCLIA.SysMaintenance
                 OperateIniFile.WriteIniData("Substrate" + i, "TestCount", "", iniPathSubstrateTube);
                 OperateIniFile.WriteIniData("Substrate" + i, "LeftCount", "", iniPathSubstrateTube);
                 OperateIniFile.WriteIniData("Substrate" + i, "LoadDate", "", iniPathSubstrateTube);
-                OperateIniFile.WriteIniData("Substrate" + i, "ValidDate", "", iniPathSubstrateTube);
+                OperateIniFile.WriteIniData("Substrate" + i, "ValidDate", DateTime.Now.AddYears(1).ToString("yyyy-MM-dd"), iniPathSubstrateTube);
+                if(i == 2)
+                {
+                    OperateIniFile.WriteIniData("Substrate" + i, "ValidDate", "", iniPathSubstrateTube);
+                }
             }
 
             OperateIniFile.WriteIniData("Tube", "Pos1", "0", iniPathSubstrateTube);
