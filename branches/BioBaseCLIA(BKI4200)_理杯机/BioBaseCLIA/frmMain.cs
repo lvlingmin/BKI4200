@@ -42,7 +42,7 @@ namespace BioBaseCLIA
         /// <summary>
         /// 缺液信息状态
         /// </summary>
-        public static int[] LackLq;//2018-07-12 zlx mod
+        public static int[] LackLq;
         /// <summary>
         /// 缺管信息状态 缺管：0 有管：1
         /// </summary>
@@ -85,7 +85,6 @@ namespace BioBaseCLIA
         /// 点击停止事件
         /// </summary>
         public static event Action btnStopClick;
-
         /// <summary>
         /// 点击继续事件
         /// </summary>
@@ -106,18 +105,16 @@ namespace BioBaseCLIA
         /// 桶液位是否查询 标志位
         /// </summary>
         public static bool LiquidQueryFlag = true;
-        //2018-07-05 zlx add  缺液3分钟暂停加样
+        // 缺液3分钟暂停加样
         private const int MaxBuffertime = 9;//磁珠清洗液报警最大次数
         private const int MaxWashtime = 9;//探针清洗液报警最大次数
         private const int MaxWastetime = 9;//废液报警最大次数
         private const int MaxWTubetime = 9;//废管报警最大次数
         private int NumWTubettime = 0;//报警指令连续发送废管满的次数
-        ////2018-07-11 zlx add
-        //string BackObj = "";
         Thread QueryThread;
         /// <summary>
         /// 查询温度
-        /// 温育盘，清洗盘，清洗管路，底物管路 2018-07-14
+        /// 温育盘，清洗盘，清洗管路，底物管路
         /// </summary>
         decimal[] Temprrature = new decimal[4];
         /// <summary>
@@ -143,8 +140,7 @@ namespace BioBaseCLIA
         /// <summary>
         /// 开机时间 
         /// </summary>
-        DateTime _BootUpTime;//2018-07-25 zlx add
-        //2018-11-14 zlx add
+        DateTime _BootUpTime;
         IntPtr trayHwnd = FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Shell_TrayWnd", null);
         IntPtr hStar = FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Button", null);
         /// <summary>
@@ -163,7 +159,7 @@ namespace BioBaseCLIA
         {
             frmWorkList.LiquidLevelDetectionEvent += LiquidLevelDetectionAlarm;
             SoundFlag = (int)SoundFlagStart.IsOpen;
-            _BootUpTime = DateTime.Now;//2018-07-25 zlx add
+            _BootUpTime = DateTime.Now;
             label2.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
             toolTip1.SetToolTip(this.dbtnBuffer, "磁珠清洗液查询");
             toolTip1.SetToolTip(this.dbtnWash, "探针清洗液查询");
@@ -172,24 +168,20 @@ namespace BioBaseCLIA
             toolTip1.SetToolTip(this.dbtnRegent, "试剂信息");
             toolTip1.SetToolTip(this.dbtnRack, "理杯机信息");
             toolTip1.SetToolTip(this.btnWasteRack, "废管盒信息");
-            toolTip1.SetToolTip(this.dbtnLog, "报警信息");//2018-07-19 zlx mod
+            toolTip1.SetToolTip(this.dbtnLog, "报警信息");
 
             if (NetCom3.isConnect)
             {
                 dbtnConnect.Enabled = false;
-                //dbtnConnect.BackgroundImage = Properties.Resources.已连接;
                 toolTip1.SetToolTip(this.dbtnConnect, "网络已连接");
             }
             else
             {
                 dbtnConnect.Enabled = true;
-                //dbtnConnect.BackgroundImage = Properties.Resources.未连接;
                 toolTip1.SetToolTip(this.dbtnConnect, "网络未连接");
-                //2018-09-06 zlx add
                 fbtnTest.Enabled = false;
                 fbtnMaintenance.Enabled = false;
             }
-            //2018-07-13 zlx add
             RangeWY[1] = Convert.ToDecimal(OperateIniFile.ReadInIPara("temperature", "MaxTWY"));
             RangeWY[0] = Convert.ToDecimal(OperateIniFile.ReadInIPara("temperature", "MinTWY"));
             RangeWash[1] = Convert.ToDecimal(OperateIniFile.ReadInIPara("temperature", "MaxTWash"));
@@ -199,9 +191,6 @@ namespace BioBaseCLIA
             RangeQXGL[1] = Convert.ToDecimal(OperateIniFile.ReadInIPara("temperature", "MaxTQXGL"));
             RangeQXGL[0] = Convert.ToDecimal(OperateIniFile.ReadInIPara("temperature", "MinTQXGL"));
 
-           
-
-            //frmWorkList.btnLogColor += new Action<int>(LogBtnColorChange);
             frmLogShow.btnLogColor1 += new Action<int>(LogBtnColorChange);
             #region 查询今天错误中是否有未解决的问题，有的话按钮颜色变色
             List<string> lstFiles = GetFiles(Application.StartupPath + @"\Log\AlarmLog", ".txt");
@@ -229,16 +218,12 @@ namespace BioBaseCLIA
             dbtnWash.Location = new Point((newx - controlWidth * 7 - 20), warnControlL_Y);
             dbtnBuffer.Location = new Point((newx - controlWidth * 8 - 20), warnControlL_Y);
             temperatureButton.Location = new Point((newx - controlWidth * 9 - 20), warnControlL_Y);
-            //logo.Location = new Point(defineButton4.Location.X + defineButton4.Size.Width + 10, logo.Location.Y);//y add 20180426;
-
-            LackLq = new int[] { 0, 0, 0, 0 };//2018-07-12 zlx mod
+            LackLq = new int[] { 0, 0, 0, 0 };
             frmSupplyStatus.btnBtnColor += new Action<int, int, int>(RegenColorChange);
-            //frmSampleLoad.btnEmerPause += new Action<object, EventArgs>(defineButton2_Click);
-             //2018-07-11 zlx add
             new Thread(new ParameterizedThreadStart((obj) =>
             {
                 NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel += 
-                    new Action<string>(Instance_ReceiveHandel);//y 20180816 更改注册事件
+                    new Action<string>(Instance_ReceiveHandel);//更改注册事件
                 if (!NetCom3.isConnect)
                 {
                     if (NetCom3.Instance.CheckMyIp_Port_Link())
@@ -253,19 +238,10 @@ namespace BioBaseCLIA
             QueryThread = new Thread(new ParameterizedThreadStart(Instance_QueryInfo));
             QueryThread.IsBackground = true;
             QueryThread.Start();
-            //2018-07-18 zlx mod
             #region 设置按钮控件查询状态timer的属性
-            //timerStatus.Enabled = true;
-            //timerStatus.Interval = 20000;
-            //timerStatus_Tick(null, null);
             timerStatus.Start();
-
             #endregion
-            //2018-11-14 zlx add
-            //ShowWindow(trayHwnd, 0);
-            //ShowWindow(hStar, 0);
             timeWarnSound.Start();
-
             #region 区分出normal、admin 、root权限
             switch (frmParent.LoginUserType) 
             {
@@ -297,9 +273,7 @@ namespace BioBaseCLIA
                     frmMsgShow.MessageShow("提示", "检测到非正常退出软件，请清空温育盘！");
                     return;
                 }
-                //删除debug中的ReactTrayInfo.ini
                 File.Delete(defaultIniPath);
-                //把temp中的ReactTrayInfo.ini剪切过来
                 File.Move(cTempIniPath, defaultIniPath);
             }
             else
@@ -316,14 +290,11 @@ namespace BioBaseCLIA
         /// <param name="colorFlag">报警按钮颜色</param>
         private void LiquidLevelDetectionAlarm(string alarmContent, int colorFlag)
         {
-            //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + alarmContent);
-            //LogBtnColorChange(colorFlag);
-            //NetCom3.Instance.LiquidLevelDetectionFlag = (int)BioBaseCLIA.LiquidLevelDetectionAlarm.Height;
         }
 
         object locker = new object();
         /// <summary>
-        /// 接收返回指令 2018-07-13
+        /// 接收返回指令
         /// </summary>
         /// <param name="obj"></param>
         void Instance_ReceiveHandel(string obj)
@@ -345,37 +316,29 @@ namespace BioBaseCLIA
             }
         }
         /// <summary>
-        /// 发送查询指令  2018-07-13
+        /// 发送查询指令  
         /// </summary>
         /// <param name="TubeInfo"></param>
         void Instance_QueryInfo(object TubeInfo)
         {
             bool iswork = false;
             List<string> list;
-            bool diagFlag = false;//lyq add 20191230
+            bool diagFlag = false;
             while (true)
             {
                 Thread.Sleep(100);
-                if (Selectlist.Count > 0 && !iswork && LiquidQueryFlag)//2018-08-13 zlx add
+                if (Selectlist.Count > 0 && !iswork && LiquidQueryFlag)
                 {
                     iswork = true;
-                    //for (int i = 0; i < Selectlist.Count; i++)
-                    //{
-                    //    string[] li = Selectlist[i];
-                    //    list.Add(li);
-                    //}
                     list = Selectlist.GetRange(0, Selectlist.Count);
                     Selectlist.Clear();
                     while (list.Count>0)
                     {
                         Thread.Sleep(50);
-                        //while (NetCom3.Instance.iapIsRun) //lyq iap 20191130
-                        //    NetCom3.Delay(1000);
-                        while (NetCom3.Instance.iapIsRun) //lyq iap 20191130
+                        while (NetCom3.Instance.iapIsRun) 
                             Thread.Sleep(1000);
                         if (NetCom3.isConnect && list[0] != null && NetCom3.isConnect/* && NetCom3.Instance.FReciveCallBack < 3*/)
                         {
-                            //2018-07-25                             
                             if (frmWorkList.RunFlag==(int)RunFlagStart.IsRuning )
                             {
                                 if (frmWorkList.BQLiquaid)
@@ -403,13 +366,6 @@ namespace BioBaseCLIA
                                     diagFlag = false;
                                     continue;
                                 }
-                                //if (this.ActiveControl != null && this.ActiveControl.Text == "frmDiagnost")
-                                //{
-                                //    if (!frmDiagnost.BQLiquaid)
-                                //    {
-                                //        continue;
-                                //    }
-                                //}
                                 while (!NetCom3.totalOrderFlag)
                                 Thread.Sleep(50);
                                 NetCom3.Instance.Send(NetCom3.Cover(list[0]), 5);
@@ -564,7 +520,6 @@ namespace BioBaseCLIA
         void RunBtnStatus()
         {
             defineButton1.Enabled = true;
-
             defineButton1.BackgroundImage = Properties.Resources.blue_play_128px_569342_easyicon_net;
             defineButton2.BackgroundImage = Properties.Resources.blue_pause_128px_569341_easyicon_net;
             defineButton3.BackgroundImage = Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
@@ -572,14 +527,10 @@ namespace BioBaseCLIA
       
         private void button11_Click(object sender, EventArgs e)
         {
-            //2018-08-23 zlx mod
             DialogResult result = MessageBox.Show("是否确定关闭正在运行的系统！","系统退出警告",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
                 timerStatus.Stop();
-                //2018-11-14 zlx add
-                //ShowWindow(trayHwnd, 1);
-                //ShowWindow(hStar, 1);
                 Application.Exit();
                 System.Environment.Exit(0);
             }
@@ -587,7 +538,6 @@ namespace BioBaseCLIA
 
         private void defineButton1_Click(object sender, EventArgs e)
         {
-            //CanCom.Instance.sendStop = false;
             LogFile.Instance.Write(DateTime.Now + "pauseFlag的值为:" + pauseFlag+",btnRunClick的是否为空:" + (btnRunClick == null?"NULL":"NotNUll"));
             if (btnRunClick != null && pauseFlag == false)
             {
@@ -621,7 +571,7 @@ namespace BioBaseCLIA
                 btnGoonClick();
             }
         }
-        public static bool StartFlag;//2019-03-02 zlx mod
+        public static bool StartFlag;
         void BoolStart(object sender, ElapsedEventArgs e)
         {
             Thread.Sleep(1000);
@@ -629,7 +579,6 @@ namespace BioBaseCLIA
             {
                 Action ac = new Action(RunBtnStatus);
                 this.Invoke(ac); 
-                //new Thread(RunBtnStatus).Start();
             }
         }
         private void defineButton2_Click(object sender, EventArgs e)
@@ -665,7 +614,6 @@ namespace BioBaseCLIA
             }
             if (btnStopClick != null)
             {
-                //2018-07-07 zlx mod 
                 DialogResult dr =MessageBox.Show("停止实验会导致此次实验作废，确认是否要停止此次实验！","信息提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
                 if (dr == DialogResult.OK)
                 {
@@ -707,10 +655,6 @@ namespace BioBaseCLIA
             string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
             DbHelperOleDb.ExecuteSql(3,@"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '"
                                                   + sbCode1 + "'");
-            //string sbCode2 = OperateIniFile.ReadIniData("Substrate2", "BarCode", "0", iniPathSubstrateTube);
-            //string sbNum2 = OperateIniFile.ReadIniData("Substrate2", "LeftCount", "0", iniPathSubstrateTube);
-            //DbHelperOleDb.ExecuteSql(@"update tbSubstrate set leftoverTest =" + sbNum2 + " where BarCode = '"
-            //                                      + sbCode2 + "'");
             #endregion
         }
         private void defineButton3_MouseLeave(object sender, EventArgs e)
@@ -741,7 +685,6 @@ namespace BioBaseCLIA
             button.FlatAppearance.BorderSize = 0;
         }
 
-
         private void fbtnTest_Click(object sender, EventArgs e)
         {
             frmReagentLoad frmRL = new frmReagentLoad();
@@ -760,7 +703,6 @@ namespace BioBaseCLIA
 
         private void fbtnSet_Click(object sender, EventArgs e)
         {
-            //2018-11-14 zlx mod
             frmInfo frmIF = new frmInfo();
             frmIF.MdiParent = this;//指定当前窗体为顶级Mdi窗体
             frmIF.Parent = this.pnlPublic;//指定子窗体的父容器为
@@ -779,7 +721,6 @@ namespace BioBaseCLIA
             else
             {
                 frmSupplyStatus frmSS = (frmSupplyStatus)Application.OpenForms["frmSupplyStatus"];//(frmQCManagement)Application.OpenForms["frmQcM"];
-                //frmQcM.Activate();
                 frmSS.BringToFront();
             }
         }
@@ -832,15 +773,7 @@ namespace BioBaseCLIA
         /// <param name="e"></param>
         private void timerStatus_Tick(object sender, EventArgs e)
         {
-            //2018-07-31 zlx add
             label2.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-            //2018-07-25 zlx mod
-            //if (this.ActiveControl == null || this.ActiveControl.Text != "frmDiagnost")//this.ActiveControl == null || this.ActiveControl.Text == "" 
-            //{
-            //if (this.ActiveControl.Text == "frmWorkList" && !frmWorkList.BQLiquaid) 
-            //{ 
-            //    return;
-            //}
             timerStatus.Enabled = false;
             if (LiquidQueryFlag)
             {
@@ -861,17 +794,15 @@ namespace BioBaseCLIA
 
             #region 检查底物剩余测数状态
             string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
-            //string LeftCount2 = OperateIniFile.ReadIniData("Substrate2", "LeftCount", "", iniPathSubstrateTube);
             string LeftCount2 = "0";
-            if (LeftCount1 == "" || LeftCount2 == "")//modify by y 20180509
+            if (LeftCount1 == "" || LeftCount2 == "")
             {
-                if (LeftCount1 == "")//add by y 20180509
-                    LeftCount1 = "0";//add by y 20180509
-                if (LeftCount2 == "")//add by y 20180509
-                    LeftCount2 = "0";//add by y 20180509
-                                     //return;//y
+                if (LeftCount1 == "")
+                    LeftCount1 = "0";
+                if (LeftCount2 == "")
+                    LeftCount2 = "0";
             }
-            if (int.Parse(LeftCount1) + int.Parse(LeftCount2) != RtSubstract)//2018-09-29 zlx add
+            if (int.Parse(LeftCount1) + int.Parse(LeftCount2) != RtSubstract)
             {
                 if (int.Parse(LeftCount1) + int.Parse(LeftCount2) <= WarnSubstrate)
                 {
@@ -911,7 +842,7 @@ namespace BioBaseCLIA
             }
             RtlisRIinfo = RtlisRIinfoC;
             #endregion
-            dbtnRegent.BackgroundImage = Properties.Resources._14__2_;//2018-09-27 zlx mod
+            dbtnRegent.BackgroundImage = Properties.Resources._14__2_;
             if (lisRIinfo != null && lisRIinfo.Count > 0)
             {
                 foreach (ReagentIniInfo ReagentIniInfo in lisRIinfo)
@@ -936,8 +867,6 @@ namespace BioBaseCLIA
                             LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + ReagentIniInfo.ItemName + "项目试剂剩余测数为" + count.ToString());
                         }
                         listItemName.Add(ReagentIniInfo.ItemName);
-
-                        //2018-09-29 zlx add
                         if (RtlisRIinfo.FindAll(ty => ty.ItemName == ReagentIniInfo.ItemName).Count > 0)
                         {
                             RtlisRIinfo.Find(ty => ty.ItemName == ReagentIniInfo.ItemName).LeftReagent1 = count;
@@ -948,14 +877,11 @@ namespace BioBaseCLIA
                             info.LeftReagent1 = count;
                             RtlisRIinfo.Add(info);
                         }
-
                     }
                 }
             }
             #endregion
 
-
-            //2018-08-01 zlx add
             if (this.ActiveControl != null)
             {
                 if (this.ActiveControl.Text == "frmReagentLoad")
@@ -968,31 +894,14 @@ namespace BioBaseCLIA
                     frmSampleLoad frmSL = (frmSampleLoad)Application.OpenForms["frmSampleLoad"];
                     frmSL.LoadData();
                 }
-                //2018-08-14 zlx add
                 if (this.ActiveControl.Text == "frmSupplyStatus")
                 {
                     frmSupplyStatus f = (frmSupplyStatus)this.ActiveControl;
                     f.frmSupplyStatus_Load();
-
                 }
             }
-            //2018-07-25 zlx mod                
             #region 温度监控 //2018-07-5
             TimeSpan ts = DateTime.Now - _BootUpTime;
-            //if (ts.TotalMinutes > 30)
-            //{
-
-            //}
-            //else
-            //{
-            //if (Temprrature[0] == 0)
-            //    Selectlist.Add(new string[] { "EB 90 11 04 04", "5" });
-            //if(Temprrature[1] == 0)
-            //    Selectlist.Add(new string[] { "EB 90 11 05 04", "5" });
-            //if (Temprrature[2] == 0)
-            //    Selectlist.Add(new string[] { "EB 90 11 06 04", "5" });
-            //if (Temprrature[3] == 0)
-            //    Selectlist.Add(new string[] { "EB 90 11 07 04", "5" });
             if (!Selectlist.Contains("EB 90 11 04 04"))
                 Selectlist.Add("EB 90 11 04 04");
             if (!Selectlist.Contains("EB 90 11 05 04"))
@@ -1001,26 +910,11 @@ namespace BioBaseCLIA
                 Selectlist.Add("EB 90 11 06 04");
             if (!Selectlist.Contains("EB 90 11 07 04"))
                 Selectlist.Add("EB 90 11 07 04");
-            //}
             #endregion
             timerStatus.Enabled = true;
-            //}
-            #region 网络连接状态
-            //if (NetCom3.isConnect)
-            //{
-            //    dbtnConnect.BackgroundImage = Properties.Resources.已连接;
-            //    BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, "网络已连接")));//2018-07-20 zlx mod
-            //}
-            //else
-            //{
-            //    dbtnConnect.BackgroundImage = Properties.Resources.未连接;
-            //    BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, "网络未连接")));//2018-07-20 zlx mod
-            //    timerStatus.Enabled = false;
-            //}
-            #endregion            
         }
         /// <summary>
-        /// 处理接收信息信息 2018-07-11
+        /// 处理接收信息信息 
         /// </summary>
         /// <param name="num">查询液位反馈指令</param>
         /// <returns></returns>
@@ -1032,7 +926,6 @@ namespace BioBaseCLIA
                 case "09":
                     #region 查询液位处理
                     DealLiquid(dataRecive);
-                    //recivelist.Remove(recivelist[i]);
                     #endregion
                     break;
                 case "04":
@@ -1083,7 +976,7 @@ namespace BioBaseCLIA
             }
         }
         /// <summary>
-        /// 处理查询液位信息 2018-07-13
+        /// 处理查询液位信息 
         /// </summary>
         public void DealLiquid(string[] dataRecive)
         {
@@ -1154,67 +1047,7 @@ namespace BioBaseCLIA
             }
             ShowLiquidInfo();
         }
-        //public void DealLiquid(string[] dataRecive)
-        //{
-        //    if (dataRecive[5] != "02")
-        //        return;
-        //    int dec = Convert.ToInt32(dataRecive[15], 16);
-        //    string bit = Convert.ToString(dec, 2);
-        //    while (bit.Length < 8)
-        //    {
-        //        bit = "0" + bit;
-        //    }
 
-        //    if (bit.Substring(0, 1) == "0")
-        //    {
-        //        if (frmWorkList.RunFlag==(int)RunFlagStart.IsRuning )
-        //            LackLq[0]++;
-        //        else
-        //            LackLq[0] = 1;
-        //    }
-        //    else
-        //    {
-        //        if (LackLq[0] > 0)
-        //            LackLq[0] = 0;
-        //    }
-        //    if (bit.Substring(1, 1) == "0")
-        //    {
-        //        if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
-        //            LackLq[1]++;
-        //        else
-        //            LackLq[1] = 1;
-        //    }
-        //    else
-        //    {
-        //        if (LackLq[1] > 0)
-        //            LackLq[1] = 0;
-        //    }
-        //    if (bit.Substring(2, 1) == "0")
-        //    {
-        //        if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
-        //            LackLq[2]++;
-        //        else
-        //            LackLq[2] = 1;
-        //    }
-        //    else
-        //    {
-        //        if (LackLq[2] > 0)
-        //            LackLq[2] = 0;
-        //    }
-        //    if (bit.Substring(3, 1) == "0")
-        //    {
-        //        if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
-        //            LackLq[3]++;
-        //        else
-        //            LackLq[3] = 1;
-        //    }
-        //    else
-        //    {
-        //        if (LackLq[3] > 0)
-        //            LackLq[3] = 0;
-        //    }
-        //    ShowLiquidInfo();
-        //}
         /// <summary>
         /// 显示液位信息
         /// </summary>
@@ -1224,17 +1057,12 @@ namespace BioBaseCLIA
             {
                 if (!BWarn)
                 {
-                    //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 09 00"), 5);
-                    //NetCom3.Instance.SingleQuery();
                     Selectlist.Add("EB 90 11 09 00");
                     BWarn = true;
                 }
-                //错误
                 //错误存储到Log文件
-
-                if (LackLq[0] > MaxBuffertime)//2018-07-06
+                if (LackLq[0] > MaxBuffertime)
                 {
-                    //2018-09-29 
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "磁珠清洗液为空");
                     dbtnBuffer.BackgroundImage = Properties.Resources._2;//黄色（红色为_2）
                     LogBtnColorChange(0);
@@ -1250,30 +1078,23 @@ namespace BioBaseCLIA
             }
             else
             {
-                //2018-07-26 zlx mod
                 if (BWarn && (LackLq[0] == 0 && LackLq[1] == 0 && LackLq[2] == 0 && LackLq[3] == 0))
                 {
-                    //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 09 01"), 5);
-                    //NetCom3.Instance.SingleQuery();
                     Selectlist.Add("EB 90 11 09 01");
                     BWarn = false;
                 }
                 dbtnBuffer.BackgroundImage = Properties.Resources._1;//蓝色
-                StopFlag[0] = false;//2018-10-09
+                StopFlag[0] = false;
             }
             if (LackLq[1] > 0)
             {
                 if (!BWarn)
                 {
-                    //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 09 00"), 5);
-                    //NetCom3.Instance.SingleQuery();
-                    //Selectlist.Add(new string[] { "EB 90 11 09 00", "5" });
                     Selectlist.Add("EB 90 11 09 00");
                     BWarn = true;
                 }
-                //错误
                 //错误存储到Log文件
-                if (LackLq[1] > MaxWashtime)//2018-07-06
+                if (LackLq[1] > MaxWashtime)
                 {
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "探针清洗液为空");
                     dbtnWash.BackgroundImage = Properties.Resources._7;//红色（红色为_2）
@@ -1290,17 +1111,13 @@ namespace BioBaseCLIA
             }
             else
             {
-                //2018-07-26 zlx mod
                 if (BWarn && (LackLq[0] == 0 && LackLq[1] == 0 && LackLq[2] == 0 && LackLq[3] == 0))
                 {
-                    //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 09 01"), 5);
-                    //NetCom3.Instance.SingleQuery();
-                    //Selectlist.Add(new string[] { "EB 90 11 09 01", "5" });
                     Selectlist.Add("EB 90 11 09 01");
                     BWarn = false;
                 }
                 dbtnWash.BackgroundImage = Properties.Resources._8;//蓝色
-                StopFlag[1] = false;//2018-10-09
+                StopFlag[1] = false;
             }
             if (LackLq[2] > 0)
             {
@@ -1309,12 +1126,10 @@ namespace BioBaseCLIA
                 if (!BWarn)
                 {
                     Selectlist.Add("EB 90 11 09 00");
-                    //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 09 00"), 5);
-                    //NetCom3.Instance.SingleQuery();
                     BWarn = true;
                 }
 
-                if (LackLq[2] > MaxWastetime)//2018-07-05 zlx add
+                if (LackLq[2] > MaxWastetime)
                 {
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "废液桶已满");
                     dbtnWaste.BackgroundImage = Properties.Resources._10;//黄色（红色为_10）
@@ -1331,20 +1146,16 @@ namespace BioBaseCLIA
             }
             else
             {
-                //2018-07-26 zlx add
                 if (BWarn && (LackLq[0] == 0 && LackLq[1] == 0 && LackLq[2] == 0 && LackLq[3] == 0))
                 {
-                    //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 09 01"), 5);
-                    //NetCom3.Instance.SingleQuery();
                     Selectlist.Add("EB 90 11 09 01");
                     BWarn = false;
                 }
                 dbtnWaste.BackgroundImage = Properties.Resources._9;//蓝色
-                StopFlag[2] = false;//2018-10-09
+                StopFlag[2] = false;
             }
             if (LackLq[3] > 0)
             {
-                //错误
                 //错误存储到Log文件
                 if (LackLq[3] > MaxWTubetime)
                 {
@@ -1369,7 +1180,7 @@ namespace BioBaseCLIA
             }
         }
         /// <summary>
-        /// 处理查询温度信息 2018-07-14
+        /// 处理查询温度信息
         /// </summary>
         /// <param name="dataRecive"></param>
         public void DealTemperature(string[] dataRecive)
@@ -1393,7 +1204,6 @@ namespace BioBaseCLIA
                     break;
             }
         }
-
         private void dbtnLog_Click(object sender, EventArgs e)
         {
             if (!CheckFormIsOpen("frmLogShow"))
@@ -1406,7 +1216,6 @@ namespace BioBaseCLIA
             else
             {
                 frmLogShow frmLS = (frmLogShow)Application.OpenForms["frmLogShow"];
-                //frmQcM.Activate();
                 frmLS.BTrefresh_Click();
                 frmLS.BringToFront();
             }
@@ -1414,168 +1223,84 @@ namespace BioBaseCLIA
 
         private void dbtnBuffer_Click(object sender, EventArgs e)
         {
-            #region 2018-07-17 屏蔽
-            /*
-            int LackLqValue = 15;
-            LackLq = IntToBool(LackLqValue);
-            if (LackLq[0])
+            if (LackLq[0] > 0)
             {
-                //错误
-                //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "磁珠清洗液为空");
-                dbtnBuffer.BackgroundImage = Properties.Resources._3;//黄色（红色为_2）
-                LogBtnColorChange(1);
-                frmMsgShow.MessageShow("警告", "磁珠清洗液为空");
-            }
-            else
-            {
-                //取消错误
-                dbtnBuffer.BackgroundImage = Properties.Resources._1;//蓝色
-                frmMsgShow.MessageShow("提示", "磁珠清洗液未空");
-            }
-            LackLq = new bool[] { false, false, false, false };
-             */
-            #endregion
-            if (LackLq[0] > 0)//2018-07-12 zlx mod
-            {
-                //错误
                 //错误存储到Log文件
                 LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "磁珠清洗液为空");
                 dbtnBuffer.BackgroundImage = Properties.Resources._3;//黄色（红色为_2）
                 LogBtnColorChange(1);
-                //2018-08-13 zlx mod
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow("警告", "磁珠清洗液为空");
                 }))
                 { IsBackground = true }.Start();
-                //frmMsgShow.MessageShow("警告", "磁珠清洗液为空");
             }
             else
             {
                 dbtnBuffer.BackgroundImage = Properties.Resources._1;//蓝色
                 //取消错误
-                //2018-08-13 zlx mod
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow f = new frmMessageShow();
-                    //f.ShowInTaskbar = false;
                     f.MessageShow("警告", "磁珠清洗液正常");
                 }))
                 { IsBackground = true }.Start();
-                //frmMsgShow.MessageShow("提示", "磁珠清洗液正常");//2018-07-19 zlx mod
             }
         }
 
         private void dbtnWash_Click(object sender, EventArgs e)
         {
-            #region 2018-07-17 zlx 屏蔽
-            /*
-            int LackLqValue = 15;
-            LackLq = IntToBool(LackLqValue);
-            if (LackLq[1])
+            if (LackLq[1] > 0)
             {
-                //错误
-                //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "探针清洗液为空");
-                dbtnWash.BackgroundImage = Properties.Resources._6__2_;//黄色（红色为_7）
-                LogBtnColorChange(1);
-                frmMsgShow.MessageShow("警告", "探针清洗液为空");
-            }
-            else
-            {
-                //错误
-                dbtnWash.BackgroundImage = Properties.Resources._8;//蓝色
-                frmMsgShow.MessageShow("提示", "探针清洗液未空");
-            }
-            LackLq = new bool[] { false, false, false, false };
-             */
-            #endregion
-            if (LackLq[1] > 0)//2018-07-12 zlx mod
-            {
-                //错误
                 //错误存储到Log文件
                 LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "探针清洗液为空");
                 dbtnWash.BackgroundImage = Properties.Resources._6__2_;//黄色（红色为_7）
                 LogBtnColorChange(1);
-                //2018-08-13 zlx mod
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow("警告", "探针清洗液为空");
                 })) { IsBackground = true }.Start();
-                //frmMsgShow.MessageShow("警告", "探针清洗液为空");
             }
             else
             {
                 //错误
                 dbtnWash.BackgroundImage = Properties.Resources._8;//蓝色
-                //2018-08-13 zlx mod
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow("警告", "探针清洗液正常");
                 })) { IsBackground = true }.Start();
-                //frmMsgShow.MessageShow("提示", "探针清洗液正常");//2018-07-19 zlx mod
             }
         }
 
         private void dbtnWaste_Click(object sender, EventArgs e)
         {
-            #region 2018-07-17 zlx 屏蔽
-            /*
-            int LackLqValue = 15;
-            LackLq = IntToBool(LackLqValue);
-            if (LackLq[3])
+            if (LackLq[2] > 0)
             {
-                //错误
-                dbtnWaste.BackgroundImage = Properties.Resources._9;//蓝色
-                frmMsgShow.MessageShow("提示", "废液桶未满");
-            }
-            else
-            {
-                //错误
-                //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "废液桶已满");
-                dbtnWaste.BackgroundImage = Properties.Resources._11;//黄色（红色为_10）
-                LogBtnColorChange(1);
-                frmMsgShow.MessageShow("警告", "废液桶已满");
-            }
-            LackLq = new bool[] { false, false, false, false };
-             */
-            #endregion
-            if (LackLq[2] > 0)//2018-07-12 zlx mod
-            {
-                //错误
                 //错误存储到Log文件
                 LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "废液桶已满");
                 dbtnWaste.BackgroundImage = Properties.Resources._11;//黄色（红色为_10）
                 LogBtnColorChange(1);
-                //2018-08-13 zlx mod
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow("警告", "废液桶已满");
                 })) { IsBackground = true }.Start();
-                //frmMsgShow.MessageShow("警告", "废液桶已满");
-
             }
             else
             {
-                //错误
                 dbtnWaste.BackgroundImage = Properties.Resources._9;//蓝色
-                //2018-08-13 zlx mod
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow("警告", "废液桶正常");
                 })) { IsBackground = true }.Start();
-                //frmMsgShow.MessageShow("提示", "废液桶正常");//2018-07-19 zlx mod
             }
         }
         /// <summary>
-        /// 更改管架、底物、试剂按钮颜色。 LYN add 20171114
+        /// 更改管架、底物、试剂按钮颜色。 
         /// </summary>
         /// <param name="rackFlag">管架标志位，0：蓝色，1：黄色，2：红色,3:颜色不变</param>
         /// <param name="subFlag">底物标志位</param>
@@ -1618,7 +1343,6 @@ namespace BioBaseCLIA
             {
                 dbtnRegent.BackgroundImage = Properties.Resources._14__2_;
             }
-
         }
 
         private void fbtnScalQc_Click(object sender, EventArgs e)
@@ -1647,68 +1371,10 @@ namespace BioBaseCLIA
 
         /// <summary>
         /// 查询系统温度，改变标签状态，同时更改运行指示参数
-        /// </summary>2018-07-14 zlx mod
+        /// </summary>
         /// <param name="bo">是否弹窗提示</param>
         private void alarmOfTemperature(bool bo,string Ttype)
         {
-            #region 屏蔽原有查询温度信息 2018-07-17 zlx mod
-            /*
-            double reagent, wenyu, qingxi, diwu;
-            reagent = 18;//后期更换为数据查询
-            wenyu = 37;//后期更换为数据查询
-            qingxi = 35;//后期更换为数据查询
-            diwu = 30;//后期更换为数据查询
-
-            if (reagent > 20 || wenyu < 35 || qingxi < 33 || diwu < 20)//后期需要更改标准,包括下面的部分
-            {
-                StringBuilder st = new StringBuilder();
-                StringBuilder st2 = new StringBuilder();
-                st.Append("温度警告：");
-                st2.Append("其中,");
-                if (reagent > 20)
-                {
-                    st.Append("试剂盘温度");
-                    st2.Append("试剂盘" + reagent.ToString() + "℃");
-                }
-                if (wenyu < 35)
-                {
-                    st.Append("、温育盘温度");
-                    st2.Append("，温育盘" + wenyu.ToString() + "℃");
-                }
-                if (qingxi < 33)
-                {
-                    st.Append("、清洗盘温度");
-                    st2.Append("，清洗盘" + qingxi.ToString() + "℃");
-                }
-                if (diwu < 20)
-                {
-                    st.Append("、底物环境温度");
-                    st2.Append("，底物" + diwu.ToString() + "℃");
-                }
-                st.Append("未达到标准。");
-                temperatureButton.BackgroundImage = Properties.Resources.temperature_2;
-                toolTip1.SetToolTip(temperatureButton, "温度警告：\n" + st.ToString());
-                //此时停止机器，不允许运行
-                if (bo)
-                {
-                    frmMsgShow.MessageShow("温度警告", st.ToString() + st2.ToString());
-                }
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + st.ToString() + st2.ToString());
-                //LogBtnColorChange(1);
-            }
-            else
-            {
-                temperatureButton.BackgroundImage = Properties.Resources.temperature_1;
-                toolTip1.SetToolTip(temperatureButton, "系统温度查询");
-                //此时更新标志，指示可以运行
-                if (bo)
-                {
-                    frmMsgShow.MessageShow("系统温度查询", "温度已达到运行标准");
-                }
-            }
-             */
-            #endregion 
-            //2018-08-17 zlx add
             if (Temprrature[0] == 0 || Temprrature[1] == 0 || Temprrature[2] == 0 || Temprrature[3] == 0)
             {
                 BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton, "温度警告")));
@@ -1788,7 +1454,6 @@ namespace BioBaseCLIA
                 //此时停止机器，不允许运行
                 if (bo)
                 {
-                    //2018-08-13 zlx mod 
                     new Thread(new ParameterizedThreadStart((obj) =>
                     {
                         frmMessageShow f = new frmMessageShow();
@@ -1796,8 +1461,6 @@ namespace BioBaseCLIA
                     })) { IsBackground = true }.Start();
                     
                 }
-                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + st.ToString() + st2.ToString());
-                //LogBtnColorChange(1);
             }
             else
             {
@@ -1806,7 +1469,6 @@ namespace BioBaseCLIA
                 //此时更新标志，指示可以运行
                 if (bo)
                 {
-                    //2018-08-13 zlx mod
                     new Thread(new ParameterizedThreadStart((obj) =>
                     {
                         frmMessageShow f = new frmMessageShow();
@@ -1819,22 +1481,9 @@ namespace BioBaseCLIA
 
         private void temperatureButton_Click(object sender, EventArgs e)
         {
-            //2018-07-25 zlx mod
               TimeSpan ts = DateTime.Now - _BootUpTime;
               if (ts.TotalMinutes< 30 || (Temprrature[0] == 0 && Temprrature[1] == 0 && Temprrature[2] == 0 && Temprrature[3] == 0))
               {
-                  //if (NetCom3.isConnect)
-                  //{
-                  //    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 04 04"), 5);
-                  //    NetCom3.Instance.SingleQuery();
-                  //    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 05 04"), 5);
-                  //    NetCom3.Instance.SingleQuery();
-                  //    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 06 04"), 5);
-                  //    NetCom3.Instance.SingleQuery();
-                  //    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 07 04"), 5);
-                  //    NetCom3.Instance.SingleQuery();
-                  //}
-                  //2018-08-16 zlx add
                   if (!Selectlist.Contains("EB 90 11 04 04") && Temprrature[0] == 0)
                       Selectlist.Add("EB 90 11 04 04");
                   if (!Selectlist.Contains("EB 90 11 05 04") && Temprrature[1] == 0)
@@ -1846,9 +1495,6 @@ namespace BioBaseCLIA
               }
               Thread.Sleep(100);
             alarmOfTemperature(true,"04,05,06,07");
-            //alarmOfTemperature(true,"05");
-            //alarmOfTemperature(true,"06");
-            //alarmOfTemperature(true,"07");
         }
 
         private void dbtnConnect_MouseEnter(object sender, EventArgs e)
@@ -1856,7 +1502,6 @@ namespace BioBaseCLIA
             Button button = sender as Button;
             button.FlatStyle = FlatStyle.Popup;
             button.FlatAppearance.BorderSize = 1;
-           
         }
 
         private void dbtnConnect_MouseLeave(object sender, EventArgs e)
@@ -1867,13 +1512,11 @@ namespace BioBaseCLIA
             if (NetCom3.isConnect&&NetCom3.Instance.isHeartbeatLive)
             {
                 dbtnConnect.Enabled = false;
-                //dbtnConnect.BackgroundImage = Properties.Resources.已连接;
                 toolTip1.SetToolTip(this.dbtnConnect, "网络已连接");
             }
             else
             {
                 dbtnConnect.Enabled = true;
-                //dbtnConnect.BackgroundImage = Properties.Resources.未连接;
                 toolTip1.SetToolTip(this.dbtnConnect, "网络未连接");
             }
         }
@@ -1915,9 +1558,6 @@ namespace BioBaseCLIA
 
         private void btnVersion_Click(object sender, EventArgs e)
         {
-            //2018-07-31 zlx add
-            //frmVersion f = new frmVersion();
-            //f.ShowDialog();
             Type tempType = Type.GetTypeFromProgID("Shell.Application");
             object oleObject = System.Activator.CreateInstance(tempType);
             tempType.InvokeMember("ToggleDesktop", BindingFlags.InvokeMethod, null, oleObject, null);
@@ -1925,13 +1565,10 @@ namespace BioBaseCLIA
 
         private void pnlbarUP_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void dbtnRack_Click(object sender, EventArgs e)
         {
-            //if (!Selectlist.Contains("EB 90 11 01 06"))
-            //    Selectlist.Add("EB 90 11 01 06");
             if (LackTube==0)
             {
                 new Thread(new ParameterizedThreadStart((obj) =>
@@ -1967,7 +1604,6 @@ namespace BioBaseCLIA
                 dbtnSound.BackgroundImage = Properties.Resources.声音关闭;
                 timeWarnSound.Stop();
             }
-
         }
         public class BeepUp
         {
@@ -1984,7 +1620,6 @@ namespace BioBaseCLIA
         {
             if (SoundFlag == (int)SoundFlagStart.isClose) return;
             timeWarnSound.Enabled = false;
-            //Iswarn = true;
             bool WarnRgent = false;
             foreach (ReagentIniInfo ReagentIniInfo in RtlisRIinfo)
             {
@@ -1995,14 +1630,12 @@ namespace BioBaseCLIA
             {
                 BeepUp.Beep(392, 500);
             }
-            //Iswarn = false;
             timeWarnSound.Enabled = true;
         }
         #endregion
 
         private void btnWasteRack_Click(object sender, EventArgs e)
         {
-            //2019-09-27 zlx add
             if (LackLq[3] > 0)
             {
                 new Thread(new ParameterizedThreadStart((obj) =>
@@ -2010,7 +1643,6 @@ namespace BioBaseCLIA
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow("警告", "废管盒已满");
                 })) { IsBackground = true }.Start();
-
             }
             else
             {
@@ -2029,24 +1661,14 @@ namespace BioBaseCLIA
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            //string message = "更新时间：2019.12.17  SVN：1652";
-            //frmMessageShow frmMessage = new frmMessageShow();
-            //frmMessage.MessageShow("版本更新", message);
             //root权限可以通过帮助进行最小化
             if (frmLogin.LoginUserType != "0")
             {
-                //this.WindowState = FormWindowState.Minimized;
             }
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //frmWorkList.btnLogColor -= new Action<int>(LogBtnColorChange);
-            //if (CanCom.Instance.IsDev_Connet())
-            //{
-            //    CanCom.Instance.Dev_Close();
-            //}
-
             if (!Directory.Exists(@"C:\temp"))
             {
                 Directory.CreateDirectory(@"C:\temp");
