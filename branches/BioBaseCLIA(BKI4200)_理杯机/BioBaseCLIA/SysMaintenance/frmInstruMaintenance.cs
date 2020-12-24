@@ -2644,18 +2644,39 @@ namespace BioBaseCLIA.SysMaintenance
                 if (IsClearNewTube)
                 {
                     CleanTrayMovePace(-1);
-                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0B 01 00"), 5);
-                    //if (!NetCom3.Instance.SingleQuery())
-                    //{
-                    //    NewWashEnd();
-                    //    return;
-                    //}                    
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0B 01 00"), 5);           
                     if (!NetCom3.Instance.SingleQuery() && NetCom3.Instance.errorFlag != (int)ErrorState.ReadySend)
                     {
                         TExtAppend("灌注失败，错误类型为 " + Enum.GetName(typeof(ErrorState), NetCom3.Instance.errorFlag) + "\n");
                         NewWashEnd();
                         return;
                     }
+                    CleanTrayMovePace(1);
+                }
+            }
+            for (int i = 0; i < 3; i++)//lyq add20201223
+            {
+                //注液
+                NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 03 00 11 10"), 2);
+                if (!NetCom3.Instance.SingleQuery() && NetCom3.Instance.errorFlag != (int)ErrorState.ReadySend)
+                {
+                    TExtAppend("灌注失败，错误类型为 " + Enum.GetName(typeof(ErrorState), NetCom3.Instance.errorFlag) + "\n");
+                    NewWashEnd();
+                    return;
+                }
+                if (IsClearNewTube)
+                {
+                    //顺时针转1格
+                    CleanTrayMovePace(-1);
+                    //抽液
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 03 01"), 2);
+                    if (!NetCom3.Instance.SingleQuery() && NetCom3.Instance.errorFlag != (int)ErrorState.ReadySend)
+                    {
+                        TExtAppend("灌注失败，错误类型为 " + Enum.GetName(typeof(ErrorState), NetCom3.Instance.errorFlag) + "\n");
+                        NewWashEnd();
+                        return;
+                    }
+                    //逆时针转1格
                     CleanTrayMovePace(1);
                 }
             }

@@ -9112,6 +9112,12 @@ namespace BioBaseCLIA.SysMaintenance
             //清洗注液测试
             else if (testIndex == 4)
             {
+                if (!washTrayTubeClear())
+                {
+                    MessageBox.Show("清空清洗盘失败，请重试");
+                    goto enzymaticActivityTestEnd;
+                }
+
                 int needPos = InjectionNum * 4;//一组需要4个孔位
 
                 //检测1-needPos孔位是否有管，清掉
@@ -9187,9 +9193,11 @@ namespace BioBaseCLIA.SysMaintenance
                 {
                     int actPos = 4 * i + 1;//1 5 9
                     int second = 0;
+
+                    actPos += 2;
                     //加第一个管
                     moveAgain:
-                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + (actPos++).ToString("X2")), 1);
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + (actPos).ToString("X2")), 1);
                     if (!NetCom3.Instance.MoveQuery())
                     {
                         if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsNull || NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
@@ -9229,7 +9237,7 @@ namespace BioBaseCLIA.SysMaintenance
                         }
                     }
                     //修改反应盘信息
-                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + (actPos - 1), "0", iniPathReactTrayInfo);
+                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + (actPos--), "0", iniPathReactTrayInfo);
                     //逆时针旋转4格
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (4).ToString("X2")), 2);
                     if (!NetCom3.Instance.WashQuery())
@@ -9240,7 +9248,7 @@ namespace BioBaseCLIA.SysMaintenance
                     //加第二个管
                     second = 0;
                     moveAgain2:
-                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + (actPos++).ToString("X2")), 1);
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + (actPos).ToString("X2")), 1);
                     if (!NetCom3.Instance.MoveQuery())
                     {
                         if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsNull || NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
@@ -9280,7 +9288,7 @@ namespace BioBaseCLIA.SysMaintenance
                         }
                     }
                     //修改反应盘信息
-                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + (actPos - 1), "0", iniPathReactTrayInfo);
+                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + (actPos--), "0", iniPathReactTrayInfo);
                     //逆时针旋转4格
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (4).ToString("X2")), 2);
                     if (!NetCom3.Instance.WashQuery())
@@ -9291,7 +9299,7 @@ namespace BioBaseCLIA.SysMaintenance
                     //加第三个管
                     second = 0;
                     moveAgain3:
-                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + (actPos++).ToString("X2")), 1);
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + (actPos).ToString("X2")), 1);
                     if (!NetCom3.Instance.MoveQuery())
                     {
                         if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsNull || NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
@@ -9331,7 +9339,7 @@ namespace BioBaseCLIA.SysMaintenance
                         }
                     }
                     //修改反应盘信息
-                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + (actPos - 1), "0", iniPathReactTrayInfo);
+                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + (actPos--), "0", iniPathReactTrayInfo);
                     //逆时针旋转6格
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (6).ToString("X2")), 2);
                     if (!NetCom3.Instance.WashQuery())
@@ -9356,6 +9364,7 @@ namespace BioBaseCLIA.SysMaintenance
                     }
                     //放回--actPos
                     second = 0;
+                    actPos += 4;
                     moveback1:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 03 " + (--actPos).ToString("X2") + " 02"), 1);
                     if (!NetCom3.Instance.MoveQuery())
