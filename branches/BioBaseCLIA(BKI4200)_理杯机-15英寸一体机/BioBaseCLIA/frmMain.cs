@@ -1681,6 +1681,14 @@ namespace BioBaseCLIA
 
         private void fbtnMaintenance_Click(object sender, EventArgs e)
         {
+            if (CheckFormIsOpen("frmInstruMaintenance"))
+            {
+                frmInstruMaintenance frmIM = (frmInstruMaintenance)Application.OpenForms["frmInstruMaintenance"];
+                frmIM.Show();
+                frmIM.BringToFront();
+                return;
+            }
+
             frmInstruMaintenance frmim = new frmInstruMaintenance();
             frmim.MdiParent = this;//指定当前窗体为顶级Mdi窗体
             frmim.Parent = this.pnlPublic;//指定子窗体的父容器为
