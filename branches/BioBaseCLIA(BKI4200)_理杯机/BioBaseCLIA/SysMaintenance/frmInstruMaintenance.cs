@@ -1594,6 +1594,7 @@ namespace BioBaseCLIA.SysMaintenance
         }
         private void functionButton4_Click(object sender, EventArgs e)
         {
+            textBox1.Text = string.Empty;
             //清空，新管，清洗，底物，读数，扔管
             if (isNewWashRun)
             {
