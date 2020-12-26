@@ -4309,6 +4309,7 @@ namespace BioBaseCLIA.Run
             ReagentIniInfo reagentIniInfo = new ReagentIniInfo();
             for (int i = 1; i <= 20; i++)
             {
+                reagentIniInfo.Postion = i.ToString();
                 reagentIniInfo.BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                 reagentIniInfo.ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
                 reagentIniInfo.TestCount = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "TestCount", "", iniPathReagentTrayInfo);
