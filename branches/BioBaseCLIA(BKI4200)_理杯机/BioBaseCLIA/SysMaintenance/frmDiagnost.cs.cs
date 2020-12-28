@@ -10220,6 +10220,14 @@ namespace BioBaseCLIA.SysMaintenance
             fbtnInitIni.Enabled = true;
         }
 
+        private void fbtnInitSpReadCard_Click(object sender, EventArgs e)
+        {
+            fbtnInitSpReadCard.Enabled = false;
+            NetCom3.Instance.Send(NetCom3.Cover("EB 90 CA F1 01"), 5);
+            NetCom3.Instance.SingleQuery();
+            fbtnInitSpReadCard.Enabled = true;
+        }
+
         /// <summary>
         /// 试剂盘温度超时默认查询
         /// </summary>
