@@ -1248,7 +1248,7 @@ namespace BioBaseCLIA
                                 string orderTemp = tempResponse.Substring(tempResponse.ToString().IndexOf("EB 90") + 6, 5);     //"xx xx"
                                 string orderTemp2 = tempResponse.Substring(tempResponse.ToString().IndexOf("EB 90") + 6, 4); //"XX X"
                                 string orderTemp3 = tempResponse.Substring(tempResponse.ToString().IndexOf("EB 90") + 6, 8); //"XX XX XX"
-                                if (orderTemp == "11 FF" || orderTemp == "11 AF" || orderTemp == "01 A0" || orderTemp == "11 A0" //"11 FF"版本号返回指令//仪器调教指令处理//仪器调试收到查询温度
+                                if (orderTemp == "CA F1" || orderTemp == "11 FF" || orderTemp == "11 AF" || orderTemp == "01 A0" || orderTemp == "11 A0" //"CA F1"射频读卡器初始化返回//"11 FF"版本号返回指令//仪器调教指令处理//仪器调试收到查询温度
                                     || orderTemp == "A1 03" || orderTemp == "F1 01" || orderTemp == "F1 02" || orderTemp == "F1 03")//心跳包上下位机握手动作完毕//仪器初始化完毕   y modify 20180802  zlx mod 2018-08-16
                                 {
                                     //dw 2018.12.18
