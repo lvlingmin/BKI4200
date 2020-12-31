@@ -10,6 +10,7 @@ using Common;
 using System.Threading;
 using System.IO;
 using BioBaseCLIA.Run;
+using Maticsoft.DBUtility;
 
 namespace BioBaseCLIA.SysMaintenance
 {
@@ -83,6 +84,7 @@ namespace BioBaseCLIA.SysMaintenance
         string[] dataRecive = new string[16];
         int substrateNum1;
         int substrateNum2;
+        string subBar;
         #endregion
 
         public frmInstruMaintenance()
@@ -1604,6 +1606,7 @@ namespace BioBaseCLIA.SysMaintenance
             bool[] flow = new bool[6] { checkBox6.Checked, checkBox1.Checked, checkBox2.Checked, checkBox3.Checked, checkBox4.Checked, checkBox5.Checked };
             int starhole;
             int whichPipe = 1;
+            subBar = OperateIniFile.ReadIniData("Substrate1", "BarCode", "", iniPathSubstrateTube);
             if (!(int.TryParse(comboBox2.Text, out starhole)))// && (flow[3] && int.TryParse(comboBox1.Text, out whichPipe) || !flow[3])
             {
                 MessageBox.Show("参数不正确");
@@ -1741,6 +1744,8 @@ namespace BioBaseCLIA.SysMaintenance
                         {
                             string LeftCount1 = OperateIniFile.ReadIniData("Substrate" + whichPipe + "", "LeftCount", "", iniPathSubstrateTube);
                             OperateIniFile.WriteIniData("Substrate" + whichPipe + "", "LeftCount", (int.Parse(LeftCount1) - 1).ToString(), iniPathSubstrateTube);
+                            DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + (int.Parse(LeftCount1) - 1).ToString() + " where BarCode = '"
+                                             + subBar + "'");
                         }
                     }
                     if (flow[4] && tray.pointer[9].Value[1] == 1)//重复读数
@@ -1812,6 +1817,7 @@ namespace BioBaseCLIA.SysMaintenance
                 Num = 20;
             string subPipe = "";
             subPipe = "1";
+            subBar = OperateIniFile.ReadIniData("Substrate" + subPipe, "BarCode", "", iniPathSubstrateTube);
             if (isNewWashEnd()) return;  //lyq add 20190822
             #region 清洗盘顺时针18位，然后放管
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (1 - pos1).ToString("X2").Substring(6, 2)), 2);
@@ -1886,12 +1892,16 @@ namespace BioBaseCLIA.SysMaintenance
                 {
                     substrateNum1 = substrateNum1 - 1;
                     OperateIniFile.WriteIniData("Substrate1", "LeftCount", substrateNum1.ToString(), iniPathSubstrateTube);
+                    DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + substrateNum1.ToString() + " where BarCode = '"
+                                          + subBar + "'");
                     LogFile.Instance.Write("当前剩余底物" + substrateNum1 + "\n");
                 }
                 else
                 {
                     substrateNum2 = substrateNum2 - 1;
                     OperateIniFile.WriteIniData("Substrate1", "LeftCount", substrateNum2.ToString(), iniPathSubstrateTube);
+                    DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + substrateNum2.ToString() + " where BarCode = '"
+                                         + subBar + "'");
                 }
                 #endregion
                 if (isNewWashEnd()) return;  //lyq add 20190822
@@ -2220,6 +2230,7 @@ namespace BioBaseCLIA.SysMaintenance
             if (oneOrTwo == 1)
             {
                 substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube));
+                subBar = OperateIniFile.ReadIniData("Substrate1", "BarCode", "", iniPathSubstrateTube);
                 order = "EB 90 31 03 03 00 11 11 10";
             }
             else if (oneOrTwo == 2)
@@ -2251,6 +2262,8 @@ namespace BioBaseCLIA.SysMaintenance
                 if (oneOrTwo == 1)
                 {
                     OperateIniFile.WriteIniData("Substrate1", "LeftCount", (substrateNum1 - 1).ToString(), iniPathSubstrateTube);
+                    DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + (substrateNum1 - 1).ToString() + " where BarCode = '"
+                                         + subBar + "'");
                     substrateNum1--;
                 }
             }
