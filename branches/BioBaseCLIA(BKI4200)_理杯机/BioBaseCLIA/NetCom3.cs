@@ -937,8 +937,10 @@ namespace BioBaseCLIA
                         errorFlag = (int)ErrorState.OverTime;
                         totalOrderFlag = true;
                         frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow("", "调试系统通讯故障！");
+                        frmMS.MessageShow("", "调试系统通讯故障，实验将停止.");
                         frmMS.Dispose();
+
+                        EventStop.Invoke();
                     }
                 }
                 catch (Exception ex)
