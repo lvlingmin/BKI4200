@@ -903,6 +903,8 @@ namespace BioBaseCLIA
                         frmMessageShow frmMS = new frmMessageShow();
                         frmMS.MessageShow("", "调试系统通讯故障！");
                         frmMS.Dispose();
+
+                        EventStop.Invoke();
                     }
                 }
                 catch (Exception ex)
