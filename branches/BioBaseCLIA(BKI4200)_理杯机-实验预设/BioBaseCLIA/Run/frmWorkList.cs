@@ -2870,8 +2870,10 @@ namespace BioBaseCLIA.Run
                     //加载定标信息
                     BLL.tbScalingResult bllscalResult = new BLL.tbScalingResult();
                     //项目名称、项目批号
-                    string preItemName = dgvWorkListData.Rows[0].Cells["ItemName"].ToString();
-                    string preBatch = dgvWorkListData.Rows[0].Cells["RegentBatch"].ToString();
+                    //string preItemName = dgvWorkListData.Rows[0].Cells["ItemName"].ToString();
+                    //string preBatch = dgvWorkListData.Rows[0].Cells["RegentBatch"].ToString();
+                    string preItemName = BTestItem[0].ItemName.ToString();
+                    string preBatch = BTestItem[0].RegentBatch.ToString();
                     //该项目的历史定标
                     int sameScaling = int.Parse(DbHelperOleDb.GetSingle(1, @"select count(*) from tbScalingResult where ItemName = '"
                                                                    + preItemName + "' AND RegentBatch='" + preBatch + "'").ToString());
