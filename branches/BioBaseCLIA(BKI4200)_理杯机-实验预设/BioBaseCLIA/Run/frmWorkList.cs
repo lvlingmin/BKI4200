@@ -2888,7 +2888,7 @@ namespace BioBaseCLIA.Run
                     modelScalingResult.ActiveDate = DateTime.Now;
                     modelScalingResult.ItemName = preItemName;
                     modelScalingResult.PointCount = 6;
-                    modelScalingResult.Points = "(0, 170493); (25, 669767); (50, 1599400); (100, 3322248); (240, 13457654); (350, 22353033)";
+                    modelScalingResult.Points = "(0,170493);(25,669767);(50,1599400);(100,3322248);(240,13457654);(350,22353033)";
                     modelScalingResult.RegentBatch = preBatch;
                     modelScalingResult.ScalingModel = 6;
                     modelScalingResult.Source = 1;
