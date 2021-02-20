@@ -1557,6 +1557,7 @@ namespace BioBaseCLIA.Run
         private bool VerifyInfo()
         {
             int itemNum = 0;
+            string tempItemName = "";
             if (txtSpBarCode.Text.Trim() == "")
             {
                 frmMsg.MessageShow("样本装载", "未输入样本编号，请重新输入！");
@@ -1595,6 +1596,7 @@ namespace BioBaseCLIA.Run
                         }
                     }
                     itemNum++;
+                    tempItemName = chk.Text;
                 }
             }
             if (itemNum < 1)
@@ -1609,6 +1611,16 @@ namespace BioBaseCLIA.Run
             {
                 frmMsg.MessageShow("样本装载", "该样本类型不允许同时选择多个项目，请重新选择！");
                 return false;
+            }
+            if (cmbSpType.Text.Contains("标准品G"))
+            {
+                DataTable dtProject = bllPj.GetList("ActiveStatus=1 AND ShortName='" + tempItemName + "'").Tables[0];
+                int pointcount = int.Parse(dtProject.Rows[0]["CalPointNumber"].ToString());
+                if (pointcount == 6)//检测该项目6点定标
+                {
+                    frmMsg.MessageShow("样本装载", "该项目不允许添加该样本类型，请重新选择！");
+                    return false;
+                }
             }
             return true;
         }
