@@ -12,6 +12,7 @@ using System.IO;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace BioBaseCLIA.User
 {
@@ -52,7 +53,14 @@ namespace BioBaseCLIA.User
         #endregion
         public frmLogin()
         {
+            CultureInfo culture1 = System.Threading.Thread.CurrentThread.CurrentCulture;
+            CultureInfo culture = new CultureInfo(GetCultureInfo());
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+
             InitializeComponent();
+
+            cbLanguage.Text = (GetCultureInfo() == "zh-CN" || string.IsNullOrEmpty(GetCultureInfo())) ? "中文" : "English";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -820,6 +828,21 @@ namespace BioBaseCLIA.User
         {
             if (e.KeyCode == Keys.Enter)
                 txtUserPassword.Focus();
+        }
+
+        private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private string GetCultureInfo()
+        {
+            if (OperateIniFile.ReadInIPara("CultureInfo", "Culture") == "en")
+            {
+                return "en";
+            }
+
+            return "zh-CN";
         }
     }
 }
