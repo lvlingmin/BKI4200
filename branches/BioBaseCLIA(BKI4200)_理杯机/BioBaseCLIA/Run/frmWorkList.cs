@@ -4793,34 +4793,17 @@ namespace BioBaseCLIA.Run
             {
                 if (lisTestSchedule.Count > 0)
                 {
-                    ///开启仪器运行指示灯    
-                    //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 08 00"), 5);
-                    //NetCom3.Instance.SingleQuery();
                     RunLightFlag = true;
                     SampleNumCurrent = dgvWorkListData.Rows.Count;
-                    //while (SampleNumCurrent > StopList.Count && RunFlag == (int)RunFlagStart.IsRuning)
                     while (SampleNumCurrent >= StopList.Count
                         && SampleNumCurrent != 0
                         && RunFlag == (int)RunFlagStart.IsRuning)
                     {
                         Thread.Sleep(20);
-                        //NetCom3.ComWait.WaitOne();
                         TestStep = GaNextOne();
                     StartRun:
-                        //if (TestStep == null)
-                        //{
-                        //    while (SampleNumCurrent > StopList.Count)//2018-07-12
-                        //    {
-                        //        NetCom3.Delay(10);
-                        //        if (TestStep != null)
-                        //            goto StartRun;
-                        //    }
-                        //    break;
-                        //}
-                        //2018-09-30 zlx add
                         DalayFlag = false;
                     waitTime:
-                        //CanCom.Instance.ComWait.WaitOne();
                         if (RunFlag != (int)RunFlagStart.IsRuning)//增加一个停止按钮的过程中防止标志位被改写！！！！
                         {
                             continue;
@@ -4895,10 +4878,10 @@ namespace BioBaseCLIA.Run
                             Thread.Sleep(100);
                             if (((SampleNumCurrent >= StopList.Count)
                                 && SampleNumCurrent != 0 && !SubstrateStop)
-                                || (EmergencyFlag || addOrdinaryFlag))//2018-07-12
+                                || (EmergencyFlag || addOrdinaryFlag))
                             {
-                                //NetCom3.Delay(10);
-                                //if (TestStep != null)
+                                BackToCurrentUI(SampleNumCurrent, ref EmergencyFlag, ref addOrdinaryFlag);
+
                                 goto StartRun;
                             }
                             else if ((TestStep != null) && !EmergencyFlag && !addOrdinaryFlag)
@@ -4909,7 +4892,6 @@ namespace BioBaseCLIA.Run
                             {
                                 break;
                             }
-                            //break;
                         }
                         #region 实验过程
                         switch (TestStep.TestScheduleStep)
@@ -4930,14 +4912,6 @@ namespace BioBaseCLIA.Run
                                 }
                                 break;
                             case TestSchedule.ExperimentScheduleStep.AddLiquidTube:
-                                //2018-07-10 zlx add 
-                                //if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2])
-                                //{
-                                //    if (!StopList.Contains(TestStep.TestID.ToString()))
-                                //        StopList.Add(TestStep.TestID.ToString());
-                                //    //lisTestSchedule.RemoveAll(tx => (tx.TestID == TestStep.TestID));
-                                //    break;
-                                //}
                                 while (addLiquiding)
                                     goto waitTime;
                                 if (sumTime != TestStep.StartTime)
@@ -5036,7 +5010,6 @@ namespace BioBaseCLIA.Run
                                 int movepos = TestStep.AddSamplePos + toUsedTube;
                                 if (movepos > ReactTrayNum)
                                     movepos = movepos - ReactTrayNum + 3;
-                                //string ss = OperateIniFile.ReadIniData("ReactTrayInfo", "no" + movepos, "", iniPathReactTrayInfo);
                                 string ss = OperateIniFile.ReadIniData("ReactTrayInfo", "no" + TestStep.AddSamplePos, "", iniPathReactTrayInfo);
                                 if (int.Parse(ss) > 1)
                                 {
@@ -5059,13 +5032,6 @@ namespace BioBaseCLIA.Run
                                 AddLiquidThread.Start(TestStep);
                                 break;
                             case TestSchedule.ExperimentScheduleStep.AddSingleR:
-                                //if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2])//2018-07-10 zlx add
-                                //{
-                                //    if (!StopList.Contains(TestStep.TestID.ToString()))
-                                //        StopList.Add(TestStep.TestID.ToString());
-                                //    //lisTestSchedule.RemoveAll(tx => (tx.TestID == TestStep.TestID));
-                                //    break;
-                                //}
                                 while (addLiquiding)
                                     goto waitTime;
                                 if (sumTime != TestStep.StartTime)
@@ -5093,13 +5059,6 @@ namespace BioBaseCLIA.Run
                                 AddLiquidThread.Start(TestStep);
                                 break;
                             case TestSchedule.ExperimentScheduleStep.AddBeads:
-                                //if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2])//2018-07-10 zlx add
-                                //{
-                                //    if (!StopList.Contains(TestStep.TestID.ToString()))
-                                //        StopList.Add(TestStep.TestID.ToString());
-                                //    //lisTestSchedule.RemoveAll(tx => (tx.TestID == TestStep.TestID));
-                                //    break;
-                                //}
                                 while (addLiquiding)
                                     goto waitTime;
                                 if (sumTime != TestStep.StartTime)
@@ -5126,8 +5085,6 @@ namespace BioBaseCLIA.Run
                                 AddLiquidThread.Start(TestStep);
                                 break;
                             case TestSchedule.ExperimentScheduleStep.Incubation:
-                                //if (StopList.Contains(TestStep.TestID.ToString()))//2018-07-10 zlx add
-                                //    break;
                                 if (sumTime < TestStep.StartTime)
                                 {
                                     goto waitTime;
@@ -5142,12 +5099,6 @@ namespace BioBaseCLIA.Run
                                 }
                                 break;
                             case TestSchedule.ExperimentScheduleStep.Wash1:
-                                //if (frmMain.StopFlag[1] || StopList.Contains(TestStep.TestID.ToString()))//2018-07-10 zlx add
-                                //{
-                                //    if (!StopList.Contains(TestStep.TestID.ToString()))
-                                //        StopList.Add(TestStep.TestID.ToString());
-                                //    break;
-                                //}
                                 if (sumTime != TestStep.StartTime)
                                 {
                                     if (sumTime > TestStep.StartTime)
@@ -5192,13 +5143,6 @@ namespace BioBaseCLIA.Run
                                 }
                                 break;
                             case TestSchedule.ExperimentScheduleStep.WashTray:
-                                //2018-07-10 zlx add
-                                //if (frmMain.StopFlag[0] || frmMain.StopFlag[2] || StopList.Contains(TestStep.TestID.ToString()))
-                                //{
-                                //    if (!StopList.Contains(TestStep.TestID.ToString()))
-                                //        StopList.Add(TestStep.TestID.ToString());
-                                //    break;
-                                //}
                                 if (sumTime != TestStep.StartTime)
                                 {
                                     if (sumTime > TestStep.StartTime)
@@ -5247,7 +5191,6 @@ namespace BioBaseCLIA.Run
                     #region 停止实验流程及相关的线程
                     while (RunFlag == (int)RunFlagStart.IsRuning)
                     {
-                        //BTestResult.Count == dgvWorkListData.Rows.Count 
                         if (((SampleNumCurrent <= 0 && BTestResult.Count != 0) || (SampleNumCurrent == StopList.Count && StopList.Count > 0)) && MoveTubeUseFlag == false && !washTrayTube() && !ReactTrayTube())//2018-10-09 zlx mod
                         {
                             RunFlag = (int)RunFlagStart.IsStoping;
@@ -5346,6 +5289,35 @@ namespace BioBaseCLIA.Run
                 IniUpdateAccess();
             }
             finally { }
+        }
+        /// <summary>
+        /// 不在当前界返回当前界面
+        /// </summary>
+        /// <param name="sampleNumCurrent">剩余样本数量</param>
+        /// <param name="emergencyFlag">加急诊标志</param>
+        /// <param name="addOrdinaryFlag">加普通标志</param>
+        private void BackToCurrentUI(int sampleNumCurrent, ref bool emergencyFlag, ref bool addOrdinaryFlag)
+        {
+            if (sampleNumCurrent != 0) return;
+
+            this.BeginInvoke(new Action(() =>
+            {
+                if (CheckFormIsOpen("frmWorkList") && frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+                {
+                    frmWorkList frmWL = (frmWorkList)Application.OpenForms["frmWorkList"];
+                    frmWL.Show();
+                    frmWL.BringToFront();
+                }
+
+                if (CheckFormIsOpen("frmAddSample") && frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+                {
+                    frmAddSample frmAS = (frmAddSample)Application.OpenForms["frmAddSample"];
+                    frmAS.Close();
+                }
+            }));
+
+            emergencyFlag = false;
+            addOrdinaryFlag = false;
         }
 
         private void StopWatchWithUpdateStatus()
