@@ -39,7 +39,6 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.ChangeLanguage = new System.Windows.Forms.PictureBox();
             this.panellogin = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.chkKeepPwd = new System.Windows.Forms.CheckBox();
             this.cmbUserName = new System.Windows.Forms.ComboBox();
@@ -48,6 +47,7 @@
             this.btnLogin = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtUserPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbLanguage = new System.Windows.Forms.Label();
             this.titleofbio = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
             this.paProcess.SuspendLayout();
@@ -120,7 +120,6 @@
             resources.ApplyResources(this.panellogin, "panellogin");
             this.panellogin.BackColor = System.Drawing.Color.Transparent;
             this.panellogin.BackgroundImage = global::BioBaseCLIA.Properties.Resources.backgroundglass;
-            this.panellogin.Controls.Add(this.label1);
             this.panellogin.Controls.Add(this.cbLanguage);
             this.panellogin.Controls.Add(this.chkKeepPwd);
             this.panellogin.Controls.Add(this.cmbUserName);
@@ -129,14 +128,8 @@
             this.panellogin.Controls.Add(this.btnLogin);
             this.panellogin.Controls.Add(this.txtUserPassword);
             this.panellogin.Controls.Add(this.label3);
+            this.panellogin.Controls.Add(this.lbLanguage);
             this.panellogin.Name = "panellogin";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Name = "label1";
             // 
             // cbLanguage
             // 
@@ -212,6 +205,12 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Name = "label3";
             // 
+            // lbLanguage
+            // 
+            resources.ApplyResources(this.lbLanguage, "lbLanguage");
+            this.lbLanguage.ForeColor = System.Drawing.Color.Black;
+            this.lbLanguage.Name = "lbLanguage";
+            // 
             // titleofbio
             // 
             resources.ApplyResources(this.titleofbio, "titleofbio");
@@ -273,7 +272,7 @@
         private System.Windows.Forms.Label lblDescribe;
         private System.Windows.Forms.ComboBox cmbUserName;
         private System.Windows.Forms.CheckBox chkKeepPwd;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbLanguage;
+        private System.Windows.Forms.Label lbLanguage;
     }
 }
