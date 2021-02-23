@@ -174,6 +174,9 @@
   <data name="&gt;&gt;dbtnRack.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="dbtnSubstract.Location" type="System.Drawing.Point, System.Drawing">
+    <value>659, 19</value>
+  </data>
   <data name="&gt;&gt;btnWasteRack.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
@@ -210,8 +213,8 @@
   <data name="defineButton3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;temperatureButton.Parent" xml:space="preserve">
-    <value>pnlbarUP</value>
+  <data name="fbtnSet.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="&gt;&gt;pnlSidebar.Parent" xml:space="preserve">
     <value>pnlPublic</value>
@@ -228,8 +231,8 @@
   <data name="fbtnScalQc.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 132</value>
   </data>
-  <data name="&gt;&gt;fbtnDataQuery.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;dbtnWaste.Parent" xml:space="preserve">
+    <value>pnlbarUP</value>
   </data>
   <data name="&gt;&gt;dbtnRegent.Name" xml:space="preserve">
     <value>dbtnRegent</value>
@@ -264,9 +267,6 @@
   <data name="&gt;&gt;dbtnSubstract.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="pnlPublic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1024, 557</value>
-  </data>
   <data name="fbtnMaintenance.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -275,9 +275,6 @@
   </data>
   <data name="btnExit.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 30</value>
-  </data>
-  <data name="btnWasteRack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;dbtnRack.Parent" xml:space="preserve">
     <value>pnlbarUP</value>
@@ -336,17 +333,14 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;fbtnSet.Parent" xml:space="preserve">
-    <value>pnlSidebar</value>
+  <data name="btnVersion.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="logo.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
   <data name="fbtnTest.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 14.25pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;temperatureButton.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="fbtnSet.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -372,9 +366,6 @@
   <data name="&gt;&gt;fbtnDataQuery.Name" xml:space="preserve">
     <value>fbtnDataQuery</value>
   </data>
-  <data name="dbtnConnect.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
   <data name="dbtnRegent.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -390,6 +381,9 @@
   <data name="temperatureButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;btnExit.Name" xml:space="preserve">
+    <value>btnExit</value>
+  </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -404,9 +398,6 @@
   </data>
   <data name="&gt;&gt;dbtnConnect.Name" xml:space="preserve">
     <value>dbtnConnect</value>
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;dbtnSound.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -578,8 +569,8 @@
   <data name="&gt;&gt;pnlSidebar.Name" xml:space="preserve">
     <value>pnlSidebar</value>
   </data>
-  <data name="&gt;&gt;dbtnSubstract.Name" xml:space="preserve">
-    <value>dbtnSubstract</value>
+  <data name="dbtnRack.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="temperatureButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 100</value>
@@ -680,6 +671,9 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="dbtnWash.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
   </data>
   <data name="&gt;&gt;pnlbarUP.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1825,8 +1819,8 @@
   <data name="dbtnSubstract.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="dbtnSubstract.Location" type="System.Drawing.Point, System.Drawing">
-    <value>659, 19</value>
+  <data name="&gt;&gt;temperatureButton.Parent" xml:space="preserve">
+    <value>pnlbarUP</value>
   </data>
   <data name="&gt;&gt;defineButton3.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1839,9 +1833,6 @@
   </data>
   <data name="dbtnWash.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="&gt;&gt;fbtnMaintenance.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="btnExit.ToolTip" xml:space="preserve">
     <value />
@@ -1861,11 +1852,14 @@
   <data name="fbtnScalQc.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 60</value>
   </data>
-  <data name="&gt;&gt;dbtnWaste.Parent" xml:space="preserve">
-    <value>pnlbarUP</value>
+  <data name="btnHelp.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="&gt;&gt;defineButton2.Name" xml:space="preserve">
     <value>defineButton2</value>
+  </data>
+  <data name="dbtnSubstract.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="dbtnRegent.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1894,8 +1888,8 @@
   <data name="fbtnMaintenance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;logo.Name" xml:space="preserve">
-    <value>logo</value>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;logo.Parent" xml:space="preserve">
     <value>pnlbarUP</value>
@@ -1908,6 +1902,205 @@
   </data>
   <data name="dbtnSound.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="dbtnConnect.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnHelp.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;dbtnBuffer.Name" xml:space="preserve">
+    <value>dbtnBuffer</value>
+  </data>
+  <data name="dbtnBuffer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="dbtnWaste.Location" type="System.Drawing.Point, System.Drawing">
+    <value>479, 19</value>
+  </data>
+  <data name="dbtnSound.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;defineButton2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="dbtnLog.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fbtnScalQc.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnWasteRack.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnHelp.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="dbtnSubstract.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="&gt;&gt;btnVersion.Name" xml:space="preserve">
+    <value>btnVersion</value>
+  </data>
+  <data name="dbtnBuffer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;fbtnDataQuery.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="dbtnRack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>839, 19</value>
+  </data>
+  <data name="dbtnSound.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="dbtnRack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;timerStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="defineButton2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;fbtnMaintenance.Parent" xml:space="preserve">
+    <value>pnlSidebar</value>
+  </data>
+  <data name="dbtnWash.Location" type="System.Drawing.Point, System.Drawing">
+    <value>389, 19</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="defineButton3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>219, 67</value>
+  </data>
+  <data name="fbtnScalQc.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 14.25pt, style=Bold</value>
+  </data>
+  <data name="btnVersion.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;fbtnTest.Parent" xml:space="preserve">
+    <value>pnlSidebar</value>
+  </data>
+  <data name="&gt;&gt;defineButton3.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnHelp.Parent" xml:space="preserve">
+    <value>pnlbarDown</value>
+  </data>
+  <data name="btnWasteRack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>569, 19</value>
+  </data>
+  <data name="fbtnMaintenance.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="&gt;&gt;fbtnMaintenance.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnDataQuery.Parent" xml:space="preserve">
+    <value>pnlSidebar</value>
+  </data>
+  <data name="fbtnSet.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;dbtnLog.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 38</value>
+  </data>
+  <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 30</value>
+  </data>
+  <data name="pnlSidebar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 556</value>
+  </data>
+  <data name="defineButton1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnConnect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="fbtnMaintenance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 60</value>
+  </data>
+  <data name="&gt;&gt;pnlbarDown.Name" xml:space="preserve">
+    <value>pnlbarDown</value>
+  </data>
+  <data name="&gt;&gt;pnlbarUP.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="dbtnBuffer.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2122,208 +2315,6 @@
         W87XagAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnHelp.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;dbtnBuffer.Name" xml:space="preserve">
-    <value>dbtnBuffer</value>
-  </data>
-  <data name="dbtnBuffer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 100</value>
-  </data>
-  <data name="dbtnWaste.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 19</value>
-  </data>
-  <data name="dbtnSound.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="pnlbarDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 708</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;defineButton2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="dbtnLog.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="fbtnScalQc.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="btnWasteRack.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="dbtnSubstract.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 100</value>
-  </data>
-  <data name="&gt;&gt;btnVersion.Name" xml:space="preserve">
-    <value>btnVersion</value>
-  </data>
-  <data name="dbtnBuffer.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dbtnRack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>839, 19</value>
-  </data>
-  <data name="dbtnSound.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="dbtnRack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;timerStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="defineButton2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;dbtnRack.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;fbtnMaintenance.Parent" xml:space="preserve">
-    <value>pnlSidebar</value>
-  </data>
-  <data name="dbtnWash.Location" type="System.Drawing.Point, System.Drawing">
-    <value>389, 19</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnVersion.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="defineButton3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 67</value>
-  </data>
-  <data name="fbtnScalQc.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 14.25pt, style=Bold</value>
-  </data>
-  <data name="btnVersion.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;fbtnTest.Parent" xml:space="preserve">
-    <value>pnlSidebar</value>
-  </data>
-  <data name="&gt;&gt;defineButton3.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Parent" xml:space="preserve">
-    <value>pnlbarDown</value>
-  </data>
-  <data name="btnWasteRack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 19</value>
-  </data>
-  <data name="fbtnMaintenance.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="&gt;&gt;fbtnMaintenance.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnDataQuery.Parent" xml:space="preserve">
-    <value>pnlSidebar</value>
-  </data>
-  <data name="fbtnSet.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dbtnRack.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;dbtnLog.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 38</value>
-  </data>
-  <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 30</value>
-  </data>
-  <data name="pnlSidebar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 556</value>
-  </data>
-  <data name="defineButton1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dbtnConnect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 13</value>
-  </data>
-  <data name="&gt;&gt;pnlbarDown.Name" xml:space="preserve">
-    <value>pnlbarDown</value>
-  </data>
-  <data name="&gt;&gt;pnlbarUP.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;dbtnBuffer.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
@@ -2387,8 +2378,8 @@
   <data name="fbtnSet.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 14.25pt, style=Bold</value>
   </data>
-  <data name="dbtnWash.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 100</value>
+  <data name="dbtnConnect.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="btnWasteRack.ToolTip" xml:space="preserve">
     <value />
@@ -2402,8 +2393,8 @@
   <data name="dbtnLog.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="pnlPublic.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnWasteRack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;timerConnect.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2678,6 +2669,9 @@
   <data name="fbtnScalQc.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="pnlPublic.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="dbtnWaste.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -2690,6 +2684,9 @@
   <data name="defineButton1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;dbtnSubstract.Name" xml:space="preserve">
+    <value>dbtnSubstract</value>
+  </data>
   <data name="&gt;&gt;fbtnTest.Name" xml:space="preserve">
     <value>fbtnTest</value>
   </data>
@@ -2701,6 +2698,9 @@
   </data>
   <data name="&gt;&gt;pnlbarDown.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;fbtnSet.Parent" xml:space="preserve">
+    <value>pnlSidebar</value>
   </data>
   <data name="&gt;&gt;fbtnScalQc.Name" xml:space="preserve">
     <value>fbtnScalQc</value>
@@ -2725,9 +2725,6 @@
   </data>
   <data name="dbtnWaste.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;dbtnConnect.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2773,12 +2770,6 @@
   </data>
   <data name="pnlSidebar.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="fbtnSet.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="dbtnConnect.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
   </data>
   <data name="dbtnSound.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 30</value>
@@ -3095,17 +3086,23 @@
   <data name="dbtnWash.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnHelp.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="&gt;&gt;temperatureButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;dbtnWaste.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.defineButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;logo.Name" xml:space="preserve">
+    <value>logo</value>
   </data>
   <data name="pnlbarDown.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
   <data name="btnVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="fbtnTest.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;defineButton1.Name" xml:space="preserve">
     <value>defineButton1</value>
@@ -3131,8 +3128,8 @@
   <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
     <value>toolTip1</value>
   </data>
-  <data name="fbtnTest.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="pnlbarDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 708</value>
   </data>
   <data name="&gt;&gt;defineButton2.Parent" xml:space="preserve">
     <value>pnlbarUP</value>
@@ -3145,6 +3142,9 @@
   </data>
   <data name="dbtnBuffer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="dbtnRack.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="dbtnSound.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 13</value>
@@ -3176,8 +3176,8 @@
   <data name="dbtnLog.Location" type="System.Drawing.Point, System.Drawing">
     <value>929, 19</value>
   </data>
-  <data name="dbtnSubstract.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="pnlPublic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1024, 557</value>
   </data>
   <data name="&gt;&gt;fbtnSet.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -3185,14 +3185,14 @@
   <data name="&gt;&gt;dbtnSound.Parent" xml:space="preserve">
     <value>pnlbarDown</value>
   </data>
-  <data name="fbtnMaintenance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 60</value>
+  <data name="&gt;&gt;dbtnRack.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;btnExit.Name" xml:space="preserve">
-    <value>btnExit</value>
+  <data name="&gt;&gt;fbtnMaintenance.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="dbtnRack.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;dbtnConnect.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>en</value>

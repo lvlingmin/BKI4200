@@ -500,7 +500,10 @@
     <value>NoControl</value>
   </data>
   <data name="temperatureButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 19</value>
+    <value>201, 19</value>
+  </data>
+  <data name="temperatureButton.ToolTip" xml:space="preserve">
+    <value>Temperature query</value>
   </data>
   <data name="dbtnSubstract.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2289,8 +2292,5 @@
         ////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////8=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

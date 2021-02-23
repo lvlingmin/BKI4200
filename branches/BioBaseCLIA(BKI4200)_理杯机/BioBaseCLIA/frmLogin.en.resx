@@ -509,4 +509,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="RestartMsg" xml:space="preserve">
+    <value>Language environment switch, please restart the software</value>
+  </data>
 </root>

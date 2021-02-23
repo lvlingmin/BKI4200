@@ -32,15 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlPublic = new System.Windows.Forms.Panel();
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.timerStatus = new System.Windows.Forms.Timer(this.components);
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.timeWarnSound = new System.Windows.Forms.Timer(this.components);
-            this.timerConnect = new System.Windows.Forms.Timer(this.components);
             this.fbtnScalQc = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnSet = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnDataQuery = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnMaintenance = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnTest = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.timerStatus = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlbarDown = new System.Windows.Forms.Panel();
             this.dbtnSound = new BioBaseCLIA.CustomControl.defineButton(this.components);
             this.btnVersion = new System.Windows.Forms.Button();
@@ -62,6 +60,8 @@
             this.dbtnWaste = new BioBaseCLIA.CustomControl.defineButton(this.components);
             this.dbtnWash = new BioBaseCLIA.CustomControl.defineButton(this.components);
             this.dbtnBuffer = new BioBaseCLIA.CustomControl.defineButton(this.components);
+            this.timeWarnSound = new System.Windows.Forms.Timer(this.components);
+            this.timerConnect = new System.Windows.Forms.Timer(this.components);
             this.pnlPublic.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.pnlbarDown.SuspendLayout();
@@ -87,25 +87,6 @@
             this.pnlSidebar.Controls.Add(this.fbtnTest);
             this.pnlSidebar.Name = "pnlSidebar";
             this.toolTip1.SetToolTip(this.pnlSidebar, resources.GetString("pnlSidebar.ToolTip"));
-            // 
-            // timerStatus
-            // 
-            this.timerStatus.Interval = 20000;
-            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
-            // 
-            // timeWarnSound
-            // 
-            this.timeWarnSound.Interval = 1000;
-            this.timeWarnSound.Tick += new System.EventHandler(this.timeWarnSound_Tick);
-            // 
-            // timerConnect
-            // 
-            this.timerConnect.Interval = 3000;
-            this.timerConnect.Tick += new System.EventHandler(this.timerConnect_Tick);
             // 
             // fbtnScalQc
             // 
@@ -176,6 +157,15 @@
             this.toolTip1.SetToolTip(this.fbtnTest, resources.GetString("fbtnTest.ToolTip"));
             this.fbtnTest.UseVisualStyleBackColor = false;
             this.fbtnTest.Click += new System.EventHandler(this.fbtnTest_Click);
+            // 
+            // timerStatus
+            // 
+            this.timerStatus.Interval = 20000;
+            this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // pnlbarDown
             // 
@@ -513,6 +503,16 @@
             this.dbtnBuffer.Click += new System.EventHandler(this.dbtnBuffer_Click);
             this.dbtnBuffer.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
             this.dbtnBuffer.MouseLeave += new System.EventHandler(this.dbtnBuffer_MouseLeave);
+            // 
+            // timeWarnSound
+            // 
+            this.timeWarnSound.Interval = 1000;
+            this.timeWarnSound.Tick += new System.EventHandler(this.timeWarnSound_Tick);
+            // 
+            // timerConnect
+            // 
+            this.timerConnect.Interval = 3000;
+            this.timerConnect.Tick += new System.EventHandler(this.timerConnect_Tick);
             // 
             // frmMain
             // 
