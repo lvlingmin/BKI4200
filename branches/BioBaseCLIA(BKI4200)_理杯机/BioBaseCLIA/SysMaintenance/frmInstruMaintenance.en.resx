@@ -128,7 +128,7 @@
     <value>Instrument initialization</value>
   </data>
   <data name="dfInitializers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 394</value>
+    <value>0, 398</value>
   </data>
   <data name="btnPourInto.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -194,6 +194,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnPourInto.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
   <data name="btnPourInto.Text" xml:space="preserve">
     <value>Start</value>
   </data>
@@ -206,26 +209,38 @@
   <data name="cmbSelectAct.Items1" xml:space="preserve">
     <value>Probe cleaning solution</value>
   </data>
+  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 15</value>
+    <value>85, 17</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Repeat times</value>
+  </data>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 24</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 15</value>
+    <value>58, 17</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Function</value>
   </data>
+  <data name="checkNewTube.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt, style=Bold</value>
+  </data>
   <data name="checkNewTube.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 16</value>
+    <value>96, 19</value>
   </data>
   <data name="checkNewTube.Text" xml:space="preserve">
     <value>Add new tube</value>
+  </data>
+  <data name="groupBox6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
   </data>
   <data name="groupBox6.Text" xml:space="preserve">
     <value>Cleaning and perfusion</value>
@@ -472,11 +487,17 @@
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Daily maintenance</value>
   </data>
+  <data name="label23.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
+  </data>
   <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 12</value>
+    <value>115, 15</value>
   </data>
   <data name="label23.Text" xml:space="preserve">
     <value>Prompt information：</value>
+  </data>
+  <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
   </data>
   <data name="functionButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
