@@ -3973,8 +3973,11 @@ namespace BioBaseCLIA.Run
                     }
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                     {
-                        setmainformbutten();
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
+                        NetCom3.Instance.stopsendFlag = true;
+                        ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
+                        AllStop();
+                        //setmainformbutten();
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
                         return false;
                     }
                     #endregion
@@ -4075,16 +4078,23 @@ namespace BioBaseCLIA.Run
                         }
                         else
                         {
-                            setmainformbutten();
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管,撞管位置为：" + tubeHoleNum);
+                            NetCom3.Instance.stopsendFlag = true;
+                            ShowWarnInfo("移管手在清洗盘扔废管时取管撞管,撞管位置为：" + tubeHoleNum, "移管", 1);
+                            AllStop();
+                            //setmainformbutten();
+                            //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管,撞管位置为：" + tubeHoleNum);
                             //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "洗盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
                             return;
                         }
                     }
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                     {
-                        setmainformbutten();
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
+
+                        NetCom3.Instance.stopsendFlag = true;
+                        ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
+                        AllStop();
+                        //setmainformbutten();
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
                         return;
                     }
                     #endregion
@@ -4200,10 +4210,13 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清洗盘在清洗时接收数据超时！");
-                    MessageBox.Show("指令接收超时，实验已终止", "清洗指令错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //addLiquiding = false;
+                    ShowWarnInfo("清洗灌注指令接收数据超时", "清洗", 1);
                     AllStop();
+                    //NetCom3.Instance.stopsendFlag = true;
+                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清洗盘在清洗时接收数据超时！");
+                    //MessageBox.Show("指令接收超时，实验已终止", "清洗指令错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ////addLiquiding = false;
+                    //AllStop();
                 }
                 else
                     return;
@@ -4269,17 +4282,21 @@ namespace BioBaseCLIA.Run
                         goto AgainNewMove;
                     else
                     {
-                        setmainformbutten();
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘抓管时多次抓空!实验停止！");
-                        DialogResult tempresult = MessageBox.Show("移管手抓新管抓空！实验将停止运行！", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        //NetCom3.Instance.stopsendFlag = true;
+                        ShowWarnInfo("移管手在向清洗盘移新管时取管抓空", "移管", 1);
+                        //setmainformbutten();
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘抓管时多次抓空!实验停止！");
+                        //DialogResult tempresult = MessageBox.Show("移管手抓新管抓空！实验将停止运行！", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         return false;
                     }
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.LackTube)
                 {
-                    setmainformbutten();
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "理杯机缺管，实验停止运行！");
-                    DialogResult tempresult = MessageBox.Show("理杯机缺管！实验将停止运行！", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    ShowWarnInfo("理杯机缺", "移管", 1);
+                    //AllStop();
+                    //setmainformbutten();
+                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "理杯机缺管，实验停止运行！");
+                    //DialogResult tempresult = MessageBox.Show("理杯机缺管！实验将停止运行！", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     return false;
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
@@ -4297,10 +4314,11 @@ namespace BioBaseCLIA.Run
                         goto AgainNewMove;
                     else
                     {
-                        setmainformbutten();
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘取放管处抓管时取管撞管！");
-                        LogFile.Instance.Write("==============  移管手在暂存盘向清洗盘取放管处抓管发生撞管  " + currentHoleNum);
-                        DialogResult tempresult = MessageBox.Show("移管手在暂存盘向清洗盘取放管处抓管发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        ShowWarnInfo("移管手在向清洗盘移管时取管撞管", "移管", 1);
+                        //setmainformbutten();
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘取放管处抓管时取管撞管！");
+                        //LogFile.Instance.Write("==============  移管手在暂存盘向清洗盘取放管处抓管发生撞管  " + currentHoleNum);
+                        //DialogResult tempresult = MessageBox.Show("移管手在暂存盘向清洗盘取放管处抓管发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         return false;
                     }
 
@@ -4317,10 +4335,11 @@ namespace BioBaseCLIA.Run
                             goto GAgainMove;
                         else
                         {
-                            setmainformbutten();
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔管时取管撞管！");
-                            LogFile.Instance.Write("==============  移管手在清洗盘扔管时发生撞管  " + currentHoleNum);
-                            DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                            ShowWarnInfo("移管手在向清洗盘移管时取管撞管", "移管", 1);
+                            //setmainformbutten();
+                            //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔管时取管撞管！");
+                            //LogFile.Instance.Write("==============  移管手在清洗盘扔管时发生撞管  " + currentHoleNum);
+                            //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                             return false;
                         }
                     }
@@ -4328,9 +4347,12 @@ namespace BioBaseCLIA.Run
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
-                    setmainformbutten();
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘抓管时接收数据超时！");
-                    DialogResult tempresult = MessageBox.Show("移管手在暂存盘向清洗盘取放管处抓管接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    //NetCom3.Instance.stopsendFlag = true;
+                    ShowWarnInfo("移管手在暂存盘向清洗盘取放管处抓管接收数据超时", "移管", 1);
+                    //AllStop();
+                    //setmainformbutten();
+                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘抓管时接收数据超时！");
+                    //DialogResult tempresult = MessageBox.Show("移管手在暂存盘向清洗盘取放管处抓管接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     return false;
                 }
                 #endregion
@@ -4424,9 +4446,12 @@ namespace BioBaseCLIA.Run
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
-                    setmainformbutten();
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
-                    DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    NetCom3.Instance.stopsendFlag = true;
+                    ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
+                    AllStop();
+                    //setmainformbutten();
+                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
+                    //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     return false;
                 }
                 #endregion
@@ -4532,15 +4557,20 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    setmainformbutten();
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
+                                    //setmainformbutten();
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
+                                    NetCom3.Instance.stopsendFlag = true;
+                                    ShowWarnInfo("移管手在温育盘扔废管时取管撞管", "移管", 1);
                                     return false;
                                 }
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
-                                setmainformbutten();
-                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
+                                NetCom3.Instance.stopsendFlag = true;
+                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                //AllStop();
+                                //setmainformbutten();
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
                                 return false;
                             }
                             #endregion
@@ -4576,15 +4606,20 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    setmainformbutten();
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
+                                    NetCom3.Instance.stopsendFlag = true;
+                                    ShowWarnInfo("移管手在温育盘扔废管时取管撞管", "移管", 1);
+                                    //setmainformbutten();
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
                                     return false;
                                 }
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
-                                setmainformbutten();
-                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
+                                NetCom3.Instance.stopsendFlag = true;
+                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                AllStop();
+                                //setmainformbutten();
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
                                 return false;
                             }
                             #endregion
@@ -4639,8 +4674,11 @@ namespace BioBaseCLIA.Run
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
-                                setmainformbutten();
-                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
+                                NetCom3.Instance.stopsendFlag = true;
+                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                AllStop();
+                                //setmainformbutten();
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
                                 return;
                             }
                             #endregion
@@ -4683,8 +4721,11 @@ namespace BioBaseCLIA.Run
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
-                                setmainformbutten();
-                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
+                                NetCom3.Instance.stopsendFlag = true;
+                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                AllStop();
+                                //setmainformbutten();
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
                                 return;
                             }
                             #endregion
@@ -5715,7 +5756,7 @@ namespace BioBaseCLIA.Run
                                             if (AddErrorCount > 1)
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("加样针加样本时发生撞针", "加样", 1);
+                                                ShowWarnInfo("加样针加样本时多次撞针未能恢复", "加样", 1);
                                                 AllStop();
                                             }
                                             else
@@ -5739,7 +5780,7 @@ namespace BioBaseCLIA.Run
                                             else
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("混匀" + pos + "位置指令接收异常", "加样", 1);
+                                                ShowWarnInfo("混匀" + pos + "位置指令接收异常", "混匀", 1);
                                                 AllStop();
                                                 break;
                                             }
@@ -6017,8 +6058,8 @@ namespace BioBaseCLIA.Run
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        setmainformbutten();
-                                        ShowWarnInfo("指令接收超时", "加样", 1);
+                                        //setmainformbutten();
+                                        ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
                                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "加样针在加试剂1时指令接收超时！");
                                         //frmMsgShow.MessageShow("加样错误提示", "指令接收超时，实验已终止");
                                         //addLiquiding = false;
@@ -6039,8 +6080,8 @@ namespace BioBaseCLIA.Run
                                     if (AddErrorCount > 1)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        setmainformbutten();
-                                        ShowWarnInfo("加样针撞针未能修复", "加样", 1);
+                                        //setmainformbutten();
+                                        ShowWarnInfo("加样针加试剂时撞针未能恢复", "加样", 1);
                                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "加样针加试剂1时发生撞针！");
                                         //frmMsgShow.MessageShow("加样错误提示", "加样针撞针未能修复，实验已终止");
                                         //addLiquiding = false;
@@ -6072,7 +6113,7 @@ namespace BioBaseCLIA.Run
                                         else
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("混匀" + pos + "位置指令接收超时", "加样", 1);
+                                            ShowWarnInfo("混匀" + pos + "位置指令接收超时", "混匀", 1);
                                             //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             AllStop();
                                             break;
@@ -6216,7 +6257,7 @@ namespace BioBaseCLIA.Run
                                         else
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("混匀" + pos + "位置指令接收异常", "加样", 1);
+                                            ShowWarnInfo("混匀" + pos + "位置指令接收异常", "混匀", 1);
                                             //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             //addLiquiding = false;
                                             AllStop();
@@ -6360,7 +6401,7 @@ namespace BioBaseCLIA.Run
                                         else
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("混匀" + pos + "位置指令接收超时", "加样", 1);
+                                            ShowWarnInfo("混匀" + pos + "位置指令接收超时", "混匀", 1);
                                             //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             AllStop();
                                             break;
@@ -6502,7 +6543,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("加样针加磁珠时指令接收超时，实验已终止", "加样", 1);
+                                ShowWarnInfo("加样针加磁珠时指令接收超时", "加样", 1);
                                 //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                 //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //addLiquiding = false;
@@ -6526,7 +6567,7 @@ namespace BioBaseCLIA.Run
                             if (AddErrorCount > 1)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("加样针加磁珠撞针，未能修复，实验已终止", "加样", 1);
+                                ShowWarnInfo("加样针加磁珠时多次撞针未能修复", "加样", 1);
                                 AllStop();
                             }
                             else
@@ -6554,7 +6595,7 @@ namespace BioBaseCLIA.Run
                             else
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("混匀" + pos + "位置时指令接收超时", "加样", 1);
+                                ShowWarnInfo("混匀" + pos + "位置时指令接收超时", "混匀", 1);
                                 //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //addLiquiding = false;
                                 AllStop();
@@ -6671,12 +6712,12 @@ namespace BioBaseCLIA.Run
                                 if (AddErrorCount > 1)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时撞针未能修复！", "加样", 1);
+                                    ShowWarnInfo("加样针加试剂时撞针未能修复", "加样", 1);
                                     AllStop();
                                 }
                                 else
                                 {
-                                    RemoveTestList(testTempS, "加样针加试剂1时发生撞针");
+                                    RemoveTestList(testTempS, "加样针加试剂时撞针未能修复");
                                     MoveTubeListAddTubeDispose(pos);
                                 }
                                 break;
@@ -6699,7 +6740,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常", "加样", 1);
+                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常", "混匀", 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //addLiquiding = false;
                                     AllStop();
@@ -6837,7 +6878,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常！", "加样", 1);
+                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常！", "混匀", 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                     break;
@@ -6921,7 +6962,7 @@ namespace BioBaseCLIA.Run
                                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时指令接收超时！", "加样", 1);
+                                    ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
                                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                     //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //addLiquiding = false;
@@ -6946,7 +6987,7 @@ namespace BioBaseCLIA.Run
                                 if (AddErrorCount > 1)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时撞针！", "加样", 1);
+                                    ShowWarnInfo("加样针加试剂时多次撞针未能修复！", "加样", 1);
                                     //MessageBox.Show("加样针撞针未能修复，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                 }
@@ -6975,7 +7016,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收超时！", "加样", 1);
+                                    ShowWarnInfo("混匀" + pos + "位置时指令接收超时！", "混匀", 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                     break;
@@ -7045,6 +7086,9 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
+                    ShowWarnInfo("加样针加稀释液时指令接收超时", "加样", 1);
+                    AllStop();
+                    //NetCom3.Instance.stopsendFlag = true;
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                     //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //addLiquiding = false;
@@ -7261,11 +7305,14 @@ namespace BioBaseCLIA.Run
                     }
                     else
                     {
-                        setmainformbutten();
                         NetCom3.Instance.stopsendFlag = true;
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管时取管撞管！");
-                        DialogResult tempresult = MessageBox.Show("移管手向温育盘抓新管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        ShowWarnInfo("移管手向温育盘移管时在取管位置发生撞管", "移管", 1);
                         AllStop();
+                        //setmainformbutten();
+                        //NetCom3.Instance.stopsendFlag = true;
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管时取管撞管！");
+                        //DialogResult tempresult = MessageBox.Show("移管手向温育盘抓新管时在取管位置发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        //AllStop();
                     }
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
@@ -7285,11 +7332,14 @@ namespace BioBaseCLIA.Run
                             }
                             else
                             {
-                                setmainformbutten();
                                 NetCom3.Instance.stopsendFlag = true;
-                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
-                                DialogResult tempresult = MessageBox.Show("移管手扔废管时发生撞管！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                ShowWarnInfo("移管手在温育盘扔管时取管撞管", "移管", 1);
                                 AllStop();
+                                //setmainformbutten();
+                                //NetCom3.Instance.stopsendFlag = true;
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
+                                //DialogResult tempresult = MessageBox.Show("移管手扔废管时发生撞管！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                //AllStop();
                             }
                         }
                         #endregion
@@ -7300,20 +7350,21 @@ namespace BioBaseCLIA.Run
                     }
                     else
                     {
-                        setmainformbutten();
                         NetCom3.Instance.stopsendFlag = true;
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管时放管撞管！");
-                        DialogResult tempresult = MessageBox.Show("移管手向温育盘抓新管时放管撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        ShowWarnInfo("移管手向温育盘抓新管时取管撞管", "移管", 1);
                         AllStop();
+                        //setmainformbutten();
+                        //NetCom3.Instance.stopsendFlag = true;
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管时放管撞管！");
+                        //DialogResult tempresult = MessageBox.Show("移管手向温育盘抓新管时放管撞管", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        //AllStop();
                     }
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
-                    setmainformbutten();
                     NetCom3.Instance.stopsendFlag = true;
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向温育盘抓管时接收数据超时！");
+                    ShowWarnInfo("移管手向温育盘抓新管时放管撞管", "移管", 1);
                     AllStop();
-                    DialogResult tempresult = MessageBox.Show("移管手在暂存盘向温育盘抓管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
                 #endregion
             }
@@ -7374,20 +7425,26 @@ namespace BioBaseCLIA.Run
                     }
                     else
                     {
-                        setmainformbutten();
                         NetCom3.Instance.stopsendFlag = true;
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
-                        DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        ShowWarnInfo("移管手在温育盘扔废管时取管撞管", "移管", 1);
                         AllStop();
+                        //setmainformbutten();
+                        //NetCom3.Instance.stopsendFlag = true;
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
+                        //DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时发生撞管", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        //AllStop();
                     }
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
-                    setmainformbutten();
                     NetCom3.Instance.stopsendFlag = true;
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
-                    DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
                     AllStop();
+                    //setmainformbutten();
+                    //NetCom3.Instance.stopsendFlag = true;
+                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
+                    //DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    //AllStop();
                 }
                 #endregion
             }
@@ -7470,11 +7527,15 @@ namespace BioBaseCLIA.Run
                 }
                 else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                 {
+
                     NetCom3.Instance.stopsendFlag = true;
                     ShowWarnInfo("清洗盘旋转指令接收超时", "清洗", 1);
-                    //MessageBox.Show("指令接收超时，实验已终止", "清洗指令错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //addLiquiding = false;
                     AllStop();
+                    //NetCom3.Instance.stopsendFlag = true;
+                    //ShowWarnInfo("清洗盘旋转指令接收超时", "清洗", 1);
+                    ////MessageBox.Show("指令接收超时，实验已终止", "清洗指令错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ////addLiquiding = false;
+                    //AllStop();
                 }
             }
             countWashHole(1);
@@ -8244,11 +8305,14 @@ namespace BioBaseCLIA.Run
                                         goto AgainNewMove;
                                     else
                                     {
-                                        setmainformbutten();
                                         NetCom3.Instance.stopsendFlag = true;
-                                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向温育盘抓管时取管撞管！");
-                                        DialogResult tempresult = MessageBox.Show("移管手在暂存盘向温育盘抓管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        ShowWarnInfo("移管手在暂存盘向温育盘移管时取管撞管", "移管", 1);
                                         AllStop();
+                                        //setmainformbutten();
+                                        //NetCom3.Instance.stopsendFlag = true;
+                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向温育盘抓管时取管撞管！");
+                                        //DialogResult tempresult = MessageBox.Show("移管手在暂存盘向温育盘抓管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
@@ -8267,11 +8331,14 @@ namespace BioBaseCLIA.Run
                                             }
                                             else
                                             {
-                                                setmainformbutten();
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
-                                                DialogResult tempresult = MessageBox.Show("移管手扔废管时发生撞管！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                                ShowWarnInfo("移管手在温育盘扔废管时取管发生撞管", "移管", 1);
                                                 AllStop();
+                                                //setmainformbutten();
+                                                //NetCom3.Instance.stopsendFlag = true;
+                                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
+                                                //DialogResult tempresult = MessageBox.Show("移管手扔废管时发生撞管！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                                //AllStop();
                                             }
                                         }
                                         #endregion
@@ -8283,20 +8350,26 @@ namespace BioBaseCLIA.Run
                                     }
                                     else
                                     {
-                                        setmainformbutten();
                                         NetCom3.Instance.stopsendFlag = true;
-                                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管时放管撞管！");
-                                        DialogResult tempresult = MessageBox.Show("移管手向温育盘抓新管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        ShowWarnInfo("移管手向温育盘抓新管时发生撞管，实验将进行停止", "移管", 1);
                                         AllStop();
+                                        //setmainformbutten();
+                                        //NetCom3.Instance.stopsendFlag = true;
+                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管时放管撞管！");
+                                        //DialogResult tempresult = MessageBox.Show("移管手向温育盘抓新管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                                 {
-                                    setmainformbutten();
                                     NetCom3.Instance.stopsendFlag = true;
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向温育盘抓管时接收数据超时！");
-                                    DialogResult tempresult = MessageBox.Show("移管手在暂存盘向温育盘抓管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    ShowWarnInfo("移管手在暂存盘向温育盘抓管时接收数据超时", "移管", 1);
                                     AllStop();
+                                    //setmainformbutten();
+                                    //NetCom3.Instance.stopsendFlag = true;
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向温育盘抓管时接收数据超时！");
+                                    //DialogResult tempresult = MessageBox.Show("移管手在暂存盘向温育盘抓管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    //AllStop();
                                 }
                                 #endregion
                             }
@@ -8359,11 +8432,14 @@ namespace BioBaseCLIA.Run
                                     }
                                     else
                                     {
-                                        setmainformbutten();
                                         NetCom3.Instance.stopsendFlag = true;
-                                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时多次抓空！");
-                                        DialogResult tempresult = MessageBox.Show("移管手在清洗盘夹管到温育盘时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        ShowWarnInfo("移管手在清洗盘向温育盘移管时取管多次抓空", "移管", 1);
                                         AllStop();
+                                        //setmainformbutten();
+                                        //NetCom3.Instance.stopsendFlag = true;
+                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时多次抓空！");
+                                        //DialogResult tempresult = MessageBox.Show("移管手在清洗盘夹管到温育盘时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
@@ -8381,11 +8457,14 @@ namespace BioBaseCLIA.Run
                                         goto AgainNewMove;
                                     else
                                     {
-                                        setmainformbutten();
                                         NetCom3.Instance.stopsendFlag = true;
-                                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时取管撞管！");
-                                        DialogResult tempresult = MessageBox.Show("移管手在清洗盘夹管到温育盘时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        ShowWarnInfo("移管手在清洗盘向温育盘移管时多次取管撞管", "移管", 1);
                                         AllStop();
+                                        //setmainformbutten();
+                                        //NetCom3.Instance.stopsendFlag = true;
+                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时取管撞管！");
+                                        //DialogResult tempresult = MessageBox.Show("移管手在清洗盘夹管到温育盘时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
@@ -8414,19 +8493,22 @@ namespace BioBaseCLIA.Run
                                             goto ClearMove;
                                         else
                                         {
-                                            setmainformbutten();
                                             NetCom3.Instance.stopsendFlag = true;
-                                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！撞管位置为：" + tubeHoleNum);
-                                            //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在温育盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
-                                            DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                            ShowWarnInfo("移管手温育盘扔管时多次取管撞管", "移管", 1);
                                             AllStop();
+                                            //setmainformbutten();
+                                            //NetCom3.Instance.stopsendFlag = true;
+                                            //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！撞管位置为：" + tubeHoleNum);
+                                            ////LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在温育盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
+                                            //DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                            //AllStop();
                                         }
                                     }
                                     else
                                     {
                                         List<TestSchedule> TestSchedule = lisTestSchedule.FindAll(ty => ty.TestID == TempMoveStatus.TestId);
                                         if (TestSchedule.Count > 0)
-                                            RemoveTestList(TestSchedule[0], "移管手在清洗盘夹管向温育盘时放管撞管");
+                                            RemoveTestList(TestSchedule[0], "移管手在清洗盘向温育盘移管时放管撞管");
                                         TempMoveStatus.isRetransmit = false;
                                         lock (locker2)
                                         {
@@ -8438,11 +8520,15 @@ namespace BioBaseCLIA.Run
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                                 {
-                                    setmainformbutten();
                                     NetCom3.Instance.stopsendFlag = true;
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时接收数据超时！");
-                                    DialogResult tempresult = MessageBox.Show("移管手在清洗盘夹管到温育盘时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    ShowWarnInfo("移管手在清洗盘移管到温育盘时接收数据超时", "移管", 1);
                                     AllStop();
+
+                                    //setmainformbutten();
+                                    //NetCom3.Instance.stopsendFlag = true;
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时接收数据超时！");
+                                    //DialogResult tempresult = MessageBox.Show("移管手在清洗盘夹管到温育盘时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    //AllStop();
                                 }
                                 #endregion
                             }
@@ -8526,12 +8612,15 @@ namespace BioBaseCLIA.Run
                                     }
                                     else
                                     {
-                                        setmainformbutten();
                                         NetCom3.Instance.stopsendFlag = true;
-                                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时多次抓空！抓空位置为：" + tubeHoleNum);
-                                        //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "清洗盘扔废管时多次抓空孔位置" + tubeHoleNum + " *** ");
-                                        DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        ShowWarnInfo("移管手在清洗盘扔废管时多次抓空", "移管", 1);
                                         AllStop();
+                                        //setmainformbutten();
+                                        //NetCom3.Instance.stopsendFlag = true;
+                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时多次抓空！抓空位置为：" + tubeHoleNum);
+                                        ////LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "清洗盘扔废管时多次抓空孔位置" + tubeHoleNum + " *** ");
+                                        //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
@@ -8549,21 +8638,28 @@ namespace BioBaseCLIA.Run
                                         goto AgainNewMove;
                                     else
                                     {
-                                        setmainformbutten();
                                         NetCom3.Instance.stopsendFlag = true;
-                                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管！撞管位置为：" + tubeHoleNum);
-                                        //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在清洗盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
-                                        DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        ShowWarnInfo("移管手在清洗盘扔废管时多次取管撞管", "移管", 1);
                                         AllStop();
+                                        //setmainformbutten();
+                                        //NetCom3.Instance.stopsendFlag = true;
+                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管！撞管位置为：" + tubeHoleNum);
+                                        ////LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在清洗盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
+                                        //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                                 {
-                                    setmainformbutten();
                                     NetCom3.Instance.stopsendFlag = true;
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
-                                    DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
                                     AllStop();
+
+                                    //setmainformbutten();
+                                    //NetCom3.Instance.stopsendFlag = true;
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
+                                    //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    //AllStop();
                                 }
                                 #endregion
                             }
@@ -8621,11 +8717,14 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    setmainformbutten();
                                     NetCom3.Instance.stopsendFlag = true;
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时多次抓空！");
-                                    DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    ShowWarnInfo("移管手在温育盘扔管时取管多次抓空", "移管", 1);
                                     AllStop();
+                                    //setmainformbutten();
+                                    //NetCom3.Instance.stopsendFlag = true;
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时多次抓空！");
+                                    //DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    //AllStop();
                                     break;
                                 }
                             }
@@ -8644,21 +8743,27 @@ namespace BioBaseCLIA.Run
                                     goto AgainNewMove;
                                 else
                                 {
-                                    setmainformbutten();
                                     NetCom3.Instance.stopsendFlag = true;
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
-                                    DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    ShowWarnInfo("移管手在温育盘扔管时取管多次撞管", "移管", 1);
                                     AllStop();
+                                    //setmainformbutten();
+                                    //NetCom3.Instance.stopsendFlag = true;
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
+                                    //DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    //AllStop();
                                 }
 
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
-                                setmainformbutten();
                                 NetCom3.Instance.stopsendFlag = true;
-                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
-                                DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
                                 AllStop();
+                                //setmainformbutten();
+                                //NetCom3.Instance.stopsendFlag = true;
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
+                                //DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                //AllStop();
                                 break;
                             }
                             #endregion
@@ -8745,12 +8850,15 @@ namespace BioBaseCLIA.Run
                                     goto AgainNewMove;
                                 else
                                 {
-                                    setmainformbutten();
                                     NetCom3.Instance.stopsendFlag = true;
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘夹管到清洗盘时取管撞管！撞管位置为：" + tubeHoleNum);
-                                    //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在反应盘夹管到清洗盘时发生撞管孔位置" + tubeHoleNum + " *** ");
-                                    DialogResult tempresult = MessageBox.Show("移管手在反应盘夹管到清洗盘时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    ShowWarnInfo("移管手在温育盘移管到清洗盘时多次取管撞管", "移管", 1);
                                     AllStop();
+                                    //setmainformbutten();
+                                    //NetCom3.Instance.stopsendFlag = true;
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘夹管到清洗盘时取管撞管！撞管位置为：" + tubeHoleNum);
+                                    ////LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在反应盘夹管到清洗盘时发生撞管孔位置" + tubeHoleNum + " *** ");
+                                    //DialogResult tempresult = MessageBox.Show("移管手在反应盘夹管到清洗盘时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                    //AllStop();
                                 }
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
@@ -8766,19 +8874,22 @@ namespace BioBaseCLIA.Run
                                         goto ClearMove;
                                     else
                                     {
-                                        setmainformbutten();
                                         NetCom3.Instance.stopsendFlag = true;
-                                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管！撞管位置为：" + tubeHoleNum);
-                                        //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在清洗盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
-                                        DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        ShowWarnInfo("移管手在清洗盘扔管时多次取管撞管", "移管", 1);
                                         AllStop();
+                                        //setmainformbutten();
+                                        //NetCom3.Instance.stopsendFlag = true;
+                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管！撞管位置为：" + tubeHoleNum);
+                                        ////LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "移管手在清洗盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
+                                        //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                        //AllStop();
                                     }
                                 }
                                 else
                                 {
                                     List<TestSchedule> TestSchedule = lisTestSchedule.FindAll(ty => ty.TestID == TempMoveStatus.TestId);
                                     if (TestSchedule.Count > 0)
-                                        RemoveTestList(TestSchedule[0], "移管手在温育盘夹管到清洗盘时放管撞管");
+                                        RemoveTestList(TestSchedule[0], "移管手在温育盘移管到清洗盘时放管撞管");
                                     step = "";
                                     lock (locker2)
                                     {
@@ -8790,11 +8901,14 @@ namespace BioBaseCLIA.Run
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
-                                setmainformbutten();
                                 NetCom3.Instance.stopsendFlag = true;
-                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘夹管到清洗盘时接收数据超时！");
-                                DialogResult tempresult = MessageBox.Show("移管手在温育盘夹管到清洗盘时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                ShowWarnInfo("移管手在温育盘移管到清洗盘时接收数据超时", "移管", 1);
                                 AllStop();
+                                //setmainformbutten();
+                                //NetCom3.Instance.stopsendFlag = true;
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘夹管到清洗盘时接收数据超时！");
+                                //DialogResult tempresult = MessageBox.Show("移管手在温育盘夹管到清洗盘时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                                //AllStop();
                                 break;
                             }
                             #endregion
@@ -9067,6 +9181,7 @@ namespace BioBaseCLIA.Run
                         goto AgainSend;
                     else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                     {
+ 
                         NetCom3.Instance.stopsendFlag = true;
                         ShowWarnInfo("清洗盘清洗灌注指令接收超时", "清洗", 1);
                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
