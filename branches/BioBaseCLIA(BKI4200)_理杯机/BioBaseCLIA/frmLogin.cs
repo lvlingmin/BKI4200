@@ -830,12 +830,13 @@ namespace BioBaseCLIA.User
             if (e.KeyCode == Keys.Enter)
                 txtUserPassword.Focus();
         }
-        int index = 0;
+
+        int index = 0;//用来判断是否第一次
         private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (((ComboBox)sender).SelectedIndex == 0)
             {
-                Thread.CurrentThread.CurrentCulture= new System.Globalization.CultureInfo("zh-CN");
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("zh-CN");
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CN");
                 OperateIniFile.WriteIniPara("CultureInfo", "Culture", "zh-CN");
             }
@@ -848,19 +849,15 @@ namespace BioBaseCLIA.User
 
             ApplyResource();
 
-            if (index >0) 
+            if (index > 0)
             {
-                if (DialogResult.Yes == MessageBox.Show(Getstring("RestartMsg"),"",MessageBoxButtons.YesNo))
+                if (DialogResult.Yes == MessageBox.Show(Getstring("RestartMsg"), "", MessageBoxButtons.YesNo))
                 {
                     DialogResult = DialogResult.Cancel;
                     Close();
                 }
-                else 
-                {
-                
-                }
             }
-           
+
             index++;
         }
 
