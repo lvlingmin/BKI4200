@@ -436,11 +436,17 @@
     <EmbeddedResource Include="frmMain.en-US.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.en.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMessageShow.en-US.resx">
+      <DependentUpon>frmMessageShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessageShow.en.resx">
       <DependentUpon>frmMessageShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMessageShow.resx">
@@ -451,6 +457,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSmallParent.resx">
       <DependentUpon>frmSmallParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVersion.en.resx">
+      <DependentUpon>frmVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVersion.resx">
       <DependentUpon>frmVersion.cs</DependentUpon>
@@ -568,6 +577,9 @@
       <DependentUpon>frmInstruGroupTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SysMaintenance\frmInstruMaintenance.en-US.resx">
+      <DependentUpon>frmInstruMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysMaintenance\frmInstruMaintenance.en.resx">
       <DependentUpon>frmInstruMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SysMaintenance\frmInstruMaintenance.resx">

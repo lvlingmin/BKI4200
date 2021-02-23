@@ -41,8 +41,8 @@
             // 
             // btnOK
             // 
-            this.btnOK.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnOK, "btnOK");
+            this.btnOK.BackColor = System.Drawing.Color.Transparent;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.EnabledSet = true;
             this.btnOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));

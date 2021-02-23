@@ -260,7 +260,6 @@
         private System.Windows.Forms.TextBox txtUserPassword;
         private CustomControl.FunctionButton btnCancel;
         private CustomControl.FunctionButton btnLogin;
-        private System.Windows.Forms.PictureBox titleofbio;
         private System.Windows.Forms.Panel panellogin;
         private System.Windows.Forms.PictureBox ChangeLanguage;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -274,5 +273,6 @@
         private System.Windows.Forms.CheckBox chkKeepPwd;
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.Label lbLanguage;
+        private System.Windows.Forms.PictureBox titleofbio;
     }
 }
