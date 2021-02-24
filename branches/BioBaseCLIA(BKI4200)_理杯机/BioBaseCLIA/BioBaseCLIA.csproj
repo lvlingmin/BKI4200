@@ -252,6 +252,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\String\NetCom3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetCom3.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\String\Program.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Program.resx</DependentUpon>
+    </Compile>
     <Compile Include="Run\BindingCollection.cs" />
     <Compile Include="Run\CONSTANTDEFINE.cs" />
     <Compile Include="Run\DiuInfo.cs" />
@@ -489,6 +499,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\NetCom3.en.resx" />
+    <EmbeddedResource Include="Resources\String\NetCom3.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>NetCom3.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\Program.en.resx" />
+    <EmbeddedResource Include="Resources\String\Program.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Program.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmAddSample.en-US.resx">
       <DependentUpon>frmAddSample.cs</DependentUpon>
@@ -793,6 +813,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
