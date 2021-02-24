@@ -993,7 +993,61 @@
   <data name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
   </data>
+  <data name="Alarmfailed" xml:space="preserve">
+    <value>报警模组握手失败!\n</value>
+  </data>
+  <data name="Cleanfailed" xml:space="preserve">
+    <value>清洗模组握手失败!\n</value>
+  </data>
+  <data name="ConnectErr" xml:space="preserve">
+    <value>仪器初始化失败！请确认网线连接状态及仪器的连接地址是否正确！是否脱机运行！</value>
+  </data>
+  <data name="Counterfailed" xml:space="preserve">
+    <value>计数器模组握手失败！\n</value>
+  </data>
+  <data name="Cupmanagementfailed" xml:space="preserve">
+    <value>理杯机模组握手失败!\n</value>
+  </data>
+  <data name="Incubationfailure" xml:space="preserve">
+    <value>温育盘模组握手失败!\n</value>
+  </data>
+  <data name="InitErr" xml:space="preserve">
+    <value>仪器初始化失败！请确认仪器是否已经开启！是否脱机运行！</value>
+  </data>
+  <data name="InitExcetion" xml:space="preserve">
+    <value>仪器初始化异常:\n\n</value>
+  </data>
+  <data name="InitMsg" xml:space="preserve">
+    <value>初始化进度</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="MessageboxTitle" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
+  <data name="PasswordErr" xml:space="preserve">
+    <value>密码输入为空，请重新输入！</value>
+  </data>
+  <data name="PwdUnexpectedCharacter" xml:space="preserve">
+    <value>密码出现意外字符。</value>
+  </data>
   <data name="RestartMsg" xml:space="preserve">
     <value>语言环境已经切换，请重启软件</value>
+  </data>
+  <data name="Runoffline" xml:space="preserve">
+    <value>\r是否脱机运行！</value>
+  </data>
+  <data name="Samplefailed" xml:space="preserve">
+    <value>加样机模组握手失败！\n</value>
+  </data>
+  <data name="UnexpectedCharacter" xml:space="preserve">
+    <value>用户名出现意外字符。</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="UsernameErr" xml:space="preserve">
+    <value>用户名不正确，请重新输入！</value>
   </data>
 </root>
