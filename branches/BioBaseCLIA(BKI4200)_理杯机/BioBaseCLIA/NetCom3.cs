@@ -12,6 +12,7 @@ using System.IO;
 using Common;
 using BioBaseCLIA.User;
 using NPOI.Util;
+using Res = BioBaseCLIA.Resources.String.NetCom3;
 
 namespace BioBaseCLIA
 {
@@ -275,14 +276,14 @@ namespace BioBaseCLIA
             if (!CheckNetWorkLink())
             {
                 frmMessageShow frmMS = new frmMessageShow();
-                frmMS.MessageShow("", "网络连接不可用！");
+                frmMS.MessageShow("", Res.Networkunavailable);
                 frmMS.Dispose();
                 return false;
             }
             if (!CheckPort(myip, "5000"))
             {
                 frmMessageShow frmMS = new frmMessageShow();
-                frmMS.MessageShow("", "端口关闭！");
+                frmMS.MessageShow("", Res.Portclosed);
                 frmMS.Dispose();
                 return false;
             }
@@ -731,7 +732,7 @@ namespace BioBaseCLIA
                     if (!keepaliveFlag)
                     {
                         frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow("消息发送失败提示，Send" + orderType + "：", ex.Message);
+                        frmMS.MessageShow(Res.Sendfailed+ "消息发送失败" + orderType + "：", ex.Message);
                         frmMS.Dispose();
                     }
                 }
@@ -800,7 +801,7 @@ namespace BioBaseCLIA
                     totalOrderFlag = true;
                     if (!keepaliveFlag)
                     {
-                        MessageBox.Show("消息发送失败提示，Send" + orderType + "：" + ex.Message, "");
+                        MessageBox.Show( Res.Sendfailed + orderType + "：" + ex.Message, "");
                     }
                 }
             }
@@ -837,7 +838,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("", "指令发送失败,AddArmSendCallback函数：" + e.Message);
+                    frmMS.MessageShow("",Res.Sendfailed+":" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -871,7 +872,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("", "指令发送失败，WashSendCallback：" + e.Message);
+                    frmMS.MessageShow("",Res.Sendfailed+ "：" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -905,7 +906,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("", "指令发送失败，MoveSendCallback：" + e.Message);
+                    frmMS.MessageShow("",Res.Sendfailed+ "：" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -937,7 +938,7 @@ namespace BioBaseCLIA
                         errorFlag = (int)ErrorState.OverTime;
                         totalOrderFlag = true;
                         frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow("", "调试系统通讯故障，实验将停止.");
+                        frmMS.MessageShow("",Res.communicationfail);
                         frmMS.Dispose();
 
                         EventStop.Invoke();
@@ -972,7 +973,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("", "DiagnostSendCallback指令发送失败：" + e.Message);
+                    frmMS.MessageShow("",Res.Sendfailed+"：" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -1203,7 +1204,7 @@ namespace BioBaseCLIA
                 if (!isConnect)
                 {
                     //dw2018.12.24
-                    MessageBox.Show("ReceiveCallback isConnect 断开连接！");
+                    MessageBox.Show("ReceiveCallback isConnect "+Res.Disconnect);
                     LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "isConnect退出"));
                     //dw2018.12.24
                     return;
@@ -1214,7 +1215,7 @@ namespace BioBaseCLIA
                     if ((state.workSocket == null) || (!state.workSocket.Connected))
                     {
                         //dw2018.12.24
-                        MessageBox.Show("ReceiveCallback state.workSocket 断开连接！");
+                        MessageBox.Show("ReceiveCallback state.workSocket " + Res.Disconnect);
                         LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "state.workSocket为空退出"));
                         //dw2018.12.24
                         return;
@@ -1243,16 +1244,15 @@ namespace BioBaseCLIA
                         catch (Exception e)
                         {
                             writeLog(e);
-                            MessageBox.Show("代码Array.Resize出现异常："+e.Message);
+                            //MessageBox.Show("代码Array.Resize出现异常："+e.Message);
                         }
-                        //2018-07-20 zlx add 追踪异常
                         try
                         {
                             state.sb.Append(cmd.ByteArrayToHexString(state.buffer));
                         }
                         catch (Exception e)
                         {
-                            MessageBox.Show("代码 state.sb.Append出现异常：" + e.Message);
+                            //MessageBox.Show("代码 state.sb.Append出现异常：" + e.Message);
                             writeLog(e);
                         }
                         response = response + state.sb;
@@ -1314,23 +1314,23 @@ namespace BioBaseCLIA
                                             }
                                             if (tempII[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "加样模块样品盘光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Sampleabnormal;
                                             }
                                             if (tempII[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "加样模块试剂盘光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Reagentabnormal;
                                             }
                                             if (tempII[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "加样模块垂直臂光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Verticalanomal;
                                             }
                                             if (tempII[4] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "加样模块旋转臂光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Rotationabnormal;
                                             }
                                             if (tempII[3] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "加样模块柱塞泵光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Plungerabnormal;
                                             }
                                         }
 
@@ -1347,27 +1347,27 @@ namespace BioBaseCLIA
                                             }
                                             if (tempJJ[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "理杯机模块理杯块光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Cupabnormal ;
                                             }
                                             if (tempJJ[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "理杯机模块暂存盘光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Temporaryabnormal ;
                                             }
                                             if (tempJJ[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "理杯机模块垂直光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Verticalphotoelectricabnormal ;
                                             }
                                             if (tempJJ[4] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "理杯机模块旋转光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Rotatingphotoelectricabnormal ;
                                             }
                                             if (tempJJ[3] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "理杯机模块抓手光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Gripperabnormal;
                                             }
                                             if (tempJJ[2] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "理杯机模块抓空光电开关异常\n";
+                                                ErrorMessage = ErrorMessage + Res.Emptyabnormal;
                                             }
 
                                         }
@@ -1384,19 +1384,19 @@ namespace BioBaseCLIA
 
                                             if (tempKK[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "清洗模块清洗盘光电异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Cleanabnormal ;
                                             }
                                             if (tempKK[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "清洗模块压杯光电异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Pressureabnormal ;
                                             }
                                             if (tempKK[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "清洗模块垂直光电异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Cleanverticalabnormal ;
                                             }
                                             if (tempKK[4] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "清洗模块计量泵光耦异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Measureabnormal ;
                                             }
                                         }
 
@@ -1413,15 +1413,15 @@ namespace BioBaseCLIA
 
                                             if (tempMM[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "温育盘模块温育盘光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Incubateabnormal ;
                                             }
                                             if (tempMM[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "温育盘模块垂直光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Incubateverticalabnormal;
                                             }
                                             if (tempMM[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + "温育盘模块压杯光电开关异常!\n";
+                                                ErrorMessage = ErrorMessage + Res.Incubatepressureabnormal ;
                                             }
                                         }
                                     }
