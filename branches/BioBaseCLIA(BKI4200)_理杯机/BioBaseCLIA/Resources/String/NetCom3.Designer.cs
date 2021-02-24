@@ -59,5 +59,230 @@ namespace BioBaseCLIA.Resources.String {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   查找类似 正在中止线程 的本地化字符串。
+        /// </summary>
+        internal static string Abortthread {
+            get {
+                return ResourceManager.GetString("Abortthread", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 清洗模块清洗盘光电异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Cleanabnormal {
+            get {
+                return ResourceManager.GetString("Cleanabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 清洗模块垂直光电异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Cleanverticalabnormal {
+            get {
+                return ResourceManager.GetString("Cleanverticalabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 调试系统通讯故障，实验将停止 的本地化字符串。
+        /// </summary>
+        internal static string communicationfail {
+            get {
+                return ResourceManager.GetString("communicationfail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 理杯机模块理杯块光电开关异常!\n&quot; 的本地化字符串。
+        /// </summary>
+        internal static string Cupabnormal {
+            get {
+                return ResourceManager.GetString("Cupabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 断开连接！ 的本地化字符串。
+        /// </summary>
+        internal static string Disconnect {
+            get {
+                return ResourceManager.GetString("Disconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 理杯机模块抓空光电开关异常\n 的本地化字符串。
+        /// </summary>
+        internal static string Emptyabnormal {
+            get {
+                return ResourceManager.GetString("Emptyabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 理杯机模块抓手光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Gripperabnormal {
+            get {
+                return ResourceManager.GetString("Gripperabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 温育盘模块温育盘光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Incubateabnormal {
+            get {
+                return ResourceManager.GetString("Incubateabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 温育盘模块压杯光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Incubatepressureabnormal {
+            get {
+                return ResourceManager.GetString("Incubatepressureabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 温育盘模块垂直光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Incubateverticalabnormal {
+            get {
+                return ResourceManager.GetString("Incubateverticalabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 清洗模块计量泵光耦异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Measureabnormal {
+            get {
+                return ResourceManager.GetString("Measureabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 网络连接不可用 的本地化字符串。
+        /// </summary>
+        internal static string Networkunavailable {
+            get {
+                return ResourceManager.GetString("Networkunavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加样模块柱塞泵光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Plungerabnormal {
+            get {
+                return ResourceManager.GetString("Plungerabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 端口关闭！ 的本地化字符串。
+        /// </summary>
+        internal static string Portclosed {
+            get {
+                return ResourceManager.GetString("Portclosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 清洗模块压杯光电异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Pressureabnormal {
+            get {
+                return ResourceManager.GetString("Pressureabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加样模块试剂盘光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Reagentabnormal {
+            get {
+                return ResourceManager.GetString("Reagentabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 接收数据异常: 的本地化字符串。
+        /// </summary>
+        internal static string Receiveexception {
+            get {
+                return ResourceManager.GetString("Receiveexception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 理杯机模块旋转光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Rotatingphotoelectricabnormal {
+            get {
+                return ResourceManager.GetString("Rotatingphotoelectricabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加样模块旋转臂光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Rotationabnormal {
+            get {
+                return ResourceManager.GetString("Rotationabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加样模块样品盘光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Sampleabnormal {
+            get {
+                return ResourceManager.GetString("Sampleabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 消息发送失败 的本地化字符串。
+        /// </summary>
+        internal static string Sendfailed {
+            get {
+                return ResourceManager.GetString("Sendfailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 理杯机模块暂存盘光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Temporaryabnormal {
+            get {
+                return ResourceManager.GetString("Temporaryabnormal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加样模块垂直臂光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Verticalanomal {
+            get {
+                return ResourceManager.GetString("Verticalanomal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 理杯机模块垂直光电开关异常!\n 的本地化字符串。
+        /// </summary>
+        internal static string Verticalphotoelectricabnormal {
+            get {
+                return ResourceManager.GetString("Verticalphotoelectricabnormal", resourceCulture);
+            }
+        }
     }
 }
