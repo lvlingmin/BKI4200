@@ -44,7 +44,7 @@ namespace BioBaseCLIA.User
         /// <summary>
         /// 是否记住密码
         /// </summary>        
-        string KeepPwd = "";//2018-08-04  zlx add
+        string KeepPwd = "";
         #region 快捷键变量
         Stopwatch swatch = new Stopwatch(); //快捷键进入调试工具软件时需得1s内快速按三下快捷键，的计时器
         int hotKeyFreq = 0; //快捷键1s内按下次数
