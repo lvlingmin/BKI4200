@@ -732,7 +732,7 @@ namespace BioBaseCLIA
                     if (!keepaliveFlag)
                     {
                         frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow(Res.Sendfailed+ "消息发送失败" + orderType + "：", ex.Message);
+                        frmMS.MessageShow(Res.Sendfailed+ " "+ orderType + "：", ex.Message);
                         frmMS.Dispose();
                     }
                 }
@@ -805,7 +805,6 @@ namespace BioBaseCLIA
                     }
                 }
             }
-
         }
         private void AddArmSendCallback(IAsyncResult ar)
         {
@@ -940,7 +939,6 @@ namespace BioBaseCLIA
                         frmMessageShow frmMS = new frmMessageShow();
                         frmMS.MessageShow("",Res.communicationfail);
                         frmMS.Dispose();
-
                         EventStop.Invoke();
                     }
                 }
