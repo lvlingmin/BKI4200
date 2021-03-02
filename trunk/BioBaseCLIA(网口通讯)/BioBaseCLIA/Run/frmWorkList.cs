@@ -438,6 +438,10 @@ namespace BioBaseCLIA.Run
         /// </summary>
         private bool TubeProblemFlag = false;
         /// <summary>
+        /// 是否已经进入实验流程
+        /// </summary>
+        bool isEntertRun = false;
+        /// <summary>
         /// 实验完成数量
         /// </summary>
         private int completeTestNums = 0;
@@ -2800,6 +2804,7 @@ namespace BioBaseCLIA.Run
             MoveTubeThread = new Thread(new ParameterizedThreadStart(MoveTube));
             MoveTubeThread.IsBackground = true;
             MoveTubeThread.Start();
+            isEntertRun = false;
             if (!MachineInit())
             {
                 //diuVolInit();
@@ -2856,6 +2861,7 @@ namespace BioBaseCLIA.Run
             });//实验的实时运行实验状态
             lisSavedId = new List<int>();//2018-08-21 zlx add
             buttonEnableRun(true);//2018-11-29 zlx mod
+            isEntertRun = true;
             RunThread = new Thread(new ParameterizedThreadStart(GaTestRun));// GaTestRun  TestRun
             RunThread.IsBackground = true;
             RunThread.Start();
@@ -10173,7 +10179,8 @@ namespace BioBaseCLIA.Run
             //2018-10-09 zlx mod
             if (tss.Count > 1)
                 _GaDoingOne = tss[tss.Count - 1];
-            TestStep = GaNextOne();
+            if (isEntertRun)//判断在实验调度前点暂停，防止第一个实验不加样 
+                TestStep = GaNextOne();
             LoadingHelper.CloseForm();
             NetCom3.ComWait.Set();
             frmSampleLoad.CaculatingFlag = false;
