@@ -400,6 +400,9 @@
     <EmbeddedResource Include="DataQuery\frmHistoryScaling.resx">
       <DependentUpon>frmHistoryScaling.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataQuery\frmLoadSu.en.resx">
+      <DependentUpon>frmLoadSu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmLoadSu.resx">
       <DependentUpon>frmLoadSu.cs</DependentUpon>
     </EmbeddedResource>
@@ -432,6 +435,9 @@
       <DependentUpon>frmSupplyStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmSupplyStatus.en-ZA.resx">
+      <DependentUpon>frmSupplyStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataQuery\frmSupplyStatus.en.resx">
       <DependentUpon>frmSupplyStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmSupplyStatus.resx">
@@ -527,6 +533,9 @@
       <DependentUpon>frmLoadSu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmLogShow.en-US.resx">
+      <DependentUpon>frmLogShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmLogShow.en.resx">
       <DependentUpon>frmLogShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmLogShow.resx">

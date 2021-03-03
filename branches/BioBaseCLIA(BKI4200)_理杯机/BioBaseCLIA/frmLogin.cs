@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Globalization;
 using System.Resources;
+using Localization;
 
 namespace BioBaseCLIA.User
 {
@@ -145,6 +146,7 @@ namespace BioBaseCLIA.User
         }
         private void LoadProgram()
         {
+            SetCultureInfo();
             BeginInvoke(new Action(() =>
             {
                 progressData.Value = 1;
@@ -800,6 +802,14 @@ namespace BioBaseCLIA.User
             ResourceManager resManagerA =
                     new ResourceManager("BioBaseCLIA.User.frmLogin", typeof(frmLogin).Assembly);
             return  resManagerA.GetString(key); 
+        }
+
+        private void SetCultureInfo()
+        {
+            Language.AppCultureInfo = new System.Globalization.CultureInfo(GetCultureInfo());
+            //Language.AppCultureInfo = new System.Globalization.CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
         }
         #endregion
     }
