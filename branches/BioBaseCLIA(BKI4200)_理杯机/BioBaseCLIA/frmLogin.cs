@@ -60,6 +60,8 @@ namespace BioBaseCLIA.User
             System.Threading.Thread.CurrentThread.CurrentCulture = culture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
 
+            Application.CurrentCulture = culture;
+
             InitializeComponent();
 
             cbLanguage.Text = (GetCultureInfo() == "zh-CN" || string.IsNullOrEmpty(GetCultureInfo())) ? "中文" : "English";
