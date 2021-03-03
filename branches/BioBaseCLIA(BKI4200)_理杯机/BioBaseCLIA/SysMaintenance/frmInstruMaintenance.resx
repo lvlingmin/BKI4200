@@ -128,9 +128,6 @@
   <data name="&gt;&gt;cbCleanTray.Name" xml:space="preserve">
     <value>cbCleanTray</value>
   </data>
-  <data name="checkBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
   <data name="txtPMT.Text" xml:space="preserve">
     <value>0</value>
   </data>
@@ -140,9 +137,6 @@
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>45</value>
-  </data>
-  <data name="cmbSubPipeCH.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
   </data>
   <data name="&gt;&gt;checkBox3.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -162,8 +156,11 @@
   <data name="&gt;&gt;dfInitializers.Parent" xml:space="preserve">
     <value>panel4</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="comboBox2.Items2" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cmbSubPipeCH.Name" xml:space="preserve">
+    <value>cmbSubPipeCH</value>
   </data>
   <data name="&gt;&gt;cmbSubstrate.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -180,8 +177,8 @@
   <data name="lainitializers.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="cmbSelectAct.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 11.25pt</value>
+  <data name="&gt;&gt;txtInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chbWashPipeline.Name" xml:space="preserve">
     <value>chbWashPipeline</value>
@@ -210,17 +207,14 @@
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>354, 12</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>仪器维护</value>
+  <data name="&gt;&gt;chbWashPipeline.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbSubPipeCH.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;txtSubTest.Name" xml:space="preserve">
     <value>txtSubTest</value>
-  </data>
-  <data name="&gt;&gt;fbtnInstruDiagnost.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
   </data>
   <data name="chbClearReactTube.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -230,9 +224,6 @@
   </data>
   <data name="&gt;&gt;chbInit.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;numericUpDown2.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="&gt;&gt;functionButton6.Name" xml:space="preserve">
     <value>functionButton6</value>
@@ -325,6 +316,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="functionButton6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
@@ -358,9 +352,6 @@
   <data name="txtSamplePipeline.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="numericUpDown5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 11.25pt</value>
-  </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
@@ -379,9 +370,6 @@
   <data name="&gt;&gt;txtPMT.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="chbSamplePipeline.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="&gt;&gt;chbSubstrate.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
@@ -394,11 +382,17 @@
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="fbtnStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>398, 67</value>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="numericUpDown4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, 27</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
+  </data>
+  <data name="fbtnInstruDiagnost.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 61</value>
   </data>
   <data name="chkDelay.TabIndex" type="System.Int32, mscorlib">
     <value>67</value>
@@ -433,9 +427,6 @@
   <data name="chbSubstrateTest.Text" xml:space="preserve">
     <value>底物有效性检测</value>
   </data>
-  <data name="&gt;&gt;functionButton5.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="&gt;&gt;functionButton2.Name" xml:space="preserve">
     <value>functionButton2</value>
   </data>
@@ -448,12 +439,6 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>211, 211</value>
   </data>
-  <data name="functionButton4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 398</value>
-  </data>
-  <data name="label20.Text" xml:space="preserve">
-    <value>起始孔位</value>
-  </data>
   <data name="txtWashPipeline.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 21</value>
   </data>
@@ -465,6 +450,9 @@
   </data>
   <data name="&gt;&gt;functionButton5.Name" xml:space="preserve">
     <value>functionButton5</value>
+  </data>
+  <data name="txtSubTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 21</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 61</value>
@@ -481,11 +469,11 @@
   <data name="&gt;&gt;label21.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="lblSubPipe2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 12</value>
+  </data>
   <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
     <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;checkNewTube.Parent" xml:space="preserve">
-    <value>groupBox6</value>
   </data>
   <data name="&gt;&gt;rdbtnGeneral.Name" xml:space="preserve">
     <value>rdbtnGeneral</value>
@@ -495,6 +483,9 @@
   </data>
   <data name="&gt;&gt;chkDelay.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 19</value>
   </data>
   <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -595,11 +586,11 @@
   <data name="&gt;&gt;numDwPourin.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="checkBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="lblSubPipe2.Text" xml:space="preserve">
     <value>底物管路选择：</value>
+  </data>
+  <data name="&gt;&gt;rdbDaily.Name" xml:space="preserve">
+    <value>rdbDaily</value>
   </data>
   <data name="numericUpDown5.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 25</value>
@@ -613,6 +604,9 @@
   <data name="comboBox2.Items3" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="checkBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 19</value>
+  </data>
   <data name="&gt;&gt;chbSubstrateTest.Name" xml:space="preserve">
     <value>chbSubstrateTest</value>
   </data>
@@ -621,9 +615,6 @@
   </data>
   <data name="chkDelay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmbSubstrate.Location" type="System.Drawing.Point, System.Drawing">
     <value>137, 335</value>
@@ -636,6 +627,9 @@
   </data>
   <data name="comboBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>110, 16</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="chbSamplePipeline.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 160</value>
@@ -712,6 +706,9 @@
   <data name="cmbSubPipeCH.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="&gt;&gt;chbClearReactTube.Name" xml:space="preserve">
+    <value>chbClearReactTube</value>
+  </data>
   <data name="label22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -733,6 +730,9 @@
   <data name="&gt;&gt;checkBox1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="cmbSubstrate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
   <data name="checkBox5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -744,6 +744,9 @@
   </data>
   <data name="&gt;&gt;label23.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="rdbDaily.Text" xml:space="preserve">
+    <value>每日维护</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -775,14 +778,8 @@
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="chbClearWashTube.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="chbClearReactTube.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 115</value>
-  </data>
-  <data name="&gt;&gt;cmbSubPipeCH.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="btnPourInto.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 11.25pt</value>
@@ -793,8 +790,14 @@
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
   </data>
+  <data name="&gt;&gt;checkBox4.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
   <data name="&gt;&gt;txtSubTest.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numRepeat.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
@@ -816,6 +819,9 @@
   </data>
   <data name="functionButton5.Text" xml:space="preserve">
     <value>中止</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>停止</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -914,9 +920,6 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 426</value>
-  </data>
   <data name="&gt;&gt;comboBox2.Name" xml:space="preserve">
     <value>comboBox2</value>
   </data>
@@ -1002,6 +1005,9 @@
   <data name="functionButton6.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 11.25pt</value>
   </data>
+  <data name="&gt;&gt;functionButton4.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="label22.TabIndex" type="System.Int32, mscorlib">
     <value>59</value>
   </data>
@@ -1023,20 +1029,20 @@
   <data name="checkBox5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
   <data name="fbtnInstruDiagnost.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 446</value>
+  <data name="&gt;&gt;numericUpDown2.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="numRepeat.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 56</value>
   </data>
   <data name="&gt;&gt;chbClearWashTube.Parent" xml:space="preserve">
     <value>groupBox1</value>
-  </data>
-  <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>返回</value>
   </data>
   <data name="functionButton4.Text" xml:space="preserve">
     <value>开始</value>
@@ -1135,8 +1141,8 @@
   <data name="functionButton6.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 28</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="&gt;&gt;pbinitializers.Parent" xml:space="preserve">
+    <value>dfInitializers</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -1186,6 +1192,9 @@
   <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 297</value>
+  </data>
   <data name="chbInit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1195,17 +1204,14 @@
   <data name="functionButton1.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 333</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 15</value>
-  </data>
   <data name="&gt;&gt;cbCleanTray.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="comboBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 23</value>
-  </data>
   <data name="cbCleanTray.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="checkNewTube.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;lainitializers.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1261,9 +1267,6 @@
   <data name="&gt;&gt;chbPmt.Name" xml:space="preserve">
     <value>chbPmt</value>
   </data>
-  <data name="&gt;&gt;btnPourInto.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -1294,8 +1297,14 @@
   <data name="&gt;&gt;fbtnStart.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
+  <data name="rdbtnCustom.Text" xml:space="preserve">
+    <value>自定义维护</value>
+  </data>
   <data name="fbtnStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 24</value>
+  </data>
+  <data name="comboBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -1354,8 +1363,11 @@
   <data name="functionButton5.Location" type="System.Drawing.Point, System.Drawing">
     <value>132, 398</value>
   </data>
-  <data name="comboBox2.Items2" xml:space="preserve">
-    <value>3</value>
+  <data name="label21.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cmbSubstrate.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 17</value>
@@ -1378,11 +1390,11 @@
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>409, 68</value>
   </data>
+  <data name="comboBox2.Items27" xml:space="preserve">
+    <value>28</value>
+  </data>
   <data name="checkBox4.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;checkBox2.Parent" xml:space="preserve">
-    <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;txtSamplePipeline.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -1475,11 +1487,8 @@
   <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 15</value>
   </data>
-  <data name="fbtnReturn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 14.25pt, style=Bold</value>
-  </data>
-  <data name="chbPmt.Text" xml:space="preserve">
-    <value>PMT背景检测</value>
+  <data name="lainitializers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
     <value>groupBox4</value>
@@ -1492,6 +1501,9 @@
   </data>
   <data name="&gt;&gt;label22.Name" xml:space="preserve">
     <value>label22</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;chbSubstrate.Name" xml:space="preserve">
     <value>chbSubstrate</value>
@@ -1514,6 +1526,9 @@
   <data name="btnPourInto.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="cmbSelectAct.Items1" xml:space="preserve">
+    <value>探针清洗液灌注</value>
+  </data>
   <data name="txtInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 25</value>
   </data>
@@ -1523,14 +1538,14 @@
   <data name="chbSamplePipeline.Text" xml:space="preserve">
     <value>加样管路灌注</value>
   </data>
+  <data name="checkNewTube.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
   <data name="&gt;&gt;label23.Parent" xml:space="preserve">
     <value>panel4</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>辅助功能</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="comboBox2.Items" xml:space="preserve">
     <value>1</value>
@@ -1546,6 +1561,9 @@
   </data>
   <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
     <value>fbtnReturn</value>
+  </data>
+  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 15</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
@@ -1820,8 +1838,14 @@
   <data name="&gt;&gt;cmbSelectAct.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;numRepeat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 15</value>
+  </data>
+  <data name="&gt;&gt;fbtnGroupTest.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="fbtnInstruMaintenance.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
@@ -1871,6 +1895,9 @@
   <data name="groupBox7.Text" xml:space="preserve">
     <value>流程</value>
   </data>
+  <data name="fbtnInstruMaintenance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 14.25pt, style=Bold</value>
+  </data>
   <data name="cbCleanTray.TabIndex" type="System.Int32, mscorlib">
     <value>70</value>
   </data>
@@ -1879,6 +1906,9 @@
   </data>
   <data name="&gt;&gt;numericUpDown5.Name" xml:space="preserve">
     <value>numericUpDown5</value>
+  </data>
+  <data name="comboBox2.Items20" xml:space="preserve">
+    <value>21</value>
   </data>
   <data name="&gt;&gt;fbtnInstruMaintenance.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -1904,17 +1934,14 @@
   <data name="&gt;&gt;fbtnStart.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtPMT.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbinitializers.Parent" xml:space="preserve">
-    <value>dfInitializers</value>
   </data>
   <data name="&gt;&gt;txtSubPipeline.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -2040,9 +2067,6 @@
   <data name="fbtnReturn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="chbSamplePipeline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 16</value>
-  </data>
   <data name="chbInit.Text" xml:space="preserve">
     <value>仪器初始化</value>
   </data>
@@ -2051,9 +2075,6 @@
   </data>
   <data name="numDwPourin.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 25</value>
-  </data>
-  <data name="&gt;&gt;cmbSelectAct.Parent" xml:space="preserve">
-    <value>groupBox6</value>
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2067,14 +2088,14 @@
   <data name="&gt;&gt;btnPourInto.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label21.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="txtSamplePipeline.Location" type="System.Drawing.Point, System.Drawing">
     <value>137, 155</value>
   </data>
-  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 21.75pt, style=Bold</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 12</value>
+  </data>
+  <data name="chbSamplePipeline.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;chbSubstrate.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -2099,6 +2120,9 @@
   </data>
   <data name="cmbSelectAct.Items" xml:space="preserve">
     <value>磁珠清洗液灌注</value>
+  </data>
+  <data name="&gt;&gt;checkBox7.Parent" xml:space="preserve">
+    <value>groupBox7</value>
   </data>
   <data name="btnPourInto.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2176,6 +2200,9 @@
   <data name="&gt;&gt;functionButton2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
   <data name="numericUpDown4.TabIndex" type="System.Int32, mscorlib">
     <value>69</value>
   </data>
@@ -2211,9 +2238,6 @@
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
-  </data>
-  <data name="txtInfo.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
   </data>
   <data name="fbtnStop.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -2263,17 +2287,14 @@
   <data name="chbPmt.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="cmbSubstrate.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;chbPmt.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
   </data>
-  <data name="&gt;&gt;functionButton4.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="checkBox2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
     <value>groupBox5</value>
@@ -2284,8 +2305,8 @@
   <data name="&gt;&gt;chbClearReactTube.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;numericUpDown5.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="fbtnStop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>398, 67</value>
   </data>
   <data name="functionButton4.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
@@ -2308,14 +2329,14 @@
   <data name="txtWashPipeline.Text" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="txtSubTest.Location" type="System.Drawing.Point, System.Drawing">
     <value>134, 373</value>
   </data>
   <data name="cmbSubstrate.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="chbPmt.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="txtSamplePipeline.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 21</value>
@@ -2398,14 +2419,20 @@
   <data name="comboBox2.Items9" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>仪器维护</value>
+  </data>
   <data name="functionButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="fbtnInstruDiagnost.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 61</value>
+  <data name="chbSubstrate.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="checkBox4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="cmbSelectAct.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11.25pt</value>
   </data>
   <data name="&gt;&gt;fbtnGroupTest.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -2416,8 +2443,14 @@
   <data name="&gt;&gt;rdbtnCustom.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
+  <data name="&gt;&gt;rdbtnGeneral.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
   <data name="&gt;&gt;chbPmt.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBox5.Parent" xml:space="preserve">
+    <value>groupBox7</value>
   </data>
   <data name="checkBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 144</value>
@@ -2436,9 +2469,6 @@
   </data>
   <data name="&gt;&gt;dfInitializers.Name" xml:space="preserve">
     <value>dfInitializers</value>
-  </data>
-  <data name="checkBox2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;chbSamplePipeline.Name" xml:space="preserve">
     <value>chbSamplePipeline</value>
@@ -2534,9 +2564,6 @@
   <data name="&gt;&gt;fbtnStop.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="checkBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 54</value>
-  </data>
   <data name="&gt;&gt;txtInfo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -2561,23 +2588,20 @@
   <data name="chkDelay.Text" xml:space="preserve">
     <value>旋转延迟</value>
   </data>
-  <data name="functionButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>206, 28</value>
-  </data>
   <data name="label20.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1024, 547</value>
   </data>
-  <data name="chbClearWashTube.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 71</value>
-  </data>
   <data name="chbSubstrateTest.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 21.75pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;checkBox7.Name" xml:space="preserve">
     <value>checkBox7</value>
@@ -2597,8 +2621,8 @@
   <data name="&gt;&gt;numericUpDown2.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox3.Name" xml:space="preserve">
-    <value>checkBox3</value>
+  <data name="chbClearWashTube.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 71</value>
   </data>
   <data name="fbtnGroupTest.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2667,8 +2691,8 @@
   <data name="checkNewTube.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;chbWashPipeline.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnReturn.Text" xml:space="preserve">
+    <value>返回</value>
   </data>
   <data name="checkBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2676,8 +2700,8 @@
   <data name="pbinitializers.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="cmbSubstrate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
+  <data name="&gt;&gt;numericUpDown5.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="functionButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
@@ -2685,20 +2709,17 @@
   <data name="&gt;&gt;cbClearTray.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="fbtnGroupTest.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 14.25pt, style=Bold</value>
-  </data>
   <data name="&gt;&gt;pbinitializers.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblSubPipe2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 12</value>
+  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
+    <value>panel4</value>
   </data>
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="comboBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>61</value>
+  <data name="cbCleanTray.Text" xml:space="preserve">
+    <value>清洗盘清洗</value>
   </data>
   <data name="numericUpDown3.TabIndex" type="System.Int32, mscorlib">
     <value>60</value>
@@ -2745,6 +2766,9 @@
   <data name="txtInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>503, 291</value>
   </data>
+  <data name="functionButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="fbtnReturn.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 425</value>
   </data>
@@ -2753,9 +2777,6 @@
   </data>
   <data name="fbtnGroupTest.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
-  </data>
-  <data name="checkBox5.Text" xml:space="preserve">
-    <value>扔管</value>
   </data>
   <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
     <value>77</value>
@@ -2769,8 +2790,8 @@
   <data name="fbtnReturn.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="cbCleanTray.Text" xml:space="preserve">
-    <value>清洗盘清洗</value>
+  <data name="&gt;&gt;checkBox2.Parent" xml:space="preserve">
+    <value>groupBox7</value>
   </data>
   <data name="functionButton2.Text" xml:space="preserve">
     <value>底物灌注</value>
@@ -2790,17 +2811,17 @@
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>211, 161</value>
   </data>
-  <data name="checkBox3.Text" xml:space="preserve">
-    <value>底物</value>
-  </data>
-  <data name="&gt;&gt;checkBox4.Parent" xml:space="preserve">
-    <value>groupBox7</value>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 446</value>
   </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 21</value>
   </data>
   <data name="&gt;&gt;functionButton5.Parent" xml:space="preserve">
     <value>groupBox5</value>
+  </data>
+  <data name="chbClearWashTube.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>211, 308</value>
@@ -2817,17 +2838,11 @@
   <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;txtInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="cbClearTray.TabIndex" type="System.Int32, mscorlib">
     <value>68</value>
   </data>
   <data name="chbClearReactTube.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 16</value>
-  </data>
-  <data name="chbInit.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;chbInit.ZOrder" xml:space="preserve">
     <value>19</value>
@@ -2838,20 +2853,17 @@
   <data name="functionButton1.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
-  <data name="numericUpDown4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>299, 27</value>
-  </data>
   <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 11.25pt</value>
-  </data>
-  <data name="chbSubstrate.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="numericUpDown5.Location" type="System.Drawing.Point, System.Drawing">
     <value>103, 27</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="comboBox2.Items26" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2871,8 +2883,8 @@
   <data name="&gt;&gt;chbWashPipeline.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;checkBox3.Name" xml:space="preserve">
+    <value>checkBox3</value>
   </data>
   <data name="&gt;&gt;txtWashPipeline.Name" xml:space="preserve">
     <value>txtWashPipeline</value>
@@ -2883,8 +2895,8 @@
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>515, 322</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 15</value>
   </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2950,8 +2962,8 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="checkNewTube.TabIndex" type="System.Int32, mscorlib">
-    <value>71</value>
+  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtSamplePipeline.Text" xml:space="preserve">
     <value>1</value>
@@ -2968,8 +2980,8 @@
   <data name="&gt;&gt;checkBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;checkBox5.Parent" xml:space="preserve">
-    <value>groupBox7</value>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fbtnGroupTest.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -2977,8 +2989,8 @@
   <data name="label21.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 11.25pt</value>
   </data>
-  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 19</value>
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cbClearTray.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2986,8 +2998,8 @@
   <data name="fbtnReturn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;cmbSubPipeCH.Name" xml:space="preserve">
-    <value>cmbSubPipeCH</value>
+  <data name="functionButton4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 398</value>
   </data>
   <data name="label22.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2995,14 +3007,14 @@
   <data name="btnPourInto.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;checkBox7.Parent" xml:space="preserve">
-    <value>groupBox7</value>
+  <data name="cmbSubPipeCH.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
-  <data name="cmbSelectAct.Items1" xml:space="preserve">
-    <value>探针清洗液灌注</value>
+  <data name="functionButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>206, 28</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 426</value>
   </data>
   <data name="lblSubPipe2.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -3013,8 +3025,8 @@
   <data name="&gt;&gt;functionButton1.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="checkNewTube.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="comboBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 23</value>
   </data>
   <data name="numericUpDown4.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 11.25pt</value>
@@ -3043,11 +3055,11 @@
   <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="functionButton6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="txtInfo.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
   </data>
-  <data name="txtSubTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 21</value>
+  <data name="&gt;&gt;checkNewTube.Parent" xml:space="preserve">
+    <value>groupBox6</value>
   </data>
   <data name="chbInit.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -3055,8 +3067,8 @@
   <data name="txtSubPipeline.Location" type="System.Drawing.Point, System.Drawing">
     <value>137, 303</value>
   </data>
-  <data name="fbtnInstruMaintenance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 14.25pt, style=Bold</value>
+  <data name="Stopperfusion" xml:space="preserve">
+    <value>停止灌注</value>
   </data>
   <data name="&gt;&gt;numericUpDown5.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -3082,11 +3094,11 @@
   <data name="functionButton2.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 11.25pt</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="chbPmt.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 297</value>
+  <data name="&gt;&gt;cmbSelectAct.Parent" xml:space="preserve">
+    <value>groupBox6</value>
   </data>
   <data name="checkBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 19</value>
@@ -3094,8 +3106,8 @@
   <data name="&gt;&gt;fbtnStop.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnGroupTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 14.25pt, style=Bold</value>
   </data>
   <data name="cbClearTray.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3103,11 +3115,11 @@
   <data name="functionButton6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 12</value>
+  <data name="&gt;&gt;chbPmt.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;numRepeat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="checkBox3.Text" xml:space="preserve">
+    <value>底物</value>
   </data>
   <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -3115,8 +3127,8 @@
   <data name="checkBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="rdbDaily.Text" xml:space="preserve">
-    <value>每日维护</value>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 141</value>
   </data>
   <data name="numericUpDown2.TabIndex" type="System.Int32, mscorlib">
     <value>58</value>
@@ -3142,8 +3154,8 @@
   <data name="chbWashPipeline.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
-    <value>panel4</value>
+  <data name="chbPmt.Text" xml:space="preserve">
+    <value>PMT背景检测</value>
   </data>
   <data name="lblSubPipe2.Location" type="System.Drawing.Point, System.Drawing">
     <value>37, 406</value>
@@ -3160,17 +3172,14 @@
   <data name="checkBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;numRepeat.ZOrder" xml:space="preserve">
+  <data name="chbClearWashTube.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="comboBox2.Items8" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="lainitializers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>443, 141</value>
+  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
     <value>groupBox6</value>
@@ -3190,8 +3199,8 @@
   <data name="functionButton4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 15</value>
+  <data name="fbtnReturn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 14.25pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -3202,14 +3211,14 @@
   <data name="chbSubstrate.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 307</value>
   </data>
-  <data name="&gt;&gt;rdbDaily.Name" xml:space="preserve">
-    <value>rdbDaily</value>
-  </data>
   <data name="&gt;&gt;rdbDaily.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="comboBox2.Items20" xml:space="preserve">
-    <value>21</value>
+  <data name="comboBox2.Items21" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="checkBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 54</value>
   </data>
   <data name="comboBox2.Items23" xml:space="preserve">
     <value>24</value>
@@ -3223,14 +3232,14 @@
   <data name="comboBox2.Items24" xml:space="preserve">
     <value>25</value>
   </data>
-  <data name="comboBox2.Items27" xml:space="preserve">
-    <value>28</value>
+  <data name="checkBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="comboBox2.Items26" xml:space="preserve">
-    <value>27</value>
+  <data name="numericUpDown5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 11.25pt</value>
   </data>
-  <data name="chbClearWashTube.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;btnPourInto.Parent" xml:space="preserve">
+    <value>groupBox6</value>
   </data>
   <data name="comboBox2.Items28" xml:space="preserve">
     <value>29</value>
@@ -3244,14 +3253,14 @@
   <data name="chbClearReactTube.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="functionButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="checkBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;checkBox7.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 19</value>
+  <data name="label20.Text" xml:space="preserve">
+    <value>起始孔位</value>
   </data>
   <data name="&gt;&gt;lblSubPipe2.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -3262,8 +3271,8 @@
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="rdbtnCustom.Text" xml:space="preserve">
-    <value>自定义维护</value>
+  <data name="&gt;&gt;fbtnInstruDiagnost.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="checkBox4.Text" xml:space="preserve">
     <value>读数</value>
@@ -3274,17 +3283,14 @@
   <data name="numericUpDown2.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 25</value>
   </data>
-  <data name="&gt;&gt;chbClearReactTube.Name" xml:space="preserve">
-    <value>chbClearReactTube</value>
+  <data name="chbInit.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="chbSamplePipeline.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>837, 20</value>
-  </data>
-  <data name="comboBox2.Items21" xml:space="preserve">
-    <value>22</value>
   </data>
   <data name="&gt;&gt;functionButton2.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -3365,8 +3371,8 @@
   <data name="&gt;&gt;txtSubPipeline.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
-    <value>panel4</value>
+  <data name="checkBox5.Text" xml:space="preserve">
+    <value>扔管</value>
   </data>
   <data name="txtSubTest.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -3392,14 +3398,14 @@
   <data name="fbtnInstruMaintenance.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;rdbtnGeneral.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;functionButton5.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;label21.Name" xml:space="preserve">
     <value>label21</value>
   </data>
-  <data name="&gt;&gt;fbtnGroupTest.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="chbSamplePipeline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 16</value>
   </data>
   <data name="label21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3416,10 +3422,592 @@
   <data name="numDwPourin.TabIndex" type="System.Int32, mscorlib">
     <value>76</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>en</value>
-  </metadata>
+  </data>
+  <data name="Argumentincorrect" xml:space="preserve">
+    <value>参数不正确</value>
+  </data>
+  <data name="btnPourInto.Text1" xml:space="preserve">
+    <value>执行</value>
+  </data>
+  <data name="cbCleanTray.Text1" xml:space="preserve">
+    <value>清洗盘清洗</value>
+  </data>
+  <data name="cbClearTray.Text1" xml:space="preserve">
+    <value>清空温育盘</value>
+  </data>
+  <data name="chbClearReactTube.Text1" xml:space="preserve">
+    <value>清空温育盘使用过的反应管</value>
+  </data>
+  <data name="chbClearWashTube.Text1" xml:space="preserve">
+    <value>清空清洗盘反应管</value>
+  </data>
+  <data name="chbInit.Text1" xml:space="preserve">
+    <value>仪器初始化</value>
+  </data>
+  <data name="chbPmt.Text1" xml:space="preserve">
+    <value>PMT背景检测</value>
+  </data>
+  <data name="chbSamplePipeline.Text1" xml:space="preserve">
+    <value>加样管路灌注</value>
+  </data>
+  <data name="chbSubstrate.Text1" xml:space="preserve">
+    <value>底物管路灌注</value>
+  </data>
+  <data name="chbSubstrateTest.Text1" xml:space="preserve">
+    <value>底物有效性检测</value>
+  </data>
+  <data name="chbWashPipeline.Text1" xml:space="preserve">
+    <value>清洗管路灌注</value>
+  </data>
+  <data name="checkBox1.Text1" xml:space="preserve">
+    <value>夹新管</value>
+  </data>
+  <data name="checkBox2.Text1" xml:space="preserve">
+    <value>清洗</value>
+  </data>
+  <data name="checkBox3.Text1" xml:space="preserve">
+    <value>底物</value>
+  </data>
+  <data name="checkBox4.Text1" xml:space="preserve">
+    <value>读数</value>
+  </data>
+  <data name="checkBox5.Text1" xml:space="preserve">
+    <value>扔管</value>
+  </data>
+  <data name="checkBox6.Text1" xml:space="preserve">
+    <value>清空清洗盘</value>
+  </data>
+  <data name="checkBox7.Text1" xml:space="preserve">
+    <value>底物灌注</value>
+  </data>
+  <data name="checkNewTube.Text1" xml:space="preserve">
+    <value>夹新管</value>
+  </data>
+  <data name="chkDelay.Text1" xml:space="preserve">
+    <value>旋转延迟</value>
+  </data>
+  <data name="CleanAddSubstrate" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cmbSelectAct.Items11" xml:space="preserve">
+    <value>探针清洗液灌注</value>
+  </data>
+  <data name="cmbSelectAct.Items2" xml:space="preserve">
+    <value>磁珠清洗液灌注</value>
+  </data>
+  <data name="cmbSubPipeCH.Items11" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="cmbSubPipeCH.Items2" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmbSubstrate.Items1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="comboBox2.Items101" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="comboBox2.Items110" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="comboBox2.Items111" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="comboBox2.Items121" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="comboBox2.Items131" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="comboBox2.Items141" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="comboBox2.Items151" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="comboBox2.Items161" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="comboBox2.Items171" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="comboBox2.Items181" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="comboBox2.Items191" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="comboBox2.Items201" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="comboBox2.Items210" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="comboBox2.Items211" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="comboBox2.Items221" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="comboBox2.Items231" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="comboBox2.Items241" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="comboBox2.Items251" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="comboBox2.Items261" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="comboBox2.Items271" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="comboBox2.Items281" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="comboBox2.Items291" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="comboBox2.Items30" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="comboBox2.Items31" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="comboBox2.Items41" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="comboBox2.Items51" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="comboBox2.Items61" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="comboBox2.Items71" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="comboBox2.Items81" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="comboBox2.Items91" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="fbtnGroupTest.Text1" xml:space="preserve">
+    <value>组合测试</value>
+  </data>
+  <data name="fbtnInstruDiagnost.Text1" xml:space="preserve">
+    <value>仪器调试</value>
+  </data>
+  <data name="fbtnInstruMaintenance.Text1" xml:space="preserve">
+    <value>仪器维护</value>
+  </data>
+  <data name="fbtnReturn.Text1" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="fbtnStart.Text1" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="fbtnStop.Text1" xml:space="preserve">
+    <value>终止</value>
+  </data>
+  <data name="functionButton1.Text1" xml:space="preserve">
+    <value>仪器初始化</value>
+  </data>
+  <data name="functionButton2.Text1" xml:space="preserve">
+    <value>底物灌注</value>
+  </data>
+  <data name="functionButton4.Text1" xml:space="preserve">
+    <value>开始</value>
+  </data>
+  <data name="functionButton5.Text1" xml:space="preserve">
+    <value>中止</value>
+  </data>
+  <data name="functionButton6.Text1" xml:space="preserve">
+    <value>循环灌注</value>
+  </data>
+  <data name="groupBox1.Text1" xml:space="preserve">
+    <value>功能选择</value>
+  </data>
+  <data name="groupBox2.Text1" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="groupBox3.Text1" xml:space="preserve">
+    <value>操作信息</value>
+  </data>
+  <data name="groupBox4.Text1" xml:space="preserve">
+    <value>辅助功能</value>
+  </data>
+  <data name="groupBox5.Text1" xml:space="preserve">
+    <value>日维护流程</value>
+  </data>
+  <data name="groupBox6.Text1" xml:space="preserve">
+    <value>清洗灌注</value>
+  </data>
+  <data name="groupBox7.Text1" xml:space="preserve">
+    <value>流程</value>
+  </data>
+  <data name="label1.Text1" xml:space="preserve">
+    <value>次</value>
+  </data>
+  <data name="label2.Text1" xml:space="preserve">
+    <value>次</value>
+  </data>
+  <data name="label20.Text1" xml:space="preserve">
+    <value>起始孔位</value>
+  </data>
+  <data name="label21.Text1" xml:space="preserve">
+    <value>管数量</value>
+  </data>
+  <data name="label22.Text1" xml:space="preserve">
+    <value>重复读数</value>
+  </data>
+  <data name="label23.Text1" xml:space="preserve">
+    <value>提示信息：</value>
+  </data>
+  <data name="label3.Text1" xml:space="preserve">
+    <value>底物管路选择：</value>
+  </data>
+  <data name="label4.Text1" xml:space="preserve">
+    <value>次</value>
+  </data>
+  <data name="label6.Text1" xml:space="preserve">
+    <value>仪器维护</value>
+  </data>
+  <data name="label7.Text1" xml:space="preserve">
+    <value>功能选择</value>
+  </data>
+  <data name="label8.Text1" xml:space="preserve">
+    <value>重复次数</value>
+  </data>
+  <data name="lainitializers.Text1" xml:space="preserve">
+    <value>仪器初始化</value>
+  </data>
+  <data name="lblSubPipe2.Text1" xml:space="preserve">
+    <value>底物管路选择：</value>
+  </data>
+  <data name="rdbDaily.Text1" xml:space="preserve">
+    <value>每日维护</value>
+  </data>
+  <data name="rdbtnCustom.Text1" xml:space="preserve">
+    <value>自定义维护</value>
+  </data>
+  <data name="rdbtnGeneral.Text1" xml:space="preserve">
+    <value>常规维护</value>
+  </data>
+  <data name="Runing" xml:space="preserve">
+    <value>正在运行在运行</value>
+  </data>
+  <data name="txtPMT.Text1" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtSamplePipeline.Text1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtSubPipeline.Text1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtWashPipeline.Text1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Add1" xml:space="preserve">
+    <value>夹第1个新管。。。</value>
+  </data>
+  <data name="Add2" xml:space="preserve">
+    <value>夹第2个新管。。。</value>
+  </data>
+  <data name="Add3" xml:space="preserve">
+    <value>夹第3个新管。。。</value>
+  </data>
+  <data name="Add4" xml:space="preserve">
+    <value>夹第4个新管。。。</value>
+  </data>
+  <data name="Adding" xml:space="preserve">
+    <value>正在加第</value>
+  </data>
+  <data name="Beadmax20" xml:space="preserve">
+    <value>磁珠清洗液灌注限制最大次数为20，请输入适当灌注次数！</value>
+  </data>
+  <data name="beadperfusion" xml:space="preserve">
+    <value>磁珠清洗液灌注。。。</value>
+  </data>
+  <data name="beadPerfusionfinish" xml:space="preserve">
+    <value>磁珠清洗液灌注完成。。。</value>
+  </data>
+  <data name="Circulationcompleted" xml:space="preserve">
+    <value>循环灌注完成。。。</value>
+  </data>
+  <data name="Circulatoryperfusion" xml:space="preserve">
+    <value>循环灌注</value>
+  </data>
+  <data name="Circulatoryperfusionbegins" xml:space="preserve">
+    <value>循环灌注开始。。。</value>
+  </data>
+  <data name="CleanIncubate" xml:space="preserve">
+    <value>开始清空温育盘。。。</value>
+  </data>
+  <data name="CleanIncubatefinish" xml:space="preserve">
+    <value>清空温育盘结束。。。</value>
+  </data>
+  <data name="Cleaningpipeline" xml:space="preserve">
+    <value>清洗管路灌注。。。</value>
+  </data>
+  <data name="Cleaningpipelinefinish" xml:space="preserve">
+    <value>清洗管路灌注完成。</value>
+  </data>
+  <data name="Cleanovertime" xml:space="preserve">
+    <value>清洗指令接收超时。</value>
+  </data>
+  <data name="Cleansubstrate" xml:space="preserve">
+    <value>进行清洗时，必须同时选择加底物。</value>
+  </data>
+  <data name="Clearclean" xml:space="preserve">
+    <value>清空清洗盘。。。</value>
+  </data>
+  <data name="Clearcleanfinish" xml:space="preserve">
+    <value>清洗盘清管完成。。。</value>
+  </data>
+  <data name="Cliptube" xml:space="preserve">
+    <value>开始夹新管。。。</value>
+  </data>
+  <data name="connect" xml:space="preserve">
+    <value>上下位机连接...</value>
+  </data>
+  <data name="DisConnect" xml:space="preserve">
+    <value>网口未连接，请连接网络！</value>
+  </data>
+  <data name="Emptycleaning" xml:space="preserve">
+    <value>清空清洗盘的反应管。。。</value>
+  </data>
+  <data name="Emptycleaningfinish" xml:space="preserve">
+    <value>清洗盘反应管清空完成。。。</value>
+  </data>
+  <data name="Emptycleaningfinishuse" xml:space="preserve">
+    <value>清空温育盘使用过的反应管。。。</value>
+  </data>
+  <data name="Emptystop" xml:space="preserve">
+    <value>移管手在清洗盘抓管时发生撞管，实验将进行停止！</value>
+  </data>
+  <data name="Emptytimesstop" xml:space="preserve">
+    <value>移管手在清洗盘扔废管时多次抓空，实验将进行停止！</value>
+  </data>
+  <data name="EMptytube" xml:space="preserve">
+    <value>理杯机位置缺管。</value>
+  </data>
+  <data name="Gotohole" xml:space="preserve">
+    <value>转到开始孔位</value>
+  </data>
+  <data name="gxg" xml:space="preserve">
+    <value>个新管</value>
+  </data>
+  <data name="Handempty" xml:space="preserve">
+    <value>移管手多次抓空，请装载管架！</value>
+  </data>
+  <data name="Handemptystop" xml:space="preserve">
+    <value>移管手抓新管抓空！实验将停止运行！</value>
+  </data>
+  <data name="Handexception" xml:space="preserve">
+    <value>抓管出现异常，请确认仪器是否运行故障！</value>
+  </data>
+  <data name="Handovertime" xml:space="preserve">
+    <value>移管手指令接收超时。</value>
+  </data>
+  <data name="Handputhit" xml:space="preserve">
+    <value>抓手在放管位置发生了撞管。</value>
+  </data>
+  <data name="Handtakehit" xml:space="preserve">
+    <value>抓手在取管位置发生了撞管。</value>
+  </data>
+  <data name="Hitstop" xml:space="preserve">
+    <value>移管手在管架向清洗盘取放管处抓管发生撞管，实验将进行停止！</value>
+  </data>
+  <data name="Holereading" xml:space="preserve">
+    <value>个管正在读数</value>
+  </data>
+  <data name="Idleoperations" xml:space="preserve">
+    <value>请在仪器空闲时执行此操作</value>
+  </data>
+  <data name="implement" xml:space="preserve">
+    <value>执行</value>
+  </data>
+  <data name="Init" xml:space="preserve">
+    <value>仪器初始化...</value>
+  </data>
+  <data name="InitFalure" xml:space="preserve">
+    <value>仪器初始化失败。。。</value>
+  </data>
+  <data name="Initfinish" xml:space="preserve">
+    <value>仪器初始化完成。。。</value>
+  </data>
+  <data name="Initializing" xml:space="preserve">
+    <value>仪器正在初始化。。。</value>
+  </data>
+  <data name="Insufficientsubstrate" xml:space="preserve">
+    <value>底物不足，请及时更换。</value>
+  </data>
+  <data name="Maintenancecomplete" xml:space="preserve">
+    <value>----------维护操作已结束----------</value>
+  </data>
+  <data name="Maintenancepause" xml:space="preserve">
+    <value>----------维护操作已提前终止----------</value>
+  </data>
+  <data name="Noruning" xml:space="preserve">
+    <value>已经准备终止或者实验没有在运行。</value>
+  </data>
+  <data name="Over" xml:space="preserve">
+    <value>已结束。</value>
+  </data>
+  <data name="Overtimepause" xml:space="preserve">
+    <value>指令接收超时，实验已终止</value>
+  </data>
+  <data name="Overtimestop" xml:space="preserve">
+    <value>移管手在管架向清洗盘取放管处抓管接收数据超时，实验将进行停止！</value>
+  </data>
+  <data name="Parameterincorrect" xml:space="preserve">
+    <value>参数不正确</value>
+  </data>
+  <data name="Perfusionbegins" xml:space="preserve">
+    <value>灌注开始。。。</value>
+  </data>
+  <data name="Perfusionfailure" xml:space="preserve">
+    <value>灌注失败，错误类型为</value>
+  </data>
+  <data name="Perfusionfinish" xml:space="preserve">
+    <value>灌注完成。。。</value>
+  </data>
+  <data name="Perfusionfinish2" xml:space="preserve">
+    <value>灌注完成。。。</value>
+  </data>
+  <data name="Perfusiontimes" xml:space="preserve">
+    <value>灌注次数为0，请输入适当循环次数！</value>
+  </data>
+  <data name="Perfusiontimeset" xml:space="preserve">
+    <value>灌注次数为0，请输入适当灌注次数！</value>
+  </data>
+  <data name="Pipelinefillstart" xml:space="preserve">
+    <value>管路灌注开始。。。</value>
+  </data>
+  <data name="PMTdetection" xml:space="preserve">
+    <value>正在进行PMT背景值检测。。。</value>
+  </data>
+  <data name="PMTdetectionfinish" xml:space="preserve">
+    <value>PMT背景值检测完成。。。</value>
+  </data>
+  <data name="PMTParameter" xml:space="preserve">
+    <value>请选择PMT背景检测功能的参数！</value>
+  </data>
+  <data name="PMTValue" xml:space="preserve">
+    <value>PMT背景值：</value>
+  </data>
+  <data name="probemax10" xml:space="preserve">
+    <value>探针清洗液灌注限制最大次数为10，请输入适当灌注次数！</value>
+  </data>
+  <data name="probeperfusionfinish" xml:space="preserve">
+    <value>探针清洗液灌注完成。。。</value>
+  </data>
+  <data name="probeperfusionstart" xml:space="preserve">
+    <value>探针清洗液灌注开始。。。</value>
+  </data>
+  <data name="Runingnow" xml:space="preserve">
+    <value>正在运行。</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>正在运行。</value>
+  </data>
+  <data name="Samplehit" xml:space="preserve">
+    <value>加样针加样时发生撞针。</value>
+  </data>
+  <data name="Sampleovertime" xml:space="preserve">
+    <value>加样指令接收超时。</value>
+  </data>
+  <data name="Sampleperfusion" xml:space="preserve">
+    <value>加样管路灌注。。。</value>
+  </data>
+  <data name="SelectCleanperfusiontimes" xml:space="preserve">
+    <value>请选择清洗管路灌注功能的次数！</value>
+  </data>
+  <data name="Selectperfusiontimes" xml:space="preserve">
+    <value>请选择加样管路灌注功能的次数！</value>
+  </data>
+  <data name="Selectsubstrateperfusiontimes" xml:space="preserve">
+    <value>请选择底物管路灌注功能的次数！</value>
+  </data>
+  <data name="Startclean" xml:space="preserve">
+    <value>开始清空</value>
+  </data>
+  <data name="Startcleanfinish" xml:space="preserve">
+    <value>清空完成</value>
+  </data>
+  <data name="startperfusion" xml:space="preserve">
+    <value>开始灌注。。。</value>
+  </data>
+  <data name="Stop1" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Stopperfusion1" xml:space="preserve">
+    <value>停止灌注</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>底物不足，请重新进行装载！</value>
+  </data>
+  <data name="Substrateavailability" xml:space="preserve">
+    <value>正在进行底物有效性检测。。。</value>
+  </data>
+  <data name="Substrateempty" xml:space="preserve">
+    <value>管路1无底物，请装载！</value>
+  </data>
+  <data name="Substrateinsufficient" xml:space="preserve">
+    <value>底物不足，请及时更换！</value>
+  </data>
+  <data name="Substrateperfusion" xml:space="preserve">
+    <value>底物管路灌注。。。</value>
+  </data>
+  <data name="Substrateperfusion1" xml:space="preserve">
+    <value>底物管路灌注。。。</value>
+  </data>
+  <data name="Substrateperfusionfinish" xml:space="preserve">
+    <value>底物管路灌注完成。。。</value>
+  </data>
+  <data name="The" xml:space="preserve">
+    <value>第</value>
+  </data>
+  <data name="Throw1" xml:space="preserve">
+    <value>扔第1个新管完成。。。</value>
+  </data>
+  <data name="Throw2" xml:space="preserve">
+    <value>扔第2个新管完成。。。</value>
+  </data>
+  <data name="Throw3" xml:space="preserve">
+    <value>扔第3个新管完成。。。</value>
+  </data>
+  <data name="Throw4" xml:space="preserve">
+    <value>扔第4个新管完成。。。</value>
+  </data>
+  <data name="Throwovertimestop" xml:space="preserve">
+    <value>移管手在清洗盘扔废管时接收数据超时，实验将进行停止！</value>
+  </data>
+  <data name="Throwstop" xml:space="preserve">
+    <value>移管手在清洗盘扔废管时发生撞管，实验将进行停止！</value>
+  </data>
+  <data name="Throwthe" xml:space="preserve">
+    <value>正在从清洗盘扔第</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
+  <data name="Tubeemptystop" xml:space="preserve">
+    <value>理杯机缺管，实验停止运行!</value>
+  </data>
+  <data name="Tue1substrate" xml:space="preserve">
+    <value>管路1无底物，请装载！</value>
+  </data>
+  <data name="Tue2substrate" xml:space="preserve">
+    <value>管路2无底物，请装载！</value>
+  </data>
 </root>
