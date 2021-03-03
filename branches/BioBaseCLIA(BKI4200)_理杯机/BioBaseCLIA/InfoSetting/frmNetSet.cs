@@ -10,6 +10,7 @@ using Common;
 using System.Threading;
 using System.IO.Ports;
 using Microsoft.Win32;
+using System.Resources;
 
 namespace BioBaseCLIA.InfoSetting
 {
@@ -39,15 +40,19 @@ namespace BioBaseCLIA.InfoSetting
             {
                 tabControlMy1.TabPages.Remove(tabLisSet);
                 tabControlMy1.TabPages.Remove(tabLisSetCK);
-                switch (CommunicationType)
-                {
-                    case "网口通讯":
-                        tabControlMy1.TabPages.Add(tabLisSet);
-                        break;
-                    case "串口通讯":
-                        tabControlMy1.TabPages.Add(tabLisSetCK);
-                        break;
-                }
+                if(CommunicationType == "NetConn")
+                    tabControlMy1.TabPages.Add(tabLisSet);
+                else if((CommunicationType == "SerialConn"))
+                    tabControlMy1.TabPages.Add(tabLisSetCK);
+                //switch (CommunicationType)
+                //{
+                //    case "网口通讯":
+                //        tabControlMy1.TabPages.Add(tabLisSet);
+                //        break;
+                //    case "串口通讯":
+                //        tabControlMy1.TabPages.Add(tabLisSetCK);
+                //        break;
+                //}
             }
             #region 获取可用端口 2018-5-14 zlxadd
             string[] str = SerialPort.GetPortNames();
@@ -59,40 +64,70 @@ namespace BioBaseCLIA.InfoSetting
             }
             #endregion 
             lisParaShow();
-            cmbLisType.SelectedItem = CommunicationType;
-            switch (CommunicationType)//2018-5-7 zlx mod
+            cmbLisType.SelectedItem =Getstring(CommunicationType);
+            if (CommunicationType == "NetConn")
             {
-                case "网口通讯":
-                    if (LisCommunication.Instance.IsConnect())
-                    {
-                        labStatus.Text = "已连接";
-                        fbtnLisCon.Enabled = false;
-                        fbtnLISClose.Enabled = true;
-                    }
-                    else
-                    {
-                        labStatus.Text = "未连接";
-                        fbtnLisCon.Enabled = true;
-                        fbtnLISClose.Enabled = false;
-                    }
-                    break;
-                case "串口通讯":
-                    if (LisConnection.Instance.IsOpen())
-                    {
-                        labSStatus.Text = "打开";
-                        fbtnComOpen.Enabled = false;
-                        fbtnComClose.Enabled = true;
-                    }
-                    else
-                    {
-                        labSStatus.Text = "关闭";
-                        fbtnComOpen.Enabled = true;
-                        fbtnComClose.Enabled = false;
-                    }
-                    break;
-                default:
-                    break;
+                if (LisCommunication.Instance.IsConnect())
+                {
+                    labStatus.Text = Getstring("Connceted");
+                    fbtnLisCon.Enabled = false;
+                    fbtnLISClose.Enabled = true;
+                }
+                else
+                {
+                    labStatus.Text = Getstring("NotConnceted");
+                    fbtnLisCon.Enabled = true;
+                    fbtnLISClose.Enabled = false;
+                }
             }
+            else if ((CommunicationType == "SerialConn"))
+            {
+                if (LisConnection.Instance.IsOpen())
+                {
+                    labSStatus.Text = Getstring("Open");
+                    fbtnComOpen.Enabled = false;
+                    fbtnComClose.Enabled = true;
+                }
+                else
+                {
+                    labSStatus.Text = Getstring("Close");
+                    fbtnComOpen.Enabled = true;
+                    fbtnComClose.Enabled = false;
+                }
+            }
+            //switch (CommunicationType)//2018-5-7 zlx mod
+            //{
+            //    case "网口通讯":
+            //        if (LisCommunication.Instance.IsConnect())
+            //        {
+            //            labStatus.Text = "已连接";
+            //            fbtnLisCon.Enabled = false;
+            //            fbtnLISClose.Enabled = true;
+            //        }
+            //        else
+            //        {
+            //            labStatus.Text = "未连接";
+            //            fbtnLisCon.Enabled = true;
+            //            fbtnLISClose.Enabled = false;
+            //        }
+            //        break;
+            //    case "串口通讯":
+            //        if (LisConnection.Instance.IsOpen())
+            //        {
+            //            labSStatus.Text = "打开";
+            //            fbtnComOpen.Enabled = false;
+            //            fbtnComClose.Enabled = true;
+            //        }
+            //        else
+            //        {
+            //            labSStatus.Text = "关闭";
+            //            fbtnComOpen.Enabled = true;
+            //            fbtnComClose.Enabled = false;
+            //        }
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         private void frmNetSet_SizeChanged(object sender, EventArgs e)
@@ -167,13 +202,13 @@ namespace BioBaseCLIA.InfoSetting
         {
             if (txtNetPort.Text.Trim() == "")//y modify 2018.4.19/*
             {
-                frmMsgShow.MessageShow("通讯设置", "端口号不能为空");
+                frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("NullPort"));
                 return;
             }
             if (chkIsLisConn.Checked)
             { 
                 if(cmbLisType.SelectedItem ==null)
-                    frmMsgShow.MessageShow("通讯设置", "请选择LIS通讯方式");
+                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("LisSelect"));
             }
             if (Inspect.InspectIP(txtNetIPAdress.Text.Trim()))//y modify 2018.4.19*/
             {
@@ -181,11 +216,11 @@ namespace BioBaseCLIA.InfoSetting
                 OperateIniFile.WriteIniPara("NetSet", "Port", txtNetPort.Text.Trim());
                 OperateIniFile.WriteIniPara("LisSet", "CommunicationType", cmbLisConType.Text );
                 OperateIniFile.WriteIniPara("LisSet", "IsLisConnect", chkIsLisConn.Checked.ToString());
-                frmMsgShow.MessageShow("通讯设置", "保存成功！");
+                frmMsgShow.MessageShow(Getstring("ConnectSet"),Getstring("NetSaveSucess"));
             }
             else
             {
-                frmMsgShow.MessageShow("通讯设置", "ip地址字符串不符合规范");//y modify 2018.4.19
+                frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("IPErrorMesage"));//y modify 2018.4.19
             }
             
         }
@@ -196,72 +231,110 @@ namespace BioBaseCLIA.InfoSetting
         void lisParaShow()
         {
 
-            CommunicationType = OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
+            CommunicationType =OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
             string IPAddress = OperateIniFile.ReadInIPara("LisSet", "IPAddress");
             string Port = OperateIniFile.ReadInIPara("LisSet", "Port");
             string ConnectType = OperateIniFile.ReadInIPara("LisSet", "ConnectType");
             string LisCodeType = OperateIniFile.ReadInIPara("LisSet", "LisCodeType");
             bool IsTrueTimeTran = bool.Parse(OperateIniFile.ReadInIPara("LisSet", "IsTrueTimeTran"));
             string transinfo = OperateIniFile.ReadInIPara("LisSet", "TransInfo");
-            switch (CommunicationType)
+            if (CommunicationType == "NetConn")
             {
-                case "网口通讯":
-                    txtLISIPAddress.Text = IPAddress;
-                    txtLISPort.Text = Port;
-                    cmbLisConType.SelectedItem = ConnectType;
-                    chkIsLisConn.Checked  = chISLis.Checked = IsLisConnect;
-                    cmbLisCodeType.Text = LisCodeType;
-                    chISDataSend.Checked = IsTrueTimeTran;
-                    if (transinfo != "")
+                txtLISIPAddress.Text = IPAddress;
+                txtLISPort.Text = Port;
+                cmbLisConType.SelectedItem = ConnectType;
+                chkIsLisConn.Checked = chISLis.Checked = IsLisConnect;
+                cmbLisCodeType.Text = LisCodeType;
+                chISDataSend.Checked = IsTrueTimeTran;
+                if (transinfo != "")
+                {
+                    string[] arry = transinfo.Split(',');
+                    foreach (string num in arry)
                     {
-                        string[] arry = transinfo.Split(',');
-                        foreach (string num in arry)
-                        {
-                            if (num != "")
-                                lisCheckNum.Items.Add(num);
-                        }
+                        if (num != "")
+                            lisCheckNum.Items.Add(num);
                     }
-                    tabControlMy1.TabPages.Remove(tabLisSetCK);
-                    break;
-                case "串口通讯":
-                    cmbCom.SelectedItem = IPAddress;
-                    cmbBaud.SelectedItem = Port;
-                    CmdConnType.SelectedItem = ConnectType;
-                    chkIsLisConn.Checked = chkISLis.Checked = IsLisConnect;
-                    comEncodType.Text = LisCodeType;
-                    chkISDataSend.Checked = IsTrueTimeTran;
-                    if (transinfo != "")
-                    {
-                        string[] arry = transinfo.Split(',');
-                        foreach (string num in arry)
-                        {
-                            if (num != "")
-                                lisCheckNumS.Items.Add(num);
-                        }
-                    }
-                    tabControlMy1.TabPages.Remove(tabLisSet);
-                    break;
-                default:
-                    break;
+                }
+                tabControlMy1.TabPages.Remove(tabLisSetCK);
             }
+            else if (CommunicationType == "SerialConn")
+            {
+                cmbCom.SelectedItem = IPAddress;
+                cmbBaud.SelectedItem = Port;
+                CmdConnType.SelectedItem = ConnectType;
+                chkIsLisConn.Checked = chkISLis.Checked = IsLisConnect;
+                comEncodType.Text = LisCodeType;
+                chkISDataSend.Checked = IsTrueTimeTran;
+                if (transinfo != "")
+                {
+                    string[] arry = transinfo.Split(',');
+                    foreach (string num in arry)
+                    {
+                        if (num != "")
+                            lisCheckNumS.Items.Add(num);
+                    }
+                }
+                tabControlMy1.TabPages.Remove(tabLisSet);
+            }
+            //switch (CommunicationType)
+            //{
+            //    case "网口通讯":
+            //        txtLISIPAddress.Text = IPAddress;
+            //        txtLISPort.Text = Port;
+            //        cmbLisConType.SelectedItem = ConnectType;
+            //        chkIsLisConn.Checked  = chISLis.Checked = IsLisConnect;
+            //        cmbLisCodeType.Text = LisCodeType;
+            //        chISDataSend.Checked = IsTrueTimeTran;
+            //        if (transinfo != "")
+            //        {
+            //            string[] arry = transinfo.Split(',');
+            //            foreach (string num in arry)
+            //            {
+            //                if (num != "")
+            //                    lisCheckNum.Items.Add(num);
+            //            }
+            //        }
+            //        tabControlMy1.TabPages.Remove(tabLisSetCK);
+            //        break;
+            //    case "串口通讯":
+            //        cmbCom.SelectedItem = IPAddress;
+            //        cmbBaud.SelectedItem = Port;
+            //        CmdConnType.SelectedItem = ConnectType;
+            //        chkIsLisConn.Checked = chkISLis.Checked = IsLisConnect;
+            //        comEncodType.Text = LisCodeType;
+            //        chkISDataSend.Checked = IsTrueTimeTran;
+            //        if (transinfo != "")
+            //        {
+            //            string[] arry = transinfo.Split(',');
+            //            foreach (string num in arry)
+            //            {
+            //                if (num != "")
+            //                    lisCheckNumS.Items.Add(num);
+            //            }
+            //        }
+            //        tabControlMy1.TabPages.Remove(tabLisSet);
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
         private void fbtnLisCon_Click(object sender, EventArgs e)
         {
             if (cmbLisConType.SelectedItem == null)
             {
-                frmMsgShow.MessageShow("基础通讯设置", "请选择连接方式");
+                frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("LisSelect"));
                 return;
             }
 
             if (txtLISPort.Text.Trim() == "")//y modify 2018.4.19/*
             {
-                frmMsgShow.MessageShow("通讯设置", "端口号不能为空");
+                frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("NullPort"));
                 return;
             }
             
             if (!Inspect.InspectIP(txtLISIPAddress.Text.Trim()))
             {
-                frmMsgShow.MessageShow("通讯设置", "ip地址字符串不符合规范");
+                frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("IPErrorMesage"));
                 return;
             }//y modify 2018.4.19*/
             
@@ -283,12 +356,15 @@ namespace BioBaseCLIA.InfoSetting
                 LisCommunication.Instance.EncodeType = cmbLisCodeType.Text.ToString();
             if (LisCommunication.Instance.IsConnect())
             {
-                OperateIniFile.WriteIniPara("LisSet", "CommunicationType", "网口通讯");//2018-5-14 zlx add
+                if(CommunicationType == "NetConn")
+                    OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));//2018-5-14 zlx add
+                else if(CommunicationType == "SerialConn")
+                    OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("SerialConn"));//2018-5-14 zlx add
                 OperateIniFile.WriteIniPara("LisSet", "IPAddress", txtLISIPAddress.Text.Trim());
                 OperateIniFile.WriteIniPara("LisSet", "Port", txtLISPort.Text.Trim());
                 OperateIniFile.WriteIniPara("LisSet", "ConnectType", cmbLisConType.SelectedItem.ToString());
                 OperateIniFile.WriteIniPara("LisSet", "LisCodeType", LisCommunication.Instance.EncodeType);
-                labStatus.Text = "已连接";
+                labStatus.Text = Getstring("Connceted");
                 fbtnLisCon.Enabled = false;
                 fbtnLISClose.Enabled = true;
             }
@@ -316,10 +392,10 @@ namespace BioBaseCLIA.InfoSetting
             for (int i = 0; i < lisName.SelectedItems.Count; i++)
             {
                 object obj = lisName.SelectedItems[i];
-                string[] arryNum = obj.ToString().Split('、');
+                string[] arryNum = obj.ToString().Split('、','.');
                 if (lisCheckNum.Items.Contains(arryNum[0]))
                 {
-                    frmMsgShow.MessageShow("Lis设置", "添加数据重复！");
+                    frmMsgShow.MessageShow(Getstring("LisSet"), Getstring("AddReData"));
                     return;
                 }
 
@@ -351,7 +427,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             if (!LisCommunication.Instance.IsConnect())
             {
-                labStatus.Text = "未连接";
+                labStatus.Text = Getstring("NotConnceted");
                 fbtnLisCon.Enabled = true;
                 fbtnLISClose.Enabled = false;
             }
@@ -409,13 +485,13 @@ namespace BioBaseCLIA.InfoSetting
             //2018-5-7 zlx add
             if (cmbCom.SelectedItem == null)
             {
-                frmMsgShow.MessageShow("串口通讯设置", "端口号不能为空！");
+                frmMsgShow.MessageShow(Getstring("SerialConnSet"),Getstring("NullPort"));
                 return;
             }
 
             if (cmbBaud.SelectedItem == null)
             {
-                frmMsgShow.MessageShow("串口通讯设置", "波特率不能为空");
+                frmMsgShow.MessageShow(Getstring("SerialConnSet"),Getstring("NullBaud"));
                 return;
             }
             wait.Reset();
@@ -431,7 +507,10 @@ namespace BioBaseCLIA.InfoSetting
                 cmbLisConType.SelectedIndex = 0;
             if (!LisConnection.Instance.IsOpen())
             {
-                OperateIniFile.WriteIniPara("LisSet", "CommunicationType", "串口通讯");
+                if(CommunicationType==Getstring("SerialConn"))
+                    OperateIniFile.WriteIniPara("LisSet", "CommunicationType",Getstring("SerialConn"));
+                else
+                    OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));
                 OperateIniFile.WriteIniPara("LisSet", "IPAddress", cmbCom.SelectedItem.ToString());
                 OperateIniFile.WriteIniPara("LisSet", "Port", cmbBaud.SelectedItem.ToString());
                 OperateIniFile.WriteIniPara("LisSet", "ConnectType", CmdConnType.SelectedItem.ToString());
@@ -441,7 +520,7 @@ namespace BioBaseCLIA.InfoSetting
             if (LisConnection.Instance.IsOpen())
             {
 
-                labSStatus.Text = "打开";
+                labSStatus.Text = Getstring("Open");
                 fbtnComOpen.Enabled = false;
                 fbtnComClose.Enabled = true;
             }
@@ -457,7 +536,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             if (!LisConnection.Instance.IsOpen())
             {
-                labSStatus.Text = "关闭";
+                labSStatus.Text = Getstring("Close");
                 fbtnComOpen.Enabled = true;
                 fbtnComClose.Enabled = false;
             }
@@ -494,7 +573,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             catch
             {
-                MessageBox.Show("提示信息", "串行端口检查异常！");
+                MessageBox.Show(Getstring("SerialConnSet"), Getstring("SerialConnError"));
                 System.Environment.Exit(0); //彻底退出应用程序   
             }
             return list;
@@ -521,8 +600,14 @@ namespace BioBaseCLIA.InfoSetting
 
         private void cmbLisType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CommunicationType = cmbLisType.SelectedItem.ToString();
-            OperateIniFile.WriteIniPara("LisSet", "CommunicationType", cmbLisType.SelectedItem.ToString() );
+            if (cmbLisType.SelectedItem == null)
+                return;
+            if (cmbLisType.SelectedItem.ToString() == Getstring("NetConn"))
+                CommunicationType = "NetConn";
+            else
+                CommunicationType = "SerialConn";
+            //CommunicationType = cmbLisType.SelectedItem.ToString();
+            OperateIniFile.WriteIniPara("LisSet", "CommunicationType", CommunicationType);
             frmNetSet_Load(sender, e);
             //OnLoad(null);
         }
@@ -531,17 +616,22 @@ namespace BioBaseCLIA.InfoSetting
             Control _control=null;
             if (IsLisConnect)
             {
-                switch (CommunicationType)
-                {
-                    case "网口通讯":
-                        _control = tabLisSet;
-                        break;
-                    case "串口通讯":
-                        _control = tabLisSetCK;
-                        break;
-                    default:
-                        break;
-                }
+                if(CommunicationType == "NetConn")
+                    _control = tabLisSet;
+                else 
+                    _control = tabLisSetCK;
+
+                //switch (CommunicationType)
+                //{
+                //    case "网口通讯":
+                //        _control = tabLisSet;
+                //        break;
+                //    case "串口通讯":
+                //        _control = tabLisSetCK;
+                //        break;
+                //    default:
+                //        break;
+                //}
             }
             return _control;
         }
@@ -554,6 +644,11 @@ namespace BioBaseCLIA.InfoSetting
                 LisCommunication.Instance.EncodeType = comEncodType.Text.ToString();
             OperateIniFile.WriteIniPara("LisSet", "LisCodeType", LisCommunication.Instance.EncodeType);
         }
-       
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.InfoSetting.frmNetSet", typeof(frmNetSet).Assembly);
+            return resManagerA.GetString(key);
+        }
     }
 }

@@ -64,6 +64,7 @@
             // 
             // dgvUserInfo
             // 
+            resources.ApplyResources(this.dgvUserInfo, "dgvUserInfo");
             this.dgvUserInfo.AllowUserToAddRows = false;
             this.dgvUserInfo.AllowUserToDeleteRows = false;
             this.dgvUserInfo.AllowUserToResizeRows = false;
@@ -73,7 +74,6 @@
             this.UserName,
             this.UserRoleType,
             this.Password});
-            resources.ApplyResources(this.dgvUserInfo, "dgvUserInfo");
             this.dgvUserInfo.MultiSelect = false;
             this.dgvUserInfo.Name = "dgvUserInfo";
             this.dgvUserInfo.ReadOnly = true;
@@ -121,13 +121,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvUserInfo);
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.dgvUserInfo);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.btnSave);
             this.groupBox2.Controls.Add(this.cmbType);
             this.groupBox2.Controls.Add(this.txtPassword);
@@ -140,14 +141,13 @@
             this.groupBox2.Controls.Add(this.btnDel);
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Controls.Add(this.btnModifyPassword);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.EnabledSet = true;
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnSave.FlatAppearance.BorderSize = 0;
@@ -159,12 +159,12 @@
             // 
             // cmbType
             // 
+            resources.ApplyResources(this.cmbType, "cmbType");
             this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Items.AddRange(new object[] {
             resources.GetString("cmbType.Items"),
             resources.GetString("cmbType.Items1")});
-            resources.ApplyResources(this.cmbType, "cmbType");
             this.cmbType.Name = "cmbType";
             // 
             // txtPassword
@@ -204,8 +204,8 @@
             // 
             // btnDel
             // 
-            this.btnDel.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnDel, "btnDel");
+            this.btnDel.BackColor = System.Drawing.Color.Transparent;
             this.btnDel.EnabledSet = true;
             this.btnDel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDel.FlatAppearance.BorderSize = 0;
@@ -217,8 +217,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnAdd, "btnAdd");
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
             this.btnAdd.EnabledSet = true;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
@@ -230,8 +230,8 @@
             // 
             // btnModifyPassword
             // 
-            this.btnModifyPassword.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnModifyPassword, "btnModifyPassword");
+            this.btnModifyPassword.BackColor = System.Drawing.Color.Transparent;
             this.btnModifyPassword.EnabledSet = true;
             this.btnModifyPassword.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnModifyPassword.FlatAppearance.BorderSize = 0;
@@ -243,18 +243,18 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.btnUserInfo);
             this.panel1.Controls.Add(this.fbtnConnetSet);
             this.panel1.Controls.Add(this.btnInstrumentPara);
             this.panel1.Controls.Add(this.btnProInfo);
             this.panel1.Controls.Add(this.fbtnReturn);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // btnUserInfo
             // 
-            this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
+            this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
             this.btnUserInfo.EnabledSet = true;
             this.btnUserInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnUserInfo.FlatAppearance.BorderSize = 0;
@@ -265,8 +265,8 @@
             // 
             // fbtnConnetSet
             // 
-            this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
+            this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
             this.fbtnConnetSet.EnabledSet = true;
             this.fbtnConnetSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnConnetSet.FlatAppearance.BorderSize = 0;
@@ -278,8 +278,8 @@
             // 
             // btnInstrumentPara
             // 
-            this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
+            this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
             this.btnInstrumentPara.EnabledSet = true;
             this.btnInstrumentPara.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnInstrumentPara.FlatAppearance.BorderSize = 0;
@@ -291,8 +291,8 @@
             // 
             // btnProInfo
             // 
-            this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnProInfo, "btnProInfo");
+            this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
             this.btnProInfo.EnabledSet = true;
             this.btnProInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnProInfo.FlatAppearance.BorderSize = 0;
@@ -304,8 +304,8 @@
             // 
             // fbtnReturn
             // 
-            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
+            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Maticsoft.DBUtility;
 using Common;
 using System.Xml.Linq;
+using System.Resources;
 
 namespace BioBaseCLIA.InfoSetting
 {
@@ -186,7 +187,7 @@ namespace BioBaseCLIA.InfoSetting
                 dgvItemList.Rows[selectId].Selected = true;
                 dgvItemList.SelectionChanged += dgvItemList_SelectionChanged;
                 frmMessageShow frmMsgShow = new frmMessageShow();
-                frmMsgShow.MessageShow("项目管理", "项目信息保存成功！");
+                frmMsgShow.MessageShow(Getstring("ProjectHead"), Getstring("ProjectSaveSucess"));
             }
         }
 
@@ -198,7 +199,7 @@ namespace BioBaseCLIA.InfoSetting
             {
                 frmMessageShow frmMsgShow = new frmMessageShow();
                 dialog.InitialDirectory = System.Windows.Forms.Application.StartupPath;
-                dialog.Filter = "xml文件|*.xml";
+                dialog.Filter = "xml"+Getstring("File") +"|*.xml";
                 dialog.Multiselect = true;//等于true表示可以选择多个文件
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -216,14 +217,14 @@ namespace BioBaseCLIA.InfoSetting
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("导入项目出错，请重新导入！");
+                            MessageBox.Show(Getstring("ProjectSaveError"));
                             return;
                         }
                         string shortName = mProject.ShortName;
                         if (bllProject.Exists_(shortName))
                         {
                             frmMessageShow frmMsg = new frmMessageShow();
-                            DialogResult dr = frmMsg.MessageShow("温馨提示", "项目已经存在，导入将删除原有项目，是否继续？");
+                            DialogResult dr = frmMsg.MessageShow(Getstring("ProjectHead"), Getstring("ProjectReAdd"));
                             if (dr != DialogResult.OK)
                             {
                                 return;
@@ -243,12 +244,12 @@ namespace BioBaseCLIA.InfoSetting
                             dgvItemList.DataSource = dtGetShortName;
                             dgvItemList.Columns[0].Width = 40;
                             //dgvItemList.SelectionChanged += dgvItemList_SelectionChanged;
-                            frmMsgShow.MessageShow("项目管理", "导入" + shortName + "成功！");
+                            frmMsgShow.MessageShow(Getstring("ProjectHead"),Getstring("ProjectImportSucess"));
                             ShowReportSort();
                         }
                         else
                         {
-                            frmMsgShow.MessageShow("项目管理", "导入格式不正确！");
+                            frmMsgShow.MessageShow(Getstring("ProjectHead"), Getstring("ProjectIPFormat"));
                         }
                     }
                     //        if (bllProject.Add(mProject))
@@ -492,37 +493,37 @@ namespace BioBaseCLIA.InfoSetting
             //S-30-ml;R1-30-ml;R2-30-ml;H-15-min;B-30-ml;H-5-min;W-300-ml;T-20-ml;D-10-s
             if (flagName == "S")
             {
-                return "加样";
+                return Getstring("S");
             }
             if (flagName == "R1")
             {
-                return "试剂1";
+                return Getstring("R1");
             }
             if (flagName == "R2")
             {
-                return "试剂2";
+                return Getstring("R2");
             }
             if (flagName == "H")
             {
-                return "孵育";
+                return Getstring("H");
             }
             if (flagName == "B")
             {
-                return "加磁珠";
+                return Getstring("B");
             }
             if (flagName.Contains("W"))
             {
-                return "清洗";
+                return Getstring("W");
             }
             if (flagName == "T")
             {
-                return "加底物";
+                return Getstring("T");
             }
             if (flagName == "D")
             {
-                return "读数";
+                return Getstring("D");
             }
-            return "自定义";
+            return Getstring("Custom");
 
         }
         /// <summary>
@@ -618,35 +619,35 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         private string SetStepName(string SName)
         {
-            if (SName == "加样")
+            if (SName == Getstring("S"))
             {
                 return "S";
             }
-            if (SName == "试剂1")
+            if (SName == Getstring("R1"))
             {
                 return "R1";
             }
-            if (SName == "试剂2")
+            if (SName == Getstring("R2"))
             {
                 return "R2";
             }
-            if (SName == "孵育")
+            if (SName == Getstring("H"))
             {
                 return "H";
             }
-            if (SName == "加磁珠")
+            if (SName == Getstring("B"))
             {
                 return "B";
             }
-            if (SName == "清洗")
+            if (SName == Getstring("W"))
             {
                 return "W";
             }
-            if (SName == "加底物")
+            if (SName == Getstring("T"))
             {
                 return "T";
             }
-            if (SName == "读数")
+            if (SName == Getstring("D"))
             {
                 return "D";
             }
@@ -688,7 +689,7 @@ namespace BioBaseCLIA.InfoSetting
             DbHelperOleDb db = new DbHelperOleDb(0);
             DataTable dtProject = bllPj.GetList("ActiveStatus=1").Tables[0];
             db = new DbHelperOleDb(3);
-            DataTable dtRgItem = bllRg.GetList("Status='正常'").Tables[0];
+            DataTable dtRgItem = bllRg.GetList("Status='"+Getstring("Normal") +"'").Tables[0];
             dtRgItem = Distinct(dtRgItem, "ReagentName");
             dtItemInfo1 = dtProject.Clone();
             for (int i = 0; i < dtRgItem.Rows.Count; i++)
@@ -751,16 +752,16 @@ namespace BioBaseCLIA.InfoSetting
         }
         private void btnAddDep_Click(object sender, EventArgs e)
         {
-            if (btnAddDep.Text == "添加")
+            if (btnAddDep.Text == Getstring("Add"))
             {
-                btnAddDep.Text = "取消";
+                btnAddDep.Text = Getstring("Cancel");
                 txtDepName.Text = "";
                 btnModifyDep.Enabled = btnDelDep.Enabled = false;
                 txtDepName.Enabled = btnSaveDep.Enabled = true;
             }
             else
             {
-                btnAddDep.Text = "添加";
+                btnAddDep.Text = Getstring("Add");
                 if (lbDep.Items.Count != 0)//y add 20180510
                     btnModifyDep.Enabled = btnDelDep.Enabled = true;
                 txtDepName.Enabled = btnSaveDep.Enabled = false;
@@ -771,15 +772,15 @@ namespace BioBaseCLIA.InfoSetting
         private void btnModifyDep_Click(object sender, EventArgs e)
         {
             if (lbDep.SelectedItem == null) txtDepName.Text = "";
-            if (btnModifyDep.Text == "修改")
+            if (btnModifyDep.Text == Getstring("Modify"))
             {
-                btnModifyDep.Text = "取消";
+                btnModifyDep.Text = Getstring("Cancel");
                 btnAddDep.Enabled = btnDelDep.Enabled = false;
                 txtDepName.Enabled = btnSaveDep.Enabled = true;
             }
             else
             {
-                btnModifyDep.Text = "修改";
+                btnModifyDep.Text = Getstring("Modify");
                 btnAddDep.Enabled = btnDelDep.Enabled = true;
                 txtDepName.Enabled = btnSaveDep.Enabled = false;
                 if (lbDep.SelectedItems.Count > 0)//y add 20180510
@@ -794,19 +795,19 @@ namespace BioBaseCLIA.InfoSetting
             frmMessageShow frmMsgShow = new frmMessageShow();
             if (!Inspect.NameOnlycharacter2(txtDepName.Text.Trim()))//y modify 20180419
             {
-                frmMsgShow.MessageShow("基础信息设置", "科室名称只能由二到十个汉字、字母、数字、星号、\".\"、下划线组成！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartNameSet"));
                 txtDepName.Focus();
                 return;
             }
 
             DbHelperOleDb db = new DbHelperOleDb(2);
-            if (btnAddDep.Text == "取消")
+            if (btnAddDep.Text == Getstring("Cancel"))
             {
                 foreach (var a in lbDep.Items)//查重
                 {
                     if (a.ToString() == txtDepName.Text)
                     {
-                        frmMsgShow.MessageShow("基础信息设置", "科室信息不能重名");
+                        frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartReName"));
                         return;
                     }
                 }
@@ -816,10 +817,10 @@ namespace BioBaseCLIA.InfoSetting
                 {
                     SetDepInfo();
                     txtDepName.Text = "";
-                    btnAddDep.Text = "添加";
+                    btnAddDep.Text = Getstring("Add");
                     btnAddDep.Enabled = btnModifyDep.Enabled = btnDelDep.Enabled = true;
                     txtDepName.Enabled = btnSaveDep.Enabled = false;
-                    frmMsgShow.MessageShow("基础信息设置", "科室信息添加成功！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartAddSucess"));
                 }
                 if (lbDep.Items.Count != 0)//y add 20180420
                 {
@@ -831,7 +832,7 @@ namespace BioBaseCLIA.InfoSetting
             {
                 if (lbDep.SelectedItem == null)
                 {
-                    frmMsgShow.MessageShow("基础信息设置", "请选中修改项");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartSelectInfo"));
                     return;
                 }
                 for (int i = 0; i < lbDep.Items.Count;i++ )//y ths.block add 20180420
@@ -839,7 +840,7 @@ namespace BioBaseCLIA.InfoSetting
                     if (lbDep.Items.IndexOf(lbDep.SelectedItem) == i) continue;
                     if (lbDep.Items[i].ToString() == txtDepName.Text)
                     {
-                        frmMsgShow.MessageShow("基础信息设置", "科室信息不能重名");
+                        frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartReName"));
                         return;
                     }
                 }
@@ -849,10 +850,10 @@ namespace BioBaseCLIA.InfoSetting
                 if (bllDep.Update(modelDep))
                 {
                     SetDepInfo();
-                    btnModifyDep.Text = "修改";
+                    btnModifyDep.Text = Getstring("Modify");
                     btnAddDep.Enabled = btnModifyDep.Enabled = btnDelDep.Enabled = true;
                     txtDepName.Enabled = btnSaveDep.Enabled = false;
-                    frmMsgShow.MessageShow("基础信息设置", "科室信息修改成功！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartAlterSucess"));
                 }
             }
         }
@@ -862,20 +863,20 @@ namespace BioBaseCLIA.InfoSetting
             frmMessageShow frmMsgShow = new frmMessageShow();
             if (lbDep.SelectedItem == null)
             {
-                frmMsgShow.MessageShow("基础信息设置", "请选中要删除的项");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartSDeleteInfo"));
                 return;
             }
             var dr = dtDoctorInfo.Select("DepartmentName='" + dtDepInfo.Rows[lbDep.SelectedIndex]["DepartmentName"].ToString() + "'");
             if (dr.Length > 0)
             {
-                frmMsgShow.MessageShow("基础信息设置", "该科室下存有医生信息，需删除该科室下所有医生信息后才可删除该科室信息！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartDeleteInfo"));
                 return;
             }
             DbHelperOleDb db = new DbHelperOleDb(2);
             if (bllDep.Delete(int.Parse(dtDepInfo.Rows[lbDep.SelectedIndex]["DepartmentID"].ToString())))
             {
                 SetDepInfo();
-                frmMsgShow.MessageShow("基础信息设置", "科室信息删除成功！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"),Getstring("DepartDeleteSucess"));
             }
             txtDepName.Text = "";
             if (lbDep.Items.Count == 0)//y add 20180420
@@ -887,16 +888,16 @@ namespace BioBaseCLIA.InfoSetting
 
         private void btnAddDoc_Click(object sender, EventArgs e)
         {
-            if (btnAddDoc.Text == "添加")
+            if (btnAddDoc.Text == Getstring("Add"))
             {
-                btnAddDoc.Text = "取消";
+                btnAddDoc.Text = Getstring("Cancel");
                 btnModifyDoc.Enabled = btnDelDoc.Enabled = false;
                 txtDocName.Enabled = cmbDep.Enabled = btnSaveDoc.Enabled = true;
                 txtDocName.Text = "";
             }
             else
             {
-                btnAddDoc.Text = "添加";
+                btnAddDoc.Text = Getstring("Add");
                 if (dgvDoctor.Rows.Count != 0)//y add 20180510
                     btnModifyDoc.Enabled = btnDelDoc.Enabled = true;
                 txtDocName.Enabled = cmbDep.Enabled = btnSaveDoc.Enabled = false;
@@ -916,9 +917,9 @@ namespace BioBaseCLIA.InfoSetting
 
         private void btnModifyDoc_Click(object sender, EventArgs e)
         {
-            if (btnModifyDoc.Text == "修改")
+            if (btnModifyDoc.Text ==Getstring("Modify"))
             {
-                btnModifyDoc.Text = "取消";
+                btnModifyDoc.Text = Getstring("Cancel");
                 btnAddDoc.Enabled = btnDelDoc.Enabled = false;
                 txtDocName.Enabled = cmbDep.Enabled = btnSaveDoc.Enabled = true;
                 if (dgvDoctor.SelectedRows.Count != 0)//add y 20180511
@@ -931,7 +932,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             else
             {
-                btnModifyDoc.Text = "修改";
+                btnModifyDoc.Text = Getstring("Modify");
                 btnAddDoc.Enabled = btnDelDoc.Enabled = true;
                 txtDocName.Enabled = cmbDep.Enabled = btnSaveDoc.Enabled = false;
                 if (dgvDoctor.SelectedRows.Count == 0)
@@ -951,28 +952,28 @@ namespace BioBaseCLIA.InfoSetting
             frmMessageShow frmMsgShow = new frmMessageShow();
             if (!Inspect.NameOnlycharacter2(txtDocName.Text.Trim()))
             {
-                frmMsgShow.MessageShow("基础信息设置", "医生姓名只能由二到十个汉字、字母、数字、星号、\".\"或下划线组成！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DoctorNameSet"));
                 txtDepName.Focus();
                 return;
             }
             if (dtDepInfo.Rows.Count == 0)//this move y 20180511
             {
-                frmMsgShow.MessageShow("基础信息设置", "请先添加科室信息！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartAddInfo"));
                 return;
             }
             if (cmbDep.SelectedItem == null)
             {
-                frmMsgShow.MessageShow("基础信息设置", "请选择科室信息！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartAddInfo"));
                 return;
             }//this end
             DbHelperOleDb db = new DbHelperOleDb(2);
-            if (btnAddDoc.Text == "取消")
+            if (btnAddDoc.Text == Getstring("Cancel"))
             {
                 foreach (DataGridViewRow a in dgvDoctor.Rows)//重名判断。y add 20180419
                 {
                     if (txtDocName.Text.Trim() == a.Cells["Doctor"].Value.ToString() && cmbDep.Text.Trim() == a.Cells["Department"].Value.ToString())
                     {
-                        frmMsgShow.MessageShow("基础信息设置", "相同的科室下已有同名的医生");
+                        frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DoctorReName"));
                         return;
                     }
                 }
@@ -983,7 +984,7 @@ namespace BioBaseCLIA.InfoSetting
                 if (bllDoctor.Add(modelDoc))
                 {
                     SetDoctorInfo();
-                    btnAddDoc.Text = "添加";
+                    btnAddDoc.Text = Getstring("Add");
                     btnModifyDoc.Enabled = btnDelDoc.Enabled = true;
                     txtDocName.Enabled = cmbDep.Enabled = btnSaveDoc.Enabled = false;
                     if (dgvDoctor.Rows.Count != 0)
@@ -991,14 +992,14 @@ namespace BioBaseCLIA.InfoSetting
                         btnModifyDoc.Enabled = true;
                         btnDelDoc.Enabled = true;
                     }
-                    frmMsgShow.MessageShow("基础信息设置", "医生信息添加成功！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DoctorAddSucess"));
                 }
             }
-            else if (btnModifyDoc.Text == "取消")
+            else if (btnModifyDoc.Text == Getstring("Cancel"))
             {
                 if (dgvDoctor.SelectedRows.Count == 0)
                 {
-                    frmMsgShow.MessageShow("基础信息设置", "请选择需要修改的医生信息");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DoctorSelectInfo"));
                     return;
                 }
                 for (int i = 0; i < dgvDoctor.Rows.Count; i++)//重名判断。y add 20180419
@@ -1009,7 +1010,7 @@ namespace BioBaseCLIA.InfoSetting
                     }
                     if (txtDocName.Text.Trim() == dgvDoctor.Rows[i].Cells["Doctor"].Value.ToString() && cmbDep.Text.Trim() == dgvDoctor.Rows[i].Cells["Department"].Value.ToString())
                     {
-                        frmMsgShow.MessageShow("基础信息设置", "相同的科室下已有其他同名的医生");
+                        frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DoctorReName"));
                         return;
                     }
                 }
@@ -1021,10 +1022,10 @@ namespace BioBaseCLIA.InfoSetting
                 if (bllDoctor.Update(modelDoc))
                 {
                     SetDoctorInfo();
-                    btnModifyDoc.Text = "修改";
+                    btnModifyDoc.Text = Getstring("Modify");
                     btnAddDoc.Enabled = btnDelDoc.Enabled = true;
                     txtDocName.Enabled = cmbDep.Enabled = btnSaveDoc.Enabled = false;
-                    frmMsgShow.MessageShow("基础信息设置", "医生信息修改成功！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DoctorModifySucess"));
                 }
             }
         }
@@ -1034,7 +1035,7 @@ namespace BioBaseCLIA.InfoSetting
             frmMessageShow frmMsgShow = new frmMessageShow();
             if (dgvDoctor.SelectedRows.Count == 0)
             {
-                frmMsgShow.MessageShow("基础信息设置", "请选择需要删除的信息");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DepartSDeleteInfo"));
                 return;
             }
             if (dgvDoctor.SelectedRows == null) return;
@@ -1058,7 +1059,7 @@ namespace BioBaseCLIA.InfoSetting
                     dgvDoctor.Rows[temp].Selected = true;//add y 20180511
                     //txtDocName.Text = dgvDoctor.SelectedRows[0].Cells["Doctor"].Value.ToString();
                 }
-                frmMsgShow.MessageShow("基础信息设置", "医生信息删除成功！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("DoctorDeleteSucess"));
             }
         }
         private void lbDep_SelectedIndexChanged(object sender, EventArgs e)
@@ -1078,19 +1079,19 @@ namespace BioBaseCLIA.InfoSetting
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (btnAdd.Text == "添加")
+            if (btnAdd.Text ==Getstring("Add"))
             {
                 txtGroupItemName.Enabled = flpItemName.Enabled = btnSave.Enabled = true;
                 btnModify.Enabled = btnDelete.Enabled = false;
                 txtGroupItemName.Text = "";
-                btnAdd.Text = "取消";
+                btnAdd.Text = Getstring("Cancel");
             }
             else
             {
                 txtGroupItemName.Enabled = flpItemName.Enabled = btnSave.Enabled = false;
                 if (lbGroupItem.Items.Count != 0)//y add 20180510
                     btnModify.Enabled = btnDelete.Enabled = true;
-                btnAdd.Text = "添加";
+                btnAdd.Text = Getstring("Add");
                 try   //y this block add 20180420
                 {
                     if (lbGroupItem.Items.Count == 0)
@@ -1118,17 +1119,17 @@ namespace BioBaseCLIA.InfoSetting
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if (btnModify.Text == "修改")
+            if (btnModify.Text ==Getstring("Modify"))
             {
                 txtGroupItemName.Enabled = flpItemName.Enabled = btnSave.Enabled = true;
                 btnAdd.Enabled = btnDelete.Enabled = false;
-                btnModify.Text = "取消";
+                btnModify.Text = Getstring("Cancel");
             }
             else
             {
                 txtGroupItemName.Enabled = flpItemName.Enabled = btnSave.Enabled = false;
                 btnAdd.Enabled = btnDelete.Enabled = true;
-                btnModify.Text = "修改";
+                btnModify.Text = Getstring("Modify");
                 try   //y this block add 20180420
                 {
                     if (lbGroupItem.Items.Count == 0)
@@ -1159,7 +1160,7 @@ namespace BioBaseCLIA.InfoSetting
             frmMessageShow frmMsgShow = new frmMessageShow();
             if (lbGroupItem.SelectedItem == null)
             {
-                frmMsgShow.MessageShow("基础信息设置", "请选择要删除的组合项目");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"),Getstring("GroupSelectInfo"));
                 return;
             }
             var dr = dtGroupItem.Select("ProjectGroupNumber='" + lbGroupItem.SelectedItem.ToString() + "'");
@@ -1168,7 +1169,7 @@ namespace BioBaseCLIA.InfoSetting
                 DbHelperOleDb db = new DbHelperOleDb(0);
                 if (bllPG.Delete(int.Parse(dr[0]["ProjectGroupID"].ToString())))
                 {
-                    frmMsgShow.MessageShow("基础信息设置", "组合项目删除成功！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"),Getstring("GroupDeleteSucess"));
                     SetGroupItem();
                     if (lbGroupItem.Items.Count == 0)   //y this block add 20180420
                     {
@@ -1196,7 +1197,7 @@ namespace BioBaseCLIA.InfoSetting
             string gpItem = "";
             if (!Inspect.NameOnlycharacter2(txtGroupItemName.Text.Trim()))
             {
-                frmMsgShow.MessageShow("基础信息设置", "组合项目名称只能由二到十个汉字、字母、星号、数字、\".\"、下划线组成");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("GroupNameInfo"));
                 txtGroupItemName.Focus();
                 return;
             }
@@ -1214,10 +1215,10 @@ namespace BioBaseCLIA.InfoSetting
             }
             if (num == 0)
             {
-                frmMsgShow.MessageShow("基础信息设置", "未选择实验项目，请选择");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("GroupSItemInfo"));
                 return;
             }
-            if (btnAdd.Text == "取消")
+            if (btnAdd.Text == Getstring("Cancel"))
             {
                 DbHelperOleDb db = new DbHelperOleDb(0);
                 modelPG.ProjectGroupNumber = txtGroupItemName.Text.Trim();
@@ -1227,17 +1228,17 @@ namespace BioBaseCLIA.InfoSetting
                 {
                     if (modelPG.ProjectGroupNumber == a.ToString())
                     {
-                        frmMsgShow.MessageShow("基础信息设置", "组合项目不能重名！");
+                        frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("GroupReName"));
                         return;
                     }
                 }
                 if (bllPG.Add(modelPG))
                 {
                     SetGroupItem();
-                    btnAdd.Text = "添加";
+                    btnAdd.Text = Getstring("Add");
                     txtGroupItemName.Enabled = flpItemName.Enabled = btnSave.Enabled = false;
                     btnAdd.Enabled = btnModify.Enabled = btnDelete.Enabled = true;
-                    frmMsgShow.MessageShow("基础信息设置", "组合项目添加成功！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("GroupAddSucess"));
                 }
                 if (lbGroupItem.Items.Count != 0)//y add 20180420
                 {
@@ -1245,13 +1246,13 @@ namespace BioBaseCLIA.InfoSetting
                     btnDelete.Enabled = true;
                 }
             }
-            else if (btnModify.Text == "取消")
+            else if (btnModify.Text == Getstring("Cancel"))
             {
                 DbHelperOleDb db = new DbHelperOleDb(0);
                 int gpNo = lbGroupItem.SelectedIndex;
                 if (gpNo == -1)// add y 20180510
                 {
-                    frmMsgShow.MessageShow("基础信息设置", "修改组合项目前请先选中修改项。");// add y 20180510
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("GroupSModify"));// add y 20180510
                     return;// add y 20180510
                 }
                 modelPG.ProjectGroupID = int.Parse(dtGroupItem.Rows[gpNo]["ProjectGroupID"].ToString());
@@ -1264,17 +1265,17 @@ namespace BioBaseCLIA.InfoSetting
                     if (lbGroupItem.Items.IndexOf(lbGroupItem.SelectedItem) == i) continue;
                     if (modelPG.ProjectGroupNumber.ToString() == lbGroupItem.Items[i].ToString())
                     {
-                        frmMsgShow.MessageShow("基础信息设置", "组合项目不能重名！");
+                        frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("GroupReName"));
                         return;
                     }
                 }
                 if (bllPG.Update(modelPG))
                 {
                     SetGroupItem();
-                    btnModify.Text = "修改";
+                    btnModify.Text = Getstring("Modify");
                     txtGroupItemName.Enabled = flpItemName.Enabled = btnSave.Enabled = false;
                     btnAdd.Enabled = btnModify.Enabled = btnDelete.Enabled = true;
-                    frmMsgShow.MessageShow("基础信息设置", "组合项目修改成功！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("GroupModifySucess"));
                 }
             }
         }
@@ -1364,7 +1365,7 @@ namespace BioBaseCLIA.InfoSetting
         /// </summary>
         private void ShowReportSet()
         {
-            txtHospitalName.Text = OperateIniFile.ReadInIPara("PrintSet", "HospitalName");
+            txtHospitalName.Text =Getstring("HospitalName");
             InitprinterComboBox();
             cmbPrinter.SelectedItem = OperateIniFile.ReadInIPara("PrintSet", "defaultPrinter");
             cmbFormat.SelectedItem = OperateIniFile.ReadInIPara("PrintSet", "PageSize");
@@ -1403,14 +1404,14 @@ namespace BioBaseCLIA.InfoSetting
             //2018-11-02 zlx add
             if (cmbPrinter.SelectedItem==null)
             {
-                frmMsgShow.MessageShow("基础信息设置", "请选择默认的打印机！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("PrinterSelect"));
                 txtDepName.Focus();
                 return;
             }
 
             if (!Inspect.NameOnlycharacter3(txtHospitalName.Text.Trim()))
             {
-                frmMsgShow.MessageShow("基础信息设置", "报告名称只能由汉字、字母、数字、星号、\".\"或下划线组成，且不能为空！");
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("ReportNameSet"));
                 txtDepName.Focus();
                 return;
             }
@@ -1422,7 +1423,7 @@ namespace BioBaseCLIA.InfoSetting
             {
                 if (!Externs.SetDefaultPrinter(cmbPrinter.SelectedItem.ToString())) //设置默认打印机
                 {
-                    frmMsgShow.MessageShow("基础信息", cmbPrinter.SelectedItem.ToString() + "设置为默认打印机失败！");
+                    frmMsgShow.MessageShow(Getstring("BasicSetHead"), cmbPrinter.SelectedItem.ToString() + Getstring("PrinterSetFail"));
                 }
             }
             if (cmbFormat.SelectedItem != null)
@@ -1432,7 +1433,7 @@ namespace BioBaseCLIA.InfoSetting
             OperateIniFile.WriteIniPara("PrintSet", "AutoPrint", rdbOpen.Checked.ToString());
             OperateIniFile.WriteIniPara("PrintSet", "Margin", nudUP.Value.ToString() + "|" + nudDown.Value.ToString() + "|"
                 + nudLeft.Value.ToString() + "|" + nudRight.Value.ToString());
-            frmMsgShow.MessageShow("打印设置", "打印参数设置成功！");
+            frmMsgShow.MessageShow(Getstring("PrintHead"), Getstring("PrintParaSetSucess"));
         }
 
 
@@ -1468,6 +1469,8 @@ namespace BioBaseCLIA.InfoSetting
         private void btnMoveUP_Click(object sender, EventArgs e)
         {
             //2018-11-02 zlx add
+            if (dgvPrint.Rows.Count == 0)
+                return;
             int tmp = int.Parse(dgvPrint.CurrentRow.Cells[0].Value.ToString());
             if (tmp == 1)
                 return;
@@ -1486,6 +1489,8 @@ namespace BioBaseCLIA.InfoSetting
         private void btnMoveDown_Click(object sender, EventArgs e)
         {
             //2018-11-02 zlx add
+            if (dgvPrint.Rows.Count == 0)
+                return;
             int tmp = int.Parse(dgvPrint.CurrentRow.Cells[0].Value.ToString());
             if (tmp == dgvPrint.RowCount)
                 return;
@@ -1510,13 +1515,26 @@ namespace BioBaseCLIA.InfoSetting
         {
             if (dgvItemList.SelectedRows.Count == 0) 
             {
-                MessageBox.Show("请选中项目后进行删除！");
+                frmMessageShow frmMsgShow = new frmMessageShow();
+                frmMsgShow.MessageShow(Getstring("ProjectHead"), Getstring("DepartSDeleteInfo"));
+                //MessageBox.Show(Getstring("DepartSDeleteInfo"));
                 return;
             }
             DbHelperOleDb db = new DbHelperOleDb(0);
-            if (bllProject.Delete_(dgvItemList.SelectedRows[0].Cells[1].Value.ToString())) MessageBox.Show("项目删除成功！");
+            if (bllProject.Delete_(dgvItemList.SelectedRows[0].Cells[1].Value.ToString()))
+            {
+                frmMessageShow frmMsgShow = new frmMessageShow();
+                frmMsgShow.MessageShow(Getstring("ProjectHead"), Getstring("ProjectDeleteSucess"));
+            } 
+            //MessageBox.Show(Getstring("ProjectDeleteSucess"));
             dgvItemList.DataSource = GetItemShortName(bllProject.GetAllList().Tables[0]);
             dgvItemList.Columns[0].Width = 40;
+        }
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.InfoSetting.frmInfo", typeof(frmInfo).Assembly);
+            return resManagerA.GetString(key);
         }
     }
 }

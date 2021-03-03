@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 using Maticsoft.DBUtility;
@@ -40,12 +41,12 @@ namespace BioBaseCLIA.InfoSetting
                 if (Convert.ToInt32(dtUser.Rows[i]["RoleType"]) > 1)
                 {
                     if (Convert.ToInt32(LoginUserType) == 9)
-                        dtData.Rows.Add((i + 1).ToString(), dtUser.Rows[i]["UserName"].ToString(), "程序开发", dtUser.Rows[i]["UserPassword"].ToString());
+                        dtData.Rows.Add((i + 1).ToString(), dtUser.Rows[i]["UserName"].ToString(), Getstring("AppDevelop"), dtUser.Rows[i]["UserPassword"].ToString());
                 }
                 else
                 {
                     //dtData.Rows.Add((i + 1).ToString(), dtUser.Rows[i]["UserName"].ToString(), dtUser.Rows[i]["RoleType"].ToString() == "1" ? "管理员" : "普通用户", dtUser.Rows[i]["UserPassword"].ToString());
-                    dtData.Rows.Add((dtData.Rows.Count + 1).ToString(), dtUser.Rows[i]["UserName"].ToString(), dtUser.Rows[i]["RoleType"].ToString() == "1" ? "管理员" : "普通用户", dtUser.Rows[i]["UserPassword"].ToString());
+                    dtData.Rows.Add((dtData.Rows.Count + 1).ToString(), dtUser.Rows[i]["UserName"].ToString(), dtUser.Rows[i]["RoleType"].ToString() == "1" ? Getstring("Administrator") : Getstring("Personal"), dtUser.Rows[i]["UserPassword"].ToString());
                 }
             }
         }
@@ -81,17 +82,17 @@ namespace BioBaseCLIA.InfoSetting
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (btnAdd.Text.Trim() == "添加用户")
+            if (btnAdd.Text.Trim() == Getstring("AddUser"))
             {
                 txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = true;
                 txtName.Text = txtPassword.Text = txtConfirmPassword.Text = "";
                 btnDel.Enabled = btnModifyPassword.Enabled = false;
                 cmbType.SelectedIndex = 0;
-                btnAdd.Text = "取消";
+                btnAdd.Text = Getstring("cancel");
             }
             else
             {
-                btnAdd.Text = "添加用户";
+                btnAdd.Text = Getstring("AddUser");
                 dgvUserInfo_SelectionChanged(sender, e);
                 txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
                 if(dgvUserInfo.Rows.Count>0)
@@ -115,15 +116,15 @@ namespace BioBaseCLIA.InfoSetting
         {
             if (dgvUserInfo.SelectedRows.Count == 0)
                 return;
-            if (btnModifyPassword.Text.Trim() == "修改密码")
+            if (btnModifyPassword.Text.Trim() == Getstring("ChangePass"))
             {
                 txtPassword.Enabled = txtConfirmPassword.Enabled = btnSave.Enabled = true;
-                btnModifyPassword.Text = "取消";
+                btnModifyPassword.Text = Getstring("cancel");
                 btnDel.Enabled = btnAdd.Enabled = false;
             }
             else
             {
-                btnModifyPassword.Text = "修改密码";
+                btnModifyPassword.Text = Getstring("ChangePass");
                 //2018-08-04 zlx mod
                 if (Convert.ToInt32(LoginUserType) == 0)
                     btnModifyPassword.Enabled = true;
@@ -170,33 +171,33 @@ namespace BioBaseCLIA.InfoSetting
         {
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
-                frmMsgShow.MessageShow("用户信息设置", "确认密码与用户密码不一致，请重新输入！");
+                frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("DifPassWord"));
                 txtConfirmPassword.Text = "";
                 txtConfirmPassword.Focus();
                 return;
             }
             if (txtName.Text.Trim() == "")
             {
-                frmMsgShow.MessageShow("用户信息设置", "未输入用户名，请输入！");
+                frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("NoUserName"));
                 txtName.Focus();
                 return;
             }
 
             if (!Inspect.NameOnlycharacter3(txtName.Text.Trim()))//y add 20180419
             {
-                frmMsgShow.MessageShow("用户信息设置", "用户名至少由一位汉字、字母、星号、数字、\".\"、下划线组成。");//y modify 20180427
+                frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("UserNameSet"));//y modify 20180427
                 txtName.Focus();
                 return;
             }
             if (txtPassword.Text.Trim() =="")//20181129 zlx mod
             {
-                frmMsgShow.MessageShow("用户设置", "用户密码不能为空。");
+                frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("NullPassWord"));
                 txtPassword.Focus();
                 return;
             }//this end
             if (!Inspect.PasswordOnlycharacter(txtPassword.Text.Trim()))//this y add 20180528
             {
-                frmMsgShow.MessageShow("用户信息设置", "密码不能存在汉字、字母、星号、数字、\".\"、下划线以外的符号。");//y modify 20180427
+                frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("PassWordSet"));//y modify 20180427
                 txtPassword.Focus();
                 return;
             }//this end
@@ -211,20 +212,20 @@ namespace BioBaseCLIA.InfoSetting
 
                 if (bllUser.Add(modelUser))
                 {
-                    dtData.Rows.Add(dtData.Rows.Count+1,modelUser.UserName, modelUser.RoleType==0?"普通用户":"管理员", modelUser.UserPassword);
+                    dtData.Rows.Add(dtData.Rows.Count+1,modelUser.UserName, modelUser.RoleType==0? Getstring("Personal"):Getstring("Administrator"), modelUser.UserPassword);
                     txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
-                    btnAdd.Text = "添加用户";
+                    btnAdd.Text = Getstring("AddUser");
                     if (dgvUserInfo.Rows.Count != 0)//add y 20180510
                         btnDel.Enabled = btnModifyPassword.Enabled = true;
-                    frmMsgShow.MessageShow("用户信息设置", "添加成功！");
+                    frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("AddSucess"));
                     dtUser = bllUser.GetAllList().Tables[0];              
                 }
             }
             else
             {
-                if (btnAdd.Text == "取消" && btnModifyPassword.Text == "修改密码")//add y 20180510
+                if (btnAdd.Text == Getstring("cancel") && btnModifyPassword.Text ==Getstring("ChangePass"))//add y 20180510
                 {
-                    frmMsgShow.MessageShow("用户信息设置", "已有同名帐号，自动更新其密码。");//add y 20180510
+                    frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("SameUser"));//add y 20180510
                 }
                 modelUser.UserID =int.Parse(dr[0]["UserID"].ToString());
                 modelUser.UserName = dr[0]["UserName"].ToString();
@@ -234,9 +235,9 @@ namespace BioBaseCLIA.InfoSetting
 
                 if (bllUser.Update(modelUser))
                 {
-                    btnModifyPassword.Text = "修改密码";
+                    btnModifyPassword.Text = Getstring("ChangePass");
                     txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
-                    btnAdd.Text = "添加用户";
+                    btnAdd.Text = Getstring("AddUser");
                     //2018-08-04 zlx mod
                     if (Convert.ToInt32(LoginUserType) == 0)
                         btnModifyPassword.Enabled = true;
@@ -246,7 +247,7 @@ namespace BioBaseCLIA.InfoSetting
                     dtUser = bllUser.GetAllList().Tables[0];
                     DataTableChange(Convert.ToInt32(LoginUserType));//2018-08-04 zlx mod
 
-                    frmMsgShow.MessageShow("用户信息设置", "密码修改成功！");
+                    frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("ChangePassSucess"));
                 }
             }
         }
@@ -260,7 +261,7 @@ namespace BioBaseCLIA.InfoSetting
                 {
                     dtUser.Rows.Remove(dr[0]);
                     DataTableChange(Convert.ToInt32(LoginUserType));//2018-08-04 zlx mod
-                    frmMsgShow.MessageShow("用户信息设置", "删除成功！");
+                    frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("DeleteSucess"));
                 }
                 if (dgvUserInfo.Rows.Count == 0)
                 {
@@ -277,7 +278,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             else
             {
-                frmMsgShow.MessageShow("用户信息设置", "删除的用户名不存在或未选中行，请重新选择！");
+                frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("DeleteNoSelect"));
             }
             dtUser = bllUser.GetAllList().Tables[0];
             if (dgvUserInfo.Rows.Count == 0)
@@ -342,7 +343,12 @@ namespace BioBaseCLIA.InfoSetting
 
             }
         }
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.InfoSetting.frmUserManage", typeof(frmUserManage).Assembly);
+            return resManagerA.GetString(key);
+        }
 
-        
     }
 }

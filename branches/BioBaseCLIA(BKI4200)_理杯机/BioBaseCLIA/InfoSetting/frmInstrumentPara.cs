@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 using Common;
@@ -157,14 +158,14 @@ namespace BioBaseCLIA.InfoSetting
         {
             if (!checknull())
             {
-                frmMsgShow.MessageShow("仪器参数设置", "参数信息不能为空");
+                frmMsgShow.MessageShow(Getstring("InstrumentParaHead"), Getstring("ParaIsNull"));
                 return;
             }
             ControlIsEnable(false);
             fbtnCancle.Enabled = btnSave.Enabled = false;
             fbtnModify.Enabled = true;
             WriteTxtToIni();
-            frmMsgShow.MessageShow("仪器参数设置", "参数信息保存成功,在仪器重启后生效！");//2018-08-16 zlx mod
+            frmMsgShow.MessageShow(Getstring("InstrumentParaHead"),Getstring("ParaSaveSucess"));//2018-08-16 zlx mod
         }
         private void fbtnCancle_Click(object sender, EventArgs e)
         {
@@ -240,7 +241,12 @@ namespace BioBaseCLIA.InfoSetting
 
             }
         }
-
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.InfoSetting.frmInstrumentPara", typeof(frmInstrumentPara).Assembly);
+            return resManagerA.GetString(key);
+        }
         private void functionButton2_Click(object sender, EventArgs e)
         {
 

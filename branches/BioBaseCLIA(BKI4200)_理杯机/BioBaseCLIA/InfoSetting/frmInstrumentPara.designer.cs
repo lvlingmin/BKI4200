@@ -31,32 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInstrumentPara));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.txtNeedleCleanTime = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtFirstCleanTime = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtMixNum = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtRgAbandonVol = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtRgBeforeVol = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtSpAbandonVol = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtSpBeforeVol = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtAirVol = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.fbtnCancle = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label54 = new System.Windows.Forms.Label();
             this.txtTQXGLMax = new BioBaseCLIA.CustomControl.userNumTextBox();
@@ -99,6 +75,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtWarnSubstrate = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.fbtnModify = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -118,6 +96,32 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtSampleTime = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtMixNum = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtRgAbandonVol = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtRgBeforeVol = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtSpAbandonVol = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSpBeforeVol = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtAirVol = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtNeedleCleanTime = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtFirstCleanTime = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUserInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnConnetSet = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -125,283 +129,51 @@
             this.btnProInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.fbtnModify = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnCancle = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox1.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox5);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // groupBox5
+            // groupBox6
             // 
-            this.groupBox5.Controls.Add(this.label31);
-            this.groupBox5.Controls.Add(this.label30);
-            this.groupBox5.Controls.Add(this.txtNeedleCleanTime);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.txtFirstCleanTime);
-            this.groupBox5.Controls.Add(this.label14);
-            resources.ApplyResources(this.groupBox5, "groupBox5");
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.TabStop = false;
+            resources.ApplyResources(this.groupBox6, "groupBox6");
+            this.groupBox6.Controls.Add(this.fbtnCancle);
+            this.groupBox6.Controls.Add(this.groupBox3);
+            this.groupBox6.Controls.Add(this.fbtnModify);
+            this.groupBox6.Controls.Add(this.btnSave);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.TabStop = false;
             // 
-            // label31
+            // fbtnCancle
             // 
-            resources.ApplyResources(this.label31, "label31");
-            this.label31.Name = "label31";
-            // 
-            // label30
-            // 
-            resources.ApplyResources(this.label30, "label30");
-            this.label30.Name = "label30";
-            // 
-            // txtNeedleCleanTime
-            // 
-            this.txtNeedleCleanTime.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtNeedleCleanTime, "txtNeedleCleanTime");
-            this.txtNeedleCleanTime.IsNull = false;
-            this.txtNeedleCleanTime.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtNeedleCleanTime.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtNeedleCleanTime.Name = "txtNeedleCleanTime";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // txtFirstCleanTime
-            // 
-            this.txtFirstCleanTime.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtFirstCleanTime, "txtFirstCleanTime");
-            this.txtFirstCleanTime.IsNull = false;
-            this.txtFirstCleanTime.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtFirstCleanTime.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtFirstCleanTime.Name = "txtFirstCleanTime";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.Name = "label14";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label37);
-            this.groupBox4.Controls.Add(this.label36);
-            this.groupBox4.Controls.Add(this.label35);
-            this.groupBox4.Controls.Add(this.label34);
-            this.groupBox4.Controls.Add(this.label33);
-            this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Controls.Add(this.txtMixNum);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.txtRgAbandonVol);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.txtRgBeforeVol);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.txtSpAbandonVol);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.txtSpBeforeVol);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.txtAirVol);
-            this.groupBox4.Controls.Add(this.label13);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.TabStop = false;
-            // 
-            // label37
-            // 
-            resources.ApplyResources(this.label37, "label37");
-            this.label37.Name = "label37";
-            // 
-            // label36
-            // 
-            resources.ApplyResources(this.label36, "label36");
-            this.label36.Name = "label36";
-            // 
-            // label35
-            // 
-            resources.ApplyResources(this.label35, "label35");
-            this.label35.Name = "label35";
-            // 
-            // label34
-            // 
-            resources.ApplyResources(this.label34, "label34");
-            this.label34.Name = "label34";
-            // 
-            // label33
-            // 
-            resources.ApplyResources(this.label33, "label33");
-            this.label33.Name = "label33";
-            // 
-            // label24
-            // 
-            resources.ApplyResources(this.label24, "label24");
-            this.label24.Name = "label24";
-            // 
-            // txtMixNum
-            // 
-            this.txtMixNum.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtMixNum, "txtMixNum");
-            this.txtMixNum.IsNull = false;
-            this.txtMixNum.MaxValue = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.txtMixNum.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtMixNum.Name = "txtMixNum";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // txtRgAbandonVol
-            // 
-            this.txtRgAbandonVol.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtRgAbandonVol, "txtRgAbandonVol");
-            this.txtRgAbandonVol.IsNull = false;
-            this.txtRgAbandonVol.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtRgAbandonVol.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtRgAbandonVol.Name = "txtRgAbandonVol";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            // 
-            // txtRgBeforeVol
-            // 
-            this.txtRgBeforeVol.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtRgBeforeVol, "txtRgBeforeVol");
-            this.txtRgBeforeVol.IsNull = false;
-            this.txtRgBeforeVol.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtRgBeforeVol.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtRgBeforeVol.Name = "txtRgBeforeVol";
-            // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
-            // 
-            // txtSpAbandonVol
-            // 
-            this.txtSpAbandonVol.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtSpAbandonVol, "txtSpAbandonVol");
-            this.txtSpAbandonVol.IsNull = false;
-            this.txtSpAbandonVol.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtSpAbandonVol.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtSpAbandonVol.Name = "txtSpAbandonVol";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
-            // 
-            // txtSpBeforeVol
-            // 
-            this.txtSpBeforeVol.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtSpBeforeVol, "txtSpBeforeVol");
-            this.txtSpBeforeVol.IsNull = false;
-            this.txtSpBeforeVol.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtSpBeforeVol.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtSpBeforeVol.Name = "txtSpBeforeVol";
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
-            // txtAirVol
-            // 
-            this.txtAirVol.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtAirVol, "txtAirVol");
-            this.txtAirVol.IsNull = false;
-            this.txtAirVol.MaxValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.txtAirVol.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtAirVol.Name = "txtAirVol";
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
+            resources.ApplyResources(this.fbtnCancle, "fbtnCancle");
+            this.fbtnCancle.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnCancle.EnabledSet = true;
+            this.fbtnCancle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnCancle.FlatAppearance.BorderSize = 0;
+            this.fbtnCancle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnCancle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnCancle.Name = "fbtnCancle";
+            this.fbtnCancle.UseVisualStyleBackColor = false;
+            this.fbtnCancle.Click += new System.EventHandler(this.fbtnCancle_Click);
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.label54);
             this.groupBox3.Controls.Add(this.txtTQXGLMax);
             this.groupBox3.Controls.Add(this.label55);
@@ -443,7 +215,6 @@
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.txtWarnSubstrate);
             this.groupBox3.Controls.Add(this.label16);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -454,8 +225,8 @@
             // 
             // txtTQXGLMax
             // 
-            this.txtTQXGLMax.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTQXGLMax, "txtTQXGLMax");
+            this.txtTQXGLMax.BackColor = System.Drawing.Color.White;
             this.txtTQXGLMax.IsNull = false;
             this.txtTQXGLMax.MaxValue = new decimal(new int[] {
             100,
@@ -476,8 +247,8 @@
             // 
             // txtTQXGLMin
             // 
-            this.txtTQXGLMin.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTQXGLMin, "txtTQXGLMin");
+            this.txtTQXGLMin.BackColor = System.Drawing.Color.White;
             this.txtTQXGLMin.IsNull = false;
             this.txtTQXGLMin.MaxValue = new decimal(new int[] {
             100,
@@ -498,8 +269,8 @@
             // 
             // txtTSubstrateMax
             // 
-            this.txtTSubstrateMax.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTSubstrateMax, "txtTSubstrateMax");
+            this.txtTSubstrateMax.BackColor = System.Drawing.Color.White;
             this.txtTSubstrateMax.IsNull = false;
             this.txtTSubstrateMax.MaxValue = new decimal(new int[] {
             100,
@@ -520,8 +291,8 @@
             // 
             // txtTSubstrateMin
             // 
-            this.txtTSubstrateMin.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTSubstrateMin, "txtTSubstrateMin");
+            this.txtTSubstrateMin.BackColor = System.Drawing.Color.White;
             this.txtTSubstrateMin.IsNull = false;
             this.txtTSubstrateMin.MaxValue = new decimal(new int[] {
             100,
@@ -542,8 +313,8 @@
             // 
             // txtTWashMax
             // 
-            this.txtTWashMax.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTWashMax, "txtTWashMax");
+            this.txtTWashMax.BackColor = System.Drawing.Color.White;
             this.txtTWashMax.IsNull = false;
             this.txtTWashMax.MaxValue = new decimal(new int[] {
             100,
@@ -564,8 +335,8 @@
             // 
             // txtTWashMin
             // 
-            this.txtTWashMin.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTWashMin, "txtTWashMin");
+            this.txtTWashMin.BackColor = System.Drawing.Color.White;
             this.txtTWashMin.IsNull = false;
             this.txtTWashMin.MaxValue = new decimal(new int[] {
             100,
@@ -586,8 +357,8 @@
             // 
             // txtTWYMax
             // 
-            this.txtTWYMax.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTWYMax, "txtTWYMax");
+            this.txtTWYMax.BackColor = System.Drawing.Color.White;
             this.txtTWYMax.IsNull = false;
             this.txtTWYMax.MaxValue = new decimal(new int[] {
             100,
@@ -608,8 +379,8 @@
             // 
             // txtTWYMin
             // 
-            this.txtTWYMin.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtTWYMin, "txtTWYMin");
+            this.txtTWYMin.BackColor = System.Drawing.Color.White;
             this.txtTWYMin.IsNull = false;
             this.txtTWYMin.MaxValue = new decimal(new int[] {
             100,
@@ -680,8 +451,8 @@
             // 
             // txtWarnWaitSeconds
             // 
-            this.txtWarnWaitSeconds.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtWarnWaitSeconds, "txtWarnWaitSeconds");
+            this.txtWarnWaitSeconds.BackColor = System.Drawing.Color.White;
             this.txtWarnWaitSeconds.IsNull = false;
             this.txtWarnWaitSeconds.MaxValue = new decimal(new int[] {
             100,
@@ -702,8 +473,8 @@
             // 
             // txtErrorTube
             // 
-            this.txtErrorTube.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtErrorTube, "txtErrorTube");
+            this.txtErrorTube.BackColor = System.Drawing.Color.White;
             this.txtErrorTube.IsNull = false;
             this.txtErrorTube.MaxValue = new decimal(new int[] {
             100,
@@ -724,8 +495,8 @@
             // 
             // txtWarnTube
             // 
-            this.txtWarnTube.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtWarnTube, "txtWarnTube");
+            this.txtWarnTube.BackColor = System.Drawing.Color.White;
             this.txtWarnTube.IsNull = false;
             this.txtWarnTube.MaxValue = new decimal(new int[] {
             100,
@@ -746,8 +517,8 @@
             // 
             // txtErrorReagent
             // 
-            this.txtErrorReagent.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtErrorReagent, "txtErrorReagent");
+            this.txtErrorReagent.BackColor = System.Drawing.Color.White;
             this.txtErrorReagent.IsNull = false;
             this.txtErrorReagent.MaxValue = new decimal(new int[] {
             100,
@@ -768,8 +539,8 @@
             // 
             // txtWarnReagent
             // 
-            this.txtWarnReagent.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtWarnReagent, "txtWarnReagent");
+            this.txtWarnReagent.BackColor = System.Drawing.Color.White;
             this.txtWarnReagent.IsNull = false;
             this.txtWarnReagent.MaxValue = new decimal(new int[] {
             100,
@@ -790,8 +561,8 @@
             // 
             // txtErrorSubstrate
             // 
-            this.txtErrorSubstrate.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtErrorSubstrate, "txtErrorSubstrate");
+            this.txtErrorSubstrate.BackColor = System.Drawing.Color.White;
             this.txtErrorSubstrate.IsNull = false;
             this.txtErrorSubstrate.MaxValue = new decimal(new int[] {
             100,
@@ -812,8 +583,8 @@
             // 
             // txtWarnSubstrate
             // 
-            this.txtWarnSubstrate.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtWarnSubstrate, "txtWarnSubstrate");
+            this.txtWarnSubstrate.BackColor = System.Drawing.Color.White;
             this.txtWarnSubstrate.IsNull = false;
             this.txtWarnSubstrate.MaxValue = new decimal(new int[] {
             100,
@@ -832,8 +603,36 @@
             resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
             // 
+            // fbtnModify
+            // 
+            resources.ApplyResources(this.fbtnModify, "fbtnModify");
+            this.fbtnModify.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnModify.EnabledSet = true;
+            this.fbtnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnModify.FlatAppearance.BorderSize = 0;
+            this.fbtnModify.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnModify.ForeColor = System.Drawing.Color.Black;
+            this.fbtnModify.Name = "fbtnModify";
+            this.fbtnModify.UseVisualStyleBackColor = false;
+            this.fbtnModify.Click += new System.EventHandler(this.fbtnModify_Click);
+            // 
+            // btnSave
+            // 
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.EnabledSet = true;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.label28);
             this.groupBox2.Controls.Add(this.label27);
@@ -852,7 +651,6 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtSampleTime);
             this.groupBox2.Controls.Add(this.label2);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -888,8 +686,8 @@
             // 
             // txtReadTime
             // 
-            this.txtReadTime.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtReadTime, "txtReadTime");
+            this.txtReadTime.BackColor = System.Drawing.Color.White;
             this.txtReadTime.IsNull = false;
             this.txtReadTime.MaxValue = new decimal(new int[] {
             100,
@@ -910,8 +708,8 @@
             // 
             // txtSubstrateTime
             // 
-            this.txtSubstrateTime.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtSubstrateTime, "txtSubstrateTime");
+            this.txtSubstrateTime.BackColor = System.Drawing.Color.White;
             this.txtSubstrateTime.IsNull = false;
             this.txtSubstrateTime.MaxValue = new decimal(new int[] {
             100,
@@ -932,8 +730,8 @@
             // 
             // txtWashTime
             // 
-            this.txtWashTime.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtWashTime, "txtWashTime");
+            this.txtWashTime.BackColor = System.Drawing.Color.White;
             this.txtWashTime.IsNull = false;
             this.txtWashTime.MaxValue = new decimal(new int[] {
             100,
@@ -954,8 +752,8 @@
             // 
             // txtBeadsTime
             // 
-            this.txtBeadsTime.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtBeadsTime, "txtBeadsTime");
+            this.txtBeadsTime.BackColor = System.Drawing.Color.White;
             this.txtBeadsTime.IsNull = false;
             this.txtBeadsTime.MaxValue = new decimal(new int[] {
             100,
@@ -976,8 +774,8 @@
             // 
             // txtReagentTime
             // 
-            this.txtReagentTime.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtReagentTime, "txtReagentTime");
+            this.txtReagentTime.BackColor = System.Drawing.Color.White;
             this.txtReagentTime.IsNull = false;
             this.txtReagentTime.MaxValue = new decimal(new int[] {
             100,
@@ -998,8 +796,8 @@
             // 
             // txtSampleTime
             // 
-            this.txtSampleTime.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtSampleTime, "txtSampleTime");
+            this.txtSampleTime.BackColor = System.Drawing.Color.White;
             this.txtSampleTime.IsNull = false;
             this.txtSampleTime.MaxValue = new decimal(new int[] {
             100,
@@ -1018,20 +816,272 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
+            // groupBox4
+            // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Controls.Add(this.label37);
+            this.groupBox4.Controls.Add(this.label36);
+            this.groupBox4.Controls.Add(this.label35);
+            this.groupBox4.Controls.Add(this.label34);
+            this.groupBox4.Controls.Add(this.label33);
+            this.groupBox4.Controls.Add(this.label24);
+            this.groupBox4.Controls.Add(this.txtMixNum);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.txtRgAbandonVol);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.txtRgBeforeVol);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.txtSpAbandonVol);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.txtSpBeforeVol);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.txtAirVol);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.TabStop = false;
+            // 
+            // label37
+            // 
+            resources.ApplyResources(this.label37, "label37");
+            this.label37.Name = "label37";
+            // 
+            // label36
+            // 
+            resources.ApplyResources(this.label36, "label36");
+            this.label36.Name = "label36";
+            // 
+            // label35
+            // 
+            resources.ApplyResources(this.label35, "label35");
+            this.label35.Name = "label35";
+            // 
+            // label34
+            // 
+            resources.ApplyResources(this.label34, "label34");
+            this.label34.Name = "label34";
+            // 
+            // label33
+            // 
+            resources.ApplyResources(this.label33, "label33");
+            this.label33.Name = "label33";
+            // 
+            // label24
+            // 
+            resources.ApplyResources(this.label24, "label24");
+            this.label24.Name = "label24";
+            // 
+            // txtMixNum
+            // 
+            resources.ApplyResources(this.txtMixNum, "txtMixNum");
+            this.txtMixNum.BackColor = System.Drawing.Color.White;
+            this.txtMixNum.IsNull = false;
+            this.txtMixNum.MaxValue = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.txtMixNum.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtMixNum.Name = "txtMixNum";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // txtRgAbandonVol
+            // 
+            resources.ApplyResources(this.txtRgAbandonVol, "txtRgAbandonVol");
+            this.txtRgAbandonVol.BackColor = System.Drawing.Color.White;
+            this.txtRgAbandonVol.IsNull = false;
+            this.txtRgAbandonVol.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtRgAbandonVol.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtRgAbandonVol.Name = "txtRgAbandonVol";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // txtRgBeforeVol
+            // 
+            resources.ApplyResources(this.txtRgBeforeVol, "txtRgBeforeVol");
+            this.txtRgBeforeVol.BackColor = System.Drawing.Color.White;
+            this.txtRgBeforeVol.IsNull = false;
+            this.txtRgBeforeVol.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtRgBeforeVol.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtRgBeforeVol.Name = "txtRgBeforeVol";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // txtSpAbandonVol
+            // 
+            resources.ApplyResources(this.txtSpAbandonVol, "txtSpAbandonVol");
+            this.txtSpAbandonVol.BackColor = System.Drawing.Color.White;
+            this.txtSpAbandonVol.IsNull = false;
+            this.txtSpAbandonVol.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtSpAbandonVol.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtSpAbandonVol.Name = "txtSpAbandonVol";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // txtSpBeforeVol
+            // 
+            resources.ApplyResources(this.txtSpBeforeVol, "txtSpBeforeVol");
+            this.txtSpBeforeVol.BackColor = System.Drawing.Color.White;
+            this.txtSpBeforeVol.IsNull = false;
+            this.txtSpBeforeVol.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtSpBeforeVol.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtSpBeforeVol.Name = "txtSpBeforeVol";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // txtAirVol
+            // 
+            resources.ApplyResources(this.txtAirVol, "txtAirVol");
+            this.txtAirVol.BackColor = System.Drawing.Color.White;
+            this.txtAirVol.IsNull = false;
+            this.txtAirVol.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtAirVol.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtAirVol.Name = "txtAirVol";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // groupBox5
+            // 
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Controls.Add(this.label31);
+            this.groupBox5.Controls.Add(this.label30);
+            this.groupBox5.Controls.Add(this.txtNeedleCleanTime);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.txtFirstCleanTime);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.TabStop = false;
+            // 
+            // label31
+            // 
+            resources.ApplyResources(this.label31, "label31");
+            this.label31.Name = "label31";
+            // 
+            // label30
+            // 
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.Name = "label30";
+            // 
+            // txtNeedleCleanTime
+            // 
+            resources.ApplyResources(this.txtNeedleCleanTime, "txtNeedleCleanTime");
+            this.txtNeedleCleanTime.BackColor = System.Drawing.Color.White;
+            this.txtNeedleCleanTime.IsNull = false;
+            this.txtNeedleCleanTime.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtNeedleCleanTime.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtNeedleCleanTime.Name = "txtNeedleCleanTime";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // txtFirstCleanTime
+            // 
+            resources.ApplyResources(this.txtFirstCleanTime, "txtFirstCleanTime");
+            this.txtFirstCleanTime.BackColor = System.Drawing.Color.White;
+            this.txtFirstCleanTime.IsNull = false;
+            this.txtFirstCleanTime.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtFirstCleanTime.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtFirstCleanTime.Name = "txtFirstCleanTime";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.btnUserInfo);
             this.panel1.Controls.Add(this.fbtnConnetSet);
             this.panel1.Controls.Add(this.btnInstrumentPara);
             this.panel1.Controls.Add(this.btnProInfo);
             this.panel1.Controls.Add(this.fbtnReturn);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // btnUserInfo
             // 
-            this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
+            this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
             this.btnUserInfo.EnabledSet = true;
             this.btnUserInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnUserInfo.FlatAppearance.BorderSize = 0;
@@ -1043,8 +1093,8 @@
             // 
             // fbtnConnetSet
             // 
-            this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
+            this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
             this.fbtnConnetSet.EnabledSet = true;
             this.fbtnConnetSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnConnetSet.FlatAppearance.BorderSize = 0;
@@ -1056,8 +1106,8 @@
             // 
             // btnInstrumentPara
             // 
-            this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
+            this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
             this.btnInstrumentPara.EnabledSet = true;
             this.btnInstrumentPara.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnInstrumentPara.FlatAppearance.BorderSize = 0;
@@ -1068,8 +1118,8 @@
             // 
             // btnProInfo
             // 
-            this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnProInfo, "btnProInfo");
+            this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
             this.btnProInfo.EnabledSet = true;
             this.btnProInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnProInfo.FlatAppearance.BorderSize = 0;
@@ -1081,8 +1131,8 @@
             // 
             // fbtnReturn
             // 
-            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
+            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
@@ -1097,55 +1147,6 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.fbtnCancle);
-            this.groupBox6.Controls.Add(this.groupBox3);
-            this.groupBox6.Controls.Add(this.fbtnModify);
-            this.groupBox6.Controls.Add(this.btnSave);
-            resources.ApplyResources(this.groupBox6, "groupBox6");
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.TabStop = false;
-            // 
-            // fbtnModify
-            // 
-            this.fbtnModify.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.fbtnModify, "fbtnModify");
-            this.fbtnModify.EnabledSet = true;
-            this.fbtnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnModify.FlatAppearance.BorderSize = 0;
-            this.fbtnModify.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnModify.Name = "fbtnModify";
-            this.fbtnModify.UseVisualStyleBackColor = false;
-            this.fbtnModify.Click += new System.EventHandler(this.fbtnModify_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.btnSave, "btnSave");
-            this.btnSave.EnabledSet = true;
-            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // fbtnCancle
-            // 
-            this.fbtnCancle.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.fbtnCancle, "fbtnCancle");
-            this.fbtnCancle.EnabledSet = true;
-            this.fbtnCancle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnCancle.FlatAppearance.BorderSize = 0;
-            this.fbtnCancle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnCancle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnCancle.Name = "fbtnCancle";
-            this.fbtnCancle.UseVisualStyleBackColor = false;
-            this.fbtnCancle.Click += new System.EventHandler(this.fbtnCancle_Click);
-            // 
             // frmInstrumentPara
             // 
             resources.ApplyResources(this, "$this");
@@ -1158,16 +1159,16 @@
             this.Load += new System.EventHandler(this.frmInstrumentPara_Load);
             this.SizeChanged += new System.EventHandler(this.frmInstrumentPara_SizeChanged);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1217,10 +1218,6 @@
         private System.Windows.Forms.Label label18;
         private CustomControl.userNumTextBox txtErrorSubstrate;
         private System.Windows.Forms.Label label17;
-        private CustomControl.userNumTextBox txtErrorTube;
-        private System.Windows.Forms.Label label19;
-        private CustomControl.userNumTextBox txtWarnTube;
-        private System.Windows.Forms.Label label20;
         private CustomControl.userNumTextBox txtErrorReagent;
         private System.Windows.Forms.Label label21;
         private CustomControl.userNumTextBox txtWarnWaitSeconds;
@@ -1240,8 +1237,6 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label39;
@@ -1274,5 +1269,11 @@
         private CustomControl.FunctionButton fbtnCancle;
         private CustomControl.FunctionButton fbtnModify;
         private CustomControl.FunctionButton btnSave;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label42;
+        private CustomControl.userNumTextBox txtErrorTube;
+        private System.Windows.Forms.Label label19;
+        private CustomControl.userNumTextBox txtWarnTube;
+        private System.Windows.Forms.Label label20;
     }
 }
