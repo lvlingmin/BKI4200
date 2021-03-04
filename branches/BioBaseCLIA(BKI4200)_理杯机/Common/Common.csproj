@@ -78,6 +78,7 @@
     <Compile Include="CalculateCurve\report.cs" />
     <Compile Include="CalculateCurve\StringT.cs" />
     <Compile Include="DataTableExcel.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="LocalPrinter.cs" />
     <Compile Include="OperateExcel.cs" />
     <Compile Include="OperateIniFile.cs" />
