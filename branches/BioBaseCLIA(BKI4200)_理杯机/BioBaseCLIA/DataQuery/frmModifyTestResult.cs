@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using Maticsoft.DBUtility;
+using System.Resources;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -81,7 +82,7 @@ namespace BioBaseCLIA.DataQuery
 
             DbHelperOleDb.ExecuteSql(1,strSql.ToString(), parameters);
 
-            frmMsg.MessageShow("结果修改", "修改实验结果成功");
+            frmMsg.MessageShow(Getstring("AlterResult"), Getstring("AlterSucess"));
             DialogResult = DialogResult.OK;
             Close();
             
@@ -90,6 +91,12 @@ namespace BioBaseCLIA.DataQuery
         private void fbtnCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmModifyTestResult", typeof(frmModifyTestResult).Assembly);
+            return resManagerA.GetString(key);
         }
     }
 }

@@ -118,67 +118,248 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txtWard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, 230</value>
+  </data>
+  <data name="txtWard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 235</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 16</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Inpatient Ward:</value>
+  </data>
+  <data name="txtInpatientArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 230</value>
+  </data>
+  <data name="txtInpatientArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 233</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 16</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Inpatient Area:</value>
+  </data>
+  <data name="cmbSendDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>544, 131</value>
+  </data>
+  <data name="cmbSendDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="cmbDepartment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, 131</value>
+  </data>
+  <data name="cmbDepartment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 88</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 16</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="dateSendDateTime.CustomFormat" xml:space="preserve">
+    <value>yyyy-MM-dd</value>
+  </data>
+  <data name="dateSendDateTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 176</value>
+  </data>
+  <data name="dateSendDateTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="txtCheckDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>544, 174</value>
+  </data>
+  <data name="txtCheckDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>461, 179</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 16</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Reviewed by:</value>
+  </data>
+  <data name="txtInspectDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, 176</value>
+  </data>
+  <data name="txtInspectDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 181</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 16</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Laboratory physician:</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 180</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 16</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Send Time:</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 135</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 16</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Send Department:</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 135</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 16</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Send Doctor:</value>
+  </data>
+  <data name="cmbSex.Items" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="cmbSex.Items1" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="cmbSex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>544, 34</value>
+  </data>
+  <data name="cmbSex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="txtDiagnosis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>544, 84</value>
+  </data>
+  <data name="txtDiagnosis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 75</value>
+    <value>442, 88</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 22</value>
+    <value>108, 16</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
-    <value>Total tests:</value>
+    <value>Clinical diagnosis:</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 40</value>
+  <data name="txtMedicaRecordNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, 84</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 22</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Substrate barcode:</value>
+  <data name="txtMedicaRecordNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 110</value>
+    <value>225, 88</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>121, 16</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
-    <value>Remaining tests:</value>
+    <value>Medical Record No:</value>
   </data>
-  <data name="txtSubstrateCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 37</value>
+  <data name="txtBedNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 131</value>
   </data>
-  <data name="txtSubstrateCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+  <data name="txtBedNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
   </data>
-  <data name="txtSubstrateLastTest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 107</value>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 135</value>
   </data>
-  <data name="txtSubstrateLastTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 16</value>
   </data>
-  <data name="txtSubstrateAllTest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 72</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Bed Number:</value>
   </data>
-  <data name="txtSubstrateAllTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+  <data name="txtAge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 84</value>
+  </data>
+  <data name="txtAge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 23</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>85, 88</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 16</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Age:</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>495, 38</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 16</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Gender:</value>
+  </data>
+  <data name="txtPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, 33</value>
+  </data>
+  <data name="txtPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>263, 38</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 16</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Patient name:</value>
+  </data>
+  <data name="txtClinicNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 33</value>
+  </data>
+  <data name="txtClinicNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 143</value>
+    <value>2, 38</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 22</value>
+    <value>116, 16</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Validity:</value>
+    <value>Outpatient number:</value>
   </data>
-  <data name="ValidDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 137</value>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
-  <data name="ValidDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 301</value>
   </data>
-  <data name="btnLoadSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Patient Information</value>
+  </data>
+  <data name="fbtnOK.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
@@ -242,10 +423,19 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnLoadSubstrate.Text" xml:space="preserve">
+  <data name="fbtnOK.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 15pt, style=Bold</value>
+  </data>
+  <data name="fbtnOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>479, 335</value>
+  </data>
+  <data name="fbtnOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 31</value>
+  </data>
+  <data name="fbtnOK.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="btnChangeSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnLis.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
@@ -309,40 +499,46 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnChangeSubstrate.Text" xml:space="preserve">
-    <value>Add</value>
+  <data name="btnLis.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 15pt, style=Bold</value>
+  </data>
+  <data name="btnLis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>330, 335</value>
+  </data>
+  <data name="btnLis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 31</value>
+  </data>
+  <data name="btnLis.Text" xml:space="preserve">
+    <value>Get LIS Data</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>696, 417</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt</value>
+    <value>Times New Roman, 11pt</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Substrate loading</value>
+    <value>Patient Information</value>
   </data>
-  <data name="Add" xml:space="preserve">
-    <value>Add</value>
+  <data name="ConnMessage" xml:space="preserve">
+    <value>The LIS server is not connected to the system in two ways, so the acquisition of LIS data failed!</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="MessageHead" xml:space="preserve">
+    <value>Information tips</value>
   </data>
-  <data name="FrmMesHead" xml:space="preserve">
-    <value>Substrate loading</value>
+  <data name="NetConn" xml:space="preserve">
+    <value>Network port communication</value>
   </data>
-  <data name="FrmMesLeaveText" xml:space="preserve">
-    <value>The remaining number of measurements should not be greater than the total number of measurements!</value>
+  <data name="NoConnMessage" xml:space="preserve">
+    <value>LIS server not connected! Please connect to the LIS server first!</value>
   </data>
-  <data name="FrmMesSubText" xml:space="preserve">
-    <value>Please input substrate barcode!</value>
+  <data name="OneWay" xml:space="preserve">
+    <value>one-way</value>
   </data>
-  <data name="FrmMesSuccessText" xml:space="preserve">
-    <value>Substrate loading successful!</value>
+  <data name="SerialConn" xml:space="preserve">
+    <value>serial communication</value>
   </data>
-  <data name="IS" xml:space="preserve">
-    <value>IS</value>
-  </data>
-  <data name="Normal" xml:space="preserve">
-    <value>Normal</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
+  <data name="TwoWay" xml:space="preserve">
+    <value>two-way</value>
   </data>
 </root>

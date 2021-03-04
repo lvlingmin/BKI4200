@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Maticsoft.DBUtility;
 using Common;
+using System.Resources;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -37,7 +38,7 @@ namespace BioBaseCLIA.DataQuery
         private void frmLoadSu_Load(object sender, EventArgs e)
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
-            dtSb = bllsb.GetList("Status='正常'and SubstrateNumber = '"+bootleNum+"'").Tables[0];
+            dtSb = bllsb.GetList("Status='"+Getstring("IS") +"'and SubstrateNumber = '"+bootleNum+"'").Tables[0];
             if (dtSb.Rows.Count > 0)
             {
                 txtSubstrateCode.Text = dtSb.Rows[0]["BarCode"].ToString();
@@ -55,7 +56,7 @@ namespace BioBaseCLIA.DataQuery
         }
         private void btnChangeSubstrate_Click(object sender, EventArgs e)
         {
-            if (btnChangeSubstrate.Text == "装载底物")//add by y 20180509
+            if (btnChangeSubstrate.Text == Getstring("Add"))//add by y 20180509
             {
                 txtSubstrateCode.Text = "";//2018-10-18 zlx add
                 txtSubstrateAllTest.Text = "0";//2018-10-18 zlx add
@@ -63,14 +64,14 @@ namespace BioBaseCLIA.DataQuery
                 ValidDate.Value = DateTime.Now.Date.AddMonths(1);//2018-10-17 zlx add
                 txtSubstrateAllTest.Enabled = txtSubstrateCode.Enabled = txtSubstrateLastTest.Enabled = true;
                 btnLoadSubstrate.Enabled = true;
-                btnChangeSubstrate.Text = "取消";//add by y 20180509
+                btnChangeSubstrate.Text = Getstring("Cancel");//add by y 20180509
             }
             else//add by y 20180509
             {
                 txtSubstrateAllTest.Enabled = txtSubstrateCode.Enabled = txtSubstrateLastTest.Enabled = false;//add by y 20180509
                 btnLoadSubstrate.Enabled = false;//add by y 20180509
                 btnChangeSubstrate.Enabled = true;//add by y 20180509
-                btnChangeSubstrate.Text = "装载底物";//add by y 20180509
+                btnChangeSubstrate.Text = Getstring("Add");//add by y 20180509
                 frmLoadSu_Load(null, null);//add by y 20180509
             }
         }
@@ -79,7 +80,7 @@ namespace BioBaseCLIA.DataQuery
         {
             if (int.Parse(txtSubstrateLastTest.Text) > int.Parse(txtSubstrateAllTest.Text))
             {
-                frmMsgShow.MessageShow("底物装载", "剩余测数不应该大于总测数！");
+                frmMsgShow.MessageShow(Getstring("FrmMesHead"), Getstring("FrmMesLeaveText"));
                 txtSubstrateLastTest.Focus();
                 frmLoadSu_Load(null, null);
                 return;
@@ -87,7 +88,7 @@ namespace BioBaseCLIA.DataQuery
             if (txtSubstrateCode.Text.Trim() == "")
             {
                 txtSubstrateCode.Focus();
-                frmMsgShow.MessageShow("底物装载", "请输入底物条码！");
+                frmMsgShow.MessageShow(Getstring("FrmMesHead"), Getstring("FrmMesSubText"));
                 return;
             }
             Model.tbSubstrate modelSb = new Model.tbSubstrate();
@@ -110,7 +111,7 @@ namespace BioBaseCLIA.DataQuery
             modelSb.leftoverTest = int.Parse(txtSubstrateLastTest.Text.Trim());
             modelSb.Batch = "0001";
             modelSb.ValidDate = ValidDate.Value.ToString("yyyy-MM-dd");
-            modelSb.Status = "正常";
+            modelSb.Status = Getstring("Normal");
             if (bllsb.Add(modelSb))
             {
                 if (btnBtnColor != null)
@@ -134,7 +135,7 @@ namespace BioBaseCLIA.DataQuery
                 {
                     this.BeginInvoke(new Action(() => { btnBtnColor(3, 0, 3); }));
                 }
-                frmMsgShow.MessageShow("供应品状态", "底物装载成功！");
+                frmMsgShow.MessageShow(Getstring("FrmMesHead"), Getstring("FrmMesSuccessText"));
                 this.Close();
                 //新装载完底物，按钮颜色立刻变化。LYN add 20171114
                 //if (this.ActiveControl.Text == "frmSupplyStatus")
@@ -147,7 +148,7 @@ namespace BioBaseCLIA.DataQuery
             txtSubstrateAllTest.Enabled = txtSubstrateCode.Enabled = txtSubstrateLastTest.Enabled = false;
             btnLoadSubstrate.Enabled = false;
             btnChangeSubstrate.Enabled = true;
-            btnChangeSubstrate.Text = "装载底物";
+            btnChangeSubstrate.Text = Getstring("Add");
             #region 屏蔽原有代码
             /*
             SuInfo[0] = modelSb.BarCode;
@@ -169,12 +170,12 @@ namespace BioBaseCLIA.DataQuery
             {
                 if (dr2.Length > 0)//存在的条码为正常使用的还是卸载的，length大于0则为正常使用的。
                 {
-                    frmMsgShow.MessageShow("底物装载", "该底物条码正在使用！");
+                    frmMsgShow.MessageShow(Getstring("FrmMesHead"), "该底物条码正在使用！");
                     txtSubstrateAllTest.Enabled = txtSubstrateCode.Enabled = txtSubstrateLastTest.Enabled = false;
                     btnLoadSubstrate.Enabled = false;
                     btnChangeSubstrate.Enabled = true;
 
-                    btnChangeSubstrate.Text = "装载底物";//add by y 20180509
+                    btnChangeSubstrate.Text = Getstring("Add");//add by y 20180509
                     frmLoadSu_Load(null, null);//add by y 20180509
                     return;
                 }
@@ -195,11 +196,11 @@ namespace BioBaseCLIA.DataQuery
                         if (modelSb.leftoverTest == 0)
                         {
                             
-                            frmMsgShow.MessageShow("底物装载", "该底物条码的底物已使用完成，请重新装载！");
+                            frmMsgShow.MessageShow(Getstring("FrmMesHead"), "该底物条码的底物已使用完成，请重新装载！");
 
 
 
-                            btnChangeSubstrate.Text = "装载底物";//add by y 20180509
+                            btnChangeSubstrate.Text = Getstring("Add");//add by y 20180509
                             frmLoadSu_Load(null, null);//add by y 20180509
                             return;
                         }
@@ -253,7 +254,7 @@ namespace BioBaseCLIA.DataQuery
                 modelSb.Status = "正常";
                 if (bllsb.Add(modelSb))
                 {
-                    frmMsgShow.MessageShow("底物装载", "底物装载成功！");
+                    frmMsgShow.MessageShow(Getstring("FrmMesHead"), "底物装载成功！");
                 }
                 //新装载完底物，按钮颜色立刻变化。LYN add 20171114
                 if (btnBtnColor != null)
@@ -275,7 +276,7 @@ namespace BioBaseCLIA.DataQuery
             txtSubstrateAllTest.Enabled = txtSubstrateCode.Enabled = txtSubstrateLastTest.Enabled = false;
             btnLoadSubstrate.Enabled = false;
             btnChangeSubstrate.Enabled = true;
-            btnChangeSubstrate.Text = "装载底物";//add by y 20180509
+            btnChangeSubstrate.Text = Getstring("Add");//add by y 20180509
              */
             #endregion
         }
@@ -288,6 +289,11 @@ namespace BioBaseCLIA.DataQuery
             //2018-10-17 zlx add
             OperateIniFile.WriteIniData("Substrate" + bootleNum.ToString(), "ValidDate", suInfo[3], Application.StartupPath + "//SubstrateTube.ini");
         }
-
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmLoadSu", typeof(frmLoadSu).Assembly);
+            return resManagerA.GetString(key);
+        }
     }
 }

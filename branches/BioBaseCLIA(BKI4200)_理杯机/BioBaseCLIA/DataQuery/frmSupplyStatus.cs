@@ -11,6 +11,7 @@ using Maticsoft.DBUtility;
 using System.IO;
 using BioBaseCLIA.Run;
 using System.Threading;
+using System.Resources;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -232,7 +233,7 @@ namespace BioBaseCLIA.DataQuery
         public void GetReagentInfo()
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
-            DataTable dtReagentInfo = new BLL.tbReagent().GetList("Status ='" + "正常" + "'").Tables[0];
+            DataTable dtReagentInfo = new BLL.tbReagent().GetList("Status ='" + Getstring("normal") + "'").Tables[0];
 
             for (int indexRow = 0; indexRow < dtReagentInfo.Rows.Count; indexRow++) 
             {
@@ -480,13 +481,13 @@ namespace BioBaseCLIA.DataQuery
         private void ItemUnLoad_Click(object sender, EventArgs e)
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
-            DataTable dtSb = bllsb.GetList("Status='正常'and SubstrateNumber = '" + CurBottle.ToString()+ "'").Tables[0];
+            DataTable dtSb = bllsb.GetList("Status='"+Getstring("normal") +"'and SubstrateNumber = '" + CurBottle.ToString()+ "'").Tables[0];
             Model.tbSubstrate modelSb = new Model.tbSubstrate();
             modelSb = bllsb.GetModel(int.Parse(dtSb.Rows[0]["SubstrateID"].ToString()));
-            modelSb.Status = "卸载";
+            modelSb.Status = Getstring("uninstall");
             if (bllsb.Update(modelSb))
             {
-                frmMsgShow.MessageShow("供应品状态", "底物卸载成功！");
+                frmMsgShow.MessageShow(Getstring("MessageHead1"), Getstring("UnstallSubSucess"));
                 OperateIniFile.WriteIniData("Substrate" + CurBottle.ToString(), "BarCode", "", Application.StartupPath + "//SubstrateTube.ini");
                 OperateIniFile.WriteIniData("Substrate" + CurBottle.ToString(), "TestCount", "", Application.StartupPath + "//SubstrateTube.ini");
                 OperateIniFile.WriteIniData("Substrate" + CurBottle.ToString(), "LeftCount", "", Application.StartupPath + "//SubstrateTube.ini");
@@ -504,6 +505,14 @@ namespace BioBaseCLIA.DataQuery
                     lblSuBottle2.Text = "0/500";
                 }
             }            
-        }      
+        }
+
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmSupplyStatus", typeof(frmSupplyStatus).Assembly);
+            return resManagerA.GetString(key);
+        }
+
     }
 }

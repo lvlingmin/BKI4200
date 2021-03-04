@@ -52,6 +52,7 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.txtRange);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtUnit);
@@ -66,7 +67,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtSampleNo);
             this.groupBox1.Controls.Add(this.label1);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -94,9 +94,9 @@
             // 
             // txtConcentra
             // 
+            resources.ApplyResources(this.txtConcentra, "txtConcentra");
             this.txtConcentra.IsDecimal = true;
             this.txtConcentra.IsNull = false;
-            resources.ApplyResources(this.txtConcentra, "txtConcentra");
             this.txtConcentra.MaxValue = new decimal(new int[] {
             1000,
             0,
@@ -116,8 +116,8 @@
             // 
             // txtPMTCount
             // 
-            this.txtPMTCount.IsNull = false;
             resources.ApplyResources(this.txtPMTCount, "txtPMTCount");
+            this.txtPMTCount.IsNull = false;
             this.txtPMTCount.MaxValue = new decimal(new int[] {
             10000000,
             0,
@@ -170,8 +170,8 @@
             // 
             // fbtnCancle
             // 
-            this.fbtnCancle.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnCancle, "fbtnCancle");
+            this.fbtnCancle.BackColor = System.Drawing.Color.Transparent;
             this.fbtnCancle.EnabledSet = true;
             this.fbtnCancle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnCancle.FlatAppearance.BorderSize = 0;
@@ -183,8 +183,8 @@
             // 
             // fbtnOK
             // 
-            this.fbtnOK.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnOK, "fbtnOK");
+            this.fbtnOK.BackColor = System.Drawing.Color.Transparent;
             this.fbtnOK.EnabledSet = true;
             this.fbtnOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnOK.FlatAppearance.BorderSize = 0;

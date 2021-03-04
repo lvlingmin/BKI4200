@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Maticsoft.DBUtility;
 using BioBaseCLIA.InfoSetting;
 using Common;
+using System.Resources;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -129,49 +130,83 @@ namespace BioBaseCLIA.DataQuery
             string CommunicationType = OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
             string ConnectType = OperateIniFile.ReadInIPara("LisSet", "ConnectType");
 
-            if (ConnectType != "双向")
+            if (ConnectType != Getstring("TwoWay"))
             {
-                MessageBox.Show("LIS服务器与系统不是双向连接，获取LIS数据失败！", "信息提示");
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow( Getstring("MessageHead"), Getstring("ConnMessage"));
                 return;
             }
             else//如果与LIS连接，发送查询
             {
-                switch (CommunicationType)
+                if (CommunicationType == Getstring("NetConn"))
                 {
-                    case "网口通讯":
-                        if (!LisCommunication.Instance.IsConnect())
-                        {
-                            MessageBox.Show("LIS服务器未连接！请先连接Lis服务器！", "信息提示");
-                            return;
-                        }
-                        CMessageParser Cmp = new CMessageParser();
-                        Cmp.SelectBySampleNo(modelSp.SampleNo);
-                        //LisCommunication.Instance.comWait.WaitOne();
-                        bool delay = LisCommunication.Instance.comWait.WaitOne(10000);
-                        if (!delay)
-                        {
-                            LisCommunication.Instance.comWait.Set();
-                        }
-                        modelSp = Cmp.GetSampleInfo(modelSp);
-                        break;
-                    case "串口通讯":
-                        if (!LisConnection.Instance.IsOpen())
-                        {
-                            MessageBox.Show("LIS服务器未连接！请先连接Lis服务器！", "信息提示");
-                            return;
-                        }
-                        CAMessageParser CAmp = new CAMessageParser();
-                        CAmp.SelectBySampleNo(modelSp.SampleNo);
-                        //delay = LisConnection.Instance.SelectWait.WaitOne(10000);
-                        //if (!delay)
-                        //{
-                        //    LisConnection.Instance.SelectWait.Set();
-                        //}
-                        modelSp = CAmp.GetSampleInfo(modelSp);
-                        break;
-                    default:
-                        break;
+                    if (!LisCommunication.Instance.IsConnect())
+                    {
+                        MessageBox.Show(Getstring("NoConnMessage"), Getstring("MessageHead"));
+                        return;
+                    }
+                    CMessageParser Cmp = new CMessageParser();
+                    Cmp.SelectBySampleNo(modelSp.SampleNo);
+                    //LisCommunication.Instance.comWait.WaitOne();
+                    bool delay = LisCommunication.Instance.comWait.WaitOne(10000);
+                    if (!delay)
+                    {
+                        LisCommunication.Instance.comWait.Set();
+                    }
+                    modelSp = Cmp.GetSampleInfo(modelSp);
                 }
+                else if (CommunicationType == Getstring("SerialConn"))
+                {
+                    if (!LisConnection.Instance.IsOpen())
+                    {
+                        MessageBox.Show(Getstring("NoConnMessage"), Getstring("MessageHead"));
+                        return;
+                    }
+                    CAMessageParser CAmp = new CAMessageParser();
+                    CAmp.SelectBySampleNo(modelSp.SampleNo);
+                    //delay = LisConnection.Instance.SelectWait.WaitOne(10000);
+                    //if (!delay)
+                    //{
+                    //    LisConnection.Instance.SelectWait.Set();
+                    //}
+                    modelSp = CAmp.GetSampleInfo(modelSp);
+                }
+                //switch (CommunicationType)
+                //{
+                //    case "网口通讯":
+                //        if (!LisCommunication.Instance.IsConnect())
+                //        {
+                //            MessageBox.Show(Getstring("NoConnMessage"), Getstring("MessageHead"));
+                //            return;
+                //        }
+                //        CMessageParser Cmp = new CMessageParser();
+                //        Cmp.SelectBySampleNo(modelSp.SampleNo);
+                //        //LisCommunication.Instance.comWait.WaitOne();
+                //        bool delay = LisCommunication.Instance.comWait.WaitOne(10000);
+                //        if (!delay)
+                //        {
+                //            LisCommunication.Instance.comWait.Set();
+                //        }
+                //        modelSp = Cmp.GetSampleInfo(modelSp);
+                //        break;
+                //    case "串口通讯":
+                //        if (!LisConnection.Instance.IsOpen())
+                //        {
+                //            MessageBox.Show(Getstring("NoConnMessage"), Getstring("MessageHead"));
+                //            return;
+                //        }
+                //        CAMessageParser CAmp = new CAMessageParser();
+                //        CAmp.SelectBySampleNo(modelSp.SampleNo);
+                //        //delay = LisConnection.Instance.SelectWait.WaitOne(10000);
+                //        //if (!delay)
+                //        //{
+                //        //    LisConnection.Instance.SelectWait.Set();
+                //        //}
+                //        modelSp = CAmp.GetSampleInfo(modelSp);
+                //        break;
+                //    default:
+                //        break;
+                //}
                 txtAge.Text = modelSp.Age.ToString();
                 txtBedNo.Text = modelSp.BedNo;
                 txtClinicNo.Text = modelSp.ClinicNo;
@@ -189,7 +224,7 @@ namespace BioBaseCLIA.DataQuery
             {
                 cmbSendDoctor.Items.Clear();
                 DataRow[]dr=dtDepInfo.Select("DepartmentName='"+cmbDepartment.SelectedItem+"'");
-                if (dr.Length > 0)
+                if (dr.Length > 0)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                 {
                     DbHelperOleDb db = new DbHelperOleDb(2);
                     DataTable dtDoctor = bllDoctor.GetList("DepartmentID=" + dr[0]["DepartmentID"] + "").Tables[0];
@@ -214,6 +249,12 @@ namespace BioBaseCLIA.DataQuery
             }
 
             return base.ProcessDialogKey(keyData);
+        }
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmPatientInfo", typeof(frmPatientInfo).Assembly);
+            return resManagerA.GetString(key);
         }
     }
 }

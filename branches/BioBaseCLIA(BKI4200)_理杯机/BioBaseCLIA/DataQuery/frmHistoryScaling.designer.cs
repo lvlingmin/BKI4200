@@ -32,13 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistoryScaling));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvExistScal = new System.Windows.Forms.DataGridView();
-            this.dPnlCurve = new BioBaseCLIA.CustomControl.definePanal(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.fbtnChoice = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.ScalingResultID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActiveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dPnlCurve = new BioBaseCLIA.CustomControl.definePanal(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.fbtnChoice = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExistScal)).BeginInit();
             this.SuspendLayout();
@@ -65,29 +65,6 @@
             this.dgvExistScal.RowTemplate.Height = 23;
             this.dgvExistScal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExistScal.SelectionChanged += new System.EventHandler(this.dgvExistScal_SelectionChanged);
-            // 
-            // dPnlCurve
-            // 
-            resources.ApplyResources(this.dPnlCurve, "dPnlCurve");
-            this.dPnlCurve.Name = "dPnlCurve";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // fbtnChoice
-            // 
-            this.fbtnChoice.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.fbtnChoice, "fbtnChoice");
-            this.fbtnChoice.EnabledSet = true;
-            this.fbtnChoice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnChoice.FlatAppearance.BorderSize = 0;
-            this.fbtnChoice.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnChoice.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnChoice.Name = "fbtnChoice";
-            this.fbtnChoice.UseVisualStyleBackColor = false;
-            this.fbtnChoice.Click += new System.EventHandler(this.fbtnChoice_Click);
             // 
             // ScalingResultID
             // 
@@ -118,6 +95,29 @@
             resources.ApplyResources(this.Status, "Status");
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
+            // 
+            // dPnlCurve
+            // 
+            resources.ApplyResources(this.dPnlCurve, "dPnlCurve");
+            this.dPnlCurve.Name = "dPnlCurve";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
+            // fbtnChoice
+            // 
+            this.fbtnChoice.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnChoice, "fbtnChoice");
+            this.fbtnChoice.EnabledSet = true;
+            this.fbtnChoice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnChoice.FlatAppearance.BorderSize = 0;
+            this.fbtnChoice.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnChoice.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnChoice.Name = "fbtnChoice";
+            this.fbtnChoice.UseVisualStyleBackColor = false;
+            this.fbtnChoice.Click += new System.EventHandler(this.fbtnChoice_Click);
             // 
             // frmHistoryScaling
             // 

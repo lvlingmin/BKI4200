@@ -14,6 +14,7 @@ using System.IO;
 using System.Data.OleDb;
 using NPOI.SS.UserModel;
 using NPOI.HSSF.UserModel;
+using System.Resources;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -114,13 +115,13 @@ namespace BioBaseCLIA.DataQuery
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
             DataTable dtRI = bllRg.GetAllList().Tables[0];
-            var dr = dtRI.Select("Status <> '卸载'");
+            var dr = dtRI.Select("Status <> '" + Getstring("uninstall") + "'");
             for (int i = 0; i < dr.Length; i++)
             {
                 dtRgInfo.Rows.Add();
                 dtRgInfo.Rows[i]["Postion"] = dr[i]["Postion"];
                 dtRgInfo.Rows[i]["RgName"] = dr[i]["ReagentName"];
-                dtRgInfo.Rows[i]["AllTestNumber"] = dr[i]["AllTestNumber"];
+                dtRgInfo.Rows[i]["AllTestNumber"] = dr[+i]["AllTestNumber"];
                 dtRgInfo.Rows[i]["leftoverTestR1"] = dr[i]["leftoverTestR1"];
                 dtRgInfo.Rows[i]["leftoverTestR2"] = dr[i]["leftoverTestR2"];
                 dtRgInfo.Rows[i]["leftoverTestR3"] = dr[i]["leftoverTestR3"];
@@ -176,7 +177,7 @@ namespace BioBaseCLIA.DataQuery
             if (dgvSampleData.SelectedRows.Count == 0)
             {
                 frmMessageShow frmMsgShow = new frmMessageShow();
-                frmMsgShow.MessageShow("重新计算提示", "请选择要进行重新计算结果的项目！");
+                frmMsgShow.MessageShow(Getstring("Recalculate"), Getstring("RecalculateMessage"));
                 return;
             }
             //2018-12-07 zlx mod
@@ -202,7 +203,7 @@ namespace BioBaseCLIA.DataQuery
                     DataTable tbtbProject = DbHelperOleDb.Query(0,@"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgvSampleData.SelectedRows[i].Cells["ItemName"].Value + "'").Tables[0];
                     string concentration = er.GetResultInverse(Convert.ToDouble(
                     dgvSampleData.SelectedRows[i].Cells[6].Value.ToString())).ToString("0.###");
-                    if (concentration == "非数字")
+                    if (concentration == Getstring("NoNumber"))
                     {
                         dgvSampleData.SelectedRows[i].Cells[7].Value = 0;
                     }
@@ -210,7 +211,7 @@ namespace BioBaseCLIA.DataQuery
                     {
                         dgvSampleData.SelectedRows[i].Cells[7].Value = concentration;
                     }
-                    if (concentration != "非数字" && dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString() != "")
+                    if (concentration != Getstring("NoNumber") && dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString() != "")
                         dgvSampleData.SelectedRows[i].Cells["Result"].Value = GetResult(dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString(), double.Parse(concentration));
                     dgvSampleData.SelectedRows[i].Cells["Result"].ReadOnly = true;
                     }
@@ -230,11 +231,11 @@ namespace BioBaseCLIA.DataQuery
             DataTable tbtbProject = DbHelperOleDb.Query(0,@"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + ProName + "'").Tables[0];
             if (concentration < double.Parse(tbtbProject.Rows[0]["MinValue"].ToString()))
             {
-                Result = "不在线性范围之内";
+                Result = Getstring("NotRangeMessage");
             }
             else if (concentration > double.Parse(tbtbProject.Rows[0]["MaxValue"].ToString()))
             {
-                Result = "不在线性范围之内";
+                Result = Getstring("NotRangeMessage");
             }
             else
             {
@@ -251,7 +252,7 @@ namespace BioBaseCLIA.DataQuery
                         Result = "↑";
                     }
                     else
-                        Result = "正常";
+                        Result = Getstring("Normal");
                 }
                 else if (Range1.Contains("<"))
                 {
@@ -261,7 +262,7 @@ namespace BioBaseCLIA.DataQuery
                     }
                     else
                     {
-                        Result = "正常";
+                        Result = Getstring("Normal"); 
                     }
                 }
                 else if (Range1.Contains("<="))
@@ -272,7 +273,7 @@ namespace BioBaseCLIA.DataQuery
                     }
                     else
                     {
-                        Result = "正常";
+                        Result = Getstring("Normal");
                     }
                 }
                 else if (Range1.Contains(">"))
@@ -283,7 +284,7 @@ namespace BioBaseCLIA.DataQuery
                     }
                     else
                     {
-                        Result = "正常";
+                        Result = Getstring("Normal");
                     }
                 }
                 else if (Range1.Contains(">="))
@@ -294,7 +295,7 @@ namespace BioBaseCLIA.DataQuery
                     }
                     else
                     {
-                        Result = "正常";
+                        Result = Getstring("Normal");
                     }
                 }
             }
@@ -313,7 +314,7 @@ namespace BioBaseCLIA.DataQuery
                dgvSampleData.SelectedRows[i].Cells[7].Value.ToString()) + " where AssayResultID = " + int.Parse
                (dgvSampleData.SelectedRows[i].Cells[1].Value.ToString()));
             }
-            frmMsgShow.MessageShow("结果查询", "保存数据成功");
+            frmMsgShow.MessageShow(Getstring("SaveHead"), Getstring("SaveMessage"));
         } 
 
         private void fbtnDeleteResult_Click(object sender, EventArgs e)
@@ -325,7 +326,7 @@ namespace BioBaseCLIA.DataQuery
                 if (dgvSampleData.Rows[i].Selected)
                 {
                     //2018-08-11  zlx add 
-                    if (dgvSampleData.CurrentRow.Cells["SampleType"].Value.ToString() == "外部信息")
+                    if (dgvSampleData.CurrentRow.Cells["SampleType"].Value.ToString() == Getstring("OutInfo"))
                         dgvSampleData.Rows.RemoveAt(i);
                     else
                     {
@@ -335,7 +336,7 @@ namespace BioBaseCLIA.DataQuery
                     }                   
                 }
             }
-            frmMsgShow.MessageShow("结果查询", "删除成功！");
+            frmMsgShow.MessageShow(Getstring("SaveHead"), Getstring("DeleteMessage"));
         }
 
         private void fbtnModifyResult_Click(object sender, EventArgs e)
@@ -363,14 +364,14 @@ namespace BioBaseCLIA.DataQuery
             //}
             if (dgvPatientInfo.SelectedRows.Count == 0 || dgvSampleData.RowCount == 0)
                 return;
-            if (fbtnPrint.Text == "打印")
+            if (fbtnPrint.Text == Getstring("Print"))
             {
                 fbtnQuery.Enabled = false;//2018-4-20  zlx add
                 fbtnModifyResult.Enabled = false;
                 fbtnDeleteResult.Enabled = false;
                 printMode(false);
             }
-            else if (fbtnPrint.Text == "确定")
+            else if (fbtnPrint.Text == Getstring("Determine"))
             {                
                 #region 声明打印变量及属性
                 Report report = new Report();
@@ -540,7 +541,7 @@ namespace BioBaseCLIA.DataQuery
                 catch (Exception ex)
                 {
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("结果查询", ex.Message);
+                    frmMS.MessageShow(Getstring("SaveHead"), ex.Message);
                     frmMS.Dispose();
                 }
                 report.Dispose();
@@ -566,13 +567,13 @@ namespace BioBaseCLIA.DataQuery
             } 
             if (printFlag == false)
             {
-                fbtnPrint.Text = "确定";
+                fbtnPrint.Text = Getstring("Determine");
                 dgvSampleData.Columns[0].Visible = true;
                 dgvSampleData.SelectionMode = DataGridViewSelectionMode.CellSelect;              
             }
             else
             {
-                fbtnPrint.Text = "打印";
+                fbtnPrint.Text = Getstring("Print");
                 dgvSampleData.Columns[0].Visible = false;
                 dgvSampleData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dgvSampleData.Rows[0].Selected = true;
@@ -583,7 +584,7 @@ namespace BioBaseCLIA.DataQuery
         {
             if (dgvPatientInfo.SelectedRows.Count == 0)
             {
-                frmMsg.MessageShow("样本录入", "请选择需要录入信息的样本");
+                frmMsg.MessageShow(Getstring("SampleInputHead"), Getstring("SampleInputMessage"));
                 return;
             }          
             frmPatientInfo frmPI = new frmPatientInfo();
@@ -640,113 +641,220 @@ namespace BioBaseCLIA.DataQuery
             string CommunicationType = OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
 
             string tranInfo = OperateIniFile.ReadInIPara("LisSet", "TransInfo");
-
-            switch (CommunicationType)
+            if (CommunicationType == Getstring("NetConn"))
             {
-                case "网口通讯":
-                    #region 网口通讯批量发送实验结果
-                    if (LisCommunication.Instance.IsConnect())
+                #region 网口通讯批量发送实验结果
+                if (LisCommunication.Instance.IsConnect())
+                {
+                    DataTable dtshow = new DataTable();
+                    DataColumn dc = new DataColumn("SampleNo", typeof(string));
+                    dtshow.Columns.Add(dc);
+                    DataTable _dtTest = (DataTable)dgvSampleData.DataSource;
+                    for (int i = 0; i < dgvSampleData.RowCount; i++)
                     {
-                        DataTable dtshow = new DataTable();
-                        DataColumn dc = new DataColumn("SampleNo", typeof(string));
-                        dtshow.Columns.Add(dc);
-                        DataTable _dtTest = (DataTable)dgvSampleData.DataSource;
-                        for (int i = 0; i < dgvSampleData.RowCount; i++)
+                        DataRow[] dr = dtshow.Select("SampleNo='" + dgvSampleData.Rows[i].Cells["SampleNo"].Value + "'");
+                        if (dr.Length == 0)
                         {
-                            DataRow[] dr = dtshow.Select("SampleNo='" + dgvSampleData.Rows[i].Cells["SampleNo"].Value + "'");
-                            if (dr.Length == 0)
-                            {
-                                DataRow row = dtshow.NewRow();
-                                row["SampleNo"] = dgvSampleData.Rows[i].Cells["SampleNo"].Value;
-                                dtshow.Rows.Add(row);
-                            }
+                            DataRow row = dtshow.NewRow();
+                            row["SampleNo"] = dgvSampleData.Rows[i].Cells["SampleNo"].Value;
+                            dtshow.Rows.Add(row);
                         }
-                        foreach (DataRow dr in dtshow.Rows)
-                        {
-                            List<TestResult> resultlist = new List<TestResult>();
-                            DataRow[] drtest = _dtTest.Select("SampleNo='" + dr["SampleNo"] + "'");
-                            for (int i = 0; i < drtest.Length; i++)
-                            {
-                                TestResult result = new TestResult();
-                                result.SampleID = Convert.ToInt32(drtest[i]["SampleID"]);
-                                result.SampleNo = drtest[i]["SampleNo"].ToString();
-                                result.ItemName = drtest[i]["ItemName"].ToString();
-                                result.PMT = Convert.ToInt32(drtest[i]["PMTCounter"]);
-                                result.concentration = drtest[i]["Concentration"].ToString();
-                                result.Result = drtest[i]["Result"].ToString();
-                                result.Range1 = drtest[i]["Range"].ToString();
-                                result.Range2 = drtest[i]["Range"].ToString();
-                                result.SampleType = drtest[i]["SampleType"].ToString();
-                                resultlist.Add(result);
-                            }
-
-                            CMessageParser Cmp = new CMessageParser();
-                            Cmp.SendApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
-                            Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
-                            Cmp.SendORU(resultlist);
-                        }
-
                     }
-                    else
-                        MessageBox.Show("系统未连接LIS服务器！", "信息提示！");
-                    #endregion
-                    break;
-                case "串口通讯":
-                    #region 串口通讯批量发送实验结果
-                    if (LisConnection.Instance.IsOpen())
+                    foreach (DataRow dr in dtshow.Rows)
                     {
-                        if (LisConnection.Instance.BWork)
+                        List<TestResult> resultlist = new List<TestResult>();
+                        DataRow[] drtest = _dtTest.Select("SampleNo='" + dr["SampleNo"] + "'");
+                        for (int i = 0; i < drtest.Length; i++)
                         {
-                            MessageBox.Show("串口正在进行数据通讯！请稍后再进行发送！", "信息提示！", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
-                        }
-                        DataTable dtshow = new DataTable();
-                        DataColumn dc = new DataColumn("SampleNo", typeof(string));
-                        dtshow.Columns.Add(dc);
-                        DataTable _dtTest = (DataTable)dgvSampleData.DataSource;
-                        for (int i = 0; i < dgvSampleData.RowCount; i++)
-                        {
-                            DataRow[] dr = dtshow.Select("SampleNo='" + dgvSampleData.Rows[i].Cells["SampleNo"].Value + "'");
-                            if (dr.Length == 0)
-                            {
-                                DataRow row = dtshow.NewRow();
-                                row["SampleNo"] = dgvSampleData.Rows[i].Cells["SampleNo"].Value;
-                                dtshow.Rows.Add(row);
-                            }
-                        }
-                        foreach (DataRow dr in dtshow.Rows)
-                        {
-                            List<TestResult> resultlist = new List<TestResult>();
-                            DataRow[] drtest = _dtTest.Select("SampleNo='" + dr["SampleNo"] + "'");
-                            for (int i = 0; i < drtest.Length; i++)
-                            {
-                                TestResult result = new TestResult();
-                                result.SampleID = Convert.ToInt32(drtest[i]["SampleID"]);
-                                result.SampleNo = drtest[i]["SampleNo"].ToString();
-                                result.ItemName = drtest[i]["ItemName"].ToString();
-                                result.PMT = Convert.ToInt32(drtest[i]["PMTCounter"]);
-                                result.concentration = drtest[i]["Concentration"].ToString();
-                                result.Result = drtest[i]["Result"].ToString();
-                                result.Range1 = drtest[i]["Range"].ToString();
-                                result.Range2 = drtest[i]["Range"].ToString();
-                                result.SampleType = drtest[i]["SampleType"].ToString();
-                                resultlist.Add(result);
-                            }
-
-                            CAMessageParser Cmp = new CAMessageParser();
-                            Cmp.SendApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
-                            Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
-                            Cmp.SendORU(resultlist);
+                            TestResult result = new TestResult();
+                            result.SampleID = Convert.ToInt32(drtest[i]["SampleID"]);
+                            result.SampleNo = drtest[i]["SampleNo"].ToString();
+                            result.ItemName = drtest[i]["ItemName"].ToString();
+                            result.PMT = Convert.ToInt32(drtest[i]["PMTCounter"]);
+                            result.concentration = drtest[i]["Concentration"].ToString();
+                            result.Result = drtest[i]["Result"].ToString();
+                            result.Range1 = drtest[i]["Range"].ToString();
+                            result.Range2 = drtest[i]["Range"].ToString();
+                            result.SampleType = drtest[i]["SampleType"].ToString();
+                            resultlist.Add(result);
                         }
 
+                        CMessageParser Cmp = new CMessageParser();
+                        Cmp.SendApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
+                        Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
+                        Cmp.SendORU(resultlist);
                     }
-                    else
-                        MessageBox.Show("串口未打开！", "信息提示！");
-                    #endregion
-                    break;
-                default:
-                    break;
+
+                }
+                else
+                {
+                    frmMessageShow messageShow = new frmMessageShow();
+                    messageShow.MessageShow(Getstring("MessageHead"), Getstring("NoConnMessage"));
+                }
+                #endregion
             }
+            else if(CommunicationType == Getstring("SerialConn"))
+            {
+                #region 串口通讯批量发送实验结果
+                if (LisConnection.Instance.IsOpen())
+                {
+                    if (LisConnection.Instance.BWork)
+                    {
+                        MessageBox.Show(Getstring("SerialConnWorkMessage"), Getstring("MessageHead"));
+                        //MessageBox.Show("串口正在进行数据通讯！请稍后再进行发送！", "信息提示！", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    DataTable dtshow = new DataTable();
+                    DataColumn dc = new DataColumn("SampleNo", typeof(string));
+                    dtshow.Columns.Add(dc);
+                    DataTable _dtTest = (DataTable)dgvSampleData.DataSource;
+                    for (int i = 0; i < dgvSampleData.RowCount; i++)
+                    {
+                        DataRow[] dr = dtshow.Select("SampleNo='" + dgvSampleData.Rows[i].Cells["SampleNo"].Value + "'");
+                        if (dr.Length == 0)
+                        {
+                            DataRow row = dtshow.NewRow();
+                            row["SampleNo"] = dgvSampleData.Rows[i].Cells["SampleNo"].Value;
+                            dtshow.Rows.Add(row);
+                        }
+                    }
+                    foreach (DataRow dr in dtshow.Rows)
+                    {
+                        List<TestResult> resultlist = new List<TestResult>();
+                        DataRow[] drtest = _dtTest.Select("SampleNo='" + dr["SampleNo"] + "'");
+                        for (int i = 0; i < drtest.Length; i++)
+                        {
+                            TestResult result = new TestResult();
+                            result.SampleID = Convert.ToInt32(drtest[i]["SampleID"]);
+                            result.SampleNo = drtest[i]["SampleNo"].ToString();
+                            result.ItemName = drtest[i]["ItemName"].ToString();
+                            result.PMT = Convert.ToInt32(drtest[i]["PMTCounter"]);
+                            result.concentration = drtest[i]["Concentration"].ToString();
+                            result.Result = drtest[i]["Result"].ToString();
+                            result.Range1 = drtest[i]["Range"].ToString();
+                            result.Range2 = drtest[i]["Range"].ToString();
+                            result.SampleType = drtest[i]["SampleType"].ToString();
+                            resultlist.Add(result);
+                        }
+
+                        CAMessageParser Cmp = new CAMessageParser();
+                        Cmp.SendApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
+                        Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
+                        Cmp.SendORU(resultlist);
+                    }
+
+                }
+                else
+                    MessageBox.Show(Getstring("SeriesNoOpenMessage"), Getstring("MessageHead"));
+                //MessageBox.Show("串口未打开！", "信息提示！");
+                #endregion
+            }
+            //switch (CommunicationType)
+            //{
+            //    case "网口通讯":
+            //        #region 网口通讯批量发送实验结果
+            //        if (LisCommunication.Instance.IsConnect())
+            //        {
+            //            DataTable dtshow = new DataTable();
+            //            DataColumn dc = new DataColumn("SampleNo", typeof(string));
+            //            dtshow.Columns.Add(dc);
+            //            DataTable _dtTest = (DataTable)dgvSampleData.DataSource;
+            //            for (int i = 0; i < dgvSampleData.RowCount; i++)
+            //            {
+            //                DataRow[] dr = dtshow.Select("SampleNo='" + dgvSampleData.Rows[i].Cells["SampleNo"].Value + "'");
+            //                if (dr.Length == 0)
+            //                {
+            //                    DataRow row = dtshow.NewRow();
+            //                    row["SampleNo"] = dgvSampleData.Rows[i].Cells["SampleNo"].Value;
+            //                    dtshow.Rows.Add(row);
+            //                }
+            //            }
+            //            foreach (DataRow dr in dtshow.Rows)
+            //            {
+            //                List<TestResult> resultlist = new List<TestResult>();
+            //                DataRow[] drtest = _dtTest.Select("SampleNo='" + dr["SampleNo"] + "'");
+            //                for (int i = 0; i < drtest.Length; i++)
+            //                {
+            //                    TestResult result = new TestResult();
+            //                    result.SampleID = Convert.ToInt32(drtest[i]["SampleID"]);
+            //                    result.SampleNo = drtest[i]["SampleNo"].ToString();
+            //                    result.ItemName = drtest[i]["ItemName"].ToString();
+            //                    result.PMT = Convert.ToInt32(drtest[i]["PMTCounter"]);
+            //                    result.concentration = drtest[i]["Concentration"].ToString();
+            //                    result.Result = drtest[i]["Result"].ToString();
+            //                    result.Range1 = drtest[i]["Range"].ToString();
+            //                    result.Range2 = drtest[i]["Range"].ToString();
+            //                    result.SampleType = drtest[i]["SampleType"].ToString();
+            //                    resultlist.Add(result);
+            //                }
+
+            //                CMessageParser Cmp = new CMessageParser();
+            //                Cmp.SendApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
+            //                Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
+            //                Cmp.SendORU(resultlist);
+            //            }
+
+            //        }
+            //        else
+            //            MessageBox.Show("系统未连接LIS服务器！", "信息提示！");
+            //        #endregion
+            //        break;
+            //    case "串口通讯":
+            //        #region 串口通讯批量发送实验结果
+            //        if (LisConnection.Instance.IsOpen())
+            //        {
+            //            if (LisConnection.Instance.BWork)
+            //            {
+            //                MessageBox.Show("串口正在进行数据通讯！请稍后再进行发送！", "信息提示！", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //                return;
+            //            }
+            //            DataTable dtshow = new DataTable();
+            //            DataColumn dc = new DataColumn("SampleNo", typeof(string));
+            //            dtshow.Columns.Add(dc);
+            //            DataTable _dtTest = (DataTable)dgvSampleData.DataSource;
+            //            for (int i = 0; i < dgvSampleData.RowCount; i++)
+            //            {
+            //                DataRow[] dr = dtshow.Select("SampleNo='" + dgvSampleData.Rows[i].Cells["SampleNo"].Value + "'");
+            //                if (dr.Length == 0)
+            //                {
+            //                    DataRow row = dtshow.NewRow();
+            //                    row["SampleNo"] = dgvSampleData.Rows[i].Cells["SampleNo"].Value;
+            //                    dtshow.Rows.Add(row);
+            //                }
+            //            }
+            //            foreach (DataRow dr in dtshow.Rows)
+            //            {
+            //                List<TestResult> resultlist = new List<TestResult>();
+            //                DataRow[] drtest = _dtTest.Select("SampleNo='" + dr["SampleNo"] + "'");
+            //                for (int i = 0; i < drtest.Length; i++)
+            //                {
+            //                    TestResult result = new TestResult();
+            //                    result.SampleID = Convert.ToInt32(drtest[i]["SampleID"]);
+            //                    result.SampleNo = drtest[i]["SampleNo"].ToString();
+            //                    result.ItemName = drtest[i]["ItemName"].ToString();
+            //                    result.PMT = Convert.ToInt32(drtest[i]["PMTCounter"]);
+            //                    result.concentration = drtest[i]["Concentration"].ToString();
+            //                    result.Result = drtest[i]["Result"].ToString();
+            //                    result.Range1 = drtest[i]["Range"].ToString();
+            //                    result.Range2 = drtest[i]["Range"].ToString();
+            //                    result.SampleType = drtest[i]["SampleType"].ToString();
+            //                    resultlist.Add(result);
+            //                }
+
+            //                CAMessageParser Cmp = new CAMessageParser();
+            //                Cmp.SendApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
+            //                Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
+            //                Cmp.SendORU(resultlist);
+            //            }
+
+            //        }
+            //        else
+            //            MessageBox.Show("串口未打开！", "信息提示！");
+            //        #endregion
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             # endregion
         }
@@ -757,7 +865,7 @@ namespace BioBaseCLIA.DataQuery
                 return;
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.InitialDirectory = System.Windows.Forms.Application.StartupPath;
-            dialog.Filter = "xls文件|*.xls";
+            dialog.Filter = "xls"+ Getstring("File") + "|*.xls";
             frmMessageShow fmessage = new frmMessageShow();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -766,7 +874,7 @@ namespace BioBaseCLIA.DataQuery
                 if (dt.Rows.Count == 0)
                 {
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("导入提示", "导入的数据为空！");
+                    f.MessageShow(Getstring("MessageHead"), Getstring("ImportNullMessage"));
                     return;
                 }
                 DataTable _dtData = (DataTable)dgvSampleData.DataSource;
@@ -780,7 +888,7 @@ namespace BioBaseCLIA.DataQuery
                     }
                     catch (Exception ee)
                     {
-                        fmessage.MessageShow("导入提示", "导入外部数据的值有误,实验结果不能为数值");
+                        fmessage.MessageShow(Getstring("MessageHead"), Getstring("ImportErrorMessage"));
                         return;
                     }
                     Model.tbAssayResult modelAssayResult = new Model.tbAssayResult();
@@ -797,7 +905,7 @@ namespace BioBaseCLIA.DataQuery
                         dgvSampleData.Rows[dgvSampleData.Rows.Count - 1].Cells[8].Value = dr[5].ToString();
                         dgvSampleData.Rows[dgvSampleData.Rows.Count - 1].Cells[9].Value = dr[6].ToString();
                         dgvSampleData.Rows[dgvSampleData.Rows.Count - 1].Cells[10].Value = dr[7].ToString();
-                        dgvSampleData.Rows[dgvSampleData.Rows.Count - 1].Cells["SampleType"].Value = "外部信息";
+                        dgvSampleData.Rows[dgvSampleData.Rows.Count - 1].Cells["SampleType"].Value = Getstring("OutInfo");
                     }
                     else
                     {
@@ -812,7 +920,7 @@ namespace BioBaseCLIA.DataQuery
                         newrow[7] = dr[5].ToString();
                         newrow[8] = dr[6].ToString();
                         newrow[9] = dr[7].ToString();
-                        newrow["SampleType"] = "外部信息";
+                        newrow["SampleType"] = Getstring("OutInfo");
                         _dtData.Rows.Add(newrow);
                     }
                     modelAssayResult.SampleID = int.Parse(dgvPatientInfo.SelectedRows[0].Cells["SampleID1"].Value.ToString());
@@ -835,7 +943,7 @@ namespace BioBaseCLIA.DataQuery
                 }
                 if (_dtData == null)
                     dgvSampleData.DataSource = _dtData;
-                fmessage.MessageShow("导入提示", "数据导入完成！");
+                fmessage.MessageShow(Getstring("MessageHead"), Getstring("ImportSucessMessage"));
             }
             
         }
@@ -848,7 +956,7 @@ namespace BioBaseCLIA.DataQuery
             if (dgvSampleData.Rows.Count == 0)
             {
                 frmMessageShow fmessage = new frmMessageShow();
-                fmessage.MessageShow("导出提示", "没有数据，无法进行导出操作  ！");
+                fmessage.MessageShow(Getstring("MessageHead"), Getstring("NoDataMessage"));
                 return;
             }
             if (dgvSampleData.SelectedRows.Count == 0)
@@ -856,8 +964,8 @@ namespace BioBaseCLIA.DataQuery
                 dgvSampleData.SelectAll();
             }
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "xls文件|*.xls";
-            string FileName = dialog.FileName = DateTime.Now.ToString("yyyyMMdd") + "_实验结果";
+            dialog.Filter = "xls"+ Getstring("File") + "|*.xls";
+            string FileName = dialog.FileName = DateTime.Now.ToString("yyyyMMdd") +Getstring("FileName");
             IWorkbook excel = new HSSFWorkbook();//创建.xls文件
             ISheet sheet = excel.CreateSheet(FileName); //创建sheet
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -887,7 +995,7 @@ namespace BioBaseCLIA.DataQuery
                         //}
                         #endregion
                         #region 导出 lyq 20190807 add 
-                        if (dgvSampleData.Columns[j].HeaderText.ToString().Equals("发光值"))
+                        if (dgvSampleData.Columns[j].HeaderText.ToString().Equals(Getstring("PMTCounter.HeaderText")))
                         {
                             row.CreateCell(j - 3).SetCellValue(double.Parse(dgvSampleData.Rows[i].Cells[j].Value.ToString()));
                         }
@@ -912,12 +1020,12 @@ namespace BioBaseCLIA.DataQuery
                 excel.Write(file);
                 file.Close();
                 frmMessageShow frmessage = new frmMessageShow();
-                frmessage.MessageShow("导出提示", "文件导出成功！");
+                frmessage.MessageShow(Getstring("MessageHead"), Getstring("ExportSucessMessage"));
             }
             catch (Exception exc)
             {
                 frmMessageShow fmessage = new frmMessageShow();
-                fmessage.MessageShow("导出提示", "文件导出出错，文件可能正在被操作！");
+                fmessage.MessageShow(Getstring("MessageHead"), Getstring("ExportErrorMessage"));
                 return;
             }
             #region 注释
@@ -1021,9 +1129,9 @@ namespace BioBaseCLIA.DataQuery
                 //2018-11-26 zlx mod
                 if (tbtbProject.Rows[0][0].ToString() != "")
                 {
-                    if (concentration ==double.Parse(tbtbProject.Rows[0][2].ToString()) && dgv.Cells["Result"].Value.ToString().Contains("不在线性范围"))
+                    if (concentration ==double.Parse(tbtbProject.Rows[0][2].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
                         dgv.Cells["Concentration"].Value = "<" + concentration;
-                    else if (concentration == double.Parse(tbtbProject.Rows[0][3].ToString()) && dgv.Cells["Result"].Value.ToString().Contains("不在线性范围"))
+                    else if (concentration == double.Parse(tbtbProject.Rows[0][3].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
                         dgv.Cells["Concentration"].Value = ">" + concentration;
                     else
                     dgv.Cells["Concentration"].Value = concentration.ToString("F" + int.Parse(tbtbProject.Rows[0][0].ToString()) + "");
@@ -1135,7 +1243,7 @@ namespace BioBaseCLIA.DataQuery
             bool _boolAgain=false;
             if (dgvSampleData.SelectedRows.Count == 0)
             {
-                frmMsgShow.MessageShow("重检提示", "请选择要重新检测的项目信息");
+                frmMsgShow.MessageShow(Getstring("MessageHead"), Getstring("ReTestMessage"));
                 return;
             }
             if (dgvSampleData.SelectedRows.Count == 0) return;
@@ -1145,12 +1253,12 @@ namespace BioBaseCLIA.DataQuery
             {
                 if (Convert.ToInt32(_dtSP.Rows[0]["Status"]) == 1)
                 {
-                    for(int i=0;i<dtSpInfo.Rows.Count;i++)
+                    for (int i = 0; i < dtSpInfo.Rows.Count; i++)
                     {
-                        if (dtSpInfo.Rows[i]["SampleNo"].ToString().Equals( _dtSP.Rows[0]["SampleNo"].ToString()))
+                        if (dtSpInfo.Rows[i]["SampleNo"].ToString().Equals(_dtSP.Rows[0]["SampleNo"].ToString()))
                         {
-                            if (DbHelperOleDb.ExecuteSql(1,@"update tbSampleInfo set Status = 0  where SampleID=" + dgvSampleData.SelectedRows[0].Cells["SampleID"].Value + "") > 0)
-                            { 
+                            if (DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 0  where SampleID=" + dgvSampleData.SelectedRows[0].Cells["SampleID"].Value + "") > 0)
+                            {
                                 dtSpInfo.Rows[i]["Status"] = 0;
                                 _dtSP.Rows[0]["Status"] = 0;
                             }
@@ -1158,7 +1266,9 @@ namespace BioBaseCLIA.DataQuery
                     }
                 }
                 else if (Convert.ToInt32(_dtSP.Rows[0]["Status"]) == 2)
-                    MessageBox.Show("样本已经卸载！");
+                {
+                    frmMsgShow.MessageShow(Getstring("MessageHead"), Getstring("SampleUnStall"));
+                }
                 if (Convert.ToInt32(_dtSP.Rows[0]["Status"]) == 0)
                     _boolAgain = true;
             }
@@ -1166,9 +1276,16 @@ namespace BioBaseCLIA.DataQuery
             if(_boolAgain)
                 bUpdate = DbHelperOleDb.ExecuteSql(1,@"update tbAssayResult set Status = -1  where SampleID=" + dgvSampleData.SelectedRows[0].Cells["SampleID"].Value + " AND ItemName='" + dgvSampleData.SelectedRows[0].Cells["ItemName"].Value + "'AND PMTCounter=" + dgvSampleData.SelectedRows[0].Cells["PMTCounter"].Value + "");
             if (bUpdate > 0)
-                MessageBox.Show("重测设置成功！");
+            {
+                frmMsgShow.MessageShow(Getstring("MessageHead"), Getstring("ReTestSetSucess"));
+            }
         }
-
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmResultQuery", typeof(frmResultQuery).Assembly);
+            return resManagerA.GetString(key);
+        }
 
     }
 }

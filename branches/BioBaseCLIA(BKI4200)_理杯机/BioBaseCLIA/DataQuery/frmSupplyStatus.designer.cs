@@ -40,7 +40,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValiData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.subBottle1 = new SubstrateBottle.SubstrateBottle();
             this.lblSuBottle1 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.MenuSu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiluteInfo)).BeginInit();
@@ -162,19 +162,6 @@
             resources.ApplyResources(this.ValiData, "ValiData");
             this.ValiData.Name = "ValiData";
             this.ValiData.ReadOnly = true;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.btnReturn, "btnReturn");
-            this.btnReturn.EnabledSet = true;
-            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // groupBox5
             // 
@@ -408,6 +395,19 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnReturn, "btnReturn");
+            this.btnReturn.EnabledSet = true;
+            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // frmSupplyStatus
             // 
             resources.ApplyResources(this, "$this");
@@ -455,11 +455,6 @@
         private CustomControl.FunctionButton btnReturn;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgvRegentInfo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Postion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RgName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RgCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AllTest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastTest;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label lblSuBottle1;
         private SubstrateBottle.SubstrateBottle subBottle2;
@@ -475,5 +470,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValiData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Postion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RgName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RgCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AllTest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastTest;
     }
 }

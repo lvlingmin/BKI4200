@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Maticsoft.DBUtility;
 using BioBaseCLIA.CalculateCurve;
+using System.Resources;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -22,15 +23,13 @@ namespace BioBaseCLIA.DataQuery
         public frmHistoryScaling()
         {
             InitializeComponent();
-
         }
 
         private void frmHistoryScaling_Load(object sender, EventArgs e)
         {
             DbHelperOleDb db = new DbHelperOleDb(1);
             //2018-08-25 zlx mod
-            DataTable dtScalingResult = DbHelperOleDb.Query(1,@"select ScalingResultID,ItemName,ActiveDate,iif(Status=1, '是', '') AS bstatus from tbScalingResult 
-                                                              where ItemName = '" + tempItemName + "' AND RegentBatch='" + RegentBatch + "'").Tables[0];
+            DataTable dtScalingResult = DbHelperOleDb.Query(1,@"select ScalingResultID,ItemName,ActiveDate,iif(Status=1, '" + Getstring("Is") + "', '') AS bstatus from tbScalingResult  where ItemName = '" + tempItemName + "' AND RegentBatch='" + RegentBatch + "'").Tables[0];
             dgvExistScal.DataSource = dtScalingResult;
 
         }
@@ -119,7 +118,7 @@ namespace BioBaseCLIA.DataQuery
                 //对处理过的数据进行纠错
                 if (double.IsNaN(CurveData[i].DataValue) || double.IsNaN(CurveData[i].Data))
                 {
-                    fms.MessageShow("历史定标", "函数计算错误，可能该数据不适合此回归模型");
+                    fms.MessageShow(Getstring("FrmMessageHead"), Getstring("FrmMessageText"));
                     return;
 
                 }
@@ -156,6 +155,13 @@ namespace BioBaseCLIA.DataQuery
             }
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmHistoryScaling", typeof(frmHistoryScaling).Assembly);
+            return resManagerA.GetString(key);
         }
     }
 }     

@@ -67,6 +67,7 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.txtWard);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtInpatientArea);
@@ -96,7 +97,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtClinicNo);
             this.groupBox1.Controls.Add(this.label1);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -122,14 +122,14 @@
             // 
             // cmbSendDoctor
             // 
-            this.cmbSendDoctor.FormattingEnabled = true;
             resources.ApplyResources(this.cmbSendDoctor, "cmbSendDoctor");
+            this.cmbSendDoctor.FormattingEnabled = true;
             this.cmbSendDoctor.Name = "cmbSendDoctor";
             // 
             // cmbDepartment
             // 
-            this.cmbDepartment.FormattingEnabled = true;
             resources.ApplyResources(this.cmbDepartment, "cmbDepartment");
+            this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
@@ -141,6 +141,7 @@
             // dateSendDateTime
             // 
             resources.ApplyResources(this.dateSendDateTime, "dateSendDateTime");
+            this.dateSendDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateSendDateTime.Name = "dateSendDateTime";
             this.dateSendDateTime.Value = new System.DateTime(2018, 11, 10, 10, 54, 0, 0);
             // 
@@ -181,13 +182,12 @@
             // 
             // cmbSex
             // 
+            resources.ApplyResources(this.cmbSex, "cmbSex");
             this.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSex.FormattingEnabled = true;
             this.cmbSex.Items.AddRange(new object[] {
             resources.GetString("cmbSex.Items"),
-            resources.GetString("cmbSex.Items1"),
-            resources.GetString("cmbSex.Items2")});
-            resources.ApplyResources(this.cmbSex, "cmbSex");
+            resources.GetString("cmbSex.Items1")});
             this.cmbSex.Name = "cmbSex";
             // 
             // txtDiagnosis
@@ -222,8 +222,8 @@
             // 
             // txtAge
             // 
-            this.txtAge.IsNull = false;
             resources.ApplyResources(this.txtAge, "txtAge");
+            this.txtAge.IsNull = false;
             this.txtAge.MaxValue = new decimal(new int[] {
             150,
             0,
@@ -268,8 +268,8 @@
             // 
             // fbtnOK
             // 
-            this.fbtnOK.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnOK, "fbtnOK");
+            this.fbtnOK.BackColor = System.Drawing.Color.Transparent;
             this.fbtnOK.EnabledSet = true;
             this.fbtnOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnOK.FlatAppearance.BorderSize = 0;
@@ -281,8 +281,8 @@
             // 
             // btnLis
             // 
-            this.btnLis.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLis, "btnLis");
+            this.btnLis.BackColor = System.Drawing.Color.Transparent;
             this.btnLis.EnabledSet = true;
             this.btnLis.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLis.FlatAppearance.BorderSize = 0;
