@@ -12,16 +12,10 @@ using System.Configuration;
 using System.Runtime.InteropServices;
 using System.Xml;
 using System.Threading;
+using Common.Extensions;
 
 namespace BioBaseCLIA.Run
 {
-    /*
-     * 2018.04.16完成重构
-     * 
-     * 杨
-     * 
-     * */
-
     public partial class frmLogShow : frmParent
     {
         /// <summary>
@@ -33,13 +27,13 @@ namespace BioBaseCLIA.Run
             InitializeComponent();
         }
 
-
-
         String filePath = Application.StartupPath + @"\Log\AlarmLog";
         List<LogOfAlarm> lOrigin = new List<LogOfAlarm>();//
         List<LogOfAlarm> lShadow = new List<LogOfAlarm>();
         List<string> dateselect = new List<string>();
         frmMessageShow frmMsg = new frmMessageShow();
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(frmLogShow));
+
         public void ToEmpty()
         {
             lOrigin.Clear();
@@ -63,13 +57,13 @@ namespace BioBaseCLIA.Run
             {
                 if (lstFile.Length > 13)
                     continue;
-                string newdate = lstFile.Substring(1, 4) + "年" + lstFile.Substring(5, 2) + "月" + lstFile.Substring(7, 2)+"日";
+                string newdate = lstFile.Substring(1, 4) +GetString("Year") + lstFile.Substring(5, 2) + GetString("Month") + lstFile.Substring(7, 2)+GetString("Date");
                 dateselect.Add(newdate);
                 lOrigin.Add(new LogOfAlarm(imageList1.Images[3], newdate, "----", null));
                 string fileInfo = ReadTxtWarn.ReaderFile(filePath +"\\"+ lstFile);//all text
                 if (lstFile.Contains(DateTime.Now.ToString("yyyyMMdd")))
                 {
-                    string fileinto = fileInfo.Replace("未读", "已读");
+                    string fileinto = fileInfo.Replace(GetString("Notread") ,GetString("Haveread") );
                     ReadTxtWarn.WriteFile(filePath + "\\" + lstFile, fileinto);//将配置文本信息里的未读替换为已读
                 }
                 //string fileinto = fileInfo.Replace("未读", "已读");
@@ -78,34 +72,29 @@ namespace BioBaseCLIA.Run
                 string module;
                 string text;
                 string[] allofthis = fileInfo.Split('\n');
-                //foreach (var b in allofthis)
-                for(int i=allofthis.Count()-1;i>=0;i--)
+                for (int i = allofthis.Count() - 1; i >= 0; i--)
                 {
                     if (allofthis[i].Length < 27) continue;
                     time = allofthis[i].Substring(0, 8).Replace('-', ':');
-                    module = allofthis[i].Substring(13, 2);
-                    text = allofthis[i].Substring(27);
+                    module = allofthis[i].Substring(allofthis[i].IndexOf('*') + 3, 
+                        allofthis[i].NumberIndexOf(4,'*')-(allofthis[i].IndexOf('*') + 3));
+                    text = allofthis[i].Substring(allofthis[i].LastIndexOf('*') + 1);
                     Image bit = imageList1.Images[0];
-                    if (module=="警告") bit = imageList1.Images[1];
-                    if (allofthis[i].Substring(20, 2) == "未读") bit.Tag = "未读";
-                    else bit.Tag = "已读";
-                    //LinkLabel LL = new LinkLabel();
-                    //LL.Text="详情";
-                    //LL.Tag=text;
-                    //LL.BackColor = Color.White;
-                    //LL.Size = new System.Drawing.Size(40, 20);
-                    //LL.Font = new System.Drawing.Font("宋体", 10.5f);
-                    //LL.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-                    //LL.LinkClicked += new LinkLabelLinkClickedEventHandler(LL_LinkClicked);
-                    //this.DGVLog.Controls.Add(LL);
-                    //LL.Show();
+                    if (module.Contains( GetString("Warning"))) bit = imageList1.Images[1];
+                    if ((allofthis[i].Substring(allofthis[i].NumberIndexOf(6, '*'),
+                        allofthis[i].NumberIndexOf(7, '*') - allofthis[i].NumberIndexOf(6, '*'))).Contains(GetString("Notread")))
+                        bit.Tag = GetString("Notread");
+                    else bit.Tag = GetString("Haveread");
+
                     lOrigin.Add(new LogOfAlarm(bit, time, text, null));//2018-11-02 zlx mod
                 }
                
             }
-            dateselect.Add("全部");
-            if (!dateselect.Contains(DateTime.Now.ToString("yyyy年MM月dd日")))
-                dateselect.Insert(0, DateTime.Now.ToString("yyyy年MM月dd日"));
+            dateselect.Add(GetString("All"));
+            if (!dateselect.Contains(DateTime.Now.ToString("yyyy"))&&
+                !dateselect.Contains(DateTime.Now.ToString("MM"))&&
+                !dateselect.Contains(DateTime.Now.ToString("dd")))
+                dateselect.Insert(0, DateTime.Now.ToString("yyyy.MM.dd"));
             CBDateShow.DataSource = null;
             CBDateShow.DataSource = dateselect;
         }
@@ -119,37 +108,36 @@ namespace BioBaseCLIA.Run
         {
             List<LogOfAlarm> lTemporary = new List<LogOfAlarm>();
 
-            //if (CBDateShow.Text != "全部")
-            //{
-                //string datesele = CBDateShow.Text;
-                string datesele = SelectDate.Value.ToString("yyyy年MM月dd日");
-                bool putin = true;
-                foreach (var a in datefliter)
+            string datesele = SelectDate.Value.ToString("yyyy年MM月dd日");
+            string datesele2 = SelectDate.Value.ToString("yyyy.MM.dd");
+            bool putin = true;
+            foreach (var a in datefliter)
+            {
+                //if (putin)
+                //{
+                //    if (a.Text != "----") continue;
+                //}
+                var y=DateTime.Now.ToString("yyyy");
+                var y2=DateTime.Now.ToString("MM");
+                var y3=DateTime.Now.ToString("dd");
+                if ((a.Date.Contains(DateTime.Now.ToString("yyyy")) &&
+                    a.Date.Contains(DateTime.Now.ToString("MM")))&&
+                    a.Date.Contains(DateTime.Now.ToString("dd"))/*&& putin*/)
                 {
-                    if (putin)
-                    {
-                        if (a.Text != "----") continue;
-                    }
-                    if (a.Date == datesele && putin)
-                    {
-                        putin = false;
-                        lTemporary.Add(a);
-                        continue;
-                    }
-                    if (!putin)
-                    {
-                        if (a.Text == "----")
-                        {
-                            break;
-                        }
-                        lTemporary.Add(a);
-                    }
+                    putin = false;
+                    lTemporary.Add(a);
+                    continue;
                 }
-            //}
-            //else
-            //{
-            //    lTemporary = datefliter;
-            //}
+                if (!putin)
+                {
+                    if (a.Text == "----")
+                    {
+                        break;
+                    }
+                    lTemporary.Add(a);
+                }
+            }
+
             return lTemporary;
         }
 
@@ -164,13 +152,11 @@ namespace BioBaseCLIA.Run
             else
             {
                 List<LogOfAlarm> lTemporary = new List<LogOfAlarm>();
-                //int num = 0;
                 foreach (var a in inter)
                 {
                     if (a.Text == "----")
                     {
                         lTemporary.Add(a);
-                        //num++;
                         continue;
                     }
                     bool bo = true;
@@ -186,7 +172,6 @@ namespace BioBaseCLIA.Run
                     {
                         lTemporary.Add(a);
                     }
-                    //num++;
                 }
             return lTemporary;
             }
@@ -210,7 +195,7 @@ namespace BioBaseCLIA.Run
                         lTemporary.Add(a);
                         continue;
                     }
-                    if (a.Bit.Tag.ToString() == "未读")//this block modify end
+                    if (a.Bit.Tag.ToString() ==GetString("Notread") )//this block modify end
                     {
                         lTemporary.Add(a); 
                     }
@@ -226,11 +211,11 @@ namespace BioBaseCLIA.Run
         /// <returns>过滤后的数据链表</returns>
         private List<LogOfAlarm> fliterOfmodule(List<LogOfAlarm> inter)
         {
-            if (CBmodule.Text == "全部") return inter;
+            if (CBmodule.Text ==GetString("All") ) return inter;
             else
             {
                 List<LogOfAlarm> lTemporary = new List<LogOfAlarm>();
-                if (CBmodule.Text == "只看警告")
+                if (CBmodule.Text ==GetString("CBmodule.Items1") )
                 {
                     foreach (var a in inter)
                     {
@@ -240,7 +225,7 @@ namespace BioBaseCLIA.Run
                         }
                     }
                 }
-                if (CBmodule.Text == "只看错误")
+                if (CBmodule.Text ==GetString("CBmodule.Items2"))
                 {
                     foreach (var a in inter)
                     {
@@ -316,7 +301,7 @@ namespace BioBaseCLIA.Run
             int i = 0;
             foreach (var a in lShadow)
             {
-                if ("未读"==(string)a.Bit.Tag)
+                if (GetString("Notread") ==(string)a.Bit.Tag)
                 {
                     DGVLog.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font("宋体",12f, FontStyle.Bold);
                 }
@@ -333,36 +318,23 @@ namespace BioBaseCLIA.Run
 
             int width = DGVLog.Width;
             DGVLog.Columns["Bit"].Width = 50;
-            DGVLog.Columns["Bit"].HeaderText = "类型";
+            DGVLog.Columns["Bit"].HeaderText =GetString("Type");
             DGVLog.Columns["Date"].Width = 150;
-            DGVLog.Columns["Date"].HeaderText = "日期或时间";
+            DGVLog.Columns["Date"].HeaderText =GetString("Timeordate");
             int textwidth = width - DGVLog.Columns["Bit"].Width - DGVLog.Columns["Date"].Width - 125;
             if (textwidth < 1) textwidth = 1;
             DGVLog.Columns["Text"].Width = textwidth;
-            DGVLog.Columns["Text"].HeaderText = "内容";
+            DGVLog.Columns["Text"].HeaderText =GetString("Content") ;
             DGVLog.Columns["Butt"].Width = 65;
-            DGVLog.Columns["Butt"].HeaderText = "帮助";
+            DGVLog.Columns["Butt"].HeaderText = GetString("Help") ;
 
             DGVLog.DataSource = null;
             DGVLog.DataSource = lShadow;//数据源改变时触发事件
         }
 
-        //private void RefreshAll()
-        //{
-        //    toRefreshOriginAndDate();
-        //    toRefreshShadowAndGrid();
-        //}
-        //private delegate void agent();
         private void frmLogShow_Load(object sender, EventArgs e)
         {
-           
-            CBmodule.Text = "全部";
-
-            //agent temp = RefreshAll;
-            //Thread thr = new Thread(new ThreadStart(temp));
-            //thr.IsBackground = true;
-            //thr.Start();
-
+            CBmodule.Text =GetString("All");
             toRefreshOriginAndDate();
             CBDateShow.SelectedIndex=0;
             toRefreshShadowAndGrid();
@@ -404,11 +376,6 @@ namespace BioBaseCLIA.Run
             //循环判断每一个文件
             foreach (FileInfo fInfo in aryFInfo)
             {
-                //如果当前文件扩展名与指定的相同，则将其加入返回值中
-                //if (fInfo.Extension.ToLower().Equals(extension))
-                //{
-                //    lstRet.Add(fInfo.ToString());
-                //}
                 lstRet.Add(fInfo.ToString());
             }
             return lstRet;
@@ -509,7 +476,7 @@ namespace BioBaseCLIA.Run
             {
 
                 string text = ((XmlElement)node).GetElementsByTagName(position.Substring(0,4))[0].InnerText;
-                frmMsg.MessageShow("日志信息", text);
+                frmMsg.MessageShow( GetString("label1.Text") , text);
             }
         }
 
@@ -530,8 +497,8 @@ namespace BioBaseCLIA.Run
             CBDateShow.SelectedIndexChanged -= SelectedIndexChanged;
             CBmodule.SelectedIndexChanged -= SelectedIndexChanged;
 
-            CBDateShow.Text = "全部";
-            CBmodule.Text = "全部";
+            CBDateShow.Text =GetString("All");
+            CBmodule.Text = GetString("All") ;
             onlynoread.Checked = false;
             notrepeat.Checked = false;
 
@@ -596,10 +563,6 @@ namespace BioBaseCLIA.Run
         /// <param name="e"></param>
         private void DGVLog_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            //DGVLog.Controls.Clear();
-            //DGVLog.Controls.Clear();
-            //DGVLog.Controls.Clear();
-            //DGVLog.Controls.Clear();
             if (DGVLog.DataSource == lShadow)
             {
                 setLocation();
@@ -613,7 +576,6 @@ namespace BioBaseCLIA.Run
             toRefreshShadowAndGrid();
         }
 
-        //2018-08-15 zlx add
         private void timer1_Tick(object sender, EventArgs e)
         {
             int i = dateselect.Count;
@@ -626,26 +588,9 @@ namespace BioBaseCLIA.Run
                 this.BeginInvoke(new Action(() => { btnLogColor1(2); }));
             }
         }
-
-
-        //[DllImport("kernel32")]//返回取得字符串缓冲区的长度
-        //private static extern long GetPrivateProfileString(string section, string key,
-        //    string def, StringBuilder retVal, int size, string filePath);
-        //public static string ReadInIhelpoflog(string Section, string Key)
-        //{
-        //    string iniFilePath = Directory.GetCurrentDirectory() + "\\helpoflog.ini";
-        //    if (File.Exists(iniFilePath))
-        //    {
-        //        //取出的值
-        //        StringBuilder temp = new StringBuilder(1024);
-        //        GetPrivateProfileString(Section, Key, "", temp, 1024, iniFilePath);
-        //        return temp.ToString();
-        //    }
-        //    else
-        //    {
-        //        return String.Empty;
-        //    }
-
-        //}
+        private string GetString(string key)
+        {
+            return resources.GetString(key);
+        }
     }
 }

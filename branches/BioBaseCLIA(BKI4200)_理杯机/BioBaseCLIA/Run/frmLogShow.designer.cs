@@ -69,6 +69,7 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.SelectDate);
             this.groupBox1.Controls.Add(this.onlynoread);
             this.groupBox1.Controls.Add(this.CBmodule);
@@ -76,7 +77,6 @@
             this.groupBox1.Controls.Add(this.BTfliter);
             this.groupBox1.Controls.Add(this.notrepeat);
             this.groupBox1.Controls.Add(this.lblDate);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -142,17 +142,17 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.DGVLog);
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.DGVLog);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
             // DGVLog
             // 
+            resources.ApplyResources(this.DGVLog, "DGVLog");
             this.DGVLog.AllowUserToAddRows = false;
             this.DGVLog.AllowUserToDeleteRows = false;
             this.DGVLog.AllowUserToResizeRows = false;
-            resources.ApplyResources(this.DGVLog, "DGVLog");
             this.DGVLog.AutoGenerateColumns = false;
             this.DGVLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DGVLog.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
@@ -210,8 +210,8 @@
             // 
             // fbtnReturn
             // 
-            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
+            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
@@ -232,8 +232,8 @@
             // 
             // BTrefresh
             // 
-            this.BTrefresh.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.BTrefresh, "BTrefresh");
+            this.BTrefresh.BackColor = System.Drawing.Color.Transparent;
             this.BTrefresh.EnabledSet = true;
             this.BTrefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.BTrefresh.FlatAppearance.BorderSize = 0;
