@@ -20,6 +20,7 @@ using System.Timers;
 using BioBaseCLIA.User;
 using System.Reflection;
 using BioBaseCLIA;
+using Localization;
 
 namespace BioBaseCLIA
 {
@@ -39,6 +40,7 @@ namespace BioBaseCLIA
         private float Y;//高度
         System.Windows.Forms.Timer time1 = new System.Windows.Forms.Timer();//实时时间显示
         public frmMessageShow frmMsgShow = new frmMessageShow();//提示框
+        ComponentResourceManager resources = new ComponentResourceManager(typeof(frmMain));
         /// <summary>
         /// 缺液信息状态
         /// </summary>
@@ -161,24 +163,24 @@ namespace BioBaseCLIA
             SoundFlag = (int)SoundFlagStart.IsOpen;
             _BootUpTime = DateTime.Now;
             label2.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-            toolTip1.SetToolTip(this.dbtnBuffer, "磁珠清洗液查询");
-            toolTip1.SetToolTip(this.dbtnWash, "探针清洗液查询");
-            toolTip1.SetToolTip(this.dbtnWaste, "废液查询");
-            toolTip1.SetToolTip(this.dbtnSubstract, "底物信息");
-            toolTip1.SetToolTip(this.dbtnRegent, "试剂信息");
-            toolTip1.SetToolTip(this.dbtnRack, "理杯机信息");
-            toolTip1.SetToolTip(this.btnWasteRack, "废管盒信息");
-            toolTip1.SetToolTip(this.dbtnLog, "报警信息");
+            toolTip1.SetToolTip(this.dbtnBuffer,GetString("dbtnBuffer.tip"));
+            toolTip1.SetToolTip(this.dbtnWash, GetString(" dbtnWash.tip") );
+            toolTip1.SetToolTip(this.dbtnWaste, GetString("dbtnWaste.tip") );
+            toolTip1.SetToolTip(this.dbtnSubstract, GetString("dbtnSubstract.tip") );
+            toolTip1.SetToolTip(this.dbtnRegent, GetString("dbtnRegent.tip") );
+            toolTip1.SetToolTip(this.dbtnRack, GetString("dbtnRack.tip") );
+            toolTip1.SetToolTip(this.btnWasteRack, GetString("btnWasteRack.tip") );
+            toolTip1.SetToolTip(this.dbtnLog, GetString("dbtnLog.tip") );
 
             if (NetCom3.isConnect)
             {
                 dbtnConnect.Enabled = false;
-                toolTip1.SetToolTip(this.dbtnConnect, "网络已连接");
+                toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.connecttip "));
             }
             else
             {
                 dbtnConnect.Enabled = true;
-                toolTip1.SetToolTip(this.dbtnConnect, "网络未连接");
+                toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.disconnecttip"));
                 fbtnTest.Enabled = false;
                 fbtnMaintenance.Enabled = false;
             }
@@ -199,7 +201,7 @@ namespace BioBaseCLIA
                 if (lstFile.Length > 13 || lstFile.Substring(1,8)!=DateTime.Now.ToString("yyyyMMdd"))
                     continue;
                 string fileInfo = ReadTxtWarn.ReaderFile(Application.StartupPath + @"\Log\AlarmLog" + "\\" + lstFile);//all text
-                if (fileInfo.IndexOf("未读") > -1)
+                if (fileInfo.IndexOf(GetString("NotRead")) > -1)
                 {
                     dbtnLog.BackgroundImage = Properties.Resources._11感叹号;
                     break;
@@ -270,7 +272,7 @@ namespace BioBaseCLIA
                 if (OperateIniFile.ReadConfig(cTempIniPath).Rows.Count != 80)
                 {
                     File.Delete(cTempIniPath);
-                    frmMsgShow.MessageShow("提示", "检测到非正常退出软件，请清空温育盘！");
+                    frmMsgShow.MessageShow(GetString("Tips"),GetString("Abnormalexit") );
                     return;
                 }
                 File.Delete(defaultIniPath);
@@ -279,7 +281,7 @@ namespace BioBaseCLIA
             else
             {
                 //提醒检测到非正常退出，请清空温育盘
-                frmMsgShow.MessageShow("提示", "检测到非正常退出软件，请清空温育盘！");
+                frmMsgShow.MessageShow(GetString("Tips"), GetString("Abnormalexit"));
             }
             timerConnect.Enabled = true;
         }
@@ -299,6 +301,7 @@ namespace BioBaseCLIA
         /// <param name="obj"></param>
         void Instance_ReceiveHandel(string obj)
         {
+            SetCultureInfo();
             lock (locker)
             {
                 if (obj.IsNullOrEmpty())
@@ -527,7 +530,7 @@ namespace BioBaseCLIA
       
         private void button11_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("是否确定关闭正在运行的系统！","系统退出警告",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(GetString("ExitTip"), GetString("Tips"), MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
                 timerStatus.Stop();
@@ -585,12 +588,12 @@ namespace BioBaseCLIA
         {
             if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show("实验未在运行，请勿进行暂停操作！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(GetString("NotRun"), GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (pauseFlag == true) 
+            if (pauseFlag == true)
             {
-                MessageBox.Show("实验暂停中！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(GetString("Paused"), GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (btnPauseClick != null)
@@ -609,12 +612,12 @@ namespace BioBaseCLIA
         {
             if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show("实验未在运行，请勿进行停止操作！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(GetString("NotRun") , GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (btnStopClick != null)
             {
-                DialogResult dr =MessageBox.Show("停止实验会导致此次实验作废，确认是否要停止此次实验！","信息提示",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                DialogResult dr =MessageBox.Show(GetString("NotRun"), GetString("Tips"), MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
                 if (dr == DialogResult.OK)
                 {
                     IniUpdateAccess();
@@ -711,6 +714,7 @@ namespace BioBaseCLIA
 
         private void dbtnSubstract_MouseClick(object sender, MouseEventArgs e)
         {
+            SetCultureInfo();
             if (!CheckFormIsOpen("frmSupplyStatus"))
             {
                 frmSupplyStatus frmSS = new frmSupplyStatus();
@@ -773,6 +777,8 @@ namespace BioBaseCLIA
         /// <param name="e"></param>
         private void timerStatus_Tick(object sender, EventArgs e)
         {
+            SetCultureInfo();
+
             label2.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
             timerStatus.Enabled = false;
             if (LiquidQueryFlag)
@@ -810,13 +816,14 @@ namespace BioBaseCLIA
                     if (int.Parse(LeftCount1) + int.Parse(LeftCount2) <= ErrorSubstrate)
                     {
                         dbtnSubstract.BackgroundImage = Properties.Resources._07;
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "底物剩余测试为"
+                        string s= GetString("Error");
+                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Substratesurplus")
                         + (int.Parse(LeftCount1) + int.Parse(LeftCount2)).ToString());
                         LogBtnColorChange(0);
                     }
                     else
                     {
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "底物剩余测数为"
+                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " +GetString("Warning")  + " *** " + GetString("NotRead") + " *** " + GetString("Substratesurplus")
                        + (int.Parse(LeftCount1) + int.Parse(LeftCount2)).ToString());
                         LogBtnColorChange(1);
                     }
@@ -864,7 +871,7 @@ namespace BioBaseCLIA
                             if (RtlisRIinfo.Find(ty => ty.ItemName == ReagentIniInfo.ItemName) != null && RtlisRIinfo.Find(ty => ty.ItemName == ReagentIniInfo.ItemName).LeftReagent1 == count)
                                 continue;
                             LogBtnColorChange(0);
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + ReagentIniInfo.ItemName + "项目试剂剩余测数为" + count.ToString());
+                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + ReagentIniInfo.ItemName +GetString("Lefttests") + count.ToString());
                         }
                         listItemName.Add(ReagentIniInfo.ItemName);
                         if (RtlisRIinfo.FindAll(ty => ty.ItemName == ReagentIniInfo.ItemName).Count > 0)
@@ -1063,14 +1070,14 @@ namespace BioBaseCLIA
                 //错误存储到Log文件
                 if (LackLq[0] > MaxBuffertime)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "磁珠清洗液为空");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Cleaningfluidempty") );
                     dbtnBuffer.BackgroundImage = Properties.Resources._2;//黄色（红色为_2）
                     LogBtnColorChange(0);
                     StopFlag[0] = true;
                 }
                 else
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "磁珠清洗液为空");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Cleaningfluidempty"));
                     dbtnBuffer.BackgroundImage = Properties.Resources._3;//黄色（红色为_2）
                     LogBtnColorChange(1);
                 }
@@ -1096,14 +1103,14 @@ namespace BioBaseCLIA
                 //错误存储到Log文件
                 if (LackLq[1] > MaxWashtime)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "探针清洗液为空");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + GetString("Probefluidempty"));
                     dbtnWash.BackgroundImage = Properties.Resources._7;//红色（红色为_2）
                     LogBtnColorChange(0);
                     StopFlag[1] = true;
                 }
                 else
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "探针清洗液为空");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " +GetString("Probefluidempty") );
                     dbtnWash.BackgroundImage = Properties.Resources._6__2_;//黄色（红色为_7）
                     LogBtnColorChange(1);
                 }
@@ -1131,14 +1138,14 @@ namespace BioBaseCLIA
 
                 if (LackLq[2] > MaxWastetime)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "废液桶已满");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Wastefull") );
                     dbtnWaste.BackgroundImage = Properties.Resources._10;//黄色（红色为_10）
                     LogBtnColorChange(0);
                     StopFlag[2] = true;
                 }
                 else
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "废液桶已满");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Wastefull"));
                     dbtnWaste.BackgroundImage = Properties.Resources._11;//黄色（红色为_10）
                     LogBtnColorChange(1);
                 }
@@ -1160,14 +1167,14 @@ namespace BioBaseCLIA
                 if (LackLq[3] > MaxWTubetime)
                 {
                     btnWasteRack.BackgroundImage = Properties.Resources.WasteRack01;//红色
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "废管盒已满");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Wastetubefull") );
                     LogBtnColorChange(0);
                     StopFlag[3] = true;
                 }
                 else
                 {
                     btnWasteRack.BackgroundImage = Properties.Resources.WasteRack03;//黄色
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "废管盒已满");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Wastetubefull"));
                     if (dbtnLog.BackgroundImage != Properties.Resources._22感叹号)//红色
                         LogBtnColorChange(1);
                 }
@@ -1226,13 +1233,14 @@ namespace BioBaseCLIA
             if (LackLq[0] > 0)
             {
                 //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "磁珠清洗液为空");
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " +GetString("Cleaningfluidempty") );
                 dbtnBuffer.BackgroundImage = Properties.Resources._3;//黄色（红色为_2）
                 LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "磁珠清洗液为空");
+                    f.MessageShow(GetString("Tips") ,GetString("Cleaningfluidempty"));
                 }))
                 { IsBackground = true }.Start();
             }
@@ -1242,8 +1250,9 @@ namespace BioBaseCLIA
                 //取消错误
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "磁珠清洗液正常");
+                    f.MessageShow(GetString("Tips"), GetString("Cleaningfluidnormal"));
                 }))
                 { IsBackground = true }.Start();
             }
@@ -1254,13 +1263,14 @@ namespace BioBaseCLIA
             if (LackLq[1] > 0)
             {
                 //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "探针清洗液为空");
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Probefluidempty"));
                 dbtnWash.BackgroundImage = Properties.Resources._6__2_;//黄色（红色为_7）
                 LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "探针清洗液为空");
+                    f.MessageShow(GetString("Tips"),GetString("Probeempty"));
                 })) { IsBackground = true }.Start();
             }
             else
@@ -1269,8 +1279,9 @@ namespace BioBaseCLIA
                 dbtnWash.BackgroundImage = Properties.Resources._8;//蓝色
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "探针清洗液正常");
+                    f.MessageShow(GetString("Tips"), GetString("Probenormal"));
                 })) { IsBackground = true }.Start();
             }
         }
@@ -1280,13 +1291,14 @@ namespace BioBaseCLIA
             if (LackLq[2] > 0)
             {
                 //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "废液桶已满");
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Wastefull"));
                 dbtnWaste.BackgroundImage = Properties.Resources._11;//黄色（红色为_10）
                 LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "废液桶已满");
+                    f.MessageShow(GetString("Tips"), GetString("Wastefull"));
                 })) { IsBackground = true }.Start();
             }
             else
@@ -1294,8 +1306,9 @@ namespace BioBaseCLIA
                 dbtnWaste.BackgroundImage = Properties.Resources._9;//蓝色
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "废液桶正常");
+                    f.MessageShow(GetString("Tips"), GetString("Wastenormal"));
                 })) { IsBackground = true }.Start();
             }
         }
@@ -1377,15 +1390,15 @@ namespace BioBaseCLIA
         {
             if (Temprrature[0] == 0 || Temprrature[1] == 0 || Temprrature[2] == 0 || Temprrature[3] == 0)
             {
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton, "温度警告")));
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton, GetString("Temperaturewarning"))));
                 return;
             }
             if (Temprrature[0] < RangeWY[0] || Temprrature[0] > RangeWY[1] || Temprrature[1] < RangeWash[0] || Temprrature[1] > RangeWash[1] || Temprrature[3] < RangeSubstrate[0] || Temprrature[3] > RangeSubstrate[1] || Temprrature[2] < RangeQXGL[0] || Temprrature[2] > RangeQXGL[1])//后期需要更改标准,包括下面的部分
             {
                 StringBuilder st = new StringBuilder();
                 StringBuilder st2 = new StringBuilder();
-                st.Append("温度警告：");
-                st2.Append("其中");
+                st.Append(GetString("Temperaturewarning") +":");
+                st2.Append(" ");
                 int i = st.Length;
                 i = st2.Length;
                 if (Ttype.Contains("04")&&(Temprrature[0] < RangeWY[0] || Temprrature[0] > RangeWY[1]))
@@ -1393,9 +1406,12 @@ namespace BioBaseCLIA
                     decimal Temp= Temprrature[0];
                     if (Temp > 55)
                         Temp = 55;
-                    st.Append("温育盘温度");
-                    st2.Append("温育盘" + Temp.ToString() + "℃");
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "温育盘温度未达到标准：" + Temp.ToString() + "℃");
+                    st.Append(GetString("Incubationtemperature"));
+                    st2.Append(GetString("Incubation" + Temp.ToString() +GetString("Temperaturesign")));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + 
+                        " *** " +GetString("Err") + " *** " +GetString("NotRead") + 
+                        " *** " + GetString("Incubationtemperature")+ GetString("Notstandardtemperature")+
+                        " " + Temp.ToString() +GetString("Temperaturesign"));
                 }
                 if (Ttype.Contains("05") && (Temprrature[1] < RangeWash[0] || Temprrature[1] > RangeWash[1]))
                 {
@@ -1404,15 +1420,17 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append("、清洗盘温度");
-                        st2.Append("，清洗盘" + Temp.ToString() + "℃");
+                        st.Append("、"+  GetString("Cleantemperature") );
+                        st2.Append("，" +GetString("Clean") + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     else
                     {
-                        st.Append("清洗盘温度");
-                        st2.Append("清洗盘" + Temp.ToString() + "℃");
+                        st.Append( GetString("Cleantemperature"));
+                        st2.Append(GetString("Clean") + Temp.ToString() + GetString("Temperaturesign"));
                     }
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清洗盘温度未达到标准：" + Temp.ToString() + "℃");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " +
+                        GetString("Err") + " *** " + GetString("NotRead") + " *** " +
+                        GetString("Cleantemperature") + GetString("Notstandardtemperature") + "：" + Temp.ToString() + GetString("Temperaturesign"));
                 }
                 if (Ttype.Contains("07") && (Temprrature[3] < RangeSubstrate[0] || Temprrature[3] > RangeSubstrate[1]))
                 {
@@ -1421,15 +1439,17 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append("、底物环境温度");
-                        st2.Append("，底物" + Temp.ToString() + "℃");
+                        st.Append("、" + GetString("Substratetemperature"));
+                        st2.Append("，"+ GetString("Substrate") + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     else
                     {
-                        st.Append("底物环境温度");
-                        st2.Append("底物" + Temp.ToString() + "℃");
+                        st.Append(GetString("Substratetemperature"));
+                        st2.Append(GetString("Substrate") + Temp.ToString() + GetString("Temperaturesign"));
                     }
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "底物温度未达到标准：" + Temp.ToString() + "℃");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Err") +
+                        " *** " + GetString("NotRead") + " *** " + GetString("Substrate") + GetString("Notstandardtemperature") +"：" +
+                        Temp.ToString() + GetString("Temperaturesign"));
                 }
                 if (Ttype.Contains("06") && (Temprrature[2] < RangeQXGL[0] || Temprrature[2] > RangeQXGL[1]))
                 {
@@ -1438,26 +1458,28 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append("、清洗管路温度");
-                        st2.Append("，清洗管路" + Temp.ToString() + "℃");
+                        st.Append("、"+ GetString("Pipelinetemperature"));
+                        st2.Append("，"+ GetString("Pipeline") + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     else
                     {
-                        st.Append("清洗管路温度");
-                        st2.Append("清洗管路" + Temp.ToString() + "℃");
+                        st.Append(GetString("Pipelinetemperature"));
+                        st2.Append(GetString("Pipeline")+ Temp.ToString() + GetString("Temperaturesign"));
                     }
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清洗管路温度未达到标准：" + Temp.ToString() + "℃");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Err") +
+                        " *** " + GetString("NotRead") + " *** " + GetString("Pipeline") + GetString("Notstandardtemperature") + "：" +
+                        Temp.ToString() + GetString("Temperaturesign"));
                 }
-                st.Append("未达到标准。");
+                st.Append(GetString("Notstandardtemperature"));
                 temperatureButton.BackgroundImage = Properties.Resources.temperature_2;
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton, "温度警告：\n" + st.ToString())));//2018-07-20 zlx mod
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton,GetString("Temperaturewarning") +"\n" + st.ToString())));
                 //此时停止机器，不允许运行
                 if (bo)
                 {
                     new Thread(new ParameterizedThreadStart((obj) =>
                     {
                         frmMessageShow f = new frmMessageShow();
-                        f.MessageShow("温度警告", st.ToString() + st2.ToString());
+                        f.MessageShow(GetString("Temperaturewarning"), st.ToString() + st2.ToString());
                     })) { IsBackground = true }.Start();
                     
                 }
@@ -1465,14 +1487,14 @@ namespace BioBaseCLIA
             else
             {
                 temperatureButton.BackgroundImage = Properties.Resources.temperature_1;
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton, "系统温度查询")));//2018-07-20 zlx mod
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton,GetString("temperatureButton.ToolTip"))));//2018-07-20 zlx mod
                 //此时更新标志，指示可以运行
                 if (bo)
                 {
                     new Thread(new ParameterizedThreadStart((obj) =>
                     {
                         frmMessageShow f = new frmMessageShow();
-                        f.MessageShow("温度警告", "温度已达到运行标准");
+                        f.MessageShow(GetString("Temperaturewarning"),GetString("Standardtemperature"));
                     })) { IsBackground = true }.Start();
                    
                 }
@@ -1512,12 +1534,12 @@ namespace BioBaseCLIA
             if (NetCom3.isConnect&&NetCom3.Instance.isHeartbeatLive)
             {
                 dbtnConnect.Enabled = false;
-                toolTip1.SetToolTip(this.dbtnConnect, "网络已连接");
+                toolTip1.SetToolTip(this.dbtnConnect,GetString("Connect") );
             }
             else
             {
                 dbtnConnect.Enabled = true;
-                toolTip1.SetToolTip(this.dbtnConnect, "网络未连接");
+                toolTip1.SetToolTip(this.dbtnConnect, GetString("Disconnect" ));
             }
         }
 
@@ -1533,7 +1555,7 @@ namespace BioBaseCLIA
                 if (!NetCom3.isConnect)
                 {
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("系统通讯提示", "无法连接到仪器！");
+                    frmMS.MessageShow(GetString("Tips"),GetString("Unableconnect"));
                     frmMS.Dispose();
                     return;
                 }
@@ -1573,16 +1595,18 @@ namespace BioBaseCLIA
             {
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "暂存盘位置缺管");
+                    f.MessageShow(GetString("Tips"),GetString("Temporarystorageempty"));
                 })) { IsBackground = true }.Start();
             }
             else
             {
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "暂存盘位置有管");
+                    f.MessageShow(GetString("Tips"),GetString("Temporarystorage"));
                 })) { IsBackground = true }.Start();
             }
         }
@@ -1640,16 +1664,18 @@ namespace BioBaseCLIA
             {
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "废管盒已满");
+                    f.MessageShow(GetString("Tips"),GetString("Wastepipe") );
                 })) { IsBackground = true }.Start();
             }
             else
             {
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
+                    SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("警告", "废管盒正常");
+                    f.MessageShow(GetString("Tips"), GetString("Wastepipenormal") );
                 })) { IsBackground = true }.Start();
             }
         }
@@ -1711,14 +1737,39 @@ namespace BioBaseCLIA
             if ((sender as Button).Enabled)
             {
                 dbtnConnect.BackgroundImage = Properties.Resources.未连接;
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, "网络未连接")));
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.connecttip"))));
                 return;
             }
 
             dbtnConnect.BackgroundImage = Properties.Resources.已连接;
-            BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, "网络未连接")));
+            BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.disconnecttip"))));
+        }
+
+        private string GetString(string key)
+        {
+            return resources.GetString(key);
+        }
+        /// <summary>
+        /// 设置语言环境
+        /// </summary>
+        private void SetCultureInfo()
+        {
+            Language.AppCultureInfo = new System.Globalization.CultureInfo(GetCultureInfo());
+            //Language.AppCultureInfo = new System.Globalization.CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
+        }
+        private string GetCultureInfo()
+        {
+            if (OperateIniFile.ReadInIPara("CultureInfo", "Culture") == "en")
+            {
+                return "en";
+            }
+
+            return "zh-CN";
         }
     }
+
     /// <summary>
     /// 声音报警状态 isClose-禁止状态 IsOpen-开启状态 isStarTime=正在报警
     /// </summary>

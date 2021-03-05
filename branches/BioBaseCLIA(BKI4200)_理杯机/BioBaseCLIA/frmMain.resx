@@ -3194,25 +3194,190 @@
   <data name="&gt;&gt;dbtnConnect.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>en</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="timerConnect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="timerConnect.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>623, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
     <value>42</value>
-  </metadata>
-  <metadata name="timerStatus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="timerStatus.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>107, 17</value>
-  </metadata>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>226, 17</value>
-  </metadata>
-  <metadata name="timeWarnSound.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  </data>
+  <data name="timeWarnSound.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>475, 17</value>
-  </metadata>
+  </data>
+  <data name="Abnormalexit" xml:space="preserve">
+    <value>检测到非正常退出软件，请清空温育盘！</value>
+  </data>
+  <data name="Beadfluid" xml:space="preserve">
+    <value>磁珠清洗液正常</value>
+  </data>
+  <data name="Beadfluidempty" xml:space="preserve">
+    <value>磁珠清洗液为空</value>
+  </data>
+  <data name="btnWasteRack.tip" xml:space="preserve">
+    <value>废管盒信息</value>
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>清洗盘</value>
+  </data>
+  <data name="Cleantemperature" xml:space="preserve">
+    <value>清洗盘温度</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>网络已连接</value>
+  </data>
+  <data name="dbtnBuffer.tip" xml:space="preserve">
+    <value>磁珠清洗液查询</value>
+  </data>
+  <data name="dbtnConnect.connecttip" xml:space="preserve">
+    <value>网络已连接</value>
+  </data>
+  <data name="dbtnConnect.disconnecttip" xml:space="preserve">
+    <value>网络未连接</value>
+  </data>
+  <data name="dbtnLog.tip" xml:space="preserve">
+    <value>报警信息</value>
+  </data>
+  <data name="dbtnRack.tip" xml:space="preserve">
+    <value>理杯机信息</value>
+  </data>
+  <data name="dbtnRegent.tip" xml:space="preserve">
+    <value>试剂信息</value>
+  </data>
+  <data name="dbtnSubstract.tip" xml:space="preserve">
+    <value>底物信息</value>
+  </data>
+  <data name="dbtnWash.tip" xml:space="preserve">
+    <value>探针清洗液查询</value>
+  </data>
+  <data name="dbtnWaste.tip" xml:space="preserve">
+    <value>废液查询</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>网络未连接</value>
+  </data>
+  <data name="Err" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="ExitTip" xml:space="preserve">
+    <value>是否确定关闭正在运行的系统！</value>
+  </data>
+  <data name="Incubation" xml:space="preserve">
+    <value>温育盘</value>
+  </data>
+  <data name="Incubationtemperature" xml:space="preserve">
+    <value>温育盘温度</value>
+  </data>
+  <data name="NotRead" xml:space="preserve">
+    <value>未读</value>
+  </data>
+  <data name="NotRun" xml:space="preserve">
+    <value>实验未在运行，请勿进行暂停操作！</value>
+  </data>
+  <data name="Notstandardtemperature" xml:space="preserve">
+    <value>未达到标准</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>实验暂停中！</value>
+  </data>
+  <data name="Pipeline" xml:space="preserve">
+    <value>清洗管路</value>
+  </data>
+  <data name="Pipelinetemperature" xml:space="preserve">
+    <value>清洗管路温度</value>
+  </data>
+  <data name="Probefluid" xml:space="preserve">
+    <value>探针清洗液为空</value>
+  </data>
+  <data name="Standardtemperature" xml:space="preserve">
+    <value>温度已达到运行标准</value>
+  </data>
+  <data name="Stopexperiment" xml:space="preserve">
+    <value>停止实验会导致此次实验作废，确认是否要停止此次实验！</value>
+  </data>
+  <data name="Substrate" xml:space="preserve">
+    <value>底物</value>
+  </data>
+  <data name="Substratetemperature" xml:space="preserve">
+    <value>底物环境温度</value>
+  </data>
+  <data name="SystemExitTip" xml:space="preserve">
+    <value>是否确定关闭正在运行的系统！</value>
+  </data>
+  <data name="Temperaturesign" xml:space="preserve">
+    <value>℃</value>
+  </data>
+  <data name="Temperaturewarning" xml:space="preserve">
+    <value>温度警告</value>
+  </data>
+  <data name="Temporarystorage" xml:space="preserve">
+    <value>暂存盘位置有管</value>
+  </data>
+  <data name="Temporarystorageempty" xml:space="preserve">
+    <value>暂存盘位置缺管</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
+  <data name="Unableconnect" xml:space="preserve">
+    <value>无法连接到仪器！</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="Wasteliquid" xml:space="preserve">
+    <value>废液桶已满</value>
+  </data>
+  <data name="Wastepipe" xml:space="preserve">
+    <value>废管盒已满</value>
+  </data>
+  <data name="Wastepipenormal" xml:space="preserve">
+    <value>废管盒正常</value>
+  </data>
+  <data name="Reagentresidue" xml:space="preserve">
+    <value>项目试剂剩余测数为</value>
+  </data>
+  <data name="Substratesurplus" xml:space="preserve">
+    <value>底物剩余测试为</value>
+  </data>
+  <data name="Cleaningfluidempty" xml:space="preserve">
+    <value>磁珠清洗液为空</value>
+  </data>
+  <data name="Cleaningfluidnormal" xml:space="preserve">
+    <value>磁珠清洗液正常</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Lefttests" xml:space="preserve">
+    <value>项目试剂剩余测数为</value>
+  </data>
+  <data name="Probefluidempty" xml:space="preserve">
+    <value>探针清洗液为空</value>
+  </data>
+  <data name="Wastefull" xml:space="preserve">
+    <value>废液桶已满</value>
+  </data>
+  <data name="Wastetubefull" xml:space="preserve">
+    <value>废管盒已满</value>
+  </data>
+  <data name="Probeempty" xml:space="preserve">
+    <value>探针清洗液为空</value>
+  </data>
+  <data name="Probenormal" xml:space="preserve">
+    <value>探针清洗液正常</value>
+  </data>
+  <data name="Wastenormal" xml:space="preserve">
+    <value>废液桶正常</value>
+  </data>
 </root>
