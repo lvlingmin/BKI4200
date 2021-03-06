@@ -492,6 +492,10 @@ namespace BioBaseCLIA
         /// </summary>
         void RunBtnStatus()
         {
+            while (!this.IsHandleCreated)
+            {
+                Thread.Sleep(30);
+            }
             defineButton1.Enabled = true;
             if (defineButton1.BackgroundImage != Properties.Resources.blue_play_128px_569342_easyicon_net) 
             {
@@ -539,6 +543,7 @@ namespace BioBaseCLIA
                 defineButton2.BackgroundImage = Properties.Resources.blue_pause_128px_569341_easyicon_net;
                 defineButton3.BackgroundImage = Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
                 defineButton1.Enabled = false;
+                frmWorkList.btnRunStatus -= new Action(RunBtnStatus);
                 frmWorkList.btnRunStatus += new Action(RunBtnStatus);
 
                 LogFile.Instance.Write("btnRunClick委托个数:" + btnRunClick.GetInvocationList().Count());
