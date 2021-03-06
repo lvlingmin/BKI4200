@@ -522,6 +522,10 @@ namespace BioBaseCLIA
         /// </summary>
         void RunBtnStatus()
         {
+            while (!this.IsHandleCreated)
+            {
+                Thread.Sleep(30);
+            }
             defineButton1.Enabled = true;
             defineButton1.BackgroundImage = Properties.Resources.blue_play_128px_569342_easyicon_net;
             defineButton2.BackgroundImage = Properties.Resources.blue_pause_128px_569341_easyicon_net;
@@ -553,9 +557,11 @@ namespace BioBaseCLIA
                 defineButton2.BackgroundImage = Properties.Resources.blue_pause_128px_569341_easyicon_net;
                 defineButton3.BackgroundImage = Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
                 defineButton1.Enabled = false;
+                frmWorkList.btnRunStatus -= new Action(RunBtnStatus);
                 frmWorkList.btnRunStatus += new Action(RunBtnStatus);
+                frmWorkList.dbtnRackStatus -= new Action(dbtnRackStatus);
                 frmWorkList.dbtnRackStatus += new Action(dbtnRackStatus);
-                
+
                 LogFile.Instance.Write("btnRunClick委托个数:" + btnRunClick.GetInvocationList().Count());
                 while (btnRunClick != null && btnRunClick.GetInvocationList().Length > 1)//保证只有一个委托 
                 {
