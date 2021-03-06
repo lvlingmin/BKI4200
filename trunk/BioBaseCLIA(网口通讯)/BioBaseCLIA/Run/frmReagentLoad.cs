@@ -50,7 +50,7 @@ namespace BioBaseCLIA.Run
         public void LoadData()
         {
           
-            GetSelectedNo = -1;//2018-12-08 zlx mod
+            GetSelectedNo = 0;//2021-3-06 zlx mod
             ShowRgInfo(1);
         }
         private void frmLoadReagent_Load(object sender, EventArgs e)
