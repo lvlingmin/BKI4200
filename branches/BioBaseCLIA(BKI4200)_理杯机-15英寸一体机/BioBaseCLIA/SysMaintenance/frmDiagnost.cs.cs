@@ -3770,6 +3770,7 @@ namespace BioBaseCLIA.SysMaintenance
                     buff[i] = 0;
                 }
             }
+            Myfile.Dispose();
             NetCom3.Instance.ReceiveHandel += DealReceive;
 
             //握手
