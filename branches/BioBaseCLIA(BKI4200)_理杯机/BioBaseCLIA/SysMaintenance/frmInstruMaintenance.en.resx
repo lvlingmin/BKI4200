@@ -1315,10 +1315,10 @@
     <value>The maximum filling times of magnetic bead cleaning solution is 20, please input the appropriate filling times!</value>
   </data>
   <data name="beadperfusion" xml:space="preserve">
-    <value>Filling of magnetic bead cleaning solution... \n</value>
+    <value>Filling of magnetic bead cleaning solution... </value>
   </data>
   <data name="beadPerfusionfinish" xml:space="preserve">
-    <value>The filling of magnetic bead cleaning solution is completed... \n</value>
+    <value>The filling of magnetic bead cleaning solution is completed... </value>
   </data>
   <data name="btnPourInto.Text1" xml:space="preserve">
     <value>Start</value>
