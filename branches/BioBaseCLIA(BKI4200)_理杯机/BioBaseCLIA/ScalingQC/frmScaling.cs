@@ -355,7 +355,7 @@ namespace BioBaseCLIA.ScalingQC
                         continue;
                     //将每个定标点的浓度和RLU分开放到数组中
                     string[] pointsData = curvePoints[i].Split(',');
-                    dgvScalingData.Rows.Add("S" + i.ToString(), pointsData[0].Substring(1), pointsData[1].Substring(0, pointsData[1].IndexOf(")")));
+                    dgvScalingData.Rows.Add("S" + (i+1).ToString(), pointsData[0].Substring(1), pointsData[1].Substring(0, pointsData[1].IndexOf(")")));
                 }
                 #endregion
                 if (dgvScalingData.Rows.Count == 2)
