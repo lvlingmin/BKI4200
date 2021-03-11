@@ -360,7 +360,7 @@ namespace BioBaseCLIA.User
                 }));
             }
             Thread.Sleep(5000);
-            
+            DialogResult = DialogResult.OK;
             complete:
             BeginInvoke(new Action(() =>
             {
