@@ -273,6 +273,11 @@ namespace BioBaseCLIA.User
                         MessageBox.Show("仪器初始化异常:\n\n" + err.ToString(),"温馨提示",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }));
+                    //管理员账号握手初始化失败也能进入软件
+                    if (LoginUserType == "1") //lyq add20210311
+                    {
+                        DialogResult = DialogResult.OK;
+                    }
                     goto complete;
                 }
                 #endregion
@@ -355,17 +360,8 @@ namespace BioBaseCLIA.User
                 }));
             }
             Thread.Sleep(5000);
-            DialogResult = DialogResult.OK;
+            
             complete:
-            if (NetCom3.Instance.ErrorMessage != null)
-            {
-                ;
-            }
-            //管理员账号握手初始化失败也能进入软件
-            else if (LoginUserType == "1") //lyq add20201204
-            {
-                DialogResult = DialogResult.OK;
-            }
             BeginInvoke(new Action(() =>
             {
                 Close();
