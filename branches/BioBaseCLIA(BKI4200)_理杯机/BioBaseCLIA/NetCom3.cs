@@ -217,14 +217,21 @@ namespace BioBaseCLIA
         public bool CheckNetWorkLink()
         {
             Ping p = new Ping();
-            PingReply pr = p.Send(ipAddress);
-            if (pr.Status != IPStatus.Success)
+            try
+            {
+                PingReply pr = p.Send(ipAddress);
+                if (pr.Status != IPStatus.Success)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (System.Exception ex)
             {
                 return false;
-            }
-            else
-            {
-                return true;
             }
         }
         /// <summary>
