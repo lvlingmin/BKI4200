@@ -149,6 +149,7 @@ namespace BioBaseCLIA.ScalingQC
             SetControlStatus(true);
             btnDeleteQC.Text = "取消";
             btnDeleteQC.Enabled = true;
+            txtBatch.Enabled = cmbProName.Enabled = cmbBype.Enabled = dtpValidity.Enabled = dtpAddDate.Enabled = false;
             addOrModify = 2;
         }
 
@@ -483,17 +484,20 @@ namespace BioBaseCLIA.ScalingQC
                 if (tempQueryStr != "")
                 {
 
-                    if (tempQueryStr == "0")
+                    if (queryStr == "QCLevel")
                     {
-                        tempQueryStr = "高";
-                    }
-                    else if (tempQueryStr == "1")
-                    {
-                        tempQueryStr = "中";
-                    }
-                    else if (tempQueryStr == "2")
-                    {
-                        tempQueryStr = "低";
+                        if (tempQueryStr == "0")
+                        {
+                            tempQueryStr = "高";
+                        }
+                        else if (tempQueryStr == "1")
+                        {
+                            tempQueryStr = "中";
+                        }
+                        else if (tempQueryStr == "2")
+                        {
+                            tempQueryStr = "低";
+                        }
                     }
                     control.Items.Add(tempQueryStr);
 
