@@ -2564,4 +2564,10 @@
   <data name="W" xml:space="preserve">
     <value>wash</value>
   </data>
+  <data name="R3" xml:space="preserve">
+    <value>Reagent 3</value>
+  </data>
+  <data name="RD" xml:space="preserve">
+    <value>Reagent D</value>
+  </data>
 </root>

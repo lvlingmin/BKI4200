@@ -503,6 +503,14 @@ namespace BioBaseCLIA.InfoSetting
             {
                 return Getstring("R2");
             }
+            if (flagName == "R3")
+            {
+                return Getstring("R3");
+            }
+            if (flagName == "RD")
+            {
+                return Getstring("RD");
+            }
             if (flagName == "H")
             {
                 return Getstring("H");
