@@ -7104,7 +7104,7 @@ namespace BioBaseCLIA.Run
                         {
                             int pos = (testTempS.AddSamplePos) % ReactTrayHoleNum == 0 ? ReactTrayHoleNum : (testTempS.AddSamplePos) % ReactTrayHoleNum;
 
-                            AddLiquid(rgPos, pos, int.Parse(testTempS.AddLiqud));
+                            AddReagentD(rgPos, pos, int.Parse(testTempS.AddLiqud));
 
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 04 01 " + pos.ToString("x2")), 0);
                             if (!NetCom3.Instance.SPQuery())
@@ -7143,6 +7143,64 @@ namespace BioBaseCLIA.Run
             drRg = null;
             addLiquiding = false;
             //}
+        }
+        /// <summary>
+        /// 加在稀释液位置试剂
+        /// </summary>
+        /// <param name="rgPos">试剂位置</param>
+        /// <param name="pos">加样位置</param>
+        /// <param name="FirstDiu">加样体积</param>
+        /// <returns></returns>
+        private int AddReagentD(int rgPos, int pos, int FirstDiu)
+        {
+            int AddErrorCount = 0;
+            int LeftdiuVol = (int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", "", iniPathReagentTrayInfo)) + 2) * (FirstDiu + 10);
+            string strLeftdiuVol = LeftdiuVol.ToString("x2");
+            int len = strLeftdiuVol.Trim().Length;
+            if (len < 4)
+            {
+                for (int i = len; i < 4; i++)
+                {
+                    strLeftdiuVol = "0" + strLeftdiuVol;
+                }
+            }
+            LogFile.Instance.Write(DateTime.Now + ":strLeftdiuVol的值为" + strLeftdiuVol);
+            string Order = "EB 90 31 02 06 ";
+            NetCom3.Instance.Send(NetCom3.Cover(Order + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                          + " " + FirstDiu.ToString("x2") + " " + strLeftdiuVol.Substring(0, 2) + " " + strLeftdiuVol.Substring(2, 2)), 0);
+            //指令未执行完成进行等待
+            if (!NetCom3.Instance.SPQuery())
+            {
+            #region 异常处理
+            Again:
+                string againSend = "";
+                if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
+                {
+                    AddErrorCount++;
+                    //重新发送指令
+                    if (againSend == "")
+                        againSend = Order + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                        + " 00 " + strLeftdiuVol.Substring(0, 2) + " " + strLeftdiuVol.Substring(2, 2);
+                }
+                else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
+                {
+                    //重新发送指令
+                    if (againSend == "")
+                        againSend = Order + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                        + " " + FirstDiu.ToString("x2") + " " + strLeftdiuVol.Substring(0, 2) + " " + strLeftdiuVol.Substring(2, 2);
+                }
+                else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
+                {
+                    NetCom3.Instance.stopsendFlag = true;
+                }
+                int sendFlag = SendAgain(againSend, 0);
+                if (sendFlag == (int)ErrorState.Sendfailure)
+                    goto Again;
+                else if (sendFlag == (int)ErrorState.IsKnocked)
+                    AddErrorCount++;
+                #endregion
+            }
+            return AddErrorCount;
         }
 
         /// <summary>
