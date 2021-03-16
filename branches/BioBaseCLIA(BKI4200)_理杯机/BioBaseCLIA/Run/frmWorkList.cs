@@ -984,12 +984,7 @@ namespace BioBaseCLIA.Run
                 DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Emergency = 3 where Status = 0 and Emergency = 2 and SendDateTime >=#"
                     + DateTime.Now.ToString("yyyy-MM-dd") + "#and SendDateTime <#"
                     + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd") + "#");
-                //查询添加的急诊样本  //tbSampleInfo.Emergency DESC;             
-                //DataTable dtprosample = bllsampleinfo.GetList(" SendDateTime >=#" + DateTime.Now.ToString("yyyy-MM-dd")
-                //    + "#and SendDateTime <#" + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")
-                //    + "# and Status = 0 order by Emergency DESC,CInt([Position]) ASC").Tables[0];
                 db = new DbHelperOleDb(1);
-                //Jun mod
                 DataTable dtprosample = bllsampleinfo.GetList(" SendDateTime >=#" + DateTime.Now.ToString("yyyy-MM-dd")
                     + "#and SendDateTime <#" + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")
                     + "# and Status = 0 order by Emergency DESC,SampleNo ASC").Tables[0];
@@ -1350,6 +1345,22 @@ namespace BioBaseCLIA.Run
                                 AddLiqud[1], Emergency, ExperimentStep.AddRegent3, tempProMethod, RegentTime, 1);
                             stepID++;
                         }
+                        else if (step[k].Contains("RD"))
+                        {//加试剂D步骤
+                            if (k < 3)
+                            {
+                                tempProMethod = 1;
+                            }
+                            else
+                            {
+                                tempProMethod = 2;
+                            }
+                            dtStepInfo.Rows.Add(dtSampleInfo.Rows[i]["SampleID"], testID, stepID,
+                                dtSampleInfo.Rows[i]["SampleNo"], dtSampleInfo.Rows[i]["SampleContainer"],
+                                dtSampleInfo.Rows[i]["Position"], dtSampleInfo.Rows[i]["ShortName"],
+                                AddLiqud[1], Emergency, ExperimentStep.AddRegentD, tempProMethod, RegentTime, 1);
+                            stepID++;
+                        }
                         else if (step[k].Contains("H"))
                         {//孵育
 
@@ -1702,6 +1713,34 @@ namespace BioBaseCLIA.Run
                                 testschedule.dilutionTimes = "1";
                                 testschedule.getSamplePos = "";
                                 testschedule.singleStep = "R3";
+                                TEMPlisTestSchedule.Add(testschedule);
+                                testschedule = new TestSchedule();
+                            }
+                            break;
+                        case ExperimentStep.AddRegentD:
+                            if (lisTM[i].ProMethod == 2)
+                            {
+                                testschedule.SampleNo = lisTM[i].SampleNo;
+                                testschedule.SampleID = lisTM[i].SampleID;
+                                testschedule.ItemName = lisTM[i].ItemName;
+                                testschedule.TestID = lisTM[i].TestID;
+                                testschedule.samplePos = lisTM[i].SamplePos;
+                                testschedule.SampleContainer = lisTM[i].SampleContainer;
+                                testschedule.TimePro = ItemProportion(lisTM[i].ItemName, lisTM[i].SamplePos, lisTM);
+                                testschedule.AddLiqud = lisTM[i].AddLiqud;
+                                testschedule.StartTime = 0;
+                                testschedule.TimeLengh = RegentTime;
+                                testschedule.stepNum = stepTime++;
+                                testschedule.EndTime = testschedule.StartTime + testschedule.TimeLengh;
+                                testschedule.TestScheduleStep = TestSchedule.ExperimentScheduleStep.AddSingleR;
+                                testschedule.Emergency = lisTM[i].Emergency;
+                                testschedule.ProMethod = lisTM[i].ProMethod;
+                                //稀释相关字段赋值。 LYN add 20171114
+                                testschedule.dilutionPos = "";
+                                testschedule.AddSamplePos = 0;
+                                testschedule.dilutionTimes = "1";
+                                testschedule.getSamplePos = "";
+                                testschedule.singleStep = "RD";
                                 TEMPlisTestSchedule.Add(testschedule);
                                 testschedule = new TestSchedule();
                             }
@@ -2603,6 +2642,10 @@ namespace BioBaseCLIA.Run
                             {
                                 mergeSteps += "-R3";
                             }
+                            else if (lisTS[j].singleStep == "RD")
+                            {
+                                mergeSteps += "-RD";
+                            }
                             testTime += lisTS[j].TimeLengh; ;
                             break;
                         case TestSchedule.ExperimentScheduleStep.Wash1:
@@ -2703,6 +2746,10 @@ namespace BioBaseCLIA.Run
                         case "R":
                             proBar.BarColor[k] = Color.Orange;
                             proBar.BarWidth[k] = 10;
+                            break;
+                        case "RD":
+                            proBar.BarColor[k] = Color.Red;
+                            proBar.BarWidth[k] = 13;
                             break;
                     }
                 }
@@ -5568,7 +5615,6 @@ namespace BioBaseCLIA.Run
             DbHelperOleDb dba = new DbHelperOleDb(3);
             DataTable dtRegent = new BLL.tbReagent().GetList("ReagentName='" + testTempS.ItemName.ToString() + "' AND Status='正常' AND leftoverTestR1>=0 ").Tables[0];
             DataRow[] drRg;
-            //DataRow[] drRg = dtRgInfo.Select("RgName='" + testTempS.ItemName.ToString() + "' AND leftoverTestR1>0");
             foreach (DataRow dr in dtRegent.Rows)
             {
                 drRg = dtRgInfo.Select("Postion='" + dr["Postion"] + "'");
@@ -6454,17 +6500,6 @@ namespace BioBaseCLIA.Run
                     stepTime = 0;
                     break;
                 case TestSchedule.ExperimentScheduleStep.AddBeads:
-                    #region 暂时加一个记录
-
-                    //LogFile.Instance.Write(string.Format("\n时间 :testTempS==null ? :" + (testTempS == null),
-                    //    DateTime.Now.ToString("HH:mm:ss:fff"))); ;
-                    //LogFile.Instance.Write(string.Format("\n" +"testTempS.TestID:" + testTempS.TestID ));
-                    //LogFile.Instance.Write(string.Format("\n" + "dgvWorkListData.Rows:" + testTempS.TestID));
-                    //LogFile.Instance.Write(string.Format("\n" + "testTempS.TestID:" + testTempS.TestID));
-                    //LogFile.Instance.Write(string.Format("\n" + "dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString():" + 
-                    //    dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString()));
-                    //LogFile.Instance.Write(string.Format("\n" + "StepIndex:"+ StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "B")));
-                    #endregion
                     try
                     {
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "B") - 1]
@@ -6492,7 +6527,6 @@ namespace BioBaseCLIA.Run
                         {
                             for (int g = 0; g < drRg.Length; g++)
                             {
-                                //2018-08-27 zlx add
                                 if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
                                     /* || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
                                 {
@@ -6515,7 +6549,6 @@ namespace BioBaseCLIA.Run
                         //剩余R4体积
                         int leftR4 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent4", "", iniPathReagentTrayInfo));
                         string leftR4Vol = (RegentNoUsePro + leftR4 * int.Parse(testTempS.AddLiqud) + leftR4 * abanR1Pro).ToString("x4");//2018-10-13 zlx mod
-                                                                                                                                         //string leftR4Vol = (leftR4 * int.Parse(testTempS.AddLiqud) + (int)(int.Parse(testTempS.AddLiqud) * abanR1Pro)).ToString("x4");
                         ///取试剂盘rgPos位置试剂加到反应盘Pos位置///洗针
                         AddErrorCount = 0;
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 07 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
@@ -7027,6 +7060,79 @@ namespace BioBaseCLIA.Run
                         }
                         #endregion
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R3")]
+                            = Color.Gray;
+                    }
+                    else if (testTempS.singleStep == "RD")
+                    {
+                        lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "RD") - 1]
+                        = Color.Gray;
+                        lisProBar[testTempS.TestID - 1].Invalidate();
+                        while (!this.IsHandleCreated)//为了防止出现“在创建窗口句柄之前，不能在控件上调用 Invoke 或 BeginInvoke”的错误
+                        {
+                            Thread.Sleep(30);
+                        }
+                        BeginInvoke(TestStatusInfo, new object[] { "正在加试剂D", testTempS.TestID });
+                        lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "RD")]
+                            = Color.Yellow;
+                        lisProBar[testTempS.TestID - 1].Invalidate();
+                        #region 加R过程
+                        if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString() != "")
+                            rgPos = int.Parse(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString());
+                        else
+                        {
+                             if (drRg.Length > 0)
+                            {
+                                for (int g = 0; g < drRg.Length; g++)
+                                {
+                                    //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
+                                        /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
+                                    {
+                                        if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
+                                            continue;
+                                    }
+                                    if (int.Parse(drRg[g]["leftoverTestR1"].ToString()) >= 0)//判定试剂剩余量是否大于0
+                                    {
+                                        rgPos = int.Parse(drRg[g]["Postion"].ToString());//获取该试剂位置编号
+                                        rgindex = g;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if (rgPos > 0)
+                        {
+                            int pos = (testTempS.AddSamplePos) % ReactTrayHoleNum == 0 ? ReactTrayHoleNum : (testTempS.AddSamplePos) % ReactTrayHoleNum;
+
+                            AddLiquid(rgPos, pos, int.Parse(testTempS.AddLiqud));
+
+                            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 04 01 " + pos.ToString("x2")), 0);
+                            if (!NetCom3.Instance.SPQuery())
+                            {
+                                #region 异常处理
+                                string againSend = "";
+                            Again:
+                                if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
+                                {
+                                    //重新发送指令
+                                    if (againSend == "")
+                                        againSend = "EB 90 31 04 01 " + pos.ToString("x2");
+                                    if (SendAgain(againSend, 0) == (int)ErrorState.Sendfailure)
+                                        goto Again;
+                                }
+                                else
+                                {
+                                    NetCom3.Instance.stopsendFlag = true;
+                                    ShowWarnInfo("混匀" + pos + "位置时指令接收超时！", "加样", 1);
+                                    //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    AllStop();
+                                    break;
+                                }
+                                #endregion
+                            }
+                        }
+                        #endregion
+                        lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "RD")]
                             = Color.Gray;
                     }
                     lisProBar[testTempS.TestID - 1].Invalidate();
