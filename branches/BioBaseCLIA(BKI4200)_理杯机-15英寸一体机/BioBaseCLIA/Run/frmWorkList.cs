@@ -4102,8 +4102,15 @@ namespace BioBaseCLIA.Run
             {
                 if (oneOrTwo == 1)
                 {
+                    #region 底物减少逻辑
+                    substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
                     OperateIniFile.WriteIniData("Substrate1", "LeftCount", (substrateNum1 - 1).ToString(), iniPathSubstrateTube);
-                    substrateNum1--;
+                    string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
+                    string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
+                    DbHelperOleDb dbase = new DbHelperOleDb(3);
+                    DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '" + sbCode1 + "'");
+                    substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
+                    #endregion 
                 }
                 /*
                 if (oneOrTwo == 1)
