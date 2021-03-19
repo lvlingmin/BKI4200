@@ -4109,45 +4109,15 @@ namespace BioBaseCLIA.Run
                     string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
                     DbHelperOleDb dbase = new DbHelperOleDb(3);
                     DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '" + sbCode1 + "'");
-                    substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
+                    substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube)); 
+                    LogFile.Instance.Write("当前底物剩余测数 " + sbNum1);
                     #endregion 
                 }
-                /*
-                if (oneOrTwo == 1)
-                {
-                    if (substratePipe == "1")
-                    {
-                        OperateIniFile.WriteIniData("Substrate1", "LeftCount", (substrateNum1 - 1).ToString(), iniPathSubstrateTube);
-                        substrateNum1--;
-                    }
-                    else
-                    {
-                        OperateIniFile.WriteIniData("Substrate2", "LeftCount", (substrateNum2 - 1).ToString(), iniPathSubstrateTube);
-                        substrateNum2--;
-                    }
-                */
+
             }
         }
         private bool AddTubeInCleanTray(int pos = 0)//加空管到清洗盘取放管处
         {
-            /*
-            bool noUse;
-            int boardPos;
-            if (pos == 0)
-            {
-                boardPos = BoardNextPos(pos, false, out noUse);
-            }
-            else
-            {
-                boardPos = pos;
-            }
-            //MoveTubeUseFlag = true;
-            //WashTrayUseFlag = true;
-            //WashTurnFlag = true;
-            int plate = boardPos % 88 == 0 ? boardPos / 88 - 1 : boardPos / 88;//几号板
-            int column = boardPos % 11 == 0 ? boardPos / 11 - (plate * 8) : boardPos / 11 + 1 - (plate * 8);
-            int hole = boardPos % 11 == 0 ? 11 : boardPos % 11;
-             */
             int iNeedCool = 0;
             int IsKnockedCool = 0;
             AgainNewMove:
@@ -9170,6 +9140,8 @@ namespace BioBaseCLIA.Run
                 string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
                 DbHelperOleDb dbase = new DbHelperOleDb(3);
                 DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '" + sbCode1 + "'");
+                LogFile.Instance.Write("当前底物剩余测数 " + sbNum1);
+
 
                 if (dgvWorkListData.RowCount == 0) return;
                 dgvWorkListData.Rows[int.Parse(dtWashTrayTubeStatus.Rows[18 + isNewCleanTray][2].ToString()) - 1].Cells["SubstratePipe"].Value = substratePipe;
