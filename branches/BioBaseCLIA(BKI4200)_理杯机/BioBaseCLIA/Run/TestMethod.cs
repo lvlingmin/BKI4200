@@ -117,7 +117,11 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 读数
         /// </summary>
-        Read
+        Read,
+        /// <summary>
+        /// 加试剂D
+        /// </summary>
+        AddRegentD
     }
     /// <summary>
     /// 实验运行状态枚举
