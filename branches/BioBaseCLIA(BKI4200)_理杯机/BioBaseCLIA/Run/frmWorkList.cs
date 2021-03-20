@@ -3751,27 +3751,8 @@ namespace BioBaseCLIA.Run
                 if (DialogResult.OK != r)
                     return false;
             }
-            /*
-            if (Convert.ToDateTime(ValidDate1) < DateTime.Now.Date || Convert.ToDateTime(ValidDate2) < DateTime.Now.Date)
-            {
-                string OverInfo = "";
-                if (Convert.ToDateTime(ValidDate1) < DateTime.Now.Date)
-                    OverInfo = "底物1";
-                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "底物1已经过期");
-                if (Convert.ToDateTime(ValidDate2) < DateTime.Now.Date)
-                {
-                    if (OverInfo != "")
-                        OverInfo = OverInfo + "和底物2";
-                    else
-                        OverInfo = "底物2";
-                }
-                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "底物2已经过期");
-                DialogResult r = MessageBox.Show("" + OverInfo + "已过期需更换。本次仍然继续测试？", "底物检查信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (DialogResult.OK != r)
-                    return false;
-            }
-             */
-            if (substrateNum1 + substrateNum2 < BTestItem.Count)
+
+            if (substrateNum1 + substrateNum2 < BTestItem.Count + 6)//6次是实验前和实验后维护需要
             {
                 frmMsgShow.MessageShow("工作列表", "底物测数不够本次实验测试，请装载底物！");
                 return false;
