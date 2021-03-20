@@ -543,6 +543,9 @@
     <EmbeddedResource Include="Run\LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScalingQC\frmQC.en.resx">
+      <DependentUpon>frmQC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScalingQC\frmQC.resx">
       <DependentUpon>frmQC.cs</DependentUpon>
     </EmbeddedResource>
