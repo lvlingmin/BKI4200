@@ -3650,7 +3650,7 @@ namespace BioBaseCLIA.Run
                     return false;
             }
 
-            if (substrateNum1 + substrateNum2 < BTestItem.Count)
+            if (substrateNum1 + substrateNum2 < BTestItem.Count+6)//6次是实验前和实验后维护需要
             {
                 frmMsgShow.MessageShow("工作列表", "底物测数不够本次实验测试，请装载底物！");
                 return false;
