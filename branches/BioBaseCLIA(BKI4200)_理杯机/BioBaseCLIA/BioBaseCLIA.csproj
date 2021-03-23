@@ -616,6 +616,9 @@
     <EmbeddedResource Include="ScalingQC\frmQC.resx">
       <DependentUpon>frmQC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScalingQC\frmScaling.en.resx">
+      <DependentUpon>frmScaling.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScalingQC\frmScaling.resx">
       <DependentUpon>frmScaling.cs</DependentUpon>
     </EmbeddedResource>
