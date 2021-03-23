@@ -115,7 +115,7 @@ namespace BioBaseCLIA.ScalingQC
                         dr["RegentBatch"] = drScal["RegentBatch"];
                         dr["MainCurve"] = ExitsMainCurve ? "Y" : "N";
                         dr["Scaling"] = "Y";
-                        dr["CalType"] = drScal["ScalingModel"].ToString() == "6" ? "六点定标" : "两点校准";
+                        dr["CalType"] = drScal["ScalingModel"].ToString() == "6" ? getString("keywordText.SixPoint") : getString("keywordText.TwoPoint");
                         dr["ActiveDate"] = Convert.ToDateTime(drScal["ActiveDate"]).ToString("yyyy-MM-dd");
                         dr["ValidDate"] = (Convert.ToDateTime(drScal["ActiveDate"]).AddDays(expiryDate)).ToString();
                         dr["ExpiryDate"] = drProject[0]["ExpiryDate"];
@@ -304,7 +304,7 @@ namespace BioBaseCLIA.ScalingQC
                     //对处理过的数据进行纠错
                     if (double.IsNaN(MainltData[i].Data) || double.IsNaN(MainltData[i].DataValue))
                     {
-                        MessageBox.Show("函数计算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(getString("keywordText.FuncCalcError"), getString("keywordText.Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
 
                     }
@@ -326,7 +326,7 @@ namespace BioBaseCLIA.ScalingQC
                 {
                     if (double.IsNaN(par) || double.IsInfinity(par))
                     {
-                        MessageBox.Show("回归计算时出现运算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(getString("keywordText.RegressionCalcError"), getString("keywordText.Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     }
                 }
@@ -433,7 +433,7 @@ namespace BioBaseCLIA.ScalingQC
                         //对处理过的数据进行纠错
                         if (double.IsNaN(ltData[i].Data) || double.IsNaN(ltData[i].DataValue))
                         {
-                            MessageBox.Show("函数计算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(getString("keywordText.FuncCalcError"), getString("keywordText.Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
 
                         }
@@ -455,7 +455,7 @@ namespace BioBaseCLIA.ScalingQC
                     {
                         if (double.IsNaN(par) || double.IsInfinity(par))
                         {
-                            MessageBox.Show("回归计算时出现运算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(getString("keywordText.RegressionCalcError"), getString("keywordText.Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         }
                     }
@@ -514,8 +514,8 @@ namespace BioBaseCLIA.ScalingQC
         {
             dgvScalingData.Rows.Clear();
             definePanal1.BackgroundImage = null;
-            lblEquation.Text = "公式：";
-            lblR.Text = "相关系数：";
+            lblEquation.Text = getString("keywordText.Formula");
+            lblR.Text = getString("keywordText.CorrelationCoefficient");
         }
         #region 方程及曲线显示
         /// <summary>
@@ -563,19 +563,19 @@ namespace BioBaseCLIA.ScalingQC
                 {
                     case 0:
                     case 2:
-                        lblEquation.Text = "公式：";
-                        Furmula = "公式： y = (" + double.Parse(strpar[0]).ToString("0.00") + " - " + double.Parse(strpar[3]).ToString("0.00") +
+                        lblEquation.Text = getString("keywordText.Formula");
+                        Furmula = getString("keywordText.Formula") + " y = (" + double.Parse(strpar[0]).ToString("0.00") + " - " + double.Parse(strpar[3]).ToString("0.00") +
                             ") / [1 + (x/" + double.Parse(strpar[2]).ToString("0.00") + ")^" + double.Parse(strpar[1]).ToString("0.00") + "] + "
                             + double.Parse(strpar[3]).ToString("0.00");
                         lblEquation.Text = Furmula;
-                        lblR.Text = "相关系数：" + er.R2;
+                        lblR.Text = getString("keywordText.CorrelationCoefficient") + er.R2;
                         break;
                     case 1:
-                        lblEquation.Text = "公式：";
-                        Furmula = "方程式： y=" + double.Parse(strpar[0]).ToString("0.00") + "+" + double.Parse(strpar[1]).ToString("0.00")
+                        lblEquation.Text = getString("keywordText.Formula");
+                        Furmula = getString("keywordText.Equation") + " y=" + double.Parse(strpar[0]).ToString("0.00") + "+" + double.Parse(strpar[1]).ToString("0.00")
                             + "/(1+exp(-(" + double.Parse(strpar[2]).ToString("0.00") + "+" + double.Parse(strpar[3]).ToString("0.00") + "*ln(x))))";
                         lblEquation.Text = Furmula;
-                        lblR.Text = "相关系数：" + er.R2;
+                        lblR.Text = getString("keywordText.CorrelationCoefficient") + er.R2;
                         break;
                 }
             }
@@ -665,7 +665,7 @@ namespace BioBaseCLIA.ScalingQC
             }
             if (dgvScalData.CurrentRow.Cells["colIsScal"].Value.ToString() == "N")
             {
-                frmMS.MessageShow("定标", "未输入定标曲线！");
+                frmMS.MessageShow(getString("keywordText.Calibration"), getString("keywordText.NoInputCurve"));
                 return;
             }
             string ItemName = dgvScalData.CurrentRow.Cells["colItemName"].Value.ToString();
@@ -755,6 +755,11 @@ namespace BioBaseCLIA.ScalingQC
         {
             if (!th.IsAlive)
                 resetIsReady(sender, e);
+        }
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmScaling));
+            return resManager.GetString(key);
         }
     }
 }
