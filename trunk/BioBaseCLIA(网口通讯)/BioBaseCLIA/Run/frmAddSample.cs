@@ -465,6 +465,29 @@ namespace BioBaseCLIA.Run
                 groupBox6.Enabled = true;//y add 20180425
             }
         }
+        /// <summary>
+        /// 是否允许继续添加标准品
+        /// </summary>
+        /// <returns></returns>
+        bool ALlowAddStanard()
+        {
+            foreach (CheckBox ch in flpItemName.Controls)
+            {
+                if ((ch.Checked) && (cmbSpType.Text.ToString() == "标准品"))
+                {
+                    DbHelperOleDb db = new DbHelperOleDb(0);
+                    string str = txtSpPosition.Text;
+                    DataTable dtProject = bllPj.GetList("ActiveStatus=1 AND ShortName='" + ch.Text + "'").Tables[0];
+                    if (60 - Convert.ToInt32(str) + 1 <
+                        int.Parse(dtProject.Rows[0]["CalPointNumber"].ToString()))
+                    {
+                        MessageBox.Show("剩余样本位数量不足，请勿继续添加标准品");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             btnDelete.Enabled = false;
@@ -527,6 +550,10 @@ namespace BioBaseCLIA.Run
             }
             else if (((Button)sender).Text == "保存")
             {
+                if (!ALlowAddStanard())
+                {
+                    return;
+                }
                 //lyq add 20190828
                 //if (txtSpPosition.Text == "")
                 //{
