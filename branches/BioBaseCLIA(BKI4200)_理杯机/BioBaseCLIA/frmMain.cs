@@ -1586,9 +1586,11 @@ namespace BioBaseCLIA
 
         private void btnVersion_Click(object sender, EventArgs e)
         {
-            Type tempType = Type.GetTypeFromProgID("Shell.Application");
-            object oleObject = System.Activator.CreateInstance(tempType);
-            tempType.InvokeMember("ToggleDesktop", BindingFlags.InvokeMethod, null, oleObject, null);
+            frmVersion frmVersion = new frmVersion();
+            frmVersion.Show();
+            //Type tempType = Type.GetTypeFromProgID("Shell.Application");
+            //object oleObject = System.Activator.CreateInstance(tempType);
+            //tempType.InvokeMember("ToggleDesktop", BindingFlags.InvokeMethod, null, oleObject, null);
         }
 
         private void pnlbarUP_Paint(object sender, PaintEventArgs e)

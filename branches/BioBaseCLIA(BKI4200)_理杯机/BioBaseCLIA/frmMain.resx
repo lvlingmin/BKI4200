@@ -3057,7 +3057,7 @@
     <value>Stretch</value>
   </data>
   <data name="btnVersion.Text" xml:space="preserve">
-    <value>最小化</value>
+    <value>关于</value>
   </data>
   <data name="fbtnMaintenance.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
