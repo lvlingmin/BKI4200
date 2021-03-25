@@ -12,6 +12,8 @@ using System.Threading;
 using BioBaseCLIA.CalculateCurve;
 using BioBaseCLIA.DataQuery;
 using System.Timers; //lyq add 20190828
+using System.Resources;
+
 namespace BioBaseCLIA.ScalingQC
 {
     public partial class frmScaling : frmParent
