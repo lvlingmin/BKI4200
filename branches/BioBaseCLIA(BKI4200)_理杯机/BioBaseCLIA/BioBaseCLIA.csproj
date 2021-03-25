@@ -555,6 +555,9 @@
     <EmbeddedResource Include="Run\frmAddScaling.en-US.resx">
       <DependentUpon>frmAddScaling.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmAddScaling.en.resx">
+      <DependentUpon>frmAddScaling.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Run\frmAddScaling.resx">
       <DependentUpon>frmAddScaling.cs</DependentUpon>
     </EmbeddedResource>
