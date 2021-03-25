@@ -11,6 +11,7 @@ using BioBaseCLIA.ScalingQC;
 using System.Text.RegularExpressions;
 using DBUtility;
 using Common;
+using System.Resources;
 
 namespace BioBaseCLIA.Run
 {
@@ -66,9 +67,9 @@ namespace BioBaseCLIA.Run
             dtConcValue.Columns.Add("Value", typeof(string));
 
             //为实验流程列表增加source jun add 20190409
-            dtTestPro.Columns.Add("步骤", typeof(string));
-            dtTestPro.Columns.Add("参数", typeof(string));
-            dtTestPro.Columns.Add("单位", typeof(string));
+            dtTestPro.Columns.Add(getString("keywordText.Step"), typeof(string));
+            dtTestPro.Columns.Add(getString("keywordText.Parameter"), typeof(string));
+            dtTestPro.Columns.Add(getString("keywordText.Unit"), typeof(string));
 
         }
         public frmAddScaling(string name, string batch, string activedate, string validdate)//增加一个项目名称参数 jun add 20190409
@@ -83,9 +84,9 @@ namespace BioBaseCLIA.Run
             validDate = validdate;
 
             //为实验流程列表增加source jun add 20190409
-            dtTestPro.Columns.Add("步骤", typeof(string));
-            dtTestPro.Columns.Add("参数", typeof(string));
-            dtTestPro.Columns.Add("单位", typeof(string));
+            dtTestPro.Columns.Add(getString("keywordText.Step"), typeof(string));
+            dtTestPro.Columns.Add(getString("keywordText.Parameter"), typeof(string));
+            dtTestPro.Columns.Add(getString("keywordText.Unit"), typeof(string));
 
 
         }
@@ -143,7 +144,7 @@ namespace BioBaseCLIA.Run
             if (steps.Length < 1 || steps[0] == "")
             {
                 frmMessageShow frm = new frmMessageShow();
-                frm.MessageShow("温馨提示", "当前实验项目不存在，请进行新项目导入！");
+                frm.MessageShow(getString("keywordText.Tips"), getString("keywordText.TipsNone"));
                 return;
             }
             foreach (string step in steps)
@@ -399,7 +400,7 @@ namespace BioBaseCLIA.Run
                                 //dtConcValue.Rows[6][2] = double.Parse(sign17);
                                 break;
                             default:
-                                MessageBox.Show("请按标准扫描本公司条码");
+                                MessageBox.Show(getString("keywordText.ScanByStandard"));
                                 //Console.WriteLine("请按标准扫描本公司条码");
                                 break;
                         }
@@ -502,7 +503,7 @@ namespace BioBaseCLIA.Run
             {
                 if (value[i] == "")
                 {
-                    frmMsg.MessageShow("添加曲线", "存在发光值为空的点，请重新输入！");
+                    frmMsg.MessageShow(getString("keywordText.AddCurve"), getString("keywordText.ValueNone"));
                     return;
                 }
             }
@@ -529,7 +530,7 @@ namespace BioBaseCLIA.Run
             }
             if (mCurve == 0)
             {
-                MessageBox.Show("没有在主曲线表查找到该批号字段");
+                MessageBox.Show(getString("keywordText.FindNone"));
                 return;
             }
 
@@ -578,11 +579,11 @@ namespace BioBaseCLIA.Run
             int rows = DbHelperOleDb.ExecuteSql(0,sql);//更新流程到数据库
             if (rows > 0)
             {
-                MessageBox.Show("项目流程更新成功");
+                MessageBox.Show(getString("keywordText.UpdateAucceeded"));
             }
             else
             {
-                MessageBox.Show("项目流程更新失败");
+                MessageBox.Show(getString("keywordText.UpdateFailed"));
             }
 
             //更新曲线
@@ -590,7 +591,7 @@ namespace BioBaseCLIA.Run
             //if (bllmsc.Add(modelMainScalcurve))
             if (bllmsc.Update(modelMainScalcurve))//更新，不是添加 jun mod 20190409
             {
-                frmMsg.MessageShow("添加曲线", "添加定标曲线成功！");
+                frmMsg.MessageShow(getString("keywordText.AddCurve"), getString("keywordText.AddCurveAucceeded"));
                 if (AddMainCurve != null)
                 {
                     AddMainCurve();
@@ -599,7 +600,7 @@ namespace BioBaseCLIA.Run
             }
             else
             {
-                frmMsg.MessageShow("添加曲线", "添加定标曲线失败！");
+                frmMsg.MessageShow(getString("keywordText.AddCurve"), getString("keywordText.AddCurveFailed"));
             }
         }
 
@@ -636,7 +637,7 @@ namespace BioBaseCLIA.Run
                 else
                 {
                     e.Handled = true;
-                    frmMsg.MessageShow("添加曲线", "只能输入数字！");
+                    frmMsg.MessageShow(getString("keywordText.AddCurve"), getString("keywordText.OnlyNum"));
                 }
             }
 
@@ -1041,12 +1042,17 @@ namespace BioBaseCLIA.Run
                         //dtConcValue.Rows[6][2] = double.Parse(sign17);
                         break;
                     default:
-                        MessageBox.Show("请按标准扫描本公司条码");
+                        MessageBox.Show(getString("keywordText.ScanByStandard"));
                         break;
                 }
             }
             codeTextBox.Text = "";
             codeTextBox.Focus();
+        }
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmAddScaling));
+            return resManager.GetString(key);
         }
     }
 }
