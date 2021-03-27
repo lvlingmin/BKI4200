@@ -6832,7 +6832,7 @@ namespace BioBaseCLIA.Run
                 {
                     iNeedCool++;
                     bool isMoevtoNextBoard;
-                    if (iNeedCool >= 11)
+                    if (iNeedCool >= 3)
                     {
                         TubeStop = true;
                         if ((ReactPos != 1 || ReactPos != 2 || ReactPos != 3) && !AddTubeStop.Contains(ReactPos))
@@ -6844,9 +6844,8 @@ namespace BioBaseCLIA.Run
                         }
                         setmainformbutten();
                         LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在管架向温育盘抓管时多次抓空!实验停止进行加样！");
-                        //DialogResult tempresult = MessageBox.Show("移管手抓新管多次抓空！是否继续实验？","移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     }
-                    else if (iNeedCool < 11)
+                    else if (iNeedCool < 3)
                     {
                         AgaingetPos:
                         if (iNeedCool == 3 || iNeedCool == 6 || iNeedCool == 9)
@@ -6867,10 +6866,10 @@ namespace BioBaseCLIA.Run
                         if (int.Parse(num) == 0)
                         {
                             iNeedCool = iNeedCool + 3;
-                            if (iNeedCool < 11)
+                            if (iNeedCool < 3)
                                 goto AgaingetPos;
                         }
-                        if (iNeedCool < 11)
+                        if (iNeedCool < 3)
                             goto AgainNewMove;
                     }
                 }
