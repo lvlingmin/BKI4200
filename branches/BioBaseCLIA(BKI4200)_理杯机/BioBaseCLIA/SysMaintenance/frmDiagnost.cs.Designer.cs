@@ -384,6 +384,7 @@
             this.rdbRackWash = new System.Windows.Forms.RadioButton();
             this.versionQuery = new System.Windows.Forms.TabPage();
             this.groupBox43 = new System.Windows.Forms.GroupBox();
+            this.fbtnInitSpReadCard = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnInitIni = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox40 = new System.Windows.Forms.GroupBox();
             this.txtTrayVersion = new BioBaseCLIA.CustomControl.userTextBoxBase();
@@ -429,7 +430,7 @@
             this.label84 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
-            this.fbtnInitSpReadCard = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnOrderCancel = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.panel1.SuspendLayout();
             this.tabControlMy1.SuspendLayout();
             this.tabAddSample.SuspendLayout();
@@ -957,11 +958,12 @@
             // 
             // gbStepOrder
             // 
+            this.gbStepOrder.Controls.Add(this.btnOrderCancel);
             this.gbStepOrder.Controls.Add(this.textStepOrder);
             this.gbStepOrder.Controls.Add(this.btnOrderSend);
-            this.gbStepOrder.Location = new System.Drawing.Point(19, 187);
+            this.gbStepOrder.Location = new System.Drawing.Point(19, 166);
             this.gbStepOrder.Name = "gbStepOrder";
-            this.gbStepOrder.Size = new System.Drawing.Size(300, 60);
+            this.gbStepOrder.Size = new System.Drawing.Size(300, 81);
             this.gbStepOrder.TabIndex = 16;
             this.gbStepOrder.TabStop = false;
             this.gbStepOrder.Text = "单步命令发送";
@@ -970,7 +972,7 @@
             // 
             this.textStepOrder.Location = new System.Drawing.Point(14, 19);
             this.textStepOrder.Name = "textStepOrder";
-            this.textStepOrder.Size = new System.Drawing.Size(147, 23);
+            this.textStepOrder.Size = new System.Drawing.Size(280, 23);
             this.textStepOrder.TabIndex = 17;
             this.textStepOrder.Text = "0";
             // 
@@ -985,7 +987,7 @@
             this.btnOrderSend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnOrderSend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnOrderSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrderSend.Location = new System.Drawing.Point(176, 19);
+            this.btnOrderSend.Location = new System.Drawing.Point(14, 52);
             this.btnOrderSend.Name = "btnOrderSend";
             this.btnOrderSend.Size = new System.Drawing.Size(92, 23);
             this.btnOrderSend.TabIndex = 1;
@@ -1005,7 +1007,7 @@
             this.fbtnregentReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnregentReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnregentReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnregentReset.Location = new System.Drawing.Point(19, 159);
+            this.fbtnregentReset.Location = new System.Drawing.Point(19, 135);
             this.fbtnregentReset.Name = "fbtnregentReset";
             this.fbtnregentReset.Size = new System.Drawing.Size(100, 25);
             this.fbtnregentReset.TabIndex = 14;
@@ -1025,7 +1027,7 @@
             this.fbtnSamReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnSamReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnSamReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnSamReset.Location = new System.Drawing.Point(170, 105);
+            this.fbtnSamReset.Location = new System.Drawing.Point(170, 81);
             this.fbtnSamReset.Name = "fbtnSamReset";
             this.fbtnSamReset.Size = new System.Drawing.Size(100, 25);
             this.fbtnSamReset.TabIndex = 13;
@@ -1045,7 +1047,7 @@
             this.fbtnAsMixArm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnAsMixArm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnAsMixArm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsMixArm.Location = new System.Drawing.Point(170, 159);
+            this.fbtnAsMixArm.Location = new System.Drawing.Point(170, 135);
             this.fbtnAsMixArm.Name = "fbtnAsMixArm";
             this.fbtnAsMixArm.Size = new System.Drawing.Size(100, 25);
             this.fbtnAsMixArm.TabIndex = 12;
@@ -1066,7 +1068,7 @@
             this.fbtnAsXReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnAsXReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnAsXReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsXReset.Location = new System.Drawing.Point(170, 50);
+            this.fbtnAsXReset.Location = new System.Drawing.Point(170, 26);
             this.fbtnAsXReset.Name = "fbtnAsXReset";
             this.fbtnAsXReset.Size = new System.Drawing.Size(100, 25);
             this.fbtnAsXReset.TabIndex = 5;
@@ -1086,7 +1088,7 @@
             this.fbtnAsZReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnAsZReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnAsZReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsZReset.Location = new System.Drawing.Point(19, 105);
+            this.fbtnAsZReset.Location = new System.Drawing.Point(19, 81);
             this.fbtnAsZReset.Name = "fbtnAsZReset";
             this.fbtnAsZReset.Size = new System.Drawing.Size(100, 25);
             this.fbtnAsZReset.TabIndex = 3;
@@ -1106,7 +1108,7 @@
             this.fbtnAsAllReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnAsAllReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnAsAllReset.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnAsAllReset.Location = new System.Drawing.Point(19, 51);
+            this.fbtnAsAllReset.Location = new System.Drawing.Point(19, 27);
             this.fbtnAsAllReset.Name = "fbtnAsAllReset";
             this.fbtnAsAllReset.Size = new System.Drawing.Size(100, 25);
             this.fbtnAsAllReset.TabIndex = 2;
@@ -5765,6 +5767,25 @@
             this.groupBox43.TabStop = false;
             this.groupBox43.Text = "工具按钮";
             // 
+            // fbtnInitSpReadCard
+            // 
+            this.fbtnInitSpReadCard.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnInitSpReadCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInitSpReadCard.BackgroundImage")));
+            this.fbtnInitSpReadCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fbtnInitSpReadCard.EnabledSet = true;
+            this.fbtnInitSpReadCard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnInitSpReadCard.FlatAppearance.BorderSize = 0;
+            this.fbtnInitSpReadCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInitSpReadCard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnInitSpReadCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fbtnInitSpReadCard.Location = new System.Drawing.Point(22, 66);
+            this.fbtnInitSpReadCard.Name = "fbtnInitSpReadCard";
+            this.fbtnInitSpReadCard.Size = new System.Drawing.Size(129, 23);
+            this.fbtnInitSpReadCard.TabIndex = 63;
+            this.fbtnInitSpReadCard.Text = "初始化射频读卡器";
+            this.fbtnInitSpReadCard.UseVisualStyleBackColor = false;
+            this.fbtnInitSpReadCard.Click += new System.EventHandler(this.fbtnInitSpReadCard_Click);
+            // 
             // fbtnInitIni
             // 
             this.fbtnInitIni.BackColor = System.Drawing.Color.Transparent;
@@ -6367,24 +6388,25 @@
             this.label89.TabIndex = 4;
             this.label89.Text = "温育盘放管孔位:";
             // 
-            // fbtnInitSpReadCard
+            // btnOrderCancel
             // 
-            this.fbtnInitSpReadCard.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnInitSpReadCard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fbtnInitSpReadCard.BackgroundImage")));
-            this.fbtnInitSpReadCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.fbtnInitSpReadCard.EnabledSet = true;
-            this.fbtnInitSpReadCard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnInitSpReadCard.FlatAppearance.BorderSize = 0;
-            this.fbtnInitSpReadCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInitSpReadCard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnInitSpReadCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fbtnInitSpReadCard.Location = new System.Drawing.Point(22, 66);
-            this.fbtnInitSpReadCard.Name = "fbtnInitSpReadCard";
-            this.fbtnInitSpReadCard.Size = new System.Drawing.Size(129, 23);
-            this.fbtnInitSpReadCard.TabIndex = 63;
-            this.fbtnInitSpReadCard.Text = "初始化射频读卡器";
-            this.fbtnInitSpReadCard.UseVisualStyleBackColor = false;
-            this.fbtnInitSpReadCard.Click += new System.EventHandler(this.fbtnInitSpReadCard_Click);
+            this.btnOrderCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnOrderCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrderCancel.BackgroundImage")));
+            this.btnOrderCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOrderCancel.Enabled = false;
+            this.btnOrderCancel.EnabledSet = true;
+            this.btnOrderCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnOrderCancel.FlatAppearance.BorderSize = 0;
+            this.btnOrderCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnOrderCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnOrderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrderCancel.Location = new System.Drawing.Point(202, 52);
+            this.btnOrderCancel.Name = "btnOrderCancel";
+            this.btnOrderCancel.Size = new System.Drawing.Size(92, 23);
+            this.btnOrderCancel.TabIndex = 19;
+            this.btnOrderCancel.Text = "取消";
+            this.btnOrderCancel.UseVisualStyleBackColor = false;
+            this.btnOrderCancel.Click += new System.EventHandler(this.btnOrderCancel_Click);
             // 
             // frmDiagnost
             // 
@@ -6901,5 +6923,6 @@
         private System.Windows.Forms.GroupBox groupBox43;
         private CustomControl.FunctionButton fbtnInitIni;
         private CustomControl.FunctionButton fbtnInitSpReadCard;
+        private CustomControl.FunctionButton btnOrderCancel;
     }
 }
