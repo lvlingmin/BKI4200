@@ -115,6 +115,10 @@ namespace BioBaseCLIA.SysMaintenance
         #endregion
         #endregion
         bool bClose = true;
+        /// <summary>
+        /// 记录单步指令类型，还原信号量时使用
+        /// </summary>
+        int stepOrderSendFlag = 5;
         #region 老化测试变量
         /// <summary>
         /// 老化测试线程
@@ -7737,43 +7741,66 @@ namespace BioBaseCLIA.SysMaintenance
             NetCom3.Instance.SingleQuery();
             btnPutCupInit.Enabled = true;
         }
-        //lyq add 190816
+        
         private void BtnOrderSend_Click(object sender, EventArgs e)
         {
-            if (textStepOrder.Text.Trim() == "")       //控件名
+            if (textStepOrder.Text.Trim() == "")
             {
-                MessageBox.Show("请输入通讯命令！");
+                frmMsgShow.MessageShow("提示", "请输入通讯命令！");
                 return;
             }
+
+            string order = textStepOrder.Text.ToString().Trim().Replace("eb", "EB").Replace("eB", "EB").Replace("Eb", "EB");
+
+            if (order.Substring(0, 5) != "EB 90")
+            {
+                frmMsgShow.MessageShow("提示", "未识别的指令！");
+                return;
+            }
+            if (!Regex.IsMatch(order.Replace(" ", ""), @"^[0-9a-fA-F]{1,}$"))
+            {
+                frmMsgShow.MessageShow("提示", "未识别的指令！");
+                return;
+            }
+            foreach (string temp in order.Split(' '))
+            {
+                if (temp.Length != 2)
+                {
+                    frmMsgShow.MessageShow("提示", "未识别的指令！");
+                    return;
+                }
+            }
+
             btnOrderSend.Enabled = false;
-
-            string order = textStepOrder.Text.ToString();
-
-            //NetCom3.Instance.Send(NetCom3.Cover(order), 5);  //发送套接字
+            btnOrderCancel.Enabled = true;
 
             if (order.Contains("EB 90 31 01"))
             {
+                stepOrderSendFlag = 1;
                 NetCom3.Instance.Send(NetCom3.Cover(order), 1);
                 NetCom3.Instance.MoveQuery();
             }
             else if (order.Contains("EB 90 31 02") || order.Contains("EB 90 31 04"))
             {
+                stepOrderSendFlag = 0;
                 NetCom3.Instance.Send(NetCom3.Cover(order), 0);
                 NetCom3.Instance.SPQuery();
             }
             else if (order.Contains("EB 90 31 03"))
             {
+                stepOrderSendFlag = 2;
                 NetCom3.Instance.Send(NetCom3.Cover(order), 2);
                 NetCom3.Instance.WashQuery();
             }
             else
             {
+                stepOrderSendFlag = 5;
                 NetCom3.Instance.Send(NetCom3.Cover(order), 5);
                 NetCom3.Instance.SingleQuery();
             }
 
-            btnOrderSend.Enabled = true;   //返回套接字后按钮可用
-
+            btnOrderSend.Enabled = true;
+            btnOrderCancel.Enabled = false;
             LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss"));
         }
 
@@ -9873,6 +9900,45 @@ namespace BioBaseCLIA.SysMaintenance
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 CA F1 01"), 5);
             NetCom3.Instance.SingleQuery();
             fbtnInitSpReadCard.Enabled = true;
+        }
+
+        private void btnOrderCancel_Click(object sender, EventArgs e)
+        {
+            btnOrderCancel.Enabled = false;
+
+            if (stepOrderSendFlag == 0)//判断指令标志
+            {
+                NetCom3.Instance.AdderrorFlag = (int)ErrorState.OverTime;
+                NetCom3.SpSendFlag = true;
+                NetCom3.SpReciveFlag = true;
+                NetCom3.totalOrderFlag = true;
+                NetCom3.spreceiveDone.Set();
+            }
+            else if (stepOrderSendFlag == 1)
+            {
+                NetCom3.Instance.MoverrorFlag = (int)ErrorState.OverTime;
+                NetCom3.MoveSendFlag = true;
+                NetCom3.MoveReciveFlag = true;
+                NetCom3.totalOrderFlag = true;
+                NetCom3.movereceiveDone.Set();
+
+            }
+            else if (stepOrderSendFlag == 2)
+            {
+                NetCom3.Instance.WasherrorFlag = (int)ErrorState.OverTime;
+                NetCom3.WashSendFlag = true;
+                NetCom3.WashReciveFlag = true;
+                NetCom3.totalOrderFlag = true;
+                NetCom3.washreceiveDone.Set();
+            }
+            else
+            {
+                NetCom3.Instance.errorFlag = (int)ErrorState.OverTime;
+                NetCom3.totalOrderFlag = true;
+                NetCom3.DiagnostDone.Set();
+            }
+            NetCom3.Delay(500);
+            btnOrderSend.Enabled = true;
         }
 
         /// <summary>
