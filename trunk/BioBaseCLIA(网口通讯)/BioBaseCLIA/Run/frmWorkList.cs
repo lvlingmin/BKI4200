@@ -4885,10 +4885,7 @@ namespace BioBaseCLIA.Run
             });
             if (btnRunStatus != null)
             {
-                this.BeginInvoke(new Action(() =>
-                {
-                    btnRunStatus();
-                }));
+                btnRunStatus();
             }
         }
         /// <summary>
