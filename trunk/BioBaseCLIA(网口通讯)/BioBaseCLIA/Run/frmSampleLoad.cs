@@ -322,6 +322,17 @@ namespace BioBaseCLIA.Run
 
         private void btnLoadReagent_Click(object sender, EventArgs e)
         {
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning||
+                frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
+            {
+                MessageBox.Show("实验中，请勿添加试剂！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning ||
+                frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
+            {
+                return;
+            }
             if (!CheckFormIsOpen("frmReagentLoad"))
             {
                 frmReagentLoad frmRL = new frmReagentLoad();
