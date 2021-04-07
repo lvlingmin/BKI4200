@@ -5676,6 +5676,14 @@ namespace BioBaseCLIA.Run
                             {
                                 Thread.Sleep(30);
                             }
+
+                            #region 记录
+                            StringBuilder records = new StringBuilder();
+                            records.Append("实验ID testTempS.TestID  " + testTempS.TestID + Environment.NewLine);
+                            records.Append("dgvWorkListData.Rows  " + dgvWorkListData.Rows.Count + Environment.NewLine);
+                            LogFile.Instance.Write(DateTime.Now + ":" + records);
+                            #endregion 
+
                             BeginInvoke(TestStatusInfo, new object[] { "正在加样", testTempS.TestID });
                             lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "S")]
                                 = Color.Yellow;
