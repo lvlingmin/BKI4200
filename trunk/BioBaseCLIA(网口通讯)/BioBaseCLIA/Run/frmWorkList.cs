@@ -10219,7 +10219,8 @@ namespace BioBaseCLIA.Run
 
         private void fbtnReturn_Click(object sender, EventArgs e)
         {
-            if (RunFlag == (int)RunFlagStart.IsRuning)
+            if (RunFlag == (int)RunFlagStart.IsRuning||
+                RunFlag == (int)RunFlagStart.IsStoping)
             {
                 this.Hide();
             }
