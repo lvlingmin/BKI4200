@@ -342,8 +342,8 @@ namespace BioBaseCLIA.Run
         {
             frmWorkList.addOrdinaryFlag = false;
             frmWorkList.EmergencyFlag = false;
-            //2018-11-02 zlx add
-            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning||
+                frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
                 btnWorkList_Click(sender, e);
             else
             {
