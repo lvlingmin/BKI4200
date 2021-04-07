@@ -492,23 +492,27 @@ namespace BioBaseCLIA
         /// </summary>
         void RunBtnStatus()
         {
-            while (!this.IsHandleCreated)
+            this.BeginInvoke(new Action(() =>
             {
-                Thread.Sleep(30);
-            }
-            defineButton1.Enabled = true;
-            if (defineButton1.BackgroundImage != Properties.Resources.blue_play_128px_569342_easyicon_net) 
-            {
-                defineButton1.BackgroundImage = Properties.Resources.blue_play_128px_569342_easyicon_net;
-            }
-            if (defineButton2.BackgroundImage != Properties.Resources.blue_pause_128px_569341_easyicon_net) 
-            {
-                defineButton2.BackgroundImage = Properties.Resources.blue_pause_128px_569341_easyicon_net;
-            }
-            if (defineButton3.BackgroundImage != Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net) 
-            {
-                defineButton3.BackgroundImage = Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
-            }
+                while (!this.IsHandleCreated)
+                {
+                    Thread.Sleep(30);
+                }
+                defineButton1.Enabled = true;
+                if (defineButton1.BackgroundImage != Properties.Resources.blue_play_128px_569342_easyicon_net)
+                {
+                    defineButton1.BackgroundImage = Properties.Resources.blue_play_128px_569342_easyicon_net;
+                }
+                if (defineButton2.BackgroundImage != Properties.Resources.blue_pause_128px_569341_easyicon_net)
+                {
+                    defineButton2.BackgroundImage = Properties.Resources.blue_pause_128px_569341_easyicon_net;
+                }
+                if (defineButton3.BackgroundImage != Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net)
+                {
+                    defineButton3.BackgroundImage = Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
+                }
+            }));
+           
             //defineButton1.BackgroundImage = Properties.Resources.blue_play_128px_569342_easyicon_net;
             //defineButton2.BackgroundImage = Properties.Resources.blue_pause_128px_569341_easyicon_net;
             //defineButton3.BackgroundImage = Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
