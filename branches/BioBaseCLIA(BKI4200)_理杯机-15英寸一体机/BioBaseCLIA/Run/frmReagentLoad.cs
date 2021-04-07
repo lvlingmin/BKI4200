@@ -502,8 +502,8 @@ namespace BioBaseCLIA.Run
             }
             for (int i = 0; i < dtRgInfo.Rows.Count; i++)
             {
-                srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()) - 1] = dr[i]["ReagentName"].ToString();
-                srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()) - 1] = dr[i]["leftoverTestR1"].ToString();
+                srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()) - 1] = dtRgInfo.Rows[i]["RgName"].ToString();
+                srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()) - 1] = dtRgInfo.Rows[i]["leftoverTestR1"].ToString();
             }
             int OverDateC = 0;//2018-07-17 zlx add
             foreach (var odr in dr)
