@@ -1,0 +1,362 @@
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/10 15:14:21
+异常类型：NullReferenceException
+异常消息：未将对象引用设置到对象的实例。
+异常信息：   在 System.Windows.Forms.Internal.WindowsGraphics.DrawText(String text, WindowsFont font, Rectangle bounds, Color foreColor, Color backColor, IntTextFormatFlags flags)
+   在 System.Windows.Forms.Internal.WindowsGraphics.DrawText(String text, WindowsFont font, Rectangle bounds, Color color, IntTextFormatFlags flags)
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/10 15:21:37
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.CheckErrorStatus(Int32 status)
+   在 System.Drawing.Graphics.DrawRectangle(Pen pen, Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawDefaultBorder(Graphics g, Rectangle r, Color c, Boolean isDefault)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/10 15:32:50
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.GetHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper..ctor(IDeviceContext idc, TextFormatFlags flags)
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/12 15:39:35
+异常类型：Win32Exception
+异常消息：创建窗口句柄时出错。
+异常信息：   在 System.Windows.Forms.NativeWindow.CreateHandle(CreateParams cp)
+   在 System.Windows.Forms.Control.CreateHandle()
+   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.Control.get_WindowText()
+   在 System.Windows.Forms.Control.set_CacheTextInternal(Boolean value)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.MdiClient.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/13 15:45:34
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.CheckErrorStatus(Int32 status)
+   在 System.Drawing.Graphics.DrawRectangle(Pen pen, Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawDefaultBorder(Graphics g, Rectangle r, Color c, Boolean isDefault)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/17 8:15:19
+Application UnhandledException:参数无效。;
+堆栈信息:   在 System.Drawing.Graphics.ReleaseHdcInternal(IntPtr hdc)
+   在 System.Drawing.Graphics.ReleaseHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose(Boolean disposing)
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Finalize()
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/17 8:15:19
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.ReleaseHdcInternal(IntPtr hdc)
+   在 System.Drawing.Graphics.ReleaseHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose(Boolean disposing)
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose()
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:02:06
+类型：ArgumentNullException
+消息：值不能为 null。
+参数名: value
+信息：   在 System.String.IndexOf(String value, Int32 startIndex, Int32 count, StringComparison comparisonType)
+   在 System.String.IndexOf(String value)
+   在 BioBaseCLIA.frmMain.Form1_Load(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\frmMain.cs:行号 204
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Form.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:02:12
+类型：ArgumentException
+消息：参数无效。
+信息：   在 System.Drawing.Graphics.ReleaseHdcInternal(IntPtr hdc)
+   在 System.Drawing.Graphics.ReleaseHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose(Boolean disposing)
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose()
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:02:12
+Application UnhandledException:参数无效。;
+信息:   在 System.Drawing.Graphics.ReleaseHdcInternal(IntPtr hdc)
+   在 System.Drawing.Graphics.ReleaseHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose(Boolean disposing)
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Finalize()
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:03:24
+类型：ArgumentNullException
+消息：值不能为 null。
+参数名: value
+信息：   在 System.String.IndexOf(String value, Int32 startIndex, Int32 count, StringComparison comparisonType)
+   在 System.String.IndexOf(String value)
+   在 BioBaseCLIA.frmMain.Form1_Load(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\frmMain.cs:行号 204
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Form.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:08:50
+类型：ArgumentNullException
+消息：值不能为 null。
+参数名: value
+信息：   在 System.String.IndexOf(String value, Int32 startIndex, Int32 count, StringComparison comparisonType)
+   在 System.String.IndexOf(String value)
+   在 BioBaseCLIA.frmMain.Form1_Load(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\frmMain.cs:行号 204
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Form.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:09:34
+类型：ArgumentNullException
+消息：值不能为 null。
+参数名: value
+信息：   在 System.String.IndexOf(String value, Int32 startIndex, Int32 count, StringComparison comparisonType)
+   在 System.String.IndexOf(String value)
+   在 BioBaseCLIA.frmMain.Form1_Load(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\frmMain.cs:行号 204
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Form.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:15:34
+类型：ArgumentNullException
+消息：值不能为 null。
+参数名: value
+信息：   在 System.String.IndexOf(String value, Int32 startIndex, Int32 count, StringComparison comparisonType)
+   在 System.String.IndexOf(String value)
+   在 BioBaseCLIA.frmMain.Form1_Load(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\frmMain.cs:行号 204
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Form.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:19:48
+类型：ArgumentNullException
+消息：值不能为 null。
+参数名: value
+信息：   在 System.String.IndexOf(String value, Int32 startIndex, Int32 count, StringComparison comparisonType)
+   在 System.String.IndexOf(String value)
+   在 BioBaseCLIA.frmMain.Form1_Load(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\frmMain.cs:行号 204
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Form.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:20:29
+类型：ArgumentNullException
+消息：值不能为 null。
+参数名: value
+信息：   在 System.String.IndexOf(String value, Int32 startIndex, Int32 count, StringComparison comparisonType)
+   在 System.String.IndexOf(String value)
+   在 BioBaseCLIA.frmMain.Form1_Load(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\frmMain.cs:行号 204
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.Form.WmShowWindow(Message& m)
+   在 System.Windows.Forms.Form.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：：2021/3/25 13:37:43
+Application UnhandledException:参数无效。;
+信息:   在 System.Drawing.Graphics.ReleaseHdcInternal(IntPtr hdc)
+   在 System.Drawing.Graphics.ReleaseHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose(Boolean disposing)
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Finalize()
+************************************************************************
+

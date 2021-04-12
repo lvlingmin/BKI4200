@@ -1,0 +1,266 @@
+出现应用程序未处理的异常：2019/6/20 14:09:22
+Application UnhandledException:Undo 操作遇到的上下文与相应 Set 操作中应用的上下文不同。可是因为在线程上 Set 了一个上下文但未进行还原(撤消)。;
+堆栈信息:   在 System.Threading.SynchronizationContextSwitcher.Undo()
+   在 System.Threading.ExecutionContextSwitcher.Undo()
+   在 System.Threading.ExecutionContext.runFinallyCode(Object userData, Boolean exceptionThrown)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteBackoutCodeHelper(Object backoutCode, Object userData, Boolean exceptionThrown)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Net.ContextAwareResult.Complete(IntPtr userToken)
+   在 System.Net.LazyAsyncResult.ProtectedInvokeCallback(Object result, IntPtr userToken)
+   在 System.Net.Sockets.BaseOverlappedAsyncResult.CompletionPortCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* nativeOverlapped)
+   在 System.Threading._IOCompletionCallback.PerformIOCompletionCallback(UInt32 errorCode, UInt32 numBytes, NativeOverlapped* pOVERLAP)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/6/20 14:33:06
+Application UnhandledException:未将对象引用设置到对象的实例。;
+堆栈信息:   在 BioBaseCLIA.Run.frmWorkList.addLiquid(Object testS) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\BioBaseCLIA\Run\frmWorkList.cs:行号 5211
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/4 13:30:25
+异常类型：IndexOutOfRangeException
+异常消息：索引超出了数组界限。
+异常信息：   在 BioBaseCLIA.Run.frmReagentLoad.srdReagent_MouseDown(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.MouseEventHandler.Invoke(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ContainerControl.WndProc(Message& m)
+   在 System.Windows.Forms.UserControl.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/4 13:31:05
+异常类型：IndexOutOfRangeException
+异常消息：索引超出了数组界限。
+异常信息：   在 BioBaseCLIA.Run.frmReagentLoad.srdReagent_MouseDown(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.MouseEventHandler.Invoke(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ContainerControl.WndProc(Message& m)
+   在 System.Windows.Forms.UserControl.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/4 13:31:18
+异常类型：IndexOutOfRangeException
+异常消息：索引超出了数组界限。
+异常信息：   在 BioBaseCLIA.Run.frmReagentLoad.srdReagent_MouseDown(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.MouseEventHandler.Invoke(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ContainerControl.WndProc(Message& m)
+   在 System.Windows.Forms.UserControl.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/4 13:31:24
+异常类型：IndexOutOfRangeException
+异常消息：索引超出了数组界限。
+异常信息：   在 BioBaseCLIA.Run.frmReagentLoad.srdReagent_MouseDown(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.MouseEventHandler.Invoke(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ContainerControl.WndProc(Message& m)
+   在 System.Windows.Forms.UserControl.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/4 13:31:47
+异常类型：IndexOutOfRangeException
+异常消息：索引超出了数组界限。
+异常信息：   在 BioBaseCLIA.Run.frmReagentLoad.srdReagent_MouseDown(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.MouseEventHandler.Invoke(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ContainerControl.WndProc(Message& m)
+   在 System.Windows.Forms.UserControl.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/4 13:32:35
+异常类型：IndexOutOfRangeException
+异常消息：索引超出了数组界限。
+异常信息：   在 BioBaseCLIA.Run.frmReagentLoad.srdReagent_MouseDown(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.MouseEventHandler.Invoke(Object sender, MouseEventArgs e)
+   在 System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ContainerControl.WndProc(Message& m)
+   在 System.Windows.Forms.UserControl.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/5 16:10:18
+Application UnhandledException:表 'tbProject' 己经被别的用户以独占方式打开， 或它已经被其它用户从用户界面打开，且不能被程序处理。;
+堆栈信息:   在 Maticsoft.DBUtility.DbHelperOleDb.Query(String SQLString) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\DBUtility\DbHelperOleDb.cs:行号 302
+   在 BioBaseCLIA.DAL.tbProject.GetList(String strWhere) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\DAL\tbProject.cs:行号 444
+   在 BioBaseCLIA.BLL.tbProject.GetList(String strWhere) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\BLL\tbProject.cs:行号 122
+   在 BioBaseCLIA.User.frmLogin.GetItemInfo() 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\BioBaseCLIA\frmLogin.cs:行号 505
+   在 BioBaseCLIA.User.frmLogin.LoadProgram() 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\BioBaseCLIA\frmLogin.cs:行号 135
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/6 9:48:24
+异常类型：ObjectDisposedException
+异常消息：无法访问已释放的对象。
+对象名:“frmDiagnost”。
+异常信息：   在 System.Windows.Forms.Control.CreateHandle()
+   在 System.Windows.Forms.Form.CreateHandle()
+   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.Show()
+   在 BioBaseCLIA.SysMaintenance.frmInstruMaintenance.fbtnInstruDiagnost_Click(Object sender, EventArgs e) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\BioBaseCLIA\SysMaintenance\frmInstruMaintenance.cs:行号 1202
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 BioBaseCLIA.CustomControl.FunctionButton.OnClick(EventArgs e) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI1100)\BioBaseCLIA\CustomControl\FunctionButton.cs:行号 132
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/13 10:33:45
+Application UnhandledException:值不能为空。
+参数名: String;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.GaTestRun(Object obj) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 4531
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/13 11:04:27
+Application UnhandledException:索引和长度必须引用该字符串内的位置。
+参数名: length;
+堆栈信息:   在 System.String.InternalSubStringWithChecks(Int32 startIndex, Int32 length, Boolean fAlwaysCopy)
+   在 System.String.Substring(Int32 startIndex, Int32 length)
+   在 BioBaseCLIA.Run.frmWorkList.AddLiquid(Int32 rgPos, Int32 pos, String step, Int32 FirstDiu, Int32 leftdiuVol) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 6491
+   在 BioBaseCLIA.Run.frmWorkList.addLiquid(Object testS) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 5122
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/13 11:32:25
+Application UnhandledException:值不能为空。
+参数名: String;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.AddLiquid(Int32 rgPos, Int32 pos, Int32 FirstDiu) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 6482
+   在 BioBaseCLIA.Run.frmWorkList.addLiquid(Object testS) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 5121
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/13 12:08:13
+Application UnhandledException:未将对象引用设置到对象的实例。;
+堆栈信息:   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo)
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/13 12:09:13
+Application UnhandledException:未将对象引用设置到对象的实例。;
+堆栈信息:   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo)
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/7/15 8:56:25
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.SysMaintenance.frmInstruMaintenance.SubstrateTest() 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\SysMaintenance\frmInstruMaintenance.cs:行号 1148
+   在 BioBaseCLIA.SysMaintenance.frmInstruMaintenance.MaintenanceStart(Object obj) 位置 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\SysMaintenance\frmInstruMaintenance.cs:行号 310
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/8/7 11:07:39
+异常类型：NullReferenceException
+异常消息：未将对象引用设置到对象的实例。
+异常信息：   在 BioBaseCLIA.Run.frmWorkList.<>c__DisplayClass157_1.<addLiquid>b__1() 位置 F:\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 5388
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/8/7 11:15:27
+异常类型：NullReferenceException
+异常消息：未将对象引用设置到对象的实例。
+异常信息：   在 BioBaseCLIA.Run.frmWorkList.<>c__DisplayClass157_1.<addLiquid>b__1() 位置 F:\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 5388
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/8/7 14:31:01
+异常类型：NullReferenceException
+异常消息：未将对象引用设置到对象的实例。
+异常信息：   在 BioBaseCLIA.Run.frmWorkList.<>c__DisplayClass160_1.<addLiquid>b__1() 位置 F:\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 5490
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/8/13 15:12:13
+异常类型：FormatException
+异常消息：输入字符串的格式不正确。
+异常信息：   在 System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   在 System.Double.Parse(String s)
+   在 BioBaseCLIA.Run.frmTestResult.fbtnExportData_Click(Object sender, EventArgs e) 位置 F:\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmTestResult.cs:行号 630
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 BioBaseCLIA.CustomControl.FunctionButton.OnClick(EventArgs e) 位置 F:\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\CustomControl\FunctionButton.cs:行号 132
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+---------------------------------------------------------
+出现应用程序未处理的异常：2019/8/14 11:04:14
+Application UnhandledException:Microsoft Jet 数据库引擎找不到输入表或查询 'tbProject'。 确定它是否存在，以及它的名称的拼写是否正确。;
+堆栈信息:   在 Maticsoft.DBUtility.DbHelperOleDb.GetSingle(String SQLString) 位置 F:\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DBUtility\DbHelperOleDb.cs:行号 258
+   在 BioBaseCLIA.Run.frmWorkList.GaTestRun(Object obj) 位置 F:\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 4556
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+---------------------------------------------------------
