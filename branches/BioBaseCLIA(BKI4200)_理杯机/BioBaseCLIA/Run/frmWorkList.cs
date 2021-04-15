@@ -9943,7 +9943,7 @@ namespace BioBaseCLIA.Run
                     }
                     #endregion
 
-                    if (double.IsNaN(double.Parse(concentration))) 
+                    if (double.IsNaN(double.Parse(concentration)))
                     {
                         concentration = GetNanPmtConcentration(ItemName, Batch, pmt);
                         result = "不在线性范围之内";
@@ -9953,9 +9953,9 @@ namespace BioBaseCLIA.Run
                         concentration = "<" + MinValue.ToString("#0.00");
                         result = "不在线性范围之内";
                     }
-                    else if (double.Parse(concentration) > (MaxValue * 1.2))
+                    else if (double.Parse(concentration) > (MaxValue))
                     {
-                        concentration = ">" + (MaxValue * 1.2).ToString("#0.00");
+                        concentration = ">" + (MaxValue).ToString("#0.00");
                         result = "不在线性范围之内";
                     }
                     else if (VRangeType != "" && int.Parse(VRangeType) > 0)
