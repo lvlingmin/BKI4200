@@ -62,6 +62,7 @@
             // 
             resources.ApplyResources(this.txtSubstrateCode, "txtSubstrateCode");
             this.txtSubstrateCode.Name = "txtSubstrateCode";
+            this.txtSubstrateCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSubstrateCode_KeyDown);
             // 
             // txtSubstrateLastTest
             // 
@@ -155,6 +156,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtSubstrateCode);
             this.Name = "frmLoadSu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLoadSu_FormClosed);
             this.Load += new System.EventHandler(this.frmLoadSu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

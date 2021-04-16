@@ -226,6 +226,9 @@
   <data name="btnLoadSubstrate.Location" type="System.Drawing.Point, System.Drawing">
     <value>206, 172</value>
   </data>
+  <data name="txtSubstrateLastTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 21</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmLoadSu</value>
   </data>
@@ -259,8 +262,8 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
-  <data name="&gt;&gt;chkManualInput.Name" xml:space="preserve">
-    <value>chkManualInput</value>
+  <data name="btnChangeSubstrate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -283,9 +286,6 @@
   <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnChangeSubstrate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -307,23 +307,17 @@
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="&gt;&gt;txtSubstrateAllTest.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 12</value>
   </data>
   <data name="btnChangeSubstrate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>保存</value>
-  </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnLoadSubstrate.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnLoadSubstrate.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -340,14 +334,14 @@
   <data name="&gt;&gt;txtSubstrateAllTest.Name" xml:space="preserve">
     <value>txtSubstrateAllTest</value>
   </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>剩余测数：</value>
-  </data>
   <data name="btnLoadSubstrate.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
+  </data>
+  <data name="&gt;&gt;chkManualInput.Name" xml:space="preserve">
+    <value>chkManualInput</value>
   </data>
   <data name="txtSubstrateLastTest.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 107</value>
@@ -358,8 +352,8 @@
   <data name="&gt;&gt;ValidDate.Name" xml:space="preserve">
     <value>ValidDate</value>
   </data>
-  <data name="btnLoadSubstrate.Text" xml:space="preserve">
-    <value>保存</value>
+  <data name="&gt;&gt;btnLoadSubstrate.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
@@ -370,20 +364,26 @@
   <data name="btnLoadSubstrate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="FrmMesSuccessText" xml:space="preserve">
+    <value>底物装载成功!</value>
+  </data>
   <data name="&gt;&gt;txtSubstrateCode.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkManualInput.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtSubstrateLastTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 21</value>
+  <data name="&gt;&gt;txtSubstrateLastTest.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="ValidDate.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="btnChangeSubstrate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 172</value>
+  <data name="btnLoadSubstrate.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;btnDelSubstrate.Parent" xml:space="preserve">
     <value>$this</value>
@@ -400,8 +400,8 @@
   <data name="&gt;&gt;txtSubstrateAllTest.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="txtSubstrateLastTest.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;txtSubstrateAllTest.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="btnLoadSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -497,17 +497,14 @@
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;txtSubstrateLastTest.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="btnDelSubstrate.Location" type="System.Drawing.Point, System.Drawing">
     <value>206, 186</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>取消</value>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="FrmMesLeaveText" xml:space="preserve">
     <value>剩余测数不应该大于总测数!</value>
@@ -527,11 +524,17 @@
   <data name="txtSubstrateCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 21</value>
   </data>
-  <data name="btnLoadSubstrate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;btnDelSubstrate.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="btnLoadSubstrate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
   </data>
   <data name="btnLoadSubstrate.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 37</value>
@@ -548,14 +551,11 @@
   <data name="&gt;&gt;txtSubstrateCode.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;ValidDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="txtSubstrateCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 37</value>
   </data>
-  <data name="&gt;&gt;btnDelSubstrate.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="txtSubstrateLastTest.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="&gt;&gt;label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -575,26 +575,26 @@
   <data name="&gt;&gt;btnDelSubstrate.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;ValidDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtSubstrateAllTest.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 21</value>
   </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
   </data>
   <data name="txtSubstrateAllTest.Text" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="FrmMesSuccessText" xml:space="preserve">
-    <value>底物装载成功!</value>
+  <data name="btnChangeSubstrate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 172</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmSmallParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;btnLoadSubstrate.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="label8.Text" xml:space="preserve">
+    <value>剩余测数：</value>
   </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
