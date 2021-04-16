@@ -131,6 +131,7 @@
             this.btnDelSubstrate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnDelSubstrate.Name = "btnDelSubstrate";
             this.btnDelSubstrate.UseVisualStyleBackColor = false;
+            this.btnDelSubstrate.Click += new System.EventHandler(this.btnDelSubstrate_Click);
             // 
             // chkManualInput
             // 
