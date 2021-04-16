@@ -170,7 +170,6 @@
             this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadSubstrate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoadSubstrate.BackgroundImage")));
             this.btnLoadSubstrate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLoadSubstrate.Enabled = false;
             this.btnLoadSubstrate.EnabledSet = true;
             this.btnLoadSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadSubstrate.FlatAppearance.BorderSize = 0;
