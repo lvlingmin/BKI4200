@@ -85,6 +85,7 @@
             this.txtDiluteNumber.Size = new System.Drawing.Size(147, 21);
             this.txtDiluteNumber.TabIndex = 17;
             this.txtDiluteNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDiluteNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDiluteNumber_KeyDown);
             // 
             // txtSubstrateLastTest
             // 
@@ -125,6 +126,7 @@
             this.txtSubstrateAllTest.Size = new System.Drawing.Size(72, 21);
             this.txtSubstrateAllTest.TabIndex = 18;
             this.txtSubstrateAllTest.Text = "25";
+            this.txtSubstrateAllTest.TextChanged += new System.EventHandler(this.txtSubstrateAllTest_TextChanged);
             // 
             // label1
             // 
@@ -235,6 +237,7 @@
             this.chkManualInput.TabIndex = 30;
             this.chkManualInput.Text = "手动输入";
             this.chkManualInput.UseVisualStyleBackColor = true;
+            this.chkManualInput.CheckedChanged += new System.EventHandler(this.chkManualInput_CheckedChanged);
             // 
             // frmLoadSu
             // 
@@ -258,6 +261,7 @@
             this.Controls.Add(this.txtDiluteNumber);
             this.Name = "frmLoadSu";
             this.Text = "稀释液装载";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLoadSu_FormClosed);
             this.Load += new System.EventHandler(this.frmLoadSu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
