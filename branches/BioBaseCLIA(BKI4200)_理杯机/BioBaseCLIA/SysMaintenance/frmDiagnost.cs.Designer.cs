@@ -5923,7 +5923,7 @@
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(77, 14);
             this.label91.TabIndex = 46;
-            this.label91.Text = "通讯模组：";
+            this.label91.Text = "通信模组：";
             // 
             // txtPhotonVersion
             // 
