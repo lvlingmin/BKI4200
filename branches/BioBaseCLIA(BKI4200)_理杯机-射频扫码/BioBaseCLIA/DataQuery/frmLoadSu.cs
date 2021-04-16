@@ -77,6 +77,7 @@ namespace BioBaseCLIA.DataQuery
             initCon[1] = txtSubstrateAllTest.Text;
             initCon[2] = txtSubstrateLastTest.Text;
 
+            btnLoadSubstrate.Enabled = true;
             changeFlag = true;
 
             barCodeHook.BarCodeEvent += new BarCodeHook.BarCodeDelegate(BarCode_BarCodeEvent);
@@ -274,7 +275,16 @@ namespace BioBaseCLIA.DataQuery
 
         private void chkManualInput_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkManualInput.Checked == true)
+            {
+                initContr();
+                txtSubstrateCode.Enabled = true;
+            }
+            else
+            {
+                initContr(1);
+                txtSubstrateCode.Enabled = false;
+            }
         }
 
         private void txtSubstrateCode_KeyDown(object sender, KeyEventArgs e)

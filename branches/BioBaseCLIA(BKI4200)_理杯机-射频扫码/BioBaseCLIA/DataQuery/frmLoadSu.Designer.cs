@@ -139,6 +139,7 @@
             resources.ApplyResources(this.chkManualInput, "chkManualInput");
             this.chkManualInput.Name = "chkManualInput";
             this.chkManualInput.UseVisualStyleBackColor = true;
+            this.chkManualInput.CheckedChanged += new System.EventHandler(this.chkManualInput_CheckedChanged);
             // 
             // frmLoadSu
             // 
