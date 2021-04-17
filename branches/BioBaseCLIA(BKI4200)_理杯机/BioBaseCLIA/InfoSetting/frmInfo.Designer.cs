@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInfo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label15 = new System.Windows.Forms.Label();
             this.tabInfo = new BioBaseCLIA.CustomControl.TabControlMy();
             this.tabPPro = new System.Windows.Forms.TabPage();
@@ -66,12 +66,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.chkItemUseOrNot = new System.Windows.Forms.CheckBox();
             this.cmbItemType = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUserInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnConnetSet = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnInstrumentPara = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnProInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtItemFullName = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.txtDilutionFactor = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.txtValueRange2 = new BioBaseCLIA.CustomControl.userTextBoxBase();
@@ -144,6 +138,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtHospitalName = new BioBaseCLIA.CustomControl.userTextBoxBase();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUserInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnConnetSet = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnInstrumentPara = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnProInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.tabInfo.SuspendLayout();
             this.tabPPro.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -153,7 +153,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numExpiryDate)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).BeginInit();
             this.tabPBaseInfo.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -169,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUP)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label15
@@ -237,27 +237,27 @@
             this.dgvItemStd.AllowUserToAddRows = false;
             this.dgvItemStd.AllowUserToDeleteRows = false;
             this.dgvItemStd.AllowUserToResizeRows = false;
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle89.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle89.Font = new System.Drawing.Font("Times New Roman", 11.25F);
-            dataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItemStd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItemStd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvItemStd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItemStd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StnNo,
             this.StdName,
             this.conc});
-            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle93.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle93.Font = new System.Drawing.Font("Times New Roman", 11.25F);
-            dataGridViewCellStyle93.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle93.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle93.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle93.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItemStd.DefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 11.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItemStd.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvItemStd.MultiSelect = false;
             this.dgvItemStd.Name = "dgvItemStd";
             this.dgvItemStd.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -267,8 +267,8 @@
             // 
             this.StnNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.StnNo.DataPropertyName = "NO";
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.StnNo.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.StnNo.DefaultCellStyle = dataGridViewCellStyle2;
             this.StnNo.FillWeight = 50F;
             resources.ApplyResources(this.StnNo, "StnNo");
             this.StnNo.Name = "StnNo";
@@ -279,8 +279,8 @@
             // 
             this.StdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.StdName.DataPropertyName = "StdName";
-            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.StdName.DefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.StdName.DefaultCellStyle = dataGridViewCellStyle3;
             this.StdName.FillWeight = 120F;
             resources.ApplyResources(this.StdName, "StdName");
             this.StdName.Name = "StdName";
@@ -291,8 +291,8 @@
             // 
             this.conc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.conc.DataPropertyName = "StdConc";
-            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.conc.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.conc.DefaultCellStyle = dataGridViewCellStyle4;
             this.conc.FillWeight = 80F;
             resources.ApplyResources(this.conc, "conc");
             this.conc.Name = "conc";
@@ -451,80 +451,6 @@
             resources.GetString("cmbItemType.Items1")});
             this.cmbItemType.Name = "cmbItemType";
             // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Controls.Add(this.btnUserInfo);
-            this.panel1.Controls.Add(this.fbtnConnetSet);
-            this.panel1.Controls.Add(this.btnInstrumentPara);
-            this.panel1.Controls.Add(this.fbtnReturn);
-            this.panel1.Controls.Add(this.btnProInfo);
-            this.panel1.Name = "panel1";
-            // 
-            // btnUserInfo
-            // 
-            resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
-            this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnUserInfo.EnabledSet = true;
-            this.btnUserInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUserInfo.FlatAppearance.BorderSize = 0;
-            this.btnUserInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnUserInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnUserInfo.Name = "btnUserInfo";
-            this.btnUserInfo.UseVisualStyleBackColor = false;
-            this.btnUserInfo.Click += new System.EventHandler(this.btnUserInfo_Click);
-            // 
-            // fbtnConnetSet
-            // 
-            resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
-            this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnConnetSet.EnabledSet = true;
-            this.fbtnConnetSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnConnetSet.FlatAppearance.BorderSize = 0;
-            this.fbtnConnetSet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnConnetSet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnConnetSet.Name = "fbtnConnetSet";
-            this.fbtnConnetSet.UseVisualStyleBackColor = false;
-            this.fbtnConnetSet.Click += new System.EventHandler(this.fbtnConnetSet_Click);
-            // 
-            // btnInstrumentPara
-            // 
-            resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
-            this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
-            this.btnInstrumentPara.EnabledSet = true;
-            this.btnInstrumentPara.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnInstrumentPara.FlatAppearance.BorderSize = 0;
-            this.btnInstrumentPara.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnInstrumentPara.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnInstrumentPara.Name = "btnInstrumentPara";
-            this.btnInstrumentPara.UseVisualStyleBackColor = false;
-            this.btnInstrumentPara.Click += new System.EventHandler(this.btnInstrumentPara_Click);
-            // 
-            // fbtnReturn
-            // 
-            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
-            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.EnabledSet = true;
-            this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnReturn.FlatAppearance.BorderSize = 0;
-            this.fbtnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.Name = "fbtnReturn";
-            this.fbtnReturn.UseVisualStyleBackColor = false;
-            this.fbtnReturn.Click += new System.EventHandler(this.fbtnReturn_Click);
-            // 
-            // btnProInfo
-            // 
-            resources.ApplyResources(this.btnProInfo, "btnProInfo");
-            this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnProInfo.EnabledSet = true;
-            this.btnProInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnProInfo.FlatAppearance.BorderSize = 0;
-            this.btnProInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnProInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnProInfo.Name = "btnProInfo";
-            this.btnProInfo.UseVisualStyleBackColor = false;
-            // 
             // txtItemFullName
             // 
             resources.ApplyResources(this.txtItemFullName, "txtItemFullName");
@@ -627,40 +553,40 @@
             this.dgvItemList.AllowUserToAddRows = false;
             this.dgvItemList.AllowUserToDeleteRows = false;
             this.dgvItemList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle94.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle94.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            dataGridViewCellStyle94.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle94.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle94.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle94.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItemList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItemList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNo,
             this.colShortName});
-            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle97.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle97.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            dataGridViewCellStyle97.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle97.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle97.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle97.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItemList.DefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItemList.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvItemList.MultiSelect = false;
             this.dgvItemList.Name = "dgvItemList";
             this.dgvItemList.ReadOnly = true;
-            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle98.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle98.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            dataGridViewCellStyle98.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle98.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle98.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle98.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItemList.RowHeadersDefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItemList.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvItemList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvItemList.RowsDefaultCellStyle = dataGridViewCellStyle99;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvItemList.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvItemList.RowTemplate.Height = 23;
             this.dgvItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItemList.SelectionChanged += new System.EventHandler(this.dgvItemList_SelectionChanged);
@@ -669,8 +595,8 @@
             // 
             this.colNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colNo.DataPropertyName = "NO";
-            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNo.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNo.DefaultCellStyle = dataGridViewCellStyle7;
             this.colNo.FillWeight = 50F;
             resources.ApplyResources(this.colNo, "colNo");
             this.colNo.Name = "colNo";
@@ -681,8 +607,8 @@
             // 
             this.colShortName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colShortName.DataPropertyName = "ItemShortName";
-            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colShortName.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colShortName.DefaultCellStyle = dataGridViewCellStyle8;
             resources.ApplyResources(this.colShortName, "colShortName");
             this.colShortName.Name = "colShortName";
             this.colShortName.ReadOnly = true;
@@ -1269,6 +1195,81 @@
             resources.ApplyResources(this.txtHospitalName, "txtHospitalName");
             this.txtHospitalName.Name = "txtHospitalName";
             // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.btnUserInfo);
+            this.panel1.Controls.Add(this.fbtnConnetSet);
+            this.panel1.Controls.Add(this.btnInstrumentPara);
+            this.panel1.Controls.Add(this.fbtnReturn);
+            this.panel1.Controls.Add(this.btnProInfo);
+            this.panel1.Name = "panel1";
+            this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
+            // 
+            // btnUserInfo
+            // 
+            resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
+            this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnUserInfo.EnabledSet = true;
+            this.btnUserInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUserInfo.FlatAppearance.BorderSize = 0;
+            this.btnUserInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUserInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnUserInfo.Name = "btnUserInfo";
+            this.btnUserInfo.UseVisualStyleBackColor = false;
+            this.btnUserInfo.Click += new System.EventHandler(this.btnUserInfo_Click);
+            // 
+            // fbtnConnetSet
+            // 
+            resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
+            this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnConnetSet.EnabledSet = true;
+            this.fbtnConnetSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnConnetSet.FlatAppearance.BorderSize = 0;
+            this.fbtnConnetSet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnConnetSet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnConnetSet.Name = "fbtnConnetSet";
+            this.fbtnConnetSet.UseVisualStyleBackColor = false;
+            this.fbtnConnetSet.Click += new System.EventHandler(this.fbtnConnetSet_Click);
+            // 
+            // btnInstrumentPara
+            // 
+            resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
+            this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
+            this.btnInstrumentPara.EnabledSet = true;
+            this.btnInstrumentPara.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnInstrumentPara.FlatAppearance.BorderSize = 0;
+            this.btnInstrumentPara.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnInstrumentPara.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnInstrumentPara.Name = "btnInstrumentPara";
+            this.btnInstrumentPara.UseVisualStyleBackColor = false;
+            this.btnInstrumentPara.Click += new System.EventHandler(this.btnInstrumentPara_Click);
+            // 
+            // fbtnReturn
+            // 
+            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
+            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.EnabledSet = true;
+            this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnReturn.FlatAppearance.BorderSize = 0;
+            this.fbtnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.Name = "fbtnReturn";
+            this.fbtnReturn.UseVisualStyleBackColor = false;
+            this.fbtnReturn.Click += new System.EventHandler(this.fbtnReturn_Click);
+            // 
+            // btnProInfo
+            // 
+            resources.ApplyResources(this.btnProInfo, "btnProInfo");
+            this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnProInfo.EnabledSet = true;
+            this.btnProInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnProInfo.FlatAppearance.BorderSize = 0;
+            this.btnProInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnProInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnProInfo.Name = "btnProInfo";
+            this.btnProInfo.UseVisualStyleBackColor = false;
+            // 
             // frmInfo
             // 
             resources.ApplyResources(this, "$this");
@@ -1290,7 +1291,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numExpiryDate)).EndInit();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemList)).EndInit();
             this.tabPBaseInfo.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -1310,6 +1310,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUP)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
