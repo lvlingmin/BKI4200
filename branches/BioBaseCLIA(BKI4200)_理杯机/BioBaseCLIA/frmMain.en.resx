@@ -473,10 +473,38 @@
     <value>NoControl</value>
   </data>
   <data name="temperatureButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 19</value>
+    <value>189, 19</value>
   </data>
   <data name="temperatureButton.ToolTip" xml:space="preserve">
     <value>Temperature query</value>
+  </data>
+  <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
+  </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>605, 15</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 30</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="button1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="dbtnSound.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2292,5 +2320,173 @@
         ////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////8=
 </value>
+  </data>
+  <data name="Abnormalexit" xml:space="preserve">
+    <value>Abnormal exit software detected, please empty the incubator disk!</value>
+  </data>
+  <data name="Beadfluid" xml:space="preserve">
+    <value>Magnetic bead cleaning liquid is normal</value>
+  </data>
+  <data name="Beadfluidempty" xml:space="preserve">
+    <value>The magnetic bead cleaning fluid is empty</value>
+  </data>
+  <data name="btnWasteRack.tip" xml:space="preserve">
+    <value>Waste tube box information</value>
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Cleaning plate</value>
+  </data>
+  <data name="Cleaningfluidempty" xml:space="preserve">
+    <value>Magnetic bead cleaning liquid is empty</value>
+  </data>
+  <data name="Cleaningfluidnormal" xml:space="preserve">
+    <value>Magnetic bead cleaning liquid is normal</value>
+  </data>
+  <data name="Cleantemperature" xml:space="preserve">
+    <value>Temperature of cleaning plate</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Network connected</value>
+  </data>
+  <data name="dbtnBuffer.tip" xml:space="preserve">
+    <value>Magnetic bead cleaning solution query</value>
+  </data>
+  <data name="dbtnConnect.connecttip" xml:space="preserve">
+    <value>Network connected</value>
+  </data>
+  <data name="dbtnConnect.disconnecttip" xml:space="preserve">
+    <value>Network not connected</value>
+  </data>
+  <data name="dbtnLog.tip" xml:space="preserve">
+    <value>Alarm information</value>
+  </data>
+  <data name="dbtnRack.tip" xml:space="preserve">
+    <value>Information of cup machine</value>
+  </data>
+  <data name="dbtnRegent.tip" xml:space="preserve">
+    <value>Reagent information</value>
+  </data>
+  <data name="dbtnSubstract.tip" xml:space="preserve">
+    <value>Substrate information</value>
+  </data>
+  <data name="dbtnWash.tip" xml:space="preserve">
+    <value>Probe cleaning solution query</value>
+  </data>
+  <data name="dbtnWaste.tip" xml:space="preserve">
+    <value>Waste liquid inquiry</value>
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Network not connected</value>
+  </data>
+  <data name="Err" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ExitTip" xml:space="preserve">
+    <value>Are you sure to shut down the running system!</value>
+  </data>
+  <data name="Incubation" xml:space="preserve">
+    <value>Incubation plate</value>
+  </data>
+  <data name="Incubationtemperature" xml:space="preserve">
+    <value>Incubation plate temperature</value>
+  </data>
+  <data name="Lefttests" xml:space="preserve">
+    <value>The remaining number of reagents in the project is</value>
+  </data>
+  <data name="NotRead" xml:space="preserve">
+    <value>Unread</value>
+  </data>
+  <data name="NotRun" xml:space="preserve">
+    <value>Experiment is not running, please do not pause!</value>
+  </data>
+  <data name="Notstandardtemperature" xml:space="preserve">
+    <value>Not up to standard</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>The experiment is suspended!</value>
+  </data>
+  <data name="Pipeline" xml:space="preserve">
+    <value>Clean pipeline</value>
+  </data>
+  <data name="Pipelinetemperature" xml:space="preserve">
+    <value>Temperature of cleaning pipeline</value>
+  </data>
+  <data name="Probeempty" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="Probefluid" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="Probefluidempty" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="Probenormal" xml:space="preserve">
+    <value>Probe cleaning solution is normal</value>
+  </data>
+  <data name="Reagentresidue" xml:space="preserve">
+    <value>The remaining number of reagents in the project is</value>
+  </data>
+  <data name="Standardtemperature" xml:space="preserve">
+    <value>The temperature has reached the operation standard</value>
+  </data>
+  <data name="Stopexperiment" xml:space="preserve">
+    <value>Stop the experiment will result in the invalidation of the experiment, confirm whether to stop the experiment!</value>
+  </data>
+  <data name="Substrate" xml:space="preserve">
+    <value>substrate</value>
+  </data>
+  <data name="Substratesurplus" xml:space="preserve">
+    <value>The residue of the substrate was 0</value>
+  </data>
+  <data name="Substratetemperature" xml:space="preserve">
+    <value>Substrate ambient temperature</value>
+  </data>
+  <data name="SystemExitTip" xml:space="preserve">
+    <value>Are you sure to shut down the running system!</value>
+  </data>
+  <data name="temperatureButton.ToolTip1" xml:space="preserve">
+    <value>System temperature query</value>
+  </data>
+  <data name="Temperaturesign" xml:space="preserve">
+    <value>℃</value>
+  </data>
+  <data name="Temperaturewarning" xml:space="preserve">
+    <value>Temperature warning</value>
+  </data>
+  <data name="Temporarystorage" xml:space="preserve">
+    <value>The position of the temporary storage disk is controlled</value>
+  </data>
+  <data name="Temporarystorageempty" xml:space="preserve">
+    <value>The position of the temporary storage disk is missing</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+  <data name="Unableconnect" xml:space="preserve">
+    <value>Unable to connect to instrument!</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Wastefull" xml:space="preserve">
+    <value>Waste liquid tank full</value>
+  </data>
+  <data name="Wasteliquid" xml:space="preserve">
+    <value>Waste liquid tank full</value>
+  </data>
+  <data name="Wastenormal" xml:space="preserve">
+    <value>The waste liquid tank is normal</value>
+  </data>
+  <data name="Wastepipe" xml:space="preserve">
+    <value>Waste pipe box full</value>
+  </data>
+  <data name="Wastepipenormal" xml:space="preserve">
+    <value>The waste pipe box is normal</value>
+  </data>
+  <data name="Wastetubefull" xml:space="preserve">
+    <value>Waste pipe box full</value>
   </data>
 </root>

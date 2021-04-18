@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+    <value>17, 17</value>
+  </data>
   <data name="chineseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 22</value>
   </data>
@@ -305,9 +305,6 @@
   </data>
   <data name="cbLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
-  </data>
-  <data name="cbLanguage.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;cbLanguage.Name" xml:space="preserve">
     <value>cbLanguage</value>
@@ -737,9 +734,9 @@
   <data name="&gt;&gt;titleofbio.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -968,5 +965,65 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="Alarmfailed" xml:space="preserve">
+    <value>报警模块握手失败！</value>
+  </data>
+  <data name="Cleanfailed" xml:space="preserve">
+    <value>清洗模块握手失败！</value>
+  </data>
+  <data name="ConnectErr" xml:space="preserve">
+    <value>仪器初始化失败！请确认网线的连接状态和仪器的连接地址是否正确！是否离线运行！</value>
+  </data>
+  <data name="Counterfailed" xml:space="preserve">
+    <value>计数器模块握手失败！</value>
+  </data>
+  <data name="Cupmanagementfailed" xml:space="preserve">
+    <value>理杯机模块握手失败！</value>
+  </data>
+  <data name="Incubationfailure" xml:space="preserve">
+    <value>温育盘模组握手失败</value>
+  </data>
+  <data name="InitErr" xml:space="preserve">
+    <value>仪器初始化失败！请确认仪器是否开启！是否离线运行！</value>
+  </data>
+  <data name="InitExcetion" xml:space="preserve">
+    <value>仪器初始化异常</value>
+  </data>
+  <data name="InitMsg" xml:space="preserve">
+    <value>初始化进度</value>
+  </data>
+  <data name="lbLanguage.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="MessageboxTitle" xml:space="preserve">
+    <value>信息提示</value>
+  </data>
+  <data name="PasswordErr" xml:space="preserve">
+    <value>密码输入为空，请重新输入！</value>
+  </data>
+  <data name="PwdUnexpectedCharacter" xml:space="preserve">
+    <value>密码输入错误！</value>
+  </data>
+  <data name="RestartMsg" xml:space="preserve">
+    <value>语言环境切换，请重新启动软件</value>
+  </data>
+  <data name="Runoffline" xml:space="preserve">
+    <value>是否离线运行！</value>
+  </data>
+  <data name="Samplefailed" xml:space="preserve">
+    <value>加样机模组握手失败！</value>
+  </data>
+  <data name="UnexpectedCharacter" xml:space="preserve">
+    <value>输入错误，请重新输入</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="UsernameErr" xml:space="preserve">
+    <value>用户名不正确，请重新输入！</value>
   </data>
 </root>
