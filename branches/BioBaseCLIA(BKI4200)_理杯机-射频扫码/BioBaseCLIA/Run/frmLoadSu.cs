@@ -392,12 +392,20 @@ namespace BioBaseCLIA.Run
             {
                 Invoke(new Action(() =>
                 {
+                    string[] temp = dt.Rows[0]["ValiData"].ToString().Split('/');
+                    for (int i = 1; i < temp.Length; i++)
+                    {
+                        if (temp[i].Length < 2)
+                            temp[i] = "0" + temp[i];
+                    }
+                    temp[0] = temp[0] + temp[1] + temp[2];
+
                     txtDiluteNumber.Text = code.Trim();
                     txtSubstrateAllTest.Text = dt.Rows[0]["AllDiuVol"].ToString();
                     txtSubstrateLastTest.Text = dt.Rows[0]["LeftDiuVol"].ToString();
                     //对比生产日期后一年 和 数据库的有效期
                     DateTime dt1 = dtime.AddYears(1);
-                    DateTime dt2 = DateTime.ParseExact(dt.Rows[0]["ValiData"].ToString().Replace(@"/", ""), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+                    DateTime dt2 = DateTime.ParseExact(temp[0], "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
                     if (DateTime.Compare(dt1, dt2) <= 0)//使用两个最小的作为有效期
                     {
                         ValidDate.Value = dt1;
