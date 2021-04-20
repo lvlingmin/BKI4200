@@ -7485,8 +7485,9 @@ namespace BioBaseCLIA.SysMaintenance
                 frmMsgShow.MessageShow("仪器调试", "请选择要查询的温控模块！");
                 return;
             }
-            else if (cmbStep.SelectedItem != "查询校准值" && cmbStep.SelectedItem != "查询温度")
+            else if (cmbStep.SelectedItem.ToString() != "查询校准值" && cmbStep.SelectedItem.ToString() != "查询温度")
             {
+                LogFile.Instance.Write(cmbStep.SelectedItem.ToString());
                 frmMsgShow.MessageShow("仪器调试", "选择查询的温控模块有误，请重新选择！");
                 return;
             }
