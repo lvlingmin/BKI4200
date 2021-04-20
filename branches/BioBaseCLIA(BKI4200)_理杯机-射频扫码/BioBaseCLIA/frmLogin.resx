@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chineseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 22</value>
   </data>
@@ -305,6 +305,9 @@
   </data>
   <data name="cbLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
+  </data>
+  <data name="cbLanguage.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;cbLanguage.Name" xml:space="preserve">
     <value>cbLanguage</value>
@@ -671,6 +674,12 @@
   <data name="lbLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
+  <data name="lbLanguage.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="lbLanguage.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;lbLanguage.Name" xml:space="preserve">
     <value>lbLanguage</value>
   </data>
@@ -734,9 +743,9 @@
   <data name="&gt;&gt;titleofbio.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -966,7 +975,7 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="Alarmfailed" xml:space="preserve">
+<data name="Alarmfailed" xml:space="preserve">
     <value>报警模块握手失败！</value>
   </data>
   <data name="Cleanfailed" xml:space="preserve">
