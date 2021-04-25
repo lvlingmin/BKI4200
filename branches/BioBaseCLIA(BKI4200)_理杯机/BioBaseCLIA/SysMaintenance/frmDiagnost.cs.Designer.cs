@@ -168,6 +168,11 @@
             this.label46 = new System.Windows.Forms.Label();
             this.tabWashTray = new System.Windows.Forms.TabPage();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.groupBox44 = new System.Windows.Forms.GroupBox();
+            this.numDrainageB = new System.Windows.Forms.NumericUpDown();
+            this.endDrainageB = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.startDrainageB = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.label101 = new System.Windows.Forms.Label();
             this.groupBox39 = new System.Windows.Forms.GroupBox();
             this.btnWashMix = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbWashMix = new System.Windows.Forms.ComboBox();
@@ -459,6 +464,8 @@
             this.groupBox33.SuspendLayout();
             this.tabWashTray.SuspendLayout();
             this.groupBox20.SuspendLayout();
+            this.groupBox44.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDrainageB)).BeginInit();
             this.groupBox39.SuspendLayout();
             this.groupBox32.SuspendLayout();
             this.groupBox25.SuspendLayout();
@@ -2502,6 +2509,7 @@
             // 
             // groupBox20
             // 
+            this.groupBox20.Controls.Add(this.groupBox44);
             this.groupBox20.Controls.Add(this.groupBox39);
             this.groupBox20.Controls.Add(this.groupBox32);
             this.groupBox20.Controls.Add(this.groupBox25);
@@ -2514,14 +2522,91 @@
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "移动操作";
             // 
+            // groupBox44
+            // 
+            this.groupBox44.Controls.Add(this.numDrainageB);
+            this.groupBox44.Controls.Add(this.endDrainageB);
+            this.groupBox44.Controls.Add(this.startDrainageB);
+            this.groupBox44.Controls.Add(this.label101);
+            this.groupBox44.Location = new System.Drawing.Point(7, 368);
+            this.groupBox44.Name = "groupBox44";
+            this.groupBox44.Size = new System.Drawing.Size(423, 66);
+            this.groupBox44.TabIndex = 17;
+            this.groupBox44.TabStop = false;
+            this.groupBox44.Text = "磁珠抽液泵";
+            // 
+            // numDrainageB
+            // 
+            this.numDrainageB.Font = new System.Drawing.Font("宋体", 11.25F);
+            this.numDrainageB.Location = new System.Drawing.Point(79, 25);
+            this.numDrainageB.Name = "numDrainageB";
+            this.numDrainageB.Size = new System.Drawing.Size(85, 25);
+            this.numDrainageB.TabIndex = 67;
+            this.numDrainageB.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // endDrainageB
+            // 
+            this.endDrainageB.BackColor = System.Drawing.Color.Transparent;
+            this.endDrainageB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("endDrainageB.BackgroundImage")));
+            this.endDrainageB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.endDrainageB.Enabled = false;
+            this.endDrainageB.EnabledSet = true;
+            this.endDrainageB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.endDrainageB.FlatAppearance.BorderSize = 0;
+            this.endDrainageB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.endDrainageB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.endDrainageB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.endDrainageB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.endDrainageB.Location = new System.Drawing.Point(267, 27);
+            this.endDrainageB.Name = "endDrainageB";
+            this.endDrainageB.Size = new System.Drawing.Size(65, 24);
+            this.endDrainageB.TabIndex = 15;
+            this.endDrainageB.Text = "停止";
+            this.endDrainageB.UseVisualStyleBackColor = false;
+            this.endDrainageB.Click += new System.EventHandler(this.endDrainageB_Click);
+            // 
+            // startDrainageB
+            // 
+            this.startDrainageB.BackColor = System.Drawing.Color.Transparent;
+            this.startDrainageB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("startDrainageB.BackgroundImage")));
+            this.startDrainageB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startDrainageB.EnabledSet = true;
+            this.startDrainageB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.startDrainageB.FlatAppearance.BorderSize = 0;
+            this.startDrainageB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.startDrainageB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.startDrainageB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startDrainageB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.startDrainageB.Location = new System.Drawing.Point(186, 27);
+            this.startDrainageB.Name = "startDrainageB";
+            this.startDrainageB.Size = new System.Drawing.Size(64, 23);
+            this.startDrainageB.TabIndex = 14;
+            this.startDrainageB.Text = "开始";
+            this.startDrainageB.UseVisualStyleBackColor = false;
+            this.startDrainageB.Click += new System.EventHandler(this.startDrainageB_Click);
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label101.Location = new System.Drawing.Point(6, 30);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(70, 14);
+            this.label101.TabIndex = 2;
+            this.label101.Text = "抽液次数:";
+            // 
             // groupBox39
             // 
             this.groupBox39.Controls.Add(this.btnWashMix);
             this.groupBox39.Controls.Add(this.cmbWashMix);
             this.groupBox39.Controls.Add(this.label36);
-            this.groupBox39.Location = new System.Drawing.Point(7, 272);
+            this.groupBox39.Location = new System.Drawing.Point(7, 232);
             this.groupBox39.Name = "groupBox39";
-            this.groupBox39.Size = new System.Drawing.Size(423, 70);
+            this.groupBox39.Size = new System.Drawing.Size(423, 61);
             this.groupBox39.TabIndex = 20;
             this.groupBox39.TabStop = false;
             this.groupBox39.Text = "混匀电机";
@@ -2538,7 +2623,7 @@
             this.btnWashMix.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnWashMix.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWashMix.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnWashMix.Location = new System.Drawing.Point(319, 21);
+            this.btnWashMix.Location = new System.Drawing.Point(319, 24);
             this.btnWashMix.Name = "btnWashMix";
             this.btnWashMix.Size = new System.Drawing.Size(87, 34);
             this.btnWashMix.TabIndex = 18;
@@ -2553,7 +2638,7 @@
             this.cmbWashMix.Items.AddRange(new object[] {
             "正转",
             "反转"});
-            this.cmbWashMix.Location = new System.Drawing.Point(72, 28);
+            this.cmbWashMix.Location = new System.Drawing.Point(72, 31);
             this.cmbWashMix.Name = "cmbWashMix";
             this.cmbWashMix.Size = new System.Drawing.Size(210, 22);
             this.cmbWashMix.TabIndex = 16;
@@ -2562,7 +2647,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label36.Location = new System.Drawing.Point(16, 31);
+            this.label36.Location = new System.Drawing.Point(16, 34);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(49, 14);
             this.label36.TabIndex = 17;
@@ -2579,7 +2664,7 @@
             this.groupBox32.Controls.Add(this.label40);
             this.groupBox32.Location = new System.Drawing.Point(7, 19);
             this.groupBox32.Name = "groupBox32";
-            this.groupBox32.Size = new System.Drawing.Size(423, 98);
+            this.groupBox32.Size = new System.Drawing.Size(423, 85);
             this.groupBox32.TabIndex = 4;
             this.groupBox32.TabStop = false;
             this.groupBox32.Text = "孔位移动";
@@ -2596,7 +2681,7 @@
             this.btnLoopTurn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLoopTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoopTurn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLoopTurn.Location = new System.Drawing.Point(337, 67);
+            this.btnLoopTurn.Location = new System.Drawing.Point(337, 48);
             this.btnLoopTurn.Name = "btnLoopTurn";
             this.btnLoopTurn.Size = new System.Drawing.Size(80, 23);
             this.btnLoopTurn.TabIndex = 20;
@@ -2606,7 +2691,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 66);
+            this.textBox1.Location = new System.Drawing.Point(103, 47);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 18;
@@ -2624,7 +2709,7 @@
             this.functionButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.functionButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.functionButton1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.functionButton1.Location = new System.Drawing.Point(256, 67);
+            this.functionButton1.Location = new System.Drawing.Point(256, 48);
             this.functionButton1.Name = "functionButton1";
             this.functionButton1.Size = new System.Drawing.Size(64, 23);
             this.functionButton1.TabIndex = 17;
@@ -2636,7 +2721,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label41.Location = new System.Drawing.Point(16, 69);
+            this.label41.Location = new System.Drawing.Point(16, 50);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(49, 14);
             this.label41.TabIndex = 15;
@@ -2696,9 +2781,9 @@
             this.groupBox25.Controls.Add(this.fbtnWashPressCupEx);
             this.groupBox25.Controls.Add(this.cmbWashPressCup);
             this.groupBox25.Controls.Add(this.label55);
-            this.groupBox25.Location = new System.Drawing.Point(7, 195);
+            this.groupBox25.Location = new System.Drawing.Point(7, 172);
             this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(423, 70);
+            this.groupBox25.Size = new System.Drawing.Size(423, 56);
             this.groupBox25.TabIndex = 2;
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "压杯电机";
@@ -2715,7 +2800,7 @@
             this.fbtnWashPressCupEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnWashPressCupEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnWashPressCupEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashPressCupEx.Location = new System.Drawing.Point(319, 27);
+            this.fbtnWashPressCupEx.Location = new System.Drawing.Point(319, 18);
             this.fbtnWashPressCupEx.Name = "fbtnWashPressCupEx";
             this.fbtnWashPressCupEx.Size = new System.Drawing.Size(87, 34);
             this.fbtnWashPressCupEx.TabIndex = 18;
@@ -2730,7 +2815,7 @@
             this.cmbWashPressCup.Items.AddRange(new object[] {
             "压杯开始位置",
             "压杯最低位置"});
-            this.cmbWashPressCup.Location = new System.Drawing.Point(72, 34);
+            this.cmbWashPressCup.Location = new System.Drawing.Point(72, 25);
             this.cmbWashPressCup.Name = "cmbWashPressCup";
             this.cmbWashPressCup.Size = new System.Drawing.Size(210, 22);
             this.cmbWashPressCup.TabIndex = 16;
@@ -2739,7 +2824,7 @@
             // 
             this.label55.AutoSize = true;
             this.label55.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label55.Location = new System.Drawing.Point(16, 37);
+            this.label55.Location = new System.Drawing.Point(16, 28);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(49, 14);
             this.label55.TabIndex = 17;
@@ -2750,9 +2835,9 @@
             this.groupBox24.Controls.Add(this.fbtnWashZEx);
             this.groupBox24.Controls.Add(this.cmbWashZ);
             this.groupBox24.Controls.Add(this.label54);
-            this.groupBox24.Location = new System.Drawing.Point(7, 121);
+            this.groupBox24.Location = new System.Drawing.Point(7, 108);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(423, 76);
+            this.groupBox24.Size = new System.Drawing.Size(423, 60);
             this.groupBox24.TabIndex = 1;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "Z轴电机";
@@ -2769,7 +2854,7 @@
             this.fbtnWashZEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnWashZEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnWashZEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashZEx.Location = new System.Drawing.Point(319, 25);
+            this.fbtnWashZEx.Location = new System.Drawing.Point(319, 19);
             this.fbtnWashZEx.Name = "fbtnWashZEx";
             this.fbtnWashZEx.Size = new System.Drawing.Size(87, 34);
             this.fbtnWashZEx.TabIndex = 15;
@@ -2784,7 +2869,7 @@
             this.cmbWashZ.Items.AddRange(new object[] {
             "夹管开始位置",
             "夹管最低位置"});
-            this.cmbWashZ.Location = new System.Drawing.Point(71, 32);
+            this.cmbWashZ.Location = new System.Drawing.Point(71, 26);
             this.cmbWashZ.Name = "cmbWashZ";
             this.cmbWashZ.Size = new System.Drawing.Size(210, 22);
             this.cmbWashZ.TabIndex = 4;
@@ -2793,7 +2878,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label54.Location = new System.Drawing.Point(16, 35);
+            this.label54.Location = new System.Drawing.Point(16, 29);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(49, 14);
             this.label54.TabIndex = 5;
@@ -2805,9 +2890,9 @@
             this.groupBox23.Controls.Add(this.fbtnPeristalticPSave);
             this.groupBox23.Controls.Add(this.fbtnPeristalticPEx);
             this.groupBox23.Controls.Add(this.label53);
-            this.groupBox23.Location = new System.Drawing.Point(7, 346);
+            this.groupBox23.Location = new System.Drawing.Point(7, 297);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(423, 70);
+            this.groupBox23.Size = new System.Drawing.Size(423, 67);
             this.groupBox23.TabIndex = 0;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "磁珠清洗泵";
@@ -2819,7 +2904,7 @@
             this.cmbPeristalticPVol.Items.AddRange(new object[] {
             "归零",
             "350"});
-            this.cmbPeristalticPVol.Location = new System.Drawing.Point(91, 37);
+            this.cmbPeristalticPVol.Location = new System.Drawing.Point(91, 28);
             this.cmbPeristalticPVol.Name = "cmbPeristalticPVol";
             this.cmbPeristalticPVol.Size = new System.Drawing.Size(121, 22);
             this.cmbPeristalticPVol.TabIndex = 16;
@@ -2836,7 +2921,7 @@
             this.fbtnPeristalticPSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnPeristalticPSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnPeristalticPSave.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnPeristalticPSave.Location = new System.Drawing.Point(319, 35);
+            this.fbtnPeristalticPSave.Location = new System.Drawing.Point(319, 26);
             this.fbtnPeristalticPSave.Name = "fbtnPeristalticPSave";
             this.fbtnPeristalticPSave.Size = new System.Drawing.Size(65, 24);
             this.fbtnPeristalticPSave.TabIndex = 15;
@@ -2856,7 +2941,7 @@
             this.fbtnPeristalticPEx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnPeristalticPEx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnPeristalticPEx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnPeristalticPEx.Location = new System.Drawing.Point(234, 36);
+            this.fbtnPeristalticPEx.Location = new System.Drawing.Point(234, 27);
             this.fbtnPeristalticPEx.Name = "fbtnPeristalticPEx";
             this.fbtnPeristalticPEx.Size = new System.Drawing.Size(64, 23);
             this.fbtnPeristalticPEx.TabIndex = 14;
@@ -2868,7 +2953,7 @@
             // 
             this.label53.AutoSize = true;
             this.label53.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label53.Location = new System.Drawing.Point(6, 39);
+            this.label53.Location = new System.Drawing.Point(6, 30);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(56, 14);
             this.label53.TabIndex = 2;
@@ -6463,6 +6548,9 @@
             this.groupBox33.PerformLayout();
             this.tabWashTray.ResumeLayout(false);
             this.groupBox20.ResumeLayout(false);
+            this.groupBox44.ResumeLayout(false);
+            this.groupBox44.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDrainageB)).EndInit();
             this.groupBox39.ResumeLayout(false);
             this.groupBox39.PerformLayout();
             this.groupBox32.ResumeLayout(false);
@@ -6924,5 +7012,10 @@
         private CustomControl.FunctionButton fbtnInitIni;
         private CustomControl.FunctionButton fbtnInitSpReadCard;
         private CustomControl.FunctionButton btnOrderCancel;
+        private System.Windows.Forms.GroupBox groupBox44;
+        private CustomControl.FunctionButton endDrainageB;
+        private CustomControl.FunctionButton startDrainageB;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.NumericUpDown numDrainageB;
     }
 }
