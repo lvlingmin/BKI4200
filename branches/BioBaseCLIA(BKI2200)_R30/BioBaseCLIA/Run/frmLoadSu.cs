@@ -24,6 +24,7 @@ namespace BioBaseCLIA.Run
         public int RegentPos { get; set; }
         BLL.tbDilute bllsb = new BLL.tbDilute();
         DataTable dtSb = new DataTable();
+        public int DiuPos { get; set; }
         public frmLoadSu()
         {
             InitializeComponent();
@@ -38,12 +39,18 @@ namespace BioBaseCLIA.Run
         private int LeftDiuVol { get; set; }
         private void frmLoadSu_Load(object sender, EventArgs e)
         {
+            //cmbRegentPos
             cmbUnit1.SelectedIndex = cmbUnit2.SelectedIndex = 0;
-            DbHelperOleDb db = new DbHelperOleDb(3);
-            dtSb = bllsb.GetList("State=1 and DilutePos = " + RegentPos + "").Tables[0];
+            string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RegentPos.ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+            dtSb = new DataTable();
+            if (DiuPos != "")
+            {
+                DbHelperOleDb db = new DbHelperOleDb(3);
+                dtSb = bllsb.GetList("State=1 and DilutePos = " + DiuPos + "").Tables[0];
+            }
             if (dtSb.Rows.Count > 0)
             {
-                txtRegentPos.Text = RegentPos.ToString();
+                txtRegentPos.Text = DiuPos.ToString();
                 txtDiluteNumber.Text = dtSb.Rows[0]["DiluteNumber"].ToString();
                 AllDiuVol = int.Parse(dtSb.Rows[0]["AllDiuVol"].ToString());
                 LeftDiuVol = int.Parse(dtSb.Rows[0]["LeftDiuVol"].ToString());
@@ -59,7 +66,21 @@ namespace BioBaseCLIA.Run
             }
             else//add by y 20180509
             {
-                txtRegentPos.Text = RegentPos.ToString();
+                int startPos = RegentPos + 1;
+                
+                if (startPos > frmParent.RegentNum)
+                {
+                    startPos = 1;
+                }
+                for (int i = 0; i < frmParent.RegentNum; i++)
+                {
+                    if (CheckPos(startPos + i))
+                    {
+                        startPos = startPos + i;
+                        break;
+                    }
+                }
+                txtRegentPos.Text = startPos.ToString();
                 txtDiluteNumber.Text = "";
                 txtSubstrateAllTest.Text = "0";
                 txtSubstrateLastTest.Text = "0";
@@ -67,8 +88,23 @@ namespace BioBaseCLIA.Run
             }
             
         }
-       
-      private void btnChangeSubstrate_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 检查是否可以装载试剂（稀释液）
+        /// </summary>
+        /// <param name="rgPos"></param>
+        /// <returns></returns>
+        public bool CheckPos(int rgPos)
+        {
+            string BarCode = OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
+            if (BarCode != "")
+                return false;
+            else
+                return true;
+        }
+        private void txtRegentPos_TextChanged(object sender, EventArgs e)
+        {
+        }
+        private void btnChangeSubstrate_Click(object sender, EventArgs e)
       {
          
          if (btnChangeSubstrate.Text == "更换")//add by y 20180509
@@ -107,11 +143,12 @@ namespace BioBaseCLIA.Run
               frmMsgShow.MessageShow("稀释液装载", "请输入稀释液编码！");//add by y 20180510
               return;//y add 20180510
           }
+          int DilutePos = int.Parse(txtRegentPos.Text);
           Model.tbDilute modelSb = new Model.tbDilute();
           DbHelperOleDb db = new DbHelperOleDb(3);
           DataTable dtAllSb = bllsb.GetAllList().Tables[0];
           var dr1 = dtAllSb.Select("DiluteNumber='" + txtDiluteNumber.Text.Trim() + "'");
-          var dr2 = dtAllSb.Select("DilutePos = '" + RegentPos + "'");
+          var dr2 = dtAllSb.Select("DilutePos = '" + DilutePos + "'");
           string[] SuInfo = new string[4];
           if (dr1.Length > 0)//原来数据库是否存在该条码，length大于0，则存在
           {
@@ -150,7 +187,8 @@ namespace BioBaseCLIA.Run
           db = new DbHelperOleDb(3);
           if (bllsb.Add(modelSb))
           {
-              OperateIniFile.WriteIniData("ReagentPos" + RegentPos, "leftDiuVol", LeftDiuVol.ToString(), iniPathReagentTrayInfo);
+              OperateIniFile.WriteIniData("ReagentPos" + RegentPos, "DiuPos", DilutePos.ToString(), iniPathReagentTrayInfo);
+              WriteReagentIniData(modelSb);
               frmMsgShow.MessageShow("供应品状态", "稀释液装载成功！");
 
           }
@@ -159,21 +197,37 @@ namespace BioBaseCLIA.Run
           btnChangeSubstrate.Enabled = true;
           btnChangeSubstrate.Text = "更换";//add by y 20180509
       }
+        public void WriteReagentIniData(Model.tbDilute modelSb = null )
+        {
+            if (modelSb != null)
+            {
+                OperateIniFile.WriteIniData("ReagentPos" + modelSb.DilutePos, "BarCode", modelSb.DiluteNumber, iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + modelSb.DilutePos, "leftDiuVol", modelSb.LeftDiuVol.ToString(), iniPathReagentTrayInfo);
+            }
+            else
+            {
+                OperateIniFile.WriteIniData("ReagentPos" + txtRegentPos.Text, "BarCode","", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + txtRegentPos.Text, "leftDiuVol","", iniPathReagentTrayInfo);
+            }
+           
+        }
 
       private void functionButton1_Click(object sender, EventArgs e)
       {
           DbHelperOleDb db = new DbHelperOleDb(3);
           DataTable dtAllSb = bllsb.GetAllList().Tables[0];
-          var dr2 = dtAllSb.Select("DilutePos = '" + RegentPos + "'");
+          string DiuPos = txtRegentPos.Text;
+          var dr2 = dtAllSb.Select("DilutePos = '" + DiuPos + "'");
           if (dr2.Length > 0)
           {
               db = new DbHelperOleDb(3);
-              DataTable dt1 = bllsb.GetList("State=1 and DilutePos = " + RegentPos + "").Tables[0];
+              DataTable dt1 = bllsb.GetList("State=1 and DilutePos = " + DiuPos + "").Tables[0];
               if (dt1.Rows.Count > 0)
               {
                   db = new DbHelperOleDb(3);
                   bllsb.Delete(int.Parse(dt1.Rows[0]["DilutePos"].ToString()));
-                  OperateIniFile.WriteIniData("ReagentPos" + RegentPos, "leftDiuVol","0", iniPathReagentTrayInfo);
+                  OperateIniFile.WriteIniData("ReagentPos" + RegentPos, "DiuPos", "", iniPathReagentTrayInfo);
+                  WriteReagentIniData();
                   frmLoadSu_Load(null, null);
               }
           }

@@ -39,12 +39,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ValidDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtRegentPos = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.btnLoadSubstrate = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnChangeSubstrate = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.cmbUnit1 = new System.Windows.Forms.ComboBox();
             this.cmbUnit2 = new System.Windows.Forms.ComboBox();
             this.functionButton1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.txtRegentPos = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.SuspendLayout();
             // 
             // label7
@@ -82,7 +82,7 @@
             this.txtDiluteNumber.Enabled = false;
             this.txtDiluteNumber.Location = new System.Drawing.Point(117, 50);
             this.txtDiluteNumber.Name = "txtDiluteNumber";
-            this.txtDiluteNumber.Size = new System.Drawing.Size(147, 21);
+            this.txtDiluteNumber.Size = new System.Drawing.Size(146, 21);
             this.txtDiluteNumber.TabIndex = 17;
             this.txtDiluteNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -150,18 +150,9 @@
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(52, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.Size = new System.Drawing.Size(71, 12);
             this.label2.TabIndex = 24;
-            this.label2.Text = "试剂位置:";
-            // 
-            // txtRegentPos
-            // 
-            this.txtRegentPos.Enabled = false;
-            this.txtRegentPos.Location = new System.Drawing.Point(117, 18);
-            this.txtRegentPos.Name = "txtRegentPos";
-            this.txtRegentPos.Size = new System.Drawing.Size(147, 21);
-            this.txtRegentPos.TabIndex = 25;
-            this.txtRegentPos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label2.Text = "稀释液位置:";
             // 
             // btnLoadSubstrate
             // 
@@ -246,16 +237,37 @@
             this.functionButton1.UseVisualStyleBackColor = false;
             this.functionButton1.Click += new System.EventHandler(this.functionButton1_Click);
             // 
+            // txtRegentPos
+            // 
+            this.txtRegentPos.Enabled = false;
+            this.txtRegentPos.IsNull = false;
+            this.txtRegentPos.Location = new System.Drawing.Point(117, 18);
+            this.txtRegentPos.MaxValue = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.txtRegentPos.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtRegentPos.Name = "txtRegentPos";
+            this.txtRegentPos.Size = new System.Drawing.Size(100, 21);
+            this.txtRegentPos.TabIndex = 30;
+            this.txtRegentPos.Text = "1";
+            this.txtRegentPos.TextChanged += new System.EventHandler(this.txtRegentPos_TextChanged);
+            // 
             // frmLoadSu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(339, 235);
+            this.Controls.Add(this.txtRegentPos);
             this.Controls.Add(this.functionButton1);
             this.Controls.Add(this.cmbUnit2);
             this.Controls.Add(this.cmbUnit1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtRegentPos);
             this.Controls.Add(this.ValidDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSubstrateAllTest);
@@ -287,9 +299,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker ValidDate;
         private System.Windows.Forms.Label label2;
-        private CustomControl.userTextBoxBase txtRegentPos;
         private System.Windows.Forms.ComboBox cmbUnit1;
         private System.Windows.Forms.ComboBox cmbUnit2;
         private CustomControl.FunctionButton functionButton1;
+        private CustomControl.userNumTextBox txtRegentPos;
     }
 }

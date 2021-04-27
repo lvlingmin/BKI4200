@@ -3195,8 +3195,9 @@ namespace BioBaseCLIA.Run
                     {
                         db = new DbHelperOleDb(3);
                         string pos = new BLL.tbReagent().GetModelList("BarCode='" + RiInfo.BarCode + "'")[0].Postion;
+                        string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + pos, "DiuPos", "", iniPathReagentTrayInfo);
                         db = new DbHelperOleDb(3);
-                        List<Model.tbDilute> ListDilute = tbDilute.GetModelList("DilutePos=" + int.Parse(pos) + "");
+                        List<Model.tbDilute> ListDilute = tbDilute.GetModelList("DilutePos=" + int.Parse(DiuPos) + "");
                         if (ListDilute.Count > 0)
                         {
                             string ValiData = ListDilute[0].ValiData;
@@ -4797,7 +4798,8 @@ namespace BioBaseCLIA.Run
                 string leftR2 = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo);
                 string leftR3 = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "LeftReagent3", "", iniPathReagentTrayInfo);
                 string leftR4 = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "LeftReagent4", "", iniPathReagentTrayInfo);
-                string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);
+                string diuPos = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + diuPos,"leftDiuVol", "", iniPathReagentTrayInfo);
                 if (leftR1 == "")
                 {
                     reagentIniInfo.LeftReagent1 = 0;
@@ -5677,11 +5679,11 @@ namespace BioBaseCLIA.Run
                                     {
                                         foreach (var reagent in currentReagent)
                                         {
-                                            string diulest = 
-                                                OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "leftDiuVol", "", iniPathReagentTrayInfo);
+                                            string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "DiuPos", "", iniPathReagentTrayInfo);
+                                            string diulest = OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "leftDiuVol", "", iniPathReagentTrayInfo);
                                             if ((!string.IsNullOrEmpty(diulest)) && (int.Parse(diulest) > DiuVol + abanDiuPro + DiuNoUsePro))
                                             {
-                                                rgPos = int.Parse(reagent.Postion);//获取该试剂位置编号
+                                                rgPos = int.Parse(DiuPos);//获取该试剂位置编号
                                                 break;
                                             }
                                         }
@@ -7220,7 +7222,7 @@ namespace BioBaseCLIA.Run
         private int AddLiquid(int rgPos, int pos, int FirstDiu)
         {
             int AddErrorCount = 0;
-            int LeftdiuVol = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "leftDiuVol", "", iniPathReagentTrayInfo));
+            int LeftdiuVol = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos, "leftDiuVol", "", iniPathReagentTrayInfo));
             string Order = "EB 90 31 02 06 ";
             string StrLeftdiuVol = LeftdiuVol.ToString("x2");
             if (StrLeftdiuVol.Length < 4)
@@ -7275,7 +7277,7 @@ namespace BioBaseCLIA.Run
             }
             #region 体积修改 lyn add 20180611
             DataRow[] drRg = dtRgInfo.Select("Postion=" + rgPos + "");
-            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "leftDiuVol", (LeftdiuVol - (int)(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
+            OperateIniFile.WriteIniData("ReagentPos" + rgPos, "leftDiuVol", (LeftdiuVol - (int)(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
             #endregion
             return AddErrorCount;
         }

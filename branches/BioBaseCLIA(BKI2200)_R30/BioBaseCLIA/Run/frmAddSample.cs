@@ -202,7 +202,8 @@ namespace BioBaseCLIA.Run
             int count = 0;
             if (diu)
             {
-                string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "leftDiuVol", "", iniPathReagentTrayInfo);
+                string diuPos = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "DiuPos", "", iniPathReagentTrayInfo);
+                string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "leftDiuVol", "", iniPathReagentTrayInfo);
                 if (leftDiuVol!="")
                     count = int.Parse(leftDiuVol);
             }

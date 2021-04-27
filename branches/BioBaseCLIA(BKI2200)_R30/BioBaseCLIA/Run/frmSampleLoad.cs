@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using Maticsoft.DBUtility;
 using BioBaseCLIA.DataQuery;
+using Common;
+using System.IO;
 
 namespace BioBaseCLIA.Run
 {
@@ -32,6 +34,7 @@ namespace BioBaseCLIA.Run
         /// 已装载实验供应品需求信息
         /// </summary>
         private static DataTable dtItemInfoNoStat;
+        string iniPathReagentTrayInfo = Directory.GetCurrentDirectory() + "\\ReagentTrayInfo.ini";
 
         public static DataTable DtItemInfoNoStat
         {
@@ -78,8 +81,16 @@ namespace BioBaseCLIA.Run
                 }
                 else
                 {
+
                     srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CRgLoaded;
                     srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsLoaded;
+
+                }
+                string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + dtRgInfo.Rows[j]["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                if (DiuPos != "")
+                {
+                    srdReagent.RgColor[int.Parse(DiuPos) - 1] = Color.Purple;
+                    srdReagent.BdColor[int.Parse(DiuPos) - 1] = Color.Purple;
                 }
             }
             #endregion

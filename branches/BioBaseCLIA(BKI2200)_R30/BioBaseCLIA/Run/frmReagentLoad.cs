@@ -193,6 +193,7 @@ namespace BioBaseCLIA.Run
         private void btnAddR_Click(object sender, EventArgs e)
         {
             frmMessageShow frmMsgShow = new frmMessageShow();
+           
             //点击装载
             txtRgCode.TextChanged -= new EventHandler(txtRgCode_TextChanged);
 
@@ -208,6 +209,12 @@ namespace BioBaseCLIA.Run
             {
                 frmMsgShow.MessageShow("试剂装载", "未选择试剂位置，请重新输入！");
                 txtRgPosition.Focus();
+                return;
+            }
+            string BarCode = OperateIniFile.ReadIniData("ReagentPos" + txtRgPosition.Text, "BarCode", "", iniPathReagentTrayInfo);
+            if (BarCode != "")
+            {
+                frmMsgShow.MessageShow("试剂装载", txtRgPosition.Text + "号试剂位已经占用");
                 return;
             }
             if (cmbRgName.Text.Trim() == "")//this add y 20180518
@@ -234,7 +241,7 @@ namespace BioBaseCLIA.Run
             {
                 for (int i = 1; i <= RegentNum; i++)
                 {
-                    string BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
+                    BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                     string ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
                     if (txtRgCode.Text.Trim() == BarCode && cmbRgName.Text.Trim() == ItemName)
                     {
@@ -538,6 +545,7 @@ namespace BioBaseCLIA.Run
                 else
                     RgSelectedNo = srdReagent.rgSelectedNo;
                 string sc = srdReagent.RgColor[GetSelectedNo].Name;
+
                 if (srdReagent.RgColor[GetSelectedNo].Name == "Yellow")
                 {
                     srdReagent.RgColor[GetSelectedNo] = Color.White;
@@ -546,8 +554,17 @@ namespace BioBaseCLIA.Run
                 string ss = srdReagent.RgName[RgSelectedNo].ToString().Trim();
                 if (srdReagent.RgName[RgSelectedNo].ToString().Trim() == "")
                 {
-                    srdReagent.RgColor[RgSelectedNo] = Color.Yellow;
-                    srdReagent.BdColor[RgSelectedNo] = Color.Yellow;
+                    string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RgSelectedNo, "BarCode", "", iniPathReagentTrayInfo);
+                    if (DiuPos != "")
+                    {
+                        srdReagent.RgColor[RgSelectedNo] = Color.Purple;
+                        srdReagent.BdColor[RgSelectedNo] = Color.Purple;
+                    }
+                    else
+                    {
+                        srdReagent.RgColor[RgSelectedNo] = Color.Yellow;
+                        srdReagent.BdColor[RgSelectedNo] = Color.Yellow;
+                    }
                     GetSelectedNo = RgSelectedNo;
                 }
                 else
@@ -613,7 +630,8 @@ namespace BioBaseCLIA.Run
                     txtRgBatch.Text = dtRgInfo.Rows[i]["Batch"].ToString();
                     txtRgAllTest.Text = dtRgInfo.Rows[i]["AllTestNumber"].ToString();
                     txtRgLastTest.Text = dtRgInfo.Rows[i]["leftoverTestR1"].ToString();
-                    txtDiluteVol.Text = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);//2019-02-19 zlx add
+                    string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                    txtDiluteVol.Text = OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "leftDiuVol", "", iniPathReagentTrayInfo);//2019-02-19 zlx add
                 }
             }
             txtRgCode.TextChanged += new EventHandler(txtRgCode_TextChanged);
@@ -690,8 +708,26 @@ namespace BioBaseCLIA.Run
                 srdReagent.RgTestNum[int.Parse(txtRgPosition.Text.Trim()) - 1] = "";
                 ModifyRgIni(int.Parse(dt.Rows[0]["Postion"].ToString()), rg);
                 //仪器卸载时稀释液体积恢复默认值 lyn add 20180611
-                OperateIniFile.WriteIniData("ReagentPos" + int.Parse(dt.Rows[0]["Postion"].ToString()).ToString(),
-                    "leftDiuVol", "0", iniPathReagentTrayInfo);
+                string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + ModelRg.Postion, "DiuPos", "", iniPathReagentTrayInfo);
+                if (DiuPos != "")
+                {
+                    DataTable dtAllSb = bllDt.GetAllList().Tables[0];
+                    var dr2 = dtAllSb.Select("DilutePos = '" + DiuPos + "'");
+                    if (dr2.Length > 0)
+                    {
+                        db = new DbHelperOleDb(3);
+                        DataTable dt1 = bllDt.GetList("State=1 and DilutePos = " + DiuPos + "").Tables[0];
+                        if (dt1.Rows.Count > 0)
+                        {
+                            db = new DbHelperOleDb(3);
+                            bllDt.Delete(int.Parse(DiuPos));
+                            ModifyRgIni(int.Parse(DiuPos), rg);
+                            OperateIniFile.WriteIniData("ReagentPos" + DiuPos, "leftDiuVol", "0", iniPathReagentTrayInfo);
+                            OperateIniFile.WriteIniData("ReagentPos" + DiuPos, "IsDiu", "", iniPathReagentTrayInfo);
+                        }
+                    }
+                }
+                OperateIniFile.WriteIniData("ReagentPos" + ModelRg.Postion, "DiuPos", "", iniPathReagentTrayInfo);
                 ShowRgInfo(0);//2018-11-16 zlx mod
                 SetDiskProperty();//2018-07-27
                 if (NetCom3.isConnect)
@@ -878,6 +914,12 @@ namespace BioBaseCLIA.Run
                 {
                     srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CRgLoaded;
                     srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsLoaded;
+                }
+                string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + dtRgInfo.Rows[j]["Postion"].ToString().ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                if (DiuPos != "") 
+                {
+                    srdReagent.RgColor[int.Parse(DiuPos) - 1] = Color.Purple;
+                    srdReagent.BdColor[int.Parse(DiuPos) - 1] = Color.Purple;
                 }
             }
             #endregion
@@ -1091,10 +1133,23 @@ namespace BioBaseCLIA.Run
                 frmMsgShow.MessageShow("试剂装载", "请先装载试剂盒！");
                 return;
             }
+            int DiuPos = Convert.ToInt32(txtRgPosition.Text) + 1;
+            if (DiuPos > frmParent.RegentNum)
+                DiuPos = 1;
+            string BarCode = OperateIniFile.ReadIniData("ReagentPos" + DiuPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
+            if (BarCode != ""&& txtDiluteVol.Text =="")
+            {
+                frmMessageShow frmMsgShow = new frmMessageShow();
+                frmMsgShow.MessageShow("稀释液装载", DiuPos+"号试剂位已经占用");
+                return;
+            }
             frmLoadSu f = new frmLoadSu();
             f.RegentPos =int.Parse(txtRgPosition.Text);
             f.ShowDialog();
-            txtDiluteVol.Text = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);
+
+            string DiuPos1 = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+            txtDiluteVol.Text = OperateIniFile.ReadIniData("ReagentPos" + DiuPos1, "leftDiuVol", "", iniPathReagentTrayInfo);
+            ShowRgInfo(0);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

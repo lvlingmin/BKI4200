@@ -61,8 +61,9 @@ namespace BioBaseCLIA.Run
         string iniPathSubstrateTube = Directory.GetCurrentDirectory() + "\\SubstrateTube.ini";
         public frmTestResult()
         {
+
             InitializeComponent();
-            
+            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void frmTestResult_Load(object sender, EventArgs e)
