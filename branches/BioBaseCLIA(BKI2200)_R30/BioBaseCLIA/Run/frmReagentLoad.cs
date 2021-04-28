@@ -554,8 +554,10 @@ namespace BioBaseCLIA.Run
                 string ss = srdReagent.RgName[RgSelectedNo].ToString().Trim();
                 if (srdReagent.RgName[RgSelectedNo].ToString().Trim() == "")
                 {
-                    string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RgSelectedNo, "BarCode", "", iniPathReagentTrayInfo);
-                    if (DiuPos != "")
+                    //string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RgSelectedNo, "BarCode", "", iniPathReagentTrayInfo);
+                    string BarCode = OperateIniFile.ReadIniData("ReagentPos" + (RgSelectedNo+1), "BarCode", "", iniPathReagentTrayInfo);
+                    string ItemName = OperateIniFile.ReadIniData("ReagentPos"+ (RgSelectedNo+1), "ItemName", "", iniPathReagentTrayInfo);
+                    if (BarCode != "" && ItemName=="")
                     {
                         srdReagent.RgColor[RgSelectedNo] = Color.Purple;
                         srdReagent.BdColor[RgSelectedNo] = Color.Purple;
@@ -1137,7 +1139,7 @@ namespace BioBaseCLIA.Run
             if (DiuPos > frmParent.RegentNum)
                 DiuPos = 1;
             string BarCode = OperateIniFile.ReadIniData("ReagentPos" + DiuPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
-            if (BarCode != ""&& txtDiluteVol.Text =="")
+            if (BarCode != ""&& (txtDiluteVol.Text =="0"|| txtDiluteVol.Text == ""))
             {
                 frmMessageShow frmMsgShow = new frmMessageShow();
                 frmMsgShow.MessageShow("稀释液装载", DiuPos+"号试剂位已经占用");
