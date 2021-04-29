@@ -76,7 +76,6 @@
             // 
             this.dgvResultData.AllowUserToAddRows = false;
             this.dgvResultData.AllowUserToDeleteRows = false;
-            this.dgvResultData.AllowUserToResizeColumns = false;
             this.dgvResultData.AllowUserToResizeRows = false;
             this.dgvResultData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvResultData.BackgroundColor = System.Drawing.Color.White;
@@ -128,7 +127,7 @@
             // 
             this.SampleNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SampleNo.DataPropertyName = "SampleNo";
-            this.SampleNo.FillWeight = 160.1993F;
+            this.SampleNo.FillWeight = 130F;
             resources.ApplyResources(this.SampleNo, "SampleNo");
             this.SampleNo.Name = "SampleNo";
             this.SampleNo.ReadOnly = true;
@@ -148,7 +147,7 @@
             // 
             this.SampleType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SampleType.DataPropertyName = "SampleType";
-            this.SampleType.FillWeight = 91.20197F;
+            this.SampleType.FillWeight = 80F;
             resources.ApplyResources(this.SampleType, "SampleType");
             this.SampleType.Name = "SampleType";
             this.SampleType.ReadOnly = true;
@@ -158,7 +157,7 @@
             // 
             this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.FillWeight = 88.6668F;
+            this.ItemName.FillWeight = 90F;
             resources.ApplyResources(this.ItemName, "ItemName");
             this.ItemName.Name = "ItemName";
             this.ItemName.ReadOnly = true;
@@ -188,7 +187,6 @@
             // 
             this.Unit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Unit.DataPropertyName = "Unit";
-            this.Unit.FillWeight = 50.51753F;
             resources.ApplyResources(this.Unit, "Unit");
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
