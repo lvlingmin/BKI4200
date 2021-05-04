@@ -1377,6 +1377,8 @@ namespace BioBaseCLIA.InfoSetting
             InitprinterComboBox();
             cmbPrinter.SelectedItem = OperateIniFile.ReadInIPara("PrintSet", "defaultPrinter");
             cmbFormat.SelectedItem = OperateIniFile.ReadInIPara("PrintSet", "PageSize");
+            cmbPrintMode.SelectedItem = OperateIniFile.ReadInIPara("PrintSet", "PrintMode");//lyq 20210430
+
             string Margin = OperateIniFile.ReadInIPara("PrintSet", "Margin");
             string[] udlr = Margin.Split('|');
             nudUP.Value = decimal.Parse(udlr[0]);
@@ -1423,9 +1425,15 @@ namespace BioBaseCLIA.InfoSetting
                 txtDepName.Focus();
                 return;
             }
+
+            if (cmbPrintMode.SelectedItem == null)//lyq
+            {
+                return;
+            }
+            OperateIniFile.WriteIniPara("PrintSet", "PrintMode", cmbPrintMode.Text.Trim());
+
             OperateIniFile.WriteIniPara("PrintSet", "HospitalName", txtHospitalName.Text.Trim());
             OperateIniFile.WriteIniPara("PrintSet", "defaultPrinter", cmbPrinter.SelectedItem.ToString());
-
 
             if (cmbPrinter.SelectedItem != null) //判断是否有选中值
             {

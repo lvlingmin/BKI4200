@@ -123,6 +123,8 @@
             this.PrintNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cmbPrintMode = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.nudRight = new System.Windows.Forms.NumericUpDown();
             this.nudDown = new System.Windows.Forms.NumericUpDown();
@@ -1018,6 +1020,8 @@
             // groupBox6
             // 
             resources.ApplyResources(this.groupBox6, "groupBox6");
+            this.groupBox6.Controls.Add(this.cmbPrintMode);
+            this.groupBox6.Controls.Add(this.label21);
             this.groupBox6.Controls.Add(this.groupBox9);
             this.groupBox6.Controls.Add(this.rdbClose);
             this.groupBox6.Controls.Add(this.rdbOpen);
@@ -1031,6 +1035,21 @@
             this.groupBox6.Controls.Add(this.txtHospitalName);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
+            // 
+            // cmbPrintMode
+            // 
+            resources.ApplyResources(this.cmbPrintMode, "cmbPrintMode");
+            this.cmbPrintMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPrintMode.FormattingEnabled = true;
+            this.cmbPrintMode.Items.AddRange(new object[] {
+            resources.GetString("cmbPrintMode.Items"),
+            resources.GetString("cmbPrintMode.Items1")});
+            this.cmbPrintMode.Name = "cmbPrintMode";
+            // 
+            // label21
+            // 
+            resources.ApplyResources(this.label21, "label21");
+            this.label21.Name = "label21";
             // 
             // groupBox9
             // 
@@ -1421,5 +1440,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DocID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrintNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.ComboBox cmbPrintMode;
+        private System.Windows.Forms.Label label21;
     }
 }
