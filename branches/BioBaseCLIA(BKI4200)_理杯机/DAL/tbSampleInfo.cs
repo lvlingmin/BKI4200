@@ -63,9 +63,9 @@ namespace BioBaseCLIA.DAL
 		{
 			StringBuilder strSql = new StringBuilder();
 			strSql.Append("insert into tbSampleInfo(");
-			strSql.Append("SampleNo,PatientName,Sex,Age,SampleType,Source,[Position],SampleContainer,RepeatCount,RegentBatch,ProjectName,Emergency,ClinicNo,InpatientArea,Ward,BedNo,MedicaRecordNo,Diagnosis,Department,SendDoctor,SendDateTime,InspectDoctor,Status,CheckDoctor)");//2018-11-12 zlx add CheckDoctor
+			strSql.Append("SampleNo,PatientName,Sex,Age,SampleType,Source,[Position],SampleContainer,RepeatCount,RegentBatch,ProjectName,Emergency,ClinicNo,InpatientArea,Ward,BedNo,MedicaRecordNo,Diagnosis,Department,SendDoctor,SendDateTime,InspectDoctor,Status,CheckDoctor,InspectionItems,AcquisitionTime)");//2018-11-12 zlx add CheckDoctor
 			strSql.Append(" values (");
-			strSql.Append("@SampleNo,@PatientName,@Sex,@Age,@SampleType,@Source,@Position,@SampleContainer,@RepeatCount,@RegentBatch,@ProjectName,@Emergency,@ClinicNo,@InpatientArea,@Ward,@BedNo,@MedicaRecordNo,@Diagnosis,@Department,@SendDoctor,@SendDateTime,@InspectDoctor,@Status,@CheckDoctor)");
+			strSql.Append("@SampleNo,@PatientName,@Sex,@Age,@SampleType,@Source,@Position,@SampleContainer,@RepeatCount,@RegentBatch,@ProjectName,@Emergency,@ClinicNo,@InpatientArea,@Ward,@BedNo,@MedicaRecordNo,@Diagnosis,@Department,@SendDoctor,@SendDateTime,@InspectDoctor,@Status,@CheckDoctor,@InspectionItems,@AcquisitionTime)");
 			OleDbParameter[] parameters = {
 					new OleDbParameter("@SampleNo", OleDbType.VarChar,30),
 					new OleDbParameter("@PatientName", OleDbType.VarChar,20),
@@ -90,7 +90,9 @@ namespace BioBaseCLIA.DAL
 					new OleDbParameter("@SendDateTime", OleDbType.Date),
 					new OleDbParameter("@InspectDoctor", OleDbType.VarChar,30),
 					new OleDbParameter("@Status", OleDbType.Integer,4),
-					new OleDbParameter("@CheckDoctor", OleDbType.VarChar,30)};
+					new OleDbParameter("@CheckDoctor", OleDbType.VarChar,30),
+					new OleDbParameter("@InspectionItems", OleDbType.VarChar,255),
+					new OleDbParameter("@AcquisitionTime", OleDbType.Date)};
 			parameters[0].Value = model.SampleNo;
 			parameters[1].Value = model.PatientName;
 			parameters[2].Value = model.Sex;
@@ -115,6 +117,8 @@ namespace BioBaseCLIA.DAL
 			parameters[21].Value = model.InspectDoctor;
 			parameters[22].Value = model.Status;
 			parameters[23].Value = model.CheckDoctor;
+			parameters[24].Value = model.InspectionItems;
+			parameters[25].Value = model.AcquisitionTime;
 
 			int rows = DbHelperOleDb.ExecuteSql(connType, strSql.ToString(), parameters);
 			if (rows > 0)
@@ -155,8 +159,9 @@ namespace BioBaseCLIA.DAL
 			strSql.Append("SendDoctor=@SendDoctor,");
 			strSql.Append("SendDateTime=@SendDateTime,");
 			strSql.Append("InspectDoctor=@InspectDoctor,");
-			strSql.Append("Status=@Status");
-			strSql.Append("CheckDoctor=@CheckDoctor");
+			strSql.Append("Status=@Status,");
+			strSql.Append("CheckDoctor=@CheckDoctor,");
+			strSql.Append("InspectionItems=@InspectionItems");
 			strSql.Append(" where SampleID=@SampleID");
 			OleDbParameter[] parameters = {
 					new OleDbParameter("@SampleNo", OleDbType.VarChar,30),
@@ -183,7 +188,9 @@ namespace BioBaseCLIA.DAL
 					new OleDbParameter("@InspectDoctor", OleDbType.VarChar,30),
 					new OleDbParameter("@Status", OleDbType.Integer,4),
 					new OleDbParameter("@CheckDoctor", OleDbType.VarChar,30),//2018-11-12 zlx add
-					new OleDbParameter("@SampleID", OleDbType.Integer,4)};
+					new OleDbParameter("@InspectionItems", OleDbType.VarChar,255),
+					new OleDbParameter("@SampleID", OleDbType.Integer,4)
+			};
 			parameters[0].Value = model.SampleNo;
 			parameters[1].Value = model.PatientName;
 			parameters[2].Value = model.Sex;
@@ -208,7 +215,8 @@ namespace BioBaseCLIA.DAL
 			parameters[21].Value = model.InspectDoctor;
 			parameters[22].Value = model.Status;
 			parameters[23].Value = model.CheckDoctor;//2018-11-12 zlx add
-			parameters[24].Value = model.SampleID;
+			parameters[24].Value = model.InspectionItems;
+			parameters[25].Value = model.SampleID;
 
 			int rows = DbHelperOleDb.ExecuteSql(connType, strSql.ToString(), parameters);
 			if (rows > 0)
@@ -242,7 +250,8 @@ namespace BioBaseCLIA.DAL
 			strSql.Append("SendDoctor=@SendDoctor,");
 			strSql.Append("SendDateTime=@SendDateTime,");
 			strSql.Append("InspectDoctor=@InspectDoctor,");
-			strSql.Append("CheckDoctor=@CheckDoctor");
+			strSql.Append("CheckDoctor=@CheckDoctor,");
+			strSql.Append("AcquisitionTime=@AcquisitionTime");
 			strSql.Append(" where SampleID=@SampleID");
 			OleDbParameter[] parameters = {
 					new OleDbParameter("@PatientName", OleDbType.VarChar,20),
@@ -260,7 +269,9 @@ namespace BioBaseCLIA.DAL
 					new OleDbParameter("@SendDateTime", OleDbType.VarChar,50),
 					new OleDbParameter("@InspectDoctor", OleDbType.VarChar,50),
 					new OleDbParameter("@CheckDoctor", OleDbType.VarChar,50),
-					new OleDbParameter("@SampleID", OleDbType.Integer,4)};
+					new OleDbParameter("@AcquisitionTime", OleDbType.VarChar,50),
+					new OleDbParameter("@SampleID", OleDbType.Integer,4)
+					};
 			parameters[0].Value = model.PatientName;
 			parameters[1].Value = model.Sex;
 			parameters[2].Value = model.Age;
@@ -275,7 +286,9 @@ namespace BioBaseCLIA.DAL
 			parameters[11].Value = model.SendDateTime;
 			parameters[12].Value = model.InspectDoctor;
 			parameters[13].Value = model.CheckDoctor;
-			parameters[14].Value = model.SampleID;
+			parameters[14].Value = model.AcquisitionTime;
+			parameters[15].Value = model.SampleID;
+
 
 			int rows = DbHelperOleDb.ExecuteSql(connType, strSql.ToString(), parameters);
 			if (rows > 0)
@@ -362,7 +375,7 @@ namespace BioBaseCLIA.DAL
 		{
 
 			StringBuilder strSql = new StringBuilder();
-			strSql.Append("select SampleID,SampleNo,PatientName,Sex,Age,SampleType,Source,[Position],SampleContainer,RepeatCount,RegentBatch,ProjectName,Emergency,ClinicNo,InpatientArea,Ward,BedNo,MedicaRecordNo,Diagnosis,Department,SendDoctor,SendDateTime,InspectDoctor,Status,CheckDoctor from tbSampleInfo ");//2018-11-12 zlx add,CheckDoctor
+			strSql.Append("select SampleID,SampleNo,PatientName,Sex,Age,SampleType,Source,[Position],SampleContainer,RepeatCount,RegentBatch,ProjectName,Emergency,ClinicNo,InpatientArea,Ward,BedNo,MedicaRecordNo,Diagnosis,Department,SendDoctor,SendDateTime,InspectDoctor,Status,CheckDoctor,InspectionItems,AcquisitionTime from tbSampleInfo ");//2018-11-12 zlx add,CheckDoctor
 			strSql.Append(" where SampleID=@SampleID");
 			OleDbParameter[] parameters = {
 					new OleDbParameter("@SampleID", OleDbType.Integer,4)
@@ -492,6 +505,14 @@ namespace BioBaseCLIA.DAL
 				{
 					model.CheckDoctor = row["CheckDoctor"].ToString();
 				}
+				if (row["InspectionItems"] != null && row["InspectionItems"].ToString() != "")
+				{
+					model.InspectionItems = row["InspectionItems"].ToString();
+				}
+				if (row["AcquisitionTime"] != null && row["AcquisitionTime"].ToString() != "")
+				{
+					model.AcquisitionTime = DateTime.Parse(row["AcquisitionTime"].ToString());
+				}
 			}
 			return model;
 		}
@@ -502,7 +523,7 @@ namespace BioBaseCLIA.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql = new StringBuilder();
-			strSql.Append("select SampleID,SampleNo,PatientName,Sex,Age,SampleType,Source,[Position],SampleContainer,RepeatCount,RegentBatch,ProjectName,Emergency,ClinicNo,InpatientArea,Ward,BedNo,MedicaRecordNo,Diagnosis,Department,SendDoctor,SendDateTime,InspectDoctor,Status,CheckDoctor ");//2018-11-12 zlx add,CheckDoctor
+			strSql.Append("select SampleID,SampleNo,PatientName,Sex,Age,SampleType,Source,[Position],SampleContainer,RepeatCount,RegentBatch,ProjectName,Emergency,ClinicNo,InpatientArea,Ward,BedNo,MedicaRecordNo,Diagnosis,Department,SendDoctor,SendDateTime,InspectDoctor,Status,CheckDoctor,InspectionItems,AcquisitionTime ");//2018-11-12 zlx add,CheckDoctor
 			strSql.Append(" FROM tbSampleInfo ");
 			if (strWhere.Trim() != "")
 			{
