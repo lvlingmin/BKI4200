@@ -128,27 +128,75 @@ E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\B
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.pdb
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CopyComplete
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.pdb
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\System.Data.SQLite.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.pdb
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.pdb
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CopyComplete
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.pdb
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\bin\Debug\DAL.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\bin\Debug\DAL.pdb
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\bin\Debug\DBUtility.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\bin\Debug\Model.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\bin\Debug\System.Data.SQLite.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\bin\Debug\DBUtility.pdb
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\bin\Debug\Model.pdb
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\obj\Debug\DAL.csproj.CopyComplete
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\obj\Debug\DAL.dll
-E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机 -R30\DAL\obj\Debug\DAL.pdb
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.dll
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.pdb
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.dll
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.dll
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\System.Data.SQLite.dll
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.pdb
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.pdb
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.dll
+E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.pdb
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.dll
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.pdb
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.dll
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.dll
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\System.Data.SQLite.dll
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.pdb
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.pdb
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.dll
+C:\Users\Administrator\Desktop\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\bin\Debug\DAL.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\bin\Debug\DAL.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\bin\Debug\DBUtility.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\bin\Debug\Model.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\bin\Debug\System.Data.SQLite.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\bin\Debug\DBUtility.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\bin\Debug\Model.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\obj\Debug\DAL.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码\DAL\obj\Debug\DAL.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DAL.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DAL.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DBUtility.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\Model.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\System.Data.SQLite.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DBUtility.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\Model.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.pdb
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DAL.dll
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DAL.pdb
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DBUtility.dll
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\Model.dll
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\System.Data.SQLite.dll
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\DBUtility.pdb
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\bin\Debug\Model.pdb
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.dll
+C:\Users\ZLX\Desktop\BioBaseCLIA(BKI4200)_理杯机-射频扫码_R30\DAL\obj\Debug\DAL.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\bin\Debug\DAL.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\bin\Debug\DAL.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\bin\Debug\DBUtility.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\bin\Debug\Model.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\bin\Debug\System.Data.SQLite.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\bin\Debug\DBUtility.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\bin\Debug\Model.pdb
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\obj\Debug\DAL.dll
+E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\DAL\obj\Debug\DAL.pdb

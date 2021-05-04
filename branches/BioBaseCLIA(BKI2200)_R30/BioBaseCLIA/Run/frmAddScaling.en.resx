@@ -742,10 +742,10 @@
     <value>Add Curve</value>
   </data>
   <data name="keywordText.AddCurveAucceeded" xml:space="preserve">
-    <value>Scaling curve added successfully!</value>
+    <value>Main curve added successfully!</value>
   </data>
   <data name="keywordText.AddCurveFailed" xml:space="preserve">
-    <value>Failed to add calibration curve!</value>
+    <value>Failed to add main curve!</value>
   </data>
   <data name="keywordText.FindNone" xml:space="preserve">
     <value>The batch number field was not found in the main curve table</value>

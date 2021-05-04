@@ -318,31 +318,4 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Substrate loading</value>
   </data>
-  <data name="Add" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="FrmMesHead" xml:space="preserve">
-    <value>Substrate loading</value>
-  </data>
-  <data name="FrmMesLeaveText" xml:space="preserve">
-    <value>The remaining number of measurements should not be greater than the total number of measurements!</value>
-  </data>
-  <data name="FrmMesSubText" xml:space="preserve">
-    <value>Please input substrate barcode!</value>
-  </data>
-  <data name="FrmMesSuccessText" xml:space="preserve">
-    <value>Substrate loading successful!</value>
-  </data>
-  <data name="IS" xml:space="preserve">
-    <value>IS</value>
-  </data>
-  <data name="Normal" xml:space="preserve">
-    <value>Normal</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
 </root>

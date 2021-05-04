@@ -12,6 +12,8 @@ using System.Text.RegularExpressions;
 using Common;
 using BioBaseCLIA.InfoSetting;
 using System.IO;
+using FastReport;
+using System.Collections;
 
 namespace BioBaseCLIA.Run
 {
@@ -36,6 +38,10 @@ namespace BioBaseCLIA.Run
         frmMessageShow frmMsg = new frmMessageShow();
         List<string> ls = new List<string>();
         DataTable DtRgInfoNoStat;
+        int addSpCodeFlag = 0;
+        string[] strSpTypeAll;
+        string[] strSpTypePart = new string[3];
+        enum addSpFlagState { ready = 0, success = 1, fail = 2 };
         /// <summary>
         /// 试剂盘配置文件地址
         /// </summary>
@@ -89,12 +95,32 @@ namespace BioBaseCLIA.Run
                             int RepeatCount = int.Parse(dtSampleInfo.Rows[i]["RepeatCount"].ToString());
                             int DilutionTimes = int.Parse(ddr["DilutionTimes"].ToString());
                             int diuvol = 0;
-                            if (!ddr["SampleType"].ToString().Contains("标准品"))
+                            string DiuName = "";
+                            if (!(ddr["SampleType"].ToString().Contains("标准品")|| ddr["SampleType"].ToString().Contains("质控品")))
                             {
+                                string diuPos = "";
                                 if (DilutionTimes > 0)
+                                {
                                     diuvol = GetSumDiuVol(ddr["ItemName"].ToString(), DilutionTimes);
+                                    DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ddr["ItemName"].ToString() + "'");
+                                    foreach (DataRow drr in drRegion)
+                                    {
+                                        diuPos = OperateIniFile.ReadIniData("ReagentPos" + drr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                                        if (diuPos != "")
+                                        {
+                                            DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                            break;
+                                        }
+                                    }
+                                }
                             }
-                            UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount, (diuvol * RepeatCount));
+                            UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount,0);
+                            if(diuvol>0)
+                                UpdadteDtRgInfoNoStat(DiuName, 0, (diuvol * RepeatCount));
+                            //DataRow[] drReagent = frmParent.dtRgInfo.Select("RgName ='"+ ddr["ItemName"].ToString()+"'");
+
+                            //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount, (diuvol * RepeatCount));
+
                         }
                         #endregion
                     }
@@ -104,6 +130,22 @@ namespace BioBaseCLIA.Run
             {
                 DtRgInfoNoStat = frmSampleLoad.DtItemInfoNoStat.Copy();
             }
+
+            //lyq add 20201104
+            ArrayList spTypeList = new ArrayList();
+            foreach (string item in cmbSpType.Items)
+            {
+                spTypeList.Add(item);
+            }
+            strSpTypeAll = new string[spTypeList.Count];
+            for (int i = 0; i < spTypeList.Count; i++)
+            {
+                strSpTypeAll[i] = spTypeList[i].ToString();
+                if (i < 3)
+                {
+                    strSpTypePart[i] = spTypeList[i].ToString(); ;
+                }
+            }
         }
         private void GetItemInfo()
         {
@@ -111,7 +153,8 @@ namespace BioBaseCLIA.Run
             DbHelperOleDb db = new DbHelperOleDb(0);
             DataTable dtProject = bllPj.GetList("ActiveStatus=1").Tables[0];
             db = new DbHelperOleDb(3);
-            DataTable dtRgItem = bllRg.GetList("Status='正常'").Tables[0];
+            //DataTable dtRgItem = bllRg.GetList("Status='正常'").Tables[0];
+            DataTable dtRgItem = bllRg.GetList("Postion<>''").Tables[0];//lyq mod 20201021
             dtrgBatch = dtRgItem.Copy();
             dtRgItem = Distinct(dtRgItem, "ReagentName");
             dtItemInfo = dtProject.Clone();
@@ -200,19 +243,21 @@ namespace BioBaseCLIA.Run
         private int ReadRegetInfo(string ItemName, bool diu, string RgPos)
         {
             int count = 0;
-            if (diu)
-            {
-                string diuPos = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "DiuPos", "", iniPathReagentTrayInfo);
-                string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "leftDiuVol", "", iniPathReagentTrayInfo);
-                if (leftDiuVol!="")
-                    count = int.Parse(leftDiuVol);
-            }
-            else
-            {
-                string LeftReagent1 = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "LeftReagent1", "", iniPathReagentTrayInfo);
-                if(LeftReagent1!= "")
-                    count = int.Parse(LeftReagent1);
-            }
+            //if (diu)
+            //{
+            //    string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "leftDiuVol", "", iniPathReagentTrayInfo);
+            //    if (leftDiuVol != "")
+            //        count = int.Parse(leftDiuVol);
+            //}
+            //else
+            //{
+            //    string LeftReagent1 = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "LeftReagent1", "", iniPathReagentTrayInfo);
+            //    if (LeftReagent1 != "")
+            //        count = int.Parse(LeftReagent1);
+            //}
+            string LeftReagent1 = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "LeftReagent1", "", iniPathReagentTrayInfo);
+            if (LeftReagent1 != "")
+                count = int.Parse(LeftReagent1);
             return count;
         }
         /// <summary>
@@ -224,7 +269,7 @@ namespace BioBaseCLIA.Run
         private int GetSumDiuVol(string ItemName, int diucount)
         {
             DbHelperOleDb db = new DbHelperOleDb(0);
-            DataTable drproject = DbHelperOleDb.Query(0,@"select ProjectProcedure,DiluteCount,DiluteName from tbProject where ShortName = '" + ItemName + "' AND ActiveStatus=1").Tables[0];
+            DataTable drproject = DbHelperOleDb.Query(0, @"select ProjectProcedure,DiluteCount,DiluteName from tbProject where ShortName = '" + ItemName + "' AND ActiveStatus=1").Tables[0];
             int DiluteCount = int.Parse(drproject.Rows[0]["DiluteCount"].ToString());
             string DiluteName = drproject.Rows[0]["DiluteName"].ToString();
             int Addliquid = int.Parse(drproject.Rows[0]["ProjectProcedure"].ToString().Split(';')[0].Split('-')[1]);
@@ -378,7 +423,7 @@ namespace BioBaseCLIA.Run
             //string autoNumber = "(Auto)";
             string autoNumber = DateTime.Now.ToString("yyyyMMdd");
             DbHelperOleDb db = new DbHelperOleDb(1);
-            object emergency = DbHelperOleDb.GetSingle(1,"select max(SampleNo) from tbSampleInfo where left(SampleNo,8)='" + autoNumber + "' AND Right(SampleNo,3)<'999'");
+            object emergency = DbHelperOleDb.GetSingle(1, "select max(SampleNo) from tbSampleInfo where left(SampleNo,8)='" + autoNumber + "' AND Right(SampleNo,3)<'999'");
             //DataTable  emergency = DbHelperOleDb.Query("select max(SampleNo) from tbSampleInfo where SampleNo like '" + autoNumber + "???'").Tables();
             int i = 0;
             if (emergency != null)
@@ -440,7 +485,9 @@ namespace BioBaseCLIA.Run
             else if (((Button)sender).Text == "开始扫码")
             {
                 btnAdd.Enabled = false;
-                string spCode = "";
+                cmbPipeType.SelectedIndex = 0;
+                cmbSpType.SelectedIndex = 0;
+                #region judge
                 if (txtScanStartNo.Text.Trim() == "")
                 {
                     frmMsg.MessageShow("添加样本", "请输入扫码起始位置！");
@@ -455,6 +502,12 @@ namespace BioBaseCLIA.Run
                     btnAdd.Enabled = true;
                     return;
                 }
+                if (cmbSpType.SelectedIndex > 2)
+                {
+                    frmMsg.MessageShow("样本装载", "仅允许添加样本，请重新输入！");
+                    btnAdd.Enabled = true;
+                    return;
+                }
                 if (int.Parse(txtScanStartNo.Text.Trim()) > int.Parse(txtScanEndNo.Text.Trim()))
                 {
                     frmMsg.MessageShow("添加样本", "扫码起始位置不能大于结束位置，请重新输入！");
@@ -462,7 +515,7 @@ namespace BioBaseCLIA.Run
                     btnAdd.Enabled = true;
                     return;
                 }
-                var drNum = frmParent.dtSpInfo.Select("Position>=" + txtScanStartNo.Text.Trim() + "and Position<=" + txtScanEndNo.Text.Trim());
+                var drNum = frmParent.dtSpInfo.Select("Position>=" + txtScanStartNo.Text.Trim() + "and Position<=" + txtScanEndNo.Text.Trim() + "and Status = 0");// 1 完成、2 卸载
                 if (drNum.Length > 0)
                 {
                     frmMsg.MessageShow("添加样本", "样本孔位已存在，请重新设置！");
@@ -498,72 +551,167 @@ namespace BioBaseCLIA.Run
                     btnAdd.Enabled = true;
                     return;
                 }
+                #endregion
                 ////样本盘复位
                 ////查询样本盘复位是否完成
-                for (int i = int.Parse(txtScanStartNo.Text.Trim()); i < int.Parse(txtScanEndNo.Text.Trim()) + 1; i++)
+                int StartNo = int.Parse(txtScanStartNo.Text.Trim());
+                int EndNo = int.Parse(txtScanEndNo.Text.Trim());
+                for (int i = StartNo; i < EndNo + 1; i++)
                 {
-                    ////样本盘某孔移动到扫码位置
-                    ////查询样本盘移动是否完成
+                    ////手工操作放置样本到样本盘
+                    ////旋转到扫码枪位置
                     ////发送扫码指令
                     //查询扫码指令完成与否
-                    int ScanFg = 1;
-                    while (ScanFg == 0)
+                    //读取条码  
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 0a " + (i + 6).ToString("x2")), 0);
+                    SendAgain:
+                    if (!NetCom3.Instance.SPQuery() && NetCom3.Instance.AdderrorFlag != (int)ErrorState.ReadySend)
                     {
-                        Thread.Sleep(100);
+                        if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
+                            goto SendAgain;
+                        else
+                        {
+                            frmMsg.MessageShow("样本装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                            btnAdd.Enabled = true;
+                            return;
+                        }
                     }
-                    if (ScanFg == 2)
+
+                    NetCom3.Instance.ReceiveHandel += dealSpCode;
+                    addSpCodeFlag = (int)addSpFlagState.ready;
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 CA 02"), 5);
+                    if (!NetCom3.Instance.SingleQuery() && NetCom3.Instance.errorFlag != (int)ErrorState.ReadySend)
                     {
-                        spCode = "";
+                        MessageBox.Show("数据获取失败！", "样本条码扫描");
+                        NetCom3.Instance.ReceiveHandel -= dealSpCode;
+                        btnAdd.Enabled = true;
+                        return;
                     }
-                    else if (ScanFg == 1)
+                    while (addSpCodeFlag == (int)addSpFlagState.ready)
                     {
-                        //读取条码
+                        NetCom3.Delay(100);
                     }
-                    if (spCode != "")
+                    if (addSpCodeFlag == (int)addSpFlagState.fail)
                     {
-                        txtSpBarCode.Text = spCode;
+                        btnAdd.Enabled = true;
+                        return;
+                    }
+                    NetCom3.Instance.ReceiveHandel -= dealSpCode;
+
+
+                    if (addSpCodeFlag == (int)addSpFlagState.success)
+                    {
+                        #region 保存
+
+                        #region 判断试剂和稀释液是否够用
+                        DbHelperOleDb db = new DbHelperOleDb(1);
+                        string SampleNo = txtSpBarCode.Text.Trim();
+                        int RepeatCount = int.Parse(txtSpRepetitions.Text);
+
+                        DataTable dtNewAddDtRgInfo = DtRgInfoNoStat.Clone();
+                        RepeatCount = int.Parse(txtSpRepetitions.Text);
+                        string SpPosition = i.ToString();
+                        foreach (CheckBox ch in flpItemName.Controls)
+                        {
+                            if (ch.Checked)
+                            {
+                                for (int j = 0; j < dtItemInfo.Rows.Count; j++)
+                                {
+                                    if (ch.Text == dtItemInfo.Rows[j]["ShortName"].ToString())
+                                    {
+                                        string ShortName = dtItemInfo.Rows[j]["ShortName"].ToString();
+                                        int regentleft = 0;
+                                        DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ShortName + "'");
+                                        foreach (DataRow ddr in drRegion)
+                                        {
+                                            regentleft = regentleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
+                                            //DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
+                                        }
+                                       
+                                        int regentNoStart = SelectDtRgInfoNoStat(ShortName, false);
+
+                                        if (regentNoStart + RepeatCount > regentleft)
+                                        {
+                                            MessageBox.Show(ShortName + "项目试剂不足，此次样本装载不成功!");
+                                            return;
+                                        }
+                                        int DiuVolleft = 0;
+                                        string diuPos = "";
+                                        string DiuName = "";
+                                        foreach (DataRow ddr in drRegion)
+                                        {
+                                            diuPos = OperateIniFile.ReadIniData("ReagentPos" + ddr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                                            if (diuPos != "")
+                                            {
+                                                DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                                DataRow[] drDiu = frmParent.dtRgInfo.Select("RgName='" + DiuName + "'");
+                                                foreach (DataRow dr in drDiu)
+                                                {
+                                                    DiuVolleft = DiuVolleft + ReadRegetInfo(DiuName, true, dr["Postion"].ToString()) - DiuNoUsePro;
+                                                }
+                                                break;
+                                            }
+                                        }
+                                        int diuvol = 0;
+                                        if (!cmbSpType.Text.Trim().Contains("标准品") && !cmbSpType.Text.Trim().Contains("质控品"))
+                                        {
+                                            db = new DbHelperOleDb(0);
+                                            DataTable dtProject = bllPj.GetList("ActiveStatus=1 AND ShortName='" + ShortName + "'").Tables[0];
+                                            var dr = dtProject.Rows[0];
+                                            int DilutionTimes = int.Parse(dr["DiluteCount"].ToString());
+                                            if (DilutionTimes > 1)
+                                            {
+                                                diuvol = GetSumDiuVol(ShortName, DilutionTimes);
+                                                int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
+                                                if (DioVolNoStart + (diuvol * RepeatCount) > DiuVolleft)
+                                                {
+                                                    MessageBox.Show(ShortName + "项目稀释液不足!此次样本装载不成功！");
+                                                    return;
+                                                }
+                                            }
+                                        }
+                                        //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, diuvol * RepeatCount);
+                                        dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, 0);
+                                        if (DiuName != "")
+                                        {
+                                            dtNewAddDtRgInfo.Rows.Add(DiuName, 0, diuvol * RepeatCount);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #endregion
                         #region 添加之后保存
+
+                        dgvSampleList.SelectionChanged -= dgvSampleList_SelectionChanged;
                         if (PosCodeErrorOrNot(txtSpBarCode.Text, "", i, 1, false))
                         {
-                            continue;//如果 有问题 直接进入下一个循环
+                            btnAdd.Enabled = true;
+                            btnDelete.Enabled = true;
+                            return;
                         }
+                        dgvSampleList.SelectionChanged += dgvSampleList_SelectionChanged;
                         string barNumber = txtSpBarCode.Text.Trim();
                         string item = "";
                         modelSp.SampleNo = barNumber;
                         modelSp.RepeatCount = int.Parse(txtSpRepetitions.Text);
-                        modelSp.Position = i.ToString();
+                        modelSp.Position = SpPosition;
                         modelSp.SampleType = cmbSpType.Text.Trim();
                         modelSp.SampleContainer = cmbPipeType.Text.Trim();
-                        if (modelSp.Status == null)//2018-4-26 zlx modify
-                            modelSp.Status = 0;
-                        if (modelSp.Age == null)
-                            modelSp.Age = 0;
-                        if (modelSp.BedNo == null || modelSp.BedNo == "")
-                            modelSp.BedNo = "";
-                        if (modelSp.ClinicNo == null || modelSp.ClinicNo == "")
-                            modelSp.ClinicNo = "";
-                        if (modelSp.InpatientArea == null || modelSp.InpatientArea == "")
-                            modelSp.InpatientArea = "";
-                        if (modelSp.MedicaRecordNo == null || modelSp.MedicaRecordNo == "")
-                            modelSp.MedicaRecordNo = "";
-                        if (modelSp.PatientName == null || modelSp.PatientName == "")
-                            modelSp.PatientName = "";
-                        if (modelSp.Sex == null || modelSp.Sex == "")
-                            modelSp.Sex = "";
-                        if (modelSp.Ward == null || modelSp.Ward == "")
-                            modelSp.Ward = "";
-                        if (cmbSpType.Text.Contains("标准品") || cmbSpType.Text.Contains("校准品") || cmbSpType.Text.Contains("定标液"))
-                        {
-                            modelSp.Emergency = 5;
-                            modelSp.RegentBatch = cmbBatch.SelectedItem.ToString();
-                        }
-                        else if (cmbSpType.Text.Contains("质控品"))
-                        {
-                            modelSp.Emergency = 4;
-                            modelSp.RegentBatch = "";
-                            //modelSp.RegentBatch = cmbBatch.SelectedItem.ToString();
-                        }
-                        else if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+
+                        modelSp.Status = 0;
+                        modelSp.Age = 0;
+                        modelSp.BedNo = "";
+                        modelSp.ClinicNo = "";
+                        modelSp.InpatientArea = "";
+                        modelSp.MedicaRecordNo = "";
+                        modelSp.PatientName = "";
+                        modelSp.Sex = "";
+                        modelSp.Ward = "";
+                        modelSp.Diagnosis = "";
+                        modelSp.RegentBatch = "";
+
+                        if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
                         {
                             if (frmWorkList.EmergencyFlag)
                             {
@@ -580,13 +728,12 @@ namespace BioBaseCLIA.Run
                             modelSp.Emergency = chkEmergency.Checked ? 3 : 1;
                             modelSp.RegentBatch = "";
                         }
-
                         modelSp.InspectDoctor = "";
                         modelSp.SendDoctor = "";
                         modelSp.Source = "内部";
                         modelSp.Department = "";
                         modelSp.SendDateTime = DateTime.Now;
-
+                        int PointNum = 1;
                         foreach (CheckBox ch in flpItemName.Controls)
                         {
                             if (ch.Checked)
@@ -596,31 +743,68 @@ namespace BioBaseCLIA.Run
                                     if (ch.Text == dtItemInfo.Rows[j]["ShortName"].ToString())
                                     {
                                         item += dtItemInfo.Rows[j]["ShortName"].ToString() + " ";
-                                        frmParent.dtSampleRunInfo.Rows.Add(modelSp.Position, modelSp.SampleNo, modelSp.SampleType,
-                                            dtItemInfo.Rows[j]["ShortName"].ToString(), (modelSp.Emergency == 2 || modelSp.Emergency == 3) ? "是" : "否",
-                                            dtItemInfo.Rows[j]["DiluteCount"].ToString(), dtItemInfo.Rows[j]["DiluteName"].ToString());
+
+                                        string postion = modelSp.Position;
+                                        string sampleNo = modelSp.SampleNo;
+                                        for (int ii = 0; ii < PointNum; ii++)
+                                        {
+                                            string DiluteCount = dtItemInfo.Rows[j]["DiluteCount"].ToString();
+                                            string DiluteName = dtItemInfo.Rows[j]["DiluteName"].ToString();
+
+                                            frmParent.dtSampleRunInfo.Rows.Add(postion, sampleNo, modelSp.SampleType, dtItemInfo.Rows[j]["ShortName"].ToString(),
+                                                modelSp.Emergency == 2 || modelSp.Emergency == 3 ? "是" : "否", DiluteCount, DiluteName);
+                                            postion = (Convert.ToInt32(postion) + 1).ToString();
+                                            if (postion == "60") postion = "1";
+                                            //sampleNo = DateTime.Now.ToString("yyyyMMdd") + string.Format("{0:D3}", int.Parse(sampleNo.Substring(sampleNo.Length - 3, 3)) + 1);
+                                        }
                                         break;
                                     }
                                 }
-
                             }
                         }
                         modelSp.ProjectName = item;
-                        //2018-11-12 zlx add
                         if (modelSp.CheckDoctor == null || modelSp.CheckDoctor == "")
                             modelSp.CheckDoctor = "";
-                        //#region 按照样本编号获取数据
-                        //AchieveInfo();
-                        //#endregion
-                        DbHelperOleDb db = new DbHelperOleDb(1);
+
+                        db = new DbHelperOleDb(1);
                         bllsp.Add(modelSp);
                         dtSampleInfo.Rows.Add(modelSp.Position, modelSp.SampleNo, modelSp.SampleType, modelSp.SampleContainer, item, modelSp.RepeatCount,
                             modelSp.Emergency == 2 || modelSp.Emergency == 3 ? "是" : "否", modelSp.Status);
-                        item = "";
                         #endregion
+                        #region 自动选中新添加的信息，并滚动表格到显示此信息
+                        int po = int.Parse(SpPosition) - 1;
+                        SelectInfo(po);
+                        #endregion
+
+                        item = "";
+
+                        foreach (DataRow dr in dtNewAddDtRgInfo.Rows)
+                        {
+                            UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
+                        }
+                        newSample = true;
+                        DataView dvv = dtSampleInfo.DefaultView;
+
+                        dvv.Sort = "Position";
+                        //dvv.Sort = "Position";
+                        if (dtSampleInfo.Rows.Count > 0)
+                        {
+                            btnDelete.Enabled = btnMoreDelete.Enabled = btnModify.Enabled = true;
+                        }
+                        if (dtSampleInfo.Rows.Count >= 60 && dtSampleInfo.Select("Status=0").Length >= 60)
+                        {
+                            btnAdd.Enabled = btnMoreAdd.Enabled = false;
+                        }
+                        #endregion
+
+                        if (i == EndNo)
+                        {
+                            frmMsg.MessageShow("样本装载", "\t装载样本成功");
+                        }
                     }
-                    btnAdd.Enabled = true;
+                    //btnAdd.Enabled = true;
                 }
+                btnAdd.Enabled = true;
             }
         }
         /// <summary>
@@ -695,21 +879,40 @@ namespace BioBaseCLIA.Run
                                 int RepeatCount = int.Parse(dgvSampleList.SelectedRows[0].Cells["RepeatCount"].Value.ToString());
                                 int DilutionTimes = int.Parse(ddr["DilutionTimes"].ToString());
                                 int diuvol = 0;
-                                if (!(ddr["SampleType"].ToString().Contains("标准品")|| ddr["SampleType"].ToString().Contains("校准品") || ddr["SampleType"].ToString().Contains("质控品")))
+                                if (!(ddr["SampleType"].ToString().Contains("标准品") || ddr["SampleType"].ToString().Contains("校准品") || ddr["SampleType"].ToString().Contains("质控品")))
                                 {
                                     if (DilutionTimes > 0)
                                         diuvol = GetSumDiuVol(ddr["ItemName"].ToString(), DilutionTimes);
                                 }
-                                UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
+
+                                //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
+                                UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, 0);
+                                if (diuvol > 0)
+                                {
+                                    string diuPos = "";
+                                    string DiuName = "";
+                                    DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ddr["ItemName"] + "'");
+                                    foreach (DataRow drr in drRegion)
+                                    {
+                                        diuPos = OperateIniFile.ReadIniData("ReagentPos" + drr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                                        if (diuPos != "")
+                                        {
+                                            DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                            break;
+                                        }
+                                    }
+                                    UpdadteDtRgInfoNoStat(DiuName, 0, -(diuvol * RepeatCount));
+                                }
+                                
                             }
                             #endregion
                             db = new DbHelperOleDb(1);
-                            bUpdate = DbHelperOleDb.ExecuteSql(1,@"delete from tbSampleInfo where Status =0 AND SampleNo='" + SampleNo + "'");
+                            bUpdate = DbHelperOleDb.ExecuteSql(1, @"delete from tbSampleInfo where Status =0 AND SampleNo='" + SampleNo + "'");
                         }
                         else
                         {
                             db = new DbHelperOleDb(1);
-                            bUpdate = DbHelperOleDb.ExecuteSql(1,@"update tbSampleInfo set Status = 2  where SampleNo='" + dgvSampleList.SelectedRows[0].Cells[1].Value + "'");
+                            bUpdate = DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 2  where SampleNo='" + dgvSampleList.SelectedRows[0].Cells[1].Value + "'");
                         }
                         if (bUpdate > 0)
                         //if (DbHelperOleDb.ExecuteSql(@"update tbSampleInfo set Status = 2  where SampleNo='" + dgvSampleList.SelectedRows[0].Cells[1].Value + "'") > 0)
@@ -799,12 +1002,30 @@ namespace BioBaseCLIA.Run
                     {
                         int DilutionTimes = int.Parse(ddr["DilutionTimes"].ToString());
                         int diuvol = 0;
-                        if (!(ddr["SampleType"].ToString().Contains("标准品")|| ddr["SampleType"].ToString().Contains("校准品") || ddr["SampleType"].ToString().Contains("质控品")))
+                        if (!(ddr["SampleType"].ToString().Contains("标准品") || ddr["SampleType"].ToString().Contains("校准品") || ddr["SampleType"].ToString().Contains("质控品")))
                         {
                             if (DilutionTimes > 0)
                                 diuvol = GetSumDiuVol(ddr["ItemName"].ToString(), DilutionTimes);
                         }
-                        UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
+                        
+                        if (diuvol > 0)
+                        {
+                            string diuPos = "";
+                            string DiuName = "";
+                            DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ddr["ItemName"].ToString() + "'");
+                            foreach (DataRow drr in drRegion)
+                            { 
+                                diuPos = OperateIniFile.ReadIniData("ReagentPos" + drr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                                if (diuPos != "")
+                                {
+                                    DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                    break;
+                                }
+                            }
+                            UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, 0);
+                            UpdadteDtRgInfoNoStat(DiuName, 0, -(diuvol * RepeatCount));
+                        }
+                        //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
                     }
                     #endregion
                 }
@@ -826,8 +1047,9 @@ namespace BioBaseCLIA.Run
                                 foreach (DataRow ddr in drRegion)
                                 {
                                     regentleft = regentleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
-                                    DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
+                                    //DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
                                 }
+                               
                                 int regentNoStart = SelectDtRgInfoNoStat(ShortName, false);
                                 if (cmbSpType.Text.Trim() == ("标准品"))
                                 {
@@ -846,6 +1068,22 @@ namespace BioBaseCLIA.Run
                                     return;
                                 }
                                 int diuvol = 0;
+                                string diuPos = "";
+                                string DiuName = "";
+                                foreach (DataRow ddr in drRegion)
+                                {
+                                    diuPos = OperateIniFile.ReadIniData("ReagentPos" + ddr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                                    if (diuPos != "")
+                                    {
+                                        DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                        DataRow[] drDiu = frmParent.dtRgInfo.Select("RgName='" + DiuName + "'");
+                                        foreach (DataRow dr in drDiu)
+                                        {
+                                            DiuVolleft = DiuVolleft + ReadRegetInfo(DiuName, true, dr["Postion"].ToString()) - DiuNoUsePro;
+                                        }
+                                        break;
+                                    }
+                                }
                                 //if (!cmbSpType.Text.Trim().Contains("标准品") && !cmbSpType.Text.Trim().Contains("质控品"))
                                 if (!(cmbSpType.Text.Trim().Contains("标准品") || cmbSpType.Text.Trim().Contains("校准品") || cmbSpType.Text.Trim().Contains("质控品")))
                                 {
@@ -856,7 +1094,7 @@ namespace BioBaseCLIA.Run
                                     if (DilutionTimes > 1)
                                     {
                                         diuvol = GetSumDiuVol(ShortName, DilutionTimes);
-                                        int DioVolNoStart = SelectDtRgInfoNoStat(ShortName, true);
+                                        int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
                                         if (DioVolNoStart + (diuvol * RepeatCount) > DiuVolleft)
                                         {
                                             MessageBox.Show(ShortName + "项目稀释液不足!此次样本装载不成功！");
@@ -864,7 +1102,9 @@ namespace BioBaseCLIA.Run
                                         }
                                     }
                                 }
-                                dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, diuvol * RepeatCount);
+                                //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, diuvol * RepeatCount);
+                                dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount,0);
+                                dtNewAddDtRgInfo.Rows.Add(DiuName, 0, diuvol * RepeatCount);
                             }
                         }
                     }
@@ -959,7 +1199,7 @@ namespace BioBaseCLIA.Run
                                     item += dtItemInfo.Rows[j]["ShortName"].ToString() + " ";
                                     //frmParent.dtSampleRunInfo.Rows.Add(modelSp.Position, modelSp.SampleType, modelSp.SampleNo, dtItemInfo.Rows[j]["ShortName"].ToString(),
                                     //   modelSp.Emergency == 2 || modelSp.Emergency == 3 ? "是" : "否", dtItemInfo.Rows[j]["DiluteCount"].ToString(), dtItemInfo.Rows[j]["DiluteName"].ToString());
-                                    
+
                                     //lyq add 20190829
                                     if (cmbSpType.Text == ("交叉污染检测"))
                                     {
@@ -982,7 +1222,7 @@ namespace BioBaseCLIA.Run
                                         string DiluteCount = dtItemInfo.Rows[j]["DiluteCount"].ToString();
                                         string DiluteName = dtItemInfo.Rows[j]["DiluteName"].ToString();
                                         //if (cmbSpType.Text.Contains("标准品") || cmbSpType.Text.Contains("质控品"))
-                                        if (cmbSpType.Text.Contains("标准品") || cmbSpType.Text.Contains("质控品")|| cmbSpType.Text.Contains("校准品"))
+                                        if (cmbSpType.Text.Contains("标准品") || cmbSpType.Text.Contains("质控品") || cmbSpType.Text.Contains("校准品"))
                                         {
                                             DiluteCount = "1";
                                             DiluteName = "1";
@@ -1431,7 +1671,8 @@ namespace BioBaseCLIA.Run
                     bllsp.Update(modelSp);
                     #region 对样本运行信息表进行排序
                     DataView dv = frmParent.dtSampleRunInfo.DefaultView;
-                    dv.Sort = "SampleNo Asc";
+                    //dv.Sort = "SampleNo Asc";
+                    dv.Sort = "Position Asc";
                     frmParent.dtSampleRunInfo = dv.ToTable();
                     #endregion
                     drSp[0]["ItemName"] = modelSp.ProjectName;//修改样本表中该样本的项目名称信息
@@ -1451,7 +1692,9 @@ namespace BioBaseCLIA.Run
                 groupBox6.Enabled = true;//y add 20180425
                 DataView dvv = dtSampleInfo.DefaultView;//y add 20170425
                 //dvv.Sort = "Position";//y add 20170425
-                dvv.Sort = "SampleNo";
+                //dvv.Sort = "SampleNo";
+
+                dvv.Sort = "Position";
                 //dtSampleInfo = dvv.ToTable();//y add 20170425
                 //dgvSampleList.DataSource = dtSampleInfo;//y add 20170425
                 if (dtSampleInfo.Rows.Count > 0)//y add 20180425
@@ -1558,7 +1801,6 @@ namespace BioBaseCLIA.Run
         private bool VerifyInfo()
         {
             int itemNum = 0;
-            string tempItemName = "";
             if (txtSpBarCode.Text.Trim() == "")
             {
                 frmMsg.MessageShow("样本装载", "未输入样本编号，请重新输入！");
@@ -1597,7 +1839,6 @@ namespace BioBaseCLIA.Run
                         }
                     }
                     itemNum++;
-                    tempItemName = chk.Text;
                 }
             }
             if (itemNum < 1)
@@ -1612,16 +1853,6 @@ namespace BioBaseCLIA.Run
             {
                 frmMsg.MessageShow("样本装载", "该样本类型不允许同时选择多个项目，请重新选择！");
                 return false;
-            }
-            if (cmbSpType.Text.Contains("标准品G"))
-            {
-                DataTable dtProject = bllPj.GetList("ActiveStatus=1 AND ShortName='" + tempItemName + "'").Tables[0];
-                int pointcount = int.Parse(dtProject.Rows[0]["CalPointNumber"].ToString());
-                if (pointcount == 6)//检测该项目6点定标
-                {
-                    frmMsg.MessageShow("样本装载", "该项目不允许添加该样本类型，请重新选择！");
-                    return false;
-                }
             }
             return true;
         }
@@ -1640,7 +1871,7 @@ namespace BioBaseCLIA.Run
                 if (dr["ReagentName"].ToString() != itemname)
                     continue;
                 DbHelperOleDb db = new DbHelperOleDb(1);
-                DataTable tbScalingResult = DbHelperOleDb.Query(1,@"select Points,ActiveDate from tbScalingResult where ItemName = '" + itemname
+                DataTable tbScalingResult = DbHelperOleDb.Query(1, @"select Points,ActiveDate from tbScalingResult where ItemName = '" + itemname
                     + "' and RegentBatch = '" + dr["Batch"] + "' and Status = 1").Tables[0];
                 if (tbScalingResult.Rows.Count == 0)
                 {
@@ -1726,17 +1957,17 @@ namespace BioBaseCLIA.Run
                         string emergency;
                         try
                         {
-                            emergency = DbHelperOleDb.GetSingle(1,"select Emergency from tbSampleInfo where SampleNo = '"
+                            emergency = DbHelperOleDb.GetSingle(1, "select Emergency from tbSampleInfo where SampleNo = '"
                             + dgvSampleList.SelectedRows[i].Cells["SampleNo"].Value.ToString() + "' and SendDateTime >=#"
                             + DateTime.Now.ToString("yyyy-MM-dd")
                             + "# and SendDateTime <#" + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")
                             + "#").ToString();
                         }
-                        catch (Exception ex) 
+                        catch (Exception ex)
                         {
                             continue;
                         }
-                         
+
                         if (emergency == "1" || emergency == "3" || emergency == "4" || emergency == "5")
                         {
                             if (btnDelete.Text == "删除")
@@ -1993,13 +2224,29 @@ namespace BioBaseCLIA.Run
                             foreach (DataRow ddr in drRegion)
                             {
                                 regentleft = regentleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
-                                DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
+                                //DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
                             }
                             int regentNoStart = SelectDtRgInfoNoStat(ShortName, false);
                             if (regentNoStart + (RepeatCount * Spcount) > regentleft)
                             {
                                 MessageBox.Show(ShortName + "项目试剂不足，此次装载不成功!");
                                 return;
+                            }
+                            string diuPos = "";
+                            string DiuName = "";
+                            foreach (DataRow ddr in drRegion)
+                            {
+                                diuPos = OperateIniFile.ReadIniData("ReagentPos" + ddr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                                if (diuPos != "")
+                                {
+                                    DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                    DataRow[] drDiu = frmParent.dtRgInfo.Select("RgName='" + DiuName + "'");
+                                    foreach (DataRow dr in drDiu)
+                                    {
+                                        DiuVolleft = DiuVolleft + ReadRegetInfo(DiuName, true, dr["Postion"].ToString()) - DiuNoUsePro;
+                                    }
+                                    break;
+                                }
                             }
                             int diuvol = 0;
                             if (!(cmbmSpType.Text.Trim().Contains("标准品") || cmbmSpType.Text.Trim().Contains("质控品")))
@@ -2011,7 +2258,7 @@ namespace BioBaseCLIA.Run
                                 if (DilutionTimes > 1)
                                 {
                                     diuvol = GetSumDiuVol(ShortName, DilutionTimes);
-                                    int DioVolNoStart = SelectDtRgInfoNoStat(ShortName, true);
+                                    int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
                                     if (DioVolNoStart + (diuvol * RepeatCount * Spcount) > DiuVolleft)
                                     {
                                         MessageBox.Show(ShortName + "项目稀释液不足，此次装载不成功!");
@@ -2019,7 +2266,9 @@ namespace BioBaseCLIA.Run
                                     }
                                 }
                             }
-                            dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount * Spcount, diuvol * RepeatCount * Spcount);
+                            dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount * Spcount, 0);
+                            dtNewAddDtRgInfo.Rows.Add(DiuName, 0, diuvol * RepeatCount * Spcount);
+                            //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount * Spcount, diuvol * RepeatCount * Spcount);
                         }
                     }
                 }
@@ -2107,7 +2356,9 @@ namespace BioBaseCLIA.Run
             newSample = true;
             DataView dvv = dtSampleInfo.DefaultView;//y add 20170425
             //dvv.Sort = "Position";//y add 20170425
-            dvv.Sort = "SampleNo";
+            //dvv.Sort = "SampleNo";
+
+            dvv.Sort = "Position";
             //dtSampleInfo = dvv.ToTable();//y add 20170425
             //dgvSampleList.DataSource = dtSampleInfo;//y add 20170425
             //if (dtSampleInfo.Rows.Count != 0)
@@ -2278,7 +2529,7 @@ namespace BioBaseCLIA.Run
             {
                 //2018-11-28 zlx add
                 DbHelperOleDb db = new DbHelperOleDb(1);
-                object emergency = DbHelperOleDb.GetSingle(1,"select max(SampleNo) from tbSampleInfo where left(SampleNo,8)='" + DateTime.Now.ToString("yyyMMdd") + "' AND Right(SampleNo,3)<'999'");
+                object emergency = DbHelperOleDb.GetSingle(1, "select max(SampleNo) from tbSampleInfo where left(SampleNo,8)='" + DateTime.Now.ToString("yyyMMdd") + "' AND Right(SampleNo,3)<'999'");
                 //DataTable  emergency = DbHelperOleDb.Query("select max(SampleNo) from tbSampleInfo where SampleNo like '" + autoNumber + "???'").Tables();
                 if (emergency != null)
                     num = int.Parse(emergency.ToString().Substring(emergency.ToString().Length - 3, 3));
@@ -2321,7 +2572,7 @@ namespace BioBaseCLIA.Run
                         for (int i = 0; i < drPos1.Length; i++)
                         {
                             DbHelperOleDb db = new DbHelperOleDb(1);
-                            DbHelperOleDb.ExecuteSql(1,@"update tbSampleInfo set Status = 2  where SampleNo='" + drPos1[i]["SampleNo"].ToString() + "'");
+                            DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 2  where SampleNo='" + drPos1[i]["SampleNo"].ToString() + "'");
                             dtSampleInfo.Rows.Remove(drPos1[i]);
                         }
                     }
@@ -2355,7 +2606,7 @@ namespace BioBaseCLIA.Run
                             for (int k = 0; k < drPos1.Length; k++)
                             {
                                 DbHelperOleDb db = new DbHelperOleDb(1);
-                                DbHelperOleDb.ExecuteSql(1,@"update tbSampleInfo set Status = 2  where SampleNo='" + drPos1[k]["SampleNo"].ToString() + "'");
+                                DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 2  where SampleNo='" + drPos1[k]["SampleNo"].ToString() + "'");
                                 dtSampleInfo.Rows.Remove(drPos1[k]);
                             }
                         }
@@ -2394,9 +2645,9 @@ namespace BioBaseCLIA.Run
                     int bUpdate = 0;
                     db = new DbHelperOleDb(1);
                     if (Convert.ToInt32(dgvSelectedID[n]) == 0)
-                        bUpdate = DbHelperOleDb.ExecuteSql(1,@"delete from tbSampleInfo where Status =0 AND SampleNo='" + dgvSampleList.SelectedRows[n].Cells["SampleNo"].Value + "'");
+                        bUpdate = DbHelperOleDb.ExecuteSql(1, @"delete from tbSampleInfo where Status =0 AND SampleNo='" + dgvSampleList.SelectedRows[n].Cells["SampleNo"].Value + "'");
                     else
-                        bUpdate = DbHelperOleDb.ExecuteSql(1,@"update tbSampleInfo set Status = 2  where SampleNo='" + dgvSampleList.SelectedRows[n].Cells["SampleNo"].Value + "'");
+                        bUpdate = DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 2  where SampleNo='" + dgvSampleList.SelectedRows[n].Cells["SampleNo"].Value + "'");
                     if (bUpdate > 0)
                     //if (DbHelperOleDb.ExecuteSql(@"update tbSampleInfo set Status = 2  where SampleNo='" + dgvSelectedID[n] + "'") > 0)
                     //if (bllsp.Delete(dgvSelectedID[n]))
@@ -2439,18 +2690,23 @@ namespace BioBaseCLIA.Run
             {
                 ControlEnble(true);
                 label14.Visible = label13.Visible = txtScanStartNo.Visible = txtScanEndNo.Visible = true;
-                label12.Visible = txtSpPosition.Visible = txtSpBarCode.Enabled = false;
+                txtSpPosition.Visible = txtSpBarCode.Enabled = false;
                 txtSpBarCode.Text = "";
                 cmbSpType.SelectedIndex = 0;//2018-11-16 zlx mod
+                //lyq 20201104
+                cmbPipeType.SelectedIndex = 0;
+                cmbSpType.DataSource = strSpTypePart;
                 btnAdd.Text = "开始扫码";
             }
             else
             {
                 ControlEnble(false);
                 label14.Visible = label13.Visible = txtScanStartNo.Visible = txtScanEndNo.Visible = false;
-                label12.Visible = txtSpPosition.Visible = true;
+                txtSpPosition.Visible = true;
                 cmbSpType.SelectedIndex = 0;
                 btnAdd.Text = "添加";
+                //lyq 20201104
+                cmbSpType.DataSource = strSpTypeAll;
             }
         }
 
@@ -2485,6 +2741,7 @@ namespace BioBaseCLIA.Run
                 {
                     frmMsg.MessageShow("样本装载", "样本起始孔位应该小于终止孔位!");//y modify 20180426
                     ((TextBox)sender).Text = "";
+                    ((TextBox)sender).Focus();//lyq add 20201104
                     return;
                 }
             }
@@ -2667,22 +2924,39 @@ namespace BioBaseCLIA.Run
                                 int DilutionTimes = int.Parse(ddrRun["DilutionTimes"].ToString());
                                 int diuvol = 0;
                                 string name = ddrRun["ItemName"].ToString();
-                                if (!(ddrRun["SampleType"].ToString().Contains("标准品")|| ddrRun["SampleType"].ToString().Contains("校准品")|| ddrRun["SampleType"].ToString().Contains("质控品")))
+                                if (!(ddrRun["SampleType"].ToString().Contains("标准品") || ddrRun["SampleType"].ToString().Contains("校准品") || ddrRun["SampleType"].ToString().Contains("质控品")))
                                 {
                                     if (DilutionTimes > 1)
                                         diuvol = GetSumDiuVol(ddrRun["ItemName"].ToString(), DilutionTimes);
                                 }
-                                UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
+                                UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), -RepeatCount, 0);
+                                if (diuvol>0)
+                                {
+                                    string diuPos = "";
+                                    string DiuName = "";
+                                    DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ddr["ItemName"].ToString() + "'");
+                                    foreach (DataRow der in drRegion)
+                                    {
+                                        diuPos = OperateIniFile.ReadIniData("ReagentPos" + der["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                                        if (diuPos != "")
+                                        {
+                                            DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                            break;
+                                        }
+                                    }
+                                    UpdadteDtRgInfoNoStat(DiuName, 0, -(diuvol * RepeatCount));
+                                }
+                                //UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
                             }
                         }
                         #endregion
                         DbHelperOleDb db = new DbHelperOleDb(1);
-                        bUpdate = DbHelperOleDb.ExecuteSql(1,@"delete from tbSampleInfo where Status =0 AND SampleNo='" + dr[0]["SampleNo"] + "'");
+                        bUpdate = DbHelperOleDb.ExecuteSql(1, @"delete from tbSampleInfo where Status =0 AND SampleNo='" + dr[0]["SampleNo"] + "'");
                     }
                     else
                     {
                         DbHelperOleDb db = new DbHelperOleDb(1);
-                        bUpdate = DbHelperOleDb.ExecuteSql(1,@"update tbSampleInfo set Status = 2  where SampleNo='" + dr[0]["SampleNo"] + "'");
+                        bUpdate = DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 2  where SampleNo='" + dr[0]["SampleNo"] + "'");
                     }
                     //2018-08-11 zlx mod
                     if (bUpdate > 0)
@@ -2806,5 +3080,42 @@ namespace BioBaseCLIA.Run
                     box.Checked = false;
             }
         }
+        private void dealSpCode(string order)
+        {
+            if (order.Contains("EB 90 CA A2"))
+            {
+                if (order.Contains("EB 90 CA A2 00 00 00 00 00"))
+                {
+                    frmMessageShow mmsg = new frmMessageShow();
+                    mmsg.MessageShow("射频卡扫描", "数据获取失败！");
+                    addSpCodeFlag = (int)addSpFlagState.fail;
+                    NetCom3.Instance.ReceiveHandel -= dealSpCode;
+                    return;
+                }
+                string batchCA = "";//加密后条码
+                int len = 0;//条码长度
+                order = order.Replace(" ", "").Trim();
+                len = Convert.ToInt32(order.Substring(order.IndexOf("EB90CAA2"), 10).Substring(8, 2), 16);
+
+                order = order.Substring(order.IndexOf("EB90CAA2"), 10 + len * 2);
+                string tempStr = order.Substring(10, len * 2);
+                byte[] tempByte = new byte[len];
+
+                for (int i = 0; i < len; i++)
+                {
+                    tempByte[i] = Convert.ToByte(tempStr.Substring(2 * i, 2), 16);
+                }
+
+                System.Text.ASCIIEncoding asciiencoding = new System.Text.ASCIIEncoding();
+                batchCA = asciiencoding.GetString(tempByte);
+                Invoke(new Action(() =>
+                {
+                    txtSpBarCode.Text = batchCA;
+                    addSpCodeFlag = (int)addSpFlagState.success;
+                }));
+
+            }
+        }
+
     }
 }

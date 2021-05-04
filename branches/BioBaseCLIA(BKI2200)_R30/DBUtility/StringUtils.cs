@@ -53,6 +53,19 @@ namespace DBUtility
             return str;
             //return new string(chs);
         }
+        public string reverseDate(char oriDate)
+        {
+            string date = "";
+            if (oriDate >= '0' && oriDate <= '9')
+            {
+                date = oriDate.ToString();
+            }
+            else
+            {
+                date = ((oriDate - 'A') + 10).ToString();
+            }
+            return date;
+        }
         #endregion
     }
 }

@@ -77,10 +77,7 @@
             this.cmbBatch = new System.Windows.Forms.ComboBox();
             this.lblBatch = new System.Windows.Forms.Label();
             this.chkScanSampleCode = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtScanEndNo = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.txtScanStartNo = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtSpPosition = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.chkEmergency = new System.Windows.Forms.CheckBox();
@@ -116,6 +113,8 @@
             this.GroupContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnAddtoProgram = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.txtScanStartNo = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.txtScanEndNo = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.definePanalLoad.SuspendLayout();
@@ -513,14 +512,13 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.txtScanEndNo);
+            this.groupBox5.Controls.Add(this.txtScanStartNo);
             this.groupBox5.Controls.Add(this.AutoUploadAndUnload1);
             this.groupBox5.Controls.Add(this.cmbBatch);
             this.groupBox5.Controls.Add(this.lblBatch);
             this.groupBox5.Controls.Add(this.chkScanSampleCode);
-            this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.txtScanEndNo);
-            this.groupBox5.Controls.Add(this.txtScanStartNo);
             this.groupBox5.Controls.Add(this.label14);
             this.groupBox5.Controls.Add(this.txtSpPosition);
             this.groupBox5.Controls.Add(this.chkEmergency);
@@ -570,49 +568,10 @@
             this.chkScanSampleCode.UseVisualStyleBackColor = true;
             this.chkScanSampleCode.CheckedChanged += new System.EventHandler(this.chkScanSampleCode_CheckedChanged);
             // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
             // label13
             // 
             resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
-            // 
-            // txtScanEndNo
-            // 
-            this.txtScanEndNo.IsNull = false;
-            resources.ApplyResources(this.txtScanEndNo, "txtScanEndNo");
-            this.txtScanEndNo.MaxValue = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.txtScanEndNo.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtScanEndNo.Name = "txtScanEndNo";
-            this.txtScanEndNo.Validated += new System.EventHandler(this.txtSpPosition_Validated);
-            // 
-            // txtScanStartNo
-            // 
-            this.txtScanStartNo.IsNull = false;
-            resources.ApplyResources(this.txtScanStartNo, "txtScanStartNo");
-            this.txtScanStartNo.MaxValue = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.txtScanStartNo.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtScanStartNo.Name = "txtScanStartNo";
-            this.txtScanStartNo.Validated += new System.EventHandler(this.txtSpPosition_Validated);
             // 
             // label14
             // 
@@ -975,6 +934,38 @@
             this.btnAddtoProgram.UseVisualStyleBackColor = true;
             this.btnAddtoProgram.Click += new System.EventHandler(this.btnAddtoProgram_Click);
             // 
+            // txtScanStartNo
+            // 
+            this.txtScanStartNo.IsNull = false;
+            resources.ApplyResources(this.txtScanStartNo, "txtScanStartNo");
+            this.txtScanStartNo.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.txtScanStartNo.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtScanStartNo.Name = "txtScanStartNo";
+            // 
+            // txtScanEndNo
+            // 
+            this.txtScanEndNo.IsNull = false;
+            resources.ApplyResources(this.txtScanEndNo, "txtScanEndNo");
+            this.txtScanEndNo.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.txtScanEndNo.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtScanEndNo.Name = "txtScanEndNo";
+            // 
             // frmAddSample
             // 
             resources.ApplyResources(this, "$this");
@@ -1046,10 +1037,7 @@
         private CustomControl.FunctionButton btnMoreDelete;
         private CustomControl.FunctionButton btnUnloadSP;
         private System.Windows.Forms.CheckBox chkScanSampleCode;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private CustomControl.userNumTextBox txtScanEndNo;
-        private CustomControl.userNumTextBox txtScanStartNo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblBatch;
         private System.Windows.Forms.ComboBox cmbBatch;
@@ -1089,5 +1077,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectGP;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectGroupNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupContent;
+        private CustomControl.userNumTextBox txtScanEndNo;
+        private CustomControl.userNumTextBox txtScanStartNo;
     }
 }

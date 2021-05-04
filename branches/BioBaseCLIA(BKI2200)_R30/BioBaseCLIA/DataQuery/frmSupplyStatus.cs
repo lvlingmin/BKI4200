@@ -233,7 +233,8 @@ namespace BioBaseCLIA.DataQuery
         public void GetReagentInfo()
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
-            DataTable dtReagentInfo = new BLL.tbReagent().GetList("Status ='" + Getstring("normal") + "'").Tables[0];
+            //DataTable dtReagentInfo = new BLL.tbReagent().GetList("Status ='" + Getstring("normal") + "'").Tables[0];
+            DataTable dtReagentInfo = new BLL.tbReagent().GetList("Postion<>''").Tables[0];
 
             for (int indexRow = 0; indexRow < dtReagentInfo.Rows.Count; indexRow++) 
             {

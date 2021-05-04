@@ -1272,10 +1272,10 @@
     <value>添加曲线</value>
   </data>
   <data name="keywordText.AddCurveAucceeded" xml:space="preserve">
-    <value>添加定标曲线成功！</value>
+    <value>添加主曲线成功！</value>
   </data>
   <data name="keywordText.AddCurveFailed" xml:space="preserve">
-    <value>添加定标曲线失败！</value>
+    <value>添加主曲线失败！</value>
   </data>
   <data name="keywordText.FindNone" xml:space="preserve">
     <value>没有在主曲线表查找到该批号字段</value>

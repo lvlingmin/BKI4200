@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReagentLoad));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -47,6 +47,15 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvRgInfoList = new System.Windows.Forms.DataGridView();
             this.RgPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,10 +70,14 @@
             this.ValidDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoUsePro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labUnit2 = new System.Windows.Forms.Label();
+            this.labUnit = new System.Windows.Forms.Label();
+            this.dateValidDate = new System.Windows.Forms.DateTimePicker();
+            this.LabValidDate = new System.Windows.Forms.Label();
+            this.cmbProType = new System.Windows.Forms.ComboBox();
             this.btnAddD = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtDiluteVol = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.btnLoopAddR = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtRgBatch = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.label7 = new System.Windows.Forms.Label();
             this.chkManualInput = new System.Windows.Forms.CheckBox();
@@ -91,22 +104,11 @@
             this.btnLoadSample = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnLoadReagent = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRgInfoList)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -157,23 +159,85 @@
             resources.ApplyResources(this.textBox7, "textBox7");
             this.textBox7.Name = "textBox7";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.textBox1);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.White;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox4, "textBox4");
+            this.textBox4.Name = "textBox4";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox3, "textBox3");
+            this.textBox3.Name = "textBox3";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Green;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox2, "textBox2");
+            this.textBox2.Name = "textBox2";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Red;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
+            // 
             // dgvRgInfoList
             // 
             this.dgvRgInfoList.AccessibleRole = System.Windows.Forms.AccessibleRole.Grip;
             this.dgvRgInfoList.AllowUserToAddRows = false;
             this.dgvRgInfoList.AllowUserToDeleteRows = false;
             this.dgvRgInfoList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgvRgInfoList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvRgInfoList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRgInfoList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRgInfoList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRgInfoList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRgInfoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvRgInfoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RgPosition,
@@ -188,26 +252,26 @@
             this.LeftRg4,
             this.ValidDate,
             this.NoUsePro});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvRgInfoList.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRgInfoList.DefaultCellStyle = dataGridViewCellStyle9;
             resources.ApplyResources(this.dgvRgInfoList, "dgvRgInfoList");
             this.dgvRgInfoList.MultiSelect = false;
             this.dgvRgInfoList.Name = "dgvRgInfoList";
             this.dgvRgInfoList.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRgInfoList.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRgInfoList.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvRgInfoList.RowHeadersVisible = false;
             this.dgvRgInfoList.RowTemplate.Height = 23;
             this.dgvRgInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -217,8 +281,8 @@
             // RgPosition
             // 
             this.RgPosition.DataPropertyName = "Postion";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgPosition.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgPosition.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.RgPosition, "RgPosition");
             this.RgPosition.Name = "RgPosition";
             this.RgPosition.ReadOnly = true;
@@ -226,8 +290,8 @@
             // RgName
             // 
             this.RgName.DataPropertyName = "RgName";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgName.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgName.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.RgName, "RgName");
             this.RgName.Name = "RgName";
             this.RgName.ReadOnly = true;
@@ -235,8 +299,8 @@
             // RgCode
             // 
             this.RgCode.DataPropertyName = "BarCode";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgCode.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgCode.DefaultCellStyle = dataGridViewCellStyle5;
             this.RgCode.FillWeight = 150F;
             resources.ApplyResources(this.RgCode, "RgCode");
             this.RgCode.Name = "RgCode";
@@ -245,8 +309,8 @@
             // RgAllTest
             // 
             this.RgAllTest.DataPropertyName = "AllTestNumber";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgAllTest.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgAllTest.DefaultCellStyle = dataGridViewCellStyle6;
             resources.ApplyResources(this.RgAllTest, "RgAllTest");
             this.RgAllTest.Name = "RgAllTest";
             this.RgAllTest.ReadOnly = true;
@@ -254,8 +318,8 @@
             // RgLastTest
             // 
             this.RgLastTest.DataPropertyName = "leftoverTestR1";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgLastTest.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgLastTest.DefaultCellStyle = dataGridViewCellStyle7;
             this.RgLastTest.FillWeight = 120F;
             resources.ApplyResources(this.RgLastTest, "RgLastTest");
             this.RgLastTest.Name = "RgLastTest";
@@ -264,8 +328,8 @@
             // RgStatic
             // 
             this.RgStatic.DataPropertyName = "Status";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgStatic.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgStatic.DefaultCellStyle = dataGridViewCellStyle8;
             resources.ApplyResources(this.RgStatic, "RgStatic");
             this.RgStatic.Name = "RgStatic";
             this.RgStatic.ReadOnly = true;
@@ -314,10 +378,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labUnit2);
+            this.groupBox2.Controls.Add(this.labUnit);
+            this.groupBox2.Controls.Add(this.dateValidDate);
+            this.groupBox2.Controls.Add(this.LabValidDate);
+            this.groupBox2.Controls.Add(this.cmbProType);
             this.groupBox2.Controls.Add(this.btnAddD);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.txtDiluteVol);
             this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.btnLoopAddR);
             this.groupBox2.Controls.Add(this.txtRgBatch);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.chkManualInput);
@@ -338,6 +406,40 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // labUnit2
+            // 
+            resources.ApplyResources(this.labUnit2, "labUnit2");
+            this.labUnit2.Name = "labUnit2";
+            // 
+            // labUnit
+            // 
+            resources.ApplyResources(this.labUnit, "labUnit");
+            this.labUnit.Name = "labUnit";
+            // 
+            // dateValidDate
+            // 
+            resources.ApplyResources(this.dateValidDate, "dateValidDate");
+            this.dateValidDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateValidDate.MinDate = new System.DateTime(2021, 5, 2, 0, 0, 0, 0);
+            this.dateValidDate.Name = "dateValidDate";
+            this.dateValidDate.Value = new System.DateTime(2021, 5, 2, 0, 0, 0, 0);
+            // 
+            // LabValidDate
+            // 
+            resources.ApplyResources(this.LabValidDate, "LabValidDate");
+            this.LabValidDate.Name = "LabValidDate";
+            // 
+            // cmbProType
+            // 
+            this.cmbProType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProType.FormattingEnabled = true;
+            this.cmbProType.Items.AddRange(new object[] {
+            resources.GetString("cmbProType.Items"),
+            resources.GetString("cmbProType.Items1")});
+            resources.ApplyResources(this.cmbProType, "cmbProType");
+            this.cmbProType.Name = "cmbProType";
+            this.cmbProType.SelectedIndexChanged += new System.EventHandler(this.cmbProType_SelectedIndexChanged);
+            // 
             // btnAddD
             // 
             this.btnAddD.BackColor = System.Drawing.Color.Transparent;
@@ -351,31 +453,23 @@
             this.btnAddD.UseVisualStyleBackColor = false;
             this.btnAddD.Click += new System.EventHandler(this.btnAddD_Click);
             // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
-            // txtDiluteVol
-            // 
-            this.txtDiluteVol.IsNull = false;
-            resources.ApplyResources(this.txtDiluteVol, "txtDiluteVol");
-            this.txtDiluteVol.MaxValue = new decimal(new int[] {
-            30000,
-            0,
-            0,
-            0});
-            this.txtDiluteVol.MinValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtDiluteVol.Name = "txtDiluteVol";
-            // 
             // label15
             // 
             resources.ApplyResources(this.label15, "label15");
             this.label15.Name = "label15";
+            // 
+            // btnLoopAddR
+            // 
+            this.btnLoopAddR.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoopAddR, "btnLoopAddR");
+            this.btnLoopAddR.EnabledSet = true;
+            this.btnLoopAddR.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLoopAddR.FlatAppearance.BorderSize = 0;
+            this.btnLoopAddR.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLoopAddR.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLoopAddR.Name = "btnLoopAddR";
+            this.btnLoopAddR.UseVisualStyleBackColor = false;
+            this.btnLoopAddR.Click += new System.EventHandler(this.btnLoopAddR_Click);
             // 
             // txtRgBatch
             // 
@@ -410,8 +504,8 @@
             // 
             // txtRgLastTest
             // 
-            this.txtRgLastTest.IsNull = false;
             resources.ApplyResources(this.txtRgLastTest, "txtRgLastTest");
+            this.txtRgLastTest.IsNull = false;
             this.txtRgLastTest.MaxValue = new decimal(new int[] {
             1000,
             0,
@@ -426,8 +520,8 @@
             // 
             // txtRgAllTest
             // 
-            this.txtRgAllTest.IsNull = false;
             resources.ApplyResources(this.txtRgAllTest, "txtRgAllTest");
+            this.txtRgAllTest.IsNull = false;
             this.txtRgAllTest.MaxValue = new decimal(new int[] {
             1000,
             0,
@@ -445,7 +539,7 @@
             resources.ApplyResources(this.txtRgPosition, "txtRgPosition");
             this.txtRgPosition.IsNull = false;
             this.txtRgPosition.MaxValue = new decimal(new int[] {
-            30,
+            20,
             0,
             0,
             0});
@@ -668,82 +762,7 @@
         " ",
         " ",
         " ",
-        " ",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""};
+        " "};
             this.srdReagent.RgTestNum = new string[] {
         " ",
         " ",
@@ -1061,88 +1080,12 @@
             this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.textBox9);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.textBox10);
-            this.groupBox3.Controls.Add(this.textBox11);
-            this.groupBox3.Controls.Add(this.textBox12);
-            this.groupBox3.Controls.Add(this.textBox13);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.Color.Purple;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox9, "textBox9");
-            this.textBox9.Name = "textBox9";
-            // 
-            // label19
-            // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
-            // 
-            // label20
-            // 
-            resources.ApplyResources(this.label20, "label20");
-            this.label20.Name = "label20";
-            // 
-            // label21
-            // 
-            resources.ApplyResources(this.label21, "label21");
-            this.label21.Name = "label21";
-            // 
-            // label22
-            // 
-            resources.ApplyResources(this.label22, "label22");
-            this.label22.Name = "label22";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.White;
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox10, "textBox10");
-            this.textBox10.Name = "textBox10";
-            // 
-            // textBox11
-            // 
-            this.textBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox11, "textBox11");
-            this.textBox11.Name = "textBox11";
-            // 
-            // textBox12
-            // 
-            this.textBox12.BackColor = System.Drawing.Color.Green;
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox12, "textBox12");
-            this.textBox12.Name = "textBox12";
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.Red;
-            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            resources.ApplyResources(this.textBox13, "textBox13");
-            this.textBox13.Name = "textBox13";
-            // 
             // frmReagentLoad
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dgvRgInfoList);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -1156,12 +1099,12 @@
             this.SizeChanged += new System.EventHandler(this.frmReagentLoad_SizeChanged);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRgInfoList)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1196,6 +1139,15 @@
         private CustomControl.userTextBoxBase txtRgBatch;
         private System.Windows.Forms.Label label7;
         private CustomControl.FunctionButton fbtnTestResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -1216,20 +1168,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ValidDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoUsePro;
         private CustomControl.FunctionButton btnAddD;
-        private System.Windows.Forms.Label label16;
-        private CustomControl.userNumTextBox txtDiluteVol;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
+        private CustomControl.FunctionButton btnLoopAddR;
+        private System.Windows.Forms.ComboBox cmbProType;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker dateValidDate;
+        private System.Windows.Forms.Label LabValidDate;
+        private System.Windows.Forms.Label labUnit2;
+        private System.Windows.Forms.Label labUnit;
     }
 }

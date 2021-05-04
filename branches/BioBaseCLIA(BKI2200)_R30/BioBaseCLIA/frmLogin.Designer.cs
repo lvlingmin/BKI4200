@@ -39,6 +39,7 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.ChangeLanguage = new System.Windows.Forms.PictureBox();
             this.panellogin = new System.Windows.Forms.Panel();
+            this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.chkKeepPwd = new System.Windows.Forms.CheckBox();
             this.cmbUserName = new System.Windows.Forms.ComboBox();
             this.btnCancel = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -46,9 +47,8 @@
             this.btnLogin = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.txtUserPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.titleofbio = new System.Windows.Forms.PictureBox();
             this.lbLanguage = new System.Windows.Forms.Label();
-            this.cbLanguage = new System.Windows.Forms.ComboBox();
+            this.titleofbio = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
             this.paProcess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -131,6 +131,17 @@
             this.panellogin.Controls.Add(this.lbLanguage);
             this.panellogin.Name = "panellogin";
             // 
+            // cbLanguage
+            // 
+            this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanguage.FormattingEnabled = true;
+            this.cbLanguage.Items.AddRange(new object[] {
+            resources.GetString("cbLanguage.Items"),
+            resources.GetString("cbLanguage.Items1")});
+            resources.ApplyResources(this.cbLanguage, "cbLanguage");
+            this.cbLanguage.Name = "cbLanguage";
+            this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
+            // 
             // chkKeepPwd
             // 
             resources.ApplyResources(this.chkKeepPwd, "chkKeepPwd");
@@ -194,6 +205,12 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Name = "label3";
             // 
+            // lbLanguage
+            // 
+            this.lbLanguage.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.lbLanguage, "lbLanguage");
+            this.lbLanguage.Name = "lbLanguage";
+            // 
             // titleofbio
             // 
             this.titleofbio.BackColor = System.Drawing.Color.Transparent;
@@ -201,23 +218,6 @@
             resources.ApplyResources(this.titleofbio, "titleofbio");
             this.titleofbio.Name = "titleofbio";
             this.titleofbio.TabStop = false;
-            // 
-            // lbLanguage
-            // 
-            this.lbLanguage.ForeColor = System.Drawing.Color.Black;
-            resources.ApplyResources(this.lbLanguage, "lbLanguage");
-            this.lbLanguage.Name = "lbLanguage";
-            // 
-            // cbLanguage
-            // 
-            this.cbLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbLanguage.FormattingEnabled = true;
-            this.cbLanguage.Items.AddRange(new object[] {
-            resources.GetString("cbLanguage.Items"),
-            resources.GetString("cbLanguage.Items1")});
-            resources.ApplyResources(this.cbLanguage, "cbLanguage");
-            this.cbLanguage.Name = "cbLanguage";
-            this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
             // 
             // frmLogin
             // 

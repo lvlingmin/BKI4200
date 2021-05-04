@@ -65,19 +65,27 @@ namespace BioBaseCLIA
         /// <summary>
         /// 试剂加载位置数
         /// </summary>
-        public const int RegentNum = 30;//2019-02-26  zlx add
+        protected const int RegentNum = 30;//2019-02-26  zlx add
         /// <summary>
         /// 温育盘位置数
         /// </summary>
-        public const int ReactTrayNum = 80;//2019-02-26  zlx add
+        protected const int ReactTrayNum = 80;//2019-02-26  zlx add
         /// <summary>
         /// 清洗盘位置数
         /// </summary>
-        public const int WashTrayNum = 30;//2019-02-26 zlx add
+        protected const int WashTrayNum = 30;//2019-02-26 zlx add
         /// <summary>
         /// 实验过程中正在加载试剂标志 2019-03-06 zlx add
         /// </summary>
         public static bool ReagentCaculatingFlag = false;
+        /// <summary>
+        /// 稀释液位置列表
+        /// </summary>
+        public static List<int> DiuPosList = new List<int>();
+        /// <summary>
+        ///试剂开封有效期(天)
+        /// </summary>
+        public const int ValidDate = 30;
         public frmParent()
         {
             InitializeComponent();

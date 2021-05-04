@@ -73,5 +73,8 @@ namespace BioBaseCLIA.Run
             diutime3 = int.Parse(OperateIniFile.ReadInIPara("Time", "dilutionTime3"));
             diutime4 = int.Parse(OperateIniFile.ReadInIPara("Time", "dilutionTime4"));
         }
+        public static string[] DiuProjectName = { "SD1", "SD2", "SD3", "SD4", "SD5", "SD6" };
+
     }
+   
 }

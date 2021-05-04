@@ -55,6 +55,7 @@ namespace BioBaseCLIA.Run
         /// 项目更新确定按钮测试用
         /// </summary>
         private int mainCurveID = 0;
+        bool haveItem = false;
         /// <summary>
         /// 添加主曲线事件
         /// </summary>
@@ -97,6 +98,9 @@ namespace BioBaseCLIA.Run
             DbHelperOleDb db = new DbHelperOleDb(0);
             DataTable dt = bllProject.GetList(" ShortName='" + itemName + "'").Tables[0];
 
+            if (dt.Rows.Count < 1 || regentBatch=="")
+                return;
+            haveItem = true;
             //lyq add 20190814 根据几点定标，来生成几行
             string calPonitNum = dt.Rows[0]["CalPointNumber"].ToString();
             calPointNumber = calPonitNum;
@@ -223,7 +227,7 @@ namespace BioBaseCLIA.Run
                                 //}
                                 //else
                                 //{
-                                //    MessageBox.Show("该条码与此项目在数据库的编号不匹配！");
+                                //    frmMsg.MessageShow("该条码与此项目在数据库的编号不匹配！");
                                 //    return;
                                 //}
                                 #endregion
@@ -400,7 +404,7 @@ namespace BioBaseCLIA.Run
                                 //dtConcValue.Rows[6][2] = double.Parse(sign17);
                                 break;
                             default:
-                                MessageBox.Show(getString("keywordText.ScanByStandard"));
+                                frmMsg.MessageShow("项目更新", getString("keywordText.ScanByStandard"));
                                 //Console.WriteLine("请按标准扫描本公司条码");
                                 break;
                         }
@@ -479,6 +483,8 @@ namespace BioBaseCLIA.Run
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (!haveItem)
+                return;
             //注释这部分的判断，使得可以更新某个项目的信息 jun mod 20190409
             
             ////查询是否存在相应项目名称和试剂批号的主曲线
@@ -530,12 +536,12 @@ namespace BioBaseCLIA.Run
             }
             if (mCurve == 0)
             {
-                MessageBox.Show(getString("keywordText.FindNone"));
+                frmMsg.MessageShow("项目更新", getString("keywordText.FindNone"));
                 return;
             }
 
             modelMainScalcurve.MainCurveID = mCurve;            
-            //MessageBox.Show(modelMainScalcurve.MainCurveID+"");
+            //frmMsg.MessageShow(modelMainScalcurve.MainCurveID+"");
             modelMainScalcurve.ItemName = itemName;
             modelMainScalcurve.RegentBatch = regentBatch;
             modelMainScalcurve.Points = pt;
@@ -579,11 +585,11 @@ namespace BioBaseCLIA.Run
             int rows = DbHelperOleDb.ExecuteSql(0,sql);//更新流程到数据库
             if (rows > 0)
             {
-                MessageBox.Show(getString("keywordText.UpdateAucceeded"));
+                frmMsg.MessageShow("项目更新",getString("keywordText.UpdateAucceeded"));
             }
             else
             {
-                MessageBox.Show(getString("keywordText.UpdateFailed"));
+                frmMsg.MessageShow("项目更新", getString("keywordText.UpdateFailed"));
             }
 
             //更新曲线
@@ -780,7 +786,7 @@ namespace BioBaseCLIA.Run
             //                dgvTestPro.Rows[i].Cells[1].Value = int.Parse( decryption.Substring(0, 1))*10;
             //                break;
             //            default :
-            //                MessageBox.Show("出现字典没有的字符串");
+            //                frmMsg.MessageShow("出现字典没有的字符串");
             //                break;
             //        }
             //    }
@@ -813,11 +819,14 @@ namespace BioBaseCLIA.Run
         //lyq add 190816
         private void FunctionButton1_Click(object sender, EventArgs e) //有焦点扫码输入或手动输入
         {
+            if (!haveItem)
+                return;
             string rgCode = codeTextBox.Text.Trim();
-            if (rgCode == null && rgCode == "")
+            if (rgCode == null || rgCode == "")
             {
                 return;
             }
+
             string decryption = StringUtils.instance.ToDecryption(rgCode);
             string signChar = decryption.Substring(0, 1);
             //string sign13 = decryption.Substring(1, 3);
@@ -826,7 +835,7 @@ namespace BioBaseCLIA.Run
             string sign17;
             string sign8;
 
-            if (rgCode != null && rgCode != "")
+            try
             {
                 switch (signChar)
                 {
@@ -850,7 +859,7 @@ namespace BioBaseCLIA.Run
                         //}
                         //else
                         //{
-                        //    MessageBox.Show("该条码与此项目在数据库的编号不匹配！");
+                        //    frmMsg.MessageShow("该条码与此项目在数据库的编号不匹配！");
                         //    return;
                         //}
                         #endregion
@@ -872,7 +881,7 @@ namespace BioBaseCLIA.Run
                             string[] decryArray2 = sign2.Split(new char[2] { 'F', 'G' });
                             for (int i = 0; i < decryArray2.Length; i++)
                             {
-                                dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0 , decryArray2.Length); ;
+                                dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2.Length); ;
                             }
                         }
                         else
@@ -1042,9 +1051,13 @@ namespace BioBaseCLIA.Run
                         //dtConcValue.Rows[6][2] = double.Parse(sign17);
                         break;
                     default:
-                        MessageBox.Show(getString("keywordText.ScanByStandard"));
+                        frmMsg.MessageShow("项目更新", getString("keywordText.ScanByStandard"));
                         break;
                 }
+            }
+            catch(System.Exception ex)
+            {
+                ;
             }
             codeTextBox.Text = "";
             codeTextBox.Focus();

@@ -34,8 +34,10 @@ namespace BioBaseCLIA.Run
         /// 已装载实验供应品需求信息
         /// </summary>
         private static DataTable dtItemInfoNoStat;
+        /// <summary>
+        /// 试剂盘配置文件地址
+        /// </summary>
         string iniPathReagentTrayInfo = Directory.GetCurrentDirectory() + "\\ReagentTrayInfo.ini";
-
         public static DataTable DtItemInfoNoStat
         {
             get { return dtItemInfoNoStat; }
@@ -66,31 +68,32 @@ namespace BioBaseCLIA.Run
             }
             for (int j = 0; j < dtRgInfo.Rows.Count; j++)
             {
-                if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) < frmReagentLoad.WarnReagent)
+                string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + dtRgInfo.Rows[j]["Postion"].ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
+                if (DiuFlag == "1")
                 {
-                    if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) == 0)
+                    srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Purple;
+                    srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Purple;
+                }
+                else
+                { 
+                    if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) < frmReagentLoad.WarnReagent)
                     {
-                        srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CRgAlarm;
-                        srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsAlarm;
+                        if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) == 0)
+                        {
+                            srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CRgAlarm;
+                            srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsAlarm;
+                        }
+                        else
+                        {
+                            srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Orange;
+                            srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Orange;
+                        }
                     }
                     else
                     {
-                        srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Orange;
-                        srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Orange;
+                        srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CRgLoaded;
+                        srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsLoaded;
                     }
-                }
-                else
-                {
-
-                    srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CRgLoaded;
-                    srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsLoaded;
-
-                }
-                string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + dtRgInfo.Rows[j]["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
-                if (DiuPos != "")
-                {
-                    srdReagent.RgColor[int.Parse(DiuPos) - 1] = Color.Purple;
-                    srdReagent.BdColor[int.Parse(DiuPos) - 1] = Color.Purple;
                 }
             }
             #endregion

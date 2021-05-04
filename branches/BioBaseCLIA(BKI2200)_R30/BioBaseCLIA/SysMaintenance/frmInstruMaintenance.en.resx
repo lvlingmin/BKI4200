@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dfInitializers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 398</value>
+  </data>
   <data name="pbinitializers.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 34</value>
   </data>
@@ -127,8 +130,11 @@
   <data name="lainitializers.Text" xml:space="preserve">
     <value>Instrument initialization</value>
   </data>
-  <data name="dfInitializers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 398</value>
+  <data name="groupBox6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Cleaning and perfusion</value>
   </data>
   <data name="btnPourInto.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -239,11 +245,20 @@
   <data name="checkNewTube.Text" xml:space="preserve">
     <value>Add new tube</value>
   </data>
-  <data name="groupBox6.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="groupBox5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Cleaning and perfusion</value>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Daily maintenance</value>
+  </data>
+  <data name="groupBox7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 297</value>
+  </data>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Process</value>
   </data>
   <data name="numDwPourin.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 81</value>
@@ -310,15 +325,6 @@
   </data>
   <data name="checkBox3.Text" xml:space="preserve">
     <value>Substrate</value>
-  </data>
-  <data name="groupBox7.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 11.25pt</value>
-  </data>
-  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 297</value>
-  </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Process</value>
   </data>
   <data name="label20.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
@@ -481,12 +487,6 @@
   <data name="label22.Text" xml:space="preserve">
     <value>Repeat read</value>
   </data>
-  <data name="groupBox5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 9pt</value>
-  </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>Daily maintenance</value>
-  </data>
   <data name="label23.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
@@ -498,6 +498,9 @@
   </data>
   <data name="textBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Auxiliary function</value>
   </data>
   <data name="functionButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -563,6 +566,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="functionButton2.Text" xml:space="preserve">
+    <value>Substrate perfusion</value>
+  </data>
   <data name="functionButton6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -626,6 +632,21 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="functionButton6.Text" xml:space="preserve">
+    <value>Circulatory perfusion</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Operation information</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>operation</value>
+  </data>
+  <data name="rdbDaily.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 16</value>
+  </data>
+  <data name="rdbDaily.Text" xml:space="preserve">
+    <value>Daily maintenance</value>
   </data>
   <data name="fbtnStop.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -691,6 +712,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="fbtnStop.Text" xml:space="preserve">
+    <value>termination</value>
+  </data>
   <data name="fbtnStart.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -754,6 +778,102 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="fbtnStart.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="rdbtnCustom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 16</value>
+  </data>
+  <data name="rdbtnCustom.Text" xml:space="preserve">
+    <value>Custom maintenance</value>
+  </data>
+  <data name="rdbtnGeneral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 16</value>
+  </data>
+  <data name="rdbtnGeneral.Text" xml:space="preserve">
+    <value>Routine maintenance</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Function selection</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 12</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Substrate pipeline selection：</value>
+  </data>
+  <data name="lblSubPipe2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 12</value>
+  </data>
+  <data name="lblSubPipe2.Text" xml:space="preserve">
+    <value>Substrate line selection：</value>
+  </data>
+  <data name="chbClearReactTube.Size" type="System.Drawing.Size, System.Drawing">
+    <value>336, 16</value>
+  </data>
+  <data name="chbClearReactTube.Text" xml:space="preserve">
+    <value>Empty the used reaction tube of the incubation plate</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>time</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 12</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="chbSubstrateTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 16</value>
+  </data>
+  <data name="chbSubstrateTest.Text" xml:space="preserve">
+    <value>Substrate validity test</value>
+  </data>
+  <data name="chbSubstrate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 16</value>
+  </data>
+  <data name="chbSubstrate.Text" xml:space="preserve">
+    <value>Substrate pipeline perfusion</value>
+  </data>
+  <data name="chbPmt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 16</value>
+  </data>
+  <data name="chbPmt.Text" xml:space="preserve">
+    <value>PMT background detection</value>
+  </data>
+  <data name="chbWashPipeline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 16</value>
+  </data>
+  <data name="chbWashPipeline.Text" xml:space="preserve">
+    <value>Cleaning pipeline filling</value>
+  </data>
+  <data name="chbSamplePipeline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 16</value>
+  </data>
+  <data name="chbSamplePipeline.Text" xml:space="preserve">
+    <value>Filling of sampling pipeline</value>
+  </data>
+  <data name="chbClearWashTube.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 16</value>
+  </data>
+  <data name="chbClearWashTube.Text" xml:space="preserve">
+    <value>Empty the cleaning pan reaction tube</value>
+  </data>
+  <data name="chbInit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 16</value>
+  </data>
+  <data name="chbInit.Text" xml:space="preserve">
+    <value>Instrument initialization</value>
   </data>
   <data name="functionButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -895,6 +1015,10 @@
   <data name="fbtnGroupTest.Text" xml:space="preserve">
     <value>Battery of tests</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="fbtnGroupTest.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1034,6 +1158,9 @@
   </data>
   <data name="fbtnInstruDiagnost.Text" xml:space="preserve">
     <value>Instrument debugging</value>
+  </data>
+  <data name="fbtnInstruDiagnost.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="fbtnInstruMaintenance.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1286,854 +1413,5 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAgAEAALQF
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
-  </data>
-  <data name="Argumentincorrect" xml:space="preserve">
-    <value>The argument is incorrect</value>
-  </data>
-  <data name="Runing" xml:space="preserve">
-    <value>Running</value>
-  </data>
-  <data name="Add1" xml:space="preserve">
-    <value>Clip the first new tube... </value>
-  </data>
-  <data name="Add2" xml:space="preserve">
-    <value>Clip the second new tube... </value>
-  </data>
-  <data name="Add3" xml:space="preserve">
-    <value>Clip the third new tube... </value>
-  </data>
-  <data name="Add4" xml:space="preserve">
-    <value>Clip the fourth new tube... </value>
-  </data>
-  <data name="Adding" xml:space="preserve">
-    <value>process of adding </value>
-  </data>
-  <data name="Argumentincorrect1" xml:space="preserve">
-    <value>The parameter is incorrect</value>
-  </data>
-  <data name="Beadmax20" xml:space="preserve">
-    <value>The maximum filling times of magnetic bead cleaning solution is 20, please input the appropriate filling times!</value>
-  </data>
-  <data name="beadperfusion" xml:space="preserve">
-    <value>Filling of magnetic bead cleaning solution... </value>
-  </data>
-  <data name="beadPerfusionfinish" xml:space="preserve">
-    <value>The filling of magnetic bead cleaning solution is completed... </value>
-  </data>
-  <data name="btnPourInto.Text1" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="btnPourInto.Text11" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="cbCleanTray.Text1" xml:space="preserve">
-    <value>Cleaning disk cleaning</value>
-  </data>
-  <data name="cbCleanTray.Text11" xml:space="preserve">
-    <value>Cleaning disk cleaning</value>
-  </data>
-  <data name="cbClearTray.Text1" xml:space="preserve">
-    <value>Empty the incubator tray</value>
-  </data>
-  <data name="cbClearTray.Text11" xml:space="preserve">
-    <value>Empty the incubator tray</value>
-  </data>
-  <data name="chbClearReactTube.Text" xml:space="preserve">
-    <value>Empty the used reaction tube of the incubation plate</value>
-  </data>
-  <data name="chbClearReactTube.Text1" xml:space="preserve">
-    <value>Empty the reaction tube used in the incubation tray</value>
-  </data>
-  <data name="chbClearWashTube.Text" xml:space="preserve">
-    <value>Empty the cleaning pan reaction tube</value>
-  </data>
-  <data name="chbClearWashTube.Text1" xml:space="preserve">
-    <value>Empty the reaction tube of the cleaning disk</value>
-  </data>
-  <data name="chbInit.Text" xml:space="preserve">
-    <value>Instrument initialization</value>
-  </data>
-  <data name="chbInit.Text1" xml:space="preserve">
-    <value>Instrument initialization</value>
-  </data>
-  <data name="chbPmt.Text" xml:space="preserve">
-    <value>PMT background detection</value>
-  </data>
-  <data name="chbPmt.Text1" xml:space="preserve">
-    <value>PMT background detection</value>
-  </data>
-  <data name="chbSamplePipeline.Text" xml:space="preserve">
-    <value>Filling of sampling pipeline</value>
-  </data>
-  <data name="chbSamplePipeline.Text1" xml:space="preserve">
-    <value>Filling of sampling pipeline</value>
-  </data>
-  <data name="chbSubstrate.Text" xml:space="preserve">
-    <value>Substrate pipeline perfusion</value>
-  </data>
-  <data name="chbSubstrate.Text1" xml:space="preserve">
-    <value>Substrate pipeline perfusion</value>
-  </data>
-  <data name="chbSubstrateTest.Text" xml:space="preserve">
-    <value>Substrate validity test</value>
-  </data>
-  <data name="chbSubstrateTest.Text1" xml:space="preserve">
-    <value>Substrate validity test</value>
-  </data>
-  <data name="chbWashPipeline.Text" xml:space="preserve">
-    <value>Cleaning pipeline filling</value>
-  </data>
-  <data name="chbWashPipeline.Text1" xml:space="preserve">
-    <value>Cleaning pipeline filling</value>
-  </data>
-  <data name="checkBox1.Text1" xml:space="preserve">
-    <value>Clip new tube</value>
-  </data>
-  <data name="checkBox1.Text11" xml:space="preserve">
-    <value>Clip new tube</value>
-  </data>
-  <data name="checkBox2.Text1" xml:space="preserve">
-    <value>clean</value>
-  </data>
-  <data name="checkBox2.Text11" xml:space="preserve">
-    <value>clean</value>
-  </data>
-  <data name="checkBox3.Text1" xml:space="preserve">
-    <value>substrate</value>
-  </data>
-  <data name="checkBox3.Text11" xml:space="preserve">
-    <value>substrate</value>
-  </data>
-  <data name="checkBox4.Text1" xml:space="preserve">
-    <value>reading</value>
-  </data>
-  <data name="checkBox4.Text11" xml:space="preserve">
-    <value>reading</value>
-  </data>
-  <data name="checkBox5.Text1" xml:space="preserve">
-    <value>Pipe throwing</value>
-  </data>
-  <data name="checkBox5.Text11" xml:space="preserve">
-    <value>Pipe throwing</value>
-  </data>
-  <data name="checkBox6.Text1" xml:space="preserve">
-    <value>Empty the cleaning tray</value>
-  </data>
-  <data name="checkBox6.Text11" xml:space="preserve">
-    <value>Empty the cleaning tray</value>
-  </data>
-  <data name="checkBox7.Text1" xml:space="preserve">
-    <value>Substrate perfusion</value>
-  </data>
-  <data name="checkBox7.Text11" xml:space="preserve">
-    <value>Substrate perfusion</value>
-  </data>
-  <data name="checkNewTube.Text1" xml:space="preserve">
-    <value>Clip new tube</value>
-  </data>
-  <data name="checkNewTube.Text11" xml:space="preserve">
-    <value>Clip new tube</value>
-  </data>
-  <data name="chkDelay.Text1" xml:space="preserve">
-    <value>Rotation delay</value>
-  </data>
-  <data name="chkDelay.Text11" xml:space="preserve">
-    <value>Rotation delay</value>
-  </data>
-  <data name="Circulationcompleted" xml:space="preserve">
-    <value>The circulation perfusion is completed... </value>
-  </data>
-  <data name="Circulatoryperfusion" xml:space="preserve">
-    <value>Circulatory perfusion</value>
-  </data>
-  <data name="Circulatoryperfusionbegins" xml:space="preserve">
-    <value>Circulatory perfusion begins... </value>
-  </data>
-  <data name="CleanAddSubstrate" xml:space="preserve">
-    <value />
-  </data>
-  <data name="CleanIncubate" xml:space="preserve">
-    <value>Start emptying the incubation plate. . . </value>
-  </data>
-  <data name="CleanIncubatefinish" xml:space="preserve">
-    <value>End of emptying the incubation plate. . . </value>
-  </data>
-  <data name="Cleaningpipeline" xml:space="preserve">
-    <value>Clean the pipeline and fill it with water...</value>
-  </data>
-  <data name="Cleaningpipelinefinish" xml:space="preserve">
-    <value>Cleaning pipeline filling is completed.</value>
-  </data>
-  <data name="Cleanovertime" xml:space="preserve">
-    <value>Cleaning command received timeout.</value>
-  </data>
-  <data name="Cleansubstrate" xml:space="preserve">
-    <value>When cleaning, the substrate must be added at the same time.</value>
-  </data>
-  <data name="Clearclean" xml:space="preserve">
-    <value>Empty the cleaning dish... </value>
-  </data>
-  <data name="Clearcleanfinish" xml:space="preserve">
-    <value>Cleaning tray pigging completed... </value>
-  </data>
-  <data name="Cliptube" xml:space="preserve">
-    <value>Start clamping the new tube... </value>
-  </data>
-  <data name="cmbSelectAct.Items11" xml:space="preserve">
-    <value>Probe cleaning solution filling</value>
-  </data>
-  <data name="cmbSelectAct.Items111" xml:space="preserve">
-    <value>Probe cleaning solution filling</value>
-  </data>
-  <data name="cmbSelectAct.Items2" xml:space="preserve">
-    <value>Magnetic bead cleaning solution filling</value>
-  </data>
-  <data name="cmbSelectAct.Items21" xml:space="preserve">
-    <value>Magnetic bead cleaning solution filling</value>
-  </data>
-  <data name="cmbSubPipeCH.Items" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cmbSubPipeCH.Items1" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cmbSubPipeCH.Items11" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cmbSubPipeCH.Items2" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cmbSubstrate.Items" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cmbSubstrate.Items1" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="comboBox2.Items" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="comboBox2.Items1" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="comboBox2.Items10" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="comboBox2.Items101" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="comboBox2.Items11" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="comboBox2.Items110" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="comboBox2.Items111" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="comboBox2.Items12" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="comboBox2.Items121" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="comboBox2.Items13" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="comboBox2.Items131" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="comboBox2.Items14" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="comboBox2.Items141" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="comboBox2.Items15" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="comboBox2.Items151" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="comboBox2.Items16" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="comboBox2.Items161" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="comboBox2.Items17" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="comboBox2.Items171" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="comboBox2.Items18" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="comboBox2.Items181" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="comboBox2.Items19" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="comboBox2.Items191" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="comboBox2.Items2" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="comboBox2.Items20" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="comboBox2.Items201" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="comboBox2.Items21" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="comboBox2.Items210" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="comboBox2.Items211" xml:space="preserve">
-    <value>22</value>
-  </data>
-  <data name="comboBox2.Items22" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="comboBox2.Items221" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="comboBox2.Items23" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="comboBox2.Items231" xml:space="preserve">
-    <value>24</value>
-  </data>
-  <data name="comboBox2.Items24" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="comboBox2.Items241" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="comboBox2.Items25" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="comboBox2.Items251" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="comboBox2.Items26" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="comboBox2.Items261" xml:space="preserve">
-    <value>27</value>
-  </data>
-  <data name="comboBox2.Items27" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="comboBox2.Items271" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="comboBox2.Items28" xml:space="preserve">
-    <value>29</value>
-  </data>
-  <data name="comboBox2.Items281" xml:space="preserve">
-    <value>29</value>
-  </data>
-  <data name="comboBox2.Items29" xml:space="preserve">
-    <value>30</value>
-  </data>
-  <data name="comboBox2.Items291" xml:space="preserve">
-    <value>30</value>
-  </data>
-  <data name="comboBox2.Items3" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="comboBox2.Items30" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="comboBox2.Items31" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="comboBox2.Items4" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="comboBox2.Items41" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="comboBox2.Items5" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="comboBox2.Items51" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="comboBox2.Items6" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="comboBox2.Items61" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="comboBox2.Items7" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="comboBox2.Items71" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="comboBox2.Items8" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="comboBox2.Items81" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="comboBox2.Items9" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="comboBox2.Items91" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="connect" xml:space="preserve">
-    <value>Upper and lower computer connection</value>
-  </data>
-  <data name="DisConnect" xml:space="preserve">
-    <value>The network port is not connected, please connect to the network!</value>
-  </data>
-  <data name="Emptycleaning" xml:space="preserve">
-    <value>Empty the reaction tube of the cleaning plate...</value>
-  </data>
-  <data name="Emptycleaningfinish" xml:space="preserve">
-    <value>The reaction tube of the cleaning disk is emptied...</value>
-  </data>
-  <data name="Emptycleaningfinishuse" xml:space="preserve">
-    <value>Empty the reaction tube used in the incubation tray...</value>
-  </data>
-  <data name="Emptystop" xml:space="preserve">
-    <value>When the piper grabs the tube in the cleaning tray, the experiment will stop!</value>
-  </data>
-  <data name="Emptytimesstop" xml:space="preserve">
-    <value>The piper grabs the empty tube many times when throwing the waste tube in the cleaning plate, and the experiment will stop!</value>
-  </data>
-  <data name="EMptytube" xml:space="preserve">
-    <value>The cup unscrambler position lacks tube.</value>
-  </data>
-  <data name="fbtnGroupTest.Text1" xml:space="preserve">
-    <value>battery of tests</value>
-  </data>
-  <data name="fbtnGroupTest.Text11" xml:space="preserve">
-    <value>battery of tests</value>
-  </data>
-  <data name="fbtnInstruDiagnost.Text1" xml:space="preserve">
-    <value>Instrument debugging</value>
-  </data>
-  <data name="fbtnInstruDiagnost.Text11" xml:space="preserve">
-    <value>Instrument debugging</value>
-  </data>
-  <data name="fbtnInstruMaintenance.Text1" xml:space="preserve">
-    <value>Instrument maintenance</value>
-  </data>
-  <data name="fbtnInstruMaintenance.Text11" xml:space="preserve">
-    <value>Instrument maintenance</value>
-  </data>
-  <data name="fbtnReturn.Text1" xml:space="preserve">
-    <value>back</value>
-  </data>
-  <data name="fbtnReturn.Text11" xml:space="preserve">
-    <value>back</value>
-  </data>
-  <data name="fbtnStart.Text" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="fbtnStart.Text1" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="fbtnStop.Text" xml:space="preserve">
-    <value>termination</value>
-  </data>
-  <data name="fbtnStop.Text1" xml:space="preserve">
-    <value>termination</value>
-  </data>
-  <data name="functionButton1.Text1" xml:space="preserve">
-    <value>Instrument initialization</value>
-  </data>
-  <data name="functionButton1.Text11" xml:space="preserve">
-    <value>Instrument initialization</value>
-  </data>
-  <data name="functionButton2.Text" xml:space="preserve">
-    <value>Substrate perfusion</value>
-  </data>
-  <data name="functionButton2.Text1" xml:space="preserve">
-    <value>Substrate perfusion</value>
-  </data>
-  <data name="functionButton4.Text1" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="functionButton4.Text11" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="functionButton5.Text1" xml:space="preserve">
-    <value>suspension</value>
-  </data>
-  <data name="functionButton5.Text11" xml:space="preserve">
-    <value>suspension</value>
-  </data>
-  <data name="functionButton6.Text" xml:space="preserve">
-    <value>Circulatory perfusion</value>
-  </data>
-  <data name="functionButton6.Text1" xml:space="preserve">
-    <value>Circulatory perfusion</value>
-  </data>
-  <data name="Gotohole" xml:space="preserve">
-    <value>Go to the starting hole position</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Function selection</value>
-  </data>
-  <data name="groupBox1.Text1" xml:space="preserve">
-    <value>Function selectionS</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>operation</value>
-  </data>
-  <data name="groupBox2.Text1" xml:space="preserve">
-    <value>operation</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Operation information</value>
-  </data>
-  <data name="groupBox3.Text1" xml:space="preserve">
-    <value>Operation information</value>
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Auxiliary function</value>
-  </data>
-  <data name="groupBox4.Text1" xml:space="preserve">
-    <value>Auxiliary function</value>
-  </data>
-  <data name="groupBox5.Text1" xml:space="preserve">
-    <value>Daily maintenance process</value>
-  </data>
-  <data name="groupBox5.Text11" xml:space="preserve">
-    <value>Daily maintenance process</value>
-  </data>
-  <data name="groupBox6.Text1" xml:space="preserve">
-    <value>Cleaning and perfusion</value>
-  </data>
-  <data name="groupBox6.Text11" xml:space="preserve">
-    <value>Cleaning and perfusion</value>
-  </data>
-  <data name="groupBox7.Text1" xml:space="preserve">
-    <value>technological process</value>
-  </data>
-  <data name="groupBox7.Text11" xml:space="preserve">
-    <value>technological process</value>
-  </data>
-  <data name="gxg" xml:space="preserve">
-    <value>hole</value>
-  </data>
-  <data name="Handempty" xml:space="preserve">
-    <value>The pipe holder has repeatedly grabbed empty, please load the pipe rack!</value>
-  </data>
-  <data name="Handemptystop" xml:space="preserve">
-    <value>Transfer the tube, grasp the new tube, grasp the air! The experiment will stop running!</value>
-  </data>
-  <data name="Handexception" xml:space="preserve">
-    <value>The grabbing tube is abnormal, please confirm whether the instrument is malfunctioning!</value>
-  </data>
-  <data name="Handovertime" xml:space="preserve">
-    <value>The transfer finger causes the receiving to time out.</value>
-  </data>
-  <data name="Handputhit" xml:space="preserve">
-    <value>The gripper collided with the pipe at the position where the pipe was placed.</value>
-  </data>
-  <data name="Handtakehit" xml:space="preserve">
-    <value>The gripper collided with the tube at the position where the tube was taken.</value>
-  </data>
-  <data name="Hitstop" xml:space="preserve">
-    <value>When the piper grabs the pipe from the pipe rack to the cleaning tray and collides with the pipe, the experiment will stop!</value>
-  </data>
-  <data name="Holereading" xml:space="preserve">
-    <value> are reading</value>
-  </data>
-  <data name="Idleoperations" xml:space="preserve">
-    <value>Perform operations when idle</value>
-  </data>
-  <data name="implement" xml:space="preserve">
-    <value>implement</value>
-  </data>
-  <data name="Init" xml:space="preserve">
-    <value>Instrument initialization</value>
-  </data>
-  <data name="InitFalure" xml:space="preserve">
-    <value>Instrument initialization failed...</value>
-  </data>
-  <data name="Initfinish" xml:space="preserve">
-    <value>Instrument initialization complete...</value>
-  </data>
-  <data name="Initializing" xml:space="preserve">
-    <value>The instrument is initializing...</value>
-  </data>
-  <data name="Insufficientsubstrate" xml:space="preserve">
-    <value>The substrate is insufficient, please replace it in time.</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="label1.Text1" xml:space="preserve">
-    <value>time</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>time</value>
-  </data>
-  <data name="label2.Text1" xml:space="preserve">
-    <value>time</value>
-  </data>
-  <data name="label20.Text1" xml:space="preserve">
-    <value>Initial hole position</value>
-  </data>
-  <data name="label20.Text11" xml:space="preserve">
-    <value>Initial hole position</value>
-  </data>
-  <data name="label21.Text1" xml:space="preserve">
-    <value>Number of tubes</value>
-  </data>
-  <data name="label21.Text11" xml:space="preserve">
-    <value>Number of tubes</value>
-  </data>
-  <data name="label22.Text1" xml:space="preserve">
-    <value>Repeat the reading</value>
-  </data>
-  <data name="label22.Text11" xml:space="preserve">
-    <value>Repeat the reading</value>
-  </data>
-  <data name="label23.Text1" xml:space="preserve">
-    <value>Prompt information：</value>
-  </data>
-  <data name="label23.Text11" xml:space="preserve">
-    <value>Prompt information：</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Substrate pipeline selection：</value>
-  </data>
-  <data name="label3.Text1" xml:space="preserve">
-    <value>Substrate pipeline selection：</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="label4.Text1" xml:space="preserve">
-    <value>time</value>
-  </data>
-  <data name="label6.Text1" xml:space="preserve">
-    <value>Instrument maintenance</value>
-  </data>
-  <data name="label6.Text11" xml:space="preserve">
-    <value>Instrument maintenance</value>
-  </data>
-  <data name="label7.Text11" xml:space="preserve">
-    <value>Function selection</value>
-  </data>
-  <data name="label8.Text11" xml:space="preserve">
-    <value>Repeat times</value>
-  </data>
-  <data name="lainitializers.Text1" xml:space="preserve">
-    <value>Instrument initialization</value>
-  </data>
-  <data name="lblSubPipe2.Text" xml:space="preserve">
-    <value>Substrate line selection：</value>
-  </data>
-  <data name="Maintenancecomplete" xml:space="preserve">
-    <value>----------The maintenance operation has ended----------</value>
-  </data>
-  <data name="Maintenancepause" xml:space="preserve">
-    <value>----------Maintenance operation terminated prematurely----------</value>
-  </data>
-  <data name="Noruning" xml:space="preserve">
-    <value>Ready to terminate or the experiment is not running.</value>
-  </data>
-  <data name="Over" xml:space="preserve">
-    <value>It's over.</value>
-  </data>
-  <data name="Overtimepause" xml:space="preserve">
-    <value>Instruction receiving timeout, experiment terminated</value>
-  </data>
-  <data name="Overtimestop" xml:space="preserve">
-    <value>When the piper grabs the pipe from the pipe rack to the cleaning tray and receives the data overtime, the experiment will stop!</value>
-  </data>
-  <data name="Parameterincorrect" xml:space="preserve">
-    <value>parameter is incorrect</value>
-  </data>
-  <data name="Perfusionbegins" xml:space="preserve">
-    <value>Perfusion begins... </value>
-  </data>
-  <data name="Perfusionfailure" xml:space="preserve">
-    <value>Perfusion failed with error type </value>
-  </data>
-  <data name="Perfusionfinish" xml:space="preserve">
-    <value>Perfusion finish... </value>
-  </data>
-  <data name="Perfusionfinish2" xml:space="preserve">
-    <value>Perfusion complete... </value>
-  </data>
-  <data name="Perfusiontimes" xml:space="preserve">
-    <value>The number of perfusion is 0, please input the appropriate number of cycles!</value>
-  </data>
-  <data name="Perfusiontimeset" xml:space="preserve">
-    <value>The number of perfusion is 0, please input the appropriate number of perfusion!</value>
-  </data>
-  <data name="Pipelinefillstart" xml:space="preserve">
-    <value>Pipe filling starts... </value>
-  </data>
-  <data name="PMTdetection" xml:space="preserve">
-    <value>PMT background value detection in progress...</value>
-  </data>
-  <data name="PMTdetectionfinish" xml:space="preserve">
-    <value>PMT background value detection completed...</value>
-  </data>
-  <data name="PMTParameter" xml:space="preserve">
-    <value>Please select the parameters of PMT background detection function!</value>
-  </data>
-  <data name="PMTValue" xml:space="preserve">
-    <value>PMT background value:</value>
-  </data>
-  <data name="probemax10" xml:space="preserve">
-    <value>The maximum filling times of probe cleaning solution is 10, please input the appropriate filling times!</value>
-  </data>
-  <data name="probeperfusionfinish" xml:space="preserve">
-    <value>The probe cleaning solution is filled... </value>
-  </data>
-  <data name="probeperfusionstart" xml:space="preserve">
-    <value>Probe cleaning solution filling starts... </value>
-  </data>
-  <data name="rdbDaily.Text" xml:space="preserve">
-    <value>Daily maintenance</value>
-  </data>
-  <data name="rdbtnCustom.Text" xml:space="preserve">
-    <value>Custom maintenance</value>
-  </data>
-  <data name="rdbtnGeneral.Text" xml:space="preserve">
-    <value>Routine maintenance</value>
-  </data>
-  <data name="Runing1" xml:space="preserve">
-    <value>running</value>
-  </data>
-  <data name="Runingnow" xml:space="preserve">
-    <value>Running.</value>
-  </data>
-  <data name="Running" xml:space="preserve">
-    <value>Running</value>
-  </data>
-  <data name="Samplehit" xml:space="preserve">
-    <value>The needle bumps when adding sample.</value>
-  </data>
-  <data name="Sampleovertime" xml:space="preserve">
-    <value>Sample adding instruction receiving timeout.</value>
-  </data>
-  <data name="Sampleperfusion" xml:space="preserve">
-    <value>Injection of sample pipeline...</value>
-  </data>
-  <data name="SelectCleanperfusiontimes" xml:space="preserve">
-    <value>Please select the number of times to clean the pipeline filling function!</value>
-  </data>
-  <data name="Selectperfusiontimes" xml:space="preserve">
-    <value>Please select the number of times to fill the sample pipeline!</value>
-  </data>
-  <data name="Selectsubstrateperfusiontimes" xml:space="preserve">
-    <value>Please select the number of times of substrate pipeline filling function!</value>
-  </data>
-  <data name="Startclean" xml:space="preserve">
-    <value>Start emptying</value>
-  </data>
-  <data name="Startcleanfinish" xml:space="preserve">
-    <value>Empty complete</value>
-  </data>
-  <data name="startperfusion" xml:space="preserve">
-    <value>Start pouring... </value>
-  </data>
-  <data name="Stop" xml:space="preserve">
-    <value>Stop</value>
-  </data>
-  <data name="Stop1" xml:space="preserve">
-    <value>Stop</value>
-  </data>
-  <data name="Stopperfusion" xml:space="preserve">
-    <value>Stop perfusion</value>
-  </data>
-  <data name="Stopperfusion1" xml:space="preserve">
-    <value>Stop perfusion</value>
-  </data>
-  <data name="Substrate perfusion" xml:space="preserve">
-    <value>The substrate line is primed. . .</value>
-  </data>
-  <data name="Substrateavailability" xml:space="preserve">
-    <value>Substrate effectiveness testing is in progress...</value>
-  </data>
-  <data name="Substrateempty" xml:space="preserve">
-    <value>No substrate in pipeline 1, please load!</value>
-  </data>
-  <data name="Substrateinsufficient" xml:space="preserve">
-    <value>The substrate is insufficient, please replace it in time!</value>
-  </data>
-  <data name="Substrateperfusion" xml:space="preserve">
-    <value>Substrate pipeline perfusion...</value>
-  </data>
-  <data name="Substrateperfusionfinish" xml:space="preserve">
-    <value>The filling of the substrate line is complete. . .</value>
-  </data>
-  <data name="The" xml:space="preserve">
-    <value>  </value>
-  </data>
-  <data name="Throw1" xml:space="preserve">
-    <value>Throw the first new tube to finish... </value>
-  </data>
-  <data name="Throw2" xml:space="preserve">
-    <value>Throw the second new tube to finish... </value>
-  </data>
-  <data name="Throw3" xml:space="preserve">
-    <value>Throw the third new tube to finish... </value>
-  </data>
-  <data name="Throw4" xml:space="preserve">
-    <value>Throw the fourth new tube to finish... </value>
-  </data>
-  <data name="Throwovertimestop" xml:space="preserve">
-    <value>When the piper is throwing the waste pipe in the cleaning tray, the data receiving timeout, the experiment will stop!</value>
-  </data>
-  <data name="Throwstop" xml:space="preserve">
-    <value>When the piper throws the waste pipe in the cleaning plate, the experiment will stop!</value>
-  </data>
-  <data name="Throwthe" xml:space="preserve">
-    <value>throw the </value>
-  </data>
-  <data name="Tip" xml:space="preserve">
-    <value>Tip</value>
-  </data>
-  <data name="Tubeemptystop" xml:space="preserve">
-    <value>The cup machine is short of tube, the experiment stops running!</value>
-  </data>
-  <data name="Tue1substrate" xml:space="preserve">
-    <value>No substrate in pipeline 1, please load!</value>
-  </data>
-  <data name="Tue2substrate" xml:space="preserve">
-    <value>No substrate in line 2, please load!</value>
-  </data>
-  <data name="txtPMT.Text" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtPMT.Text1" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtSamplePipeline.Text" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtSamplePipeline.Text1" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtSubPipeline.Text" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtSubPipeline.Text1" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtWashPipeline.Text" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtWashPipeline.Text1" xml:space="preserve">
-    <value>1</value>
   </data>
 </root>

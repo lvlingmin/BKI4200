@@ -278,6 +278,12 @@
     <Compile Include="Run\frmAddScaling.designer.cs">
       <DependentUpon>frmAddScaling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Run\frmLoadDiu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Run\frmLoadDiu.Designer.cs">
+      <DependentUpon>frmLoadDiu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Run\frmLoadSu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +394,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\FunctionButton.resx">
       <DependentUpon>FunctionButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControl\userNumTextBox.resx">
       <DependentUpon>userNumTextBox.cs</DependentUpon>
@@ -408,6 +415,9 @@
       <DependentUpon>frmLoadSu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmLoadSu.resx">
+      <DependentUpon>frmLoadSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataQuery\frmLoadSu.zh.resx">
       <DependentUpon>frmLoadSu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmModifyTestResult.en-GB.resx">
@@ -534,6 +544,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\String\NetCom3.en.resx" />
     <EmbeddedResource Include="Resources\String\NetCom3.resx">
@@ -560,6 +571,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmAddScaling.resx">
       <DependentUpon>frmAddScaling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmLoadDiu.resx">
+      <DependentUpon>frmLoadDiu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmLoadSu.resx">
       <DependentUpon>frmLoadSu.cs</DependentUpon>
@@ -605,6 +619,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmWorkList.en-US.resx">
+      <DependentUpon>frmWorkList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmWorkList.en.resx">
       <DependentUpon>frmWorkList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmWorkList.resx">

@@ -16,7 +16,6 @@ namespace BioBaseCLIA
         {
             this.ControlBox = false;
             InitializeComponent();
-            StartKiller();
             //label5.Text = "CL-BKI2200-V" + AssemblyInfor.AssemblyVersion.Substring(0,5);
             //label8.Text = AssemblyInfor.AssemblyCompany;
         }
@@ -26,18 +25,6 @@ namespace BioBaseCLIA
         {
             this.Close();
         }
-        private void StartKiller()
-        {
-            Timer timer = new Timer();
-            timer.Interval = 5000; //3秒启动 
-            timer.Tick += new EventHandler(Timer_Tick);
-            timer.Start();
-        }
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            btnOK_Click(null, null);
-            //停止Timer 
-            ((Timer)sender).Stop();
-        }
+
     }
 }

@@ -79,7 +79,7 @@ namespace BioBaseCLIA.Run
                 if (!diu)
                     count = count + int.Parse(ddr["TestRg"].ToString());
                 else
-                    count = count + int.Parse(ddr["TestDiu"].ToString()) - DiuNoUsePro;
+                    count = count + int.Parse(ddr["TestDiu"].ToString());
             }
             return count;
         }
@@ -93,14 +93,11 @@ namespace BioBaseCLIA.Run
         private int ReadRegetInfo(string ItemName, bool diu, string RgPos)
         {
             int count = 0;
-            if (diu)
-            {
-                string diuPos = OperateIniFile.ReadIniData("ReagentPos" + RgPos, "DiuPos", "", iniPathReagentTrayInfo);
-                if(diuPos!="")
-                    count = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + diuPos, "leftDiuVol", "", iniPathReagentTrayInfo));
-            }
-            else
-                count = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + RgPos, "LeftReagent1", "", iniPathReagentTrayInfo));
+            //if (diu)
+            //    count = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + RgPos, "leftDiuVol", "", iniPathReagentTrayInfo));
+            //else
+            //    count = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + RgPos, "LeftReagent1", "", iniPathReagentTrayInfo));
+            count = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + RgPos, "LeftReagent1", "", iniPathReagentTrayInfo));
             return count;
         }
         /// <summary>
@@ -215,28 +212,58 @@ namespace BioBaseCLIA.Run
             var dr = frmParent.dtSampleRunInfo.Select("SampleNo='" + SampleNo + "'");
             DataRow[] drRunInfo = frmParent.dtSpInfo.Select("Status = '0'and SampleNo='" + SPSampleNo + "'");
             int RepeatCount = int.Parse(drRunInfo[0]["RepeatCount"].ToString());
+            int DiuVolleft = 0;
+            string DiuName = "";
             if (AddDiuVol > 0)
             {
-                int sdiuvol = SelectDtRgInfoNoStat(ItemName, true);
+
                 DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ItemName + "'");
-                int DiuVolleft = 0;
                 foreach (DataRow ddr in drRegion)
                 {
-                    DiuVolleft = DiuVolleft + ReadRegetInfo(ItemName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
+                    string diuPos = OperateIniFile.ReadIniData("ReagentPos" + ddr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                    if (diuPos != "")
+                    {
+                        DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                        DataRow[] drDiu = frmParent.dtRgInfo.Select("RgName='" + DiuName + "'");
+                        foreach (DataRow drr in drDiu)
+                        {
+                            DiuVolleft = DiuVolleft + ReadRegetInfo(DiuName, true, drr["Postion"].ToString()) - DiuNoUsePro;
+                        }
+                        break;
+                    }
                 }
-                if (AddDiuVol * RepeatCount > DiuVolleft)
+                //foreach (DataRow ddr in drRegion)
+                //{
+                //    DiuVolleft = DiuVolleft + ReadRegetInfo(ItemName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
+                //}
+                int sdiuvol = SelectDtRgInfoNoStat(DiuName, true);
+                if (sdiuvol + AddDiuVol * RepeatCount > DiuVolleft)
                 {
                     frmMessageShow frmMsg = new frmMessageShow();
-                    frmMsg.MessageShow("运行信息修改", ItemName + "项目稀释液不足！");
+                    frmMsg.MessageShow("运行信息修改", DiuName + "稀释液不足！");
                     return;
                 }
                 else
                 {
-                    UpdadteDtRgInfoNoStat(ItemName, 0, (AddDiuVol * RepeatCount));
+                    
+                    UpdadteDtRgInfoNoStat(DiuName, 0, (AddDiuVol * RepeatCount));
                 }
             }
             else
-                UpdadteDtRgInfoNoStat(ItemName, 0, (AddDiuVol * RepeatCount));
+            {
+                DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ItemName + "'");
+                foreach (DataRow ddr in drRegion)
+                {
+                    string diuPos = OperateIniFile.ReadIniData("ReagentPos" + ddr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                    if (diuPos != "")
+                    {
+                        DiuName = OperateIniFile.ReadIniData("ReagentPos" + diuPos, "ItemName", "", iniPathReagentTrayInfo);
+                        break;
+                    }
+                }
+                UpdadteDtRgInfoNoStat(DiuName, 0, (AddDiuVol * RepeatCount));
+            }
+                
             foreach (DataGridViewRow row in dgvSpRunInfoList.SelectedRows)
             {
                 //string sampleNo = frmParent.dtSampleRunInfo.Rows[row.Index]["SampleNo"].ToString();

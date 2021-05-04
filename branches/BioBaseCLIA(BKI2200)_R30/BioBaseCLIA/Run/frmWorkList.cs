@@ -3181,6 +3181,7 @@ namespace BioBaseCLIA.Run
             {
                 List<ReagentIniInfo> itemRiInfo = lisRIinfo.FindAll(ty => (ty.ItemName == item.Key));
                 #region 判断是否需要稀释，稀释液是否够用
+                /*
                 List<TestSchedule> list = lisTestSchedule.FindAll(ty => (ty.ItemName == item.Key && int.Parse(ty.dilutionTimes) > 1));
                 DbHelperOleDb db = new DbHelperOleDb(0);
                 if (list.Count > 0)
@@ -3195,9 +3196,8 @@ namespace BioBaseCLIA.Run
                     {
                         db = new DbHelperOleDb(3);
                         string pos = new BLL.tbReagent().GetModelList("BarCode='" + RiInfo.BarCode + "'")[0].Postion;
-                        string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + pos, "DiuPos", "", iniPathReagentTrayInfo);
                         db = new DbHelperOleDb(3);
-                        List<Model.tbDilute> ListDilute = tbDilute.GetModelList("DilutePos=" + int.Parse(DiuPos) + "");
+                        List<Model.tbDilute> ListDilute = tbDilute.GetModelList("DilutePos=" + int.Parse(pos) + "");
                         if (ListDilute.Count > 0)
                         {
                             string ValiData = ListDilute[0].ValiData;
@@ -3241,6 +3241,7 @@ namespace BioBaseCLIA.Run
                         return false;
                     }
                 }
+                */
                 #endregion
                 #region 屏蔽
                 /*
@@ -3308,11 +3309,11 @@ namespace BioBaseCLIA.Run
                 lisSameItem = lisItem.FindAll(ty => ty.ItemName == item.Key);
                 //查询配置文件此项目的信息
                 //List<ReagentIniInfo> itemRiInfo = lisRIinfo.FindAll(ty => ty.ItemName == item.Key);
+                /*
                 if (itemRiInfo.Count > 0)
                 {
                     #region 判断是否有足够的试剂进行定标实验
-                    List<TestItem> ScaSameItem = lisSameItem.FindAll(ty => (ty.SampleType.Contains("标准品")
-                    /*|| ty.SampleType.Contains("质控品")*/));
+                    List<TestItem> ScaSameItem = lisSameItem.FindAll(ty => (ty.SampleType.Contains("标准品")));//|| ty.SampleType.Contains("质控品")
                     if (ScaSameItem.Count > 0)
                     {
                         var scaBeach = ScaSameItem.GroupBy(x => x.RegentBatch).Where(x => x.Count() >= 1).ToList();
@@ -3359,10 +3360,10 @@ namespace BioBaseCLIA.Run
                     frmMsgShow.MessageShow("工作列表", "无" + item.Key + "项目，请装载此项目");
                     return false;
                 }
-
+                */
                 #endregion
                 #region 查询是否有已有定标，并且对标准品浓度和吸光度进行保存
-                db = new DbHelperOleDb(0);
+                DbHelperOleDb db = new DbHelperOleDb(0);
                 //DataTable dtItemInfo = DbHelperOleDb.Query(@"select ProjectType,CalPointConc,CalPointNumber from tbProject where ShortName ='" + item.Key + "'").Tables[0];
                 //2018-07-31  zlx add ExpiryDate
                 DataTable dtItemInfo = DbHelperOleDb.Query(0, @"select ProjectType,CalPointConc,CalPointNumber,ExpiryDate from tbProject where ShortName ='" + item.Key + "'").Tables[0];
@@ -4798,8 +4799,7 @@ namespace BioBaseCLIA.Run
                 string leftR2 = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo);
                 string leftR3 = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "LeftReagent3", "", iniPathReagentTrayInfo);
                 string leftR4 = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "LeftReagent4", "", iniPathReagentTrayInfo);
-                string diuPos = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "DiuPos", "", iniPathReagentTrayInfo);
-                string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + diuPos,"leftDiuVol", "", iniPathReagentTrayInfo);
+                string leftDiuVol = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);
                 if (leftR1 == "")
                 {
                     reagentIniInfo.LeftReagent1 = 0;
@@ -5608,7 +5608,8 @@ namespace BioBaseCLIA.Run
                 }
             }
             DbHelperOleDb dba = new DbHelperOleDb(3);
-            DataTable dtRegent = new BLL.tbReagent().GetList("ReagentName='" + testTempS.ItemName.ToString() + "' AND Status='正常' AND leftoverTestR1>=0 ").Tables[0];
+            //DataTable dtRegent = new BLL.tbReagent().GetList("ReagentName='" + testTempS.ItemName.ToString() + "' AND Status='正常' AND leftoverTestR1>=0 ").Tables[0];
+            DataTable dtRegent = new BLL.tbReagent().GetList("ReagentName='" + testTempS.ItemName.ToString() + "' AND Status='正常' AND Postion<>''  AND leftoverTestR1>=0 ").Tables[0]; //lyq mod 20201021
             DataRow[] drRg;
             foreach (DataRow dr in dtRegent.Rows)
             {
@@ -5673,21 +5674,42 @@ namespace BioBaseCLIA.Run
                                     int DiuVol = int.Parse(diuList[i].Split(';')[1]);
                                     #region 获取稀释液位置
                                     List<ReagentIniInfo> currentReagent =
-                                         QueryReagentIniInfo().Where(reagent => reagent.ItemName == testTempS.ItemName.ToString()&& reagent.leftDiuVol > 0)
-                                        .ToList();
+                                         QueryReagentIniInfo().Where(reagent => reagent.ItemName == testTempS.ItemName.ToString()).ToList();
+                                    string DiuName = "";
                                     if (currentReagent.Count > 0)
                                     {
                                         foreach (var reagent in currentReagent)
                                         {
-                                            string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "DiuPos", "", iniPathReagentTrayInfo);
-                                            string diulest = OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "leftDiuVol", "", iniPathReagentTrayInfo);
+                                            string DiuPos =OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "DiuPos", "", iniPathReagentTrayInfo);
+                                            if(DiuPos != "")
+                                                DiuName= OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                            break;
+                                            //string diulest = 
+                                            //    OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "leftDiuVol", "", iniPathReagentTrayInfo);
+                                            //if ((!string.IsNullOrEmpty(diulest)) && (int.Parse(diulest) > DiuVol + abanDiuPro + DiuNoUsePro))
+                                            //{
+                                            //    rgPos = int.Parse(reagent.Postion);//获取该试剂位置编号
+                                            //    break;
+                                            //}
+                                        }
+                                    }
+                                    LogFile.Instance.Write("DiuName:"+ DiuName);
+                                    if (DiuName != "")
+                                    {
+                                        currentReagent =   QueryReagentIniInfo().Where(reagent => reagent.ItemName == DiuName && reagent.LeftReagent1 > 0)
+                                        .ToList();
+                                        foreach (var reagent in currentReagent)
+                                        {
+                                            string diulest =
+                                                OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "LeftReagent1", "", iniPathReagentTrayInfo);
                                             if ((!string.IsNullOrEmpty(diulest)) && (int.Parse(diulest) > DiuVol + abanDiuPro + DiuNoUsePro))
                                             {
-                                                rgPos = int.Parse(DiuPos);//获取该试剂位置编号
+                                                rgPos = int.Parse(reagent.Postion);//获取该试剂位置编号
                                                 break;
                                             }
                                         }
                                     }
+                                    LogFile.Instance.Write("rgPos:" + rgPos);
                                     #endregion
                                     if (rgPos > 0)
                                     {
@@ -7222,7 +7244,7 @@ namespace BioBaseCLIA.Run
         private int AddLiquid(int rgPos, int pos, int FirstDiu)
         {
             int AddErrorCount = 0;
-            int LeftdiuVol = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos, "leftDiuVol", "", iniPathReagentTrayInfo));
+            int LeftdiuVol = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", "", iniPathReagentTrayInfo));
             string Order = "EB 90 31 02 06 ";
             string StrLeftdiuVol = LeftdiuVol.ToString("x2");
             if (StrLeftdiuVol.Length < 4)
@@ -7277,7 +7299,7 @@ namespace BioBaseCLIA.Run
             }
             #region 体积修改 lyn add 20180611
             DataRow[] drRg = dtRgInfo.Select("Postion=" + rgPos + "");
-            OperateIniFile.WriteIniData("ReagentPos" + rgPos, "leftDiuVol", (LeftdiuVol - (int)(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
+            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", (LeftdiuVol - (int)(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
             #endregion
             return AddErrorCount;
         }
@@ -9764,7 +9786,7 @@ namespace BioBaseCLIA.Run
                             conc = double.Parse(concs[6]);
                         }
                         dtScalingPMT.Rows.Add(pmt, conc, ItemName, 1, Batch);
-                        concentration = conc.ToString();
+                        concentration = conc.ToString("#0.00");
                         result = "";
 
                         //从dtScalingPMT中查询定性的当前项目的定标液信息
@@ -9821,7 +9843,7 @@ namespace BioBaseCLIA.Run
                             conc = double.Parse(concs[1]);//默认为标准品E点浓度
                         }
                         dtScalingPMT.Rows.Add(pmt, conc, ItemName, 1, Batch);
-                        concentration = conc.ToString();
+                        concentration = conc.ToString("#0.00");
                         result = "";
                         #endregion
                         //从dtScalingPMT中查询当前项目的校准品信息
@@ -9922,7 +9944,7 @@ namespace BioBaseCLIA.Run
                     //正则表达式 表示汉字范围;
                     Regex cn = new Regex("[\u4e00-\u9fa5]+");
                     //根据线性范围决定显示类型
-                    concentration = CalculationConcentration(ItemName, Batch, pmt).ToString("#0.000000");
+                    concentration = CalculationConcentration(ItemName, Batch, pmt).ToString("#0.00");
                     //concentration = GetResultInverse(dbpars, pmt).ToString("#0.000000");//对得出的浓度进行小数点保留 lyn modify 20171118
                     LogFile.Instance.Write(DateTime.Now + "浓度：" + concentration + "");
                     #region 若用户对样本因结果不在线性范围内进行稀释
@@ -9940,24 +9962,24 @@ namespace BioBaseCLIA.Run
                         {
                             double DiuProportion = double.Parse(newDiuTimes) / DiuTimes;
                             LogFile.Instance.Write(DateTime.Now + "不固定稀释倍数：" + DiuProportion + "");
-                            concentration = (double.Parse(concentration) * DiuProportion).ToString();
+                            concentration = (double.Parse(concentration) * DiuProportion).ToString("#0.00");
                         }
                     }
                     #endregion
 
-                    if (double.IsNaN(double.Parse(concentration))) 
+                    if (double.IsNaN(double.Parse(concentration)))
                     {
                         concentration = GetNanPmtConcentration(ItemName, Batch, pmt);
                         result = "不在线性范围之内";
                     }
                     else if (double.Parse(concentration) < MinValue)
                     {
-                        concentration = "<" + MinValue;
+                        concentration = "<" + MinValue.ToString("#0.00");
                         result = "不在线性范围之内";
                     }
-                    else if (double.Parse(concentration) > MaxValue * 1.2)
+                    else if (double.Parse(concentration) > (MaxValue))
                     {
-                        concentration = ">" + MaxValue * 1.2;
+                        concentration = ">" + (MaxValue).ToString("#0.00");
                         result = "不在线性范围之内";
                     }
                     else if (VRangeType != "" && int.Parse(VRangeType) > 0)
@@ -10051,7 +10073,7 @@ namespace BioBaseCLIA.Run
             testResult.PMT = pmt;
             //testResult.concentration = concentration;
             if (concentration != "" && !(concentration.Contains(">") || concentration.Contains("<")))
-                testResult.concentration = Convert.ToDouble(concentration).ToString("F" + NumResult + "");//2018-11-07 zlx mod
+                testResult.concentration = concentration;//2018-11-07 zlx mod
             else
                 testResult.concentration = concentration;
             testResult.Result = result;
@@ -10086,22 +10108,22 @@ namespace BioBaseCLIA.Run
             {
                 if (pmt > scaling[0].DataValue)
                 {
-                    concentration = "<" + scaling[0].Data;
+                    concentration = "<" + scaling[0].Data.ToString("#0.00");
                 }
                 else
                 {
-                    concentration = ">" + scaling[scaling.Count - 1].Data;
+                    concentration = ">" + scaling[scaling.Count - 1].Data.ToString("#0.00");
                 }
             }
             if (calMode == 2)
             {
                 if (pmt < scaling[0].DataValue)
                 {
-                    concentration = "<" + scaling[0].Data;
+                    concentration = "<" + scaling[0].Data.ToString("#0.00");
                 }
                 else
                 {
-                    concentration = ">" + scaling[scaling.Count - 1].Data;
+                    concentration = ">" + scaling[scaling.Count - 1].Data.ToString("#0.00");
                 }
             }
 

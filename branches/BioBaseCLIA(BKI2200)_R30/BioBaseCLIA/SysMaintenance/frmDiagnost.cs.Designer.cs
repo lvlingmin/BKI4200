@@ -70,6 +70,7 @@
             this.cmbAsArmZ = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.gbStepOrder = new System.Windows.Forms.GroupBox();
+            this.btnOrderCancel = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.textStepOrder = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.btnOrderSend = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnregentReset = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -430,7 +431,6 @@
             this.label84 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
-            this.btnOrderCancel = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.panel1.SuspendLayout();
             this.tabControlMy1.SuspendLayout();
             this.tabAddSample.SuspendLayout();
@@ -967,6 +967,26 @@
             this.gbStepOrder.TabIndex = 16;
             this.gbStepOrder.TabStop = false;
             this.gbStepOrder.Text = "单步命令发送";
+            // 
+            // btnOrderCancel
+            // 
+            this.btnOrderCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnOrderCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrderCancel.BackgroundImage")));
+            this.btnOrderCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOrderCancel.Enabled = false;
+            this.btnOrderCancel.EnabledSet = true;
+            this.btnOrderCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnOrderCancel.FlatAppearance.BorderSize = 0;
+            this.btnOrderCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnOrderCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnOrderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrderCancel.Location = new System.Drawing.Point(202, 52);
+            this.btnOrderCancel.Name = "btnOrderCancel";
+            this.btnOrderCancel.Size = new System.Drawing.Size(92, 23);
+            this.btnOrderCancel.TabIndex = 19;
+            this.btnOrderCancel.Text = "取消";
+            this.btnOrderCancel.UseVisualStyleBackColor = false;
+            this.btnOrderCancel.Click += new System.EventHandler(this.btnOrderCancel_Click);
             // 
             // textStepOrder
             // 
@@ -5903,7 +5923,7 @@
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(77, 14);
             this.label91.TabIndex = 46;
-            this.label91.Text = "通讯模组：";
+            this.label91.Text = "通信模组：";
             // 
             // txtPhotonVersion
             // 
@@ -5965,7 +5985,7 @@
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(77, 14);
             this.label95.TabIndex = 50;
-            this.label95.Text = "报警模组：";
+            this.label95.Text = "加热模组：";
             // 
             // btnVersion
             // 
@@ -6387,26 +6407,6 @@
             this.label89.Size = new System.Drawing.Size(112, 14);
             this.label89.TabIndex = 4;
             this.label89.Text = "温育盘放管孔位:";
-            // 
-            // btnOrderCancel
-            // 
-            this.btnOrderCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnOrderCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOrderCancel.BackgroundImage")));
-            this.btnOrderCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOrderCancel.Enabled = false;
-            this.btnOrderCancel.EnabledSet = true;
-            this.btnOrderCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnOrderCancel.FlatAppearance.BorderSize = 0;
-            this.btnOrderCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnOrderCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnOrderCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrderCancel.Location = new System.Drawing.Point(202, 52);
-            this.btnOrderCancel.Name = "btnOrderCancel";
-            this.btnOrderCancel.Size = new System.Drawing.Size(92, 23);
-            this.btnOrderCancel.TabIndex = 19;
-            this.btnOrderCancel.Text = "取消";
-            this.btnOrderCancel.UseVisualStyleBackColor = false;
-            this.btnOrderCancel.Click += new System.EventHandler(this.btnOrderCancel_Click);
             // 
             // frmDiagnost
             // 
