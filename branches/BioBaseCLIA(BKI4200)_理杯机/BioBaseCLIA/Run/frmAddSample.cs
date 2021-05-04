@@ -2558,13 +2558,14 @@ namespace BioBaseCLIA.Run
             List<string> prosName = new List<string>();
             for (int i = 0; i < PGNumberList.Count; i++)
             {
-                string[] pros = crysDgGroupPro.Rows[i].Cells["GroupContent"].Value.ToString().Split(';');
+                string[] pros = PGNumberList[i].GroupContent.ToString().Split(';');
                 foreach (string spros in pros)
                 {
                     if (!prosName.Contains(spros))
                         prosName.Add(spros);
                 }
             }
+
             foreach (CheckBox box in flpItemName.Controls)
             {
                 if (prosName.Any(ty => ty == box.Text))
