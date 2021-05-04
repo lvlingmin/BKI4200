@@ -117,92 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;btnExPort.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tbnSendResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 40</value>
-  </data>
-  <data name="&gt;&gt;txtSampleNo.Name" xml:space="preserve">
-    <value>txtSampleNo</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="fbtnTestAgain.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;tbnSendResult.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;dgvPatientInfo.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="SampleType.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="BedNo.HeaderText" xml:space="preserve">
-    <value>床号</value>
-  </data>
-  <data name="&gt;&gt;dtpStartDate.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;btnExPort.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 42</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="Ward.HeaderText" xml:space="preserve">
-    <value>病房</value>
-  </data>
   <data name="ReagentBeach.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="&gt;&gt;cmbSelect.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TestDate.HeaderText" xml:space="preserve">
-    <value>实验时间</value>
-  </data>
-  <data name="fbtnRecalculate.Text" xml:space="preserve">
-    <value>重新计算</value>
   </data>
   <data name="fbtnQuery.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Result.HeaderText" xml:space="preserve">
-    <value>标识</value>
-  </data>
   <data name="txtSampleNo.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
-  </data>
-  <data name="btnExPort.Text" xml:space="preserve">
-    <value>导出数据</value>
   </data>
   <data name="fbtnModifyResult.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;txtSampleNo.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>826, 70</value>
-  </data>
-  <data name="cmbSelect.Items" xml:space="preserve">
-    <value>样本编号</value>
-  </data>
-  <data name="&gt;&gt;cmbSelect.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtpEndDate.Parent" xml:space="preserve">
-    <value>groupBox1</value>
   </data>
   <data name="dtpEndDate.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
@@ -210,26 +156,11 @@
   <data name="fbtnDeleteResult.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;fbtnPrint.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;dgvSampleData.Name" xml:space="preserve">
-    <value>dgvSampleData</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
   <data name="fbtnQuery.Location" type="System.Drawing.Point, System.Drawing">
     <value>676, 21</value>
   </data>
-  <data name="&gt;&gt;fbtnQuery.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>414, 10</value>
-  </data>
-  <data name="&gt;&gt;fbtnQuery.Parent" xml:space="preserve">
-    <value>groupBox1</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>825, 408</value>
@@ -240,47 +171,17 @@
   <data name="fbtnModifyResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 29</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>frmResultQuery</value>
-  </data>
-  <data name="ClinicNo.HeaderText" xml:space="preserve">
-    <value>门诊号</value>
-  </data>
-  <data name="Sex.HeaderText" xml:space="preserve">
-    <value>性别</value>
-  </data>
-  <data name="&gt;&gt;Age.Name" xml:space="preserve">
-    <value>Age</value>
-  </data>
-  <data name="&gt;&gt;Unit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fbtnSaveData.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="AcquisitionTime.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;btnExPort.Name" xml:space="preserve">
-    <value>btnExPort</value>
-  </data>
   <data name="dtpStartDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>291, 27</value>
   </data>
-  <data name="&gt;&gt;TestDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TestDate.Name" xml:space="preserve">
-    <value>TestDate</value>
-  </data>
   <data name="fbtnMakeupInfo.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="fbtnChoiceCurve.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;fbtnRecalculate.Name" xml:space="preserve">
-    <value>fbtnRecalculate</value>
   </data>
   <data name="fbtnRecalculate.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 9pt</value>
@@ -288,17 +189,11 @@
   <data name="dgvPatientInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 26</value>
   </data>
-  <data name="&gt;&gt;Ward.Name" xml:space="preserve">
-    <value>Ward</value>
-  </data>
   <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>522, 27</value>
   </data>
   <data name="fbtnSaveData.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;fbtnRecalculate.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="fbtnSaveData.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -309,12 +204,6 @@
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;fbtnTestAgain.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;PatientName.Name" xml:space="preserve">
-    <value>PatientName</value>
-  </data>
   <data name="txtSampleNo.Location" type="System.Drawing.Point, System.Drawing">
     <value>98, 29</value>
   </data>
@@ -324,20 +213,8 @@
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
   </data>
-  <data name="&gt;&gt;Result.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;MedicaRecordNo.Name" xml:space="preserve">
-    <value>MedicaRecordNo</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="InspectionItems.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
@@ -345,29 +222,11 @@
   <data name="Status.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;dtpStartDate.Name" xml:space="preserve">
-    <value>dtpStartDate</value>
-  </data>
-  <data name="&gt;&gt;BedNo.Name" xml:space="preserve">
-    <value>BedNo</value>
-  </data>
-  <data name="&gt;&gt;SampleID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvSampleData.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="fbtnMakeupInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="fbtnQuery.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 27</value>
-  </data>
-  <data name="&gt;&gt;SampleNo1.Name" xml:space="preserve">
-    <value>SampleNo1</value>
   </data>
   <data name="InpatientArea.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -378,17 +237,8 @@
   <data name="fbtnQuery.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;cmbSelect.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
   <data name="dtpStartDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 21</value>
-  </data>
-  <data name="&gt;&gt;fbtnModifyResult.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="AssayResultID.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -399,32 +249,11 @@
   <data name="fbtnSaveData.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
   </data>
-  <data name="Diagnosis.HeaderText" xml:space="preserve">
-    <value>临床诊断</value>
-  </data>
   <data name="fbtnReturn.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 14.25pt, style=Bold</value>
   </data>
   <data name="fbtnRecalculate.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
-  </data>
-  <data name="&gt;&gt;Status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;dgvPatientInfo.Name" xml:space="preserve">
-    <value>dgvPatientInfo</value>
-  </data>
-  <data name="&gt;&gt;AssayResultID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AssayResultID.Name" xml:space="preserve">
-    <value>AssayResultID</value>
-  </data>
-  <data name="&gt;&gt;fbtnMakeupInfo.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="fbtnDeleteResult.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -434,9 +263,6 @@
   </data>
   <data name="tbnSendResult.Location" type="System.Drawing.Point, System.Drawing">
     <value>692, 81</value>
-  </data>
-  <data name="fbtnDeleteResult.Text" xml:space="preserve">
-    <value>删除实验结果</value>
   </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -502,9 +328,6 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;SampleID1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="fbtnSaveData.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -569,50 +392,11 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="fbtnTestAgain.Text" xml:space="preserve">
-    <value>重新检测</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;PMTCounter.Name" xml:space="preserve">
-    <value>PMTCounter</value>
-  </data>
-  <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 21</value>
-  </data>
-  <data name="&gt;&gt;Ward.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Range.HeaderText" xml:space="preserve">
-    <value>参考值</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>结束日期：</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestAgain.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
   </data>
-  <data name="&gt;&gt;PatientName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="colChioce.HeaderText" xml:space="preserve">
-    <value>选择</value>
-  </data>
   <data name="btnImPort.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 9pt</value>
-  </data>
-  <data name="&gt;&gt;ReagentBeach.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fbtnRecalculate.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="fbtnTestAgain.Location" type="System.Drawing.Point, System.Drawing">
     <value>692, 136</value>
@@ -620,44 +404,17 @@
   <data name="fbtnChoiceCurve.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;btnImPort.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="fbtnMakeupInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>692, 26</value>
   </data>
   <data name="dtpStartDate.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
   </data>
-  <data name="btnImPort.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
-  </data>
-  <data name="Status.HeaderText" xml:space="preserve">
-    <value>Status</value>
-  </data>
   <data name="fbtnChoiceCurve.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="ItemName.HeaderText" xml:space="preserve">
-    <value>项目名称</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fbtnPrint.Name" xml:space="preserve">
-    <value>fbtnPrint</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>起始日期：</value>
-  </data>
-  <data name="ReagentBeach.HeaderText" xml:space="preserve">
-    <value>ReagentBeach</value>
-  </data>
-  <data name="&gt;&gt;colChioce.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Sex.Name" xml:space="preserve">
-    <value>Sex</value>
+  <data name="fbtnChoiceCurve.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="fbtnMakeupInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 40</value>
@@ -665,20 +422,11 @@
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 29</value>
   </data>
-  <data name="btnExPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 40</value>
-  </data>
   <data name="fbtnDeleteResult.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dtpEndDate.Name" xml:space="preserve">
-    <value>dtpEndDate</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 42</value>
+  <data name="fbtnRecalculate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="cmbSelect.TabIndex" type="System.Int32, mscorlib">
     <value>51</value>
@@ -686,44 +434,14 @@
   <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopCenter</value>
   </data>
-  <data name="&gt;&gt;fbtnSaveData.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="fbtnModifyResult.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="&gt;&gt;dgvSampleData.Parent" xml:space="preserve">
-    <value>groupBox2</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="SendDateTime.HeaderText" xml:space="preserve">
-    <value>送检时间</value>
-  </data>
-  <data name="&gt;&gt;ItemName.Name" xml:space="preserve">
-    <value>ItemName</value>
-  </data>
   <data name="tbnSendResult.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;InpatientArea.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SampleNo1.HeaderText" xml:space="preserve">
-    <value>样本编号</value>
-  </data>
-  <data name="&gt;&gt;SampleType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Range.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="fbtnRecalculate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
   </data>
   <data name="fbtnSaveData.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 29</value>
@@ -795,29 +513,14 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;ClinicNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SampleNo.Name" xml:space="preserve">
-    <value>SampleNo</value>
-  </data>
   <data name="btnExPort.Location" type="System.Drawing.Point, System.Drawing">
     <value>692, 301</value>
-  </data>
-  <data name="&gt;&gt;SendDateTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fbtnDeleteResult.Name" xml:space="preserve">
-    <value>fbtnDeleteResult</value>
   </data>
   <data name="fbtnQuery.TabIndex" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
   <data name="fbtnModifyResult.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 139</value>
-  </data>
-  <data name="&gt;&gt;Range.Name" xml:space="preserve">
-    <value>Range</value>
   </data>
   <data name="tbnSendResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -892,35 +595,17 @@
   <data name="btnExPort.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
   </data>
-  <data name="&gt;&gt;btnImPort.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="fbtnQuery.Text" xml:space="preserve">
-    <value>查询</value>
-  </data>
   <data name="btnExPort.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;btnImPort.Name" xml:space="preserve">
-    <value>btnImPort</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fbtnDeleteResult.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;fbtnPrint.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="fbtnRecalculate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>692, 191</value>
-  </data>
   <data name="btnExPort.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>结果查询</value>
+  <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 21</value>
   </data>
   <data name="fbtnPrint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -928,32 +613,14 @@
   <data name="fbtnTestAgain.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="Age.HeaderText" xml:space="preserve">
-    <value>年龄</value>
-  </data>
   <data name="fbtnChoiceCurve.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 9pt</value>
-  </data>
-  <data name="&gt;&gt;SampleNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnImPort.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="fbtnSaveData.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
-    <value>fbtnReturn</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.Parent" xml:space="preserve">
-    <value>panel1</value>
   </data>
   <data name="btnExPort.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1019,50 +686,17 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Unit.HeaderText" xml:space="preserve">
-    <value>单位</value>
-  </data>
-  <data name="SampleType.HeaderText" xml:space="preserve">
-    <value>样本类型</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="Ward.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 118</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="PMTCounter.HeaderText" xml:space="preserve">
-    <value>发光值</value>
-  </data>
-  <data name="fbtnMakeupInfo.Text" xml:space="preserve">
-    <value>补录病人信息</value>
-  </data>
-  <data name="&gt;&gt;dgvPatientInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 521</value>
   </data>
   <data name="dgvPatientInfo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbnSendResult.Name" xml:space="preserve">
-    <value>tbnSendResult</value>
-  </data>
-  <data name="&gt;&gt;fbtnChoiceCurve.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;fbtnChoiceCurve.Name" xml:space="preserve">
-    <value>fbtnChoiceCurve</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestAgain.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 33</value>
@@ -1079,68 +713,20 @@
   <data name="btnImPort.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 40</value>
   </data>
-  <data name="&gt;&gt;Diagnosis.Name" xml:space="preserve">
-    <value>Diagnosis</value>
-  </data>
   <data name="fbtnChoiceCurve.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 237</value>
-  </data>
-  <data name="fbtnChoiceCurve.Text" xml:space="preserve">
-    <value>重选定标</value>
-  </data>
-  <data name="SampleID.HeaderText" xml:space="preserve">
-    <value>SampleID</value>
-  </data>
-  <data name="&gt;&gt;fbtnModifyResult.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;Status.Name" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="&gt;&gt;fbtnRecalculate.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;SampleID1.Name" xml:space="preserve">
-    <value>SampleID1</value>
-  </data>
-  <data name="dtpEndDate.CustomFormat" xml:space="preserve">
-    <value>yyyy-MM-dd</value>
-  </data>
-  <data name="fbtnModifyResult.Text" xml:space="preserve">
-    <value>修改实验结果</value>
   </data>
   <data name="btnExPort.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 9pt</value>
   </data>
-  <data name="&gt;&gt;tbnSendResult.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="SampleNo.HeaderText" xml:space="preserve">
-    <value>样本编号</value>
-  </data>
   <data name="tbnSendResult.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;fbtnChoiceCurve.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmResultQuery</value>
+  <data name="fbtnRecalculate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>692, 191</value>
   </data>
   <data name="fbtnMakeupInfo.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;fbtnModifyResult.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;fbtnMakeupInfo.Name" xml:space="preserve">
-    <value>fbtnMakeupInfo</value>
-  </data>
-  <data name="&gt;&gt;cmbSelect.Name" xml:space="preserve">
-    <value>cmbSelect</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>查询条件</value>
   </data>
   <data name="fbtnTestAgain.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1154,14 +740,8 @@
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;PMTCounter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="fbtnSaveData.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 191</value>
-  </data>
-  <data name="&gt;&gt;colChioce.Name" xml:space="preserve">
-    <value>colChioce</value>
   </data>
   <data name="fbtnPrint.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1227,74 +807,26 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="InpatientArea.HeaderText" xml:space="preserve">
-    <value>病区</value>
-  </data>
   <data name="fbtnReturn.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 423</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>数据查询</value>
-  </data>
-  <data name="&gt;&gt;fbtnDeleteResult.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnDeleteResult.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tbnSendResult.Parent" xml:space="preserve">
-    <value>groupBox2</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;Concentration.Name" xml:space="preserve">
-    <value>Concentration</value>
-  </data>
-  <data name="&gt;&gt;Concentration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="fbtnModifyResult.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;Unit.Name" xml:space="preserve">
-    <value>Unit</value>
   </data>
   <data name="fbtnPrint.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;ClinicNo.Name" xml:space="preserve">
-    <value>ClinicNo</value>
-  </data>
   <data name="dgvSampleData.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 210</value>
-  </data>
-  <data name="&gt;&gt;dgvPatientInfo.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;ReagentBeach.Name" xml:space="preserve">
-    <value>ReagentBeach</value>
-  </data>
-  <data name="&gt;&gt;fbtnChoiceCurve.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;BedNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>返回</value>
-  </data>
   <data name="fbtnMakeupInfo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;SendDateTime.Name" xml:space="preserve">
-    <value>SendDateTime</value>
   </data>
   <data name="fbtnQuery.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1360,8 +892,8 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="fbtnPrint.Text" xml:space="preserve">
-    <value>打印</value>
+  <data name="btnImPort.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
   </data>
   <data name="fbtnTestAgain.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1427,32 +959,14 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;fbtnDeleteResult.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;fbtnQuery.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="btnImPort.Location" type="System.Drawing.Point, System.Drawing">
     <value>692, 246</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
   </data>
   <data name="fbtnPrint.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="AssayResultID.HeaderText" xml:space="preserve">
-    <value>AssayResultID</value>
-  </data>
-  <data name="&gt;&gt;btnImPort.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
   <data name="fbtnTestAgain.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 40</value>
-  </data>
-  <data name="fbtnRecalculate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="fbtnPrint.Location" type="System.Drawing.Point, System.Drawing">
     <value>692, 356</value>
@@ -1460,20 +974,11 @@
   <data name="txtSampleNo.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
-  <data name="&gt;&gt;Diagnosis.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="colChioce.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;fbtnMakeupInfo.Parent" xml:space="preserve">
-    <value>groupBox2</value>
   </data>
   <data name="fbtnReturn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1487,20 +992,11 @@
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ItemName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnRecalculate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="dgvSampleData.Size" type="System.Drawing.Size, System.Drawing">
     <value>648, 181</value>
-  </data>
-  <data name="Concentration.HeaderText" xml:space="preserve">
-    <value>结果</value>
   </data>
   <data name="fbtnRecalculate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1566,9 +1062,6 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;fbtnSaveData.Name" xml:space="preserve">
-    <value>fbtnSaveData</value>
-  </data>
   <data name="btnImPort.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1632,9 +1125,6 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="&gt;&gt;dtpEndDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fbtnModifyResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1700,29 +1190,17 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;Sex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="tbnSendResult.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
-  <data name="&gt;&gt;dtpStartDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnReturn.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="tbnSendResult.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="MedicaRecordNo.HeaderText" xml:space="preserve">
-    <value>病历号</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fbtnPrint.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="fbtnQuery.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1730,32 +1208,8 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1024, 547</value>
   </data>
-  <data name="tbnSendResult.Text" xml:space="preserve">
-    <value>发送实验报告</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnQuery.Name" xml:space="preserve">
-    <value>fbtnQuery</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestAgain.Name" xml:space="preserve">
-    <value>fbtnTestAgain</value>
-  </data>
-  <data name="&gt;&gt;fbtnSaveData.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="PatientName.HeaderText" xml:space="preserve">
-    <value>姓名</value>
-  </data>
-  <data name="&gt;&gt;Result.Name" xml:space="preserve">
-    <value>Result</value>
-  </data>
-  <data name="&gt;&gt;fbtnMakeupInfo.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;SampleID.Name" xml:space="preserve">
-    <value>SampleID</value>
+  <data name="btnExPort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 40</value>
   </data>
   <data name="btnExPort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1763,23 +1217,14 @@
   <data name="fbtnTestAgain.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
-  <data name="&gt;&gt;fbtnModifyResult.Name" xml:space="preserve">
-    <value>fbtnModifyResult</value>
-  </data>
   <data name="fbtnReturn.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 60</value>
   </data>
   <data name="fbtnPrint.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 40</value>
   </data>
-  <data name="fbtnReturn.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
   <data name="Diagnosis.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="&gt;&gt;dgvSampleData.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>844, 5</value>
@@ -1790,38 +1235,14 @@
   <data name="fbtnPrint.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;Age.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtSampleNo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="fbtnDeleteResult.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="dtpStartDate.CustomFormat" xml:space="preserve">
-    <value>yyyy-MM-dd</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 21.75pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;SampleNo1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="fbtnSaveData.Text" xml:space="preserve">
-    <value>保存</value>
-  </data>
   <data name="fbtnReturn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
-  </data>
-  <data name="cmbSelect.Items1" xml:space="preserve">
-    <value>病人姓名</value>
-  </data>
-  <data name="&gt;&gt;InpatientArea.Name" xml:space="preserve">
-    <value>InpatientArea</value>
-  </data>
-  <data name="&gt;&gt;btnExPort.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="fbtnChoiceCurve.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1887,20 +1308,8 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnImPort.Text" xml:space="preserve">
-    <value>导入数据</value>
-  </data>
   <data name="btnImPort.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;SampleType.Name" xml:space="preserve">
-    <value>SampleType</value>
-  </data>
-  <data name="&gt;&gt;dtpStartDate.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="SampleID1.HeaderText" xml:space="preserve">
-    <value>SampleID</value>
   </data>
   <data name="fbtnModifyResult.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1969,9 +1378,6 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;fbtnReturn.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="fbtnChoiceCurve.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 29</value>
   </data>
@@ -1984,17 +1390,8 @@
   <data name="fbtnSaveData.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 9pt</value>
   </data>
-  <data name="&gt;&gt;MedicaRecordNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="dgvPatientInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>648, 175</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtSampleNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ClinicNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2014,9 +1411,6 @@
   <data name="colChioce.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
-    <value>en</value>
-  </data>
   <data name="BedNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2024,6 +1418,9 @@
     <value>True</value>
   </data>
   <data name="Age.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AcquisitionTime.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Ward.UserAddedColumn" type="System.Boolean, mscorlib">
@@ -2062,6 +1459,9 @@
   <data name="Unit.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="InspectionItems.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="PatientName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2080,11 +1480,530 @@
   <data name="PMTCounter.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>frmResultQuery</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmResultQuery</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;AcquisitionTime.Name" xml:space="preserve">
+    <value>AcquisitionTime</value>
+  </data>
+  <data name="&gt;&gt;AcquisitionTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Age.Name" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="&gt;&gt;Age.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AssayResultID.Name" xml:space="preserve">
+    <value>AssayResultID</value>
+  </data>
+  <data name="&gt;&gt;AssayResultID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BedNo.Name" xml:space="preserve">
+    <value>BedNo</value>
+  </data>
+  <data name="&gt;&gt;BedNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnExPort.Name" xml:space="preserve">
+    <value>btnExPort</value>
+  </data>
+  <data name="&gt;&gt;btnExPort.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btnExPort.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnExPort.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnImPort.Name" xml:space="preserve">
+    <value>btnImPort</value>
+  </data>
+  <data name="&gt;&gt;btnImPort.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btnImPort.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnImPort.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ClinicNo.Name" xml:space="preserve">
+    <value>ClinicNo</value>
+  </data>
+  <data name="&gt;&gt;ClinicNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbSelect.Name" xml:space="preserve">
+    <value>cmbSelect</value>
+  </data>
+  <data name="&gt;&gt;cmbSelect.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;cmbSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbSelect.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;colChioce.Name" xml:space="preserve">
+    <value>colChioce</value>
+  </data>
+  <data name="&gt;&gt;colChioce.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Concentration.Name" xml:space="preserve">
+    <value>Concentration</value>
+  </data>
+  <data name="&gt;&gt;Concentration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvPatientInfo.Name" xml:space="preserve">
+    <value>dgvPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;dgvPatientInfo.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;dgvPatientInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvPatientInfo.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;dgvSampleData.Name" xml:space="preserve">
+    <value>dgvSampleData</value>
+  </data>
+  <data name="&gt;&gt;dgvSampleData.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;dgvSampleData.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvSampleData.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Diagnosis.Name" xml:space="preserve">
+    <value>Diagnosis</value>
+  </data>
+  <data name="&gt;&gt;Diagnosis.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Name" xml:space="preserve">
+    <value>dtpEndDate</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDate.Name" xml:space="preserve">
+    <value>dtpStartDate</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDate.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDate.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;fbtnChoiceCurve.Name" xml:space="preserve">
+    <value>fbtnChoiceCurve</value>
+  </data>
+  <data name="&gt;&gt;fbtnChoiceCurve.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnChoiceCurve.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnChoiceCurve.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;fbtnDeleteResult.Name" xml:space="preserve">
+    <value>fbtnDeleteResult</value>
+  </data>
+  <data name="&gt;&gt;fbtnDeleteResult.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnDeleteResult.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnDeleteResult.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;fbtnMakeupInfo.Name" xml:space="preserve">
+    <value>fbtnMakeupInfo</value>
+  </data>
+  <data name="&gt;&gt;fbtnMakeupInfo.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;fbtnMakeupInfo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnMakeupInfo.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;fbtnModifyResult.Name" xml:space="preserve">
+    <value>fbtnModifyResult</value>
+  </data>
+  <data name="&gt;&gt;fbtnModifyResult.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnModifyResult.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnModifyResult.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;fbtnPrint.Name" xml:space="preserve">
+    <value>fbtnPrint</value>
+  </data>
+  <data name="&gt;&gt;fbtnPrint.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;fbtnPrint.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnPrint.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;fbtnQuery.Name" xml:space="preserve">
+    <value>fbtnQuery</value>
+  </data>
+  <data name="&gt;&gt;fbtnQuery.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;fbtnQuery.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnQuery.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;fbtnRecalculate.Name" xml:space="preserve">
+    <value>fbtnRecalculate</value>
+  </data>
+  <data name="&gt;&gt;fbtnRecalculate.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;fbtnRecalculate.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnRecalculate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
+    <value>fbtnReturn</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;fbtnSaveData.Name" xml:space="preserve">
+    <value>fbtnSaveData</value>
+  </data>
+  <data name="&gt;&gt;fbtnSaveData.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnSaveData.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnSaveData.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;fbtnTestAgain.Name" xml:space="preserve">
+    <value>fbtnTestAgain</value>
+  </data>
+  <data name="&gt;&gt;fbtnTestAgain.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;fbtnTestAgain.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnTestAgain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;InpatientArea.Name" xml:space="preserve">
+    <value>InpatientArea</value>
+  </data>
+  <data name="&gt;&gt;InpatientArea.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InspectionItems.Name" xml:space="preserve">
+    <value>InspectionItems</value>
+  </data>
+  <data name="&gt;&gt;InspectionItems.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ItemName.Name" xml:space="preserve">
+    <value>ItemName</value>
+  </data>
+  <data name="&gt;&gt;ItemName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MedicaRecordNo.Name" xml:space="preserve">
+    <value>MedicaRecordNo</value>
+  </data>
+  <data name="&gt;&gt;MedicaRecordNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;PatientName.Name" xml:space="preserve">
+    <value>PatientName</value>
+  </data>
+  <data name="&gt;&gt;PatientName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PMTCounter.Name" xml:space="preserve">
+    <value>PMTCounter</value>
+  </data>
+  <data name="&gt;&gt;PMTCounter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Range.Name" xml:space="preserve">
+    <value>Range</value>
+  </data>
+  <data name="&gt;&gt;Range.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ReagentBeach.Name" xml:space="preserve">
+    <value>ReagentBeach</value>
+  </data>
+  <data name="&gt;&gt;ReagentBeach.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Result.Name" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="&gt;&gt;Result.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SampleID.Name" xml:space="preserve">
+    <value>SampleID</value>
+  </data>
+  <data name="&gt;&gt;SampleID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SampleID1.Name" xml:space="preserve">
+    <value>SampleID1</value>
+  </data>
+  <data name="&gt;&gt;SampleID1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SampleNo.Name" xml:space="preserve">
+    <value>SampleNo</value>
+  </data>
+  <data name="&gt;&gt;SampleNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SampleNo1.Name" xml:space="preserve">
+    <value>SampleNo1</value>
+  </data>
+  <data name="&gt;&gt;SampleNo1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SampleType.Name" xml:space="preserve">
+    <value>SampleType</value>
+  </data>
+  <data name="&gt;&gt;SampleType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SendDateTime.Name" xml:space="preserve">
+    <value>SendDateTime</value>
+  </data>
+  <data name="&gt;&gt;SendDateTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Sex.Name" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="&gt;&gt;Sex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Status.Name" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="&gt;&gt;Status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbnSendResult.Name" xml:space="preserve">
+    <value>tbnSendResult</value>
+  </data>
+  <data name="&gt;&gt;tbnSendResult.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;tbnSendResult.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tbnSendResult.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;TestDate.Name" xml:space="preserve">
+    <value>TestDate</value>
+  </data>
+  <data name="&gt;&gt;TestDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSampleNo.Name" xml:space="preserve">
+    <value>txtSampleNo</value>
+  </data>
+  <data name="&gt;&gt;txtSampleNo.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtSampleNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSampleNo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Unit.Name" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="&gt;&gt;Unit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Ward.Name" xml:space="preserve">
+    <value>Ward</value>
+  </data>
+  <data name="&gt;&gt;Ward.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AcquisitionTime.HeaderText" xml:space="preserve">
+    <value>采集时间</value>
+  </data>
+  <data name="Age.HeaderText" xml:space="preserve">
+    <value>年龄</value>
+  </data>
+  <data name="AssayResultID.HeaderText" xml:space="preserve">
+    <value>AssayResultID</value>
+  </data>
+  <data name="BedNo.HeaderText" xml:space="preserve">
+    <value>床号</value>
+  </data>
+  <data name="btnExPort.Text" xml:space="preserve">
+    <value>导出数据</value>
+  </data>
+  <data name="btnImPort.Text" xml:space="preserve">
+    <value>导入数据</value>
+  </data>
+  <data name="ClinicNo.HeaderText" xml:space="preserve">
+    <value>门诊号</value>
+  </data>
+  <data name="cmbSelect.Items" xml:space="preserve">
+    <value>样本编号</value>
+  </data>
+  <data name="cmbSelect.Items1" xml:space="preserve">
+    <value>病人姓名</value>
+  </data>
+  <data name="colChioce.HeaderText" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Concentration.HeaderText" xml:space="preserve">
+    <value>结果</value>
+  </data>
   <data name="DeleteMessage" xml:space="preserve">
     <value>删除成功</value>
   </data>
   <data name="Determine" xml:space="preserve">
     <value>确定</value>
+  </data>
+  <data name="Diagnosis.HeaderText" xml:space="preserve">
+    <value>临床诊断</value>
+  </data>
+  <data name="dtpEndDate.CustomFormat" xml:space="preserve">
+    <value>yyyy-MM-dd</value>
+  </data>
+  <data name="dtpStartDate.CustomFormat" xml:space="preserve">
+    <value>yyyy-MM-dd</value>
   </data>
   <data name="ExportErrorMessage" xml:space="preserve">
     <value>文件导出出错，文件可能正在被操作！</value>
@@ -2092,11 +2011,47 @@
   <data name="ExportSucessMessage" xml:space="preserve">
     <value>文件导出成功</value>
   </data>
+  <data name="fbtnChoiceCurve.Text" xml:space="preserve">
+    <value>重选定标</value>
+  </data>
+  <data name="fbtnDeleteResult.Text" xml:space="preserve">
+    <value>删除实验结果</value>
+  </data>
+  <data name="fbtnMakeupInfo.Text" xml:space="preserve">
+    <value>补录病人信息</value>
+  </data>
+  <data name="fbtnModifyResult.Text" xml:space="preserve">
+    <value>修改实验结果</value>
+  </data>
+  <data name="fbtnPrint.Text" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="fbtnQuery.Text" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="fbtnRecalculate.Text" xml:space="preserve">
+    <value>重新计算</value>
+  </data>
+  <data name="fbtnReturn.Text" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="fbtnSaveData.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="fbtnTestAgain.Text" xml:space="preserve">
+    <value>重新检测</value>
+  </data>
   <data name="File" xml:space="preserve">
     <value>文件</value>
   </data>
   <data name="FileName" xml:space="preserve">
     <value>实验结果</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>查询条件</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>数据查询</value>
   </data>
   <data name="ImportErrorMessage" xml:space="preserve">
     <value>导入外部数据的值有误,实验结果为数值</value>
@@ -2106,6 +2061,27 @@
   </data>
   <data name="ImportSucessMessage" xml:space="preserve">
     <value>数据导入完成</value>
+  </data>
+  <data name="InpatientArea.HeaderText" xml:space="preserve">
+    <value>病区</value>
+  </data>
+  <data name="InspectionItems.HeaderText" xml:space="preserve">
+    <value>检验项目</value>
+  </data>
+  <data name="ItemName.HeaderText" xml:space="preserve">
+    <value>项目名称</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>起始日期：</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>结束日期：</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>结果查询</value>
+  </data>
+  <data name="MedicaRecordNo.HeaderText" xml:space="preserve">
+    <value>病历号</value>
   </data>
   <data name="MessageHead" xml:space="preserve">
     <value>信息提示</value>
@@ -2131,8 +2107,20 @@
   <data name="OutInfo" xml:space="preserve">
     <value>外部信息</value>
   </data>
+  <data name="PatientName.HeaderText" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="PMTCounter.HeaderText" xml:space="preserve">
+    <value>发光值</value>
+  </data>
   <data name="Print" xml:space="preserve">
     <value>打印</value>
+  </data>
+  <data name="Range.HeaderText" xml:space="preserve">
+    <value>参考值</value>
+  </data>
+  <data name="ReagentBeach.HeaderText" xml:space="preserve">
+    <value>ReagentBeach</value>
   </data>
   <data name="Recalculate" xml:space="preserve">
     <value>重新计算提示</value>
@@ -2140,17 +2128,35 @@
   <data name="RecalculateMessage" xml:space="preserve">
     <value>请选择要进行重新计算结果的项目</value>
   </data>
+  <data name="Result.HeaderText" xml:space="preserve">
+    <value>标识</value>
+  </data>
   <data name="ReTestMessage" xml:space="preserve">
     <value>请选择要重新检测的项目信息</value>
   </data>
   <data name="ReTestSetSucess" xml:space="preserve">
     <value>重测设置成功</value>
   </data>
+  <data name="SampleID.HeaderText" xml:space="preserve">
+    <value>SampleID</value>
+  </data>
+  <data name="SampleID1.HeaderText" xml:space="preserve">
+    <value>SampleID</value>
+  </data>
   <data name="SampleInputHead" xml:space="preserve">
     <value>样本录入</value>
   </data>
   <data name="SampleInputMessage" xml:space="preserve">
     <value>请选择需要录入信息的样本</value>
+  </data>
+  <data name="SampleNo.HeaderText" xml:space="preserve">
+    <value>样本编号</value>
+  </data>
+  <data name="SampleNo1.HeaderText" xml:space="preserve">
+    <value>样本编号</value>
+  </data>
+  <data name="SampleType.HeaderText" xml:space="preserve">
+    <value>样本类型</value>
   </data>
   <data name="SampleUnStall" xml:space="preserve">
     <value>样本已经卸载</value>
@@ -2161,6 +2167,9 @@
   <data name="SaveMessage" xml:space="preserve">
     <value>保存数据成功</value>
   </data>
+  <data name="SendDateTime.HeaderText" xml:space="preserve">
+    <value>送检时间</value>
+  </data>
   <data name="SerialConn" xml:space="preserve">
     <value>串口通讯</value>
   </data>
@@ -2170,7 +2179,25 @@
   <data name="SeriesNoOpenMessage" xml:space="preserve">
     <value>串口未打开</value>
   </data>
+  <data name="Sex.HeaderText" xml:space="preserve">
+    <value>性别</value>
+  </data>
+  <data name="Status.HeaderText" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="tbnSendResult.Text" xml:space="preserve">
+    <value>发送实验报告</value>
+  </data>
+  <data name="TestDate.HeaderText" xml:space="preserve">
+    <value>实验时间</value>
+  </data>
   <data name="uninstall" xml:space="preserve">
     <value>卸载</value>
+  </data>
+  <data name="Unit.HeaderText" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="Ward.HeaderText" xml:space="preserve">
+    <value>病房</value>
   </data>
 </root>

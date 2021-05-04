@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPatientInfo));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtWard = new BioBaseCLIA.CustomControl.userTextBoxBase();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtInpatientArea = new BioBaseCLIA.CustomControl.userTextBoxBase();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtInspectionItems = new BioBaseCLIA.CustomControl.userTextBoxBase();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dateAcquisitionTime = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
             this.cmbSendDoctor = new System.Windows.Forms.ComboBox();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -60,6 +60,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtClinicNo = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtWard = new BioBaseCLIA.CustomControl.userTextBoxBase();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtInpatientArea = new BioBaseCLIA.CustomControl.userTextBoxBase();
+            this.label5 = new System.Windows.Forms.Label();
             this.fbtnOK = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnLis = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox1.SuspendLayout();
@@ -67,11 +71,10 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.txtWard);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtInpatientArea);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtInspectionItems);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.dateAcquisitionTime);
+            this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.cmbSendDoctor);
             this.groupBox1.Controls.Add(this.cmbDepartment);
             this.groupBox1.Controls.Add(this.label15);
@@ -97,39 +100,43 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtClinicNo);
             this.groupBox1.Controls.Add(this.label1);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // txtWard
+            // txtInspectionItems
             // 
-            resources.ApplyResources(this.txtWard, "txtWard");
-            this.txtWard.Name = "txtWard";
+            resources.ApplyResources(this.txtInspectionItems, "txtInspectionItems");
+            this.txtInspectionItems.Name = "txtInspectionItems";
+            this.txtInspectionItems.ReadOnly = true;
             // 
-            // label4
+            // label17
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
             // 
-            // txtInpatientArea
+            // dateAcquisitionTime
             // 
-            resources.ApplyResources(this.txtInpatientArea, "txtInpatientArea");
-            this.txtInpatientArea.Name = "txtInpatientArea";
+            this.dateAcquisitionTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dateAcquisitionTime, "dateAcquisitionTime");
+            this.dateAcquisitionTime.Name = "dateAcquisitionTime";
+            this.dateAcquisitionTime.Value = new System.DateTime(2018, 11, 10, 10, 54, 0, 0);
             // 
-            // label5
+            // label16
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
             // 
             // cmbSendDoctor
             // 
-            resources.ApplyResources(this.cmbSendDoctor, "cmbSendDoctor");
             this.cmbSendDoctor.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbSendDoctor, "cmbSendDoctor");
             this.cmbSendDoctor.Name = "cmbSendDoctor";
             // 
             // cmbDepartment
             // 
-            resources.ApplyResources(this.cmbDepartment, "cmbDepartment");
             this.cmbDepartment.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbDepartment, "cmbDepartment");
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
@@ -140,8 +147,8 @@
             // 
             // dateSendDateTime
             // 
-            resources.ApplyResources(this.dateSendDateTime, "dateSendDateTime");
             this.dateSendDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dateSendDateTime, "dateSendDateTime");
             this.dateSendDateTime.Name = "dateSendDateTime";
             this.dateSendDateTime.Value = new System.DateTime(2018, 11, 10, 10, 54, 0, 0);
             // 
@@ -182,12 +189,12 @@
             // 
             // cmbSex
             // 
-            resources.ApplyResources(this.cmbSex, "cmbSex");
             this.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSex.FormattingEnabled = true;
             this.cmbSex.Items.AddRange(new object[] {
             resources.GetString("cmbSex.Items"),
             resources.GetString("cmbSex.Items1")});
+            resources.ApplyResources(this.cmbSex, "cmbSex");
             this.cmbSex.Name = "cmbSex";
             // 
             // txtDiagnosis
@@ -222,8 +229,8 @@
             // 
             // txtAge
             // 
-            resources.ApplyResources(this.txtAge, "txtAge");
             this.txtAge.IsNull = false;
+            resources.ApplyResources(this.txtAge, "txtAge");
             this.txtAge.MaxValue = new decimal(new int[] {
             150,
             0,
@@ -266,10 +273,30 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // txtWard
+            // 
+            resources.ApplyResources(this.txtWard, "txtWard");
+            this.txtWard.Name = "txtWard";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // txtInpatientArea
+            // 
+            resources.ApplyResources(this.txtInpatientArea, "txtInpatientArea");
+            this.txtInpatientArea.Name = "txtInpatientArea";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
             // fbtnOK
             // 
-            resources.ApplyResources(this.fbtnOK, "fbtnOK");
             this.fbtnOK.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnOK, "fbtnOK");
             this.fbtnOK.EnabledSet = true;
             this.fbtnOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnOK.FlatAppearance.BorderSize = 0;
@@ -281,8 +308,8 @@
             // 
             // btnLis
             // 
-            resources.ApplyResources(this.btnLis, "btnLis");
             this.btnLis.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLis, "btnLis");
             this.btnLis.EnabledSet = true;
             this.btnLis.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLis.FlatAppearance.BorderSize = 0;
@@ -296,14 +323,19 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.txtWard);
             this.Controls.Add(this.btnLis);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.fbtnOK);
+            this.Controls.Add(this.txtInpatientArea);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label5);
             this.Name = "frmPatientInfo";
             this.Load += new System.EventHandler(this.frmPatientInfo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -341,5 +373,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbSendDoctor;
         private System.Windows.Forms.ComboBox cmbDepartment;
+        private CustomControl.userTextBoxBase txtInspectionItems;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dateAcquisitionTime;
+        private System.Windows.Forms.Label label16;
     }
 }

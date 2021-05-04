@@ -71,11 +71,11 @@ namespace BioBaseCLIA.DataQuery
             //2018-12-15 zlx mod
             //dgvSampleData.DataSource = null;
              DbHelperOleDb DB = new DbHelperOleDb(1);
-             string str = "select distinct SampleNo,format(SendDateTime,'yyyy-mm-dd')AS SendDateTimeS,tbSampleInfo.SampleID,PatientName,Sex,Age,ClinicNo,InpatientArea," +
-                     "Ward,BedNo,MedicaRecordNo,Diagnosis from tbSampleInfo INNER JOIN tbAssayResult on tbAssayResult.SampleID = tbSampleInfo.SampleID where " +
-                     "tbSampleInfo.SendDateTime>=#" + dtpStartDate.Value.ToString("yyyy-MM-dd") + "# and tbSampleInfo.SendDateTime < #" + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "# ";//AND tbSampleInfo.Status>0 AND (tbSampleInfo.SampleType not like '标准品%' OR tbSampleInfo.SampleType not like '质控品%'
-             if (cmbSelect.SelectedIndex == 0)
-                 str = str + "AND tbSampleInfo.SampleNo like'%" + txtSampleNo.Text.ToString() + "%'";
+            string str = "select distinct SampleNo,format(SendDateTime,'yyyy-mm-dd')AS SendDateTimeS,tbSampleInfo.SampleID,PatientName,Sex,Age,ClinicNo,InpatientArea," +
+                  "Ward,BedNo,MedicaRecordNo,Diagnosis,InspectionItems,AcquisitionTime from tbSampleInfo INNER JOIN tbAssayResult on tbAssayResult.SampleID = tbSampleInfo.SampleID where " +
+                  "tbSampleInfo.SendDateTime>=#" + dtpStartDate.Value.ToString("yyyy-MM-dd") + "# and tbSampleInfo.SendDateTime < #" + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "# ";//AND tbSampleInfo.Status>0 AND (tbSampleInfo.SampleType not like '标准品%' OR tbSampleInfo.SampleType not like '质控品%'
+            if (cmbSelect.SelectedIndex == 0)
+                str = str + "AND tbSampleInfo.SampleNo like'%" + txtSampleNo.Text.ToString() + "%'";
              else if (cmbSelect.SelectedIndex == 1)
                  str = str + "AND tbSampleInfo.PatientName like'%" + txtSampleNo.Text.ToString() + "%'";
              DataTable dtPatientInfo = DbHelperOleDb.Query(1,@str).Tables[0];
@@ -372,27 +372,50 @@ namespace BioBaseCLIA.DataQuery
                 printMode(false);
             }
             else if (fbtnPrint.Text == Getstring("Determine"))
-            {                
+            {
                 #region 声明打印变量及属性
                 Report report = new Report();
                 Config.ReportSettings.ShowPerformance = false;
                 Config.ReportSettings.ShowProgress = true;
-                report.Load(Application.StartupPath + @"\Report\A5ZH.frx");
+                //report.Load(Application.StartupPath + @"\Report\A5ZH.frx");
                 DataSet dsReport = new DataSet();
                 #endregion
                 #region 获取选中的样本结果
                 DataTable dtTestResult = new DataTable();
+                string printModel = OperateIniFile.ReadIniData("PrintSet", "PrintMode", "", Application.StartupPath + "//InstrumentPara.ini");
+                string modelPath = Application.StartupPath + @"\Report\";
+                if (printModel.Contains("模版一"))
+                {
+                    modelPath += "A5ZH-模版一.frx";
+                }
+                else if (printModel.Contains("模版二"))
+                {
+                    modelPath += "A5ZH-模版二.frx";
+                }
+                else if (printModel.Contains("模版三"))
+                {
+                    modelPath += "A5ZH-模版三.frx";
+                }
+                report.Load(modelPath);
                 dtTestResult.Columns.Add(new DataColumn("ShortName", typeof(string)));
                 dtTestResult.Columns.Add(new DataColumn("Concentration", typeof(string)));
                 dtTestResult.Columns.Add(new DataColumn("Result", typeof(string)));
                 dtTestResult.Columns.Add(new DataColumn("Range1", typeof(string)));
                 dtTestResult.Columns.Add(new DataColumn("Range2", typeof(string)));
                 dtTestResult.Columns.Add(new DataColumn("printIndex", typeof(int)));
-                
+                #region lyq
+                dtTestResult.Columns.Add(new DataColumn("ShortName-2", typeof(string)));
+                dtTestResult.Columns.Add(new DataColumn("Concentration-2", typeof(string)));
+                dtTestResult.Columns.Add(new DataColumn("Result-2", typeof(string)));
+                dtTestResult.Columns.Add(new DataColumn("Range1-2", typeof(string)));
+                dtTestResult.Columns.Add(new DataColumn("Range2-2", typeof(string)));
+
+                BLL.tbProject bllPro = new BLL.tbProject();//lyq
+                DataTable dtPro = bllPro.GetList("").Tables[0];
+                #endregion
 
                 DataRow dr;
                 int count = dgvSampleData.Rows.Count;
-                DbHelperOleDb DB = new DbHelperOleDb(0);
                 for (int i = 0; i < count; i++)
                 {
                     string _selectValue = dgvSampleData.Rows[i].Cells["colChioce"].EditedFormattedValue.ToString();
@@ -400,94 +423,135 @@ namespace BioBaseCLIA.DataQuery
                     {
                         dgvSampleData.Rows[i].Selected = true;
                         dr = dtTestResult.NewRow();
-                        dr["ShortName"] = dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();
+                        dr["ShortName"] = dtPro.Select("ShortName = '" + dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString() + "'")[0]["FullName"].ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/
                         dr["Concentration"] = dgvSampleData.Rows[i].Cells["Concentration"].Value.ToString();
                         dr["Result"] = dgvSampleData.Rows[i].Cells["Result"].Value.ToString();
                         dr["Range1"] = dgvSampleData.Rows[i].Cells["Range"].Value.ToString();
-                        
-                        //dr["Range2"] = DbHelperOleDb.GetSingle(@"select ValueRange2 from tbProject where ShortName ='"
-                                         //+ dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString() + "'");
                         dr["Range2"] = dgvSampleData.Rows[i].Cells["Unit"].Value.ToString();//2018-11-02 zlx mod
-                        string printIndex=  OperateIniFile.ReadIniData("RpSort", dr["ShortName"].ToString(), "",
-                            Application.StartupPath + "//ReportSort.ini");
+                        //string printIndex = OperateIniFile.ReadIniData("RpSort", dr["ShortName"].ToString(), "",
+                        //    Application.StartupPath + "//ReportSort.ini");                                                                    
+
+                        string printIndex = OperateIniFile.ReadIniData("RpSort", dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString(), "",
+                             Application.StartupPath + "//ReportSort.ini");
                         dr["printIndex"] = printIndex;
                         dtTestResult.Rows.Add(dr);
-
                     }
                 }
-                #endregion
+                //排序
                 dtTestResult.DefaultView.Sort = "printIndex asc";
                 dtTestResult = dtTestResult.DefaultView.ToTable();
                 dtTestResult.TableName = "Records";
+                if (printModel.Contains("模版一"))
+                {
+                    if (count <= 24)
+                        ;
+                    else if (count <= 48)
+                    {
+                        //移动到右列
+                        for (int i = 24; i < count; i++)
+                        {
+                            dtTestResult.Rows[i - 24]["ShortName-2"] = dtTestResult.Rows[i]["ShortName"];  //dtPro.Select("ShortName = '" + dgvSampleData.Rows[i + 24].Cells["ItemName"].Value.ToString() + "'")[0]["FullName"];//lyq
+                            dtTestResult.Rows[i - 24]["Concentration-2"] = dtTestResult.Rows[i]["Concentration"]; //dgvSampleData.Rows[i + 24].Cells["Concentration"].Value.ToString();
+                            dtTestResult.Rows[i - 24]["Result-2"] = dtTestResult.Rows[i]["Result"]; //dgvSampleData.Rows[i + 24].Cells["Result"].Value.ToString();
+                            dtTestResult.Rows[i - 24]["Range1-2"] = dtTestResult.Rows[i]["Range1"]; // dgvSampleData.Rows[i + 24].Cells["Range"].Value.ToString();
+                            dtTestResult.Rows[i - 24]["Range2-2"] = dtTestResult.Rows[i]["Range2"]; // dgvSampleData.Rows[i + 24].Cells["Unit"].Value.ToString();
+                        }
+                        //移除多余列
+                        for (int i = count; i > 24; i--)
+                        {
+                            dtTestResult.Rows.RemoveAt(i - 1);
+                        }
+                    }
+                    else
+                    {
+                        //移动到右列
+                        for (int i = (count + 1) / 2; i < count; i++)
+                        {
+                            dtTestResult.Rows[i - (count + 1) / 2]["ShortName-2"] = dtTestResult.Rows[i]["ShortName"];  //dtPro.Select("ShortName = '" + dgvSampleData.Rows[i + 24].Cells["ItemName"].Value.ToString() + "'")[0]["FullName"];//lyq
+                            dtTestResult.Rows[i - (count + 1) / 2]["Concentration-2"] = dtTestResult.Rows[i]["Concentration"]; //dgvSampleData.Rows[i + 24].Cells["Concentration"].Value.ToString();
+                            dtTestResult.Rows[i - (count + 1) / 2]["Result-2"] = dtTestResult.Rows[i]["Result"]; //dgvSampleData.Rows[i + 24].Cells["Result"].Value.ToString();
+                            dtTestResult.Rows[i - (count + 1) / 2]["Range1-2"] = dtTestResult.Rows[i]["Range1"]; // dgvSampleData.Rows[i + 24].Cells["Range"].Value.ToString();
+                            dtTestResult.Rows[i - (count + 1) / 2]["Range2-2"] = dtTestResult.Rows[i]["Range2"]; // dgvSampleData.Rows[i + 24].Cells["Unit"].Value.ToString();
+                        }
+                        //移除多余列
+                        for (int i = count; i > (count + 1) / 2; i--)
+                        {
+                            dtTestResult.Rows.RemoveAt(i - 1);
+                        }
+                    }
+                }
+                #endregion
+                //dtTestResult.DefaultView.Sort = "printIndex asc";
+                //dtTestResult = dtTestResult.DefaultView.ToTable();
+                //dtTestResult.TableName = "Records";
                 dsReport.Tables.Clear();
                 dsReport.Tables.Add(dtTestResult.Copy());
                 #region 打印模板参数赋值
-                report.SetParameterValue("ClinicNo", dgvPatientInfo.SelectedRows[0].Cells["ClinicNo"].Value);//2018-11-20 zlx add
+
+
+                report.SetParameterValue("ClinicNo", dgvPatientInfo.SelectedRows[0].Cells["ClinicNo"].Value);
                 report.SetParameterValue("Diagnosis", dgvPatientInfo.SelectedRows[0].Cells["Diagnosis"].Value);
                 report.SetParameterValue("SampleNo", dgvPatientInfo.SelectedRows[0].Cells["SampleNo1"].Value);
-                //report.SetParameterValue("SampleType", dgvPatientInfo.SelectedRows[0].Cells["SampleType"].Value);
+
                 report.SetParameterValue("PatientName", dgvPatientInfo.SelectedRows[0].Cells["PatientName"].Value);
                 report.SetParameterValue("Sex", dgvPatientInfo.SelectedRows[0].Cells["Sex"].Value);
                 report.SetParameterValue("Age", dgvPatientInfo.SelectedRows[0].Cells["Age"].Value);
                 report.SetParameterValue("BedNo", dgvPatientInfo.SelectedRows[0].Cells["BedNo"].Value);
-                //report.SetParameterValue("Department", dgvPatientInfo.SelectedRows[0].Cells["Department"].Value);
-                //report.SetParameterValue("SendDoctor", dgvPatientInfo.SelectedRows[0].Cells["SendDoctor"].Value);
-                //report.SetParameterValue("SendDateTime", dgvPatientInfo.SelectedRows[0].Cells["SendDateTime"].Value);
-                DB = new DbHelperOleDb(1);
-                //object ClinicNo = DbHelperOleDb.GetSingle(@"select ClinicNo from tbSampleInfo where SampleID = "
-                //                                                        + dgvSampleData.CurrentRow.Cells["SampleID"].Value.ToString());
-                //if (ClinicNo == null)
-                //{
-                //    ClinicNo = " ";
-                //}
-                //report.SetParameterValue("ClinicNo", ClinicNo);//2018-11-20 zlx add
-                //object Diagnosis = DbHelperOleDb.GetSingle(@"select Diagnosis from tbSampleInfo where SampleID = "
-                //                                      + dgvSampleData.CurrentRow.Cells["SampleID"].Value.ToString());
-                //if (Diagnosis == null)
-                //{
-                //    Diagnosis = " ";
-                //}
-                //report.SetParameterValue("Diagnosis", Diagnosis);//2018-11-20 zlx add
-                //object SampleNo = DbHelperOleDb.GetSingle(@"select SampleNo from tbSampleInfo where SampleID = "
-                //                                          + dgvSampleData.CurrentRow.Cells["SampleID"].Value.ToString());
-                //if (SampleNo == null)
-                //{
-                //    SampleNo = " ";
-                //}
-                //report.SetParameterValue("SampleNo", SampleNo);
-                object SampleType = DbHelperOleDb.GetSingle(1,@"select SampleType from tbSampleInfo where SampleID = "
+
+                #region lyq report
+                report.SetParameterValue("MedicaRecordNo", dgvPatientInfo.SelectedRows[0].Cells["MedicaRecordNo"].Value);//病历号
+                report.SetParameterValue("InspectionItems", dgvPatientInfo.SelectedRows[0].Cells["InspectionItems"].Value);//检验项目
+                report.SetParameterValue("AcquisitionTime", dgvPatientInfo.SelectedRows[0].Cells["AcquisitionTime"].Value);//采集时间                
+                report.SetParameterValue("Date", DateTime.Now.ToString());//报告时间
+
+
+                string str = @"select Source,[Position],SampleContainer,[RepeatCount],RegentBatch,ProjectName,[Emergency],InpatientArea,Ward,[Status] " +//
+                    "from tbSampleInfo where SampleID=" + dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString();
+                DataTable dtTemp = DbHelperOleDb.Query(1, str).Tables[0];
+
+                report.SetParameterValue("SampleID", dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString());
+                report.SetParameterValue("Source", dtTemp.Rows[0]["Source"].ToString());
+                report.SetParameterValue("Position", dtTemp.Rows[0]["Position"].ToString());
+                report.SetParameterValue("SampleContainer", dtTemp.Rows[0]["SampleContainer"].ToString());
+                report.SetParameterValue("RepeatCount", dtTemp.Rows[0]["RepeatCount"].ToString());
+                report.SetParameterValue("RegentBatch", dtTemp.Rows[0]["RegentBatch"].ToString());
+                report.SetParameterValue("ProjectName", dtTemp.Rows[0]["ProjectName"].ToString());
+                report.SetParameterValue("Emergency", dtTemp.Rows[0]["Emergency"].ToString());
+                report.SetParameterValue("InpatientArea", dtTemp.Rows[0]["InpatientArea"].ToString());
+                report.SetParameterValue("Ward", dtTemp.Rows[0]["Ward"].ToString());
+                report.SetParameterValue("Status", dtTemp.Rows[0]["Status"].ToString());
+                #endregion
+
+                object SampleType = DbHelperOleDb.GetSingle(1, @"select SampleType from tbSampleInfo where SampleID = "
                                                          + dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString());
                 if (SampleType == null)
                 {
                     SampleType = " ";
                 }
                 report.SetParameterValue("SampleType", SampleType);
-                //report.SetParameterValue("PatientName", dgvPatientInfo.CurrentRow.Cells["PatientName"].Value);
-                //report.SetParameterValue("Sex", dgvPatientInfo.CurrentRow.Cells["Sex"].Value);
-                //report.SetParameterValue("Age", dgvPatientInfo.CurrentRow.Cells["Age"].Value);
-                //report.SetParameterValue("BedNo", dgvPatientInfo.CurrentRow.Cells["BedNo"].Value);
-                object Department = DbHelperOleDb.GetSingle(1,@"select Department from tbSampleInfo where SampleID = "
+
+                object Department = DbHelperOleDb.GetSingle(1, @"select Department from tbSampleInfo where SampleID = "
                                                          + dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString());
                 if (Department == null)
                 {
                     Department = " ";
                 }
                 report.SetParameterValue("Department", Department);
-                object SendDoctor = DbHelperOleDb.GetSingle(1,@"select SendDoctor from tbSampleInfo where SampleID = "
+                object SendDoctor = DbHelperOleDb.GetSingle(1, @"select SendDoctor from tbSampleInfo where SampleID = "
                                                          + dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString());
                 if (SendDoctor == null)
                 {
                     SendDoctor = " ";
                 }
                 report.SetParameterValue("SendDoctor", SendDoctor);
-                object SendDateTime = DbHelperOleDb.GetSingle(1,@"select SendDateTime from tbSampleInfo where SampleID = "
+                object SendDateTime = DbHelperOleDb.GetSingle(1, @"select SendDateTime from tbSampleInfo where SampleID = "
                                                        + dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString());
                 if (SendDateTime == null)
                 {
                     SendDateTime = " ";
                 }
                 report.SetParameterValue("SendDateTime", SendDateTime);
-                object InspectDoctor = DbHelperOleDb.GetSingle(1,@"select InspectDoctor from tbSampleInfo where SampleID = "
+                object InspectDoctor = DbHelperOleDb.GetSingle(1, @"select InspectDoctor from tbSampleInfo where SampleID = "
                                                        + dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString());
                 if (InspectDoctor == null)
                 {
@@ -495,7 +559,7 @@ namespace BioBaseCLIA.DataQuery
                 }
                 report.SetParameterValue("InspectDoctor", InspectDoctor);
                 //2018-11-12 zlx add
-                object CheckDoctor = DbHelperOleDb.GetSingle(1,@"select CheckDoctor from tbSampleInfo where SampleID = "
+                object CheckDoctor = DbHelperOleDb.GetSingle(1, @"select CheckDoctor from tbSampleInfo where SampleID = "
                                               + dgvSampleData.Rows[0].Cells["SampleID"].Value.ToString());
                 if (CheckDoctor == null)
                 {
@@ -522,7 +586,7 @@ namespace BioBaseCLIA.DataQuery
                 //页边距设置
                 string Margin = OperateIniFile.ReadInIPara("PrintSet", "Margin");
                 string[] udlr = Margin.Split('|');
-                rp.TopMargin = float.Parse(udlr[0])*10;
+                rp.TopMargin = float.Parse(udlr[0]) * 10;
                 rp.BottomMargin = float.Parse(udlr[1]) * 10;
                 rp.LeftMargin = float.Parse(udlr[2]) * 10;
                 rp.RightMargin = float.Parse(udlr[3]) * 10;

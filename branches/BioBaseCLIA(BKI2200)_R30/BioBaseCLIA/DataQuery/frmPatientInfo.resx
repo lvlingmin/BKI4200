@@ -118,401 +118,394 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
+  <data name="txtInspectionItems.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 221</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
+  <data name="txtInspectionItems.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtInspectionItems.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 227</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 18</value>
+  </data>
+  <data name="label17.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="dateAcquisitionTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 221</value>
+  </data>
+  <data name="dateAcquisitionTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 21</value>
+  </data>
+  <data name="dateAcquisitionTime.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 227</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 18</value>
+  </data>
+  <data name="label16.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="cmbSendDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>470, 131</value>
+  </data>
+  <data name="cmbSendDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="cmbSendDoctor.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="cmbDepartment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 131</value>
+  </data>
+  <data name="cmbDepartment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="cmbDepartment.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>送检科室：</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 88</value>
   </data>
-  <data name="txtClinicNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 33</value>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 12</value>
   </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label15.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
   </data>
-  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="dateSendDateTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 176</value>
   </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+  <data name="dateSendDateTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 21</value>
+  </data>
+  <data name="dateSendDateTime.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
-  </data>
-  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="txtCheckDoctor.Location" type="System.Drawing.Point, System.Drawing">
     <value>470, 174</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+  <data name="txtCheckDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtCheckDoctor.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 179</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="txtInspectDoctor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 176</value>
+  </data>
+  <data name="txtInspectDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtInspectDoctor.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;txtInspectDoctor.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 181</value>
   </data>
-  <data name="&gt;&gt;txtMedicaRecordNo.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
   </data>
-  <data name="&gt;&gt;txtDiagnosis.ZOrder" xml:space="preserve">
+  <data name="label13.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 180</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 135</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 135</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="cmbSex.Location" type="System.Drawing.Point, System.Drawing">
     <value>470, 34</value>
   </data>
-  <data name="btnLis.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="txtAge.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;cmbSex.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>年龄：</value>
-  </data>
-  <data name="txtWard.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>性别：</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 135</value>
-  </data>
-  <data name="cmbSendDoctor.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cmbSex.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
-  </data>
-  <data name="&gt;&gt;txtPatientName.ZOrder" xml:space="preserve">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;cmbSex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="NetConn" xml:space="preserve">
-    <value>网口通讯</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
-  </data>
-  <data name="&gt;&gt;btnLis.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;cmbDepartment.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="txtClinicNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="dateSendDateTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 21</value>
-  </data>
-  <data name="&gt;&gt;label14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>病人信息</value>
-  </data>
-  <data name="&gt;&gt;fbtnOK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="ConnMessage" xml:space="preserve">
-    <value>LIS服务器与系统不是双向连接，获取LIS数据失败！</value>
-  </data>
-  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;txtMedicaRecordNo.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="txtBedNo.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;label10.Name" xml:space="preserve">
-    <value>label10</value>
-  </data>
-  <data name="&gt;&gt;fbtnOK.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtClinicNo.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnLis.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="fbtnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 287</value>
-  </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="TwoWay" xml:space="preserve">
-    <value>双向</value>
-  </data>
-  <data name="txtMedicaRecordNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;txtWard.Parent" xml:space="preserve">
-    <value>groupBox1</value>
   </data>
   <data name="cmbSex.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;txtInpatientArea.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>临床诊断：</value>
-  </data>
-  <data name="&gt;&gt;txtWard.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="txtDiagnosis.Location" type="System.Drawing.Point, System.Drawing">
     <value>470, 84</value>
   </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 135</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>病区：</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;txtMedicaRecordNo.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="txtInspectDoctor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>265, 176</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;cmbSendDoctor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="cmbSendDoctor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>470, 131</value>
-  </data>
-  <data name="txtAge.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 21</value>
-  </data>
-  <data name="txtWard.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;label11.Name" xml:space="preserve">
-    <value>label11</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="cmbSex.Items1" xml:space="preserve">
-    <value>女</value>
-  </data>
-  <data name="&gt;&gt;txtDiagnosis.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="txtDiagnosis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
   </data>
   <data name="txtDiagnosis.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="fbtnOK.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>送检医生：</value>
-  </data>
-  <data name="txtInspectDoctor.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;cmbSex.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="cmbDepartment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>265, 131</value>
-  </data>
-  <data name="btnLis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;txtClinicNo.Name" xml:space="preserve">
-    <value>txtClinicNo</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 88</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
   </data>
-  <data name="OneWay" xml:space="preserve">
-    <value>单向</value>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="txtInpatientArea.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtMedicaRecordNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 84</value>
+  </data>
+  <data name="txtMedicaRecordNo.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 21</value>
   </data>
-  <data name="txtAge.Text" xml:space="preserve">
-    <value>0</value>
+  <data name="txtMedicaRecordNo.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;txtInspectDoctor.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 235</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 38</value>
-  </data>
-  <data name="NoConnMessage" xml:space="preserve">
-    <value>LIS服务器未连接！请先连接Lis服务器！</value>
-  </data>
-  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;cmbDepartment.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 88</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
-  <data name="label10.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmPatientInfo</value>
+  <data name="txtBedNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 131</value>
+  </data>
+  <data name="txtBedNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtBedNo.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 135</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="txtAge.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 84</value>
+  </data>
+  <data name="txtAge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 21</value>
+  </data>
+  <data name="txtAge.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 88</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 38</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="txtPatientName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 33</value>
+  </data>
+  <data name="txtPatientName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtPatientName.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 38</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="txtClinicNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 33</value>
+  </data>
+  <data name="txtClinicNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtClinicNo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 38</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>612, 269</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="txtWard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 303</value>
+  </data>
+  <data name="txtWard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtWard.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="txtWard.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 306</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="label4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtInpatientArea.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 303</value>
+  </data>
+  <data name="txtInpatientArea.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="txtInpatientArea.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="txtInpatientArea.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 306</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 12</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="label5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="fbtnOK.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -578,550 +571,644 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnOK.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;txtCheckDoctor.Name" xml:space="preserve">
-    <value>txtCheckDoctor</value>
+  <data name="fbtnOK.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fbtnOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>533, 287</value>
   </data>
   <data name="fbtnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 31</value>
   </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+  <data name="fbtnOK.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;txtCheckDoctor.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="btnLis.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
   </data>
-  <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnLis.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;txtClinicNo.Parent" xml:space="preserve">
+  <data name="btnLis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnLis.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnLis.Location" type="System.Drawing.Point, System.Drawing">
+    <value>437, 287</value>
+  </data>
+  <data name="btnLis.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 31</value>
+  </data>
+  <data name="btnLis.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>96, 96</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>636, 334</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>病人信息</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmPatientInfo</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>BioBaseCLIA.frmSmallParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnLis.Name" xml:space="preserve">
+    <value>btnLis</value>
+  </data>
+  <data name="&gt;&gt;btnLis.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnLis.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnLis.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;cmbDepartment.Name" xml:space="preserve">
+    <value>cmbDepartment</value>
+  </data>
+  <data name="&gt;&gt;cmbDepartment.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;txtBedNo.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cmbDepartment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbDepartment.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cmbSendDoctor.Name" xml:space="preserve">
+    <value>cmbSendDoctor</value>
+  </data>
+  <data name="&gt;&gt;cmbSendDoctor.Parent" xml:space="preserve">
     <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;cmbSendDoctor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbSendDoctor.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;cmbSex.Name" xml:space="preserve">
+    <value>cmbSex</value>
+  </data>
+  <data name="&gt;&gt;cmbSex.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;cmbSex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbSex.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;dateAcquisitionTime.Name" xml:space="preserve">
+    <value>dateAcquisitionTime</value>
+  </data>
+  <data name="&gt;&gt;dateAcquisitionTime.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;dateAcquisitionTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateAcquisitionTime.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;dateSendDateTime.Name" xml:space="preserve">
+    <value>dateSendDateTime</value>
   </data>
   <data name="&gt;&gt;dateSendDateTime.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;dateSendDateTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateSendDateTime.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;fbtnOK.Name" xml:space="preserve">
+    <value>fbtnOK</value>
+  </data>
+  <data name="&gt;&gt;fbtnOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fbtnOK.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnOK.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtDiagnosis.Name" xml:space="preserve">
-    <value>txtDiagnosis</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
-  </data>
-  <data name="&gt;&gt;txtPatientName.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtPatientName.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 88</value>
-  </data>
-  <data name="&gt;&gt;cmbSendDoctor.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txtInspectDoctor.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="btnLis.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="fbtnOK.Text" xml:space="preserve">
-    <value>确定</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="label9.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="txtClinicNo.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label13.Name" xml:space="preserve">
-    <value>label13</value>
-  </data>
-  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="MessageHead" xml:space="preserve">
-    <value>信息提示</value>
-  </data>
-  <data name="label12.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="txtBedNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 131</value>
-  </data>
-  <data name="txtMedicaRecordNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>265, 84</value>
-  </data>
-  <data name="cmbSex.Items2" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="label15.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="&gt;&gt;txtDiagnosis.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 180</value>
-  </data>
-  <data name="&gt;&gt;txtInpatientArea.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;fbtnOK.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtBedNo.Name" xml:space="preserve">
-    <value>txtBedNo</value>
-  </data>
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;txtPatientName.Name" xml:space="preserve">
-    <value>txtPatientName</value>
-  </data>
-  <data name="&gt;&gt;label12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnLis.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dateSendDateTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtInpatientArea.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>床号：</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="cmbDepartment.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;label12.Name" xml:space="preserve">
-    <value>label12</value>
-  </data>
-  <data name="btnLis.Text" xml:space="preserve">
-    <value>获取LIS数据</value>
-  </data>
-  <data name="SerialConn" xml:space="preserve">
-    <value>串口通讯</value>
-  </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 38</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;txtWard.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtPatientName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;txtBedNo.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;txtAge.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;txtInpatientArea.Name" xml:space="preserve">
-    <value>txtInpatientArea</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>636, 334</value>
-  </data>
-  <data name="&gt;&gt;label13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="fbtnOK.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="txtBedNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="label4.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fbtnOK.Name" xml:space="preserve">
-    <value>fbtnOK</value>
-  </data>
-  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="cmbSex.Items" xml:space="preserve">
-    <value>男</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>BioBaseCLIA.frmSmallParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="fbtnOK.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="txtWard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 230</value>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="txtMedicaRecordNo.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="label13.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="label11.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>病人姓名：</value>
-  </data>
-  <data name="txtCheckDoctor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;cmbDepartment.Name" xml:space="preserve">
-    <value>cmbDepartment</value>
-  </data>
-  <data name="&gt;&gt;txtCheckDoctor.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 88</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>28</value>
   </data>
-  <data name="btnLis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>437, 287</value>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
   </data>
-  <data name="txtInspectDoctor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
   </data>
   <data name="&gt;&gt;label13.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>审核医生：</value>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtAge.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 84</value>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 233</value>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
   </data>
-  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;txtMedicaRecordNo.Name" xml:space="preserve">
-    <value>txtMedicaRecordNo</value>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label15.Name" xml:space="preserve">
+    <value>label15</value>
+  </data>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 88</value>
+  <data name="&gt;&gt;label17.Name" xml:space="preserve">
+    <value>label17</value>
   </data>
-  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnLis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 31</value>
-  </data>
-  <data name="cmbSendDoctor.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>送检时间：</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>96, 96</value>
-  </data>
-  <data name="txtWard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>门诊号：</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;txtAge.ZOrder" xml:space="preserve">
-    <value>22</value>
+  <data name="&gt;&gt;label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label8.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;txtAge.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
   </data>
-  <data name="&gt;&gt;label8.Name" xml:space="preserve">
-    <value>label8</value>
-  </data>
-  <data name="&gt;&gt;cmbSendDoctor.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;btnLis.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 38</value>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>26</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
   </data>
-  <data name="&gt;&gt;btnLis.Name" xml:space="preserve">
-    <value>btnLis</value>
-  </data>
-  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 179</value>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>24</value>
   </data>
-  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
-  <data name="label13.Text" xml:space="preserve">
-    <value>检验医生：</value>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;cmbSex.Name" xml:space="preserve">
-    <value>cmbSex</value>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtCheckDoctor.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;txtInpatientArea.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
   </data>
-  <data name="btnLis.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="txtPatientName.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cmbSex.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>病人信息</value>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
   </data>
-  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;dateSendDateTime.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>病历号：</value>
-  </data>
-  <data name="dateSendDateTime.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
-  </data>
-  <data name="&gt;&gt;dateSendDateTime.Name" xml:space="preserve">
-    <value>dateSendDateTime</value>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>23</value>
   </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>612, 269</value>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>21</value>
   </data>
   <data name="&gt;&gt;txtAge.Name" xml:space="preserve">
     <value>txtAge</value>
   </data>
-  <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;txtAge.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;label14.Name" xml:space="preserve">
-    <value>label14</value>
+  <data name="&gt;&gt;txtAge.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;txtAge.ZOrder" xml:space="preserve">
     <value>22</value>
+  </data>
+  <data name="&gt;&gt;txtBedNo.Name" xml:space="preserve">
+    <value>txtBedNo</value>
+  </data>
+  <data name="&gt;&gt;txtBedNo.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtBedNo.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="cmbDepartment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="&gt;&gt;txtBedNo.ZOrder" xml:space="preserve">
+    <value>20</value>
   </data>
-  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
+  <data name="&gt;&gt;txtCheckDoctor.Name" xml:space="preserve">
+    <value>txtCheckDoctor</value>
   </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtCheckDoctor.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>24</value>
+  <data name="&gt;&gt;txtCheckDoctor.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;label15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtCheckDoctor.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="txtPatientName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>265, 33</value>
+  <data name="&gt;&gt;txtClinicNo.Name" xml:space="preserve">
+    <value>txtClinicNo</value>
   </data>
-  <data name="&gt;&gt;txtInspectDoctor.Name" xml:space="preserve">
-    <value>txtInspectDoctor</value>
-  </data>
-  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 181</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="label5.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="dateSendDateTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 176</value>
-  </data>
-  <data name="&gt;&gt;cmbDepartment.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
-  </data>
-  <data name="txtInpatientArea.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="txtCheckDoctor.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 12</value>
-  </data>
-  <data name="txtInpatientArea.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 230</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
-  </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>岁</value>
-  </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
-  </data>
-  <data name="&gt;&gt;label15.Name" xml:space="preserve">
-    <value>label15</value>
-  </data>
-  <data name="&gt;&gt;cmbSendDoctor.Name" xml:space="preserve">
-    <value>cmbSendDoctor</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtClinicNo.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;txtWard.Name" xml:space="preserve">
-    <value>txtWard</value>
-  </data>
-  <data name="txtDiagnosis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 88</value>
-  </data>
-  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 135</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>病房：</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtClinicNo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtClinicNo.ZOrder" xml:space="preserve">
     <value>27</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;txtDiagnosis.Name" xml:space="preserve">
+    <value>txtDiagnosis</value>
+  </data>
+  <data name="&gt;&gt;txtDiagnosis.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtDiagnosis.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDiagnosis.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;txtInpatientArea.Name" xml:space="preserve">
+    <value>txtInpatientArea</value>
+  </data>
+  <data name="&gt;&gt;txtInpatientArea.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtInpatientArea.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtInpatientArea.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtInspectDoctor.Name" xml:space="preserve">
+    <value>txtInspectDoctor</value>
+  </data>
+  <data name="&gt;&gt;txtInspectDoctor.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtInspectDoctor.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtInspectDoctor.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;txtInspectionItems.Name" xml:space="preserve">
+    <value>txtInspectionItems</value>
+  </data>
+  <data name="&gt;&gt;txtInspectionItems.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtInspectionItems.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtInspectionItems.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtMedicaRecordNo.Name" xml:space="preserve">
+    <value>txtMedicaRecordNo</value>
+  </data>
+  <data name="&gt;&gt;txtMedicaRecordNo.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtMedicaRecordNo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtMedicaRecordNo.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Name" xml:space="preserve">
+    <value>txtPatientName</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtPatientName.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;txtWard.Name" xml:space="preserve">
+    <value>txtWard</value>
+  </data>
+  <data name="&gt;&gt;txtWard.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtWard.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtWard.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnLis.Text" xml:space="preserve">
+    <value>获取LIS数据</value>
+  </data>
+  <data name="cmbSex.Items" xml:space="preserve">
+    <value>男</value>
+  </data>
+  <data name="cmbSex.Items1" xml:space="preserve">
+    <value>女</value>
+  </data>
+  <data name="cmbSex.Items2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConnMessage" xml:space="preserve">
+    <value>LIS服务器与系统不是双向连接，获取LIS数据失败！</value>
+  </data>
+  <data name="fbtnOK.Text" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>病人信息</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>门诊号：</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>送检时间：</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>送检科室：</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>送检医生：</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>检验医生：</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>审核医生：</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>岁</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>采集时间：</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>检验项目：</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>病人姓名：</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>性别：</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>病房：</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>病区：</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>年龄：</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>临床诊断：</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>病历号：</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>床号：</value>
+  </data>
+  <data name="MessageHead" xml:space="preserve">
+    <value>信息提示</value>
+  </data>
+  <data name="NetConn" xml:space="preserve">
+    <value>网口通讯</value>
+  </data>
+  <data name="NoConnMessage" xml:space="preserve">
+    <value>LIS服务器未连接！请先连接Lis服务器！</value>
+  </data>
+  <data name="OneWay" xml:space="preserve">
+    <value>单向</value>
+  </data>
+  <data name="SerialConn" xml:space="preserve">
+    <value>串口通讯</value>
+  </data>
+  <data name="TwoWay" xml:space="preserve">
+    <value>双向</value>
+  </data>
+  <data name="txtAge.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
 </root>
