@@ -1410,7 +1410,7 @@ namespace BioBaseCLIA.InfoSetting
         {
             frmMessageShow frmMsgShow = new frmMessageShow();
             //2018-11-02 zlx add
-            if (cmbPrinter.SelectedItem==null)
+            if (cmbPrinter.SelectedItem == null)
             {
                 frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("PrinterSelect"));
                 txtDepName.Focus();
@@ -1423,9 +1423,15 @@ namespace BioBaseCLIA.InfoSetting
                 txtDepName.Focus();
                 return;
             }
+
+            if (cmbPrintMode.SelectedItem == null)//lyq
+            {
+                return;
+            }
+            OperateIniFile.WriteIniPara("PrintSet", "PrintMode", cmbPrintMode.Text.Trim());
+
             OperateIniFile.WriteIniPara("PrintSet", "HospitalName", txtHospitalName.Text.Trim());
             OperateIniFile.WriteIniPara("PrintSet", "defaultPrinter", cmbPrinter.SelectedItem.ToString());
-
 
             if (cmbPrinter.SelectedItem != null) //判断是否有选中值
             {
