@@ -450,14 +450,13 @@ namespace BioBaseCLIA.Run
             //    return;
             //}
             string samplePos = dgvSpInfoList.CurrentRow.Cells["Position"].Value.ToString();
-            //string SampleNo = dgvSpInfoList.CurrentRow.Cells["SampleNo"].Value.ToString();
+            string SpNo = dgvSpInfoList.CurrentRow.Cells["SampleNo"].Value.ToString();
             #region 获取样本信息表中对应的病人ID 
             DataTable dtSampleInfo = new DataTable();
-            //2018-08-16 zlx add
-            DbHelperOleDb DB = new DbHelperOleDb(1);
-            dtSampleInfo = bllsp.GetList("[Position]= '" + samplePos + "'  and SendDateTime>=#" + DateTime.Now.Date.ToString("yyyy/M/d H:mm:ss") + "# and SendDateTime<#" + DateTime.Now.AddDays(1).ToString("yyyy/M/d H:mm:ss") + "# ").Tables[0];//and Status = 0
+            //dtSampleInfo = bllsp.GetList("[Position]= '" + samplePos + "'  and SendDateTime>=#" + DateTime.Now.Date.ToString("yyyy/M/d H:mm:ss") + "# and SendDateTime<#" + DateTime.Now.AddDays(1).ToString("yyyy/M/d H:mm:ss") + "# ").Tables[0];//and Status = 0
             //dtSampleInfo = bllsp.GetList("[Position]= '" + samplePos + "'  and SendDateTime>=#" + DateTime.Now.Date + "# and SendDateTime<#" + DateTime.Now.AddDays(1) + "# ").Tables[0];//and Status = 0
             //dtSampleInfo = bllsp.GetList("[SampleNo]= '" + SampleNo + "' and Status = 0").Tables[0];
+            dtSampleInfo = bllsp.GetList("[SampleNo]= '" + SpNo + "' and [Position]= '" + samplePos + "'").Tables[0];//lyq
             string SampleID = dtSampleInfo.Rows[0]["SampleID"].ToString();
             #endregion
             frmPI.SampleID = int.Parse(SampleID);
