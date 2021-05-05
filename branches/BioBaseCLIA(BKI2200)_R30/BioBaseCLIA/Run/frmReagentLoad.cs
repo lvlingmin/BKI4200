@@ -488,7 +488,14 @@ namespace BioBaseCLIA.Run
                                 ModelRg.ValidDate = DateTime.Now.Date.AddDays(30).ToShortDateString();
                         }
                     }
-                        
+                    if (DateTime.Compare(dateValidDate.Value, DateTime.Now) <= 0)
+                    {
+                        status = "过期";
+                    }
+                    else
+                    {
+                        status = "正常";
+                    }
                     ModelRg.Status = status;/*"正常";*/
                     ModelRg.ReagentNumber = txtRgPosition.Text.Trim();
                     if (bllRg.Add(ModelRg))
@@ -635,7 +642,7 @@ namespace BioBaseCLIA.Run
             if (srdReagent.rgSelectedNo >= -1)
             {
                 if (srdReagent.rgSelectedNo == -1)
-                    RgSelectedNo = 19;
+                    RgSelectedNo = 29;
                 else
                     RgSelectedNo = srdReagent.rgSelectedNo;
                 string sc = srdReagent.RgColor[GetSelectedNo].Name;
@@ -691,7 +698,7 @@ namespace BioBaseCLIA.Run
                 }
                 if (fg == -1)
                 {
-                    txtRgPosition.Text = (srdReagent.rgSelectedNo + 1).ToString();
+                    txtRgPosition.Text = ((srdReagent.rgSelectedNo == (-1) ? 29 : srdReagent.rgSelectedNo) + 1).ToString();
                     cmbRgName.Text = "";
                     txtRgCode.Text = "";
                     txtRgBatch.Text = "";
@@ -2443,7 +2450,7 @@ namespace BioBaseCLIA.Run
                     if (srdReagent.rgSelectedNo >= -1)
                     {
                         if (srdReagent.rgSelectedNo == -1)
-                            RgSelectedNo = 19;
+                            RgSelectedNo = 29;
                         else
                             RgSelectedNo = srdReagent.rgSelectedNo;
                         string sc = srdReagent.RgColor[GetSelectedNo].Name;
