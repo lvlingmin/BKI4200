@@ -246,31 +246,6 @@ namespace BioBaseCLIA.Run
 
         private void btnWorkList_Click(object sender, EventArgs e)
         {
-            //DbHelperOleDb db = new DbHelperOleDb(0);
-            // //生成工作列表时，已有的样本信息先存放到dtSampleRunInfo表中，方便取用。LYN add 20171114
-            //if (dtSampleRunInfo.Rows.Count == 0)
-            //{
-            //    for (int i = 0; i < dgvSpInfoList.Rows.Count; i++)
-            //    {
-            //        string[] ItemNames = dgvSpInfoList.Rows[i].Cells[4].Value.ToString().Split(' ');
-            //        for (int j = 0; j < ItemNames.Length; j++)
-            //        {
-            //            if (ItemNames[j] == "")
-            //            {
-            //                continue;
-            //            }
-            //            object ob = DbHelperOleDb.GetSingle(@"select DiluteCount from tbProject where ShortName 
-            //                                                                 = '" + ItemNames[j] + "'");
-            //            string DilutionTimes = ob == null ? "" : ob.ToString();
-            //            ob = DbHelperOleDb.GetSingle(@"select DiluteName from tbProject where ShortName 
-            //                                                                 = '" + ItemNames[j] + "'");
-            //            string DilutionName = ob == null ? "" : ob.ToString();
-            //            dtSampleRunInfo.Rows.Add(dgvSpInfoList.Rows[i].Cells[0].Value, dgvSpInfoList.Rows[i].Cells[1].Value, 
-            //                dgvSpInfoList.Rows[i].Cells["SampleType"].Value, ItemNames[j],
-            //                dgvSpInfoList.Rows[i].Cells[6].Value, DilutionTimes, DilutionName);
-            //        }
-            //    }
-            //}
             btnWorkList.Enabled = false;
 
             if (CheckFormIsOpen("frmWorkList") && frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
@@ -297,33 +272,6 @@ namespace BioBaseCLIA.Run
             EmergencySample();
 
             btnWorkList.Enabled = true;
-            //if (!CheckFormIsOpen("frmWorkList"))
-            //{
-            //    frmWorkList frmWL = new frmWorkList();
-            //    frmWL.TopLevel = false;
-            //    frmWL.Parent = this.Parent;
-            //    frmWL.Show();
-            //}
-            //else
-            //{
-            //    frmWorkList frmWL = (frmWorkList)Application.OpenForms["frmWorkList"];
-            //    frmWL.Show();
-            //    frmWL.BringToFront(); 
-            //}
-
-            //2018-10-15 zlx mod
-            //if (EmergencySample != null && frmAddSample.newSample == true)
-            //{
-            //    CaculatingFlag = true;
-
-            //    NetCom3.ComWait.Reset();
-            //    EmergencySample();
-            //}
-            //else
-            //{  //2018-06-15 zlx add
-            //    frmWorkList.EmergencyFlag = false;
-            //    frmWorkList.addOrdinaryFlag = false;
-            //}
         }
 
         private void fbtnTestResult_Click(object sender, EventArgs e)
