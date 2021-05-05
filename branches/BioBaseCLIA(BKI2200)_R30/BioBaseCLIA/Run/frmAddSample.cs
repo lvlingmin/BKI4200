@@ -666,7 +666,7 @@ namespace BioBaseCLIA.Run
                                                 int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
                                                 if (DioVolNoStart + (diuvol * RepeatCount) > DiuVolleft)
                                                 {
-                                                    MessageBox.Show(ShortName + "项目稀释液不足!此次样本装载不成功！");
+                                                    MessageBox.Show(DiuName + "项目稀释液不足!此次样本装载不成功！");
                                                     return;
                                                 }
                                             }
@@ -1099,7 +1099,7 @@ namespace BioBaseCLIA.Run
                                         int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
                                         if (DioVolNoStart + (diuvol * RepeatCount) > DiuVolleft)
                                         {
-                                            MessageBox.Show(ShortName + "项目稀释液不足!此次样本装载不成功！");
+                                            MessageBox.Show(DiuName + "项目稀释液不足!此次样本装载不成功！");
                                             return;
                                         }
                                     }
