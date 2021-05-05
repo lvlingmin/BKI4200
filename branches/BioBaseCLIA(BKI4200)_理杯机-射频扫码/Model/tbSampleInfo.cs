@@ -51,6 +51,8 @@ namespace BioBaseCLIA.Model
 		private string _inspectdoctor;
 		private int? _status;
         private string _checkdoctor;//2018-11-12 zlx add
+		private string _inspectionitems;//20210420 lyq add
+		private DateTime? _acquisitiontime;//20210420 lyq add
 		/// <summary>
 		/// 
 		/// </summary>
@@ -251,6 +253,22 @@ namespace BioBaseCLIA.Model
             get { return _checkdoctor; }
             set { _checkdoctor = value; }
         }
+		/// <summary>
+		/// 检验项目 20210420 lyq add
+		/// </summary>
+		public string InspectionItems
+		{
+			get { return _inspectionitems; }
+			set { _inspectionitems = value; }
+		}
+		/// <summary>
+		/// 采集日期 20210420 lyq add
+		/// </summary>
+		public DateTime? AcquisitionTime
+		{
+			get { return _acquisitiontime; }
+			set { _acquisitiontime = value; }
+		}
 		#endregion Model
 
 	}
