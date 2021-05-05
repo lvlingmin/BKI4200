@@ -417,9 +417,6 @@
     <EmbeddedResource Include="DataQuery\frmLoadSu.resx">
       <DependentUpon>frmLoadSu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataQuery\frmLoadSu.zh.resx">
-      <DependentUpon>frmLoadSu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmModifyTestResult.en-GB.resx">
       <DependentUpon>frmModifyTestResult.cs</DependentUpon>
     </EmbeddedResource>
@@ -619,9 +616,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmWorkList.en-US.resx">
-      <DependentUpon>frmWorkList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Run\frmWorkList.en.resx">
       <DependentUpon>frmWorkList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmWorkList.resx">
