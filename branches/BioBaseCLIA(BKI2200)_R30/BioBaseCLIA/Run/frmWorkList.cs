@@ -3180,7 +3180,7 @@ namespace BioBaseCLIA.Run
             foreach (var item in ItemNames)
             {
                 List<ReagentIniInfo> itemRiInfo = lisRIinfo.FindAll(ty => (ty.ItemName == item.Key));
-                #region 判断是否需要稀释，稀释液是否够用
+                #region 判断试剂或者稀释液是否过期
                 /*
                 List<TestSchedule> list = lisTestSchedule.FindAll(ty => (ty.ItemName == item.Key && int.Parse(ty.dilutionTimes) > 1));
                 DbHelperOleDb db = new DbHelperOleDb(0);
@@ -5693,7 +5693,6 @@ namespace BioBaseCLIA.Run
                                             //}
                                         }
                                     }
-                                    LogFile.Instance.Write("DiuName:"+ DiuName);
                                     if (DiuName != "")
                                     {
                                         currentReagent =   QueryReagentIniInfo().Where(reagent => reagent.ItemName == DiuName && reagent.LeftReagent1 > 0)
@@ -5760,6 +5759,11 @@ namespace BioBaseCLIA.Run
                                             }
                                             break;
                                         }
+                                        DataRow[]drDiu = dtRgInfo.Select("Postion='" + rgPos + "'");
+                                        drDiu[0]["leftoverTestR1"] = OperateIniFile.ReadIniData("ReagentPos" + rgPos, "LeftReagent1", "", iniPathReagentTrayInfo);
+                                        string rgBar = OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
+                                        DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + (drDiu[0]["leftoverTestR1"]).ToString() + " where BarCode = '"
+                                                + rgBar + "' and Postion = '" + rgPos.ToString() + "'");
                                         #endregion
                                         #region 加需稀释的样本
                                         int samplePos;//获取样本位置。

@@ -62,7 +62,7 @@ namespace BioBaseCLIA.Run
         public frmTestResult()
         {
             InitializeComponent();
-            
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void frmTestResult_Load(object sender, EventArgs e)

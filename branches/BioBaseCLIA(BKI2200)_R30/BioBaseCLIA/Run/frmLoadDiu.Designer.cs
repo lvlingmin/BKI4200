@@ -134,7 +134,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRegentPos);
             this.Name = "frmLoadDiu";
-            this.Text = "frmLoadDiu";
+            this.Text = "稀释液装载";
             this.Load += new System.EventHandler(this.frmLoadDiu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
