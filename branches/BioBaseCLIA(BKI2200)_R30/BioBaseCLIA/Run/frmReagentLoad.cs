@@ -982,6 +982,7 @@ namespace BioBaseCLIA.Run
         }
         private void btnLoadSample_Click(object sender, EventArgs e)
         {
+            if (CheckOvertimeR()) return;
             LeavePageSetReagentToMix();
             if (!CheckFormIsOpen("frmSampleLoad"))
             {
@@ -999,7 +1000,32 @@ namespace BioBaseCLIA.Run
             barCodeHook.Stop();
             this.Close();//2018-11-14 zlx add
         }
+        public bool CheckOvertimeR(int logAlarm = 0)
+        {
+            if (dtRgInfo.Rows.Count == 0)
+                return false;
+            string strPos = "";
+            foreach (DataRow dr in dtRgInfo.Rows)
+            {
+                if (dr["ValidDate"].ToString() != "" && DateTime.Parse(dr["ValidDate"].ToString()) < DateTime.Now.Date)
+                {
+                    if (strPos == "")
+                        strPos = "试剂位:" + dr["Postion"].ToString();
+                    else
+                        strPos = strPos + "," + dr["Postion"].ToString();
 
+                }
+            }
+            if (logAlarm == 1)
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + strPos + "试剂(稀释液)已经过期，请卸载或者更换！");
+            if (strPos != "")
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("过期提醒", strPos + "试剂(稀释液)已经过期，请卸载或者更换！");
+                return true;
+            }
+            return false;
+        }
 
         private void SetDiskProperty()
         {
