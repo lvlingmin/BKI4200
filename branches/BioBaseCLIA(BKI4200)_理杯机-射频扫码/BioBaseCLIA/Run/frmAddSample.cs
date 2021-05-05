@@ -420,6 +420,7 @@ namespace BioBaseCLIA.Run
         private void btnAdd_Click(object sender, EventArgs e)
         {
             bool chkTorF = false;
+            PGNumberList.Clear();//lyq
             if (((Button)sender).Text == "添加")
             {
                 cmbPipeType.SelectedIndex = 0;
@@ -775,6 +776,7 @@ namespace BioBaseCLIA.Run
         }
         private void btnModify_Click(object sender, EventArgs e)
         {
+            PGNumberList.Clear();//lyq 20210421
             if (((Button)sender).Text == "修改")
             {
                 ControlEnble(true);
@@ -1149,6 +1151,16 @@ namespace BioBaseCLIA.Run
                     //2018-11-12 zlx add
                     if (modelSp.CheckDoctor == null || modelSp.CheckDoctor == "")
                         modelSp.CheckDoctor = "";
+                    modelSp.InspectionItems = "";//lyq
+                    if (PGNumberList.Count > 0)
+                    {
+                        foreach (Model.tbProjectGroup tpg in PGNumberList)
+                        {
+                            modelSp.InspectionItems += tpg.ProjectGroupNumber + ",";
+                        }
+                        modelSp.InspectionItems = modelSp.InspectionItems.Substring(0, modelSp.InspectionItems.Length - 1);
+                    }
+                    modelSp.AcquisitionTime = DateTime.Now;
                     //2018-11-15 zlx add
                     if (cmbSpType.Text == ("标准品"))
                     {
@@ -1565,6 +1577,15 @@ namespace BioBaseCLIA.Run
                             }
                         }
                     }
+                    modelSp.InspectionItems = "";//lyq
+                    if (PGNumberList.Count > 0)
+                    {
+                        foreach (Model.tbProjectGroup tpg in PGNumberList)
+                        {
+                            modelSp.InspectionItems += tpg.ProjectGroupNumber + ",";
+                        }
+                        modelSp.InspectionItems = modelSp.InspectionItems.Substring(0, modelSp.InspectionItems.Length - 1);
+                    }
                     modelSp.ProjectName = item;
                     db = new DbHelperOleDb(1);
                     bllsp.Update(modelSp);
@@ -1607,6 +1628,7 @@ namespace BioBaseCLIA.Run
                 }
                 #endregion
             }
+            PGNumberList.Clear();
             btnDelete.Enabled = true;
             //}
         }
@@ -2032,6 +2054,7 @@ namespace BioBaseCLIA.Run
 
         private void btnMoreAdd_Click(object sender, EventArgs e)
         {
+            PGNumberList.Clear();//lyq
             if (((Button)sender).Text == "批量添加")
             {
                 btnMoreAdd.Text = "取消";
@@ -2218,6 +2241,16 @@ namespace BioBaseCLIA.Run
                 //2018-11-12 zlx add
                 if (modelSp.CheckDoctor == null || modelSp.CheckDoctor == "")
                     modelSp.CheckDoctor = "";
+                modelSp.InspectionItems = "";//lyq
+                if (PGNumberList.Count > 0)
+                {
+                    foreach (Model.tbProjectGroup tpg in PGNumberList)
+                    {
+                        modelSp.InspectionItems += tpg.ProjectGroupNumber + ",";
+                    }
+                    modelSp.InspectionItems = modelSp.InspectionItems.Substring(0, modelSp.InspectionItems.Length - 1);
+                }
+                modelSp.AcquisitionTime = DateTime.Now;
                 #region 按照样本编号获取数据
                 AchieveInfo(modelSp.SampleNo);
                 #endregion
@@ -2259,6 +2292,7 @@ namespace BioBaseCLIA.Run
             SelectInfo(oto - 1);//y add 20180426
             //add y 20180516
             if (AutoUploadAndUnload2.Checked == true) SampleUploadOrUnload(pos, length, true);
+            PGNumberList.Clear();
         }
 
         private bool MoreVerifyInfo()
@@ -2632,7 +2666,8 @@ namespace BioBaseCLIA.Run
         {
             AddRemove(true);
         }
-        List<string> PGNumberList = new List<string>();
+        //List<string> PGNumberList = new List<string>();
+        List<Model.tbProjectGroup> PGNumberList = new List<Model.tbProjectGroup>();//lyq 20210421
         /// <summary>添加或移出选中的项目
         /// 
         /// </summary>
@@ -2643,24 +2678,31 @@ namespace BioBaseCLIA.Run
             if (bl)
             {
                 //次数不符合逻辑，只要未选中就应该能够进行选择添加组合项目
-                if (!PGNumberList.Contains(crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString()))
-                    PGNumberList.Add(crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString());
-                //else
-                //    return;
+                //if (!PGNumberList.Contains(crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString()))
+                //    PGNumberList.Add(crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString());
+                if (PGNumberList.FindIndex(xy => xy.ProjectGroupNumber == crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString()) == -1)
+                {
+                    Model.tbProjectGroup tempModelProG = new Model.tbProjectGroup();
+                    tempModelProG.ProjectGroupNumber = crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString();
+                    tempModelProG.GroupContent = crysDgGroupPro.CurrentRow.Cells["GroupContent"].Value.ToString();
+                    PGNumberList.Add(tempModelProG);
+                }
             }
             else
-                PGNumberList.Remove(crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString());
+                PGNumberList.RemoveAll(xy => xy.ProjectGroupNumber == crysDgGroupPro.CurrentRow.Cells["ProjectGroupNumber"].Value.ToString());
+
             //string[] pros = crysDgGroupPro.CurrentRow.Cells["GroupContent"].Value.ToString().Split('-');
             List<string> prosName = new List<string>();
             for (int i = 0; i < PGNumberList.Count; i++)
             {
-                string[] pros = crysDgGroupPro.Rows[i].Cells["GroupContent"].Value.ToString().Split(';');
+                string[] pros = PGNumberList[i].GroupContent.ToString().Split(';');
                 foreach (string spros in pros)
                 {
                     if (!prosName.Contains(spros))
                         prosName.Add(spros);
                 }
             }
+
             foreach (CheckBox box in flpItemName.Controls)
             {
                 if (prosName.Any(ty => ty == box.Text))
