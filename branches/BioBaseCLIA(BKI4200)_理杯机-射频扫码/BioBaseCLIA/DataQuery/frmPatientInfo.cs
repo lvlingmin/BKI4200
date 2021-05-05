@@ -71,6 +71,10 @@ namespace BioBaseCLIA.DataQuery
 
             cmbSendDoctor.Text = modelSp.SendDoctor;
             dateSendDateTime.Value = (DateTime)modelSp.SendDateTime;
+
+            txtInspectionItems.Text = modelSp.InspectionItems;//lyq add 20210421
+            dateAcquisitionTime.Value = (DateTime)modelSp.AcquisitionTime;//lyq add 20210421
+
             if (modelSp.InspectDoctor != "")
                 txtInspectDoctor.Text = modelSp.InspectDoctor;
             else
@@ -107,6 +111,10 @@ namespace BioBaseCLIA.DataQuery
             modelSp.SendDateTime = dateSendDateTime.Value;
             modelSp.InspectDoctor = txtInspectDoctor.Text;
             modelSp.CheckDoctor = txtCheckDoctor.Text;
+
+            modelSp.AcquisitionTime = dateAcquisitionTime.Value;//lyq add 20210421
+            modelSp.InspectionItems = txtInspectionItems.Text;
+
             if (bllsp.Exists(SampleID))
             {
                 bllsp.UpdatePatientInfo(modelSp);
