@@ -6531,15 +6531,24 @@ namespace BioBaseCLIA.Run
                         {
                             for (int g = 0; g < drRg.Length; g++)
                             {
-                                if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
-                                    /* || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
+                                if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))
                                 {
-                                    if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
+                                    if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString() || int.Parse(drRg[g]["leftoverTestR1"].ToString()) <= 0)
                                         continue;
                                 }
-                                if (int.Parse(drRg[g]["leftoverTestR4"].ToString()) > 0)//判定试剂剩余量是否大于0
+                                if (int.Parse(drRg[g]["leftoverTestR1"].ToString()) > 0)//判定试剂剩余量是否大于0
                                 {
                                     rgPos = int.Parse(drRg[g]["Postion"].ToString());//获取该试剂位置编号
+                                    if (dgvWorkListData != null && dgvWorkListData.Rows.Count != 0)
+                                    {
+                                        this.BeginInvoke(new Action(() =>
+                                        {
+                                            dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value =
+                                                drRg[g]["Batch"].ToString();
+                                            dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value =
+                                               rgPos;
+                                        }));
+                                    }
                                     rgindex = g;
                                     break;
                                 }
