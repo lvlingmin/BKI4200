@@ -1306,6 +1306,28 @@ namespace BioBaseCLIA.Run
             {
                 return false;
             }
+            else if (!Regex.IsMatch(decryption.Substring(3, 3), @"^\d{3}$"))//项目编号
+            {
+                return false;
+            }
+            else if (dtItemInfo.Select("ProjectNumber='" + int.Parse(decryption.Substring(3, 3)) + "'").Length < 1)//项目不存在
+            {
+                return false;
+            }
+            for (int i = 6; i < 9; i++)
+            {
+                string tempStr = reverseDate(decryption.Substring(i, 1).ToCharArray()[0]);
+                if (!Regex.IsMatch(tempStr, @"\d{1,}"))//时间日期
+                    return false;
+                if (i == 7 && int.Parse(tempStr) > 12)
+                    return false;
+                else if (i == 8 && int.Parse(tempStr) > 31)
+                    return false;
+            }
+            if (!Regex.IsMatch(decryption.Substring(9, 2), @"^\d{2}$"))//规格
+            {
+                return false;
+            }
             string productDay = decryption.Substring(6, 3);
             string countCheckNum = getCheckNum(productDay);
             string checkNum = decryption.Substring(1, 2);
