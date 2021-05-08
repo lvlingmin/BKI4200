@@ -475,8 +475,8 @@ namespace BioBaseCLIA.Run
                         ModelRg.ValidDate = validTime.ToShortDateString();/*DateTime.Now.Date.AddDays(90).ToShortDateString();*/
                     else 
                     {
-                        string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + ModelRg.Postion, "DiuFlag", "", iniPathReagentTrayInfo);
-                        if (DiuFlag == "1")
+                        //string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + ModelRg.Postion, "DiuFlag", "", iniPathReagentTrayInfo);
+                        if (DiuFlag == 1)
                         {
                             ModelRg.ValidDate = date.ToShortDateString();
                         }
@@ -787,7 +787,7 @@ namespace BioBaseCLIA.Run
             string diuPos = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
             if (diuPos == "1")
             {
-                if (!CheckDiuDelete(diuPos))
+                if (!CheckDiuDelete(txtRgPosition.Text))
                 {
                     frmMsgShow.MessageShow("试剂装载", "稀释液信息正在被使用，请先卸载相关试剂！");
                     txtRgLastTest.Focus();
@@ -3092,9 +3092,9 @@ namespace BioBaseCLIA.Run
         /// <returns></returns>
         public bool CheckDiuDelete(string diupos)
         {
-            for (int i = 1; i < RegentNum; i++)
+            for (int i = 1; i < dtRgInfo.Rows.Count; i++)
             {
-                string Pos = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                string Pos = OperateIniFile.ReadIniData("ReagentPos" + dtRgInfo.Rows[i]["Position"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
                 if (Pos == diupos)
                     return false;
 

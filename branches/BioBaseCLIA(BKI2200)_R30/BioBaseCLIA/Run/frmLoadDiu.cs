@@ -32,7 +32,7 @@ namespace BioBaseCLIA.Run
             cmbDiuPos.DataSource = frmParent.DiuPosList;
             string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RegentPos, "DiuPos", "", iniPathReagentTrayInfo);
             if (DiuPos != "")
-                cmbDiuPos.SelectedItem = DiuPos;
+                cmbDiuPos.Text = DiuPos;
         }
         private void btnLoadSubstrate_Click(object sender, EventArgs e)
         {

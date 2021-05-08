@@ -59,6 +59,7 @@
             // 
             // cmbDiuPos
             // 
+            this.cmbDiuPos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDiuPos.FormattingEnabled = true;
             this.cmbDiuPos.Items.AddRange(new object[] {
             "样本稀释液一",
