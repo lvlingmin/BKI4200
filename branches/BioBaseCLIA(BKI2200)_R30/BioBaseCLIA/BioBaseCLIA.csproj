@@ -417,9 +417,6 @@
     <EmbeddedResource Include="DataQuery\frmLoadSu.resx">
       <DependentUpon>frmLoadSu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataQuery\frmLoadSu.zh.resx">
-      <DependentUpon>frmLoadSu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmModifyTestResult.en-GB.resx">
       <DependentUpon>frmModifyTestResult.cs</DependentUpon>
     </EmbeddedResource>
