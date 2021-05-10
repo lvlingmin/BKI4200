@@ -3743,6 +3743,12 @@ namespace BioBaseCLIA.Run
                 #endregion
             }
             #region 检测底物测数是否够本次实验使用
+            string BarCode = OperateIniFile.ReadIniData("Substrate1", "BarCode", "", iniPathSubstrateTube);
+            if (BarCode == "")
+            {
+                frmMsgShow.MessageShow("工作列表", "未检测到底物信息，请装载底物！");
+                return false;
+            }
             string ValidDate1 = OperateIniFile.ReadIniData("Substrate1", "ValidDate", "", iniPathSubstrateTube);//2018-10-17 zlx add
             //string ValidDate2 = OperateIniFile.ReadIniData("Substrate2", "ValidDate", "", iniPathSubstrateTube);//2018-10-17 zlx add
             substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
