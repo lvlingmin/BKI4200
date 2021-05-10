@@ -76,7 +76,7 @@ namespace BioBaseCLIA.Run
             //2018-10-17 zlx add
             string ValidDate1 = OperateIniFile.ReadIniData("Substrate1", "ValidDate", "", iniPathSubstrateTube);//2018-10-17 zlx add
             //string ValidDate2 = OperateIniFile.ReadIniData("Substrate2", "ValidDate", "", iniPathSubstrateTube);//2018-10-17 zlx add
-            if (Convert.ToDateTime(ValidDate1) < DateTime.Now.Date)
+            if (ValidDate1!="" && Convert.ToDateTime(ValidDate1) < DateTime.Now.Date)
                 OverSubpos.Add(1);
             //if (Convert.ToDateTime(ValidDate2) < DateTime.Now.Date)
             //    OverSubpos.Add(2);

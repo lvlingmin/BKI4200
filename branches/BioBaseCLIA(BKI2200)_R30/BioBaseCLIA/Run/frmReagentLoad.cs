@@ -704,6 +704,7 @@ namespace BioBaseCLIA.Run
                     txtRgBatch.Text = "";
                     txtRgAllTest.Text = "100";
                     txtRgLastTest.Text = "100";
+                    cmbProType.SelectedIndex = 0;
                     for (int d = 0; d < dgvRgInfoList.Rows.Count; d++)
                     {
                         dgvRgInfoList.Rows[d].Selected = false;
@@ -3092,9 +3093,9 @@ namespace BioBaseCLIA.Run
         /// <returns></returns>
         public bool CheckDiuDelete(string diupos)
         {
-            for (int i = 1; i < dtRgInfo.Rows.Count; i++)
+            for (int i = 0; i < dtRgInfo.Rows.Count; i++)
             {
-                string Pos = OperateIniFile.ReadIniData("ReagentPos" + dtRgInfo.Rows[i]["Position"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                string Pos = OperateIniFile.ReadIniData("ReagentPos" + dtRgInfo.Rows[i]["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
                 if (Pos == diupos)
                     return false;
 
