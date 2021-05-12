@@ -38,9 +38,9 @@
             this.txtSubstrateAllTest = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ValidDate = new System.Windows.Forms.DateTimePicker();
-            this.btnLoadSubstrate = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnDelSubstrate = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.chkManualInput = new System.Windows.Forms.CheckBox();
+            this.btnDelSubstrate = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnLoadSubstrate = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.SuspendLayout();
             // 
             // label7
@@ -103,28 +103,22 @@
             // 
             // ValidDate
             // 
-            resources.ApplyResources(this.ValidDate, "ValidDate");
             this.ValidDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.ValidDate, "ValidDate");
             this.ValidDate.Name = "ValidDate";
             this.ValidDate.Value = new System.DateTime(2018, 10, 17, 0, 0, 0, 0);
             // 
-            // btnLoadSubstrate
+            // chkManualInput
             // 
-            resources.ApplyResources(this.btnLoadSubstrate, "btnLoadSubstrate");
-            this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoadSubstrate.EnabledSet = true;
-            this.btnLoadSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLoadSubstrate.FlatAppearance.BorderSize = 0;
-            this.btnLoadSubstrate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadSubstrate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadSubstrate.Name = "btnLoadSubstrate";
-            this.btnLoadSubstrate.UseVisualStyleBackColor = false;
-            this.btnLoadSubstrate.Click += new System.EventHandler(this.btnLoadSubstrate_Click);
+            resources.ApplyResources(this.chkManualInput, "chkManualInput");
+            this.chkManualInput.Name = "chkManualInput";
+            this.chkManualInput.UseVisualStyleBackColor = true;
+            this.chkManualInput.CheckedChanged += new System.EventHandler(this.chkManualInput_CheckedChanged);
             // 
             // btnDelSubstrate
             // 
-            resources.ApplyResources(this.btnDelSubstrate, "btnDelSubstrate");
             this.btnDelSubstrate.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnDelSubstrate, "btnDelSubstrate");
             this.btnDelSubstrate.EnabledSet = true;
             this.btnDelSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelSubstrate.FlatAppearance.BorderSize = 0;
@@ -134,12 +128,18 @@
             this.btnDelSubstrate.UseVisualStyleBackColor = false;
             this.btnDelSubstrate.Click += new System.EventHandler(this.btnDelSubstrate_Click);
             // 
-            // chkManualInput
+            // btnLoadSubstrate
             // 
-            resources.ApplyResources(this.chkManualInput, "chkManualInput");
-            this.chkManualInput.Name = "chkManualInput";
-            this.chkManualInput.UseVisualStyleBackColor = true;
-            this.chkManualInput.CheckedChanged += new System.EventHandler(this.chkManualInput_CheckedChanged);
+            this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadSubstrate, "btnLoadSubstrate");
+            this.btnLoadSubstrate.EnabledSet = true;
+            this.btnLoadSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLoadSubstrate.FlatAppearance.BorderSize = 0;
+            this.btnLoadSubstrate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadSubstrate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadSubstrate.Name = "btnLoadSubstrate";
+            this.btnLoadSubstrate.UseVisualStyleBackColor = false;
+            this.btnLoadSubstrate.Click += new System.EventHandler(this.btnLoadSubstrate_Click);
             // 
             // frmLoadSu
             // 
@@ -147,11 +147,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.chkManualInput);
             this.Controls.Add(this.btnDelSubstrate);
+            this.Controls.Add(this.btnLoadSubstrate);
             this.Controls.Add(this.ValidDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSubstrateAllTest);
             this.Controls.Add(this.txtSubstrateLastTest);
-            this.Controls.Add(this.btnLoadSubstrate);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
@@ -165,8 +165,6 @@
         }
 
         #endregion
-
-        private CustomControl.FunctionButton btnLoadSubstrate;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
@@ -175,7 +173,8 @@
         private CustomControl.userNumTextBox txtSubstrateAllTest;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker ValidDate;
-        private CustomControl.FunctionButton btnDelSubstrate;
         private System.Windows.Forms.CheckBox chkManualInput;
+        private CustomControl.FunctionButton btnDelSubstrate;
+        private CustomControl.FunctionButton btnLoadSubstrate;
     }
 }
