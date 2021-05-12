@@ -769,13 +769,22 @@ namespace BioBaseCLIA.Run
                 txtRgLastTest.Focus();
                 return;
             }
-            DataRow[] datas = dtSpInfo.Select("Status = 0 and ItemName='" + cmbRgName.Text.ToString() + "'");
-            if (datas.Length > 0)
+            DataRow[] datas = dtSpInfo.Select("Status = 0 ");//and ItemName='" + cmbRgName.Text.ToString() + "'
+            foreach (DataRow dr in datas)
             {
-                frmMsgShow.MessageShow("试剂卸载", "此项目有待检测样本，请先卸载相关的样本信息！");
-                txtRgLastTest.Focus();
-                return;
+                if (dr["ItemName"].ToString().Contains(cmbRgName.Text.ToString()))
+                {
+                    frmMsgShow.MessageShow("试剂卸载", "此项目有待检测样本，请先卸载相关的样本信息！");
+                    txtRgLastTest.Focus();
+                    return;
+                }
             }
+            //if (datas.Length > 0)
+            //{
+            //    frmMsgShow.MessageShow("试剂卸载", "此项目有待检测样本，请先卸载相关的样本信息！");
+            //    txtRgLastTest.Focus();
+            //    return;
+            //}
             //if (msd.Confirm("请卸载试剂盒") == DialogResult.Cancel)
             //{
             //    return;

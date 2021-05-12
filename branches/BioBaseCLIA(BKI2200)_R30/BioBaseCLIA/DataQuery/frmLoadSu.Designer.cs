@@ -103,8 +103,8 @@
             // 
             // ValidDate
             // 
-            resources.ApplyResources(this.ValidDate, "ValidDate");
             this.ValidDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.ValidDate, "ValidDate");
             this.ValidDate.Name = "ValidDate";
             this.ValidDate.Value = new System.DateTime(2018, 10, 17, 0, 0, 0, 0);
             // 
@@ -117,8 +117,8 @@
             // 
             // btnDelSubstrate
             // 
-            resources.ApplyResources(this.btnDelSubstrate, "btnDelSubstrate");
             this.btnDelSubstrate.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnDelSubstrate, "btnDelSubstrate");
             this.btnDelSubstrate.EnabledSet = true;
             this.btnDelSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelSubstrate.FlatAppearance.BorderSize = 0;
@@ -130,8 +130,8 @@
             // 
             // btnLoadSubstrate
             // 
-            resources.ApplyResources(this.btnLoadSubstrate, "btnLoadSubstrate");
             this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadSubstrate, "btnLoadSubstrate");
             this.btnLoadSubstrate.EnabledSet = true;
             this.btnLoadSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadSubstrate.FlatAppearance.BorderSize = 0;
