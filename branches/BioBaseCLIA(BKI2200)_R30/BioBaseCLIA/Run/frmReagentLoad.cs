@@ -329,7 +329,7 @@ namespace BioBaseCLIA.Run
                     btnAddR.Enabled = false;
                     #region 旋转到读卡器位置
                     int hole = Convert.ToInt32(addUseHole, 16);
-                    hole = hole - 16 > 0 ? (hole - 16) : (30 + hole - 16);
+                    hole = hole - 15 > 0 ? (hole - 15) : (30 + hole - 15);
                     string HoleNum = hole.ToString("x2");
 
                     RotSendAgain:
@@ -2281,7 +2281,7 @@ namespace BioBaseCLIA.Run
             }
 
 
-
+            string validTime = year2 + "/" + month2 + "/" + day2;
             //录入者
             mQC.Batch = qcBatch;
             mQC.QCNumber = "No Use";//无用
@@ -2292,7 +2292,7 @@ namespace BioBaseCLIA.Run
             mQC.ProjectName = itemName;
             mQC.OperatorName = LoginUserName;
             mQC.AddDate = DateTime.Now.ToLongDateString().Trim();
-            mQC.ValidDate = Convert.ToDateTime(year2 + "//" + month2 + "//" + day2).AddYears(1).AddDays(-1).ToLongDateString().Trim();//DateTime.Now.AddDays(28).ToLongDateString().Trim();
+            mQC.ValidDate = Convert.ToDateTime(validTime).AddYears(1).AddDays(-1).ToLongDateString().Trim();//DateTime.Now.AddDays(28).ToLongDateString().Trim();
             mQC.QCRules = rule;
             #endregion
             #region QC-DB                
