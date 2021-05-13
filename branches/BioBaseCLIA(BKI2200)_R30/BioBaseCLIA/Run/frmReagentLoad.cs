@@ -39,6 +39,11 @@ namespace BioBaseCLIA.Run
         string pmtValue = "";
         string addUseHole = "0";
         int addRFlag = 0;
+        int RgType = 0;//lyq
+        /// <summary>
+        /// 准备=0，试剂=1，稀释液=2
+        /// </summary>
+        enum ReagentType { ready = 0, reagent = 1, dilute = 2 };//lyq
         enum addRFlagState { ready = 0, success = 1, fail = 2 };
         frmMessageShow frmMsgShow = new frmMessageShow();
         /// <summary
@@ -59,7 +64,7 @@ namespace BioBaseCLIA.Run
         public void LoadData()
         {
             GetSelectedNo = 0;//2018-12-08 zlx mod
-            dateValidDate.MinDate= DateTime.Now;
+            dateValidDate.MinDate= Convert.ToDateTime("2020/01/01");
             ShowRgInfo(1);
         }
         private void frmLoadReagent_Load(object sender, EventArgs e)
@@ -70,7 +75,7 @@ namespace BioBaseCLIA.Run
                 btnLoadSample.Enabled = false;
                 timer1.Start();
             }
-            dateValidDate.MinDate = DateTime.Now;
+            dateValidDate.MinDate = Convert.ToDateTime("2020/01/01");
             dgvRgInfoList.Columns[0].Width = 65;
             dgvRgInfoList.Columns[1].Width = 75;
             dgvRgInfoList.Columns[2].Width = 120;
@@ -324,7 +329,7 @@ namespace BioBaseCLIA.Run
                     btnAddR.Enabled = false;
                     #region 旋转到读卡器位置
                     int hole = Convert.ToInt32(addUseHole, 16);
-                    hole = hole - 5 > 0 ? (hole - 5) : (20 + hole - 5);
+                    hole = hole - 16 > 0 ? (hole - 16) : (30 + hole - 16);
                     string HoleNum = hole.ToString("x2");
 
                     RotSendAgain:
@@ -1314,10 +1319,20 @@ namespace BioBaseCLIA.Run
                 {
                     txtRgCode.Text = rgcode;//条码
                     txtRgBatch.Text = dt.Rows[0]["Batch"].ToString();//批号
+                    if (txtRgBatch.Text.Substring(0, 2) == "SD")
+                    {
+                        cmbProType.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        cmbProType.SelectedIndex = 0;
+                    }
                     cmbRgName.Text = dt.Rows[0]["ReagentName"].ToString();//试剂名称
+
                     //总测数、剩余测数
                     txtRgAllTest.Text = dt.Rows[0]["AllTestNumber"].ToString();
                     txtRgLastTest.Text = dt.Rows[0]["leftoverTestR1"].ToString();
+                    dateValidDate.Value = Convert.ToDateTime(dt.Rows[0]["ValidDate"].ToString());
                 }));
             }
             else//首次装载
@@ -1325,7 +1340,8 @@ namespace BioBaseCLIA.Run
                 string[] dealCode = dealBarCode(rgcode).Split('?');
                 string shortName = dealCode[0];//试剂名
                 string batch = dealCode[1];//批号
-                string testNum = dealCode[2];//测试次数
+                string productDay = dealCode[2];//生产日期
+                string testNum = dealCode[3];//测试次数
                 if (dealCode[0] == "")
                 {
                     return false;
@@ -1334,22 +1350,34 @@ namespace BioBaseCLIA.Run
                 {
                     txtRgCode.Text = rgcode;//条码
                     txtRgBatch.Text = batch;//批号
-                    cmbRgName.Text = shortName;//试剂名称
+                    if (txtRgBatch.Text.Substring(0, 2) == "SD")
+                    {
+                        cmbProType.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        cmbProType.SelectedIndex = 0;
+                    }
+                    cmbRgName.Text = shortName;//试剂名称                   
                     //总测数、剩余测数
                     txtRgAllTest.Text = testNum;
                     txtRgLastTest.Text = testNum;
 
                     //对比生产日期后一年 和 今天装载日期后90天
-                    DateTime dt1 = DateTime.ParseExact(batch.Replace(shortName, ""), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces).AddYears(1);
-                    DateTime dt2 = DateTime.Now.AddDays(90);
-                    if (DateTime.Compare(dt1, dt2) <= 0)//使用两个最小的作为有效期
-                    {
-                        validTime = dt1;
-                    }
-                    else
-                    {
-                        validTime = dt2;
-                    }
+                    DateTime dt1 = DateTime.ParseExact(productDay/*.Replace(shortName, "")*/, "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces).AddYears(1).AddDays(-1);
+                    #region 暂时不考虑开封后有效期计算
+                    //DateTime dt2 = DateTime.Now.AddDays(90);
+                    //if (DateTime.Compare(dt1, dt2) <= 0)//使用两个最小的作为有效期
+                    //{
+                    //    validTime = dt1;
+                    //}
+                    //else
+                    //{
+                    //    validTime = dt2;
+                    //}
+                    #endregion
+                    validTime = dt1;
+                    dateValidDate.Value = validTime;
                     if (DateTime.Compare(validTime, DateTime.Now) <= 0)
                     {
                         status = "过期";
@@ -1418,23 +1446,38 @@ namespace BioBaseCLIA.Run
         private string dealBarCode(string rgcode)
         {
             string decryption = StringUtils.instance.ToDecryption(rgcode);
-            string productDay = decryption.Substring(6, 3);
-
-            string rgNameCode = decryption.Substring(3, 3);//试剂编号
-            //去数据库查询编号对应的短名
-            DataTable dtAll = bllP.GetAllList().Tables[0];
-            string shortName =
-                dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'")[0]["ShortName"].ToString();
-            if (shortName == null && shortName == "")
-            {
-                return "";
+            //string productDay = decryption.Substring(6, 3);
+            string batch;
+            string productDay;
+            string shortName;
+            string testTimes;
+            if (decryption.Substring(0, 1) == "1")
+            {  //去数据库查询编号对应的短名
+                DataTable dtAll = bllP.GetAllList().Tables[0];
+                string rgNameCode = decryption.Substring(3, 3);//试剂编号
+                shortName = dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'")[0]["ShortName"].ToString();
+                if (shortName == null && shortName == "")
+                {
+                    return "";
+                }
+                testTimes = (int.Parse(decryption.Substring(12, 2)) * 10).ToString();//测试
+                batch = decryption.Substring(6, 3);//批号
+                productDay = decryption.Substring(9, 3);//生产日期 得到有效期
             }
+            else
+            {
+                shortName = "SD" + Convert.ToInt32(decryption.Substring(1, 2), 16);
+                testTimes = Convert.ToInt32(decryption.Substring(9, 2), 16).ToString();//测试
+                batch = decryption.Substring(3, 3);//批号
+                productDay = decryption.Substring(6, 3);//生产日期 得到有效期
+            }
+            #region batch
             string year = "";
             string month = "";
             string day = "";
-            year = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
-            month = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
-            day = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
+            year = reverseDate(batch.Substring(0, 1).ToCharArray()[0]);
+            month = reverseDate(batch.Substring(1, 1).ToCharArray()[0]);
+            day = reverseDate(batch.Substring(2, 1).ToCharArray()[0]);
             while (year.Length < 4)
             {
                 year = year.Insert(0, "20");
@@ -1447,8 +1490,29 @@ namespace BioBaseCLIA.Run
             {
                 day = day.Insert(0, "0");
             }
-            string testTimes = (int.Parse(decryption.Substring(9, 2)) * 10).ToString();//测试
-            return shortName + "?" + shortName + year + month + day + "?" + testTimes;
+            #endregion
+            #region productDay
+            string year2 = "";
+            string month2 = "";
+            string day2 = "";
+            year2 = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
+            month2 = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
+            day2 = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
+            while (year2.Length < 4)
+            {
+                year2 = year2.Insert(0, "20");
+            }
+            while (month2.Length < 2)
+            {
+                month2 = month2.Insert(0, "0");
+            }
+            while (day2.Length < 2)
+            {
+                day2 = day2.Insert(0, "0");
+            }
+            #endregion
+
+            return shortName + "?" + shortName + year + month + day + "?" + year2 + month2 + day2 + "?" + testTimes;
         }
 
         /// <summary>
@@ -1459,17 +1523,85 @@ namespace BioBaseCLIA.Run
         private bool judgeBarCode(string code)
         {
             string decryption = StringUtils.instance.ToDecryption(code);
-            if (decryption.Substring(0, 1) != "1")
+            if (decryption.Substring(0, 1) != "1" && decryption.Substring(0, 1) != "B")
             {
                 return false;
             }
-            string productDay = decryption.Substring(6, 3);
-            string countCheckNum = getCheckNum(productDay);
-            string checkNum = decryption.Substring(1, 2);
-            if (checkNum != countCheckNum) //计算得到的校验位和明文校验位不相等    
+            if (decryption.Substring(0, 1) == "1")//rg
             {
-                return false;
+                string productDay = decryption.Substring(6, 3);
+                string countCheckNum = getCheckNum(productDay);
+                string checkNum = decryption.Substring(1, 2);
+                if (checkNum != countCheckNum) //计算得到的校验位和明文校验位不相等    
+                {
+                    return false;
+                }
             }
+            else//dilute
+            {
+                string checkNum = decryption.Substring(15, 1);
+                string[] check = new string[6];
+                check[0] = "11";
+                check[1] = decryption.Substring(1, 2);//type
+                check[2] = decryption.Substring(3, 3);//batch
+                check[3] = decryption.Substring(6, 3);//date
+                check[4] = decryption.Substring(9, 2);//vol
+                check[5] = decryption.Substring(11, 4);//num
+
+                for (int i = 2; i < 4; i++)
+                {
+                    string year = reverseDate(check[i].Substring(0, 1).ToCharArray()[0]);
+                    string month = reverseDate(check[i].Substring(1, 1).ToCharArray()[0]);
+                    string day = reverseDate(check[i].Substring(2, 1).ToCharArray()[0]);
+                    while (year.Length < 4)
+                    {
+                        year = year.Insert(0, "20");
+                    }
+                    while (month.Length < 2)
+                    {
+                        month = month.Insert(0, "0");
+                    }
+                    while (day.Length < 2)
+                    {
+                        day = day.Insert(0, "0");
+                    }
+                    check[i] = year + month + day;
+                    if (!Regex.IsMatch(check[i], @"^\d{8}$"))
+                    {
+                        return false;
+                    }
+                }
+                if (!Regex.IsMatch(check[1], @"^[a-fA-F0-9]{1,4}$"))
+                {
+                    return false;
+                }
+                else if (!Regex.IsMatch(check[4], @"^[a-fA-F0-9]{1,4}$"))
+                {
+                    return false;
+                }
+                else if (!Regex.IsMatch(check[5], @"^[a-fA-F0-9]{1,4}$"))
+                {
+                    return false;
+                }
+                else
+                {
+                    check[1] = Convert.ToInt32(check[1], 16).ToString();
+                    check[4] = Convert.ToInt32(check[4], 16).ToString();
+                    check[5] = Convert.ToInt32(check[5], 16).ToString();
+                }
+
+                int countCheckNum = 0;
+                foreach (string str in check)
+                {
+                    countCheckNum += int.Parse(str);
+                }
+                if (checkNum != (countCheckNum % 7).ToString()) //计算得到的校验位和明文校验位不相等    
+                {
+                    return false;
+                }
+
+            }
+
             return true;
         }
 
@@ -1492,7 +1624,7 @@ namespace BioBaseCLIA.Run
             ///
             if (e.KeyCode != Keys.Enter)
                 return;
-            if (txtRgCode.Text.Length != 15 || judgeBarCode(txtRgCode.Text.Trim()) == false)
+            if ((txtRgCode.Text.Length != 18 && txtRgCode.Text.Length != 16) || judgeBarCode(txtRgCode.Text.Trim()) == false)
             {
                 Invoke(new Action(() =>
                 {
@@ -1596,7 +1728,7 @@ namespace BioBaseCLIA.Run
             batchCA = asciiencoding.GetString(tempByte);
             if (btnLoopAddR.Enabled == true)
             {
-                for (int i = 1; i <= 20; i++)
+                for (int i = 1; i <= 30; i++)
                 {
                     string BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                     //string ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
@@ -2048,14 +2180,17 @@ namespace BioBaseCLIA.Run
             //pro = bllPro.GetModel(proId);
             //MessageBox.Show(pro.ProjectID.ToString());
             //string name = pro.FullName;
+            //批号
+            string batchDay = decryption.Substring(4, 3);
             //生产日期
-            string productDay = decryption.Substring(4, 3);
+            string productDay = decryption.Substring(7, 3);
+            #region
             string year = "";
             string month = "";
             string day = "";
-            year = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
-            month = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
-            day = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
+            year = reverseDate(batchDay.Substring(0, 1).ToCharArray()[0]);
+            month = reverseDate(batchDay.Substring(1, 1).ToCharArray()[0]);
+            day = reverseDate(batchDay.Substring(2, 1).ToCharArray()[0]);
             while (year.Length < 4)
             {
                 year = year.Insert(0, "20");
@@ -2068,12 +2203,32 @@ namespace BioBaseCLIA.Run
             {
                 day = day.Insert(0, "0");
             }
+
+            string year2 = "";
+            string month2 = "";
+            string day2 = "";
+            year2 = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
+            month2 = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
+            day2 = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
+            while (year2.Length < 4)
+            {
+                year2 = year2.Insert(0, "20");
+            }
+            while (month2.Length < 2)
+            {
+                month2 = month2.Insert(0, "0");
+            }
+            while (day2.Length < 2)
+            {
+                day2 = day2.Insert(0, "0");
+            }
+            #endregion
             //质控靶值
-            string tempX = decryption.Substring(7, 5);
+            string tempX = decryption.Substring(10, 5);
             tempX = Convert.ToInt32(tempX.Substring(0, 3), 16).ToString() + "." + Convert.ToInt32(tempX.Substring(3, 2), 16).ToString();
             double qcX = double.Parse(tempX);
             //质控标准差
-            string tempSD = decryption.Substring(12, 5);
+            string tempSD = decryption.Substring(15, 5);
             string temp = Convert.ToInt32(tempSD.Substring(2, 3), 16).ToString();
             while (temp.Length < 3)
             {
@@ -2084,7 +2239,7 @@ namespace BioBaseCLIA.Run
             tempSD = Convert.ToInt32(tempSD.Substring(0, 2), 16).ToString() + "." + temp;
             double qcSD = double.Parse(tempSD);
             //质控类别
-            string qcLevel = decryption.Substring(17, 1);
+            string qcLevel = decryption.Substring(20, 1);
             //质控批号
             string strLevel = qcLevel == "0" ? "H" : (qcLevel == "1" ? "M" : "L");
             string qcBatch = itemName + year + month + day + "-" + strLevel;
@@ -2101,7 +2256,7 @@ namespace BioBaseCLIA.Run
             }
 
             //质控规则
-            string rule16 = decryption.Substring(18, 4);
+            string rule16 = decryption.Substring(21, 4);
             int rule10 = Convert.ToInt32(rule16, 16);
             string rule2 = Convert.ToString(rule10, 2);
             while (rule2.Length < 16)
@@ -2131,7 +2286,7 @@ namespace BioBaseCLIA.Run
             mQC.ProjectName = itemName;
             mQC.OperatorName = LoginUserName;
             mQC.AddDate = DateTime.Now.ToLongDateString().Trim();
-            mQC.ValidDate = DateTime.Now.AddDays(28).ToLongDateString().Trim();
+            mQC.ValidDate = Convert.ToDateTime(year2 + "//" + month2 + "//" + day2).AddYears(1).AddDays(-1).ToLongDateString().Trim();//DateTime.Now.AddDays(28).ToLongDateString().Trim();
             mQC.QCRules = rule;
             #endregion
             #region QC-DB                
@@ -2150,6 +2305,58 @@ namespace BioBaseCLIA.Run
             }
             #endregion
 
+            return true;
+        }
+        private bool dealDiluteOfRFID(string order)
+        {
+            #region 处理指令获得条码
+            string rgcode = "";//加密后条码
+            int len = 0;//条码长度
+            order = order.Replace(" ", "").Trim();
+            len = Convert.ToInt32(order.Substring(order.IndexOf("EB90CAA1"), 10).Substring(8, 2), 16);
+            order = order.Substring(order.IndexOf("EB90CAA1"), 10 + len * 2);
+            string tempStr = order.Substring(10, len * 2);
+            byte[] tempByte = new byte[len];
+            for (int i = 0; i < len; i++)
+            {
+                tempByte[i] = Convert.ToByte(tempStr.Substring(2 * i, 2), 16);
+            }
+            System.Text.ASCIIEncoding asciiencoding = new System.Text.ASCIIEncoding();
+            rgcode = asciiencoding.GetString(tempByte);
+            #endregion
+
+            #region 处理条码取得数据
+            if (btnLoopAddR.Enabled == true)
+            {
+                for (int i = 1; i <= frmParent.RegentNum; i++)
+                {
+                    string BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
+                    //string ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
+                    if (rgcode == BarCode)
+                    {
+                        frmMessageShow msg = new frmMessageShow();
+                        msg.MessageShow("试剂加载", "稀释液条码与现有的重复（" + i + "号位置），请检查输入的稀释液条码。本次加载操作已取消。");
+                        return false;
+                    }
+                }
+            }
+            this.txtRgCode.TextChanged -= new EventHandler(txtRgCode_TextChanged);//加载时试剂条码改变不触发
+            this.txtRgCode.TextChanged -= new EventHandler(txtRgCode_TextChanged);//加载时试剂条码改变不触发
+            Invoke(new Action(() =>
+            {
+                txtRgCode.Text = rgcode;
+                //addRFlag = (int)addRFlagState.success;
+            }));
+            this.txtRgCode.TextChanged += new EventHandler(txtRgCode_TextChanged);//加载时试剂条码改变不触发
+            if (!judgeBarCode(rgcode))
+            {
+                return false;
+            }
+            if (!fillRgInfo(rgcode))
+            {
+                return false;
+            }
+            #endregion
             return true;
         }
         #endregion
@@ -2176,6 +2383,7 @@ namespace BioBaseCLIA.Run
                 if (signChar == "1")
                 {
                     //dealBatch func
+                    RgType = (int)ReagentType.reagent;//lyq
                     if (!dealBatchOfRFID(order))
                     {
                         if (txtRgCode.Text.Trim() != "")
@@ -2229,6 +2437,17 @@ namespace BioBaseCLIA.Run
                         return;
                     }
                 }
+                else if (signChar == "B")
+                {
+                    RgType = (int)ReagentType.dilute;//lyq
+                    if (!dealDiluteOfRFID(order))
+                    {
+                        frmMsgShow.MessageShow("射频卡扫描", "稀释液条码处理失败！");
+                        addRFlag = (int)addRFlagState.fail;
+                        NetCom3.Instance.ReceiveHandel -= dealSP;
+                        return;
+                    }
+                }
                 addRFlag = (int)addRFlagState.success;
             }
         }
@@ -2261,6 +2480,7 @@ namespace BioBaseCLIA.Run
         }
         private bool sendSp(string caPara)
         {
+            RgType = (int)ReagentType.ready;//lyq
             addRFlag = (int)addRFlagState.ready;
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 CA 01 " + caPara), 5);
             if (!spSingleQuery())
@@ -2291,7 +2511,16 @@ namespace BioBaseCLIA.Run
             {
                 return false;
             }
-
+            DateTime dt = DateTime.Now;
+            while (DateTime.Now.Subtract(dt).TotalMilliseconds < 5000 && RgType == (int)ReagentType.ready)
+            {
+                if (RgType == (int)ReagentType.reagent)
+                    break;
+                else if (RgType == (int)ReagentType.dilute)
+                    return true;
+            }
+            if (RgType == (int)ReagentType.ready)
+                return false;
             //pro
             //if (loadItem.Substring(0, 1) == "1")
             //{
