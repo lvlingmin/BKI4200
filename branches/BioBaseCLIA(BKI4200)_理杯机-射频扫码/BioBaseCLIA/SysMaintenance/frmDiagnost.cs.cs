@@ -7886,7 +7886,7 @@ namespace BioBaseCLIA.SysMaintenance
 
         private void cmbStep_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbStep.SelectedItem == "查询温度")
+            if (cmbStep.SelectedItem.ToString() == "查询温度")
                 label10.Text = " 温度：";
             else
                 label10.Text = "校准值：";
@@ -8000,7 +8000,49 @@ namespace BioBaseCLIA.SysMaintenance
             NetCom3.Instance.SingleQuery();
             btnPutCupInit.Enabled = true;
         }
+        /// <summary>
+        /// 磁珠抽液泵执行标志
+        /// </summary>
+        bool bDrainageB = false;
+        private void startDrainageB_Click(object sender, EventArgs e)
+        {
+            int num = int.Parse(numDrainageB.Value.ToString());
 
+            bDrainageB = true;
+            startDrainageB.Enabled = false;
+            endDrainageB.Enabled = true;
+            while (num > 0)
+            {
+                if (bDrainageB)
+                {
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0B 00 00"), 5);
+                    if (!NetCom3.Instance.SingleQuery() && NetCom3.Instance.errorFlag != (int)ErrorState.ReadySend)
+                    {
+                        StopDrainageB();
+                        return;
+                    }
+                    num--;
+                    BeginInvoke(new Action(() => { numDrainageB.Value = num; }));
+                }
+                else
+                {
+                    StopDrainageB();
+                    return;
+                }
+            }
+            StopDrainageB();
+        }
+
+        private void endDrainageB_Click(object sender, EventArgs e)
+        {
+            bDrainageB = false;
+        }
+        void StopDrainageB()
+        {
+            bDrainageB = false;
+            startDrainageB.Enabled = true;
+            endDrainageB.Enabled = false;
+        }
         private void BtnOrderSend_Click(object sender, EventArgs e)
         {
             if (textStepOrder.Text.Trim() == "")
