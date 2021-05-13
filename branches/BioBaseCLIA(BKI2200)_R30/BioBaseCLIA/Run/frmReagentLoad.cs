@@ -906,17 +906,23 @@ namespace BioBaseCLIA.Run
                 OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "LoadDate", "", iniPathReagentTrayInfo);
             else
                 OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "LoadDate", DateTime.Now.Date.ToString("yyyy-MM-dd"), iniPathReagentTrayInfo);
-            if (strRg[1].Contains("SD"))
+            if (strRg[1] == "")
             {
-                if (strRg[3] == "")
-                {
-                    DiuPosList.Remove(pos);
-                    OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
-                }
-                else
+                OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
+                DiuPosList.Remove(pos);
+            }
+            else
+            {
+                DataTable tbDiu = GetDiuShortName();
+                DataRow[] drDiu = tbDiu.Select("ItemShortName = '" + strRg[1] + "'");
+                if (drDiu.Length > 0)
                 {
                     DiuPosList.Add(pos);
                     OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "DiuFlag", "1", iniPathReagentTrayInfo);
+                }
+                else
+                {
+                    OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "DiuFlag", "0", iniPathReagentTrayInfo);
                 }
             }
         }
@@ -2812,7 +2818,7 @@ namespace BioBaseCLIA.Run
                         if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + i + "'") > 0)//更改db
                         {
                             //更改ini
-                            ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()), new string[9] { "", "", "", "", "", "", "", "", "", });
+                            ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()), new string[10] { "", "", "", "", "", "", "", "", "","" });
                             srdReagent.RgName[i - 1] = "";
                             srdReagent.RgTestNum[i - 1] = "";
                             ShowRgInfo(0);
@@ -2846,7 +2852,7 @@ namespace BioBaseCLIA.Run
                             if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + rgpostion + "'") > 0)
                             {
                                 DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DilutePos =" + rgpostion);
-                                ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                ModifyRgIni(int.Parse(rgpostion), new string[10] { "", "", "", "", "", "", "", "", "" ,""});
 
                                 OperateIniFile.WriteIniData("ReagentPos" + rgpostion,
                                     "leftDiuVol", "0", iniPathReagentTrayInfo);
