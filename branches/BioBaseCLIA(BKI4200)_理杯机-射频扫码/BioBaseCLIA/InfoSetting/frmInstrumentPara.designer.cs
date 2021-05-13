@@ -140,28 +140,28 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.groupBox6);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox5);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // groupBox6
             // 
-            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.fbtnCancle);
             this.groupBox6.Controls.Add(this.groupBox3);
             this.groupBox6.Controls.Add(this.fbtnModify);
             this.groupBox6.Controls.Add(this.btnSave);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
             // fbtnCancle
             // 
-            resources.ApplyResources(this.fbtnCancle, "fbtnCancle");
             this.fbtnCancle.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnCancle, "fbtnCancle");
             this.fbtnCancle.EnabledSet = true;
             this.fbtnCancle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnCancle.FlatAppearance.BorderSize = 0;
@@ -173,7 +173,6 @@
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.label54);
             this.groupBox3.Controls.Add(this.txtTQXGLMax);
             this.groupBox3.Controls.Add(this.label55);
@@ -215,6 +214,7 @@
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.txtWarnSubstrate);
             this.groupBox3.Controls.Add(this.label16);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -225,8 +225,8 @@
             // 
             // txtTQXGLMax
             // 
-            resources.ApplyResources(this.txtTQXGLMax, "txtTQXGLMax");
             this.txtTQXGLMax.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTQXGLMax, "txtTQXGLMax");
             this.txtTQXGLMax.IsNull = false;
             this.txtTQXGLMax.MaxValue = new decimal(new int[] {
             100,
@@ -247,8 +247,8 @@
             // 
             // txtTQXGLMin
             // 
-            resources.ApplyResources(this.txtTQXGLMin, "txtTQXGLMin");
             this.txtTQXGLMin.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTQXGLMin, "txtTQXGLMin");
             this.txtTQXGLMin.IsNull = false;
             this.txtTQXGLMin.MaxValue = new decimal(new int[] {
             100,
@@ -269,8 +269,8 @@
             // 
             // txtTSubstrateMax
             // 
-            resources.ApplyResources(this.txtTSubstrateMax, "txtTSubstrateMax");
             this.txtTSubstrateMax.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTSubstrateMax, "txtTSubstrateMax");
             this.txtTSubstrateMax.IsNull = false;
             this.txtTSubstrateMax.MaxValue = new decimal(new int[] {
             100,
@@ -291,8 +291,8 @@
             // 
             // txtTSubstrateMin
             // 
-            resources.ApplyResources(this.txtTSubstrateMin, "txtTSubstrateMin");
             this.txtTSubstrateMin.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTSubstrateMin, "txtTSubstrateMin");
             this.txtTSubstrateMin.IsNull = false;
             this.txtTSubstrateMin.MaxValue = new decimal(new int[] {
             100,
@@ -313,8 +313,8 @@
             // 
             // txtTWashMax
             // 
-            resources.ApplyResources(this.txtTWashMax, "txtTWashMax");
             this.txtTWashMax.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTWashMax, "txtTWashMax");
             this.txtTWashMax.IsNull = false;
             this.txtTWashMax.MaxValue = new decimal(new int[] {
             100,
@@ -335,8 +335,8 @@
             // 
             // txtTWashMin
             // 
-            resources.ApplyResources(this.txtTWashMin, "txtTWashMin");
             this.txtTWashMin.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTWashMin, "txtTWashMin");
             this.txtTWashMin.IsNull = false;
             this.txtTWashMin.MaxValue = new decimal(new int[] {
             100,
@@ -357,8 +357,8 @@
             // 
             // txtTWYMax
             // 
-            resources.ApplyResources(this.txtTWYMax, "txtTWYMax");
             this.txtTWYMax.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTWYMax, "txtTWYMax");
             this.txtTWYMax.IsNull = false;
             this.txtTWYMax.MaxValue = new decimal(new int[] {
             100,
@@ -379,8 +379,8 @@
             // 
             // txtTWYMin
             // 
-            resources.ApplyResources(this.txtTWYMin, "txtTWYMin");
             this.txtTWYMin.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtTWYMin, "txtTWYMin");
             this.txtTWYMin.IsNull = false;
             this.txtTWYMin.MaxValue = new decimal(new int[] {
             100,
@@ -451,8 +451,8 @@
             // 
             // txtWarnWaitSeconds
             // 
-            resources.ApplyResources(this.txtWarnWaitSeconds, "txtWarnWaitSeconds");
             this.txtWarnWaitSeconds.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtWarnWaitSeconds, "txtWarnWaitSeconds");
             this.txtWarnWaitSeconds.IsNull = false;
             this.txtWarnWaitSeconds.MaxValue = new decimal(new int[] {
             100,
@@ -473,8 +473,8 @@
             // 
             // txtErrorTube
             // 
-            resources.ApplyResources(this.txtErrorTube, "txtErrorTube");
             this.txtErrorTube.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtErrorTube, "txtErrorTube");
             this.txtErrorTube.IsNull = false;
             this.txtErrorTube.MaxValue = new decimal(new int[] {
             100,
@@ -495,8 +495,8 @@
             // 
             // txtWarnTube
             // 
-            resources.ApplyResources(this.txtWarnTube, "txtWarnTube");
             this.txtWarnTube.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtWarnTube, "txtWarnTube");
             this.txtWarnTube.IsNull = false;
             this.txtWarnTube.MaxValue = new decimal(new int[] {
             100,
@@ -517,8 +517,8 @@
             // 
             // txtErrorReagent
             // 
-            resources.ApplyResources(this.txtErrorReagent, "txtErrorReagent");
             this.txtErrorReagent.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtErrorReagent, "txtErrorReagent");
             this.txtErrorReagent.IsNull = false;
             this.txtErrorReagent.MaxValue = new decimal(new int[] {
             100,
@@ -539,8 +539,8 @@
             // 
             // txtWarnReagent
             // 
-            resources.ApplyResources(this.txtWarnReagent, "txtWarnReagent");
             this.txtWarnReagent.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtWarnReagent, "txtWarnReagent");
             this.txtWarnReagent.IsNull = false;
             this.txtWarnReagent.MaxValue = new decimal(new int[] {
             100,
@@ -561,8 +561,8 @@
             // 
             // txtErrorSubstrate
             // 
-            resources.ApplyResources(this.txtErrorSubstrate, "txtErrorSubstrate");
             this.txtErrorSubstrate.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtErrorSubstrate, "txtErrorSubstrate");
             this.txtErrorSubstrate.IsNull = false;
             this.txtErrorSubstrate.MaxValue = new decimal(new int[] {
             100,
@@ -583,8 +583,8 @@
             // 
             // txtWarnSubstrate
             // 
-            resources.ApplyResources(this.txtWarnSubstrate, "txtWarnSubstrate");
             this.txtWarnSubstrate.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtWarnSubstrate, "txtWarnSubstrate");
             this.txtWarnSubstrate.IsNull = false;
             this.txtWarnSubstrate.MaxValue = new decimal(new int[] {
             100,
@@ -605,8 +605,8 @@
             // 
             // fbtnModify
             // 
-            resources.ApplyResources(this.fbtnModify, "fbtnModify");
             this.fbtnModify.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnModify, "fbtnModify");
             this.fbtnModify.EnabledSet = true;
             this.fbtnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnModify.FlatAppearance.BorderSize = 0;
@@ -619,8 +619,8 @@
             // 
             // btnSave
             // 
-            resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnSave, "btnSave");
             this.btnSave.EnabledSet = true;
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnSave.FlatAppearance.BorderSize = 0;
@@ -632,7 +632,6 @@
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.label28);
             this.groupBox2.Controls.Add(this.label27);
@@ -651,6 +650,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtSampleTime);
             this.groupBox2.Controls.Add(this.label2);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -686,8 +686,8 @@
             // 
             // txtReadTime
             // 
-            resources.ApplyResources(this.txtReadTime, "txtReadTime");
             this.txtReadTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtReadTime, "txtReadTime");
             this.txtReadTime.IsNull = false;
             this.txtReadTime.MaxValue = new decimal(new int[] {
             100,
@@ -708,8 +708,8 @@
             // 
             // txtSubstrateTime
             // 
-            resources.ApplyResources(this.txtSubstrateTime, "txtSubstrateTime");
             this.txtSubstrateTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtSubstrateTime, "txtSubstrateTime");
             this.txtSubstrateTime.IsNull = false;
             this.txtSubstrateTime.MaxValue = new decimal(new int[] {
             100,
@@ -730,8 +730,8 @@
             // 
             // txtWashTime
             // 
-            resources.ApplyResources(this.txtWashTime, "txtWashTime");
             this.txtWashTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtWashTime, "txtWashTime");
             this.txtWashTime.IsNull = false;
             this.txtWashTime.MaxValue = new decimal(new int[] {
             100,
@@ -752,8 +752,8 @@
             // 
             // txtBeadsTime
             // 
-            resources.ApplyResources(this.txtBeadsTime, "txtBeadsTime");
             this.txtBeadsTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtBeadsTime, "txtBeadsTime");
             this.txtBeadsTime.IsNull = false;
             this.txtBeadsTime.MaxValue = new decimal(new int[] {
             100,
@@ -774,8 +774,8 @@
             // 
             // txtReagentTime
             // 
-            resources.ApplyResources(this.txtReagentTime, "txtReagentTime");
             this.txtReagentTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtReagentTime, "txtReagentTime");
             this.txtReagentTime.IsNull = false;
             this.txtReagentTime.MaxValue = new decimal(new int[] {
             100,
@@ -796,8 +796,8 @@
             // 
             // txtSampleTime
             // 
-            resources.ApplyResources(this.txtSampleTime, "txtSampleTime");
             this.txtSampleTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtSampleTime, "txtSampleTime");
             this.txtSampleTime.IsNull = false;
             this.txtSampleTime.MaxValue = new decimal(new int[] {
             100,
@@ -818,7 +818,6 @@
             // 
             // groupBox4
             // 
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.label37);
             this.groupBox4.Controls.Add(this.label36);
             this.groupBox4.Controls.Add(this.label35);
@@ -837,6 +836,7 @@
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.txtAirVol);
             this.groupBox4.Controls.Add(this.label13);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
@@ -872,8 +872,8 @@
             // 
             // txtMixNum
             // 
-            resources.ApplyResources(this.txtMixNum, "txtMixNum");
             this.txtMixNum.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtMixNum, "txtMixNum");
             this.txtMixNum.IsNull = false;
             this.txtMixNum.MaxValue = new decimal(new int[] {
             100,
@@ -894,8 +894,8 @@
             // 
             // txtRgAbandonVol
             // 
-            resources.ApplyResources(this.txtRgAbandonVol, "txtRgAbandonVol");
             this.txtRgAbandonVol.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtRgAbandonVol, "txtRgAbandonVol");
             this.txtRgAbandonVol.IsNull = false;
             this.txtRgAbandonVol.MaxValue = new decimal(new int[] {
             1000,
@@ -916,8 +916,8 @@
             // 
             // txtRgBeforeVol
             // 
-            resources.ApplyResources(this.txtRgBeforeVol, "txtRgBeforeVol");
             this.txtRgBeforeVol.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtRgBeforeVol, "txtRgBeforeVol");
             this.txtRgBeforeVol.IsNull = false;
             this.txtRgBeforeVol.MaxValue = new decimal(new int[] {
             1000,
@@ -938,8 +938,8 @@
             // 
             // txtSpAbandonVol
             // 
-            resources.ApplyResources(this.txtSpAbandonVol, "txtSpAbandonVol");
             this.txtSpAbandonVol.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtSpAbandonVol, "txtSpAbandonVol");
             this.txtSpAbandonVol.IsNull = false;
             this.txtSpAbandonVol.MaxValue = new decimal(new int[] {
             1000,
@@ -960,8 +960,8 @@
             // 
             // txtSpBeforeVol
             // 
-            resources.ApplyResources(this.txtSpBeforeVol, "txtSpBeforeVol");
             this.txtSpBeforeVol.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtSpBeforeVol, "txtSpBeforeVol");
             this.txtSpBeforeVol.IsNull = false;
             this.txtSpBeforeVol.MaxValue = new decimal(new int[] {
             1000,
@@ -982,8 +982,8 @@
             // 
             // txtAirVol
             // 
-            resources.ApplyResources(this.txtAirVol, "txtAirVol");
             this.txtAirVol.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtAirVol, "txtAirVol");
             this.txtAirVol.IsNull = false;
             this.txtAirVol.MaxValue = new decimal(new int[] {
             1000,
@@ -1004,13 +1004,13 @@
             // 
             // groupBox5
             // 
-            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.label31);
             this.groupBox5.Controls.Add(this.label30);
             this.groupBox5.Controls.Add(this.txtNeedleCleanTime);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Controls.Add(this.txtFirstCleanTime);
             this.groupBox5.Controls.Add(this.label14);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
@@ -1026,8 +1026,8 @@
             // 
             // txtNeedleCleanTime
             // 
-            resources.ApplyResources(this.txtNeedleCleanTime, "txtNeedleCleanTime");
             this.txtNeedleCleanTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtNeedleCleanTime, "txtNeedleCleanTime");
             this.txtNeedleCleanTime.IsNull = false;
             this.txtNeedleCleanTime.MaxValue = new decimal(new int[] {
             1000,
@@ -1048,8 +1048,8 @@
             // 
             // txtFirstCleanTime
             // 
-            resources.ApplyResources(this.txtFirstCleanTime, "txtFirstCleanTime");
             this.txtFirstCleanTime.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtFirstCleanTime, "txtFirstCleanTime");
             this.txtFirstCleanTime.IsNull = false;
             this.txtFirstCleanTime.MaxValue = new decimal(new int[] {
             1000,
@@ -1070,18 +1070,18 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.btnUserInfo);
             this.panel1.Controls.Add(this.fbtnConnetSet);
             this.panel1.Controls.Add(this.btnInstrumentPara);
             this.panel1.Controls.Add(this.btnProInfo);
             this.panel1.Controls.Add(this.fbtnReturn);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // btnUserInfo
             // 
-            resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
             this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
             this.btnUserInfo.EnabledSet = true;
             this.btnUserInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnUserInfo.FlatAppearance.BorderSize = 0;
@@ -1093,8 +1093,8 @@
             // 
             // fbtnConnetSet
             // 
-            resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
             this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
             this.fbtnConnetSet.EnabledSet = true;
             this.fbtnConnetSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnConnetSet.FlatAppearance.BorderSize = 0;
@@ -1106,8 +1106,8 @@
             // 
             // btnInstrumentPara
             // 
-            resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
             this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
             this.btnInstrumentPara.EnabledSet = true;
             this.btnInstrumentPara.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnInstrumentPara.FlatAppearance.BorderSize = 0;
@@ -1118,8 +1118,8 @@
             // 
             // btnProInfo
             // 
-            resources.ApplyResources(this.btnProInfo, "btnProInfo");
             this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnProInfo, "btnProInfo");
             this.btnProInfo.EnabledSet = true;
             this.btnProInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnProInfo.FlatAppearance.BorderSize = 0;
@@ -1131,8 +1131,8 @@
             // 
             // fbtnReturn
             // 
-            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
