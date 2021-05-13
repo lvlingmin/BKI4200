@@ -321,6 +321,9 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="ValidDate.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="ValidDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>126, 137</value>
   </data>

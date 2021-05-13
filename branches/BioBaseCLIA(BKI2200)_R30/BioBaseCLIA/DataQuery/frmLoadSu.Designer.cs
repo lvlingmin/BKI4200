@@ -103,8 +103,8 @@
             // 
             // ValidDate
             // 
-            this.ValidDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             resources.ApplyResources(this.ValidDate, "ValidDate");
+            this.ValidDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ValidDate.Name = "ValidDate";
             this.ValidDate.Value = new System.DateTime(2018, 10, 17, 0, 0, 0, 0);
             // 

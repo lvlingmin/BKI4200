@@ -291,7 +291,7 @@ namespace BioBaseCLIA.DataQuery
         {
             if (e.KeyCode != Keys.Enter)
                 return;
-            if (txtSubstrateCode.Text.Length != 12 || !judgeSubBarCode(txtSubstrateCode.Text.Trim()))
+            if (txtSubstrateCode.Text.Length != 15 || !judgeSubBarCode(txtSubstrateCode.Text.Trim()))
             {
                 Invoke(new Action(() =>
                 {
