@@ -1489,7 +1489,7 @@ namespace BioBaseCLIA.Run
             else
             {
                 shortName = "SD" + Convert.ToInt32(decryption.Substring(1, 2), 16);
-                testTimes = Convert.ToInt32(decryption.Substring(9, 2), 16).ToString();//测试
+                testTimes = (Convert.ToInt32(decryption.Substring(9, 2), 16) * 1000).ToString();//测试
                 batch = decryption.Substring(3, 3);//批号
                 productDay = decryption.Substring(6, 3);//生产日期 得到有效期
             }
