@@ -72,6 +72,10 @@
     <Reference Include="FastReport.Editor">
       <HintPath>bin\Debug\Report\FastReport.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI">
       <HintPath>dlls\NPOI.dll</HintPath>
     </Reference>
@@ -798,10 +802,6 @@
     <ProjectReference Include="..\Localization\Localization.csproj">
       <Project>{4AD525D8-9A4B-42C6-BB94-FAFBF0F6530C}</Project>
       <Name>Localization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{8DDC1C38-9102-4A32-BE1F-346AA0FFD019}</Project>
-      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
