@@ -6385,7 +6385,7 @@
             this.untxtSampleVol.Name = "untxtSampleVol";
             this.untxtSampleVol.Size = new System.Drawing.Size(25, 23);
             this.untxtSampleVol.TabIndex = 11;
-            this.untxtSampleVol.Text = "10";
+            this.untxtSampleVol.Text = "15";
             // 
             // fbtnTestS
             // 
