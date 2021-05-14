@@ -743,7 +743,10 @@ namespace BioBaseCLIA.Run
                     txtRgBatch.Text = dtRgInfo.Rows[i]["Batch"].ToString();
                     txtRgAllTest.Text = dtRgInfo.Rows[i]["AllTestNumber"].ToString();
                     txtRgLastTest.Text = dtRgInfo.Rows[i]["leftoverTestR1"].ToString();
-                    
+                    if(dtRgInfo.Rows[i]["ValidDate"].ToString()!="")
+                    { 
+                        dateValidDate.Value = Convert.ToDateTime(dtRgInfo.Rows[i]["ValidDate"].ToString());
+                    }
                     //txtDiluteVol.Text = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);//2019-02-19 zlx add
                 }
             }

@@ -243,6 +243,7 @@
     <Compile Include="InfoSetting\HL7\ServeyReport.cs" />
     <Compile Include="InfoSetting\Inspect.cs" />
     <Compile Include="InfoSetting\LisCommunication.cs" />
+    <Compile Include="LogFileRtest.cs" />
     <Compile Include="NetCom3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
