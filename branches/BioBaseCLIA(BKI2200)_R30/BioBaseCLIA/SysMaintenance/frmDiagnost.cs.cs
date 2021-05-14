@@ -8480,7 +8480,11 @@ namespace BioBaseCLIA.SysMaintenance
             //加样准确性测试
             if (testIndex == 0)
             {
-                frmMsgShow.MessageShow("仪器调试", "请确认在温育盘 " + reactTrayStartPos + " 号到 " + reactTrayEndPos + " 号孔位是否放好反应管，点击确定马上开始测试。");
+                DialogResult r = MessageBox.Show("请确认在温育盘 " + reactTrayStartPos + " 号到 " + reactTrayEndPos + " 号孔位是否放好反应管，点击确定马上开始测试。", "仪器调试", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (r == DialogResult.Cancel)
+                {
+                    goto enzymaticActivityTestEnd;
+                }
                 for (int i = 0; i < repeat; i++)
                 {
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 01 " + int.Parse(samplePos).ToString("x2") + " " + reactTrayStartPos.ToString("x2")
@@ -8503,7 +8507,11 @@ namespace BioBaseCLIA.SysMaintenance
                     goto enzymaticActivityTestEnd;
                 }
 
-                frmMsgShow.MessageShow("仪器调试", "请确认在温育盘 " + reactTrayStartPos + " 号到 " + reactTrayEndPos + " 号孔位是否放好反应管，是否加好试剂，点击确定马上开始测试。");
+                DialogResult r = MessageBox.Show("请确认在温育盘 " + reactTrayStartPos + " 号到 " + reactTrayEndPos + " 号孔位是否放好反应管，是否加好试剂，点击确定马上开始测试。", "仪器调试", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (r == DialogResult.Cancel)
+                {
+                    goto enzymaticActivityTestEnd;
+                }
 
                 BeginInvoke(new Action(() =>
                 {
@@ -8640,7 +8648,11 @@ namespace BioBaseCLIA.SysMaintenance
                     MessageBox.Show("请输入大于0的测试次数");
                     goto enzymaticActivityTestEnd;
                 }
-
+                DialogResult r = MessageBox.Show("请确认准备完毕，点击确定马上开始测试。", "仪器调试", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (r == DialogResult.Cancel)
+                {
+                    goto enzymaticActivityTestEnd;
+                }
                 BeginInvoke(new Action(() =>
                 {
                     textBox3.AppendText(DateTime.Now.ToString("HH-mm-ss") + ": 测试开始。" + Environment.NewLine);
@@ -9035,7 +9047,11 @@ namespace BioBaseCLIA.SysMaintenance
                     MessageBox.Show("请输入大于0的测试次数");
                     goto enzymaticActivityTestEnd;
                 }
-
+                DialogResult r = MessageBox.Show("请确认准备完毕，点击确定马上开始测试。", "仪器调试", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (r == DialogResult.Cancel)
+                {
+                    goto enzymaticActivityTestEnd;
+                }
                 BeginInvoke(new Action(() =>
                 {
                     textBox3.AppendText(DateTime.Now.ToString("HH-mm-ss") + ": 测试开始。" + Environment.NewLine);
@@ -9175,6 +9191,11 @@ namespace BioBaseCLIA.SysMaintenance
             //清洗注液测试
             else if (testIndex == 4)
             {
+                DialogResult r = MessageBox.Show("请确认准备完毕，点击确定马上开始测试。", "仪器调试", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (r == DialogResult.Cancel)
+                {
+                    goto enzymaticActivityTestEnd;
+                }
                 if (!washTrayTubeClear())
                 {
                     MessageBox.Show("清空清洗盘失败，请重试");
