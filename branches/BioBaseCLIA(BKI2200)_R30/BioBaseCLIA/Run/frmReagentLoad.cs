@@ -1223,6 +1223,7 @@ namespace BioBaseCLIA.Run
             {
                 txtRgCode.Enabled = true;
                 txtRgBatch.Enabled = true;
+                dateValidDate.Enabled = true;
                 //initContr();
                 //txtRgCode.Focus();
                 //barCodeHook.Stop();
@@ -1232,6 +1233,7 @@ namespace BioBaseCLIA.Run
                 //initContr();
                 txtRgCode.Enabled = false;
                 txtRgBatch.Enabled = false;
+                dateValidDate.Enabled = false;
                 //barCodeHook.Start();
             }
         }
@@ -1460,8 +1462,19 @@ namespace BioBaseCLIA.Run
             if (decryption.Substring(0, 1) == "1")
             {  //去数据库查询编号对应的短名
                 DataTable dtAll = bllP.GetAllList().Tables[0];
+                if(dtAll.Rows.Count < 1)
+                {
+                    return "";
+                }    
                 string rgNameCode = decryption.Substring(3, 3);//试剂编号
-                shortName = dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'")[0]["ShortName"].ToString();
+                try
+                {
+                    shortName = dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'")[0]["ShortName"].ToString();
+                }
+                catch(System.Exception ex)
+                {
+                    return "";
+                }
                 if (shortName == null && shortName == "")
                 {
                     return "";

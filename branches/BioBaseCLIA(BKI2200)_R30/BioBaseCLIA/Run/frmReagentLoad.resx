@@ -756,6 +756,9 @@
   <data name="dateValidDate.CustomFormat" xml:space="preserve">
     <value>yyyy-MM-dd</value>
   </data>
+  <data name="dateValidDate.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="dateValidDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>79, 114</value>
   </data>
