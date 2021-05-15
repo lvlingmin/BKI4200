@@ -6732,10 +6732,10 @@ namespace BioBaseCLIA.SysMaintenance
                             LogFileRtest.Instance.Testcount++;
                         #endregion
                         testNum--;
-                        BeginInvoke(new Action(() =>
-                        {
-                            txtmoveNum.Text = testNum.ToString();
-                        }));
+                        //BeginInvoke(new Action(() =>
+                        //{
+                        //    txtmoveNum.Text = testNum.ToString();
+                        //}));
                         surplusNum--;
                         BeginInvoke(new Action(() =>
                         {
