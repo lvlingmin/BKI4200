@@ -291,7 +291,7 @@ namespace BioBaseCLIA.DataQuery
         {
             if (e.KeyCode != Keys.Enter)
                 return;
-            if (txtSubstrateCode.Text.Length != 15 || !judgeSubBarCode(txtSubstrateCode.Text.Trim()))
+            if ((txtSubstrateCode.Text.Length != 12 && txtSubstrateCode.Text.Length != 15) || !judgeSubBarCode(txtSubstrateCode.Text.Trim()))
             {
                 Invoke(new Action(() =>
                 {
@@ -319,74 +319,121 @@ namespace BioBaseCLIA.DataQuery
             {
                 return false;
             }
-
-            string batchDate = decryption.Substring(1, 3);//批号日期
-            string productDate = decryption.Substring(4,3);//生产日期
-            int testN = Convert.ToInt32(decryption.Substring(7, 3), 16);//测试次数
-            int serialNum = Convert.ToInt32(decryption.Substring(10, 4), 16);//流水号
-
-            string year = "", month = "", day = "";
-            string year2 = "", month2 = "", day2 = "";
-            try
+            if (subCode.Length == 15)
             {
-                year = StringUtils.instance.reverseDate(batchDate.Substring(0, 1).ToCharArray()[0]);
-                month = StringUtils.instance.reverseDate(batchDate.Substring(1, 1).ToCharArray()[0]);
-                day = StringUtils.instance.reverseDate(batchDate.Substring(2, 1).ToCharArray()[0]);
+                string batchDate = decryption.Substring(1, 3);//批号日期
+                string productDate = decryption.Substring(4, 3);//生产日期
+                int testN = Convert.ToInt32(decryption.Substring(7, 3), 16);//测试次数
+                int serialNum = Convert.ToInt32(decryption.Substring(10, 4), 16);//流水号
+                string year = "", month = "", day = "";
+                string year2 = "", month2 = "", day2 = "";
+                try
+                {
+                    year = StringUtils.instance.reverseDate(batchDate.Substring(0, 1).ToCharArray()[0]);
+                    month = StringUtils.instance.reverseDate(batchDate.Substring(1, 1).ToCharArray()[0]);
+                    day = StringUtils.instance.reverseDate(batchDate.Substring(2, 1).ToCharArray()[0]);
 
-                year2 = StringUtils.instance.reverseDate(productDate.Substring(0, 1).ToCharArray()[0]);
-                month2 = StringUtils.instance.reverseDate(productDate.Substring(1, 1).ToCharArray()[0]);
-                day2 = StringUtils.instance.reverseDate(productDate.Substring(2, 1).ToCharArray()[0]);
+                    year2 = StringUtils.instance.reverseDate(productDate.Substring(0, 1).ToCharArray()[0]);
+                    month2 = StringUtils.instance.reverseDate(productDate.Substring(1, 1).ToCharArray()[0]);
+                    day2 = StringUtils.instance.reverseDate(productDate.Substring(2, 1).ToCharArray()[0]);
+                }
+                catch
+                {
+                    return false;
+                }
+                while (year.Length < 4)
+                {
+                    year = year.Insert(0, "20");
+                }
+                while (month.Length < 2)
+                {
+                    month = month.Insert(0, "0");
+                }
+                while (day.Length < 2)
+                {
+                    day = day.Insert(0, "0");
+                }
+                while (year2.Length < 4)
+                {
+                    year2 = year2.Insert(0, "20");
+                }
+                while (month2.Length < 2)
+                {
+                    month2 = month2.Insert(0, "0");
+                }
+                while (day2.Length < 2)
+                {
+                    day2 = day2.Insert(0, "0");
+                }
+
+                int batchTime = int.Parse(year + month + day);
+                int productTime = int.Parse(year2 + month2 + day2);
+                int check = (10 + batchTime + productTime + testN + serialNum) % 7;
+                if (decryption.Substring(14, 1) != check.ToString())
+                {
+                    return false;
+                }
+
+                testNum = testN.ToString();
+                try
+                {
+                    dtime = DateTime.ParseExact(productTime.ToString(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch
+            else if (subCode.Length == 12)
             {
+                string batchDate = decryption.Substring(1, 3);//批号日期
+                int testN = Convert.ToInt32(decryption.Substring(4, 3), 16);//测试次数
+                int serialNum = Convert.ToInt32(decryption.Substring(7, 4), 16);//流水号
+                string year = "", month = "", day = "";
+                try
+                {
+                    year = StringUtils.instance.reverseDate(batchDate.Substring(0, 1).ToCharArray()[0]);
+                    month = StringUtils.instance.reverseDate(batchDate.Substring(1, 1).ToCharArray()[0]);
+                    day = StringUtils.instance.reverseDate(batchDate.Substring(2, 1).ToCharArray()[0]);
+                }
+                catch
+                {
+                    return false;
+                }
+
+                while (year.Length < 4)
+                {
+                    year = year.Insert(0, "20");
+                }
+                while (month.Length < 2)
+                {
+                    month = month.Insert(0, "0");
+                }
+                while (day.Length < 2)
+                {
+                    day = day.Insert(0, "0");
+                }
+
+                int batchTime = int.Parse(year + month + day);
+                int check = (10 + batchTime + testN + serialNum) % 7;
+                if (decryption.Substring(11, 1) != check.ToString())
+                {
+                    return false;
+                }
+
+                testNum = testN.ToString();
+                try
+                {
+                    dtime = DateTime.ParseExact(batchTime.ToString(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            else
                 return false;
-            }
-
-            while (year.Length < 4)
-            {
-                year = year.Insert(0, "20");
-            }
-            while (month.Length < 2)
-            {
-                month = month.Insert(0, "0");
-            }
-            while (day.Length < 2)
-            {
-                day = day.Insert(0, "0");
-            }
-
-            while (year2.Length < 4)
-            {
-                year2 = year2.Insert(0, "20");
-            }
-            while (month2.Length < 2)
-            {
-                month2 = month2.Insert(0, "0");
-            }
-            while (day2.Length < 2)
-            {
-                day2 = day2.Insert(0, "0");
-            }
-
-            int batchTime = int.Parse(year + month + day);
-            int productTime = int.Parse(year2 + month2 + day2);
             
-            int check = (10 + batchTime + productTime + testN + serialNum) % 7;
-
-            if (decryption.Substring(14, 1) != check.ToString())
-            {
-                return false;
-            }
-
-            testNum = testN.ToString();
-            try
-            {
-                dtime = DateTime.ParseExact(productTime.ToString(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
-            }
-            catch
-            {
-                return false;
-            }
             return true;
         }
         private bool fillSubInfo(string subCode)
