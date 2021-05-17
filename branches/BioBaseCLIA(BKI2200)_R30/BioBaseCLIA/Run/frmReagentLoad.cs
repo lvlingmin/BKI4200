@@ -1482,16 +1482,40 @@ namespace BioBaseCLIA.Run
                 {
                     return "";
                 }
-                testTimes = (int.Parse(decryption.Substring(12, 2)) * 10).ToString();//测试
                 batch = decryption.Substring(6, 3);//批号
-                productDay = decryption.Substring(9, 3);//生产日期 得到有效期
+
+                if (rgcode.Length == 18)
+                {
+                    productDay = decryption.Substring(9, 3);//生产日期 得到有效期
+                    testTimes = (int.Parse(decryption.Substring(12, 2)) * 10).ToString();//测试
+                }
+                else if (rgcode.Length == 15)
+                {
+                    productDay = batch;//生产日期 得到有效期
+                    testTimes = (int.Parse(decryption.Substring(9, 2)) * 10).ToString();//测试
+                }
+                else
+                    return "";
             }
             else
             {
                 shortName = "SD" + Convert.ToInt32(decryption.Substring(1, 2), 16);
-                testTimes = (Convert.ToInt32(decryption.Substring(9, 2), 16) * 1000).ToString();//测试
                 batch = decryption.Substring(3, 3);//批号
-                productDay = decryption.Substring(6, 3);//生产日期 得到有效期
+                if(rgcode.Length == 16)
+                {
+                    productDay = decryption.Substring(6, 3);//生产日期 得到有效期
+                    testTimes = (Convert.ToInt32(decryption.Substring(9, 2), 16) * 1000).ToString();//测试
+                }
+                else if(rgcode.Length == 13)
+                {
+                    productDay = batch;//生产日期 得到有效期
+                    testTimes = (Convert.ToInt32(decryption.Substring(6, 2), 16) * 1000).ToString();//测试
+                }
+                else
+                {
+                    return "";
+                }
+                
             }
             #region batch
             string year = "";
@@ -1517,20 +1541,29 @@ namespace BioBaseCLIA.Run
             string year2 = "";
             string month2 = "";
             string day2 = "";
-            year2 = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
-            month2 = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
-            day2 = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
-            while (year2.Length < 4)
+            if(batch != productDay)
             {
-                year2 = year2.Insert(0, "20");
+                year2 = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
+                month2 = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
+                day2 = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
+                while (year2.Length < 4)
+                {
+                    year2 = year2.Insert(0, "20");
+                }
+                while (month2.Length < 2)
+                {
+                    month2 = month2.Insert(0, "0");
+                }
+                while (day2.Length < 2)
+                {
+                    day2 = day2.Insert(0, "0");
+                }
             }
-            while (month2.Length < 2)
+            else
             {
-                month2 = month2.Insert(0, "0");
-            }
-            while (day2.Length < 2)
-            {
-                day2 = day2.Insert(0, "0");
+                year2 = year;
+                month2 = month;
+                day2 = day;
             }
             #endregion
 
@@ -1561,20 +1594,80 @@ namespace BioBaseCLIA.Run
             }
             else//dilute
             {
-                string checkNum = decryption.Substring(15, 1);
-                string[] check = new string[6];
-                check[0] = "11";
-                check[1] = decryption.Substring(1, 2);//type
-                check[2] = decryption.Substring(3, 3);//batch
-                check[3] = decryption.Substring(6, 3);//date
-                check[4] = decryption.Substring(9, 2);//vol
-                check[5] = decryption.Substring(11, 4);//num
-
-                for (int i = 2; i < 4; i++)
+                if (code.Length == 16)
                 {
-                    string year = reverseDate(check[i].Substring(0, 1).ToCharArray()[0]);
-                    string month = reverseDate(check[i].Substring(1, 1).ToCharArray()[0]);
-                    string day = reverseDate(check[i].Substring(2, 1).ToCharArray()[0]);
+                    string checkNum = decryption.Substring(15, 1);
+                    string[] check = new string[6];
+                    check[0] = "11";
+                    check[1] = decryption.Substring(1, 2);//type
+                    check[2] = decryption.Substring(3, 3);//batch
+                    check[3] = decryption.Substring(6, 3);//date
+                    check[4] = decryption.Substring(9, 2);//vol
+                    check[5] = decryption.Substring(11, 4);//num
+                    for (int i = 2; i < 4; i++)
+                    {
+                        string year = reverseDate(check[i].Substring(0, 1).ToCharArray()[0]);
+                        string month = reverseDate(check[i].Substring(1, 1).ToCharArray()[0]);
+                        string day = reverseDate(check[i].Substring(2, 1).ToCharArray()[0]);
+                        while (year.Length < 4)
+                        {
+                            year = year.Insert(0, "20");
+                        }
+                        while (month.Length < 2)
+                        {
+                            month = month.Insert(0, "0");
+                        }
+                        while (day.Length < 2)
+                        {
+                            day = day.Insert(0, "0");
+                        }
+                        check[i] = year + month + day;
+                        if (!Regex.IsMatch(check[i], @"^\d{8}$"))
+                        {
+                            return false;
+                        }
+                    }
+                    if (!Regex.IsMatch(check[1], @"^[a-fA-F0-9]{1,4}$"))
+                    {
+                        return false;
+                    }
+                    else if (!Regex.IsMatch(check[4], @"^[a-fA-F0-9]{1,4}$"))
+                    {
+                        return false;
+                    }
+                    else if (!Regex.IsMatch(check[5], @"^[a-fA-F0-9]{1,4}$"))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        check[1] = Convert.ToInt32(check[1], 16).ToString();
+                        check[4] = Convert.ToInt32(check[4], 16).ToString();
+                        check[5] = Convert.ToInt32(check[5], 16).ToString();
+                    }
+
+                    int countCheckNum = 0;
+                    foreach (string str in check)
+                    {
+                        countCheckNum += int.Parse(str);
+                    }
+                    if (checkNum != (countCheckNum % 7).ToString()) //计算得到的校验位和明文校验位不相等    
+                    {
+                        return false;
+                    }
+                }
+                else if (code.Length == 13)
+                {
+                    string checkNum = decryption.Substring(12, 1);
+                    string[] check = new string[5];
+                    check[0] = "11";
+                    check[1] = decryption.Substring(1, 2);//type
+                    check[2] = decryption.Substring(3, 3);//batch
+                    check[3] = decryption.Substring(6, 2);//vol
+                    check[4] = decryption.Substring(8, 4);//num
+                    string year = reverseDate(check[2].Substring(0, 1).ToCharArray()[0]);
+                    string month = reverseDate(check[2].Substring(1, 1).ToCharArray()[0]);
+                    string day = reverseDate(check[2].Substring(2, 1).ToCharArray()[0]);
                     while (year.Length < 4)
                     {
                         year = year.Insert(0, "20");
@@ -1587,41 +1680,42 @@ namespace BioBaseCLIA.Run
                     {
                         day = day.Insert(0, "0");
                     }
-                    check[i] = year + month + day;
-                    if (!Regex.IsMatch(check[i], @"^\d{8}$"))
+                    check[2] = year + month + day;
+                    if (!Regex.IsMatch(check[2], @"^\d{8}$"))
+                    {
+                        return false;
+                    }
+                    if (!Regex.IsMatch(check[1], @"^[a-fA-F0-9]{1,4}$"))
+                    {
+                        return false;
+                    }
+                    else if (!Regex.IsMatch(check[3], @"^[a-fA-F0-9]{1,4}$"))
+                    {
+                        return false;
+                    }
+                    else if (!Regex.IsMatch(check[4], @"^[a-fA-F0-9]{1,4}$"))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        check[1] = Convert.ToInt32(check[1], 16).ToString();
+                        check[3] = Convert.ToInt32(check[4], 16).ToString();
+                        check[4] = Convert.ToInt32(check[5], 16).ToString();
+                    }
+
+                    int countCheckNum = 0;
+                    foreach (string str in check)
+                    {
+                        countCheckNum += int.Parse(str);
+                    }
+                    if (checkNum != (countCheckNum % 7).ToString()) //计算得到的校验位和明文校验位不相等    
                     {
                         return false;
                     }
                 }
-                if (!Regex.IsMatch(check[1], @"^[a-fA-F0-9]{1,4}$"))
-                {
-                    return false;
-                }
-                else if (!Regex.IsMatch(check[4], @"^[a-fA-F0-9]{1,4}$"))
-                {
-                    return false;
-                }
-                else if (!Regex.IsMatch(check[5], @"^[a-fA-F0-9]{1,4}$"))
-                {
-                    return false;
-                }
                 else
-                {
-                    check[1] = Convert.ToInt32(check[1], 16).ToString();
-                    check[4] = Convert.ToInt32(check[4], 16).ToString();
-                    check[5] = Convert.ToInt32(check[5], 16).ToString();
-                }
-
-                int countCheckNum = 0;
-                foreach (string str in check)
-                {
-                    countCheckNum += int.Parse(str);
-                }
-                if (checkNum != (countCheckNum % 7).ToString()) //计算得到的校验位和明文校验位不相等    
-                {
                     return false;
-                }
-
             }
 
             return true;
@@ -1646,7 +1740,7 @@ namespace BioBaseCLIA.Run
             ///
             if (e.KeyCode != Keys.Enter)
                 return;
-            if ((txtRgCode.Text.Length != 18 && txtRgCode.Text.Length != 16) || judgeBarCode(txtRgCode.Text.Trim()) == false)
+            if ((txtRgCode.Text.Length != 15 && txtRgCode.Text.Length != 18 && txtRgCode.Text.Length != 13 && txtRgCode.Text.Length != 16) || judgeBarCode(txtRgCode.Text.Trim()) == false)
             {
                 Invoke(new Action(() =>
                 {
@@ -2205,7 +2299,15 @@ namespace BioBaseCLIA.Run
             //批号
             string batchDay = decryption.Substring(4, 3);
             //生产日期
-            string productDay = decryption.Substring(7, 3);
+            string productDay = batchDay /*decryption.Substring(7, 3)*/;
+            //质控靶值
+            string tempX;
+            //质控标准差
+            string tempSD;
+            //质控类别
+            string qcLevel;
+            //质控规则
+            string rule16;
             #region
             string year = "";
             string month = "";
@@ -2245,12 +2347,33 @@ namespace BioBaseCLIA.Run
                 day2 = day2.Insert(0, "0");
             }
             #endregion
-            //质控靶值
-            string tempX = decryption.Substring(10, 5);
+            if (rgcode.Length == 25)
+            {
+                //质控靶值
+                tempX = decryption.Substring(10, 5);
+                //质控标准差
+                tempSD = decryption.Substring(15, 5);
+                //质控类别
+                qcLevel = decryption.Substring(20, 1);
+                //质控规则
+                rule16 = decryption.Substring(21, 4);
+            }
+            else if (rgcode.Length == 22)
+            {
+                //质控靶值
+                tempX = decryption.Substring(7, 5);
+                //质控标准差
+                tempSD = decryption.Substring(12, 5);
+                //质控类别
+                qcLevel = decryption.Substring(17, 1);
+                //质控规则
+                rule16 = decryption.Substring(18, 4);
+            }
+            else
+                return true;
+
             tempX = Convert.ToInt32(tempX.Substring(0, 3), 16).ToString() + "." + Convert.ToInt32(tempX.Substring(3, 2), 16).ToString();
-            double qcX = double.Parse(tempX);
-            //质控标准差
-            string tempSD = decryption.Substring(15, 5);
+            double qcX = double.Parse(tempX);            
             string temp = Convert.ToInt32(tempSD.Substring(2, 3), 16).ToString();
             while (temp.Length < 3)
             {
@@ -2259,26 +2382,14 @@ namespace BioBaseCLIA.Run
             //倒转
             temp = temp.Substring(2, 1) + temp.Substring(1, 1) + temp.Substring(0, 1);
             tempSD = Convert.ToInt32(tempSD.Substring(0, 2), 16).ToString() + "." + temp;
-            double qcSD = double.Parse(tempSD);
-            //质控类别
-            string qcLevel = decryption.Substring(20, 1);
+            double qcSD = double.Parse(tempSD);            
             //质控批号
             string strLevel = qcLevel == "0" ? "H" : (qcLevel == "1" ? "M" : "L");
-            string qcBatch = itemName + year + month + day + "-" + strLevel;
-            //检查db，批号重复返回成功,不重复录用
-            //if(bllQC.GetRecordCount("Batch="+qcBatch+"") > 0)
-            //{
-            //    addRFlag = (int)addRFlagState.success;
-            //    return;
-            //}
-            //int a = (int)DbHelperOleDb.GetSingle(3, "select count(1) FROM tbQC where Batch='" + qcBatch + "'");
+            string qcBatch = itemName + year + month + day + "-" + strLevel;            
             if ((int)DbHelperOleDb.GetSingle(3, "select count(1) FROM tbQC where Batch='" + qcBatch + "'") > 0)
             {
                 return true;
             }
-
-            //质控规则
-            string rule16 = decryption.Substring(21, 4);
             int rule10 = Convert.ToInt32(rule16, 16);
             string rule2 = Convert.ToString(rule10, 2);
             while (rule2.Length < 16)
@@ -2295,8 +2406,6 @@ namespace BioBaseCLIA.Run
                     rule += i.ToString();
                 }
             }
-
-
             string validTime = year2 + "/" + month2 + "/" + day2;
             //录入者
             mQC.Batch = qcBatch;
@@ -2805,7 +2914,7 @@ namespace BioBaseCLIA.Run
                 }));
 
                 int hole = i;
-                hole = hole - 5 > 0 ? (hole - 5) : (20 + hole - 5);
+                hole = hole - 15 > 0 ? (hole - 15) : (30 + hole - 15);
                 string HoleNum = hole.ToString("x2");
 
                 RotSendAgain:
