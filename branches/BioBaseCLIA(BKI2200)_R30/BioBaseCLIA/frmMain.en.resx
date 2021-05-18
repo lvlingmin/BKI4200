@@ -473,7 +473,7 @@
     <value>NoControl</value>
   </data>
   <data name="temperatureButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 19</value>
+    <value>189, 19</value>
   </data>
   <data name="temperatureButton.ToolTip" xml:space="preserve">
     <value>Temperature query</value>
@@ -483,6 +483,9 @@
   </data>
   <data name="btnVersion.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
+  </data>
+  <data name="btnVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>843, 14</value>
   </data>
   <data name="btnVersion.Text" xml:space="preserve">
     <value>About</value>
@@ -496,8 +499,15 @@
   <data name="btnHelp.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
+  <data name="btnHelp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>762, 15</value>
+  </data>
   <data name="btnHelp.Text" xml:space="preserve">
     <value>Help</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnHelp.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="btnExit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
