@@ -1227,6 +1227,8 @@ namespace BioBaseCLIA.Run
                 txtRgCode.Enabled = true;
                 txtRgBatch.Enabled = true;
                 dateValidDate.Enabled = true;
+                txtRgAllTest.Enabled = true;
+                txtRgLastTest.Enabled = true;                
                 //initContr();
                 //txtRgCode.Focus();
                 //barCodeHook.Stop();
@@ -1237,6 +1239,8 @@ namespace BioBaseCLIA.Run
                 txtRgCode.Enabled = false;
                 txtRgBatch.Enabled = false;
                 dateValidDate.Enabled = false;
+                txtRgAllTest.Enabled = false;
+                txtRgLastTest.Enabled = false;
                 //barCodeHook.Start();
             }
         }
@@ -1284,6 +1288,30 @@ namespace BioBaseCLIA.Run
         {
             if(txtRgPosition.Text == "")
                 return;
+            string addDilFlag = "";
+            for (int i = 0; i < dgvRgInfoList.Rows.Count; i++)
+            {
+                if (dgvRgInfoList.Rows[i].Cells["RgName"].Value.ToString().Contains("SD"))
+                {
+                    addDilFlag += "1";
+                }
+                if (dgvRgInfoList.Rows[i].Cells["RgPosition"].Value.ToString() == txtRgPosition.Text)
+                {
+                    addDilFlag += "2";
+                }
+            }
+            if (!addDilFlag.Contains("2"))
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("添加稀释液", "当前位置未装载试剂！");
+                return;
+            }
+            if (!addDilFlag.Contains("1"))
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("添加稀释液", "未发现已装载稀释液！");
+                return;
+            }
             string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
             if (DiuFlag == "1")
             {
