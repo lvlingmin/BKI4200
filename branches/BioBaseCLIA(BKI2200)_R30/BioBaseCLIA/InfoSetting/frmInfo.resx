@@ -459,21 +459,21 @@
   <data name="&gt;&gt;btnSaveItem.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="StnNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="StnNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="StnNo.HeaderText" xml:space="preserve">
     <value>No.</value>
   </data>
-  <metadata name="StdName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="StdName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="StdName.HeaderText" xml:space="preserve">
     <value>标准品名</value>
   </data>
-  <metadata name="conc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="conc.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="conc.HeaderText" xml:space="preserve">
     <value>浓度</value>
   </data>
@@ -622,27 +622,27 @@
   <data name="&gt;&gt;btnModifyStep.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="NO.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="NO.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="NO.HeaderText" xml:space="preserve">
     <value>NO.</value>
   </data>
-  <metadata name="StepName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="StepName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="StepName.HeaderText" xml:space="preserve">
     <value>步骤名</value>
   </data>
-  <metadata name="StepPara.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="StepPara.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="StepPara.HeaderText" xml:space="preserve">
     <value>参数</value>
   </data>
-  <metadata name="ParaUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="ParaUnit.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="ParaUnit.HeaderText" xml:space="preserve">
     <value>单位</value>
   </data>
@@ -1261,15 +1261,15 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <metadata name="colNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="colNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="colNo.HeaderText" xml:space="preserve">
     <value>NO.</value>
   </data>
-  <metadata name="colShortName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="colShortName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="colShortName.HeaderText" xml:space="preserve">
     <value>项目简称</value>
   </data>
@@ -1820,21 +1820,21 @@
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <metadata name="Doctor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="Doctor.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="Doctor.HeaderText" xml:space="preserve">
     <value>医生</value>
   </data>
-  <metadata name="Department.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="Department.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="Department.HeaderText" xml:space="preserve">
     <value>科室</value>
   </data>
-  <metadata name="DocID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="DocID.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="DocID.HeaderText" xml:space="preserve">
     <value>ID</value>
   </data>
@@ -3147,15 +3147,15 @@
   <data name="&gt;&gt;btnMoveUP.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="PrintNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="PrintNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="PrintNo.HeaderText" xml:space="preserve">
     <value>排序</value>
   </data>
-  <metadata name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="ItemName.HeaderText" xml:space="preserve">
     <value>项目名称</value>
   </data>
@@ -4302,9 +4302,9 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -4413,7 +4413,7 @@
   <data name="BasicSetHead" xml:space="preserve">
     <value>基础信息设置</value>
   </data>
- <data name="Cancel" xml:space="preserve">
+  <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="D" xml:space="preserve">
@@ -4446,7 +4446,7 @@
   <data name="DepartSelectInfo" xml:space="preserve">
     <value>请选中修改项</value>
   </data>
-   <data name="DoctorAddSucess" xml:space="preserve">
+  <data name="DoctorAddSucess" xml:space="preserve">
     <value>医生信息添加成功</value>
   </data>
   <data name="DoctorDeleteSucess" xml:space="preserve">
@@ -4464,7 +4464,7 @@
   <data name="DoctorSelectInfo" xml:space="preserve">
     <value>请选择需要修改的医生信息</value>
   </data>
- <data name="File" xml:space="preserve">
+  <data name="File" xml:space="preserve">
     <value>文件</value>
   </data>
   <data name="GroupAddSucess" xml:space="preserve">
@@ -4485,7 +4485,7 @@
   <data name="GroupSDeleteInfo" xml:space="preserve">
     <value>请选择要删除的组合项目</value>
   </data>
-   <data name="GroupSItemInfo" xml:space="preserve">
+  <data name="GroupSItemInfo" xml:space="preserve">
     <value>未选择实验项目，请选择</value>
   </data>
   <data name="GroupSModify" xml:space="preserve">
@@ -4497,7 +4497,7 @@
   <data name="HospitalName" xml:space="preserve">
     <value>XXXX医院</value>
   </data>
- <data name="PrintParaSetSucess" xml:space="preserve">
+  <data name="PrintParaSetSucess" xml:space="preserve">
     <value>打印参数设置成功</value>
   </data>
   <data name="ProjectDeleteSucess" xml:space="preserve">
@@ -4532,11 +4532,14 @@
   </data>
   <data name="RD" xml:space="preserve">
     <value>试剂D</value>
-   </data>
-   <data name="ReportNameSet" xml:space="preserve">
+  </data>
+  <data name="ReportNameSet" xml:space="preserve">
     <value>报告名称只能由汉字、字母、数字、星号、\".\"或下划线组成，且不能为空！</value>
   </data>
- <data name="W" xml:space="preserve">
+  <data name="W" xml:space="preserve">
     <value>清洗</value>
-  </data> 
-  </root>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+</root>
