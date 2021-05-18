@@ -1678,6 +1678,9 @@
   <data name="chkScanSampleCode.Text" xml:space="preserve">
     <value>启用条码扫描</value>
   </data>
+  <data name="chkScanSampleCode.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;chkScanSampleCode.Name" xml:space="preserve">
     <value>chkScanSampleCode</value>
   </data>

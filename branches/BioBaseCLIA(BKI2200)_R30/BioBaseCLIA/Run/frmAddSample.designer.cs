@@ -73,6 +73,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSpCode1 = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtScanEndNo = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.txtScanStartNo = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.AutoUploadAndUnload1 = new System.Windows.Forms.CheckBox();
             this.cmbBatch = new System.Windows.Forms.ComboBox();
             this.lblBatch = new System.Windows.Forms.Label();
@@ -113,8 +115,6 @@
             this.GroupContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnAddtoProgram = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.txtScanStartNo = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.txtScanEndNo = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.definePanalLoad.SuspendLayout();
@@ -538,6 +538,38 @@
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
+            // txtScanEndNo
+            // 
+            this.txtScanEndNo.IsNull = false;
+            resources.ApplyResources(this.txtScanEndNo, "txtScanEndNo");
+            this.txtScanEndNo.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.txtScanEndNo.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtScanEndNo.Name = "txtScanEndNo";
+            // 
+            // txtScanStartNo
+            // 
+            this.txtScanStartNo.IsNull = false;
+            resources.ApplyResources(this.txtScanStartNo, "txtScanStartNo");
+            this.txtScanStartNo.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.txtScanStartNo.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtScanStartNo.Name = "txtScanStartNo";
+            // 
             // AutoUploadAndUnload1
             // 
             resources.ApplyResources(this.AutoUploadAndUnload1, "AutoUploadAndUnload1");
@@ -933,38 +965,6 @@
             this.btnAddtoProgram.Name = "btnAddtoProgram";
             this.btnAddtoProgram.UseVisualStyleBackColor = true;
             this.btnAddtoProgram.Click += new System.EventHandler(this.btnAddtoProgram_Click);
-            // 
-            // txtScanStartNo
-            // 
-            this.txtScanStartNo.IsNull = false;
-            resources.ApplyResources(this.txtScanStartNo, "txtScanStartNo");
-            this.txtScanStartNo.MaxValue = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.txtScanStartNo.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtScanStartNo.Name = "txtScanStartNo";
-            // 
-            // txtScanEndNo
-            // 
-            this.txtScanEndNo.IsNull = false;
-            resources.ApplyResources(this.txtScanEndNo, "txtScanEndNo");
-            this.txtScanEndNo.MaxValue = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.txtScanEndNo.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtScanEndNo.Name = "txtScanEndNo";
             // 
             // frmAddSample
             // 
