@@ -1237,4 +1237,13 @@
   <data name="ParaSaveSucess" xml:space="preserve">
     <value>The data was saved successfully and came into effect after the instrument was restarted</value>
   </data>
+  <data name="InstrumentParaHead1" xml:space="preserve">
+    <value>Setting of the instrument's data</value>
+  </data>
+  <data name="ParaIsNull1" xml:space="preserve">
+    <value>The information cannot be empty</value>
+  </data>
+  <data name="ParaSaveSucess1" xml:space="preserve">
+    <value>The data was saved successfully and came into effect after the instrument was restarted</value>
+  </data>
 </root>

@@ -251,10 +251,5 @@ namespace BioBaseCLIA.InfoSetting
         {
 
         }
-
-
-     
-
-      
     }
 }
