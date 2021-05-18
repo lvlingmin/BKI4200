@@ -1960,7 +1960,7 @@ namespace BioBaseCLIA.Run
                 txtSpRepetitions.Text = Convert.ToString(dgvSampleList.SelectedRows[0].Cells["RepeatCount"].Value);
                 cmbSpType.Text = Convert.ToString(dgvSampleList.SelectedRows[0].Cells["SampleType"].Value);
                 cmbPipeType.Text = Convert.ToString(dgvSampleList.SelectedRows[0].Cells["TubeType"].Value);
-                if (cmbBatch.Visible && btnDelete.Text != "保存" && chkScanSampleCode.Checked == false && !btnMoreSave.Enabled)
+                if (cmbBatch.Visible && btnDelete.Enabled && btnDelete.Text != "保存" && chkScanSampleCode.Checked == false && !btnMoreSave.Enabled)
                 {
                     cmbBatch.Items.Clear();
                     string spBtach = dtSampleAllInfo.Select("SampleNo='" + dgvSampleList.SelectedRows[0].Cells["SampleNo"].Value + "'")[0]["RegentBatch"].ToString();
