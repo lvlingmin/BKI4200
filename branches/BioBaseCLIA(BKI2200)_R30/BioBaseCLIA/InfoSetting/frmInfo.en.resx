@@ -2331,7 +2331,7 @@
     <value>Department</value>
   </data>
   <data name="DepartNameSet" xml:space="preserve">
-    <value>Department name can only be composed of two to ten Chinese characters, letters, numbers, asterisks, \ ". \" and underscores!</value>
+    <value>Department name can only be composed of two to ten Chinese characters, letters, numbers, asterisks, .  and underscores!</value>
   </data>
   <data name="DepartReName" xml:space="preserve">
     <value>Department information cannot have the same name</value>
@@ -2355,7 +2355,7 @@
     <value>Doctor information modified successfully</value>
   </data>
   <data name="DoctorNameSet" xml:space="preserve">
-    <value>The doctor's name can only be composed of two to ten Chinese characters, letters, numbers, asterisks, \ ". \" or underscores!</value>
+    <value>The doctor's name can only be composed of two to ten Chinese characters, letters, numbers, asterisks, .  or underscores!</value>
   </data>
   <data name="DoctorReName" xml:space="preserve">
     <value>There are doctors with the same name in the same department</value>
@@ -2409,7 +2409,7 @@
     <value>Modification of combination project succeeded!</value>
   </data>
   <data name="GroupNameInfo" xml:space="preserve">
-    <value>The combination item name can only be composed of two to ten Chinese characters, letters, asterisks, numbers, \ ". \" and underscores</value>
+    <value>The combination item name can only be composed of two to ten Chinese characters, letters, asterisks, numbers, . and underscores</value>
   </data>
   <data name="GroupReName" xml:space="preserve">
     <value>Portfolio items cannot have the same name</value>
@@ -2559,7 +2559,7 @@
     <value>Open</value>
   </data>
   <data name="ReportNameSet" xml:space="preserve">
-    <value>The report name can only be composed of Chinese characters, letters, numbers, asterisks, \ ". \" or underscores, and cannot be empty!</value>
+    <value>The report name can only be composed of Chinese characters, letters, numbers, asterisks, .  or underscores, and cannot be empty!</value>
   </data>
   <data name="S" xml:space="preserve">
     <value>Add sample</value>

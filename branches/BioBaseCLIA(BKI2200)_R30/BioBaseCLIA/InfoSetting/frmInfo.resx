@@ -4435,7 +4435,7 @@
     <value>科室信息删除成功</value>
   </data>
   <data name="DepartNameSet" xml:space="preserve">
-    <value>科室名称只能由二到十个汉字、字母、数字、星号、\".\"、下划线组成！</value>
+    <value>科室名称只能由二到十个汉字、字母、数字、星号、.、下划线组成！</value>
   </data>
   <data name="DepartReName" xml:space="preserve">
     <value>科室信息不能重名</value>
@@ -4456,7 +4456,7 @@
     <value>医生信息修改成功</value>
   </data>
   <data name="DoctorNameSet" xml:space="preserve">
-    <value>医生姓名只能由二到十个汉字、字母、数字、星号、\".\"或下划线组成！</value>
+    <value>医生姓名只能由二到十个汉字、字母、数字、星号、.或下划线组成！</value>
   </data>
   <data name="DoctorReName" xml:space="preserve">
     <value>相同的科室下已有同名的医生</value>
@@ -4477,7 +4477,7 @@
     <value>组合项目修改成功！</value>
   </data>
   <data name="GroupNameInfo" xml:space="preserve">
-    <value>组合项目名称只能由二到十个汉字、字母、星号、数字、\".\"、下划线组成</value>
+    <value>组合项目名称只能由二到十个汉字、字母、星号、数字、.、下划线组成</value>
   </data>
   <data name="GroupReName" xml:space="preserve">
     <value>组合项目不能重名</value>
@@ -4534,12 +4534,24 @@
     <value>试剂D</value>
   </data>
   <data name="ReportNameSet" xml:space="preserve">
-    <value>报告名称只能由汉字、字母、数字、星号、\".\"或下划线组成，且不能为空！</value>
+    <value>报告名称只能由汉字、字母、数字、星号、.或下划线组成，且不能为空！</value>
   </data>
   <data name="W" xml:space="preserve">
     <value>清洗</value>
   </data>
   <data name="Modify" xml:space="preserve">
     <value>修改</value>
+  </data>
+  <data name="PrinterSetFail" xml:space="preserve">
+    <value>设置为默认打印机失败！</value>
+  </data>
+  <data name="PrintHead" xml:space="preserve">
+    <value>打印设置</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>加样</value>
+  </data>
+  <data name="T" xml:space="preserve">
+    <value>加底物</value>
   </data>
 </root>
