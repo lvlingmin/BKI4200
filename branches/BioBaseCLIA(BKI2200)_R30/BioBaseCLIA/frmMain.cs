@@ -545,6 +545,10 @@ namespace BioBaseCLIA
 
         private void defineButton1_Click(object sender, EventArgs e)
         {
+            if (frmReagentLoad.isSp == true)
+            {
+                return;
+            }
             LogFile.Instance.Write(DateTime.Now + "pauseFlag的值为:" + pauseFlag+",btnRunClick的是否为空:" + (btnRunClick == null?"NULL":"NotNUll"));
             if (btnRunClick != null && pauseFlag == false)
             {
@@ -592,6 +596,10 @@ namespace BioBaseCLIA
         }
         private void defineButton2_Click(object sender, EventArgs e)
         {
+            if (frmReagentLoad.isSp == true)
+            {
+                return;
+            }
             if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
             {
                 MessageBox.Show(GetString("NotRun"), GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -616,6 +624,10 @@ namespace BioBaseCLIA
 
         private void defineButton3_Click(object sender, EventArgs e)
         {
+            if (frmReagentLoad.isSp == true)
+            {
+                return;
+            }
             if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
             {
                 MessageBox.Show(GetString("NotRun") , GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
