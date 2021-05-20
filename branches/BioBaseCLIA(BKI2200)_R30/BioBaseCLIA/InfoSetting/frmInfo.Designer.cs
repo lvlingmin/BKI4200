@@ -44,6 +44,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.tabInfo = new BioBaseCLIA.CustomControl.TabControlMy();
             this.tabPPro = new System.Windows.Forms.TabPage();
+            this.btnLoadItem = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnUnLoadItem = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSaveItem = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -79,7 +80,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnLoadItem = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.dgvItemList = new System.Windows.Forms.DataGridView();
             this.colNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShortName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -198,6 +198,19 @@
             this.tabPPro.Controls.Add(this.dgvItemList);
             resources.ApplyResources(this.tabPPro, "tabPPro");
             this.tabPPro.Name = "tabPPro";
+            // 
+            // btnLoadItem
+            // 
+            this.btnLoadItem.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadItem, "btnLoadItem");
+            this.btnLoadItem.EnabledSet = true;
+            this.btnLoadItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLoadItem.FlatAppearance.BorderSize = 0;
+            this.btnLoadItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadItem.Name = "btnLoadItem";
+            this.btnLoadItem.UseVisualStyleBackColor = false;
+            this.btnLoadItem.Click += new System.EventHandler(this.btnLoadItem_Click);
             // 
             // btnUnLoadItem
             // 
@@ -535,19 +548,6 @@
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            // 
-            // btnLoadItem
-            // 
-            this.btnLoadItem.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.btnLoadItem, "btnLoadItem");
-            this.btnLoadItem.EnabledSet = true;
-            this.btnLoadItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLoadItem.FlatAppearance.BorderSize = 0;
-            this.btnLoadItem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadItem.Name = "btnLoadItem";
-            this.btnLoadItem.UseVisualStyleBackColor = false;
-            this.btnLoadItem.Click += new System.EventHandler(this.btnLoadItem_Click);
             // 
             // dgvItemList
             // 
