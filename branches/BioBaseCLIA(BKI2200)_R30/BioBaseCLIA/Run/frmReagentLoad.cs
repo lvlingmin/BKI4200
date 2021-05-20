@@ -1771,8 +1771,8 @@ namespace BioBaseCLIA.Run
                     else
                     {
                         check[1] = Convert.ToInt32(check[1], 16).ToString();
-                        check[3] = Convert.ToInt32(check[4], 16).ToString();
-                        check[4] = Convert.ToInt32(check[5], 16).ToString();
+                        check[3] = Convert.ToInt32(check[3], 16).ToString();
+                        check[4] = Convert.ToInt32(check[4], 16).ToString();
                     }
 
                     int countCheckNum = 0;
