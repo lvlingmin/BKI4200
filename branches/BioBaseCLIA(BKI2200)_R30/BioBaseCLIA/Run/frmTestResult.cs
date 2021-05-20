@@ -812,7 +812,16 @@ namespace BioBaseCLIA.Run
         private void fbtnTestAgain_Click(object sender, EventArgs e)
         {
             if (dgvResultData.SelectedRows.Count == 0||frmWorkList.RunFlag==(int)RunFlagStart.IsRuning) return;
-            bool _boolAgain = false;
+
+            if (dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("标准")||
+                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("校准")||
+                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("质控")) 
+            {
+                MessageBox.Show("非血清样本请手动添加操作","温馨提示", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+                bool _boolAgain = false;
             DbHelperOleDb db = new DbHelperOleDb(1);
             DataTable _dtSP = bllsp.GetList("SampleID=" + dgvResultData.SelectedRows[0].Cells["SampleID"].Value + "").Tables[0];
             if (_dtSP.Rows.Count > 0)
