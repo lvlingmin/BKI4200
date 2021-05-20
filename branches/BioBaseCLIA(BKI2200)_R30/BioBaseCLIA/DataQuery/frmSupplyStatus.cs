@@ -481,6 +481,11 @@ namespace BioBaseCLIA.DataQuery
 
         private void ItemUnLoad_Click(object sender, EventArgs e)
         {
+            string bar = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", Application.StartupPath + "//SubstrateTube.ini");
+            if (bar == "")
+            {
+                return;
+            }
             DbHelperOleDb db = new DbHelperOleDb(3);
             DataTable dtSb = bllsb.GetList("Status='"+Getstring("normal") +"'and SubstrateNumber = '" + CurBottle.ToString()+ "'").Tables[0];
             Model.tbSubstrate modelSb = new Model.tbSubstrate();

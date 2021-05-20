@@ -10,6 +10,7 @@ using Maticsoft.DBUtility;
 using Common;
 using DBUtility;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -293,20 +294,32 @@ namespace BioBaseCLIA.DataQuery
                 return;
             if ((txtSubstrateCode.Text.Length != 12 && txtSubstrateCode.Text.Length != 15) || !judgeSubBarCode(txtSubstrateCode.Text.Trim()))
             {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    frmMessageShow fr = new frmMessageShow();
+                    fr.MessageShow("底物装载", "条码校验未通过！请重新输入！");
+                }))
+                { IsBackground = true }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
-                    frmMsgShow.MessageShow("底物装载", "条码校验未通过！请重新输入");
+                    //frmMsgShow.MessageShow("底物装载", "条码校验未通过！请重新输入");
                 }));
                 return;
             }
 
             if (!fillSubInfo(txtSubstrateCode.Text.Trim()))
             {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    frmMessageShow fr = new frmMessageShow();
+                    fr.MessageShow("底物装载", "已装载底物,请先卸载底物！");
+                }))
+                { IsBackground = true }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
-                    frmMsgShow.MessageShow("底物装载", "已装载底物,请先卸载底物!");
+                    //frmMsgShow.MessageShow("底物装载", "已装载底物,请先卸载底物!");
                 }));
             }
         }
@@ -504,19 +517,31 @@ namespace BioBaseCLIA.DataQuery
             string rgCode = txtSubstrateCode.Text.Trim();
             if (!judgeSubBarCode(rgCode))
             {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    frmMessageShow fr = new frmMessageShow();
+                    fr.MessageShow("底物装载", "未通过条码校验！");
+                }))
+                { IsBackground = true }.Start();
                 BeginInvoke(new Action(() =>
                 {
                     initContr(1);
-                    frmMsgShow.MessageShow("底物装载", "未通过条码校验！");
+                    //frmMsgShow.MessageShow("底物装载", "未通过条码校验！");
                 }));
                 return;
             }
             if (!fillSubInfo(rgCode))
             {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    frmMessageShow fr = new frmMessageShow();
+                    fr.MessageShow("底物装载", "已装载底物,请先卸载底物！");
+                }))
+                { IsBackground = true }.Start();
                 BeginInvoke(new Action(() =>
                 {
                     initContr(1);
-                    frmMsgShow.MessageShow("底物装载", "已装载底物,请先卸载底物!");
+                    //frmMsgShow.MessageShow("底物装载", "已装载底物,请先卸载底物!");
                 }));
             }
         }
