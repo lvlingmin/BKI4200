@@ -438,7 +438,6 @@
             this.dateValidDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateValidDate.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.dateValidDate.Name = "dateValidDate";
-            this.dateValidDate.Value = new System.DateTime(2021, 5, 2, 0, 0, 0, 0);
             // 
             // LabValidDate
             // 

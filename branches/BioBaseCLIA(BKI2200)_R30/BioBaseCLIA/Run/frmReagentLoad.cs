@@ -40,11 +40,14 @@ namespace BioBaseCLIA.Run
         string addUseHole = "0";
         int addRFlag = 0;
         int RgType = 0;//lyq
+        int addREmpty = 0;
+        List<int> loopSpFailResult = new List<int>();
+        public static bool isSp = false;
         /// <summary>
         /// 准备=0，试剂=1，稀释液=2
         /// </summary>
         enum ReagentType { ready = 0, reagent = 1, dilute = 2 };//lyq
-        enum addRFlagState { ready = 0, success = 1, fail = 2 };
+        enum addRFlagState { ready = 0, success = 1, fail = 2, empty = 3 };
         frmMessageShow frmMsgShow = new frmMessageShow();
         /// <summary
         /// 试剂警告最小值 2018-07-27 zlx add
@@ -64,7 +67,7 @@ namespace BioBaseCLIA.Run
         public void LoadData()
         {
             GetSelectedNo = 0;//2018-12-08 zlx mod
-            dateValidDate.MinDate= Convert.ToDateTime("2020/01/01");
+            dateValidDate.MinDate = Convert.ToDateTime("2020/01/01");
             ShowRgInfo(1);
         }
         private void frmLoadReagent_Load(object sender, EventArgs e)
@@ -194,6 +197,7 @@ namespace BioBaseCLIA.Run
 
         private void fbtnReturn_Click(object sender, EventArgs e)
         {
+            isSp = false;
             fbtnReturn.Enabled = false;
             btnAddR.Enabled = false;
             btnDelR.Enabled = false;
@@ -210,7 +214,28 @@ namespace BioBaseCLIA.Run
         private void btnAddR_Click(object sender, EventArgs e)
         {
             frmMessageShow frmMsgShow = new frmMessageShow();
-
+            //if (txtRgCode.Text == "")
+            //{
+            //    frmMsgShow.MessageShow("试剂加载", "试剂条码为空。本次加载操作已取消。");
+            //    return;
+            //}
+            //if (txtRgBatch.Text == "")
+            //{
+            //    frmMsgShow.MessageShow("试剂加载", "试剂批号为空。本次加载操作已取消。");
+            //    return;
+            //}
+            //if (txtRgAllTest.Text == "")
+            //{
+            //    frmMsgShow.MessageShow("试剂装载", "总测数为空，请重新输入！");
+            //    txtRgAllTest.Focus();
+            //    return;
+            //}
+            //if (txtRgLastTest.Text == "")
+            //{
+            //    frmMsgShow.MessageShow("试剂装载", "剩余测数为空，请重新输入！");
+            //    txtRgLastTest.Focus();
+            //    return;
+            //}
             txtRgCode.TextChanged -= new EventHandler(txtRgCode_TextChanged);
             txtRgCode.TextChanged -= new EventHandler(txtRgCode_TextChanged);
             for (int i = 1; i <= RegentNum; i++)//查重功能
@@ -325,8 +350,10 @@ namespace BioBaseCLIA.Run
                     {
                         return;
                     }
-                    
+
                     btnAddR.Enabled = false;
+                    dgvRgInfoList.Enabled = false;
+                    srdReagent.Enabled = false;
                     #region 旋转到读卡器位置
                     int hole = Convert.ToInt32(addUseHole, 16);
                     hole = hole - 15 > 0 ? (hole - 15) : (30 + hole - 15);
@@ -352,8 +379,12 @@ namespace BioBaseCLIA.Run
                     {
                         cmbRgName.Enabled = true;
                         btnAddR.Enabled = true;
+                        dgvRgInfoList.Enabled = true;
+                        srdReagent.Enabled = true;
                         return;
                     }
+                    dgvRgInfoList.Enabled = true;
+                    srdReagent.Enabled = true;
                     cmbRgName.Enabled = true;
                     btnAddR.Enabled = true;
                 }
@@ -476,9 +507,9 @@ namespace BioBaseCLIA.Run
                     ModelRg.Postion = txtRgPosition.Text.Trim();
                     ModelRg.ReagentName = cmbRgName.Text.Trim();
                     DateTime date = dateValidDate.Value;
-                    if (validTime < date && validTime>DateTime.Now.Date)
+                    if (validTime < date && validTime > DateTime.Now.Date)
                         ModelRg.ValidDate = validTime.ToShortDateString();/*DateTime.Now.Date.AddDays(90).ToShortDateString();*/
-                    else 
+                    else
                     {
                         //string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + ModelRg.Postion, "DiuFlag", "", iniPathReagentTrayInfo);
                         if (DiuFlag == 1)
@@ -678,7 +709,7 @@ namespace BioBaseCLIA.Run
                     }
                     else
                     {
-                        string DiuFlag= OperateIniFile.ReadIniData("ReagentPos" + (RgSelectedNo + 1), "DiuFlag", "", iniPathReagentTrayInfo);
+                        string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + (RgSelectedNo + 1), "DiuFlag", "", iniPathReagentTrayInfo);
                         if (DiuFlag == "1")
                         {
                             srdReagent.RgColor[RgSelectedNo] = Color.Purple;
@@ -743,8 +774,8 @@ namespace BioBaseCLIA.Run
                     txtRgBatch.Text = dtRgInfo.Rows[i]["Batch"].ToString();
                     txtRgAllTest.Text = dtRgInfo.Rows[i]["AllTestNumber"].ToString();
                     txtRgLastTest.Text = dtRgInfo.Rows[i]["leftoverTestR1"].ToString();
-                    if(dtRgInfo.Rows[i]["ValidDate"].ToString()!="")
-                    { 
+                    if (dtRgInfo.Rows[i]["ValidDate"].ToString() != "")
+                    {
                         dateValidDate.Value = Convert.ToDateTime(dtRgInfo.Rows[i]["ValidDate"].ToString());
                     }
                     //txtDiluteVol.Text = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);//2019-02-19 zlx add
@@ -837,7 +868,7 @@ namespace BioBaseCLIA.Run
             ModelRg.Postion = txtRgPosition.Text.Trim();
             ModelRg.ReagentName = cmbRgName.Text.Trim();
             ModelRg.Status = "卸载";
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < rg.Length; i++)
             {
                 rg[i] = "";
             }
@@ -905,16 +936,18 @@ namespace BioBaseCLIA.Run
             OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "LeftReagent2", strRg[5], iniPathReagentTrayInfo);
             OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "LeftReagent3", strRg[6], iniPathReagentTrayInfo);
             OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "LeftReagent4", strRg[7], iniPathReagentTrayInfo);
-            if(strRg[8]=="")
+            if (strRg[8] == "")
                 OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "LoadDate", "", iniPathReagentTrayInfo);
             else
                 OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "LoadDate", DateTime.Now.Date.ToString("yyyy-MM-dd"), iniPathReagentTrayInfo);
-            if (strRg[1] == "")
+            if (strRg[1] == "")//卸载
             {
                 OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                OperateIniFile.WriteIniData("ReagentPos" + pos.ToString(), "leftDiuVol", "0", iniPathReagentTrayInfo);
                 DiuPosList.Remove(pos);
             }
-            else
+            else//装载
             {
                 DataTable tbDiu = GetDiuShortName();
                 DataRow[] drDiu = tbDiu.Select("ItemShortName = '" + strRg[1] + "'");
@@ -1012,7 +1045,8 @@ namespace BioBaseCLIA.Run
         }
         private void btnLoadSample_Click(object sender, EventArgs e)
         {
-            if (CheckOvertimeR()) return;
+            isSp = false;
+            //if (CheckOvertimeR()) return;
             LeavePageSetReagentToMix();
             if (!CheckFormIsOpen("frmSampleLoad"))
             {
@@ -1075,7 +1109,7 @@ namespace BioBaseCLIA.Run
                     srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Purple;
                 }
                 else
-                { 
+                {
                     if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) < WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) < WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) < WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) < WarnReagent)
                     {
                         if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) == 0)
@@ -1225,22 +1259,27 @@ namespace BioBaseCLIA.Run
             if (chkManualInput.Checked)
             {
                 txtRgCode.Enabled = true;
-                txtRgBatch.Enabled = true;
-                dateValidDate.Enabled = true;
                 txtRgAllTest.Enabled = true;
-                txtRgLastTest.Enabled = true;                
+                txtRgLastTest.Enabled = true;
+                //txtRgBatch.Enabled = true;
+                //dateValidDate.Enabled = true;
+                //cmbProType.Enabled = true;
+                //cmbRgName.Enabled = true;
                 //initContr();
                 //txtRgCode.Focus();
                 //barCodeHook.Stop();
             }
             else
             {
-                //initContr();
                 txtRgCode.Enabled = false;
-                txtRgBatch.Enabled = false;
-                dateValidDate.Enabled = false;
                 txtRgAllTest.Enabled = false;
                 txtRgLastTest.Enabled = false;
+                //txtRgBatch.Enabled = false;
+                //dateValidDate.Enabled = false;
+                //initContr();
+
+                //cmbProType.Enabled = false;
+                //cmbRgName.Enabled = false;
                 //barCodeHook.Start();
             }
         }
@@ -1286,39 +1325,29 @@ namespace BioBaseCLIA.Run
 
         private void btnAddD_Click(object sender, EventArgs e)
         {
-            if(txtRgPosition.Text == "")
+            if (txtRgPosition.Text == "")
                 return;
-            string addDilFlag = "";
-            for (int i = 0; i < dgvRgInfoList.Rows.Count; i++)
-            {
-                if (dgvRgInfoList.Rows[i].Cells["RgName"].Value.ToString().Contains("SD"))
-                {
-                    addDilFlag += "1";
-                }
-                if (dgvRgInfoList.Rows[i].Cells["RgPosition"].Value.ToString() == txtRgPosition.Text)
-                {
-                    addDilFlag += "2";
-                }
-            }
-            if (!addDilFlag.Contains("2"))
+            string ItemName = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "ItemName", "", iniPathReagentTrayInfo);
+            if (ItemName == "")
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("添加稀释液", "当前位置未装载试剂！");
+                frmMessage.MessageShow("绑定稀释液", "请选择试剂项目来绑定稀释液！");
                 return;
             }
-            if (!addDilFlag.Contains("1"))
+            if (frmParent.DiuPosList.Count == 0)
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("添加稀释液", "未发现已装载稀释液！");
+                frmMessage.MessageShow("绑定稀释液", "未找到已装载的稀释液信息，此次操作不成功！");
                 return;
             }
             string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
             if (DiuFlag == "1")
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("添加稀释液","此试剂位置装载的项目是稀释液！");
+                frmMessage.MessageShow("绑定稀释液", "请选择试剂项目来绑定稀释液！");
                 return;
             }
+
             frmLoadDiu frm = new frmLoadDiu();
             frm.RegentPos = int.Parse(txtRgPosition.Text);
             frm.ShowDialog();
@@ -1371,20 +1400,33 @@ namespace BioBaseCLIA.Run
                     //总测数、剩余测数
                     txtRgAllTest.Text = dt.Rows[0]["AllTestNumber"].ToString();
                     txtRgLastTest.Text = dt.Rows[0]["leftoverTestR1"].ToString();
+
+
+
                     dateValidDate.Value = Convert.ToDateTime(dt.Rows[0]["ValidDate"].ToString());
                 }));
             }
             else//首次装载
             {
                 string[] dealCode = dealBarCode(rgcode).Split('?');
-                string shortName = dealCode[0];//试剂名
-                string batch = dealCode[1];//批号
-                string productDay = dealCode[2];//生产日期
-                string testNum = dealCode[3];//测试次数
                 if (dealCode[0] == "")
                 {
+                    new Thread(new ParameterizedThreadStart((obj) =>
+                    {
+                        frmMessageShow frmMessage = new frmMessageShow();
+                        frmMessage.MessageShow("试剂装载", "未找到此条码对应的项目信息！");
+                    }))
+                    { IsBackground = true }.Start();
                     return false;
                 }
+                string shortName = dealCode[0];//试剂名
+                string batch = dealCode[1];//批号
+                string productDay = batch/* dealCode[2]*/;//生产日期
+                string testNum = dealCode[3];//测试次数
+                //if (dealCode[0] == "")
+                //{
+                //    return false;
+                //}
                 Invoke(new Action(() =>
                 {
                     txtRgCode.Text = rgcode;//条码
@@ -1403,7 +1445,7 @@ namespace BioBaseCLIA.Run
                     txtRgLastTest.Text = testNum;
 
                     //对比生产日期后一年 和 今天装载日期后90天
-                    DateTime dt1 = DateTime.ParseExact(productDay/*.Replace(shortName, "")*/, "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces).AddYears(1).AddDays(-1);
+                    DateTime dt1 = DateTime.ParseExact(batch.Replace(shortName, ""), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces).AddYears(1).AddDays(-1);
                     #region 暂时不考虑开封后有效期计算
                     //DateTime dt2 = DateTime.Now.AddDays(90);
                     //if (DateTime.Compare(dt1, dt2) <= 0)//使用两个最小的作为有效期
@@ -1416,6 +1458,7 @@ namespace BioBaseCLIA.Run
                     //}
                     #endregion
                     validTime = dt1;
+
                     dateValidDate.Value = validTime;
                     if (DateTime.Compare(validTime, DateTime.Now) <= 0)
                     {
@@ -1493,16 +1536,16 @@ namespace BioBaseCLIA.Run
             if (decryption.Substring(0, 1) == "1")
             {  //去数据库查询编号对应的短名
                 DataTable dtAll = bllP.GetAllList().Tables[0];
-                if(dtAll.Rows.Count < 1)
+                if (dtAll.Rows.Count < 1)
                 {
                     return "";
-                }    
+                }
                 string rgNameCode = decryption.Substring(3, 3);//试剂编号
                 try
                 {
                     shortName = dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'")[0]["ShortName"].ToString();
                 }
-                catch(System.Exception ex)
+                catch (System.Exception ex)
                 {
                     return "";
                 }
@@ -1510,40 +1553,16 @@ namespace BioBaseCLIA.Run
                 {
                     return "";
                 }
+                testTimes = (int.Parse(decryption.Substring(9, 2)) * 10).ToString();//测试
                 batch = decryption.Substring(6, 3);//批号
-
-                if (rgcode.Length == 18)
-                {
-                    productDay = decryption.Substring(9, 3);//生产日期 得到有效期
-                    testTimes = (int.Parse(decryption.Substring(12, 2)) * 10).ToString();//测试
-                }
-                else if (rgcode.Length == 15)
-                {
-                    productDay = batch;//生产日期 得到有效期
-                    testTimes = (int.Parse(decryption.Substring(9, 2)) * 10).ToString();//测试
-                }
-                else
-                    return "";
+                productDay = batch/*decryption.Substring(9, 3)*/;//生产日期 得到有效期
             }
             else
             {
                 shortName = "SD" + Convert.ToInt32(decryption.Substring(1, 2), 16);
+                testTimes = (Convert.ToInt32(decryption.Substring(6, 2), 16) * 1000).ToString();//测试
                 batch = decryption.Substring(3, 3);//批号
-                if(rgcode.Length == 16)
-                {
-                    productDay = decryption.Substring(6, 3);//生产日期 得到有效期
-                    testTimes = (Convert.ToInt32(decryption.Substring(9, 2), 16) * 1000).ToString();//测试
-                }
-                else if(rgcode.Length == 13)
-                {
-                    productDay = batch;//生产日期 得到有效期
-                    testTimes = (Convert.ToInt32(decryption.Substring(6, 2), 16) * 1000).ToString();//测试
-                }
-                else
-                {
-                    return "";
-                }
-                
+                productDay = batch /*decryption.Substring(6, 3)*/;//生产日期 得到有效期
             }
             #region batch
             string year = "";
@@ -1565,37 +1584,9 @@ namespace BioBaseCLIA.Run
                 day = day.Insert(0, "0");
             }
             #endregion
-            #region productDay
-            string year2 = "";
-            string month2 = "";
-            string day2 = "";
-            if(batch != productDay)
-            {
-                year2 = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
-                month2 = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
-                day2 = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
-                while (year2.Length < 4)
-                {
-                    year2 = year2.Insert(0, "20");
-                }
-                while (month2.Length < 2)
-                {
-                    month2 = month2.Insert(0, "0");
-                }
-                while (day2.Length < 2)
-                {
-                    day2 = day2.Insert(0, "0");
-                }
-            }
-            else
-            {
-                year2 = year;
-                month2 = month;
-                day2 = day;
-            }
-            #endregion
 
-            return shortName + "?" + shortName + year + month + day + "?" + year2 + month2 + day2 + "?" + testTimes;
+
+            return shortName + "?" + shortName + year + month + day + "?" + year + month + day + "?" + testTimes;
         }
 
         /// <summary>
@@ -1622,128 +1613,63 @@ namespace BioBaseCLIA.Run
             }
             else//dilute
             {
-                if (code.Length == 16)
-                {
-                    string checkNum = decryption.Substring(15, 1);
-                    string[] check = new string[6];
-                    check[0] = "11";
-                    check[1] = decryption.Substring(1, 2);//type
-                    check[2] = decryption.Substring(3, 3);//batch
-                    check[3] = decryption.Substring(6, 3);//date
-                    check[4] = decryption.Substring(9, 2);//vol
-                    check[5] = decryption.Substring(11, 4);//num
-                    for (int i = 2; i < 4; i++)
-                    {
-                        string year = reverseDate(check[i].Substring(0, 1).ToCharArray()[0]);
-                        string month = reverseDate(check[i].Substring(1, 1).ToCharArray()[0]);
-                        string day = reverseDate(check[i].Substring(2, 1).ToCharArray()[0]);
-                        while (year.Length < 4)
-                        {
-                            year = year.Insert(0, "20");
-                        }
-                        while (month.Length < 2)
-                        {
-                            month = month.Insert(0, "0");
-                        }
-                        while (day.Length < 2)
-                        {
-                            day = day.Insert(0, "0");
-                        }
-                        check[i] = year + month + day;
-                        if (!Regex.IsMatch(check[i], @"^\d{8}$"))
-                        {
-                            return false;
-                        }
-                    }
-                    if (!Regex.IsMatch(check[1], @"^[a-fA-F0-9]{1,4}$"))
-                    {
-                        return false;
-                    }
-                    else if (!Regex.IsMatch(check[4], @"^[a-fA-F0-9]{1,4}$"))
-                    {
-                        return false;
-                    }
-                    else if (!Regex.IsMatch(check[5], @"^[a-fA-F0-9]{1,4}$"))
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        check[1] = Convert.ToInt32(check[1], 16).ToString();
-                        check[4] = Convert.ToInt32(check[4], 16).ToString();
-                        check[5] = Convert.ToInt32(check[5], 16).ToString();
-                    }
+                string checkNum = decryption.Substring(12, 1);
+                string[] check = new string[5];
+                check[0] = "11";
+                check[1] = decryption.Substring(1, 2);//type
+                check[2] = decryption.Substring(3, 3);//batch
+                check[3] = decryption.Substring(6, 2);//vol
+                check[4] = decryption.Substring(8, 4);//num
 
-                    int countCheckNum = 0;
-                    foreach (string str in check)
-                    {
-                        countCheckNum += int.Parse(str);
-                    }
-                    if (checkNum != (countCheckNum % 7).ToString()) //计算得到的校验位和明文校验位不相等    
-                    {
-                        return false;
-                    }
+                string year = reverseDate(check[2].Substring(0, 1).ToCharArray()[0]);
+                string month = reverseDate(check[2].Substring(1, 1).ToCharArray()[0]);
+                string day = reverseDate(check[2].Substring(2, 1).ToCharArray()[0]);
+                while (year.Length < 4)
+                {
+                    year = year.Insert(0, "20");
                 }
-                else if (code.Length == 13)
+                while (month.Length < 2)
                 {
-                    string checkNum = decryption.Substring(12, 1);
-                    string[] check = new string[5];
-                    check[0] = "11";
-                    check[1] = decryption.Substring(1, 2);//type
-                    check[2] = decryption.Substring(3, 3);//batch
-                    check[3] = decryption.Substring(6, 2);//vol
-                    check[4] = decryption.Substring(8, 4);//num
-                    string year = reverseDate(check[2].Substring(0, 1).ToCharArray()[0]);
-                    string month = reverseDate(check[2].Substring(1, 1).ToCharArray()[0]);
-                    string day = reverseDate(check[2].Substring(2, 1).ToCharArray()[0]);
-                    while (year.Length < 4)
-                    {
-                        year = year.Insert(0, "20");
-                    }
-                    while (month.Length < 2)
-                    {
-                        month = month.Insert(0, "0");
-                    }
-                    while (day.Length < 2)
-                    {
-                        day = day.Insert(0, "0");
-                    }
-                    check[2] = year + month + day;
-                    if (!Regex.IsMatch(check[2], @"^\d{8}$"))
-                    {
-                        return false;
-                    }
-                    if (!Regex.IsMatch(check[1], @"^[a-fA-F0-9]{1,4}$"))
-                    {
-                        return false;
-                    }
-                    else if (!Regex.IsMatch(check[3], @"^[a-fA-F0-9]{1,4}$"))
-                    {
-                        return false;
-                    }
-                    else if (!Regex.IsMatch(check[4], @"^[a-fA-F0-9]{1,4}$"))
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        check[1] = Convert.ToInt32(check[1], 16).ToString();
-                        check[3] = Convert.ToInt32(check[4], 16).ToString();
-                        check[4] = Convert.ToInt32(check[5], 16).ToString();
-                    }
-
-                    int countCheckNum = 0;
-                    foreach (string str in check)
-                    {
-                        countCheckNum += int.Parse(str);
-                    }
-                    if (checkNum != (countCheckNum % 7).ToString()) //计算得到的校验位和明文校验位不相等    
-                    {
-                        return false;
-                    }
+                    month = month.Insert(0, "0");
+                }
+                while (day.Length < 2)
+                {
+                    day = day.Insert(0, "0");
+                }
+                check[2] = year + month + day;
+                if (!Regex.IsMatch(check[2], @"^\d{8}$"))
+                {
+                    return false;
+                }
+                if (!Regex.IsMatch(check[1], @"^[a-fA-F0-9]{1,4}$"))
+                {
+                    return false;
+                }
+                else if (!Regex.IsMatch(check[3], @"^[a-fA-F0-9]{1,4}$"))
+                {
+                    return false;
+                }
+                else if (!Regex.IsMatch(check[4], @"^[a-fA-F0-9]{1,4}$"))
+                {
+                    return false;
                 }
                 else
+                {
+                    check[1] = Convert.ToInt32(check[1], 16).ToString();
+                    check[3] = Convert.ToInt32(check[3], 16).ToString();
+                    check[4] = Convert.ToInt32(check[4], 16).ToString();
+                }
+
+                int countCheckNum = 0;
+                foreach (string str in check)
+                {
+                    countCheckNum += int.Parse(str);
+                }
+                if (checkNum != (countCheckNum % 7).ToString()) //计算得到的校验位和明文校验位不相等    
+                {
                     return false;
+                }
+
             }
 
             return true;
@@ -1765,25 +1691,26 @@ namespace BioBaseCLIA.Run
 
         private void txtRgCode_KeyDown(object sender, KeyEventArgs e)//试剂条码回车事件
         {
-            ///
             if (e.KeyCode != Keys.Enter)
                 return;
-            if ((txtRgCode.Text.Length != 15 && txtRgCode.Text.Length != 18 && txtRgCode.Text.Length != 13 && txtRgCode.Text.Length != 16) || judgeBarCode(txtRgCode.Text.Trim()) == false)
+            if ((txtRgCode.Text.Length != 15 && txtRgCode.Text.Length != 13) || judgeBarCode(txtRgCode.Text.Trim()) == false)
             {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    frmMessageShow fr = new frmMessageShow();
+                    fr.MessageShow("试剂装载", "未通过条码校验！");
+                }))
+                { IsBackground = true }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
-                    frmMsgShow.MessageShow("试剂装载", "条码校验未通过！请重新输入");
                 }));
                 return;
             }
 
             if (!fillRgInfo(txtRgCode.Text.Trim()))
             {
-                Invoke(new Action(() =>
-                {
-                    frmMsgShow.MessageShow("试剂装载", "已装载试剂,请先卸载试剂!");
-                }));
+                ;
             }
         }
         private void txtRgCode_TextChanged(object sender, EventArgs e)
@@ -1804,21 +1731,25 @@ namespace BioBaseCLIA.Run
                 return;
             }
             string rgCode = txtRgCode.Text.Trim();
-            if (!judgeBarCode(rgCode))
+            if ((txtRgCode.Text.Length != 15 && txtRgCode.Text.Length != 13) || judgeBarCode(rgCode) == false)
             {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    frmMessageShow fr = new frmMessageShow();
+                    fr.MessageShow("试剂装载", "未通过条码校验！");
+                }))
+                { IsBackground = true }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
-                    frmMsgShow.MessageShow("试剂装载", "未通过条码校验！");
+                    //frmMsgShow.MessageShow("试剂装载", "未通过条码校验！");
                 }));
+
                 return;
             }
             if (!fillRgInfo(rgCode))
             {
-                Invoke(new Action(() =>
-                {
-                    frmMsgShow.MessageShow("试剂装载", "已装载试剂,请先卸载试剂!");
-                }));
+                ;
             }
         }
         private void initContr()
@@ -2324,25 +2255,14 @@ namespace BioBaseCLIA.Run
             //pro = bllPro.GetModel(proId);
             //MessageBox.Show(pro.ProjectID.ToString());
             //string name = pro.FullName;
-            //批号
-            string batchDay = decryption.Substring(4, 3);
             //生产日期
-            string productDay = batchDay /*decryption.Substring(7, 3)*/;
-            //质控靶值
-            string tempX;
-            //质控标准差
-            string tempSD;
-            //质控类别
-            string qcLevel;
-            //质控规则
-            string rule16;
-            #region
+            string productDay = decryption.Substring(4, 3);
             string year = "";
             string month = "";
             string day = "";
-            year = reverseDate(batchDay.Substring(0, 1).ToCharArray()[0]);
-            month = reverseDate(batchDay.Substring(1, 1).ToCharArray()[0]);
-            day = reverseDate(batchDay.Substring(2, 1).ToCharArray()[0]);
+            year = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
+            month = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
+            day = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
             while (year.Length < 4)
             {
                 year = year.Insert(0, "20");
@@ -2355,53 +2275,12 @@ namespace BioBaseCLIA.Run
             {
                 day = day.Insert(0, "0");
             }
-
-            string year2 = "";
-            string month2 = "";
-            string day2 = "";
-            year2 = reverseDate(productDay.Substring(0, 1).ToCharArray()[0]);
-            month2 = reverseDate(productDay.Substring(1, 1).ToCharArray()[0]);
-            day2 = reverseDate(productDay.Substring(2, 1).ToCharArray()[0]);
-            while (year2.Length < 4)
-            {
-                year2 = year2.Insert(0, "20");
-            }
-            while (month2.Length < 2)
-            {
-                month2 = month2.Insert(0, "0");
-            }
-            while (day2.Length < 2)
-            {
-                day2 = day2.Insert(0, "0");
-            }
-            #endregion
-            if (rgcode.Length == 25)
-            {
-                //质控靶值
-                tempX = decryption.Substring(10, 5);
-                //质控标准差
-                tempSD = decryption.Substring(15, 5);
-                //质控类别
-                qcLevel = decryption.Substring(20, 1);
-                //质控规则
-                rule16 = decryption.Substring(21, 4);
-            }
-            else if (rgcode.Length == 22)
-            {
-                //质控靶值
-                tempX = decryption.Substring(7, 5);
-                //质控标准差
-                tempSD = decryption.Substring(12, 5);
-                //质控类别
-                qcLevel = decryption.Substring(17, 1);
-                //质控规则
-                rule16 = decryption.Substring(18, 4);
-            }
-            else
-                return true;
-
+            //质控靶值
+            string tempX = decryption.Substring(7, 5);
             tempX = Convert.ToInt32(tempX.Substring(0, 3), 16).ToString() + "." + Convert.ToInt32(tempX.Substring(3, 2), 16).ToString();
-            double qcX = double.Parse(tempX);            
+            double qcX = double.Parse(tempX);
+            //质控标准差
+            string tempSD = decryption.Substring(12, 5);
             string temp = Convert.ToInt32(tempSD.Substring(2, 3), 16).ToString();
             while (temp.Length < 3)
             {
@@ -2410,14 +2289,26 @@ namespace BioBaseCLIA.Run
             //倒转
             temp = temp.Substring(2, 1) + temp.Substring(1, 1) + temp.Substring(0, 1);
             tempSD = Convert.ToInt32(tempSD.Substring(0, 2), 16).ToString() + "." + temp;
-            double qcSD = double.Parse(tempSD);            
+            double qcSD = double.Parse(tempSD);
+            //质控类别
+            string qcLevel = decryption.Substring(17, 1);
             //质控批号
             string strLevel = qcLevel == "0" ? "H" : (qcLevel == "1" ? "M" : "L");
-            string qcBatch = itemName + year + month + day + "-" + strLevel;            
+            string qcBatch = itemName + year + month + day + "-" + strLevel;
+            //检查db，批号重复返回成功,不重复录用
+            //if(bllQC.GetRecordCount("Batch="+qcBatch+"") > 0)
+            //{
+            //    addRFlag = (int)addRFlagState.success;
+            //    return;
+            //}
+            //int a = (int)DbHelperOleDb.GetSingle(3, "select count(1) FROM tbQC where Batch='" + qcBatch + "'");
             if ((int)DbHelperOleDb.GetSingle(3, "select count(1) FROM tbQC where Batch='" + qcBatch + "'") > 0)
             {
                 return true;
             }
+
+            //质控规则
+            string rule16 = decryption.Substring(18, 4);
             int rule10 = Convert.ToInt32(rule16, 16);
             string rule2 = Convert.ToString(rule10, 2);
             while (rule2.Length < 16)
@@ -2434,7 +2325,9 @@ namespace BioBaseCLIA.Run
                     rule += i.ToString();
                 }
             }
-            string validTime = year2 + "/" + month2 + "/" + day2;
+
+
+
             //录入者
             mQC.Batch = qcBatch;
             mQC.QCNumber = "No Use";//无用
@@ -2445,7 +2338,7 @@ namespace BioBaseCLIA.Run
             mQC.ProjectName = itemName;
             mQC.OperatorName = LoginUserName;
             mQC.AddDate = DateTime.Now.ToLongDateString().Trim();
-            mQC.ValidDate = Convert.ToDateTime(validTime).AddYears(1).AddDays(-1).ToLongDateString().Trim();//DateTime.Now.AddDays(28).ToLongDateString().Trim();
+            mQC.ValidDate = DateTime.Now.AddDays(28).ToLongDateString().Trim();
             mQC.QCRules = rule;
             #endregion
             #region QC-DB                
@@ -2526,12 +2419,15 @@ namespace BioBaseCLIA.Run
             {
                 if (order.Contains("EB 90 CA A1 00 00 00 00 00"))
                 {
-                    if (btnLoopAddR.Enabled == true)//单次装载执行
+                    if (!isSp)//单次装载执行
                     {
                         frmMsgShow.MessageShow("射频卡扫描", "数据获取失败！");
                     }
                     addRFlag = (int)addRFlagState.fail;
+                    addREmpty = (int)addRFlagState.empty;
                     NetCom3.Instance.ReceiveHandel -= dealSP;
+                    if (loopSpFailResult.Count > 0)
+                        loopSpFailResult.RemoveAt(loopSpFailResult.Count - 1);
                     return;
                 }
                 string signChar = order.Split(' ')[5];
@@ -2607,6 +2503,16 @@ namespace BioBaseCLIA.Run
                         return;
                     }
                 }
+                else
+                {
+                    if (!isSp)//单次装载执行
+                    {
+                        frmMsgShow.MessageShow("射频卡扫描", "数据获取失败！");
+                    }
+                    addRFlag = (int)addRFlagState.fail;
+                    NetCom3.Instance.ReceiveHandel -= dealSP;
+                    return;
+                }
                 addRFlag = (int)addRFlagState.success;
             }
         }
@@ -2628,7 +2534,7 @@ namespace BioBaseCLIA.Run
             }
             else if (NetCom3.Instance.errorFlag != (int)ErrorState.Success)//其他错误
             {
-                LogFile.Instance.Write("errorFlag = ： " + NetCom3.Instance.MoverrorFlag + "  *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
+                LogFile.Instance.Write("errorFlag = ： " + NetCom3.Instance.errorFlag + "  *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
                 NetCom3.Instance.ReceiveHandel -= dealSP;
                 return false;
             }
@@ -2641,10 +2547,19 @@ namespace BioBaseCLIA.Run
         {
             RgType = (int)ReagentType.ready;//lyq
             addRFlag = (int)addRFlagState.ready;
+            addREmpty = (int)addRFlagState.ready;
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 CA 01 " + caPara), 5);
             if (!spSingleQuery())
             {
-                MessageBox.Show("数据获取失败！", "射频卡扫描");
+                if (!isSp)
+                {
+                    BeginInvoke(new Action(() =>
+                    {
+                        frmMsgShow.MessageShow("射频卡扫描", "数据获取失败");
+                        //MessageBox.Show("数据获取失败！", "射频卡扫描");
+                    }));
+                }
+                addRFlag = (int)addRFlagState.fail;
                 return false;
             }
             while (addRFlag == (int)addRFlagState.ready)
@@ -2858,19 +2773,36 @@ namespace BioBaseCLIA.Run
 
         private void btnLoopAddR_Click(object sender, EventArgs e)
         {
+            if (frmParent.dtSampleRunInfo.Rows.Count > 0)
+            {
+                frmMessageShow msg = new frmMessageShow();
+                msg.MessageShow("试剂装载", "请先卸载已装载的样本信息！");
+                return;
+            }
+            isSp = true;
+            btnAddCurve.Enabled = false;
+            btnAddD.Enabled = false;
+            fbtnTestResult.Enabled = false;
+            btnLoadSample.Enabled = false;
             fbtnReturn.Enabled = false;
             btnAddR.Enabled = false;
             btnLoopAddR.Enabled = false;
             btnDelR.Enabled = false;
             frmMessageShow frmMsgShow = new frmMessageShow();
             DataTable dtAllRS = bllRg.GetAllList().Tables[0];
-            DataTable dtAllDil = bllDt.GetAllList().Tables[0];
+            //DataTable dtAllDil = bllDt.GetAllList().Tables[0];
             DateTime sptime = DateTime.Now;
+            loopSpFailResult.Clear();
+            List<int> loopSpSuccessResult = new List<int>();
+            string spBreak = "装载中断！\n";
+            dgvRgInfoList.Enabled = false;
+            srdReagent.Enabled = false;
             //点击装载
             for (int i = 1; i <= RegentNum; i++)
             {
+                loopSpFailResult.Add(i);
                 dtAllRS = bllRg.GetAllList().Tables[0];
-                dtAllDil = bllDt.GetAllList().Tables[0];
+                //dtAllDil = bllDt.GetAllList().Tables[0];
                 #region 旋转到读卡器位置
                 Invoke(new Action(() =>
                 {
@@ -2971,16 +2903,22 @@ namespace BioBaseCLIA.Run
                         if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + i + "'") > 0)//更改db
                         {
                             //更改ini
-                            ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()), new string[10] { "", "", "", "", "", "", "", "", "","" });
+                            ModifyRgIni(i, new string[10] { "", "", "", "", "", "", "", "", "", "" });
                             srdReagent.RgName[i - 1] = "";
                             srdReagent.RgTestNum[i - 1] = "";
                             ShowRgInfo(0);
                         }
                         else//装载失败
                         {
-                            frmMsgShow.MessageShow("一键装载", "装载失败，请重新装载");
+                            //frmMsgShow.MessageShow("一键装载", "装载失败，请重新装载");
                             goto errorEnd;
                         }
+                    }
+                    if (addRFlag == (int)addRFlagState.fail && addREmpty != (int)addRFlagState.empty)
+                        goto errorEnd;
+                    if (i == 30)
+                    {
+                        spBreak = "";
                     }
                     continue;
                 }
@@ -3004,11 +2942,9 @@ namespace BioBaseCLIA.Run
                         {
                             if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + rgpostion + "'") > 0)
                             {
-                                DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DilutePos =" + rgpostion);
-                                ModifyRgIni(int.Parse(rgpostion), new string[10] { "", "", "", "", "", "", "", "", "" ,""});
-
-                                OperateIniFile.WriteIniData("ReagentPos" + rgpostion,
-                                    "leftDiuVol", "0", iniPathReagentTrayInfo);
+                                ModifyRgIni(int.Parse(rgpostion), new string[10] { "", "", "", "", "", "", "", "", "", "" });
+                                //OperateIniFile.WriteIniData("ReagentPos" + rgpostion,
+                                //    "leftDiuVol", "0", iniPathReagentTrayInfo);
                             }
                             else
                                 goto errorEnd;
@@ -3031,7 +2967,7 @@ namespace BioBaseCLIA.Run
                         }
                         else//装载失败
                         {
-                            frmMsgShow.MessageShow("一键装载", "装载失败，请重新装载");
+                            //frmMsgShow.MessageShow("一键装载", "装载失败，请重新装载");
                             goto errorEnd;
                         }
                     }
@@ -3050,281 +2986,320 @@ namespace BioBaseCLIA.Run
                             if (dr1.Length > 0)//如果已装载，则调换双发试剂与稀释液位置
                             {
                                 string tempRgcode = dr1[0]["BarCode"].ToString();
-                                string tempDiluteNum;
-                                var drDilute = dtAllDil.Select("DilutePos=" + rgpostion);
-                                if (drDilute.Length > 0)//有装载稀释液
+                                #region 先卸载
+                                //为了避免问题，先卸载掉试剂
+                                if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
+                                    && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0)
                                 {
-                                    tempDiluteNum = drDilute[0]["DiluteNumber"].ToString();
-                                    //射频已装载试剂有无装载稀释液
-                                    string spDiluteNum;
-                                    var drSpDil = dtAllDil.Select("DilutePos=" + spRgPostion);
-                                    if (drSpDil.Length > 0)//射频已装载稀释液
-                                    {
-                                        spDiluteNum = drSpDil[0]["DiluteNumber"].ToString();
-
-                                        #region 先卸载
-                                        //为了避免问题，先卸载掉试剂
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + spDiluteNum) > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + tempDiluteNum) > 0)
-                                        {
-                                            //ini
-                                            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
-                                            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
-                                            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                        #region 互换位置
-                                        //试剂与试剂、稀释液与稀释液互换
-                                        string[] strTemp = new string[9];
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = spdr[0]["BarCode"].ToString();
-                                            strTemp[1] = spdr[0]["ReagentName"].ToString();
-                                            strTemp[2] = spdr[0]["Batch"].ToString();
-                                            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = spdr[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(rgpostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = dr1[0]["BarCode"].ToString();
-                                            strTemp[1] = dr1[0]["ReagentName"].ToString();
-                                            strTemp[2] = dr1[0]["Batch"].ToString();
-                                            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = dr1[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(spRgPostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + rgpostion + "  where DiluteNumber =" + spDiluteNum) > 0)//修改spDilute位置
-                                        {
-                                            //ini
-                                            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", drSpDil[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + spRgPostion + "  where DiluteNumber =" + tempDiluteNum) > 0)//修改Dilute位置
-                                        {
-                                            //ini
-                                            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", drDilute[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                    }
-                                    else//射频没有装载稀释液
-                                    {
-                                        #region 先卸载
-                                        //为了避免问题，先卸载掉试剂
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + tempDiluteNum) > 0)
-                                        {
-                                            //ini
-                                            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
-                                            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                        #region 互换位置
-                                        //试剂与试剂、稀释液与稀释液互换
-                                        string[] strTemp = new string[9];
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = spdr[0]["BarCode"].ToString();
-                                            strTemp[1] = spdr[0]["ReagentName"].ToString();
-                                            strTemp[2] = spdr[0]["Batch"].ToString();
-                                            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = spdr[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(rgpostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = dr1[0]["BarCode"].ToString();
-                                            strTemp[1] = dr1[0]["ReagentName"].ToString();
-                                            strTemp[2] = dr1[0]["Batch"].ToString();
-                                            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = dr1[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(spRgPostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + spRgPostion + "  where DiluteNumber =" + tempDiluteNum) > 0)//修改Dilute位置
-                                        {
-                                            //ini
-                                            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", drDilute[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                    }
-
+                                    //ini
+                                    ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                    ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                    srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
+                                    srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
+                                    srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
+                                    srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
                                 }
-                                else//当前位置没有装载稀释液
+                                else
+                                    goto errorEnd;
+                                #endregion
+                                #region 后装载
+                                string[] strTemp = new string[9];
+                                if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
                                 {
-                                    //射频已装载试剂有无装载稀释液
-                                    string spDiluteNum;
-                                    var drSpDil = dtAllDil.Select("DilutePos=" + spRgPostion);
-                                    if (drSpDil.Length > 0)//射频已装载稀释液
-                                    {
-                                        spDiluteNum = drSpDil[0]["DiluteNumber"].ToString();
-                                        #region 先卸载
-                                        //为了避免问题，先卸载掉试剂
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + spDiluteNum) > 0)
-                                        {
-                                            //ini
-                                            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
-                                            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                        #region 互换位置
-                                        //试剂与试剂、稀释液与稀释液互换
-                                        string[] strTemp = new string[9];
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = spdr[0]["BarCode"].ToString();
-                                            strTemp[1] = spdr[0]["ReagentName"].ToString();
-                                            strTemp[2] = spdr[0]["Batch"].ToString();
-                                            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = spdr[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(rgpostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = dr1[0]["BarCode"].ToString();
-                                            strTemp[1] = dr1[0]["ReagentName"].ToString();
-                                            strTemp[2] = dr1[0]["Batch"].ToString();
-                                            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = dr1[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(spRgPostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + rgpostion + "  where DiluteNumber =" + spDiluteNum) > 0)//修改spDilute位置
-                                        {
-                                            //ini
-                                            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", drSpDil[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                    }
-                                    else//射频没有装载稀释液
-                                    {
-                                        #region 先卸载
-                                        //为了避免问题，先卸载掉试剂
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
-                                            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0)
-                                        {
-                                            //ini
-                                            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
-                                            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
-                                            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                        #region 互换位置
-                                        //试剂与试剂、稀释液与稀释液互换
-                                        string[] strTemp = new string[9];
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = spdr[0]["BarCode"].ToString();
-                                            strTemp[1] = spdr[0]["ReagentName"].ToString();
-                                            strTemp[2] = spdr[0]["Batch"].ToString();
-                                            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = spdr[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(rgpostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
-                                        {
-                                            //ini
-                                            strTemp[0] = dr1[0]["BarCode"].ToString();
-                                            strTemp[1] = dr1[0]["ReagentName"].ToString();
-                                            strTemp[2] = dr1[0]["Batch"].ToString();
-                                            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
-                                            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
-                                            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
-                                            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
-                                            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
-                                            strTemp[8] = dr1[0]["AddDate"].ToString();
-                                            ModifyRgIni(int.Parse(spRgPostion), strTemp);
-                                        }
-                                        else
-                                            goto errorEnd;
-                                        #endregion
-                                    }
+                                    //ini
+                                    strTemp[0] = spdr[0]["BarCode"].ToString();
+                                    strTemp[1] = spdr[0]["ReagentName"].ToString();
+                                    strTemp[2] = spdr[0]["Batch"].ToString();
+                                    strTemp[3] = spdr[0]["AllTestNumber"].ToString();
+                                    strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
+                                    strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
+                                    strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
+                                    strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
+                                    strTemp[8] = spdr[0]["AddDate"].ToString();
+                                    ModifyRgIni(int.Parse(rgpostion), strTemp);
                                 }
+                                else
+                                    goto errorEnd;
+                                #endregion
+                                #region 注释 调换改为卸载之前，装载当前
+                                //string tempRgcode = dr1[0]["BarCode"].ToString();
+                                ////string tempDiluteNum;
+                                //var drDilute = dtAllDil.Select("DilutePos=" + rgpostion);
+                                //if (drDilute.Length > 0)//有装载稀释液
+                                //{
+                                //    tempDiluteNum = drDilute[0]["DiluteNumber"].ToString();
+                                //    //射频已装载试剂有无装载稀释液
+                                //    string spDiluteNum;
+                                //    var drSpDil = dtAllDil.Select("DilutePos=" + spRgPostion);
+                                //    if (drSpDil.Length > 0)//射频已装载稀释液
+                                //    {
+                                //        spDiluteNum = drSpDil[0]["DiluteNumber"].ToString();
+
+                                //        #region 先卸载
+                                //        //为了避免问题，先卸载掉试剂
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + spDiluteNum) > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + tempDiluteNum) > 0)
+                                //        {
+                                //            //ini
+                                //            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
+                                //            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
+                                //            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //        #region 互换位置
+                                //        //试剂与试剂、稀释液与稀释液互换
+                                //        string[] strTemp = new string[9];
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = spdr[0]["BarCode"].ToString();
+                                //            strTemp[1] = spdr[0]["ReagentName"].ToString();
+                                //            strTemp[2] = spdr[0]["Batch"].ToString();
+                                //            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = spdr[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(rgpostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = dr1[0]["BarCode"].ToString();
+                                //            strTemp[1] = dr1[0]["ReagentName"].ToString();
+                                //            strTemp[2] = dr1[0]["Batch"].ToString();
+                                //            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = dr1[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(spRgPostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + rgpostion + "  where DiluteNumber =" + spDiluteNum) > 0)//修改spDilute位置
+                                //        {
+                                //            //ini
+                                //            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", drSpDil[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + spRgPostion + "  where DiluteNumber =" + tempDiluteNum) > 0)//修改Dilute位置
+                                //        {
+                                //            //ini
+                                //            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", drDilute[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //    }
+                                //    else//射频没有装载稀释液
+                                //    {
+                                //        #region 先卸载
+                                //        //为了避免问题，先卸载掉试剂
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + tempDiluteNum) > 0)
+                                //        {
+                                //            //ini
+                                //            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
+                                //            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //        #region 互换位置
+                                //        //试剂与试剂、稀释液与稀释液互换
+                                //        string[] strTemp = new string[9];
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = spdr[0]["BarCode"].ToString();
+                                //            strTemp[1] = spdr[0]["ReagentName"].ToString();
+                                //            strTemp[2] = spdr[0]["Batch"].ToString();
+                                //            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = spdr[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(rgpostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = dr1[0]["BarCode"].ToString();
+                                //            strTemp[1] = dr1[0]["ReagentName"].ToString();
+                                //            strTemp[2] = dr1[0]["Batch"].ToString();
+                                //            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = dr1[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(spRgPostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + spRgPostion + "  where DiluteNumber =" + tempDiluteNum) > 0)//修改Dilute位置
+                                //        {
+                                //            //ini
+                                //            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", drDilute[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //    }
+                                //    #endregion
+                                //}
+                                //else//当前位置没有装载稀释液
+                                //{
+                                //    //射频已装载试剂有无装载稀释液
+                                //    string spDiluteNum;
+                                //    var drSpDil = dtAllDil.Select("DilutePos=" + spRgPostion);
+                                //    if (drSpDil.Length > 0)//射频已装载稀释液
+                                //    {
+                                //        spDiluteNum = drSpDil[0]["DiluteNumber"].ToString();
+                                //        #region 先卸载
+                                //        //为了避免问题，先卸载掉试剂
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DiluteNumber =" + spDiluteNum) > 0)
+                                //        {
+                                //            //ini
+                                //            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
+                                //            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //        #region 互换位置
+                                //        //试剂与试剂、稀释液与稀释液互换
+                                //        string[] strTemp = new string[9];
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = spdr[0]["BarCode"].ToString();
+                                //            strTemp[1] = spdr[0]["ReagentName"].ToString();
+                                //            strTemp[2] = spdr[0]["Batch"].ToString();
+                                //            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = spdr[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(rgpostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = dr1[0]["BarCode"].ToString();
+                                //            strTemp[1] = dr1[0]["ReagentName"].ToString();
+                                //            strTemp[2] = dr1[0]["Batch"].ToString();
+                                //            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = dr1[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(spRgPostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + rgpostion + "  where DiluteNumber =" + spDiluteNum) > 0)//修改spDilute位置
+                                //        {
+                                //            //ini
+                                //            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", drSpDil[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //    }
+                                //    else//射频没有装载稀释液
+                                //    {
+                                //        #region 先卸载
+                                //        //为了避免问题，先卸载掉试剂
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + tempRgcode + "'") > 0
+                                //            && DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0)
+                                //        {
+                                //            //ini
+                                //            ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
+                                //            srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
+                                //            srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
+                                //            srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //        #region 互换位置
+                                //        //试剂与试剂、稀释液与稀释液互换
+                                //        string[] strTemp = new string[9];
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + rgpostion + " where BarCode = '" + spRgcode + "'") > 0)//修改射频rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = spdr[0]["BarCode"].ToString();
+                                //            strTemp[1] = spdr[0]["ReagentName"].ToString();
+                                //            strTemp[2] = spdr[0]["Batch"].ToString();
+                                //            strTemp[3] = spdr[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = spdr[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = spdr[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = spdr[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = spdr[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = spdr[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(rgpostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion=" + spRgPostion + " where BarCode = '" + tempRgcode + "'") > 0)//修改rg位置
+                                //        {
+                                //            //ini
+                                //            strTemp[0] = dr1[0]["BarCode"].ToString();
+                                //            strTemp[1] = dr1[0]["ReagentName"].ToString();
+                                //            strTemp[2] = dr1[0]["Batch"].ToString();
+                                //            strTemp[3] = dr1[0]["AllTestNumber"].ToString();
+                                //            strTemp[4] = dr1[0]["leftoverTestR1"].ToString();
+                                //            strTemp[5] = dr1[0]["leftoverTestR2"].ToString();
+                                //            strTemp[6] = dr1[0]["leftoverTestR3"].ToString();
+                                //            strTemp[7] = dr1[0]["leftoverTestR4"].ToString();
+                                //            strTemp[8] = dr1[0]["AddDate"].ToString();
+                                //            ModifyRgIni(int.Parse(spRgPostion), strTemp);
+                                //        }
+                                //        else
+                                //            goto errorEnd;
+                                //        #endregion
+                                //    }
+                                //}
+                                #endregion
+
                             }
                             else //如果没有，则修改位置
                             {
@@ -3333,7 +3308,7 @@ namespace BioBaseCLIA.Run
                                 if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0)
                                 {
                                     ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                    OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
+                                    //OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
                                     srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
                                     srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
                                 }
@@ -3358,18 +3333,6 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                     goto errorEnd;
-                                var drSpDil = dtAllDil.Select("DilutePos=" + spRgPostion);
-                                if (drSpDil.Length > 0)//射频 已装载 有稀释
-                                {
-                                    if (DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=" + rgpostion + "  where DilutePos =" + spRgPostion) > 0)//修改spDilute位置
-                                    {
-                                        //ini
-                                        OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", drSpDil[0]["LeftDiuVol"].ToString(), iniPathReagentTrayInfo);
-                                    }
-                                    else
-                                        goto errorEnd;
-                                }
-
                                 #endregion
                             }
                         }
@@ -3384,10 +3347,7 @@ namespace BioBaseCLIA.Run
                     {
                         if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + rgpostion + "'") > 0)
                         {
-                            DbHelperOleDb.ExecuteSql(3, @"update tbDilute set DilutePos=null  where DilutePos =" + rgpostion);
                             ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-
-                            OperateIniFile.WriteIniData("ReagentPos" + rgpostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
                             srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
                             srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
                         }
@@ -3438,17 +3398,54 @@ namespace BioBaseCLIA.Run
                     goto errorEnd;
                 }
                 NetCom3.Instance.ReceiveHandel -= dealSP;
-
+                dgvRgInfoList.SelectionChanged -= new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
                 ShowRgInfo(0);
-               
+                dgvRgInfoList.SelectionChanged += new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
+                loopSpFailResult.Remove(i);
+                loopSpSuccessResult.Add(i);
+                if (i == 30)
+                {
+                    spBreak = "";
+                }
             }
-            frmMsgShow.MessageShow("试剂装载", "装载完成！");
             errorEnd:
+            dgvRgInfoList.Enabled = true;
+            srdReagent.Enabled = true;
+            string failTip = "", succTip = "";
+            if (loopSpFailResult.Count > 0)
+            {
+                string failPosition = "";
+                foreach (int tempi in loopSpFailResult)
+                {
+                    failPosition += tempi + "、";
+                }
+                failPosition = failPosition.Substring(0, failPosition.Length - 1);
+                failTip = "\n装载失败 " + loopSpFailResult.Count + " 项（试剂位：" + failPosition + "）！";
+            }
+            if (loopSpSuccessResult.Count > 0)
+            {
+                string succPosition = "";
+                foreach (int tempi in loopSpSuccessResult)
+                {
+                    succPosition += tempi + "、";
+                }
+                succPosition = succPosition.Substring(0, succPosition.Length - 1);
+                succTip = "装载完成 " + loopSpSuccessResult.Count + " 项（试剂位：" + succPosition + "）！";
+            }
+
+            isSp = false;
+            btnAddCurve.Enabled = true;
+            btnAddD.Enabled = true;
+            fbtnTestResult.Enabled = true;
+            btnLoadSample.Enabled = true;
             fbtnReturn.Enabled = true;
             btnAddR.Enabled = true;
             btnLoopAddR.Enabled = true;
             btnDelR.Enabled = true;
-
+            BeginInvoke(new Action(() =>
+            {
+                frmMsgShow.MessageShow("试剂装载", spBreak + succTip + failTip);
+            }));
         }
         /// <summary>
         /// 装载类型标志 0-试剂 1-稀释液
@@ -3474,7 +3471,7 @@ namespace BioBaseCLIA.Run
                 labUnit.Text = labUnit2.Text = "ul";
                 DiuFlag = 1;
                 txtRgAllTest.Text = "25000";
-                txtRgLastTest.Text ="25000";
+                txtRgLastTest.Text = "25000";
             }
         }
         public DataTable GetDiuShortName()
@@ -3504,8 +3501,8 @@ namespace BioBaseCLIA.Run
 
             }
             return true;
-           
+
         }
-       
+
     }
 }
