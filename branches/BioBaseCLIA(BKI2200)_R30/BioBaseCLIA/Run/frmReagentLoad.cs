@@ -2651,7 +2651,8 @@ namespace BioBaseCLIA.Run
                     RgType = (int)ReagentType.dilute;//lyq
                     if (!dealDiluteOfRFID(order))
                     {
-                        frmMsgShow.MessageShow("射频卡扫描", "稀释液条码处理失败！");
+                        if (txtRgCode.Text.Trim() != "")
+                            frmMsgShow.MessageShow("射频卡扫描", "稀释液条码处理失败！");
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
