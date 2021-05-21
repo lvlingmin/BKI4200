@@ -99,7 +99,7 @@
             this.functionButton1.Name = "functionButton1";
             this.functionButton1.Size = new System.Drawing.Size(57, 27);
             this.functionButton1.TabIndex = 37;
-            this.functionButton1.Text = "卸载";
+            this.functionButton1.Text = "解绑";
             this.functionButton1.UseVisualStyleBackColor = false;
             this.functionButton1.Click += new System.EventHandler(this.functionButton1_Click);
             // 
@@ -119,7 +119,7 @@
             this.btnLoadSubstrate.Name = "btnLoadSubstrate";
             this.btnLoadSubstrate.Size = new System.Drawing.Size(57, 27);
             this.btnLoadSubstrate.TabIndex = 36;
-            this.btnLoadSubstrate.Text = "保存";
+            this.btnLoadSubstrate.Text = "绑定";
             this.btnLoadSubstrate.UseVisualStyleBackColor = false;
             this.btnLoadSubstrate.Click += new System.EventHandler(this.btnLoadSubstrate_Click);
             // 
@@ -135,7 +135,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRegentPos);
             this.Name = "frmLoadDiu";
-            this.Text = "稀释液装载";
+            this.Text = "绑定稀释液";
             this.Load += new System.EventHandler(this.frmLoadDiu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

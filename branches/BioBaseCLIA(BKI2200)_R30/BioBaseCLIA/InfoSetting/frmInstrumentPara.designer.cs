@@ -129,6 +129,8 @@
             this.btnProInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.txtDiuNum = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -173,6 +175,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtDiuNum);
+            this.groupBox3.Controls.Add(this.label57);
             this.groupBox3.Controls.Add(this.label54);
             this.groupBox3.Controls.Add(this.txtTQXGLMax);
             this.groupBox3.Controls.Add(this.label55);
@@ -1147,6 +1151,28 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // txtDiuNum
+            // 
+            this.txtDiuNum.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.txtDiuNum, "txtDiuNum");
+            this.txtDiuNum.IsNull = false;
+            this.txtDiuNum.MaxValue = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtDiuNum.MinValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtDiuNum.Name = "txtDiuNum";
+            // 
+            // label57
+            // 
+            resources.ApplyResources(this.label57, "label57");
+            this.label57.Name = "label57";
+            // 
             // frmInstrumentPara
             // 
             resources.ApplyResources(this, "$this");
@@ -1275,5 +1301,7 @@
         private System.Windows.Forms.Label label19;
         private CustomControl.userNumTextBox txtWarnTube;
         private System.Windows.Forms.Label label20;
+        private CustomControl.userNumTextBox txtDiuNum;
+        private System.Windows.Forms.Label label57;
     }
 }

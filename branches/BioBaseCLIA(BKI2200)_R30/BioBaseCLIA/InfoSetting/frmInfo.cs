@@ -1426,6 +1426,8 @@ namespace BioBaseCLIA.InfoSetting
 
             if (cmbPrintMode.SelectedItem == null)//lyq
             {
+                frmMsgShow.MessageShow(Getstring("BasicSetHead"), Getstring("PrintMode"));
+                txtDepName.Focus();
                 return;
             }
             OperateIniFile.WriteIniPara("PrintSet", "PrintMode", cmbPrintMode.Text.Trim());
@@ -1554,7 +1556,7 @@ namespace BioBaseCLIA.InfoSetting
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
             frmMessageShow frmMsgShow = new frmMessageShow();
-            frmMsgShow.MessageShow("SVN", "258");
+            frmMsgShow.MessageShow("SVN", "144");
         }
     }
 }

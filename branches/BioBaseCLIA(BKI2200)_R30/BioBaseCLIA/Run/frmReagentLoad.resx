@@ -810,6 +810,9 @@
   <data name="&gt;&gt;LabValidDate.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="cmbProType.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="cmbProType.Items" xml:space="preserve">
     <value>试剂</value>
   </data>
@@ -917,7 +920,7 @@
     <value>0</value>
   </data>
   <data name="btnAddD.Text" xml:space="preserve">
-    <value>装载稀释液</value>
+    <value>绑定稀释液</value>
   </data>
   <data name="&gt;&gt;btnAddD.Name" xml:space="preserve">
     <value>btnAddD</value>
@@ -1141,6 +1144,9 @@
   </data>
   <data name="&gt;&gt;chkManualInput.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="cmbRgName.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="cmbRgName.Location" type="System.Drawing.Point, System.Drawing">
     <value>79, 39</value>
@@ -1598,7 +1604,7 @@
     <value>1</value>
   </data>
   <data name="btnDelR.Text" xml:space="preserve">
-    <value>卸载试剂</value>
+    <value>卸载</value>
   </data>
   <data name="&gt;&gt;btnDelR.Name" xml:space="preserve">
     <value>btnDelR</value>
@@ -1698,7 +1704,7 @@
     <value>0</value>
   </data>
   <data name="btnAddR.Text" xml:space="preserve">
-    <value>装载试剂</value>
+    <value>装载</value>
   </data>
   <data name="&gt;&gt;btnAddR.Name" xml:space="preserve">
     <value>btnAddR</value>

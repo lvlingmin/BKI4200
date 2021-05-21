@@ -35,7 +35,7 @@ namespace BioBaseCLIA.InfoSetting
                 = txtSubstrateTime.Enabled = txtWarnReagent.Enabled = txtWarnSubstrate.Enabled = txtWarnTube.Enabled = txtWarnWaitSeconds.Enabled
                 = txtTWYMin.Enabled = txtTWYMax.Enabled = txtTWashMax.Enabled = txtTWashMin.Enabled = txtTSubstrateMin.Enabled = txtTSubstrateMax.Enabled//2018-07-13 zlx add
                 = txtTSubstrateMin.Enabled = txtTSubstrateMax.Enabled = txtTQXGLMin.Enabled = txtTQXGLMax.Enabled //2018-07-13 zlx add 
-                = txtWashTime.Enabled = Flag;
+                = txtWashTime.Enabled = txtDiuNum.Enabled = Flag;
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace BioBaseCLIA.InfoSetting
             txtWarnTube.Text = OperateIniFile.ReadInIPara("Limit", "WarnTube");
             txtWarnWaitSeconds.Text = OperateIniFile.ReadInIPara("Time", "WarnWaitSeconds");
             txtWashTime.Text = OperateIniFile.ReadInIPara("Time", "washTime");
-
+            txtDiuNum.Text = OperateIniFile.ReadInIPara("OtherPara", "DiuNum ");
             //2018-07-13
             txtTWYMax.Text = OperateIniFile.ReadInIPara("temperature", "MaxTWY");
             txtTWYMin.Text = OperateIniFile.ReadInIPara("temperature", "MinTWY");
@@ -146,6 +146,7 @@ namespace BioBaseCLIA.InfoSetting
             OperateIniFile.WriteIniPara("temperature", "MinTSubstrate", txtTSubstrateMin.Text);
             OperateIniFile.WriteIniPara("temperature", "MaxTQXGL", txtTQXGLMax.Text);
             OperateIniFile.WriteIniPara("temperature", "MinTQXGL", txtTQXGLMin.Text);
+            OperateIniFile.WriteIniPara("OtherPara", "DiuNum ", txtDiuNum.Text);
         }
         private void fbtnModify_Click(object sender, EventArgs e)
         {
@@ -251,5 +252,10 @@ namespace BioBaseCLIA.InfoSetting
         {
 
         }
+
+
+     
+
+      
     }
 }

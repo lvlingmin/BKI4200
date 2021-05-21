@@ -115,18 +115,18 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.btnUserInfo);
             this.panel1.Controls.Add(this.fbtnConnetSet);
             this.panel1.Controls.Add(this.btnInstrumentPara);
             this.panel1.Controls.Add(this.fbtnReturn);
             this.panel1.Controls.Add(this.btnProInfo);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // btnUserInfo
             // 
-            resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
             this.btnUserInfo.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnUserInfo, "btnUserInfo");
             this.btnUserInfo.EnabledSet = true;
             this.btnUserInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnUserInfo.FlatAppearance.BorderSize = 0;
@@ -138,8 +138,8 @@
             // 
             // fbtnConnetSet
             // 
-            resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
             this.fbtnConnetSet.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnConnetSet, "fbtnConnetSet");
             this.fbtnConnetSet.EnabledSet = true;
             this.fbtnConnetSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnConnetSet.FlatAppearance.BorderSize = 0;
@@ -150,8 +150,8 @@
             // 
             // btnInstrumentPara
             // 
-            resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
             this.btnInstrumentPara.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnInstrumentPara, "btnInstrumentPara");
             this.btnInstrumentPara.EnabledSet = true;
             this.btnInstrumentPara.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnInstrumentPara.FlatAppearance.BorderSize = 0;
@@ -163,8 +163,8 @@
             // 
             // fbtnReturn
             // 
-            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
@@ -176,8 +176,8 @@
             // 
             // btnProInfo
             // 
-            resources.ApplyResources(this.btnProInfo, "btnProInfo");
             this.btnProInfo.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnProInfo, "btnProInfo");
             this.btnProInfo.EnabledSet = true;
             this.btnProInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnProInfo.FlatAppearance.BorderSize = 0;
@@ -189,23 +189,22 @@
             // 
             // tabControlMy1
             // 
-            resources.ApplyResources(this.tabControlMy1, "tabControlMy1");
             this.tabControlMy1.Controls.Add(this.tabNetSet);
             this.tabControlMy1.Controls.Add(this.tabLisSet);
             this.tabControlMy1.Controls.Add(this.tabLisSetCK);
+            resources.ApplyResources(this.tabControlMy1, "tabControlMy1");
             this.tabControlMy1.Name = "tabControlMy1";
             this.tabControlMy1.SelectedIndex = 0;
             // 
             // tabNetSet
             // 
-            resources.ApplyResources(this.tabNetSet, "tabNetSet");
             this.tabNetSet.BackColor = System.Drawing.Color.LightBlue;
             this.tabNetSet.Controls.Add(this.groupBox1);
+            resources.ApplyResources(this.tabNetSet, "tabNetSet");
             this.tabNetSet.Name = "tabNetSet";
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.chkIsLisConn);
             this.groupBox1.Controls.Add(this.cmbLisType);
             this.groupBox1.Controls.Add(this.label10);
@@ -214,6 +213,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtNetIPAdress);
             this.groupBox1.Controls.Add(this.label1);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -226,12 +226,12 @@
             // 
             // cmbLisType
             // 
-            resources.ApplyResources(this.cmbLisType, "cmbLisType");
             this.cmbLisType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLisType.FormattingEnabled = true;
             this.cmbLisType.Items.AddRange(new object[] {
             resources.GetString("cmbLisType.Items"),
             resources.GetString("cmbLisType.Items1")});
+            resources.ApplyResources(this.cmbLisType, "cmbLisType");
             this.cmbLisType.Name = "cmbLisType";
             this.cmbLisType.SelectedIndexChanged += new System.EventHandler(this.cmbLisType_SelectedIndexChanged);
             // 
@@ -242,8 +242,8 @@
             // 
             // fbtnNetSave
             // 
-            resources.ApplyResources(this.fbtnNetSave, "fbtnNetSave");
             this.fbtnNetSave.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnNetSave, "fbtnNetSave");
             this.fbtnNetSave.EnabledSet = true;
             this.fbtnNetSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnNetSave.FlatAppearance.BorderSize = 0;
@@ -286,28 +286,28 @@
             // 
             // tabLisSet
             // 
-            resources.ApplyResources(this.tabLisSet, "tabLisSet");
             this.tabLisSet.BackColor = System.Drawing.Color.LightBlue;
             this.tabLisSet.Controls.Add(this.gbInfoSet);
             this.tabLisSet.Controls.Add(this.gbParaInfo);
             this.tabLisSet.Controls.Add(this.groupBox2);
+            resources.ApplyResources(this.tabLisSet, "tabLisSet");
             this.tabLisSet.Name = "tabLisSet";
             // 
             // gbInfoSet
             // 
-            resources.ApplyResources(this.gbInfoSet, "gbInfoSet");
             this.gbInfoSet.BackColor = System.Drawing.Color.Transparent;
             this.gbInfoSet.Controls.Add(this.btnDel);
             this.gbInfoSet.Controls.Add(this.btnLeft);
             this.gbInfoSet.Controls.Add(this.groupBox3);
             this.gbInfoSet.Controls.Add(this.gbInfo);
+            resources.ApplyResources(this.gbInfoSet, "gbInfoSet");
             this.gbInfoSet.Name = "gbInfoSet";
             this.gbInfoSet.TabStop = false;
             // 
             // btnDel
             // 
-            resources.ApplyResources(this.btnDel, "btnDel");
             this.btnDel.BackgroundImage = global::BioBaseCLIA.Properties.Resources.主界面按钮;
+            resources.ApplyResources(this.btnDel, "btnDel");
             this.btnDel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDel.FlatAppearance.BorderSize = 0;
             this.btnDel.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -320,8 +320,8 @@
             // 
             // btnLeft
             // 
-            resources.ApplyResources(this.btnLeft, "btnLeft");
             this.btnLeft.BackgroundImage = global::BioBaseCLIA.Properties.Resources.主界面按钮;
+            resources.ApplyResources(this.btnLeft, "btnLeft");
             this.btnLeft.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLeft.FlatAppearance.BorderSize = 0;
             this.btnLeft.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -334,29 +334,29 @@
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.lisCheckNum);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
             // lisCheckNum
             // 
-            resources.ApplyResources(this.lisCheckNum, "lisCheckNum");
             this.lisCheckNum.FormattingEnabled = true;
+            resources.ApplyResources(this.lisCheckNum, "lisCheckNum");
             this.lisCheckNum.Name = "lisCheckNum";
             this.lisCheckNum.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             // 
             // gbInfo
             // 
-            resources.ApplyResources(this.gbInfo, "gbInfo");
             this.gbInfo.Controls.Add(this.lisName);
+            resources.ApplyResources(this.gbInfo, "gbInfo");
             this.gbInfo.Name = "gbInfo";
             this.gbInfo.TabStop = false;
             // 
             // lisName
             // 
-            resources.ApplyResources(this.lisName, "lisName");
             this.lisName.FormattingEnabled = true;
+            resources.ApplyResources(this.lisName, "lisName");
             this.lisName.Items.AddRange(new object[] {
             resources.GetString("lisName.Items"),
             resources.GetString("lisName.Items1"),
@@ -380,10 +380,10 @@
             // 
             // gbParaInfo
             // 
-            resources.ApplyResources(this.gbParaInfo, "gbParaInfo");
             this.gbParaInfo.BackColor = System.Drawing.Color.Transparent;
             this.gbParaInfo.Controls.Add(this.chISDataSend);
             this.gbParaInfo.Controls.Add(this.chISLis);
+            resources.ApplyResources(this.gbParaInfo, "gbParaInfo");
             this.gbParaInfo.Name = "gbParaInfo";
             this.gbParaInfo.TabStop = false;
             // 
@@ -403,7 +403,6 @@
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.cmbLisCodeType);
             this.groupBox2.Controls.Add(this.label7);
@@ -417,12 +416,12 @@
             this.groupBox2.Controls.Add(this.txtLISIPAddress);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
             // cmbLisCodeType
             // 
-            resources.ApplyResources(this.cmbLisCodeType, "cmbLisCodeType");
             this.cmbLisCodeType.AutoCompleteCustomSource.AddRange(new string[] {
             resources.GetString("cmbLisCodeType.AutoCompleteCustomSource"),
             resources.GetString("cmbLisCodeType.AutoCompleteCustomSource1"),
@@ -435,6 +434,7 @@
             resources.GetString("cmbLisCodeType.Items1"),
             resources.GetString("cmbLisCodeType.Items2"),
             resources.GetString("cmbLisCodeType.Items3")});
+            resources.ApplyResources(this.cmbLisCodeType, "cmbLisCodeType");
             this.cmbLisCodeType.Name = "cmbLisCodeType";
             this.cmbLisCodeType.SelectedIndexChanged += new System.EventHandler(this.cmbLisCodeType_SelectedIndexChanged);
             // 
@@ -445,8 +445,8 @@
             // 
             // fbtnLISClose
             // 
-            resources.ApplyResources(this.fbtnLISClose, "fbtnLISClose");
             this.fbtnLISClose.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnLISClose, "fbtnLISClose");
             this.fbtnLISClose.EnabledSet = true;
             this.fbtnLISClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnLISClose.FlatAppearance.BorderSize = 0;
@@ -458,8 +458,8 @@
             // 
             // fbtnLisCon
             // 
-            resources.ApplyResources(this.fbtnLisCon, "fbtnLisCon");
             this.fbtnLisCon.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnLisCon, "fbtnLisCon");
             this.fbtnLisCon.EnabledSet = true;
             this.fbtnLisCon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnLisCon.FlatAppearance.BorderSize = 0;
@@ -471,12 +471,12 @@
             // 
             // cmbLisConType
             // 
-            resources.ApplyResources(this.cmbLisConType, "cmbLisConType");
             this.cmbLisConType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLisConType.FormattingEnabled = true;
             this.cmbLisConType.Items.AddRange(new object[] {
             resources.GetString("cmbLisConType.Items"),
             resources.GetString("cmbLisConType.Items1")});
+            resources.ApplyResources(this.cmbLisConType, "cmbLisConType");
             this.cmbLisConType.Name = "cmbLisConType";
             // 
             // label6
@@ -496,8 +496,8 @@
             // 
             // txtLISPort
             // 
-            resources.ApplyResources(this.txtLISPort, "txtLISPort");
             this.txtLISPort.IsNull = false;
+            resources.ApplyResources(this.txtLISPort, "txtLISPort");
             this.txtLISPort.MaxValue = new decimal(new int[] {
             65535,
             0,
@@ -527,28 +527,28 @@
             // 
             // tabLisSetCK
             // 
-            resources.ApplyResources(this.tabLisSetCK, "tabLisSetCK");
             this.tabLisSetCK.BackColor = System.Drawing.Color.LightBlue;
             this.tabLisSetCK.Controls.Add(this.groupBox4);
             this.tabLisSetCK.Controls.Add(this.groupBox7);
             this.tabLisSetCK.Controls.Add(this.groupBox8);
+            resources.ApplyResources(this.tabLisSetCK, "tabLisSetCK");
             this.tabLisSetCK.Name = "tabLisSetCK";
             // 
             // groupBox4
             // 
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
             this.groupBox4.Controls.Add(this.button1);
             this.groupBox4.Controls.Add(this.button2);
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.groupBox6);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
             // button1
             // 
-            resources.ApplyResources(this.button1, "button1");
             this.button1.BackgroundImage = global::BioBaseCLIA.Properties.Resources.主界面按钮;
+            resources.ApplyResources(this.button1, "button1");
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -560,8 +560,8 @@
             // 
             // button2
             // 
-            resources.ApplyResources(this.button2, "button2");
             this.button2.BackgroundImage = global::BioBaseCLIA.Properties.Resources.主界面按钮;
+            resources.ApplyResources(this.button2, "button2");
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -573,29 +573,29 @@
             // 
             // groupBox5
             // 
-            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.lisCheckNumS);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
             // lisCheckNumS
             // 
-            resources.ApplyResources(this.lisCheckNumS, "lisCheckNumS");
             this.lisCheckNumS.FormattingEnabled = true;
+            resources.ApplyResources(this.lisCheckNumS, "lisCheckNumS");
             this.lisCheckNumS.Name = "lisCheckNumS";
             this.lisCheckNumS.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             // 
             // groupBox6
             // 
-            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.listBox2);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
             // listBox2
             // 
-            resources.ApplyResources(this.listBox2, "listBox2");
             this.listBox2.FormattingEnabled = true;
+            resources.ApplyResources(this.listBox2, "listBox2");
             this.listBox2.Items.AddRange(new object[] {
             resources.GetString("listBox2.Items"),
             resources.GetString("listBox2.Items1"),
@@ -619,10 +619,10 @@
             // 
             // groupBox7
             // 
-            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.BackColor = System.Drawing.Color.Transparent;
             this.groupBox7.Controls.Add(this.chkISDataSend);
             this.groupBox7.Controls.Add(this.chkISLis);
+            resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
             // 
@@ -642,7 +642,6 @@
             // 
             // groupBox8
             // 
-            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.BackColor = System.Drawing.Color.Transparent;
             this.groupBox8.Controls.Add(this.CmdConnType);
             this.groupBox8.Controls.Add(this.label9);
@@ -656,17 +655,18 @@
             this.groupBox8.Controls.Add(this.label11);
             this.groupBox8.Controls.Add(this.label12);
             this.groupBox8.Controls.Add(this.label13);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
             // 
             // CmdConnType
             // 
-            resources.ApplyResources(this.CmdConnType, "CmdConnType");
             this.CmdConnType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmdConnType.FormattingEnabled = true;
             this.CmdConnType.Items.AddRange(new object[] {
             resources.GetString("CmdConnType.Items"),
             resources.GetString("CmdConnType.Items1")});
+            resources.ApplyResources(this.CmdConnType, "CmdConnType");
             this.CmdConnType.Name = "CmdConnType";
             // 
             // label9
@@ -676,24 +676,23 @@
             // 
             // cmbBaud
             // 
-            resources.ApplyResources(this.cmbBaud, "cmbBaud");
             this.cmbBaud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBaud.FormattingEnabled = true;
             this.cmbBaud.Items.AddRange(new object[] {
             resources.GetString("cmbBaud.Items"),
             resources.GetString("cmbBaud.Items1")});
+            resources.ApplyResources(this.cmbBaud, "cmbBaud");
             this.cmbBaud.Name = "cmbBaud";
             // 
             // cmbCom
             // 
-            resources.ApplyResources(this.cmbCom, "cmbCom");
             this.cmbCom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCom.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbCom, "cmbCom");
             this.cmbCom.Name = "cmbCom";
             // 
             // comEncodType
             // 
-            resources.ApplyResources(this.comEncodType, "comEncodType");
             this.comEncodType.AutoCompleteCustomSource.AddRange(new string[] {
             resources.GetString("comEncodType.AutoCompleteCustomSource"),
             resources.GetString("comEncodType.AutoCompleteCustomSource1"),
@@ -706,6 +705,7 @@
             resources.GetString("comEncodType.Items1"),
             resources.GetString("comEncodType.Items2"),
             resources.GetString("comEncodType.Items3")});
+            resources.ApplyResources(this.comEncodType, "comEncodType");
             this.comEncodType.Name = "comEncodType";
             this.comEncodType.SelectedIndexChanged += new System.EventHandler(this.comEncodType_SelectedIndexChanged);
             // 
@@ -716,8 +716,8 @@
             // 
             // fbtnComClose
             // 
-            resources.ApplyResources(this.fbtnComClose, "fbtnComClose");
             this.fbtnComClose.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnComClose, "fbtnComClose");
             this.fbtnComClose.EnabledSet = true;
             this.fbtnComClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnComClose.FlatAppearance.BorderSize = 0;
@@ -729,8 +729,8 @@
             // 
             // fbtnComOpen
             // 
-            resources.ApplyResources(this.fbtnComOpen, "fbtnComOpen");
             this.fbtnComOpen.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnComOpen, "fbtnComOpen");
             this.fbtnComOpen.EnabledSet = true;
             this.fbtnComOpen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnComOpen.FlatAppearance.BorderSize = 0;

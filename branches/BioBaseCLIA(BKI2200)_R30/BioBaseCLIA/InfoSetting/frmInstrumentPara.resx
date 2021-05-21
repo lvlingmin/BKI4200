@@ -220,6 +220,63 @@
   <data name="&gt;&gt;fbtnCancle.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="txtDiuNum.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtDiuNum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>151, 245</value>
+  </data>
+  <data name="txtDiuNum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 21</value>
+  </data>
+  <data name="txtDiuNum.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="txtDiuNum.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtDiuNum.Name" xml:space="preserve">
+    <value>txtDiuNum</value>
+  </data>
+  <data name="&gt;&gt;txtDiuNum.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDiuNum.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;txtDiuNum.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label57.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label57.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label57.Location" type="System.Drawing.Point, System.Drawing">
+    <value>29, 249</value>
+  </data>
+  <data name="label57.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 12</value>
+  </data>
+  <data name="label57.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="label57.Text" xml:space="preserve">
+    <value>稀释液项目数量：</value>
+  </data>
+  <data name="&gt;&gt;label57.Name" xml:space="preserve">
+    <value>label57</value>
+  </data>
+  <data name="&gt;&gt;label57.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label57.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;label57.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label54.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -248,7 +305,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label54.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="txtTQXGLMax.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -275,7 +332,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTQXGLMax.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="label55.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -305,7 +362,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label55.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="txtTQXGLMin.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -332,7 +389,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTQXGLMin.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label52.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -362,7 +419,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label52.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="txtTSubstrateMax.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -389,7 +446,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTSubstrateMax.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label53.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -419,7 +476,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label53.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="txtTSubstrateMin.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -446,7 +503,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTSubstrateMin.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="label50.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -476,7 +533,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label50.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="txtTWashMax.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -503,7 +560,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTWashMax.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="label51.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -533,7 +590,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label51.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="txtTWashMin.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -560,7 +617,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTWashMin.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="label49.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -590,7 +647,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label49.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="txtTWYMax.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -617,7 +674,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTWYMax.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="label48.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -647,7 +704,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label48.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="txtTWYMin.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -674,7 +731,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtTWYMin.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="label47.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -704,7 +761,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label47.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="label46.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -734,7 +791,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label46.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="label45.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -764,7 +821,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label45.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="label44.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -794,7 +851,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label44.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="label43.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -803,7 +860,7 @@
     <value>NoControl</value>
   </data>
   <data name="label43.Location" type="System.Drawing.Point, System.Drawing">
-    <value>571, 288</value>
+    <value>571, 294</value>
   </data>
   <data name="label43.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
@@ -827,7 +884,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label43.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="label42.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -836,7 +893,7 @@
     <value>NoControl</value>
   </data>
   <data name="label42.Location" type="System.Drawing.Point, System.Drawing">
-    <value>571, 243</value>
+    <value>571, 249</value>
   </data>
   <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
@@ -860,7 +917,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="label41.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -890,7 +947,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label41.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="label40.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -920,7 +977,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label40.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="label39.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -950,7 +1007,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label39.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>26</value>
   </data>
   <data name="label38.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -980,7 +1037,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label38.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>27</value>
   </data>
   <data name="label32.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1010,7 +1067,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label32.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>28</value>
   </data>
   <data name="txtWarnWaitSeconds.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1037,7 +1094,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtWarnWaitSeconds.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>29</value>
   </data>
   <data name="label22.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1046,7 +1103,7 @@
     <value>NoControl</value>
   </data>
   <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 210</value>
+    <value>41, 210</value>
   </data>
   <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 12</value>
@@ -1067,13 +1124,13 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>30</value>
   </data>
   <data name="txtErrorTube.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="txtErrorTube.Location" type="System.Drawing.Point, System.Drawing">
-    <value>495, 284</value>
+    <value>495, 290</value>
   </data>
   <data name="txtErrorTube.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 21</value>
@@ -1097,7 +1154,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtErrorTube.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>31</value>
   </data>
   <data name="label19.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1106,7 +1163,7 @@
     <value>NoControl</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>373, 288</value>
+    <value>373, 294</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 12</value>
@@ -1130,13 +1187,13 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>32</value>
   </data>
   <data name="txtWarnTube.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="txtWarnTube.Location" type="System.Drawing.Point, System.Drawing">
-    <value>495, 239</value>
+    <value>495, 245</value>
   </data>
   <data name="txtWarnTube.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 21</value>
@@ -1160,7 +1217,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtWarnTube.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>33</value>
   </data>
   <data name="label20.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1169,7 +1226,7 @@
     <value>NoControl</value>
   </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>373, 243</value>
+    <value>373, 249</value>
   </data>
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 12</value>
@@ -1193,7 +1250,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>34</value>
   </data>
   <data name="txtErrorReagent.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1220,7 +1277,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtErrorReagent.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>35</value>
   </data>
   <data name="label21.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1250,7 +1307,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>36</value>
   </data>
   <data name="txtWarnReagent.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1277,7 +1334,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtWarnReagent.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>37</value>
   </data>
   <data name="label18.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1307,7 +1364,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>38</value>
   </data>
   <data name="txtErrorSubstrate.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1334,7 +1391,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtErrorSubstrate.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>39</value>
   </data>
   <data name="label17.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1364,7 +1421,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>40</value>
   </data>
   <data name="txtWarnSubstrate.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1391,7 +1448,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;txtWarnSubstrate.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>41</value>
   </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1421,7 +1478,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>42</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 43</value>
@@ -2304,6 +2361,18 @@
   <data name="label29.Text" xml:space="preserve">
     <value>s</value>
   </data>
+  <data name="&gt;&gt;label29.Name" xml:space="preserve">
+    <value>label29</value>
+  </data>
+  <data name="&gt;&gt;label29.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label29.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="label28.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2321,6 +2390,18 @@
   </data>
   <data name="label28.Text" xml:space="preserve">
     <value>s</value>
+  </data>
+  <data name="&gt;&gt;label28.Name" xml:space="preserve">
+    <value>label28</value>
+  </data>
+  <data name="&gt;&gt;label28.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label28.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="label27.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2340,6 +2421,18 @@
   <data name="label27.Text" xml:space="preserve">
     <value>s</value>
   </data>
+  <data name="&gt;&gt;label27.Name" xml:space="preserve">
+    <value>label27</value>
+  </data>
+  <data name="&gt;&gt;label27.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label27.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label27.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="label26.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2357,6 +2450,18 @@
   </data>
   <data name="label26.Text" xml:space="preserve">
     <value>s</value>
+  </data>
+  <data name="&gt;&gt;label26.Name" xml:space="preserve">
+    <value>label26</value>
+  </data>
+  <data name="&gt;&gt;label26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label26.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label26.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="label25.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2376,6 +2481,18 @@
   <data name="label25.Text" xml:space="preserve">
     <value>s</value>
   </data>
+  <data name="&gt;&gt;label25.Name" xml:space="preserve">
+    <value>label25</value>
+  </data>
+  <data name="&gt;&gt;label25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label25.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="label23.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2394,6 +2511,18 @@
   <data name="label23.Text" xml:space="preserve">
     <value>s</value>
   </data>
+  <data name="&gt;&gt;label23.Name" xml:space="preserve">
+    <value>label23</value>
+  </data>
+  <data name="&gt;&gt;label23.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label23.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="txtReadTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2408,6 +2537,18 @@
   </data>
   <data name="txtReadTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtReadTime.Name" xml:space="preserve">
+    <value>txtReadTime</value>
+  </data>
+  <data name="&gt;&gt;txtReadTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtReadTime.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;txtReadTime.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2427,6 +2568,18 @@
   <data name="label6.Text" xml:space="preserve">
     <value>读数时间:</value>
   </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="txtSubstrateTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2441,6 +2594,18 @@
   </data>
   <data name="txtSubstrateTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtSubstrateTime.Name" xml:space="preserve">
+    <value>txtSubstrateTime</value>
+  </data>
+  <data name="&gt;&gt;txtSubstrateTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSubstrateTime.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;txtSubstrateTime.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2460,6 +2625,18 @@
   <data name="label7.Text" xml:space="preserve">
     <value>加底物时间:</value>
   </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
   <data name="txtWashTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2474,6 +2651,18 @@
   </data>
   <data name="txtWashTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtWashTime.Name" xml:space="preserve">
+    <value>txtWashTime</value>
+  </data>
+  <data name="&gt;&gt;txtWashTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtWashTime.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;txtWashTime.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2493,6 +2682,18 @@
   <data name="label4.Text" xml:space="preserve">
     <value>清洗时间:</value>
   </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
   <data name="txtBeadsTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2507,6 +2708,18 @@
   </data>
   <data name="txtBeadsTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtBeadsTime.Name" xml:space="preserve">
+    <value>txtBeadsTime</value>
+  </data>
+  <data name="&gt;&gt;txtBeadsTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtBeadsTime.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;txtBeadsTime.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2526,6 +2739,18 @@
   <data name="label5.Text" xml:space="preserve">
     <value>加磁珠时间:</value>
   </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
   <data name="txtReagentTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2540,6 +2765,18 @@
   </data>
   <data name="txtReagentTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtReagentTime.Name" xml:space="preserve">
+    <value>txtReagentTime</value>
+  </data>
+  <data name="&gt;&gt;txtReagentTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtReagentTime.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;txtReagentTime.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2559,6 +2796,18 @@
   <data name="label3.Text" xml:space="preserve">
     <value>加试剂时间:</value>
   </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
   <data name="txtSampleTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2573,6 +2822,18 @@
   </data>
   <data name="txtSampleTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtSampleTime.Name" xml:space="preserve">
+    <value>txtSampleTime</value>
+  </data>
+  <data name="&gt;&gt;txtSampleTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSampleTime.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;txtSampleTime.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2592,6 +2853,18 @@
   <data name="label2.Text" xml:space="preserve">
     <value>加样时间:</value>
   </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
   <data name="label37.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2609,6 +2882,18 @@
   </data>
   <data name="label37.Text" xml:space="preserve">
     <value>次</value>
+  </data>
+  <data name="&gt;&gt;label37.Name" xml:space="preserve">
+    <value>label37</value>
+  </data>
+  <data name="&gt;&gt;label37.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label37.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label37.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label36.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2628,6 +2913,18 @@
   <data name="label36.Text" xml:space="preserve">
     <value>μl</value>
   </data>
+  <data name="&gt;&gt;label36.Name" xml:space="preserve">
+    <value>label36</value>
+  </data>
+  <data name="&gt;&gt;label36.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label36.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label36.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label35.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2645,6 +2942,18 @@
   </data>
   <data name="label35.Text" xml:space="preserve">
     <value>μl</value>
+  </data>
+  <data name="&gt;&gt;label35.Name" xml:space="preserve">
+    <value>label35</value>
+  </data>
+  <data name="&gt;&gt;label35.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label35.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label35.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label34.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2664,6 +2973,18 @@
   <data name="label34.Text" xml:space="preserve">
     <value>μl</value>
   </data>
+  <data name="&gt;&gt;label34.Name" xml:space="preserve">
+    <value>label34</value>
+  </data>
+  <data name="&gt;&gt;label34.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label34.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label34.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="label33.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2681,6 +3002,18 @@
   </data>
   <data name="label33.Text" xml:space="preserve">
     <value>μl</value>
+  </data>
+  <data name="&gt;&gt;label33.Name" xml:space="preserve">
+    <value>label33</value>
+  </data>
+  <data name="&gt;&gt;label33.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label33.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label33.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="label24.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2700,6 +3033,18 @@
   <data name="label24.Text" xml:space="preserve">
     <value>μl</value>
   </data>
+  <data name="&gt;&gt;label24.Name" xml:space="preserve">
+    <value>label24</value>
+  </data>
+  <data name="&gt;&gt;label24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label24.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="txtMixNum.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2714,6 +3059,18 @@
   </data>
   <data name="txtMixNum.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtMixNum.Name" xml:space="preserve">
+    <value>txtMixNum</value>
+  </data>
+  <data name="&gt;&gt;txtMixNum.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtMixNum.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;txtMixNum.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2733,6 +3090,18 @@
   <data name="label8.Text" xml:space="preserve">
     <value>混匀次数:</value>
   </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="txtRgAbandonVol.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2747,6 +3116,18 @@
   </data>
   <data name="txtRgAbandonVol.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtRgAbandonVol.Name" xml:space="preserve">
+    <value>txtRgAbandonVol</value>
+  </data>
+  <data name="&gt;&gt;txtRgAbandonVol.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtRgAbandonVol.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;txtRgAbandonVol.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2766,6 +3147,18 @@
   <data name="label9.Text" xml:space="preserve">
     <value>试剂后弃体积:</value>
   </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
   <data name="txtRgBeforeVol.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2780,6 +3173,18 @@
   </data>
   <data name="txtRgBeforeVol.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtRgBeforeVol.Name" xml:space="preserve">
+    <value>txtRgBeforeVol</value>
+  </data>
+  <data name="&gt;&gt;txtRgBeforeVol.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtRgBeforeVol.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;txtRgBeforeVol.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2799,6 +3204,18 @@
   <data name="label10.Text" xml:space="preserve">
     <value>试剂前吐体积:</value>
   </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
   <data name="txtSpAbandonVol.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2813,6 +3230,18 @@
   </data>
   <data name="txtSpAbandonVol.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtSpAbandonVol.Name" xml:space="preserve">
+    <value>txtSpAbandonVol</value>
+  </data>
+  <data name="&gt;&gt;txtSpAbandonVol.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSpAbandonVol.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;txtSpAbandonVol.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2832,6 +3261,18 @@
   <data name="label11.Text" xml:space="preserve">
     <value>样本后弃体积:</value>
   </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
   <data name="txtSpBeforeVol.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2846,6 +3287,18 @@
   </data>
   <data name="txtSpBeforeVol.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtSpBeforeVol.Name" xml:space="preserve">
+    <value>txtSpBeforeVol</value>
+  </data>
+  <data name="&gt;&gt;txtSpBeforeVol.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtSpBeforeVol.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;txtSpBeforeVol.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2865,6 +3318,18 @@
   <data name="label12.Text" xml:space="preserve">
     <value>样本前吐体积:</value>
   </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
   <data name="txtAirVol.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2879,6 +3344,18 @@
   </data>
   <data name="txtAirVol.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtAirVol.Name" xml:space="preserve">
+    <value>txtAirVol</value>
+  </data>
+  <data name="&gt;&gt;txtAirVol.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtAirVol.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;txtAirVol.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2898,6 +3375,18 @@
   <data name="label13.Text" xml:space="preserve">
     <value>空气隔断体积:</value>
   </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
   <data name="label31.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -2915,6 +3404,18 @@
   </data>
   <data name="label31.Text" xml:space="preserve">
     <value>s</value>
+  </data>
+  <data name="&gt;&gt;label31.Name" xml:space="preserve">
+    <value>label31</value>
+  </data>
+  <data name="&gt;&gt;label31.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label31.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;label31.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label30.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2934,6 +3435,18 @@
   <data name="label30.Text" xml:space="preserve">
     <value>s</value>
   </data>
+  <data name="&gt;&gt;label30.Name" xml:space="preserve">
+    <value>label30</value>
+  </data>
+  <data name="&gt;&gt;label30.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label30.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;label30.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="txtNeedleCleanTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2948,6 +3461,18 @@
   </data>
   <data name="txtNeedleCleanTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtNeedleCleanTime.Name" xml:space="preserve">
+    <value>txtNeedleCleanTime</value>
+  </data>
+  <data name="&gt;&gt;txtNeedleCleanTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtNeedleCleanTime.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;txtNeedleCleanTime.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2967,6 +3492,18 @@
   <data name="label15.Text" xml:space="preserve">
     <value>洗针时间:</value>
   </data>
+  <data name="&gt;&gt;label15.Name" xml:space="preserve">
+    <value>label15</value>
+  </data>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="txtFirstCleanTime.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -2981,6 +3518,18 @@
   </data>
   <data name="txtFirstCleanTime.Text" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtFirstCleanTime.Name" xml:space="preserve">
+    <value>txtFirstCleanTime</value>
+  </data>
+  <data name="&gt;&gt;txtFirstCleanTime.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtFirstCleanTime.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;txtFirstCleanTime.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2999,6 +3548,18 @@
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>首次洗针时间:</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;btnUserInfo.Name" xml:space="preserve">
     <value>btnUserInfo</value>
@@ -3169,6 +3730,18 @@
   <data name="btnUserInfo.Text" xml:space="preserve">
     <value>用户设置</value>
   </data>
+  <data name="&gt;&gt;btnUserInfo.Name" xml:space="preserve">
+    <value>btnUserInfo</value>
+  </data>
+  <data name="&gt;&gt;btnUserInfo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnUserInfo.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnUserInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="fbtnConnetSet.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -3256,6 +3829,18 @@
   </data>
   <data name="fbtnConnetSet.Text" xml:space="preserve">
     <value>通讯设置</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.Name" xml:space="preserve">
+    <value>fbtnConnetSet</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="btnInstrumentPara.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3348,6 +3933,18 @@
   <data name="btnInstrumentPara.Text" xml:space="preserve">
     <value>报警阈值</value>
   </data>
+  <data name="&gt;&gt;btnInstrumentPara.Name" xml:space="preserve">
+    <value>btnInstrumentPara</value>
+  </data>
+  <data name="&gt;&gt;btnInstrumentPara.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnInstrumentPara.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnInstrumentPara.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="btnProInfo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -3435,6 +4032,18 @@
   </data>
   <data name="btnProInfo.Text" xml:space="preserve">
     <value>信息设置</value>
+  </data>
+  <data name="&gt;&gt;btnProInfo.Name" xml:space="preserve">
+    <value>btnProInfo</value>
+  </data>
+  <data name="&gt;&gt;btnProInfo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnProInfo.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnProInfo.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3524,6 +4133,18 @@
   <data name="fbtnReturn.Text" xml:space="preserve">
     <value>返回</value>
   </data>
+  <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
+    <value>fbtnReturn</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3557,9 +4178,9 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>

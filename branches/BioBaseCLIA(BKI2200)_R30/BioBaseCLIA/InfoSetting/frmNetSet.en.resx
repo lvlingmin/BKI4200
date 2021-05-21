@@ -1284,7 +1284,7 @@
   <data name="tabControlMy1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
   </data>
-  <data name="AddReData" xml:space="preserve">
+<data name="AddReData" xml:space="preserve">
     <value>Add data duplication</value>
   </data>
   <data name="Close" xml:space="preserve">
@@ -1331,5 +1331,4 @@
   </data>
   <data name="NetSaveSucess" xml:space="preserve">
     <value>Saved successfully</value>
-  </data>
-</root>
+  </data></root>

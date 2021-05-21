@@ -356,97 +356,6 @@
   <data name="&gt;&gt;btnUnLoadItem.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnSaveItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="btnSaveItem.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnSaveItem.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnSaveItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 9pt</value>
-  </data>
-  <data name="btnSaveItem.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSaveItem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>56, 221</value>
-  </data>
-  <data name="btnSaveItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 31</value>
-  </data>
-  <data name="btnSaveItem.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="btnSaveItem.Text" xml:space="preserve">
-    <value>保存项目信息</value>
-  </data>
-  <data name="btnSaveItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;btnSaveItem.Name" xml:space="preserve">
     <value>btnSaveItem</value>
   </data>
@@ -458,33 +367,6 @@
   </data>
   <data name="&gt;&gt;btnSaveItem.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <metadata name="StnNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="StnNo.HeaderText" xml:space="preserve">
-    <value>No.</value>
-  </data>
-  <metadata name="StdName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="StdName.HeaderText" xml:space="preserve">
-    <value>标准品名</value>
-  </data>
-  <metadata name="conc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="conc.HeaderText" xml:space="preserve">
-    <value>浓度</value>
-  </data>
-  <data name="dgvItemStd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 20</value>
-  </data>
-  <data name="dgvItemStd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 194</value>
-  </data>
-  <data name="dgvItemStd.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;dgvItemStd.Name" xml:space="preserve">
     <value>dgvItemStd</value>
@@ -522,94 +404,6 @@
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnModifyStep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="btnModifyStep.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnModifyStep.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnModifyStep.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnModifyStep.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 221</value>
-  </data>
-  <data name="btnModifyStep.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 32</value>
-  </data>
-  <data name="btnModifyStep.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnModifyStep.Text" xml:space="preserve">
-    <value>修改步骤</value>
-  </data>
-  <data name="btnModifyStep.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;btnModifyStep.Name" xml:space="preserve">
     <value>btnModifyStep</value>
   </data>
@@ -620,39 +414,6 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;btnModifyStep.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="NO.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="NO.HeaderText" xml:space="preserve">
-    <value>NO.</value>
-  </data>
-  <metadata name="StepName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="StepName.HeaderText" xml:space="preserve">
-    <value>步骤名</value>
-  </data>
-  <metadata name="StepPara.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="StepPara.HeaderText" xml:space="preserve">
-    <value>参数</value>
-  </data>
-  <metadata name="ParaUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="ParaUnit.HeaderText" xml:space="preserve">
-    <value>单位</value>
-  </data>
-  <data name="dgvItemStep.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 20</value>
-  </data>
-  <data name="dgvItemStep.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 194</value>
-  </data>
-  <data name="dgvItemStep.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;dgvItemStep.Name" xml:space="preserve">
@@ -1324,6 +1085,569 @@
   <data name="&gt;&gt;tabPPro.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
+    <value>tabPBaseInfo</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
+    <value>tabPBaseInfo</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
+    <value>tabPBaseInfo</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabPBaseInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPBaseInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPBaseInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>828, 440</value>
+  </data>
+  <data name="tabPBaseInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPBaseInfo.Text" xml:space="preserve">
+    <value>基础信息</value>
+  </data>
+  <data name="&gt;&gt;tabPBaseInfo.Name" xml:space="preserve">
+    <value>tabPBaseInfo</value>
+  </data>
+  <data name="&gt;&gt;tabPBaseInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPBaseInfo.Parent" xml:space="preserve">
+    <value>tabInfo</value>
+  </data>
+  <data name="&gt;&gt;tabPBaseInfo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
+    <value>tabPint</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+    <value>tabPint</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabPint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>828, 440</value>
+  </data>
+  <data name="tabPint.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPint.Text" xml:space="preserve">
+    <value>打印设置</value>
+  </data>
+  <data name="&gt;&gt;tabPint.Name" xml:space="preserve">
+    <value>tabPint</value>
+  </data>
+  <data name="&gt;&gt;tabPint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPint.Parent" xml:space="preserve">
+    <value>tabInfo</value>
+  </data>
+  <data name="&gt;&gt;tabPint.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 45</value>
+  </data>
+  <data name="tabInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>836, 466</value>
+  </data>
+  <data name="tabInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;tabInfo.Name" xml:space="preserve">
+    <value>tabInfo</value>
+  </data>
+  <data name="&gt;&gt;tabInfo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.TabControlMy, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;tabInfo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabInfo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnSaveItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="btnSaveItem.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnSaveItem.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSaveItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="btnSaveItem.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSaveItem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 221</value>
+  </data>
+  <data name="btnSaveItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 31</value>
+  </data>
+  <data name="btnSaveItem.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="btnSaveItem.Text" xml:space="preserve">
+    <value>保存项目信息</value>
+  </data>
+  <data name="btnSaveItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnSaveItem.Name" xml:space="preserve">
+    <value>btnSaveItem</value>
+  </data>
+  <data name="&gt;&gt;btnSaveItem.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSaveItem.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;btnSaveItem.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="StnNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="StnNo.HeaderText" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <metadata name="StdName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="StdName.HeaderText" xml:space="preserve">
+    <value>标准品名</value>
+  </data>
+  <metadata name="conc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="conc.HeaderText" xml:space="preserve">
+    <value>浓度</value>
+  </data>
+  <data name="dgvItemStd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 20</value>
+  </data>
+  <data name="dgvItemStd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 194</value>
+  </data>
+  <data name="dgvItemStd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStd.Name" xml:space="preserve">
+    <value>dgvItemStd</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStd.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStd.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnModifyStep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="btnModifyStep.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btnModifyStep.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnModifyStep.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnModifyStep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 221</value>
+  </data>
+  <data name="btnModifyStep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 32</value>
+  </data>
+  <data name="btnModifyStep.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnModifyStep.Text" xml:space="preserve">
+    <value>修改步骤</value>
+  </data>
+  <data name="btnModifyStep.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnModifyStep.Name" xml:space="preserve">
+    <value>btnModifyStep</value>
+  </data>
+  <data name="&gt;&gt;btnModifyStep.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnModifyStep.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btnModifyStep.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="NO.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="StepName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="StepPara.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ParaUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="dgvItemStep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 20</value>
+  </data>
+  <data name="dgvItemStep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 194</value>
+  </data>
+  <data name="dgvItemStep.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStep.Name" xml:space="preserve">
+    <value>dgvItemStep</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStep.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;dgvItemStep.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="NO.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="NO.HeaderText" xml:space="preserve">
+    <value>NO.</value>
+  </data>
+  <metadata name="StepName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="StepName.HeaderText" xml:space="preserve">
+    <value>步骤名</value>
+  </data>
+  <metadata name="StepPara.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="StepPara.HeaderText" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <metadata name="ParaUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ParaUnit.HeaderText" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="&gt;&gt;btnSaveDoc.Name" xml:space="preserve">
+    <value>btnSaveDoc</value>
+  </data>
+  <data name="&gt;&gt;btnSaveDoc.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSaveDoc.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;btnSaveDoc.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnDelDoc.Name" xml:space="preserve">
+    <value>btnDelDoc</value>
+  </data>
+  <data name="&gt;&gt;btnDelDoc.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnDelDoc.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;btnDelDoc.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDoc.Name" xml:space="preserve">
+    <value>btnModifyDoc</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDoc.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDoc.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDoc.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnAddDoc.Name" xml:space="preserve">
+    <value>btnAddDoc</value>
+  </data>
+  <data name="&gt;&gt;btnAddDoc.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnAddDoc.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;btnAddDoc.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;cmbDep.Name" xml:space="preserve">
+    <value>cmbDep</value>
+  </data>
+  <data name="&gt;&gt;cmbDep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbDep.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;cmbDep.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;txtDocName.Name" xml:space="preserve">
+    <value>txtDocName</value>
+  </data>
+  <data name="&gt;&gt;txtDocName.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDocName.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;txtDocName.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;dgvDoctor.Name" xml:space="preserve">
+    <value>dgvDoctor</value>
+  </data>
+  <data name="&gt;&gt;dgvDoctor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvDoctor.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;dgvDoctor.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 19</value>
+  </data>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>445, 178</value>
+  </data>
+  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>医生信息</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
+    <value>tabPBaseInfo</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnSaveDoc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1826,24 +2150,12 @@
   <metadata name="Doctor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="Doctor.HeaderText" xml:space="preserve">
-    <value>医生</value>
-  </data>
   <metadata name="Department.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="Department.HeaderText" xml:space="preserve">
-    <value>科室</value>
-  </data>
   <metadata name="DocID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="DocID.HeaderText" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="DocID.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="dgvDoctor.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 20</value>
   </data>
@@ -1865,29 +2177,158 @@
   <data name="&gt;&gt;dgvDoctor.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 19</value>
+  <metadata name="Doctor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Doctor.HeaderText" xml:space="preserve">
+    <value>医生</value>
   </data>
-  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>445, 178</value>
+  <metadata name="Department.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Department.HeaderText" xml:space="preserve">
+    <value>科室</value>
   </data>
-  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+  <metadata name="DocID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="DocID.HeaderText" xml:space="preserve">
+    <value>ID</value>
   </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>医生信息</value>
+  <data name="DocID.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
-    <value>groupBox5</value>
+  <data name="&gt;&gt;btnSave.Name" xml:space="preserve">
+    <value>btnSave</value>
   </data>
-  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSave.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSave.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
+    <value>btnDelete</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnModify.Name" xml:space="preserve">
+    <value>btnModify</value>
+  </data>
+  <data name="&gt;&gt;btnModify.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnModify.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;btnModify.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
+    <value>btnAdd</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtGroupItemName.Name" xml:space="preserve">
+    <value>txtGroupItemName</value>
+  </data>
+  <data name="&gt;&gt;txtGroupItemName.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtGroupItemName.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;txtGroupItemName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lbGroupItem.Name" xml:space="preserve">
+    <value>lbGroupItem</value>
+  </data>
+  <data name="&gt;&gt;lbGroupItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbGroupItem.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;lbGroupItem.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;flpItemName.Name" xml:space="preserve">
+    <value>flpItemName</value>
+  </data>
+  <data name="&gt;&gt;flpItemName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flpItemName.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;flpItemName.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 236</value>
+  </data>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>775, 197</value>
+  </data>
+  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>组合项目信息</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
     <value>tabPBaseInfo</value>
   </data>
-  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2412,29 +2853,113 @@
   <data name="&gt;&gt;flpItemName.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 236</value>
+  <data name="&gt;&gt;btnSaveDep.Name" xml:space="preserve">
+    <value>btnSaveDep</value>
   </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>775, 197</value>
+  <data name="&gt;&gt;btnSaveDep.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+  <data name="&gt;&gt;btnSaveDep.Parent" xml:space="preserve">
+    <value>groupBox8</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>组合项目信息</value>
+  <data name="&gt;&gt;btnSaveDep.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
-    <value>groupBox4</value>
+  <data name="&gt;&gt;btnDelDep.Name" xml:space="preserve">
+    <value>btnDelDep</value>
   </data>
-  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnDelDep.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnDelDep.Parent" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;btnDelDep.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDep.Name" xml:space="preserve">
+    <value>btnModifyDep</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDep.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDep.Parent" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;btnModifyDep.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnAddDep.Name" xml:space="preserve">
+    <value>btnAddDep</value>
+  </data>
+  <data name="&gt;&gt;btnAddDep.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnAddDep.Parent" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;btnAddDep.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtDepName.Name" xml:space="preserve">
+    <value>txtDepName</value>
+  </data>
+  <data name="&gt;&gt;txtDepName.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtDepName.Parent" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;txtDepName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lbDep.Name" xml:space="preserve">
+    <value>lbDep</value>
+  </data>
+  <data name="&gt;&gt;lbDep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbDep.Parent" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;lbDep.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 178</value>
+  </data>
+  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>科室信息</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
+    <value>groupBox8</value>
+  </data>
+  <data name="&gt;&gt;groupBox8.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
     <value>tabPBaseInfo</value>
   </data>
-  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="btnSaveDep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2905,56 +3430,65 @@
   <data name="&gt;&gt;lbDep.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+  <data name="&gt;&gt;btnMoveDown.Name" xml:space="preserve">
+    <value>btnMoveDown</value>
   </data>
-  <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 178</value>
+  <data name="&gt;&gt;btnMoveDown.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="groupBox8.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="&gt;&gt;btnMoveDown.Parent" xml:space="preserve">
+    <value>groupBox7</value>
   </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>科室信息</value>
+  <data name="&gt;&gt;btnMoveDown.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
-    <value>groupBox8</value>
+  <data name="&gt;&gt;btnMoveUP.Name" xml:space="preserve">
+    <value>btnMoveUP</value>
   </data>
-  <data name="&gt;&gt;groupBox8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnMoveUP.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
-    <value>tabPBaseInfo</value>
+  <data name="&gt;&gt;btnMoveUP.Parent" xml:space="preserve">
+    <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnMoveUP.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dgvPrint.Name" xml:space="preserve">
+    <value>dgvPrint</value>
+  </data>
+  <data name="&gt;&gt;dgvPrint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvPrint.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;dgvPrint.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="tabPBaseInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 3</value>
   </data>
-  <data name="tabPBaseInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 427</value>
   </data>
-  <data name="tabPBaseInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 440</value>
+  <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
   </data>
-  <data name="tabPBaseInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>打印顺序</value>
   </data>
-  <data name="tabPBaseInfo.Text" xml:space="preserve">
-    <value>基础信息</value>
+  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
+    <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;tabPBaseInfo.Name" xml:space="preserve">
-    <value>tabPBaseInfo</value>
+  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPBaseInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
+    <value>tabPint</value>
   </data>
-  <data name="&gt;&gt;tabPBaseInfo.Parent" xml:space="preserve">
-    <value>tabInfo</value>
-  </data>
-  <data name="&gt;&gt;tabPBaseInfo.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnMoveDown.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3153,15 +3687,9 @@
   <metadata name="PrintNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="PrintNo.HeaderText" xml:space="preserve">
-    <value>排序</value>
-  </data>
   <metadata name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="ItemName.HeaderText" xml:space="preserve">
-    <value>项目名称</value>
-  </data>
   <data name="dgvPrint.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 20</value>
   </data>
@@ -3183,29 +3711,197 @@
   <data name="&gt;&gt;dgvPrint.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>508, 3</value>
+  <metadata name="PrintNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="PrintNo.HeaderText" xml:space="preserve">
+    <value>排序</value>
   </data>
-  <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 427</value>
+  <metadata name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ItemName.HeaderText" xml:space="preserve">
+    <value>项目名称</value>
   </data>
-  <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+  <data name="&gt;&gt;cmbPrintMode.Name" xml:space="preserve">
+    <value>cmbPrintMode</value>
   </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>打印顺序</value>
+  <data name="&gt;&gt;cmbPrintMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
-    <value>groupBox7</value>
+  <data name="&gt;&gt;cmbPrintMode.Parent" xml:space="preserve">
+    <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmbPrintMode.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label21.Name" xml:space="preserve">
+    <value>label21</value>
+  </data>
+  <data name="&gt;&gt;label21.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label21.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;rdbClose.Name" xml:space="preserve">
+    <value>rdbClose</value>
+  </data>
+  <data name="&gt;&gt;rdbClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdbClose.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;rdbClose.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;rdbOpen.Name" xml:space="preserve">
+    <value>rdbOpen</value>
+  </data>
+  <data name="&gt;&gt;rdbOpen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdbOpen.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;rdbOpen.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label18.Name" xml:space="preserve">
+    <value>label18</value>
+  </data>
+  <data name="&gt;&gt;label18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;cmbFormat.Name" xml:space="preserve">
+    <value>cmbFormat</value>
+  </data>
+  <data name="&gt;&gt;cmbFormat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbFormat.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;cmbFormat.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btnSetHospitalName.Name" xml:space="preserve">
+    <value>btnSetHospitalName</value>
+  </data>
+  <data name="&gt;&gt;btnSetHospitalName.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSetHospitalName.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;btnSetHospitalName.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;label17.Name" xml:space="preserve">
+    <value>label17</value>
+  </data>
+  <data name="&gt;&gt;label17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label17.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;cmbPrinter.Name" xml:space="preserve">
+    <value>cmbPrinter</value>
+  </data>
+  <data name="&gt;&gt;cmbPrinter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbPrinter.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;cmbPrinter.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;txtHospitalName.Name" xml:space="preserve">
+    <value>txtHospitalName</value>
+  </data>
+  <data name="&gt;&gt;txtHospitalName.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txtHospitalName.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;txtHospitalName.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 15</value>
+  </data>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>486, 415</value>
+  </data>
+  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>打印报告设置</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
     <value>tabPint</value>
   </data>
-  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="cmbPrintMode.Items" xml:space="preserve">
     <value>模版一</value>
@@ -3263,6 +3959,78 @@
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;nudRight.Name" xml:space="preserve">
+    <value>nudRight</value>
+  </data>
+  <data name="&gt;&gt;nudRight.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudRight.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;nudRight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;nudDown.Name" xml:space="preserve">
+    <value>nudDown</value>
+  </data>
+  <data name="&gt;&gt;nudDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudDown.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;nudDown.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;nudLeft.Name" xml:space="preserve">
+    <value>nudLeft</value>
+  </data>
+  <data name="&gt;&gt;nudLeft.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudLeft.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;nudLeft.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;nudUP.Name" xml:space="preserve">
+    <value>nudUP</value>
+  </data>
+  <data name="&gt;&gt;nudUP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nudUP.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;nudUP.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 182</value>
+  </data>
+  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 175</value>
+  </data>
+  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>打印内容位置调整（单位：厘米）</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="nudRight.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 76</value>
@@ -3347,30 +4115,6 @@
   </data>
   <data name="&gt;&gt;nudUP.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 182</value>
-  </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 175</value>
-  </data>
-  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>打印内容位置调整（单位：厘米）</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="rdbClose.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3712,74 +4456,86 @@
   <data name="&gt;&gt;txtHospitalName.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 15</value>
+  <data name="&gt;&gt;btnUserInfo.Name" xml:space="preserve">
+    <value>btnUserInfo</value>
   </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 415</value>
+  <data name="&gt;&gt;btnUserInfo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;btnUserInfo.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnUserInfo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.Name" xml:space="preserve">
+    <value>fbtnConnetSet</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnConnetSet.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnInstrumentPara.Name" xml:space="preserve">
+    <value>btnInstrumentPara</value>
+  </data>
+  <data name="&gt;&gt;btnInstrumentPara.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnInstrumentPara.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;btnInstrumentPara.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
+    <value>fbtnReturn</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>打印报告设置</value>
+  <data name="&gt;&gt;btnProInfo.Name" xml:space="preserve">
+    <value>btnProInfo</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
-    <value>groupBox6</value>
+  <data name="&gt;&gt;btnProInfo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnProInfo.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
-    <value>tabPint</value>
+  <data name="&gt;&gt;btnProInfo.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>835, 30</value>
   </data>
-  <data name="tabPint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 505</value>
   </data>
-  <data name="tabPint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 440</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
-  <data name="tabPint.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="tabPint.Text" xml:space="preserve">
-    <value>打印设置</value>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPint.Name" xml:space="preserve">
-    <value>tabPint</value>
-  </data>
-  <data name="&gt;&gt;tabPint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPint.Parent" xml:space="preserve">
-    <value>tabInfo</value>
-  </data>
-  <data name="&gt;&gt;tabPint.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 45</value>
-  </data>
-  <data name="tabInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>836, 466</value>
-  </data>
-  <data name="tabInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;tabInfo.Name" xml:space="preserve">
-    <value>tabInfo</value>
-  </data>
-  <data name="&gt;&gt;tabInfo.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.TabControlMy, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;tabInfo.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;tabInfo.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="btnUserInfo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4284,27 +5040,6 @@
   <data name="&gt;&gt;btnProInfo.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>835, 30</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 505</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -4406,5 +5141,164 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>加磁珠</value>
+  </data>
+  <data name="BasicSetHead" xml:space="preserve">
+    <value>基础信息设置</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="D" xml:space="preserve">
+    <value>读数</value>
+  </data>
+  <data name="DepartAddInfo" xml:space="preserve">
+    <value>请先添加科室信息</value>
+  </data>
+  <data name="DepartAddSucess" xml:space="preserve">
+    <value>科室信息添加成功</value>
+  </data>
+  <data name="DepartAlterSucess" xml:space="preserve">
+    <value>科室信息修改成功</value>
+  </data>
+  <data name="DepartDeleteInfo" xml:space="preserve">
+    <value>该科室下存有医生信息，需删除该科室下所有医生信息后才可删除该科室信息</value>
+  </data>
+  <data name="DepartDeleteSucess" xml:space="preserve">
+    <value>科室信息删除成功</value>
+  </data>
+  <data name="DepartNameSet" xml:space="preserve">
+    <value>科室名称只能由二到十个汉字、字母、数字、星号、.、下划线组成！</value>
+  </data>
+  <data name="DepartReName" xml:space="preserve">
+    <value>科室信息不能重名</value>
+  </data>
+  <data name="DepartSDeleteInfo" xml:space="preserve">
+    <value>请选中要删除的信息</value>
+  </data>
+  <data name="DepartSelectInfo" xml:space="preserve">
+    <value>请选中修改项</value>
+  </data>
+  <data name="DoctorAddSucess" xml:space="preserve">
+    <value>医生信息添加成功</value>
+  </data>
+  <data name="DoctorDeleteSucess" xml:space="preserve">
+    <value>医生信息删除成功</value>
+  </data>
+  <data name="DoctorModifySucess" xml:space="preserve">
+    <value>医生信息修改成功</value>
+  </data>
+  <data name="DoctorNameSet" xml:space="preserve">
+    <value>医生姓名只能由二到十个汉字、字母、数字、星号、.或下划线组成！</value>
+  </data>
+  <data name="DoctorReName" xml:space="preserve">
+    <value>相同的科室下已有同名的医生</value>
+  </data>
+  <data name="DoctorSelectInfo" xml:space="preserve">
+    <value>请选择需要修改的医生信息</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="GroupAddSucess" xml:space="preserve">
+    <value>组合项目添加成功</value>
+  </data>
+  <data name="GroupDeleteSucess" xml:space="preserve">
+    <value>组合项目删除成功</value>
+  </data>
+  <data name="GroupModifySucess" xml:space="preserve">
+    <value>组合项目修改成功！</value>
+  </data>
+  <data name="GroupNameInfo" xml:space="preserve">
+    <value>组合项目名称只能由二到十个汉字、字母、星号、数字、.、下划线组成</value>
+  </data>
+  <data name="GroupReName" xml:space="preserve">
+    <value>组合项目不能重名</value>
+  </data>
+  <data name="GroupSDeleteInfo" xml:space="preserve">
+    <value>请选择要删除的组合项目</value>
+  </data>
+  <data name="GroupSItemInfo" xml:space="preserve">
+    <value>未选择实验项目，请选择</value>
+  </data>
+  <data name="GroupSModify" xml:space="preserve">
+    <value>修改组合项目前请先选中修改项</value>
+  </data>
+  <data name="H" xml:space="preserve">
+    <value>孵育</value>
+  </data>
+  <data name="HospitalName" xml:space="preserve">
+    <value>XXXX医院</value>
+  </data>
+  <data name="PrintParaSetSucess" xml:space="preserve">
+    <value>打印参数设置成功</value>
+  </data>
+  <data name="ProjectDeleteSucess" xml:space="preserve">
+    <value>项目删除成功</value>
+  </data>
+  <data name="ProjectHead" xml:space="preserve">
+    <value>项目管理</value>
+  </data>
+  <data name="ProjectImportSucess" xml:space="preserve">
+    <value>导入项目成功</value>
+  </data>
+  <data name="ProjectIPFormat" xml:space="preserve">
+    <value>导入格式不正确</value>
+  </data>
+  <data name="ProjectReAdd" xml:space="preserve">
+    <value>项目已经存在，导入将删除原有项目，是否继续</value>
+  </data>
+  <data name="ProjectSaveError" xml:space="preserve">
+    <value>导入项目出错，请重新导入</value>
+  </data>
+  <data name="ProjectSaveSucess" xml:space="preserve">
+    <value>项目信息保存成功</value>
+  </data>
+  <data name="R1" xml:space="preserve">
+    <value>试剂1</value>
+  </data>
+  <data name="R2" xml:space="preserve">
+    <value>试剂2</value>
+  </data>
+  <data name="R3" xml:space="preserve">
+    <value>试剂3</value>
+  </data>
+  <data name="RD" xml:space="preserve">
+    <value>试剂D</value>
+  </data>
+  <data name="ReportNameSet" xml:space="preserve">
+    <value>报告名称只能由汉字、字母、数字、星号、.或下划线组成，且不能为空！</value>
+  </data>
+  <data name="W" xml:space="preserve">
+    <value>清洗</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="PrinterSelect" xml:space="preserve">
+    <value>请选择默认的打印机</value>
+  </data>
+  <data name="PrinterSetFail" xml:space="preserve">
+    <value>设置为默认打印机失败！</value>
+  </data>
+  <data name="PrintHead" xml:space="preserve">
+    <value>打印设置</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>加样</value>
+  </data>
+  <data name="T" xml:space="preserve">
+    <value>加底物</value>
+  </data>
+  <data name="PrintMode" xml:space="preserve">
+    <value>请选择打印模板</value>
   </data>
 </root>

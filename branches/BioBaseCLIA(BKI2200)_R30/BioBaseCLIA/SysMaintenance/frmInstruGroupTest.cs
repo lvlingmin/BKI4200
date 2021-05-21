@@ -139,6 +139,17 @@ namespace BioBaseCLIA.SysMaintenance
             cmbTakeSamPos.SelectedIndex = 0;
             cmbRegentType.SelectedIndex = 0;
             cmbSamCupType.SelectedIndex = 0;
+            cmbReactStartPos.Items.Clear();
+            for (int i = 1; i <= ReactTrayHoleNum; i++)
+            {
+                cmbReactStartPos.Items.Add(i);
+            }
+            cmbReagentPos.Items.Clear();
+            for (int i = 1; i <= frmParent.RegentNum; i++)
+            {
+                cmbReagentPos.Items.Add(i);
+            }
+            cmbReagentPos.SelectedIndex = 0;
             QueryTubePos();
             #endregion
 
@@ -165,7 +176,17 @@ namespace BioBaseCLIA.SysMaintenance
                 txtWashShowInfo.AppendText(str + Environment.NewLine);
             });
             #region 控件可用状态
-
+            if (LoginUserType == "0")//admin 用户
+            {
+                //fbtnInstruMaintenance.Enabled = false;
+                fbtnInstruDiagnost.Enabled = false;
+                fbtnGroupTest.Enabled = true;
+            }
+            else if (LoginUserType == "2") // normal 用户
+            {
+                fbtnInstruDiagnost.Enabled = false;
+                fbtnGroupTest.Enabled = false;
+            }
             InitControlEnable();
             #endregion
         }
@@ -2175,7 +2196,7 @@ namespace BioBaseCLIA.SysMaintenance
         /// </summary>
         bool reactTrayTubeClear()
         {
-            for (int i = 1; i < 81; i++)
+            for (int i = 1; i < ReactTrayNum+1; i++)
             {
                 if (isNewWashEnd()) return false;  //lyq add 20190822
                 //if (CancellationToken)
@@ -2277,6 +2298,25 @@ namespace BioBaseCLIA.SysMaintenance
         }
         private void NewWashStar_Click(object sender, EventArgs e)
         {
+            if (checkBox7.Checked)
+            {
+                if (!string.IsNullOrEmpty(numDwPourin.Value.ToString()))
+                {
+                    if (string.IsNullOrEmpty(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube))) 
+                    {
+                        MessageBox.Show(" 底物测数不足，请装载");
+                        return;
+                    }
+
+                    int left = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
+                    if (left < int.Parse(numDwPourin.Value.ToString()))
+                    {
+                        MessageBox.Show(" 底物测数不足，请装载");
+                        return;
+                    }
+                }
+            }
+
             if (isNewWashRun)
             {
                 MessageBox.Show("正在运行。");
@@ -2844,6 +2884,22 @@ namespace BioBaseCLIA.SysMaintenance
         bool isAddBase = false;
         private void functionButton1_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(numericUpDown4.Value.ToString()))
+            {
+                if (string.IsNullOrEmpty(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube)))
+                {
+                    MessageBox.Show(" 底物测数不足，请装载");
+                    return;
+                }
+                int left = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
+                if (left < int.Parse(numericUpDown4.Value.ToString()))
+                {
+                    MessageBox.Show(" 底物测数不足，请装载");
+                    return;
+                }
+            }
+
+
             if (isNewWashRun)
             {
                 MessageBox.Show("请在仪器空闲时执行此操作");
@@ -2858,7 +2914,7 @@ namespace BioBaseCLIA.SysMaintenance
             string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
             CancellationToken = false;
             isNewWashRun = true;
-            int leftcount1=int.Parse(LeftCount1);
+            int leftcount1 = int.Parse(LeftCount1);
             if (leftcount1 < basenum)
             {
                 MessageBox.Show("底物不足，请及时更换！");
@@ -2872,7 +2928,7 @@ namespace BioBaseCLIA.SysMaintenance
                 {
                     functionButton1.Enabled = true;
                     return;
-                } 
+                }
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 07 07"), 5);
                 if (!NetCom3.Instance.SingleQuery() && NetCom3.Instance.errorFlag != (int)ErrorState.ReadySend)
                 {
@@ -2884,7 +2940,7 @@ namespace BioBaseCLIA.SysMaintenance
                 OperateIniFile.WriteIniData("Substrate1", "LeftCount", leftcount1.ToString(), iniPathSubstrateTube);
                 numericUpDown4.Value = basenum - i;
                 Thread.Sleep(500);
-             }
+            }
             functionButton1.Enabled = true;
             isAddBase = false;
             isNewWashRun = false;
@@ -2903,6 +2959,11 @@ namespace BioBaseCLIA.SysMaintenance
                 functionButton6.Text = "停止灌注";
                 bLoopRun = true;
                 CancellationToken = false;
+                if (string.IsNullOrEmpty(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube)))
+                {
+                    MessageBox.Show(" 底物测数不足，请装载");
+                    return;
+                }
                 substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
                 //substrateNum2 = int.Parse(OperateIniFile.ReadIniData("Substrate2", "LeftCount", "0", iniPathSubstrateTube));
 
@@ -2919,7 +2980,7 @@ namespace BioBaseCLIA.SysMaintenance
                 if (int.Parse(numericUpDown5.Value.ToString().Trim()) > substrateNum1)
                 {
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("温馨提示", "底物不足，请从新装载底物！");
+                    f.MessageShow("温馨提示", "底物不足，请重新装载底物！");
                     functionButton6.Enabled = true;
                     functionButton6.Text = "循环灌注";
                     bLoopRun = true;

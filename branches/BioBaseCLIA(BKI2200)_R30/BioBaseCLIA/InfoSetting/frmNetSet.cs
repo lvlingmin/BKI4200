@@ -31,28 +31,14 @@ namespace BioBaseCLIA.InfoSetting
             #region 通讯设置
             ShowNetPara();
             #endregion
-            if ((!IsLisConnect) || (CommunicationType == ""))
+            tabControlMy1.TabPages.Clear();
+            tabControlMy1.TabPages.Add(tabNetSet);
+            if (IsLisConnect && CommunicationType != "")
             {
-                tabControlMy1.TabPages.Remove(tabLisSet);
-                tabControlMy1.TabPages.Remove(tabLisSetCK);
-            }
-            else
-            {
-                tabControlMy1.TabPages.Remove(tabLisSet);
-                tabControlMy1.TabPages.Remove(tabLisSetCK);
-                if(CommunicationType == "NetConn")
+                if (CommunicationType == "NetConn")
                     tabControlMy1.TabPages.Add(tabLisSet);
-                else if((CommunicationType == "SerialConn"))
+                else if ((CommunicationType == "SerialConn"))
                     tabControlMy1.TabPages.Add(tabLisSetCK);
-                //switch (CommunicationType)
-                //{
-                //    case "网口通讯":
-                //        tabControlMy1.TabPages.Add(tabLisSet);
-                //        break;
-                //    case "串口通讯":
-                //        tabControlMy1.TabPages.Add(tabLisSetCK);
-                //        break;
-                //}
             }
             #region 获取可用端口 2018-5-14 zlxadd
             string[] str = SerialPort.GetPortNames();
@@ -246,6 +232,7 @@ namespace BioBaseCLIA.InfoSetting
                 chkIsLisConn.Checked = chISLis.Checked = IsLisConnect;
                 cmbLisCodeType.Text = LisCodeType;
                 chISDataSend.Checked = IsTrueTimeTran;
+                lisCheckNum.Items.Clear();
                 if (transinfo != "")
                 {
                     string[] arry = transinfo.Split(',');
@@ -265,6 +252,7 @@ namespace BioBaseCLIA.InfoSetting
                 chkIsLisConn.Checked = chkISLis.Checked = IsLisConnect;
                 comEncodType.Text = LisCodeType;
                 chkISDataSend.Checked = IsTrueTimeTran;
+                lisCheckNumS.Items.Clear();
                 if (transinfo != "")
                 {
                     string[] arry = transinfo.Split(',');

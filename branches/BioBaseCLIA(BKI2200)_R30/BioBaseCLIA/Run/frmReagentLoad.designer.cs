@@ -447,11 +447,11 @@
             // cmbProType
             // 
             this.cmbProType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbProType, "cmbProType");
             this.cmbProType.FormattingEnabled = true;
             this.cmbProType.Items.AddRange(new object[] {
             resources.GetString("cmbProType.Items"),
             resources.GetString("cmbProType.Items1")});
-            resources.ApplyResources(this.cmbProType, "cmbProType");
             this.cmbProType.Name = "cmbProType";
             this.cmbProType.SelectedIndexChanged += new System.EventHandler(this.cmbProType_SelectedIndexChanged);
             // 
@@ -506,8 +506,8 @@
             // cmbRgName
             // 
             this.cmbRgName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRgName.FormattingEnabled = true;
             resources.ApplyResources(this.cmbRgName, "cmbRgName");
+            this.cmbRgName.FormattingEnabled = true;
             this.cmbRgName.Name = "cmbRgName";
             // 
             // txtRgCode

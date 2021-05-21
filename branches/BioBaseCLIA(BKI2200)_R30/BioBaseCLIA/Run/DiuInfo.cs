@@ -8,11 +8,11 @@ namespace BioBaseCLIA.Run
 {
     public static class DiuInfo
     {
-        public static int[] diuCount = { 1,10,20,50,100,200,500 };
+        public static int[] diuCount = { 1, 10, 20, 50, 100, 200, 500 };
         public static string GetDiuInfo(int diuTime)
         {
             string DiuInfo = "";
-            switch(diuTime)
+            switch (diuTime)
             {
                 case 1:
                 case 10:
@@ -73,8 +73,21 @@ namespace BioBaseCLIA.Run
             diutime3 = int.Parse(OperateIniFile.ReadInIPara("Time", "dilutionTime3"));
             diutime4 = int.Parse(OperateIniFile.ReadInIPara("Time", "dilutionTime4"));
         }
-        public static string[] DiuProjectName = { "SD1", "SD2", "SD3", "SD4", "SD5", "SD6" };
+        //public static string[] DiuProjectName = { "SD1", "SD2", "SD3", "SD4", "SD5", "SD6" };
+        public static List<string> DiuProjectName
+        {
+            get
+            { 
+                int DiuNum = int.Parse(OperateIniFile.ReadInIPara("OtherPara", "DiuNum "));
+                List<string> list = new List<string>();
+                for (int i = 1; i <= DiuNum; i++)
+                {
+                    list.Add("SD" + i);
+                }
+                return list;
+            }
+        }
+
 
     }
-   
 }
