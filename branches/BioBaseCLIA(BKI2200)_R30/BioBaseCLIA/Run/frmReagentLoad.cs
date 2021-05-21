@@ -2794,7 +2794,7 @@ namespace BioBaseCLIA.Run
                 }
             }
 
-            if (loadItem.Substring(2, 1) == "1")
+            if (loadItem.Substring(2, 1) == "1" && RgType == (int)ReagentType.reagent)
             {
                 if (!sendSp("05 01"))
                 {
@@ -3544,13 +3544,16 @@ namespace BioBaseCLIA.Run
                     #endregion
                 }
                 NetCom3.Instance.ReceiveHandel += dealSP;
-                if (!sendSp("05 01"))
+                if (RgType == (int)ReagentType.reagent)
                 {
-                    goto errorEnd;
-                }
-                if (!sendSp("05 02"))
-                {
-                    goto errorEnd;
+                    if (!sendSp("05 01"))
+                    {
+                        goto errorEnd;
+                    }
+                    if (!sendSp("05 02"))
+                    {
+                        goto errorEnd;
+                    }
                 }
                 NetCom3.Instance.ReceiveHandel -= dealSP;
                 dgvRgInfoList.SelectionChanged -= new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
