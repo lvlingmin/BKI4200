@@ -683,6 +683,8 @@ namespace BioBaseCLIA.ScalingQC
             {
                 foreach (string ale in alertInfo)
                 {
+                    if (!ale.Contains("号点") || !ale.Contains("反") || !ale.Contains("质控")) continue;//此处如果某一个条目为空只有换行符，报错
+
                     string point = ale.Substring(0, ale.IndexOf("号点"));
                     string rules = ale.Split('反')[1];
                     rules = rules.Substring(0, rules.IndexOf("质控"));
