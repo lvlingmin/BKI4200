@@ -946,7 +946,8 @@ namespace BioBaseCLIA
                         frmMessageShow frmMS = new frmMessageShow();
                         frmMS.MessageShow("",Res.communicationfail);
                         frmMS.Dispose();
-                        EventStop.Invoke();
+						if(EventStop!=null)
+                            EventStop.Invoke();
                     }
                 }
                 catch (Exception ex)
