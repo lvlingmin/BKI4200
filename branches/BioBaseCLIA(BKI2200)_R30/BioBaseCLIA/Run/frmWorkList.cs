@@ -10159,8 +10159,14 @@ namespace BioBaseCLIA.Run
             if (lisTiEnd.Count == BToListTi.Count)
                 frmTestResult.BRun = false;
             LogFile.Instance.Write("*********  发光值  ： " + testResult.PMT + "  **********");
-            BTestResult.Add(testResult);
-            TemporaryTestResult.Add(testResult);
+            
+            //调度到主线程添加的目的是为了保证结果列表添加刷新，但是有可能丢失数据
+            this.Invoke(new Action(() =>
+            {
+                BTestResult.Add(testResult);
+                TemporaryTestResult.Add(testResult);
+            }));
+
             if (testResult.SampleType.Contains("标准品"))
             {
                 GC.KeepAlive(testResult);//防止被回收               
