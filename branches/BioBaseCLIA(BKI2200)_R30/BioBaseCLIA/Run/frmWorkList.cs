@@ -15,6 +15,7 @@ using BioBaseCLIA.CalculateCurve;
 using BioBaseCLIA.InfoSetting;
 using Common;
 using Maticsoft.DBUtility;
+using static BioBaseCLIA.Run.TestSchedule;
 
 namespace BioBaseCLIA.Run
 {
@@ -3177,191 +3178,103 @@ namespace BioBaseCLIA.Run
             //相同项目的样本
             List<TestItem> lisSameItem = new List<TestItem>();
             List<string> lisRegentBatch = new List<string>();
-            foreach (var item in ItemNames)
+            #region 检查稀释液和试剂是否够用
+            DataTable DtRgInfoNoStat = frmSampleLoad.DtItemInfoNoStat.Copy();
+            if (DtRgInfoNoStat.Rows.Count == 0)
             {
-                List<ReagentIniInfo> itemRiInfo = lisRIinfo.FindAll(ty => (ty.ItemName == item.Key));
-                #region 判断试剂或者稀释液是否过期
-                /*
-                List<TestSchedule> list = lisTestSchedule.FindAll(ty => (ty.ItemName == item.Key && int.Parse(ty.dilutionTimes) > 1));
-                DbHelperOleDb db = new DbHelperOleDb(0);
-                if (list.Count > 0)
+                foreach (var item in ItemNames)
                 {
-                    BLL.tbDilute tbDilute = new BLL.tbDilute();
-                    db = new DbHelperOleDb(0);
-                    string DiluteCount = DbHelperOleDb.GetSingle(0, @"select DiluteCount from tbProject where ShortName ='" + item.Key + "'").ToString();
-                    db = new DbHelperOleDb(0);
-                    string DiluteName = DbHelperOleDb.GetSingle(0, @"select DiluteName from tbProject where ShortName ='" + item.Key + "'").ToString();
-                    int DiuVolLeftCount = 0;
-                    foreach (ReagentIniInfo RiInfo in itemRiInfo)
+                    List<TestSchedule> list = lisTestSchedule.FindAll(ty => (ty.ItemName == item.Key && ty.TestScheduleStep == ExperimentScheduleStep.AddLiquidTube));
+                    DataRow newrow = DtRgInfoNoStat.NewRow();
+                    newrow["RgName"] = item.Key;
+                    newrow["TestRg"] = list.Count;
+                    newrow["TestDiu"] = 0;
+                    DtRgInfoNoStat.Rows.Add(newrow);
+                    List<TestSchedule> listDiu = list.FindAll(ty => (int.Parse(ty.dilutionTimes) > 1));
+                    #region 计算稀释液需要使用量
+                    if (listDiu.Count > 0)
                     {
-                        db = new DbHelperOleDb(3);
-                        string pos = new BLL.tbReagent().GetModelList("BarCode='" + RiInfo.BarCode + "'")[0].Postion;
-                        db = new DbHelperOleDb(3);
-                        List<Model.tbDilute> ListDilute = tbDilute.GetModelList("DilutePos=" + int.Parse(pos) + "");
-                        if (ListDilute.Count > 0)
+                        string DiuName = "";
+                        List<ReagentIniInfo> lisRTtem = lisRIinfo.FindAll(ty => (ty.ItemName ==item.Key));
+                        foreach (ReagentIniInfo RTtem in lisRTtem)
                         {
-                            string ValiData = ListDilute[0].ValiData;
-                            if (ValiData != "" && Convert.ToDateTime(ValiData) < DateTime.Now.Date)
+                           string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RTtem.Postion, "DiuPos", "", iniPathReagentTrayInfo);
+                            if (DiuPos != "")
                             {
-                                frmMsgShow.MessageShow("工作列表", pos + "试剂位稀释液过期，请及时进行更换");
-                                return false;
+                                DiuName = OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                break;
                             }
                         }
-                        DiuVolLeftCount = DiuVolLeftCount + RiInfo.leftDiuVol;
-                    }
-                    int SumDiluteVol = 0;
-                    foreach (TestSchedule AddTest in list)
-                    {
-                        int GetSampleV = int.Parse(AddTest.AddLiqud.Split('-')[0]);
-                        if (int.Parse(DiluteCount) > 1)
+                        int SumDiluteVol = 0;
+                        foreach (TestSchedule diutest in listDiu)
                         {
-                            List<string> diuList = GetDiuVol(GetSampleV, DiluteName);
-                            foreach (string duitec in diuList)
+                            int diuTimes = int.Parse(diutest.dilutionTimes);
+                            int GetSampleV = int.Parse(diutest.AddLiqud.Split('-')[0]);
+                            DbHelperOleDb db = new DbHelperOleDb(0);
+                            string DiluteName = DbHelperOleDb.GetSingle(0, @"select DiluteName from tbProject where ShortName ='" + item.Key + "'").ToString();
+                            db = new DbHelperOleDb(0);
+                            int DiluteCount = int.Parse(DbHelperOleDb.GetSingle(0, @"select DiluteCount from tbProject where ShortName ='" + item.Key + "'").ToString());
+                            if (DiluteCount > 1)
                             {
-                                SumDiluteVol = SumDiluteVol + int.Parse(duitec.Split(';')[1]) + abanDiuPro;
-                            }
-                            GetSampleV = int.Parse(diuList[0].Split(';')[0]);
-                        }
-
-                        int ExtraDiuCount = int.Parse(AddTest.dilutionTimes) / (int.Parse(DiluteCount));
-                        if (ExtraDiuCount > 1)
-                        {
-                            string diuInfo = DiuInfo.GetDiuInfo(ExtraDiuCount);
-                            List<string> diuList = GetDiuVol(GetSampleV, diuInfo);
-                            foreach (string duitec in diuList)
-                            {
-                                SumDiluteVol = SumDiluteVol + int.Parse(duitec.Split(';')[1]) + abanDiuPro;
-                            }
-
-                        }
-                    }
-                    if (DiuVolLeftCount < SumDiluteVol)
-                    {
-                        frmMsgShow.MessageShow("工作列表", item.Key + "项目稀释液不足，请及时进行更换！");
-                        return false;
-                    }
-                }
-                */
-                #endregion
-                #region 屏蔽
-                /*
-                DbHelperOleDb db = new DbHelperOleDb(0);
-                string DiluteName = DbHelperOleDb.GetSingle(@"select DiluteName from tbProject where ShortName ='" + item.Key + "'").ToString();
-                //string NoUsePro = DbHelperOleDb.GetSingle(@"select NoUsePro from tbProject where ShortName ='" + item.Key + "'").ToString();
-                if (DiluteName != "1")
-                {
-                    string[] DiluteCounts = DiluteName.Split(';');
-                    BLL.tbDilute tbDilute = new BLL.tbDilute();
-                    db = new DbHelperOleDb(3);
-                    foreach (ReagentIniInfo RiInfo in itemRiInfo)
-                    {
-                        string ReagentType = OperateIniFile.ReadIniData("ReagentPos" + RiInfo.Postion, "ReagentType", "0", iniPathReagentTrayInfo);
-                        if (ReagentType != "1") continue;
-                        DataTable  ListDilute = tbDilute.GetList("DilutePos like '" + RiInfo.Postion + "-*' AND State=1").Tables[0];
-                        for (int i = 0; i < ListDilute.Rows.Count; i++)
-                        {
-                            string ValiData = ListDilute.Rows[i]["ValiData"].ToString();
-                            if (ValiData != "" && Convert.ToDateTime(ValiData) < DateTime.Now.Date)
-                            {
-                                frmMsgShow.MessageShow("工作列表", ListDilute.Rows[i]["DilutePos"] + "试剂位稀释液过期，请及时进行更换");
-                                return false;
-                            }
-                        }
-                    }
-                    //DataTable dtDilute = tbDilute.GetModelList("DilutePos=" + itemRiInfo[0].+ "");
-                    //查询所做实验中该项目的信息
-                    lisSameItem = lisItem.FindAll(ty => (ty.ItemName == item.Key && !ty.SampleType.Contains("标准品") && !ty.SampleType.Contains("质控品")));
-                    List<int> listDiuInfo = new List<int>();
-                    decimal DiluteVol = 0;
-                    for (int i = 0; i < DiluteCounts.Length; i++)
-                    {
-                        DiluteVol = DiluteVol + getDiuVol(_diuSumVol, int.Parse(DiluteCounts[i]))[1] + abanDiuPro;
-                        Thread.Sleep(1);
-                    }
-                    //DiluteVol =DiluteVol+getDiuVol(_diuSumVol, int.Parse(DiluteCount))[1] + abanDiuPro;
-                    decimal SumDiluteVol = DiluteVol * lisSameItem.Count;
-
-                    int DiuVolLeftCount = 0;
-                    if (itemRiInfo.Count > 0)
-                    {
-                        for (int i = 0; i < itemRiInfo.Count; i++)
-                        {
-                            string ReagentType = OperateIniFile.ReadIniData("ReagentPos" + itemRiInfo[i].Postion, "ReagentType", "0", iniPathReagentTrayInfo);
-                            if (ReagentType != "1") continue;
-                            if (itemRiInfo[i].LeftReagent1 > DiuNoUsePro)
-                                DiuVolLeftCount = DiuVolLeftCount + itemRiInfo[i].LeftReagent1 -DiuNoUsePro;
-                            if (itemRiInfo[i].LeftReagent2 > DiuNoUsePro)
-                                DiuVolLeftCount = DiuVolLeftCount + itemRiInfo[i].LeftReagent2 -DiuNoUsePro;
-                            if (itemRiInfo[i].LeftReagent3 >DiuNoUsePro)
-                                DiuVolLeftCount = DiuVolLeftCount + itemRiInfo[i].LeftReagent3 -DiuNoUsePro;
-                        }
-                    }
-                    if (DiuVolLeftCount < SumDiluteVol)
-                    {
-                        frmMsgShow.MessageShow("工作列表", item.Key + "项目稀释液不足，请及时进行更换！");
-                        return false;
-                    }
-                */
-                #endregion
-                #region 检测试剂剩余测数是否够本次实验使用
-                int itemLeftCount = 0;
-                //查询所做实验中该项目的信息
-                lisSameItem = lisItem.FindAll(ty => ty.ItemName == item.Key);
-                //查询配置文件此项目的信息
-                //List<ReagentIniInfo> itemRiInfo = lisRIinfo.FindAll(ty => ty.ItemName == item.Key);
-                /*
-                if (itemRiInfo.Count > 0)
-                {
-                    #region 判断是否有足够的试剂进行定标实验
-                    List<TestItem> ScaSameItem = lisSameItem.FindAll(ty => (ty.SampleType.Contains("标准品")));//|| ty.SampleType.Contains("质控品")
-                    if (ScaSameItem.Count > 0)
-                    {
-                        var scaBeach = ScaSameItem.GroupBy(x => x.RegentBatch).Where(x => x.Count() >= 1).ToList();
-                        int scallLeftCount = 0;
-                        foreach (var beach in scaBeach)
-                        {
-                            for (int i = 0; i < itemRiInfo.Count; i++)
-                            {
-                                string ReagentType = OperateIniFile.ReadIniData("ReagentPos" + itemRiInfo[i].Postion,
-                                    "ReagentType", "0", iniPathReagentTrayInfo);
-                                if (ReagentType == "1") continue;
-                                if (itemRiInfo[i].BatchNum == beach.Key.ToString())
+                                List<string> diuList = GetDiuVol(GetSampleV, DiluteName);
+                                foreach (string duitec in diuList)
                                 {
-                                    scallLeftCount = scallLeftCount + itemRiInfo[i].LeftReagent1;
+                                    SumDiluteVol = SumDiluteVol + int.Parse(duitec.Split(';')[1]) + abanDiuPro;
+                                }
+                                GetSampleV = int.Parse(diuList[0].Split(';')[0]);
+                            }
+                            int ExtraDiuCount = diuTimes / DiluteCount;
+                            if (ExtraDiuCount > 1)
+                            {
+                                string diuInfo = DiuInfo.GetDiuInfo(ExtraDiuCount);
+                                List<string> diuList = GetDiuVol(GetSampleV, diuInfo);
+                                foreach (string duitec in diuList)
+                                {
+                                    SumDiluteVol = SumDiluteVol + int.Parse(duitec.Split(';')[1]) + abanDiuPro;
                                 }
                             }
-                            if (ScaSameItem.FindAll(ty => ty.RegentBatch == beach.Key.ToString()).Count > scallLeftCount)
-                            {
-                                if (itemLeftCount < lisSameItem.Count)
-                                {
-                                    frmMsgShow.MessageShow("工作列表", beach.Key + "批次的" + item.Key +
-                                        "试剂不够本次定标(质控)测试！");
-                                    return false;
-                                }
-                            }
+                        }
+                        DataRow[] dr = DtRgInfoNoStat.Select("RgName='" + DiuName + "'");
+                        if (dr.Length > 0)
+                        {
+                            dr[0]["TestRg"] = int.Parse(dr[0]["TestRg"].ToString()) + SumDiluteVol;
+                        }
+                        else
+                        {
+                            newrow = DtRgInfoNoStat.NewRow();
+                            newrow["RgName"] = DiuName;
+                            newrow["TestRg"] = SumDiluteVol; 
+                            newrow["TestDiu"] = 0;
+                            DtRgInfoNoStat.Rows.Add(newrow);
                         }
                     }
                     #endregion
-                    for (int i = 0; i < itemRiInfo.Count; i++)
-                    {
-                        string ReagentType = OperateIniFile.ReadIniData("ReagentPos" + itemRiInfo[i].Postion, "ReagentType",
-                            "0", iniPathReagentTrayInfo);
-                        if (ReagentType == "1") continue;
-                        itemLeftCount = itemLeftCount + itemRiInfo[i].LeftReagent1;
-                    }
-                    if (itemLeftCount < lisSameItem.Count)
-                    {
-                        frmMsgShow.MessageShow("工作列表", item.Key + "项目不够本次实验测试，请装载此项目");
-                        return false;
-                    }
                 }
-                else
+            }
+            foreach (DataRow dr in DtRgInfoNoStat.Rows)
+            {
+                List<ReagentIniInfo> lisRTtem = lisRIinfo.FindAll(ty => (ty.ItemName == dr["RgName"].ToString()));
+                int left = 0;
+                foreach (ReagentIniInfo R in lisRTtem)
                 {
-                    frmMsgShow.MessageShow("工作列表", "无" + item.Key + "项目，请装载此项目");
+                    string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + R.Postion, "DiuFlag", "", iniPathReagentTrayInfo);
+                    if(DiuFlag=="1")
+                        left = left + R.LeftReagent1- DiuNoUsePro;
+                    else
+                        left = left + R.LeftReagent1;
+                }
+                if (left < int.Parse(dr["TestRg"].ToString()))
+                {
+                    frmMsgShow.MessageShow("工作列表", dr["RgName"].ToString()+ "项目不足，请及时进行更换！");
                     return false;
                 }
-                */
-                #endregion
+            }
+            frmSampleLoad.DtItemInfoNoStat.Rows.Clear();
+            #endregion
+            foreach (var item in ItemNames)
+            {
+                List<ReagentIniInfo> itemRiInfo = lisRIinfo.FindAll(ty => (ty.ItemName == item.Key));
+                lisSameItem = lisItem.FindAll(ty => ty.ItemName == item.Key);
                 #region 查询是否有已有定标，并且对标准品浓度和吸光度进行保存
                 DbHelperOleDb db = new DbHelperOleDb(0);
                 //DataTable dtItemInfo = DbHelperOleDb.Query(@"select ProjectType,CalPointConc,CalPointNumber from tbProject where ShortName ='" + item.Key + "'").Tables[0];
@@ -11024,6 +10937,7 @@ namespace BioBaseCLIA.Run
             LoadingHelper.CloseForm();
             NetCom3.ComWait.Set();
             frmSampleLoad.CaculatingFlag = false;
+            frmSampleLoad.DtItemInfoNoStat.Rows.Clear();
             MaxTime = lisTestSchedule.Select(it => it.EndTime).ToList<int>().Max();
             LastMaxTime = (int)MaxTime;
             MaxTime = MaxTime - sumTime;

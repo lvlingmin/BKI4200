@@ -118,7 +118,7 @@ namespace BioBaseCLIA.Run
                             }
                             UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount,0);
                             if(diuvol>0)
-                                UpdadteDtRgInfoNoStat(DiuName, 0, (diuvol * RepeatCount));
+                                UpdadteDtRgInfoNoStat(DiuName,(diuvol * RepeatCount),0 );
                             //DataRow[] drReagent = frmParent.dtRgInfo.Select("RgName ='"+ ddr["ItemName"].ToString()+"'");
 
                             //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount, (diuvol * RepeatCount));
@@ -677,7 +677,7 @@ namespace BioBaseCLIA.Run
                                         dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, 0);
                                         if (DiuName != "")
                                         {
-                                            dtNewAddDtRgInfo.Rows.Add(DiuName, 0, diuvol * RepeatCount);
+                                            dtNewAddDtRgInfo.Rows.Add(DiuName,diuvol * RepeatCount,0);
                                         }
                                     }
                                 }
@@ -915,7 +915,7 @@ namespace BioBaseCLIA.Run
                                             break;
                                         }
                                     }
-                                    UpdadteDtRgInfoNoStat(DiuName, 0, -(diuvol * RepeatCount));
+                                    UpdadteDtRgInfoNoStat(DiuName, -(diuvol * RepeatCount), 0);
                                 }
                                 
                             }
@@ -1037,7 +1037,7 @@ namespace BioBaseCLIA.Run
                                 }
                             }
                             UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, 0);
-                            UpdadteDtRgInfoNoStat(DiuName, 0, -(diuvol * RepeatCount));
+                            UpdadteDtRgInfoNoStat(DiuName, -(diuvol * RepeatCount), 0);
                         }
                         //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
                     }
@@ -1118,7 +1118,7 @@ namespace BioBaseCLIA.Run
                                 }
                                 //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, diuvol * RepeatCount);
                                 dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount,0);
-                                dtNewAddDtRgInfo.Rows.Add(DiuName, 0, diuvol * RepeatCount);
+                                dtNewAddDtRgInfo.Rows.Add(DiuName, diuvol * RepeatCount, 0);
                             }
                         }
                     }
@@ -2310,7 +2310,7 @@ namespace BioBaseCLIA.Run
                                 }
                             }
                             dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount * Spcount, 0);
-                            dtNewAddDtRgInfo.Rows.Add(DiuName, 0, diuvol * RepeatCount * Spcount);
+                            dtNewAddDtRgInfo.Rows.Add(DiuName,  diuvol * RepeatCount * Spcount, 0);
                             //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount * Spcount, diuvol * RepeatCount * Spcount);
                         }
                     }
@@ -3011,7 +3011,7 @@ namespace BioBaseCLIA.Run
                                             break;
                                         }
                                     }
-                                    UpdadteDtRgInfoNoStat(DiuName, 0, -(diuvol * RepeatCount));
+                                    UpdadteDtRgInfoNoStat(DiuName, -(diuvol * RepeatCount), 0);
                                 }
                                 //UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
                             }
