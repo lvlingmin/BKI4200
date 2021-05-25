@@ -164,7 +164,7 @@ namespace BioBaseCLIA
             _BootUpTime = DateTime.Now;
             label2.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
             toolTip1.SetToolTip(this.dbtnBuffer,GetString("dbtnBuffer.tip"));
-            toolTip1.SetToolTip(this.dbtnWash, GetString(" dbtnWash.tip") );
+            toolTip1.SetToolTip(this.dbtnWash, GetString("dbtnWash.tip") );
             toolTip1.SetToolTip(this.dbtnWaste, GetString("dbtnWaste.tip") );
             toolTip1.SetToolTip(this.dbtnSubstract, GetString("dbtnSubstract.tip") );
             toolTip1.SetToolTip(this.dbtnRegent, GetString("dbtnRegent.tip") );
