@@ -5601,8 +5601,10 @@ namespace BioBaseCLIA.Run
                                         {
                                             string DiuPos =OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "DiuPos", "", iniPathReagentTrayInfo);
                                             if(DiuPos != "")
-                                                DiuName= OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "ItemName", "", iniPathReagentTrayInfo);
-                                            break;
+                                            {
+                                                DiuName = OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "ItemName", "", iniPathReagentTrayInfo);
+                                                break;
+                                            }
                                             //string diulest = 
                                             //    OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "leftDiuVol", "", iniPathReagentTrayInfo);
                                             //if ((!string.IsNullOrEmpty(diulest)) && (int.Parse(diulest) > DiuVol + abanDiuPro + DiuNoUsePro))
