@@ -36,6 +36,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.functionButton1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnLoadSubstrate = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -68,7 +70,7 @@
             "样本稀释液四",
             "样本稀释液五",
             "样本稀释液六"});
-            this.cmbDiuPos.Location = new System.Drawing.Point(106, 84);
+            this.cmbDiuPos.Location = new System.Drawing.Point(106, 77);
             this.cmbDiuPos.Name = "cmbDiuPos";
             this.cmbDiuPos.Size = new System.Drawing.Size(97, 20);
             this.cmbDiuPos.TabIndex = 35;
@@ -77,7 +79,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(28, 88);
+            this.label3.Location = new System.Drawing.Point(28, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 34;
@@ -123,11 +125,34 @@
             this.btnLoadSubstrate.UseVisualStyleBackColor = false;
             this.btnLoadSubstrate.Click += new System.EventHandler(this.btnLoadSubstrate_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(40, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "绑定状态:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(106, 113);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 17);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "未绑定";
+            // 
             // frmLoadDiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(259, 223);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.functionButton1);
             this.Controls.Add(this.btnLoadSubstrate);
             this.Controls.Add(this.cmbDiuPos);
@@ -150,5 +175,7 @@
         private System.Windows.Forms.Label label3;
         private CustomControl.FunctionButton functionButton1;
         private CustomControl.FunctionButton btnLoadSubstrate;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

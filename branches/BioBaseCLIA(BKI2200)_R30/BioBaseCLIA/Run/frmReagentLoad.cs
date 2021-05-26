@@ -688,6 +688,7 @@ namespace BioBaseCLIA.Run
                     srdReagent.BdColor[GetSelectedNo] = Color.White;
                 }
                 string ss = srdReagent.RgName[RgSelectedNo].ToString().Trim();
+                btnAddD.Text = "绑定稀释液";
                 if (srdReagent.RgName[RgSelectedNo].ToString().Trim() == "")
                 {
                     srdReagent.RgColor[RgSelectedNo] = Color.Yellow;
@@ -714,6 +715,7 @@ namespace BioBaseCLIA.Run
                         {
                             srdReagent.RgColor[RgSelectedNo] = Color.Purple;
                             srdReagent.BdColor[RgSelectedNo] = Color.Purple;
+                            btnAddD.Text = "一键解绑";
                         }
                         else
                         {
@@ -1344,7 +1346,18 @@ namespace BioBaseCLIA.Run
             if (DiuFlag == "1")
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("绑定稀释液", "请选择试剂项目来绑定稀释液！");
+                DialogResult result = frmMessage.MessageShow("稀释液解绑", "是否确认将稀释液与试剂进行解绑？");
+                if (result == DialogResult.OK)
+                {
+                    foreach (DataRow dr in dtRgInfo.Rows)
+                    {
+                        string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + dr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                        if (DiuPos == txtRgPosition.Text)
+                        {
+                            OperateIniFile.WriteIniData("ReagentPos" + dr["Postion"].ToString(), "DiuPos", "", iniPathReagentTrayInfo);
+                        }
+                    }
+                }
                 return;
             }
 
