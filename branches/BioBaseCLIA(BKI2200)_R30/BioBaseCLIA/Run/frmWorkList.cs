@@ -9974,6 +9974,11 @@ namespace BioBaseCLIA.Run
                             }
                         }
                     }
+
+                    if (sampleType.Contains("质控"))
+                    {
+                        result = "";
+                    }
                     #endregion
                     #endregion
                 }
