@@ -307,7 +307,7 @@ namespace BioBaseCLIA.User
         {
             List<ReagentIniInfo> lisReagentIniInfo = new List<ReagentIniInfo>();
             ReagentIniInfo reagentIniInfo = new ReagentIniInfo();
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= frmParent.RegentNum; i++)
             {
                 reagentIniInfo.BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                 reagentIniInfo.ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);

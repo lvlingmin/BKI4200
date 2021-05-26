@@ -68,7 +68,7 @@ namespace BioBaseCLIA.Run
             InitializeComponent();
             dtSampleInfo = frmParent.dtSpInfo;//将dtSpInfo与dtSampleInfo联系起来
             dtSampleAllInfo = bllsp.GetList("").Tables[0];
-            for (int i = 0; i < 60; i++)
+            for (int i = 0; i < frmParent.SampleNum; i++)
             {
                 ls.Add("");
             }
@@ -381,7 +381,7 @@ namespace BioBaseCLIA.Run
             {//y add 20180425
                 btnDelete.Enabled = btnMoreDelete.Enabled = btnModify.Enabled = false;//y add 20180425
             }//y add 20180425
-            if (dtSampleInfo.Rows.Count >= 60 && dtSampleInfo.Select("Status=0").Length >= 60)//y add 20180425 2018-09-07 zlx add dtSampleInfo.Select("Status=0").Length>=60
+            if (dtSampleInfo.Rows.Count >=frmParent.SampleNum && dtSampleInfo.Select("Status=0").Length >= frmParent.SampleNum)//y add 20180425 2018-09-07 zlx add dtSampleInfo.Select("Status=0").Length>=60
             {//y add 20180425
                 btnAdd.Enabled = btnMoreAdd.Enabled = false;//y add 20180425
             }//y add 201804256
@@ -533,9 +533,9 @@ namespace BioBaseCLIA.Run
                     btnAdd.Enabled = true;
                     return;
                 }
-                if (int.Parse(txtScanStartNo.Text.Trim()) > 60 || int.Parse(txtScanEndNo.Text.Trim()) > 60)
+                if (int.Parse(txtScanStartNo.Text.Trim()) >frmParent.SampleNum || int.Parse(txtScanEndNo.Text.Trim()) > frmParent.SampleNum)
                 {
-                    frmMsg.MessageShow("添加样本", "请输入1-60的扫码位置！");
+                    frmMsg.MessageShow("添加样本", "请输入1-"+frmParent.SampleNum+"的扫码位置！");
                     txtScanStartNo.Focus();
                     btnAdd.Enabled = true;
                     return;
@@ -767,7 +767,7 @@ namespace BioBaseCLIA.Run
                                             frmParent.dtSampleRunInfo.Rows.Add(postion, sampleNo, modelSp.SampleType, dtItemInfo.Rows[j]["ShortName"].ToString(),
                                                 modelSp.Emergency == 2 || modelSp.Emergency == 3 ? "是" : "否", DiluteCount, DiluteName);
                                             postion = (Convert.ToInt32(postion) + 1).ToString();
-                                            if (postion == "60") postion = "1";
+                                            if (postion == frmParent.SampleNum.ToString()) postion = "1";
                                             //sampleNo = DateTime.Now.ToString("yyyyMMdd") + string.Format("{0:D3}", int.Parse(sampleNo.Substring(sampleNo.Length - 3, 3)) + 1);
                                         }
                                         break;
@@ -804,7 +804,7 @@ namespace BioBaseCLIA.Run
                         {
                             btnDelete.Enabled = btnMoreDelete.Enabled = btnModify.Enabled = true;
                         }
-                        if (dtSampleInfo.Rows.Count >= 60 && dtSampleInfo.Select("Status=0").Length >= 60)
+                        if (dtSampleInfo.Rows.Count >= frmParent.SampleNum && dtSampleInfo.Select("Status=0").Length >= 60)
                         {
                             btnAdd.Enabled = btnMoreAdd.Enabled = false;
                         }
@@ -955,7 +955,7 @@ namespace BioBaseCLIA.Run
                 {//y add 20180425
                     btnDelete.Enabled = btnMoreDelete.Enabled = btnModify.Enabled = false;//y add 20180425
                 }//y add 20180425
-                if (dtSampleInfo.Rows.Count < 60)//y add 20180425
+                if (dtSampleInfo.Rows.Count < frmParent.SampleNum)//y add 20180425
                 {//y add 20180425
                     btnAdd.Enabled = btnMoreAdd.Enabled = true;//y add 20180425
                 }//y add 20180425
@@ -1252,7 +1252,7 @@ namespace BioBaseCLIA.Run
                                         frmParent.dtSampleRunInfo.Rows.Add(postion, sampleNo, modelSp.SampleType, dtItemInfo.Rows[j]["ShortName"].ToString(),
                                             modelSp.Emergency == 2 || modelSp.Emergency == 3 ? "是" : "否", DiluteCount, DiluteName);
                                         postion = (Convert.ToInt32(postion) + 1).ToString();
-                                        if (postion == "60") postion = "1";
+                                        if (postion == frmParent.SampleNum.ToString()) postion = "1";
                                         sampleNo = DateTime.Now.ToString("yyyyMMdd") + string.Format("{0:D3}", int.Parse(sampleNo.Substring(sampleNo.Length - 3, 3)) + 1);
                                     }
                                     break;
@@ -1735,7 +1735,7 @@ namespace BioBaseCLIA.Run
                     btnDelete.Enabled = btnMoreDelete.Enabled = btnModify.Enabled = true;//y add 20180425
                 }//y add 20180425
                 //Jun mod 20190314
-                if (dtSampleInfo.Rows.Count >= 60 && dtSampleInfo.Select("Status=0").Length >= 60)
+                if (dtSampleInfo.Rows.Count >= frmParent.SampleNum && dtSampleInfo.Select("Status=0").Length >= frmParent.SampleNum)
                 {
                     btnAdd.Enabled = btnMoreAdd.Enabled = false;
                 }
@@ -1763,7 +1763,7 @@ namespace BioBaseCLIA.Run
                     DbHelperOleDb db = new DbHelperOleDb(0);
                     string str = txtSpPosition.Text;
                     DataTable dtProject = bllPj.GetList("ActiveStatus=1 AND ShortName='" + ch.Text + "'").Tables[0];
-                    if (60 - Convert.ToInt32(str) + 1 <
+                    if (frmParent.SampleNum - Convert.ToInt32(str) + 1 <
                         int.Parse(dtProject.Rows[0]["CalPointNumber"].ToString()))
                     {
                         MessageBox.Show("剩余样本位数量不足，请勿继续添加标准品");
@@ -2048,7 +2048,7 @@ namespace BioBaseCLIA.Run
             {
                 a.Selected = false;
             }
-            if (dgvSampleList.Rows.Count > 0 && po < 60 && po > 0)
+            if (dgvSampleList.Rows.Count > 0 && po < frmParent.SampleNum && po > 0)
             {
                 int x = 0, y = 0;
                 foreach (DataGridViewRow a in dgvSampleList.Rows)
@@ -2224,14 +2224,14 @@ namespace BioBaseCLIA.Run
             {
                 return;
             }
-            if (int.Parse(txtSpNum.Text) + int.Parse(txtSpStartPos.Text) - 1 > 60)//this block y add 20180426
+            if (int.Parse(txtSpNum.Text) + int.Parse(txtSpStartPos.Text) - 1 > frmParent.SampleNum)//this block y add 20180426
             {
                 var drPos = dtSampleInfo.Select("Position='" + "1" + "' and Status=0");
                 if (drPos.Length <= 0)
-                    frmMsg.MessageShow("样本装载", "在当前选择的试剂盘位置加载此数量的样本可能会超出试剂盘的容量。如果想跨越60位和1位进行批量加载，请分开进行。");
+                    frmMsg.MessageShow("样本装载", "在当前选择的试剂盘位置加载此数量的样本可能会超出试剂盘的容量。如果想跨越"+frmParent.SampleNum+"位和1位进行批量加载，请分开进行。");
                 else
                     frmMsg.MessageShow("样本装载", "在当前选择的试剂盘位置加载此数量的样本会超出试剂盘的容量。");
-                txtSpNum.Text = Convert.ToString(60 - int.Parse(txtSpStartPos.Text) + 1);
+                txtSpNum.Text = Convert.ToString(frmParent.SampleNum - int.Parse(txtSpStartPos.Text) + 1);
                 return;
             }
             /*
@@ -2423,7 +2423,7 @@ namespace BioBaseCLIA.Run
                 btnDelete.Enabled = btnMoreDelete.Enabled = btnModify.Enabled = true;//y add 20180425
             }//y add 20180425
             //Jun mod 20190314
-            if (dtSampleInfo.Rows.Count >= 60 && dtSampleInfo.Select("Status=0").Length >= 60)
+            if (dtSampleInfo.Rows.Count >= frmParent.SampleNum && dtSampleInfo.Select("Status=0").Length >= frmParent.SampleNum)
             {
                 btnAdd.Enabled = btnMoreAdd.Enabled = false;
             }
@@ -2504,20 +2504,7 @@ namespace BioBaseCLIA.Run
         private int GetPos()
         {
             int p = 0;
-            //Jun add 60位置没有东西认为是第一次加载，当60装载之后，从最低向上找
-            //if (!(dtSampleInfo.Select("Position='" + 60 + "' and Status = 0").Length > 0))
-            //{
-            //for (int i = 0; i < dtSampleInfo.Rows.Count; i++)
-            //{
-            //    if (p < int.Parse(dtSampleInfo.Rows[i]["Position"].ToString()) && int.Parse(dtSampleInfo.Rows[i]["Status"].ToString()) < 1)
-            //    {
-            //        p = int.Parse(dtSampleInfo.Rows[i]["Position"].ToString()) + 1;
-            //    }
-            //}
-            //}
-            //else
-            //{
-            for (int i = 0; i < 60; i++)
+            for (int i = 0; i < frmParent.SampleNum; i++)
             {
                 if (dtSampleInfo.Select("Position='" + num.ToString() + "' and Status = 0").Length > 0)
                 {
@@ -2727,7 +2714,7 @@ namespace BioBaseCLIA.Run
             {//y add 20180425
                 btnDelete.Enabled = btnMoreDelete.Enabled = btnModify.Enabled = false;//y add 20180425
             }//y add 20180425
-            if (dtSampleInfo.Rows.Count < 60)//y add 20180425
+            if (dtSampleInfo.Rows.Count <frmParent.SampleNum)//y add 20180425
             {//y add 20180425
                 btnAdd.Enabled = btnMoreAdd.Enabled = true;//y add 20180425
             }//y add 20180425
@@ -2778,13 +2765,13 @@ namespace BioBaseCLIA.Run
                     ((TextBox)sender).Text = "";
                     return;
                 }
-                if (((TextBox)sender) != txtSpNum && Convert.ToInt32(content) > 60)
+                if (((TextBox)sender) != txtSpNum && Convert.ToInt32(content) > frmParent.SampleNum)
                 {
                     frmMsg.MessageShow("样本装载", "输入的样本位置不存在!");//y modify 20180426
                     ((TextBox)sender).Text = "";
                     return;
                 }
-                if (((TextBox)sender) == txtSpNum && txtSpStartPos.Text != "" && (Int32.Parse(content) - 1 + Int32.Parse(txtSpStartPos.Text)) > 60)//y modify 20180426
+                if (((TextBox)sender) == txtSpNum && txtSpStartPos.Text != "" && (Int32.Parse(content) - 1 + Int32.Parse(txtSpStartPos.Text)) > frmParent.SampleNum)//y modify 20180426
                 {
                     frmMsg.MessageShow("样本装载", "输入的样本数量太多,请重新输入!");//y modify 20180426
                     ((TextBox)sender).Text = "";
@@ -2905,7 +2892,7 @@ namespace BioBaseCLIA.Run
                     return false;
                 }
             }
-            if (star < 1 || star > 60 || length + star > 61 || length < 1)
+            if (star < 1 || star > frmParent.SampleNum || length + star > (frmParent.SampleNum + 1) || length < 1)
             {
                 frmMsg.MessageShow("信息提示", "frmAddSample类中的方法SampleUpLoad(int star, int length)接收了不可接受的值，已退出该方法并返回false");
                 return false;
@@ -3064,7 +3051,7 @@ namespace BioBaseCLIA.Run
             fbLoadAll.Enabled = false;
             fbLoadRun.Enabled = false;
             bool isupload = false;
-            SampleUploadOrUnload(1, 60, isupload);
+            SampleUploadOrUnload(1, frmParent.SampleNum, isupload);
             fbLoadAll.Enabled = true;
             fbLoadRun.Enabled = true;
         }
@@ -3078,14 +3065,14 @@ namespace BioBaseCLIA.Run
             int length = int.Parse(loadNum.Text);
             if (star + length > 61)
             {
-                frmMsg.MessageShow(temp + "样本", "样本" + temp + "的最大范围为从1号位到60号位。请重新检查输入，以确保“开始孔位”和“数量”之和不超过61.");
+                frmMsg.MessageShow(temp + "样本", "样本" + temp + "的最大范围为从1号位到"+frmParent.SampleNum+"号位。请重新检查输入，以确保“开始孔位”和“数量”之和不超过61.");
                 fbLoadAll.Enabled = true;
                 fbLoadRun.Enabled = true;
                 return;
             }
             if (star < 1 || length < 1)
             {
-                frmMsg.MessageShow(temp + "样本", "样本" + temp + "的最大范围为从1号位到60号位。请重新检查输入，以确保“开始孔位”和“数量”都不小于1.");
+                frmMsg.MessageShow(temp + "样本", "样本" + temp + "的最大范围为从1号位到"+frmParent.SampleNum+"号位。请重新检查输入，以确保“开始孔位”和“数量”都不小于1.");
                 fbLoadAll.Enabled = true;
                 fbLoadRun.Enabled = true;
                 return;

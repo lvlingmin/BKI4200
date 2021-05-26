@@ -249,7 +249,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 20个位置的稀释液体积
         /// </summary>
-        string[] diuleftVol = new string[20];
+        string[] diuleftVol = new string[RegentNum];
         /// <summary>
         /// 移管手标志位，是否正在使用，TRUE为正在使用，false未在使用
         /// </summary>
@@ -2773,21 +2773,6 @@ namespace BioBaseCLIA.Run
             btnLoadReagent.Enabled = btnLoadSample.Enabled = fbtnReturn.Enabled = !Flag;//2018-11-29 zlx mod
         }
         #region 实验方法
-        /// <summary>
-        /// 稀释液体积初始化 lyn add 20180611
-        /// </summary>
-        void diuVolInit()
-        {
-            for (int i = 9; i <= 10; i++)
-            {
-                diuleftVol[i - 1] = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);
-            }
-            //for (int i = 1; i <= 20; i++)
-            //{
-            //    diuleftVol[i - 1] = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "leftDiuVol", "", iniPathReagentTrayInfo);
-            //}
-        }
-        /// <summary>
         /// 实验运行
         /// </summary>
         /// <param name="sender"></param>
@@ -2884,7 +2869,6 @@ namespace BioBaseCLIA.Run
             EntertRun = false;
             if (!MachineInit())
             {
-                //diuVolInit();
                 //释放已经开启的移管线程
                 if (MoveTubeThread != null)
                 {
@@ -2899,7 +2883,6 @@ namespace BioBaseCLIA.Run
                 fbtnReturn.Enabled = true;//2018-07-31 zlx add
                 return;
             }
-            //diuVolInit();//20180614 zlx mod
             dtScalingPMT = new DataTable();
             dtScalingPMT.Columns.Add("PMT", typeof(int));
             dtScalingPMT.Columns.Add("Conc", typeof(double));
@@ -3837,7 +3820,7 @@ namespace BioBaseCLIA.Run
             LogFile.Instance.Write("======>" + "清洗盘开始清管");
             DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
             //TrayRemoveAllTube = true;//y add 抓空标志位，保证不触发抓空异常
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i <frmParent.WashTrayNum; i++)
             {
                 if (RunFlag != (int)RunFlagStart.IsRuning || NetCom3.Instance.stopsendFlag)
                 {
@@ -3868,7 +3851,7 @@ namespace BioBaseCLIA.Run
                     //如果孔号小于等于0
                     if (currentHoleNum <= 0)
                     {
-                        currentHoleNum = currentHoleNum + 30;
+                        currentHoleNum = currentHoleNum + frmParent.WashTrayNum;
                     }
                     countWashHole(-1);
                     //LogFile.Instance.Write("==================  当前位置  " + currentHoleNum);
@@ -3878,7 +3861,7 @@ namespace BioBaseCLIA.Run
                     tubeHoleNum = tubeHoleNum + 1;
                     if (tubeHoleNum >= 31)
                     {
-                        tubeHoleNum = tubeHoleNum - 30;
+                        tubeHoleNum = tubeHoleNum - frmParent.WashTrayNum;
                     }
                     dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
                     DataTable dtTemp = new DataTable();
@@ -3951,7 +3934,7 @@ namespace BioBaseCLIA.Run
             LogFile.Instance.Write("======>" + "清洗盘开始清管");
             DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
             //TrayRemoveAllTube = true;//y add 抓空标志位，保证不触发抓空异常
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < frmParent.WashTrayNum; i++)
             {
                 if (RunFlag != (int)RunFlagStart.IsRuning || NetCom3.Instance.stopsendFlag)
                 {
@@ -3981,7 +3964,7 @@ namespace BioBaseCLIA.Run
                     //如果孔号小于等于0
                     if (currentHoleNum <= 0)
                     {
-                        currentHoleNum = currentHoleNum + 30;
+                        currentHoleNum = currentHoleNum + frmParent.WashTrayNum;
                     }
                     countWashHole(-1);
                     //LogFile.Instance.Write("==================  当前位置  " + currentHoleNum);
@@ -3989,9 +3972,9 @@ namespace BioBaseCLIA.Run
 
                     //顺时针应该是加的 jun add 
                     tubeHoleNum = tubeHoleNum + 1;
-                    if (tubeHoleNum >= 31)
+                    if (tubeHoleNum >= frmParent.WashTrayNum+1)
                     {
-                        tubeHoleNum = tubeHoleNum - 30;
+                        tubeHoleNum = tubeHoleNum - frmParent.WashTrayNum;
                     }
                     dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
                     DataTable dtTemp = new DataTable();
@@ -4456,13 +4439,13 @@ namespace BioBaseCLIA.Run
             countWashHole(pace);
             currentHoleNum = currentHoleNum - 1;
             //如果孔号小于等于0
-            if (currentHoleNum > 30)
+            if (currentHoleNum > frmParent.WashTrayNum)
             {
-                currentHoleNum = currentHoleNum - 30;
+                currentHoleNum = currentHoleNum - frmParent.WashTrayNum;
             }
             if (currentHoleNum <= 0)
             {
-                currentHoleNum = currentHoleNum + 30;
+                currentHoleNum = currentHoleNum + frmParent.WashTrayNum;
             }
             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
             //LogFile.Instance.Write("==================  当前位置  " + currentHoleNum);
@@ -8708,7 +8691,7 @@ namespace BioBaseCLIA.Run
                             int IsKnockedCool = 0;
                             tubeHoleNum = washCountNum - 2;
                             if (tubeHoleNum <= 0)
-                                tubeHoleNum = tubeHoleNum + 30;
+                                tubeHoleNum = tubeHoleNum + frmParent.WashTrayNum;
                             LogFile.Instance.Write("  ***  " + "当前时间" + DateTime.Now + "清洗盘takepos[1]取管扔废管取放管位置" + tubeHoleNum + ",washCountNum的值:" + washCountNum + "  ***  ");
                         AgainNewMove:
                             //LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss"), "到废弃处 movetube  WashTrayUseFlag = true"));

@@ -1919,7 +1919,7 @@ namespace BioBaseCLIA.Run
             batchCA = asciiencoding.GetString(tempByte);
             if (btnLoopAddR.Enabled == true)
             {
-                for (int i = 1; i <= 30; i++)
+                for (int i = 1; i <= RegentNum; i++)
                 {
                     string BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                     //string ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
@@ -3029,7 +3029,7 @@ namespace BioBaseCLIA.Run
                 }));
 
                 int hole = i;
-                hole = hole - 15 > 0 ? (hole - 15) : (30 + hole - 15);
+                hole = hole - 15 > 0 ? (hole - 15) : (frmParent.RegentNum + hole - 15);
                 string HoleNum = hole.ToString("x2");
 
                 RotSendAgain:
@@ -3071,7 +3071,7 @@ namespace BioBaseCLIA.Run
                     }
                     if (addRFlag == (int)addRFlagState.fail && addREmpty != (int)addRFlagState.empty)
                         goto errorEnd;
-                    if (i == 30)
+                    if (i == frmParent.RegentNum)
                     {
                         spBreak = "";
                     }
@@ -3561,7 +3561,7 @@ namespace BioBaseCLIA.Run
                 dgvRgInfoList.SelectionChanged += new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
                 loopSpFailResult.Remove(i);
                 loopSpSuccessResult.Add(i);
-                if (i == 30)
+                if (i == frmParent.RegentNum)
                 {
                     spBreak = "";
                 }

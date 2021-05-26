@@ -314,9 +314,9 @@ namespace BioBaseCLIA.SysMaintenance
                                     }
                                     currentHoleNum = currentHoleNum + 1;
                                     //如果孔号超过30，孔号设为1
-                                    if (currentHoleNum > 30)
+                                    if (currentHoleNum > WashTrayNum)
                                     {
-                                        currentHoleNum = currentHoleNum - 30;
+                                        currentHoleNum = currentHoleNum - WashTrayNum;
                                     }
                                     OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                     DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
@@ -380,9 +380,9 @@ namespace BioBaseCLIA.SysMaintenance
                                     }
                                     currentHoleNum = currentHoleNum + 1;
                                     //如果孔号超过30，孔号设为1
-                                    if (currentHoleNum > 30)
+                                    if (currentHoleNum > WashTrayNum)
                                     {
-                                        currentHoleNum = currentHoleNum - 30;
+                                        currentHoleNum = currentHoleNum - WashTrayNum;
                                     }
                                     OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                     DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
@@ -458,7 +458,7 @@ namespace BioBaseCLIA.SysMaintenance
                                     //如果孔号超过30，孔号设为1
                                     if (currentHoleNum <= 0)
                                     {
-                                        currentHoleNum = currentHoleNum + 30;
+                                        currentHoleNum = currentHoleNum + WashTrayNum;
                                     }
                                     OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                     DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
@@ -511,7 +511,7 @@ namespace BioBaseCLIA.SysMaintenance
                                     //如果孔号小于等于0
                                     if (currentHoleNum <= 0)
                                     {
-                                        currentHoleNum = currentHoleNum + 30;
+                                        currentHoleNum = currentHoleNum + WashTrayNum;
                                     }
                                     OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                     DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
@@ -949,9 +949,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 1;
                                 //如果孔号超过30
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
@@ -987,9 +987,9 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                             currentHoleNum = currentHoleNum + 4;
                             //如果孔号超过30
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             stepGoon = stepGoon + 4;
@@ -999,9 +999,9 @@ namespace BioBaseCLIA.SysMaintenance
                             //修改仪器参数取放管位置当前孔号
                             #region 逆时针转动清洗盘，取放管位置管号变化
                             currentHoleNum = currentHoleNum + 4;
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             #endregion
@@ -1023,9 +1023,9 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                             currentHoleNum = currentHoleNum + 1;
                             //如果孔号超过30，孔号设为1
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             stepGoon = stepGoon + 1;
@@ -1035,9 +1035,9 @@ namespace BioBaseCLIA.SysMaintenance
                             //修改仪器参数取放管位置当前孔号
                             #region 逆时针转动清洗盘，取放管位置管号变化
                             currentHoleNum = currentHoleNum + 1;
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             #endregion
@@ -1060,9 +1060,9 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                             currentHoleNum = currentHoleNum + 3;
                             //如果孔号超过30，孔号设为1
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             stepGoon = stepGoon + 3;
@@ -1072,9 +1072,9 @@ namespace BioBaseCLIA.SysMaintenance
                             //修改仪器参数取放管位置当前孔号
                             #region 逆时针转动清洗盘，取放管位置管号变化
                             currentHoleNum = currentHoleNum + 3;
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             #endregion
@@ -1096,9 +1096,9 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                             currentHoleNum = currentHoleNum + 1;
                             //如果孔号超过30，孔号设为1
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             stepGoon = stepGoon + 1;
@@ -1108,9 +1108,9 @@ namespace BioBaseCLIA.SysMaintenance
                             //修改仪器参数取放管位置当前孔号
                             #region 逆时针转动清洗盘，取放管位置管号变化
                             currentHoleNum = currentHoleNum + 1;
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             #endregion
@@ -1133,9 +1133,9 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                             currentHoleNum = currentHoleNum + 3;
                             //如果孔号超过30，孔号设为1
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             stepGoon = stepGoon + 3;
@@ -1145,9 +1145,9 @@ namespace BioBaseCLIA.SysMaintenance
                             //修改仪器参数取放管位置当前孔号
                             #region 逆时针转动清洗盘，取放管位置管号变化
                             currentHoleNum = currentHoleNum + 3;
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             #endregion
@@ -1169,9 +1169,9 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                             currentHoleNum = currentHoleNum + 1;
                             //如果孔号超过30，孔号设为1
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             stepGoon = stepGoon + 1;
@@ -1181,9 +1181,9 @@ namespace BioBaseCLIA.SysMaintenance
                             //修改仪器参数取放管位置当前孔号
                             #region 逆时针转动清洗盘，取放管位置管号变化
                             currentHoleNum = currentHoleNum + 1;
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             #endregion
@@ -1206,9 +1206,9 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                             currentHoleNum = currentHoleNum + 3;
                             //如果孔号超过30，孔号设为1
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             stepGoon = stepGoon + 3;
@@ -1218,9 +1218,9 @@ namespace BioBaseCLIA.SysMaintenance
                             //修改仪器参数取放管位置当前孔号
                             #region 逆时针转动清洗盘，取放管位置管号变化
                             currentHoleNum = currentHoleNum + 3;
-                            if (currentHoleNum > 30)
+                            if (currentHoleNum > WashTrayNum)
                             {
-                                currentHoleNum = currentHoleNum - 30;
+                                currentHoleNum = currentHoleNum - WashTrayNum;
                             }
                             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                             #endregion
@@ -1249,9 +1249,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 2;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 2;
@@ -1261,9 +1261,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 //修改仪器参数取放管位置当前孔号
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 2;
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1281,9 +1281,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 18;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 18;
@@ -1293,9 +1293,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 //修改仪器参数取放管位置当前孔号
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 18;
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1328,9 +1328,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 6;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 6;
@@ -1340,9 +1340,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 //修改仪器参数取放管位置当前孔号
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 6;
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1360,9 +1360,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 8;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 8;
@@ -1372,9 +1372,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 //修改仪器参数取放管位置当前孔号
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 8;
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1392,9 +1392,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 24;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 24;
@@ -1404,9 +1404,9 @@ namespace BioBaseCLIA.SysMaintenance
                                 //修改仪器参数取放管位置当前孔号
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 24;
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1446,17 +1446,17 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 14;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 14;
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 14;
-                                if (currentHoleNum >= 30)
+                                if (currentHoleNum >= WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1477,17 +1477,17 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 12;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 12;
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 12;
-                                if (currentHoleNum >= 30)
+                                if (currentHoleNum >= WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1507,17 +1507,17 @@ namespace BioBaseCLIA.SysMaintenance
                                 }
                                 currentHoleNum = currentHoleNum + 6;
                                 //如果孔号超过30，孔号设为1
-                                if (currentHoleNum > 30)
+                                if (currentHoleNum > WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 stepGoon = stepGoon + 6;
                                 #region 逆时针转动清洗盘，取放管位置管号变化
                                 currentHoleNum = currentHoleNum + 6;
-                                if (currentHoleNum >= 30)
+                                if (currentHoleNum >= WashTrayNum)
                                 {
-                                    currentHoleNum = currentHoleNum - 30;
+                                    currentHoleNum = currentHoleNum - WashTrayNum;
                                 }
                                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                                 #endregion
@@ -1773,7 +1773,7 @@ namespace BioBaseCLIA.SysMaintenance
                         msd.show("请先清空清洗盘中的管再进行放管！");
                         return false;
                     }
-                    if (int.Parse(txtTubeLoopNum.Text) > 30)
+                    if (int.Parse(txtTubeLoopNum.Text) > WashTrayNum)
                     {
                         msd.show("清洗盘的位置不够循环次数，请重新输入循环次数！");
                         txtTubeLoopNum.Clear();
@@ -2139,7 +2139,7 @@ namespace BioBaseCLIA.SysMaintenance
             //if (tubeExist > 0)
             //{
                 BeginInvoke(DLInfo, new object[] { DateTime.Now.ToString("HH-mm-ss") + ": " + "正在清空清洗盘。。" });
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < WashTrayNum; i++)
                 {
                     if (i != 0)
                     {
@@ -2153,7 +2153,7 @@ namespace BioBaseCLIA.SysMaintenance
                         //如果孔号小于等于0
                         if (currentHoleNum <= 0)
                         {
-                            currentHoleNum = currentHoleNum + 30;
+                            currentHoleNum = currentHoleNum + WashTrayNum;
                         }
                         OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                         dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
@@ -2382,7 +2382,7 @@ namespace BioBaseCLIA.SysMaintenance
             {
                 TExtAppend("开始清空");
                 tubeHoleNum = starhole;
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < WashTrayNum; i++)
                 {
                     if (isNewWashEnd()) return;  //lyq add 20190822
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
@@ -2398,7 +2398,7 @@ namespace BioBaseCLIA.SysMaintenance
                     //逆时针计数。  Jun 2019/1/22
                     if (tubeHoleNum <= 0)
                     {
-                        tubeHoleNum = tubeHoleNum + 30;
+                        tubeHoleNum = tubeHoleNum + WashTrayNum;
                     }
                     tubeHoleNum = tubeHoleNum - 1; 
                     if (!NetCom3.Instance.WashQuery())
@@ -2426,7 +2426,7 @@ namespace BioBaseCLIA.SysMaintenance
             int temptubenum = tubeNum;
             int tempread = 1;
             int tubecount = 1;
-            for (int i = 0; i < 30 + tubeNum; i++)
+            for (int i = 0; i < WashTrayNum + tubeNum; i++)
             {
                 if (isNewWashEnd()) return;
                 if (!CheckFormIsOpen("frmInstruGroupTest"))
@@ -2561,9 +2561,9 @@ namespace BioBaseCLIA.SysMaintenance
             }
             currentHoleNum = currentHoleNum + (pos1 - 1);
             //若当前管号等于0，说明转过来的孔号为30
-            if (currentHoleNum > 30)
+            if (currentHoleNum > WashTrayNum)
             {
-                currentHoleNum = currentHoleNum - 30;
+                currentHoleNum = currentHoleNum - WashTrayNum;
             }
             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
             //OperateIniFile.WriteIniData("TubePosition", "No19", "1", iniPathWashTrayInfo);
@@ -2605,9 +2605,9 @@ namespace BioBaseCLIA.SysMaintenance
             }
             currentHoleNum = currentHoleNum - pos1 + 1;
             //若当前管号等于0，说明转过来的孔号为30
-            if (currentHoleNum > 30)
+            if (currentHoleNum > WashTrayNum)
             {
-                currentHoleNum = currentHoleNum - 30;
+                currentHoleNum = currentHoleNum - WashTrayNum;
             }
             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
             #endregion
@@ -2643,9 +2643,9 @@ namespace BioBaseCLIA.SysMaintenance
                 }
                 currentHoleNum = currentHoleNum + 2;
                 //若当前管号等于0，说明转过来的孔号为30
-                if (currentHoleNum > 30)
+                if (currentHoleNum > WashTrayNum)
                 {
-                    currentHoleNum = currentHoleNum - 30;
+                    currentHoleNum = currentHoleNum - WashTrayNum;
                 }
                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                 #region 吸液
@@ -2670,7 +2670,7 @@ namespace BioBaseCLIA.SysMaintenance
                 //若当前管号等于0，说明转过来的孔号为30
                 if (currentHoleNum <= 0)
                 {
-                    currentHoleNum = currentHoleNum + 30;
+                    currentHoleNum = currentHoleNum + WashTrayNum;
                 }
                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                 #endregion
@@ -2689,9 +2689,9 @@ namespace BioBaseCLIA.SysMaintenance
 
             currentHoleNum = currentHoleNum + 18;
             //若当前管号等于0，说明转过来的孔号为30
-            if (currentHoleNum > 30)
+            if (currentHoleNum > WashTrayNum)
             {
-                currentHoleNum = currentHoleNum - 30;
+                currentHoleNum = currentHoleNum - WashTrayNum;
             }
             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
@@ -2787,7 +2787,7 @@ namespace BioBaseCLIA.SysMaintenance
             public CleanTray()
             {
                 pointer = new List<LinkedListNode<int[]>>(11);
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < WashTrayNum; i++)
                 {
                     int[] temp = new int[2] { i + 1, 0 };
                     LinkedListNode<int[]> tempnode = new LinkedListNode<int[]>(temp);
@@ -3016,7 +3016,7 @@ namespace BioBaseCLIA.SysMaintenance
         {
             #region 清空清洗盘
             TExtAppend("清空清洗盘。。。\n");
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < WashTrayNum; i++)
             {
                 if (isNewWashEnd()) return;  //lyq add 20190822
                 if (!bLoopRun) return;
@@ -3032,7 +3032,7 @@ namespace BioBaseCLIA.SysMaintenance
                 //逆时针计数。  Jun 2019/1/22
                 if (tubeHoleNum <= 0)
                 {
-                    tubeHoleNum = tubeHoleNum + 30;
+                    tubeHoleNum = tubeHoleNum + WashTrayNum;
                 }
                 tubeHoleNum = tubeHoleNum - 1;
                 if (!NetCom3.Instance.WashQuery())
@@ -3328,13 +3328,13 @@ namespace BioBaseCLIA.SysMaintenance
             }
             countWashHole(pace);
             currentHoleNum = currentHoleNum - 1;
-            if (currentHoleNum > 30)
+            if (currentHoleNum > WashTrayNum)
             {
-                currentHoleNum = currentHoleNum - 30;
+                currentHoleNum = currentHoleNum - WashTrayNum;
             }
             if (currentHoleNum <= 0)
             {
-                currentHoleNum = currentHoleNum + 30;
+                currentHoleNum = currentHoleNum + WashTrayNum;
             }
             OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
             dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);

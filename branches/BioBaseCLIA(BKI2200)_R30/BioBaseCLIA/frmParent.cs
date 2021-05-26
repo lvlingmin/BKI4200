@@ -181,13 +181,13 @@ namespace BioBaseCLIA
             {
                 washCountNum = washCountNum - pace;
                 if (washCountNum <= 0)
-                    washCountNum = washCountNum + 30;
+                    washCountNum = washCountNum + WashTrayNum;
             }
             else if (pace < 0)
             {
                 washCountNum = washCountNum - pace;
-                if (washCountNum > 30)
-                    washCountNum = washCountNum - 30;
+                if (washCountNum > WashTrayNum)
+                    washCountNum = washCountNum - WashTrayNum;
             }
             LogFile.Instance.Write("==================  当前位置  " + washCountNum);
         }
