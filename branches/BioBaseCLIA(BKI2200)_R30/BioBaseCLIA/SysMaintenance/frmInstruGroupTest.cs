@@ -11,6 +11,7 @@ using Dialogs;
 using Common;
 using System.IO;
 using BioBaseCLIA.Run;
+using Maticsoft.DBUtility;
 
 namespace BioBaseCLIA.SysMaintenance
 {
@@ -2482,6 +2483,11 @@ namespace BioBaseCLIA.SysMaintenance
                         {
                             string LeftCount1 = OperateIniFile.ReadIniData("Substrate" + whichPipe + "", "LeftCount", "", iniPathSubstrateTube);
                             OperateIniFile.WriteIniData("Substrate" + whichPipe + "", "LeftCount", (int.Parse(LeftCount1) - 1).ToString(), iniPathSubstrateTube);
+                            string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
+                            string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
+                            DbHelperOleDb dbase = new DbHelperOleDb(3);
+                            DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '" + sbCode1 + "'");
+                            substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
                         }
                     }
                     if (flow[4] && tray.pointer[9].Value[1] == 1)//重复读数
@@ -2626,7 +2632,11 @@ namespace BioBaseCLIA.SysMaintenance
                 {
                     substrateNum1 = substrateNum1 - 1;
                     OperateIniFile.WriteIniData("Substrate1", "LeftCount", substrateNum1.ToString(), iniPathSubstrateTube);
-                    LogFile.Instance.Write("当前剩余底物" + substrateNum1 + "\n");
+                    string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
+                    string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
+                    DbHelperOleDb dbase = new DbHelperOleDb(3);
+                    DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '" + sbCode1 + "'");
+                    substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
                 }
                 else
                 {
@@ -2670,7 +2680,7 @@ namespace BioBaseCLIA.SysMaintenance
                 //若当前管号等于0，说明转过来的孔号为30
                 if (currentHoleNum <= 0)
                 {
-                    currentHoleNum = currentHoleNum + WashTrayNum;
+                    currentHoleNum = currentHoleNum + 30;
                 }
                 OperateIniFile.WriteIniPara("OtherPara", "washCurrentHoleNum", currentHoleNum.ToString());
                 #endregion
@@ -2938,6 +2948,11 @@ namespace BioBaseCLIA.SysMaintenance
                 }
                 leftcount1 = leftcount1 - 1;
                 OperateIniFile.WriteIniData("Substrate1", "LeftCount", leftcount1.ToString(), iniPathSubstrateTube);
+                string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
+                string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
+                DbHelperOleDb dbase = new DbHelperOleDb(3);
+                DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '" + sbCode1 + "'");
+                substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
                 numericUpDown4.Value = basenum - i;
                 Thread.Sleep(500);
             }
@@ -3391,6 +3406,11 @@ namespace BioBaseCLIA.SysMaintenance
                 {
                     OperateIniFile.WriteIniData("Substrate1", "LeftCount", (substrateNum1 - 1).ToString(), iniPathSubstrateTube);
                     substrateNum1--;
+                    string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
+                    string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
+                    DbHelperOleDb dbase = new DbHelperOleDb(3);
+                    DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '" + sbCode1 + "'");
+                    substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
                 }
             }
         }
