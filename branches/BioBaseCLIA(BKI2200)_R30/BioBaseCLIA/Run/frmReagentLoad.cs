@@ -1329,19 +1329,6 @@ namespace BioBaseCLIA.Run
         {
             if (txtRgPosition.Text == "")
                 return;
-            string ItemName = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "ItemName", "", iniPathReagentTrayInfo);
-            if (ItemName == "")
-            {
-                frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("绑定稀释液", "请选择试剂项目来绑定稀释液！");
-                return;
-            }
-            if (frmParent.DiuPosList.Count == 0)
-            {
-                frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("绑定稀释液", "未找到已装载的稀释液信息，此次操作不成功！");
-                return;
-            }
             string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
             if (DiuFlag == "1")
             {
@@ -1360,7 +1347,35 @@ namespace BioBaseCLIA.Run
                 }
                 return;
             }
-
+            string ItemName = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "ItemName", "", iniPathReagentTrayInfo);
+            if (ItemName == "")
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("绑定稀释液", "请选择试剂项目来绑定稀释液！");
+                return;
+            }
+            if (dtRgInfo.Select("Postion=" + txtRgPosition.Text + "").Length== 0  )
+            {
+                int RgPos = int.Parse(txtRgPosition.Text);
+                int PRgPos = 0;
+                if (RgPos == 1)
+                    PRgPos = RegentNum;
+                else
+                    PRgPos = RgPos - 1;
+                string PItemName = OperateIniFile.ReadIniData("ReagentPos" + PRgPos, "ItemName", "", iniPathReagentTrayInfo);
+                if (ItemName.Trim() == PItemName.Trim())
+                {
+                    frmMessageShow frmMessage = new frmMessageShow();
+                    frmMessage.MessageShow("绑定稀释液", "此位置不能进行稀释液的绑定，请在"+ PRgPos + "位置绑定稀释液信息！");
+                    return;
+                }
+            }
+            if (frmParent.DiuPosList.Count == 0)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("绑定稀释液", "未找到已装载的稀释液信息，此次操作不成功！");
+                return;
+            }
             frmLoadDiu frm = new frmLoadDiu();
             frm.RegentPos = int.Parse(txtRgPosition.Text);
             frm.ShowDialog();

@@ -1176,11 +1176,11 @@
             this.fbtnASSave2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnASSave2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnASSave2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnASSave2.Location = new System.Drawing.Point(184, 147);
+            this.fbtnASSave2.Location = new System.Drawing.Point(170, 147);
             this.fbtnASSave2.Name = "fbtnASSave2";
-            this.fbtnASSave2.Size = new System.Drawing.Size(86, 23);
+            this.fbtnASSave2.Size = new System.Drawing.Size(100, 23);
             this.fbtnASSave2.TabIndex = 78;
-            this.fbtnASSave2.Text = "保存已有数据";
+            this.fbtnASSave2.Text = "下载位置信息";
             this.fbtnASSave2.UseVisualStyleBackColor = false;
             this.fbtnASSave2.Click += new System.EventHandler(this.fbtnASSave2_Click_1);
             // 
@@ -1783,11 +1783,11 @@
             this.btnSaveHand2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnSaveHand2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveHand2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSaveHand2.Location = new System.Drawing.Point(184, 147);
+            this.btnSaveHand2.Location = new System.Drawing.Point(163, 147);
             this.btnSaveHand2.Name = "btnSaveHand2";
-            this.btnSaveHand2.Size = new System.Drawing.Size(86, 23);
+            this.btnSaveHand2.Size = new System.Drawing.Size(107, 23);
             this.btnSaveHand2.TabIndex = 78;
-            this.btnSaveHand2.Text = "保存已有数据";
+            this.btnSaveHand2.Text = "下载位置信息";
             this.btnSaveHand2.UseVisualStyleBackColor = false;
             this.btnSaveHand2.Click += new System.EventHandler(this.btnSaveHand2_Click);
             // 
@@ -2332,11 +2332,11 @@
             this.btnISave2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnISave2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnISave2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnISave2.Location = new System.Drawing.Point(193, 147);
+            this.btnISave2.Location = new System.Drawing.Point(157, 147);
             this.btnISave2.Name = "btnISave2";
-            this.btnISave2.Size = new System.Drawing.Size(86, 23);
+            this.btnISave2.Size = new System.Drawing.Size(113, 23);
             this.btnISave2.TabIndex = 78;
-            this.btnISave2.Text = "保存已有数据";
+            this.btnISave2.Text = "下载位置信息";
             this.btnISave2.UseVisualStyleBackColor = false;
             this.btnISave2.Click += new System.EventHandler(this.btnISave2_Click);
             // 
@@ -3102,11 +3102,11 @@
             this.fbtnWashSave2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnWashSave2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fbtnWashSave2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.fbtnWashSave2.Location = new System.Drawing.Point(184, 147);
+            this.fbtnWashSave2.Location = new System.Drawing.Point(161, 147);
             this.fbtnWashSave2.Name = "fbtnWashSave2";
-            this.fbtnWashSave2.Size = new System.Drawing.Size(86, 23);
+            this.fbtnWashSave2.Size = new System.Drawing.Size(109, 23);
             this.fbtnWashSave2.TabIndex = 78;
-            this.fbtnWashSave2.Text = "保存已有数据";
+            this.fbtnWashSave2.Text = "下载位置信息";
             this.fbtnWashSave2.UseVisualStyleBackColor = false;
             this.fbtnWashSave2.Click += new System.EventHandler(this.fbtnWashSave2_Click);
             // 
