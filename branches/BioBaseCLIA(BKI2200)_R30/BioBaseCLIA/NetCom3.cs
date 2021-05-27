@@ -1290,9 +1290,15 @@ namespace BioBaseCLIA
                             else
                             {
                                 int len = Convert.ToInt32(response.Substring(response.IndexOf("EB 90 CA"), 14).Substring(12, 2), 16);
+                                int longLength = Convert.ToInt32(response.Substring(response.IndexOf("EB 90 CA"), 17).Substring(12, 5).Replace(" ", ""), 16);                                
                                 if (len < 11)
                                     len = 11;
                                 len = (len + 5) * 3;
+                                if (longLength > 100 && longLength < 1000)
+                                {
+                                    len = longLength;
+                                    len = (len + 6) * 3;
+                                }
 
                                 ReciveData = new string[state.sb.Length / (len - 1)];
                                 //ReciveData[0] = response.Substring(0, len);
