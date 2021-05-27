@@ -63,6 +63,11 @@ namespace BioBaseCLIA.Run
         /// 查询底物剩余数量事件
         /// </summary>
         public static event Action ChechSubstreteCount;
+        /// <summary>
+        /// 无焦点获取扫码信息钩子
+        /// </summary>
+        BarCodeHook barCodeHook = new BarCodeHook();
+        private delegate void ShowInfoDelegate(BarCodeHook.BarCodes barCode);
         public frmAddSample()
         {
             InitializeComponent();
@@ -410,6 +415,30 @@ namespace BioBaseCLIA.Run
             {
                 cmbSpType.Items.RemoveAt(cmbSpType.Items.IndexOf("交叉污染检测"));
             }
+
+            //为扫码委托增加一个钩子回调方法 
+            barCodeHook.BarCodeEvent -= new BarCodeHook.BarCodeDelegate(BarCodeEventHandler);
+            barCodeHook.BarCodeEvent += new BarCodeHook.BarCodeDelegate(BarCodeEventHandler);
+        }
+        private void BarCodeEventHandler(BarCodeHook.BarCodes barCode)
+        {
+            this.txtSpBarCode.Text = string.Empty;
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new ShowInfoDelegate(BarCodeEventHandler), new object[] { barCode });
+            }
+            else
+            {
+                if (barCode.IsValid)
+                {
+                    //使用一个正则，使得里面的空格，制表符等去除,把信息写到条码框里
+                    string rgCode = Regex.Replace(barCode.BarCode, @"\s", "");
+                    if (rgCode != null && rgCode != "")
+                    {
+                        this.txtSpBarCode.Text = rgCode;
+                    }
+                }
+            }
         }
         /// <summary>
         /// 自动编号
@@ -469,6 +498,14 @@ namespace BioBaseCLIA.Run
                         ch.Checked = false;
                     }
                 }
+
+                if (chbSampleNoScan.Checked)
+                {
+                    txtSpBarCode.Text = string.Empty;
+                    barCodeHook.Start();
+                    return;
+                }
+
                 txtSpBarCode.Text = AutoNumber();//y add 20180814 自动生成的编号
             }
             else if (((Button)sender).Text == "取消")
@@ -484,6 +521,7 @@ namespace BioBaseCLIA.Run
                 txtSpRepetitions.Text = "1";//y add 20180424
                 chkScanSampleCode.Enabled = true;//y add 20180424
                 groupBox6.Enabled = true;//y add 20180425
+                barCodeHook.Stop();
             }
             else if (((Button)sender).Text == "开始扫码")
             {
@@ -858,9 +896,16 @@ namespace BioBaseCLIA.Run
                 chkScanSampleCode.Enabled = true;//y add 20180424
                 groupBox6.Enabled = true;//y add 20180425
             }
+            barCodeHook.Stop();
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSpBarCode.Text.Trim()) || !IsNumber(txtSpBarCode.Text.Trim()))
+            {
+                frmMsg.MessageShow("温馨提示", "请确认样本编号为数字字符!");
+                return;
+            }
+ 
             btnDelete.Enabled = false;
             DbHelperOleDb db = new DbHelperOleDb(1);
             //还未添加到样本信息显示列表内，可建立一个datatable用于存储。
@@ -1744,7 +1789,18 @@ namespace BioBaseCLIA.Run
             dtSampleAllInfo = bllsp.GetList("").Tables[0];
             PGNumberList.Clear();
             btnDelete.Enabled = true;
+            barCodeHook.Stop();
             //}
+        }
+        /// <summary>
+        /// 判断字符串是否是数字
+        /// </summary>
+        public static bool IsNumber(string s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return false;
+            const string pattern = "^[0-9]*$";
+            Regex rx = new Regex(pattern);
+            return rx.IsMatch(s);
         }
         /// <summary>
         /// 底物与管架配置文件地址
@@ -1948,10 +2004,12 @@ namespace BioBaseCLIA.Run
             {
                 dtodgvEvent();
             }
+            barCodeHook.Stop();
         }
 
         private void dgvSampleList_SelectionChanged(object sender, EventArgs e)//this block y modify 20180425
         {
+            barCodeHook.Stop();
             if (dgvSampleList.SelectedRows.Count > 0)
             {
                 int index = dgvSampleList.SelectedRows[0].Index;
@@ -2211,10 +2269,12 @@ namespace BioBaseCLIA.Run
             }
             if (frmWorkList.EmergencyFlag || frmWorkList.addOrdinaryFlag)//2018-06-14 zlx add
                 chkMoreEmergency.Enabled = false;
+            barCodeHook.Stop();
         }
 
         private void btnMoreSave_Click(object sender, EventArgs e)
         {
+            barCodeHook.Stop();
             string item = "";
             if (!MoreVerifyInfo())
             {
@@ -2660,6 +2720,7 @@ namespace BioBaseCLIA.Run
 
         private void btnMoreDelete_Click(object sender, EventArgs e)
         {
+            barCodeHook.Stop();
             if (dgvSampleList.SelectedRows.Count == 0) return;
             int pos = Convert.ToInt32(dgvSampleList.SelectedRows[0].Cells["Position"].Value);//add y 20180516
             foreach (DataGridViewRow a in dgvSampleList.SelectedRows)
@@ -3171,5 +3232,19 @@ namespace BioBaseCLIA.Run
             }
         }
 
+        private void chbSampleNoScan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((CheckBox)sender).Checked)
+            {
+                barCodeHook.Start();
+                txtSpBarCode.Text = string.Empty;
+            }
+
+            if (!((CheckBox)sender).Checked)
+            {
+                barCodeHook.Stop();
+                txtSpBarCode.Text = AutoNumber();
+            }
+        }
     }
 }
