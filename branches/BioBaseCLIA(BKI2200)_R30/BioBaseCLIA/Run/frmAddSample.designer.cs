@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddSample));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Programs = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +73,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSpCode1 = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chbSampleNoScan = new System.Windows.Forms.CheckBox();
             this.txtScanEndNo = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.txtScanStartNo = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.AutoUploadAndUnload1 = new System.Windows.Forms.CheckBox();
@@ -115,7 +116,6 @@
             this.GroupContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnAddtoProgram = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.chbSampleNoScan = new System.Windows.Forms.CheckBox();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.definePanalLoad.SuspendLayout();
@@ -540,6 +540,15 @@
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
+            // chbSampleNoScan
+            // 
+            resources.ApplyResources(this.chbSampleNoScan, "chbSampleNoScan");
+            this.chbSampleNoScan.Checked = true;
+            this.chbSampleNoScan.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbSampleNoScan.Name = "chbSampleNoScan";
+            this.chbSampleNoScan.UseVisualStyleBackColor = true;
+            this.chbSampleNoScan.CheckedChanged += new System.EventHandler(this.chbSampleNoScan_CheckedChanged);
+            // 
             // txtScanEndNo
             // 
             this.txtScanEndNo.IsNull = false;
@@ -785,13 +794,13 @@
             this.dgvSampleList.AllowUserToResizeRows = false;
             this.dgvSampleList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSampleList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSampleList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSampleList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSampleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSampleList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Position,
@@ -890,9 +899,9 @@
             // 
             // flpItemName
             // 
+            resources.ApplyResources(this.flpItemName, "flpItemName");
             this.flpItemName.BackColor = System.Drawing.Color.White;
             this.flpItemName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.flpItemName, "flpItemName");
             this.flpItemName.Name = "flpItemName";
             // 
             // groupBox3
@@ -911,14 +920,14 @@
             this.crysDgGroupPro.AllowUserToResizeRows = false;
             this.crysDgGroupPro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.crysDgGroupPro.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.crysDgGroupPro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.crysDgGroupPro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.crysDgGroupPro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.crysDgGroupPro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SelectGP,
@@ -967,15 +976,6 @@
             this.btnAddtoProgram.Name = "btnAddtoProgram";
             this.btnAddtoProgram.UseVisualStyleBackColor = true;
             this.btnAddtoProgram.Click += new System.EventHandler(this.btnAddtoProgram_Click);
-            // 
-            // chbSampleNoScan
-            // 
-            resources.ApplyResources(this.chbSampleNoScan, "chbSampleNoScan");
-            this.chbSampleNoScan.Checked = true;
-            this.chbSampleNoScan.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbSampleNoScan.Name = "chbSampleNoScan";
-            this.chbSampleNoScan.UseVisualStyleBackColor = true;
-            this.chbSampleNoScan.CheckedChanged += new System.EventHandler(this.chbSampleNoScan_CheckedChanged);
             // 
             // frmAddSample
             // 
