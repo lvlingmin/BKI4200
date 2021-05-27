@@ -175,12 +175,16 @@ namespace BioBaseCLIA.Run
                 //    return 1;
                 //else if (x.samplePos < y.samplePos)
                 //    return -1;
-                //Jun Add 更改位置排序为样本编号排序
-                if (int.Parse(x.SampleNo.Substring(6)) > int.Parse(y.SampleNo.Substring(6)))
+
+                if (x.SampleID > y.SampleID)
+                {
                     return 1;
-                else if (int.Parse(x.SampleNo.Substring(6)) < int.Parse(y.SampleNo.Substring(6)))
+                }
+                else if (x.SampleID < y.SampleID)
+                {
                     return -1;
-                else
+                }
+                else 
                 {
                     if (x.TimePro > y.TimePro)
                         return 1;
