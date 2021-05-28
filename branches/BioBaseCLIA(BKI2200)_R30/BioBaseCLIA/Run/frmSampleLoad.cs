@@ -38,6 +38,7 @@ namespace BioBaseCLIA.Run
         /// 试剂盘配置文件地址
         /// </summary>
         string iniPathReagentTrayInfo = Directory.GetCurrentDirectory() + "\\ReagentTrayInfo.ini";
+        List<string> spacialProList = new List<string>();//两个试剂盒分装的特殊项目
         public static DataTable DtItemInfoNoStat
         {
             get { return dtItemInfoNoStat; }
@@ -93,6 +94,14 @@ namespace BioBaseCLIA.Run
                     {
                         srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CRgLoaded;
                         srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsLoaded;
+                    }
+                }
+                if (spacialProList.Find(ty => ty == dtRgInfo.Rows[j]["RgName"].ToString()) != null)//特殊分装项目染色
+                {
+                    if (srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] == srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1])
+                    {
+                        srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CRgLoaded;
+                        srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CBeedsLoaded;
                     }
                 }
             }
@@ -157,6 +166,13 @@ namespace BioBaseCLIA.Run
             {
                 srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()) - 1] = dtRgInfo.Rows[i]["RgName"].ToString();
                 srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()) - 1] = dtRgInfo.Rows[i]["leftoverTestR1"].ToString();
+
+                if (spacialProList.Find(ty => ty == dtRgInfo.Rows[i]["RgName"].ToString()) != null)
+                {
+                    int tempNum = int.Parse(dtRgInfo.Rows[i]["leftoverTestR1"].ToString());
+                    srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = (tempNum - 50 > 0 ? 50 : tempNum).ToString();
+                    srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["RgName"].ToString();
+                }
             }
             //dgvRgInfoList.SelectionChanged -= dgvRgInfoList_SelectionChanged;
             DataView dv = dtRgInfo.DefaultView;
@@ -176,6 +192,17 @@ namespace BioBaseCLIA.Run
         private void frmSampleLoad_Load(object sender, EventArgs e)
         {
             dgvSpInfoList.DataSource = dtSpInfo;
+
+            FileStream fs = new FileStream(Environment.CurrentDirectory + "\\SpacialProjects.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs, Encoding.UTF8);
+            string[] tempName = sr.ReadToEnd().Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            foreach (string temp in tempName)
+            {
+                spacialProList.Add(temp);
+            }
+            sr.Close();
+            fs.Close();
+
             //2018-08-31 zlx mod
             ShowRgInfo();
             SetDiskProperty();

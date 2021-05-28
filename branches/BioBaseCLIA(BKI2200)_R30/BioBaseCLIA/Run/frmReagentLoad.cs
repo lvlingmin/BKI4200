@@ -450,7 +450,7 @@ namespace BioBaseCLIA.Run
                     txtRgCode.Focus();
                     return;
                 }
-                if (spacialProList.Find(ty => ty == rg[1]) != "" && spacialProList.Find(ty => ty == rg[1]) != null)
+                if (spacialProList.Find(ty => ty == cmbRgName.Text.Trim()) != "" && spacialProList.Find(ty => ty == cmbRgName.Text.Trim()) != null)
                 {
                     if(txtRgPosition.Text.Trim() == RegentNum.ToString())
                     {
@@ -670,10 +670,10 @@ namespace BioBaseCLIA.Run
                 srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()) - 1] = dtRgInfo.Rows[i]["leftoverTestR1"].ToString();
                 if (dtRgInfo.Rows[i]["RgName"].ToString().Contains("SD"))
                     DiuPosList.Add(int.Parse(dtRgInfo.Rows[i]["Postion"].ToString()));
-                if (spacialProList.Find(ty => ty == dtRgInfo.Rows[i]["RgName"].ToString()) != "" && spacialProList.Find(ty => ty == dtRgInfo.Rows[i]["RgName"].ToString()) != null)
+                if (spacialProList.Find(ty => ty == dtRgInfo.Rows[i]["RgName"].ToString()) != null)
                 {
                     int tempNum = int.Parse(dtRgInfo.Rows[i]["leftoverTestR1"].ToString());
-                    srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = (tempNum - 50 > 50 ? 50 : tempNum).ToString();
+                    srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = (tempNum - 50 > 0 ? 50 : tempNum).ToString();
                     srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["RgName"].ToString();
                 }
             }
@@ -1180,6 +1180,14 @@ namespace BioBaseCLIA.Run
                         srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = srdReagent.CBeedsLoaded;
                     }
                 }
+                if (spacialProList.Find(ty => ty == dtRgInfo.Rows[j]["RgName"].ToString()) != null)//特殊分装项目染色
+                {
+                    if(srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] == srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1])
+                    {
+                        srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CRgLoaded;
+                        srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CBeedsLoaded;
+                    }
+                }
             }
             #endregion
             #region 样本位号颜色设置
@@ -1284,6 +1292,17 @@ namespace BioBaseCLIA.Run
                     return;
                 }
                 //zlx modify点击10-15报错，及启用卸载按钮
+                if((RgSelectedNo + 1) != 1)//点击特殊分装项目次瓶
+                {
+                    if (dtRgInfo.Select("Postion='" + (RgSelectedNo) + "'").Length <= 0)
+                        ;
+                    else if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + (RgSelectedNo) + "'")[0]["RgName"].ToString()) != null)
+                    {
+                        btnAddR.Enabled = false;
+                        barCodeHook.Stop();
+                        goto end;
+                    }
+                }
                 if (dtRgInfo.Select("Postion='" + (RgSelectedNo + 1) + "'").Length > 0)
                 {
                     btnDelR.Enabled = true;
@@ -1300,6 +1319,7 @@ namespace BioBaseCLIA.Run
                         barCodeHook.Start();
                     }
                 }
+                end:
                 RgSelectedNo = -1;
                 bSend = false;
                 srdReagent.Enabled = true;
@@ -2620,7 +2640,7 @@ namespace BioBaseCLIA.Run
             }
             else
             {
-                frmMsgShow.MessageShow("射频卡扫描", "数据获取失败！");
+                frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
                 return false;
             }
             #endregion
@@ -2788,7 +2808,7 @@ namespace BioBaseCLIA.Run
                 {
                     if (!isSp)//单次装载执行
                     {
-                        frmMsgShow.MessageShow("射频卡扫描", "数据获取失败！");
+                        frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
                     }
                     addRFlag = (int)addRFlagState.fail;
                     addREmpty = (int)addRFlagState.empty;
@@ -2890,7 +2910,7 @@ namespace BioBaseCLIA.Run
                 {
                     if (!isSp)//单次装载执行
                     {
-                        frmMsgShow.MessageShow("射频卡扫描", "数据获取失败！");
+                        frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
                     }
                     addRFlag = (int)addRFlagState.fail;
                     NetCom3.Instance.ReceiveHandel -= dealSP;
@@ -2938,7 +2958,7 @@ namespace BioBaseCLIA.Run
                 {
                     BeginInvoke(new Action(() =>
                     {
-                        frmMsgShow.MessageShow("射频卡扫描", "数据获取失败");
+                        frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒");
                         //MessageBox.Show("数据获取失败！", "射频卡扫描");
                     }));
                 }
@@ -3330,10 +3350,12 @@ namespace BioBaseCLIA.Run
                 }
                 string spRgcode = txtRgCode.Text.ToString();
                 string rgpostion = txtRgPosition.Text.ToString();
-                if (spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != "" && spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != null)
+                if (spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != null)
                 {
                     if (rgpostion == RegentNum.ToString())
                     {
+                        frmMessageShow msg = new frmMessageShow();
+                        msg.MessageShow("一键装载", "特殊分装项目不允许放置在最后位置！");
                         goto errorEnd;
                     }
                     //if (OperateIniFile.ReadIniData("ReagentPos" + int.Parse(rgpostion) + 1, "BarCode", "", iniPathReagentTrayInfo) != "")
@@ -3401,6 +3423,7 @@ namespace BioBaseCLIA.Run
                         if (spRgPostion == rgpostion)
                         {
                             loopSpFailResult.Remove(i);
+                            loopSpSuccessResult.Add(i);
                             continue;
                         }
                         else
