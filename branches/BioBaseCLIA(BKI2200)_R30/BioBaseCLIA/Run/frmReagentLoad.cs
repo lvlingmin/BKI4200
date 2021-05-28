@@ -3367,6 +3367,8 @@ namespace BioBaseCLIA.Run
                 ty == OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "ItemName", "", iniPathReagentTrayInfo)) != null
                 && OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "BarCode", "", iniPathReagentTrayInfo) != "")//如果上一个项目是特殊项目,特殊项目第一盒才有射频卡
                 {
+                    frmMessageShow msg = new frmMessageShow();
+                    msg.MessageShow("一键装载", "特殊分装项目,请规范放置在试剂盘！");
                     goto errorEnd;
                 }
                 //根据条码判断已装载、已卸载、首次装载
