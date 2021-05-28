@@ -3342,7 +3342,7 @@ namespace BioBaseCLIA.Run
                     //}
                 }
                 if (rgpostion != "1" && spacialProList.Find(ty =>
-                ty == OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "ItemName", "", iniPathReagentTrayInfo)) != ""
+                ty == OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "ItemName", "", iniPathReagentTrayInfo)) != null
                 && OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "BarCode", "", iniPathReagentTrayInfo) != "")//如果上一个项目是特殊项目,特殊项目第一盒才有射频卡
                 {
                     goto errorEnd;
@@ -3361,7 +3361,7 @@ namespace BioBaseCLIA.Run
                                 ModifyRgIni(int.Parse(rgpostion), new string[10] { "", "", "", "", "", "", "", "", "", "" });
                                 //OperateIniFile.WriteIniData("ReagentPos" + rgpostion,
                                 //    "leftDiuVol", "0", iniPathReagentTrayInfo);
-                                if (spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + rgpostion + "'")[0]["ItemName"].ToString()) != "" && spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + rgpostion + "'")[0]["ItemName"].ToString()) != null)
+                                if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
                                 {
                                     ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.SelectedItem.ToString(), "", "", "", "", "", "", "" });
                                     srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
@@ -3418,15 +3418,13 @@ namespace BioBaseCLIA.Run
                                     //ini
                                     ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
                                     ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                    if (spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + spRgPostion + "'")[0]["ItemName"].ToString()) != ""
-                                        && spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + spRgPostion + "'")[0]["ItemName"].ToString()) != null)//卸载掉特殊分装项目的
+                                    if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + spRgPostion + "'")[0]["RgName"].ToString()) != null)//卸载掉特殊分装项目的
                                     {
                                         srdReagent.RgTestNum[int.Parse(spRgPostion)] = "";
                                         srdReagent.RgName[int.Parse(spRgPostion)] = "";
                                         ModifyRgIni(int.Parse(spRgPostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                                     }
-                                    if (spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + rgpostion + "'")[0]["ItemName"].ToString()) != ""
-                                        && spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + rgpostion + "'")[0]["ItemName"].ToString()) != null)
+                                    if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
                                     {
                                         srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
                                         srdReagent.RgName[int.Parse(rgpostion)] = "";
@@ -3746,8 +3744,7 @@ namespace BioBaseCLIA.Run
                                 if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0)
                                 {
                                     ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                    if (spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + spRgPostion + "'")[0]["ItemName"].ToString()) != ""
-                                       && spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + spRgPostion + "'")[0]["ItemName"].ToString()) != null)//卸载掉特殊分装项目的
+                                    if ( spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + spRgPostion + "'")[0]["RgName"].ToString()) != null)//卸载掉特殊分装项目的
                                     {
                                         srdReagent.RgTestNum[int.Parse(spRgPostion)] = "";
                                         srdReagent.RgName[int.Parse(spRgPostion)] = "";
@@ -3793,8 +3790,7 @@ namespace BioBaseCLIA.Run
                         if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + rgpostion + "'") > 0)
                         {
                             ModifyRgIni(int.Parse(rgpostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                            if (spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + rgpostion + "'")[0]["ItemName"].ToString()) != ""
-                                      && spacialProList.Find(ty => ty == dtAllRS.Select("Postion='" + rgpostion + "'")[0]["ItemName"].ToString()) != null)
+                            if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
                             {
                                 srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
                                 srdReagent.RgName[int.Parse(rgpostion)] = "";
@@ -3840,7 +3836,7 @@ namespace BioBaseCLIA.Run
                     }
                     #endregion
                 }
-                if (spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != "" && spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != null)
+                if (spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != null)
                 {
                     ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.SelectedItem.ToString(), "", "", "", "", "", "", "" });
                 }
