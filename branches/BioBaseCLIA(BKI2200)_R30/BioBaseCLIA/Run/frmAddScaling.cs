@@ -550,47 +550,47 @@ namespace BioBaseCLIA.Run
             
             //直接用sql更新一条修改的数据 jun add 20190409
             //更新流程
-            string steps = "";
-            StringBuilder sbSteps = new StringBuilder();
-            for (int i = 0; i < dgvTestPro.Rows.Count; i++)
-            {
-                if (i == dgvTestPro.Rows.Count - 1)
-                {
-                    sbSteps.Append(dgvTestPro.Rows[i].Cells[0].Value.ToString());
-                    sbSteps.Append("-" + dgvTestPro.Rows[i].Cells[1].Value.ToString() + "-");
-                    sbSteps.Append(dgvTestPro.Rows[i].Cells[2].Value.ToString());
-                    break;
-                }
-                sbSteps.Append(dgvTestPro.Rows[i].Cells[0].Value.ToString());
-                sbSteps.Append("-" + dgvTestPro.Rows[i].Cells[1].Value.ToString() + "-");
-                sbSteps.Append(dgvTestPro.Rows[i].Cells[2].Value.ToString() + ";");                
-            }
+            //string steps = "";
+            //StringBuilder sbSteps = new StringBuilder();
+            //for (int i = 0; i < dgvTestPro.Rows.Count; i++)
+            //{
+            //    if (i == dgvTestPro.Rows.Count - 1)
+            //    {
+            //        sbSteps.Append(dgvTestPro.Rows[i].Cells[0].Value.ToString());
+            //        sbSteps.Append("-" + dgvTestPro.Rows[i].Cells[1].Value.ToString() + "-");
+            //        sbSteps.Append(dgvTestPro.Rows[i].Cells[2].Value.ToString());
+            //        break;
+            //    }
+            //    sbSteps.Append(dgvTestPro.Rows[i].Cells[0].Value.ToString());
+            //    sbSteps.Append("-" + dgvTestPro.Rows[i].Cells[1].Value.ToString() + "-");
+            //    sbSteps.Append(dgvTestPro.Rows[i].Cells[2].Value.ToString() + ";");                
+            //}
 
-            //lyq add 20190821 把浓度更新到项目信息表
-            string ptTotbPro = ""; //浓度
-            for (int i = 0; i < dtConcValue.Rows.Count; i++)
-            {
-                if (i == dtConcValue.Rows.Count - 1)
-                {
-                    ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString();
-                    break;
-                }
-                ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString() + ",";
-            }
-            string ptTosql = ",CalPointConc ='" + ptTotbPro + "'";
+            ////lyq add 20190821 把浓度更新到项目信息表
+            //string ptTotbPro = ""; //浓度
+            //for (int i = 0; i < dtConcValue.Rows.Count; i++)
+            //{
+            //    if (i == dtConcValue.Rows.Count - 1)
+            //    {
+            //        ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString();
+            //        break;
+            //    }
+            //    ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString() + ",";
+            //}
+            //string ptTosql = ",CalPointConc ='" + ptTotbPro + "'";
 
-            steps = sbSteps.ToString();    
-            string sql = "update tbProject set ProjectProcedure ='" + steps + "'"+ ptTosql +"where ShortName = '"+itemName+"'";   //lyq mod 20190815 
-            db = new DbHelperOleDb(0); 
-            int rows = DbHelperOleDb.ExecuteSql(0,sql);//更新流程到数据库
-            if (rows > 0)
-            {
-                frmMsg.MessageShow("项目更新",getString("keywordText.UpdateAucceeded"));
-            }
-            else
-            {
-                frmMsg.MessageShow("项目更新", getString("keywordText.UpdateFailed"));
-            }
+            //steps = sbSteps.ToString();    
+            //string sql = "update tbProject set ProjectProcedure ='" + steps + "'"+ ptTosql +"where ShortName = '"+itemName+"'";   //lyq mod 20190815 
+            //db = new DbHelperOleDb(0); 
+            //int rows = DbHelperOleDb.ExecuteSql(0,sql);//更新流程到数据库
+            //if (rows > 0)
+            //{
+            //    frmMsg.MessageShow("项目更新",getString("keywordText.UpdateAucceeded"));
+            //}
+            //else
+            //{
+            //    frmMsg.MessageShow("项目更新", getString("keywordText.UpdateFailed"));
+            //}
 
             //更新曲线
             db = new DbHelperOleDb(1);
