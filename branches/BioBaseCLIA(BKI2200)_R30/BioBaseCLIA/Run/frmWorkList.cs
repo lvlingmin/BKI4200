@@ -6152,11 +6152,37 @@ namespace BioBaseCLIA.Run
                                 //获取当前反应盘可用位置
                                 int pos = (testTempS.AddSamplePos) % ReactTrayHoleNum == 0 ? ReactTrayHoleNum : (testTempS.AddSamplePos) % ReactTrayHoleNum;
                                 //剩余R2体积
-                                int leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
-                                string leftR2Vol = (RegentNoUsePro + leftR2 * int.Parse(LiquidVol[j].Trim()) + leftR2 * abanR2Pro).ToString("x4");//2018-10-13
-                                                                                                                                                  //string leftR2Vol = (leftR2 * int.Parse(LiquidVol[j].Trim()) + (int)(int.Parse(LiquidVol[j].Trim()) * abanR2Pro)).ToString("x4");
+                                //特殊项目处理
+                                var isCurrentSpecialProject =
+                                    File.ReadAllLines(System.Windows.Forms.Application.StartupPath + "//SpacialProjects.txt")
+                                    .ToList()
+                                    .Where(item => item.Contains(testTempS.ItemName)).Count() > 0;
+                                int reagentPosition;
+                                int leftReagentTest = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
+                                int leftR2 = 0;
+                                if (isCurrentSpecialProject && leftReagentTest > 50)//tpoab/b2-mg特殊项目
+                                {
+                                    leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo)) - 50;
+                                    reagentPosition = rgPos;
+                                }
+                                else
+                                {
+                                    leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
+
+                                    if (isCurrentSpecialProject)
+                                    {
+                                        reagentPosition = rgPos + 1;
+                                    }
+                                    else
+                                    {
+                                        reagentPosition = rgPos;
+                                    }
+                                }
+
+                                string leftR2Vol = (RegentNoUsePro + leftR2 * int.Parse(LiquidVol[j].Trim()) + leftR2 * abanR2Pro).ToString("x4");
+
                                 AddErrorCount = 0;
-                                NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 04 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 04 " + reagentPosition.ToString("x2") + " " + pos.ToString("x2")
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
@@ -6168,14 +6194,14 @@ namespace BioBaseCLIA.Run
                                         AddErrorCount++;
                                         //重新发送指令
                                         if (againSend == "")
-                                            againSend = "EB 90 31 02 04 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                            againSend = "EB 90 31 02 04 " + reagentPosition.ToString("x2") + " " + pos.ToString("x2")
                                        + " 00 " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2);
                                     }
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                     {
                                         //重新发送指令
                                         if (againSend == "")
-                                            againSend = "EB 90 31 02 04 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                            againSend = "EB 90 31 02 04 " + reagentPosition.ToString("x2") + " " + pos.ToString("x2")
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2);
                                     }
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
@@ -6201,6 +6227,7 @@ namespace BioBaseCLIA.Run
                                     if (int.Parse(drRg[i]["Postion"].ToString()) == rgPos)
                                         drRg[i]["leftoverTestR2"] = leftR2 - 1;
                                 }
+                                leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
                                 OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
                                 if (AddErrorCount > 0)
                                 {
@@ -6592,6 +6619,17 @@ namespace BioBaseCLIA.Run
                     stepTime = 0;
                     break;
                 case TestSchedule.ExperimentScheduleStep.AddSingleR:
+                    #region 特殊项目装在两个试剂瓶,试剂2装载两个试剂船
+                    var isSpecialProject =
+                        File.ReadAllLines(System.Windows.Forms.Application.StartupPath + "//SpacialProjects.txt")
+                        .ToList()
+                        .Where(item => item.Contains(testTempS.ItemName)).Count() > 0;
+                    if (testTempS.singleStep == "R2" && isSpecialProject &&
+                        int.Parse(OperateIniFile.ReadIniData("ReagentPos" + dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString(),
+                        "LeftReagent2", "", iniPathReagentTrayInfo)) <= 50)
+                        testTempS.singleStep = "NextLocationR2";
+                    #endregion
+
                     if (testTempS.singleStep == "R1")
                     {
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R1") - 1]
@@ -6780,7 +6818,16 @@ namespace BioBaseCLIA.Run
                             //获取当前反应盘可用位置
                             int pos = (testTempS.AddSamplePos) % ReactTrayHoleNum == 0 ? ReactTrayHoleNum : (testTempS.AddSamplePos) % ReactTrayHoleNum;
                             //剩余R2体积
-                            int leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
+                            int leftR2 = 0;
+                            if (isSpecialProject)//tpoab/b2-mg特殊项目
+                            {
+                                leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo)) - 50;
+                            }
+                            else
+                            {
+                                leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
+                            }
+
                             string leftR2Vol = (RegentNoUsePro + leftR2 * int.Parse(testTempS.AddLiqud) + leftR2 * abanR2Pro).ToString("x4");//2018-10-13 zlx mod
                             AddErrorCount = 0;
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 04 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
@@ -6826,6 +6873,7 @@ namespace BioBaseCLIA.Run
                                 if (int.Parse(drRg[i]["Postion"].ToString()) == rgPos)
                                     drRg[i]["leftoverTestR2"] = leftR2 - 1;
                             }
+                            leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
                             OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
                             if (AddErrorCount > 0)
                             {
@@ -7082,6 +7130,143 @@ namespace BioBaseCLIA.Run
                         }
                         #endregion
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "RD")]
+                            = Color.Gray;
+                    }
+                    else if (testTempS.singleStep == "NextLocationR2")//仅用于TPOAB/b2-mg
+                    {
+                        lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R2") - 1]
+                        = Color.Gray;
+                        lisProBar[testTempS.TestID - 1].Invalidate();
+                        while (!this.IsHandleCreated)//为了防止出现“在创建窗口句柄之前，不能在控件上调用 Invoke 或 BeginInvoke”的错误
+                        {
+                            Thread.Sleep(30);
+                        }
+                        BeginInvoke(TestStatusInfo, new object[] { "正在加试剂2", testTempS.TestID });
+                        lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R2")]
+                            = Color.Yellow;
+                        lisProBar[testTempS.TestID - 1].Invalidate();
+                        #region 加R过程
+                        if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString() != "")
+                            rgPos = int.Parse(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString());
+                        else
+                        {
+                            if (drRg.Length > 0)
+                            {
+                                for (int g = 0; g < drRg.Length; g++)
+                                {
+                                    //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
+                                        /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
+                                    {
+                                        if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
+                                            continue;
+                                    }
+                                    if (int.Parse(drRg[g]["leftoverTestR2"].ToString()) > 0)//判定试剂剩余量是否大于0
+                                    {
+                                        rgPos = int.Parse(drRg[g]["Postion"].ToString());//获取该试剂位置编号
+                                        rgindex = g;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if (rgPos > 0)
+                        {
+                            //获取当前反应盘可用位置
+                            int pos = (testTempS.AddSamplePos) % ReactTrayHoleNum == 0 ? ReactTrayHoleNum : (testTempS.AddSamplePos) % ReactTrayHoleNum;
+                            //剩余R2体积
+                            int leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
+                            string leftR2Vol = (RegentNoUsePro + leftR2 * int.Parse(testTempS.AddLiqud) + leftR2 * abanR2Pro).ToString("x4");//2018-10-13 zlx mod
+                            AddErrorCount = 0;
+                            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 04 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
+                                + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2)), 0);
+                            if (!NetCom3.Instance.SPQuery())
+                            {
+                            #region 异常处理
+                            Again:
+                                string againSend = "";
+                                if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
+                                {
+                                    AddErrorCount++;
+                                    //重新发送指令
+                                    if (againSend == "")
+                                        againSend = "EB 90 31 02 04 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
+                                + " 00 " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2);
+                                }
+                                else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
+                                {
+                                    //重新发送指令
+                                    if (againSend == "")
+                                        againSend = "EB 90 31 02 04 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
+                                + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2);
+                                }
+                                else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
+                                {
+                                    NetCom3.Instance.stopsendFlag = true;
+                                    ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
+                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
+                                    //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    //addLiquiding = false;
+                                    AllStop();
+                                }
+                                int sendFlag = SendAgain(againSend, 0);
+                                if (sendFlag == (int)ErrorState.Sendfailure)
+                                    goto Again;
+                                else if (sendFlag == (int)ErrorState.IsKnocked)
+                                    AddErrorCount++;
+                                #endregion
+                            }
+                            for (int i = 0; i < drRg.Length; i++)
+                            {
+                                if (int.Parse(drRg[i]["Postion"].ToString()) == rgPos)
+                                    drRg[i]["leftoverTestR2"] = leftR2 - 1;
+                            }
+                            leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
+                            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
+                            if (AddErrorCount > 0)
+                            {
+                                if (AddErrorCount > 1)
+                                {
+                                    NetCom3.Instance.stopsendFlag = true;
+                                    ShowWarnInfo("加样针加试剂时撞针未能修复", "加样", 1);
+                                    AllStop();
+                                }
+                                else
+                                {
+                                    MoveTubeListAddTubeDispose(pos);
+                                    RemoveTestList(testTempS, "加样针加试剂2时发生撞针");
+                                }
+                                break;
+                            }
+
+                            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 04 01 " + pos.ToString("x2")), 0);
+                            if (!NetCom3.Instance.SPQuery())
+                            {
+                                #region 异常处理
+                                string againSend = "";
+                            Again:
+                                if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
+                                {
+                                    //重新发送指令
+                                    if (againSend == "")
+                                        againSend = "EB 90 31 04 01 " + pos.ToString("x2");
+                                    if (SendAgain(againSend, 0) == (int)ErrorState.Sendfailure)
+                                        goto Again;
+                                }
+                                else
+                                {
+                                    NetCom3.Instance.stopsendFlag = true;
+                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常！", "混匀", 1);
+                                    //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    AllStop();
+                                    break;
+                                }
+                                #endregion
+                            }
+
+                        }
+                        #endregion
+                        lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R2")]
                             = Color.Gray;
                     }
                     lisProBar[testTempS.TestID - 1].Invalidate();
