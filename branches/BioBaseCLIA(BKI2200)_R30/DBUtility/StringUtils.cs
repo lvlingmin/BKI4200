@@ -55,6 +55,10 @@ namespace DBUtility
         }
         public string reverseDate(char oriDate)
         {
+            if(oriDate == '.')
+            {
+                oriDate = 'V';
+            }
             string date = "";
             if (oriDate >= '0' && oriDate <= '9')
             {
