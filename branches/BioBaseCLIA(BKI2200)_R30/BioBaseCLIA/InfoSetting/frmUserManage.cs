@@ -71,7 +71,7 @@ namespace BioBaseCLIA.InfoSetting
             dgvUserInfo.SelectionChanged -= dgvUserInfo_SelectionChanged;
             dgvUserInfo.DataSource = dtData;
             dgvUserInfo.SelectionChanged += dgvUserInfo_SelectionChanged;
-            txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled= false;
+            txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
 
             temp.Columns.Add("No", typeof(string));
             temp.Columns.Add("UserName", typeof(string));
@@ -93,9 +93,10 @@ namespace BioBaseCLIA.InfoSetting
             else
             {
                 btnAdd.Text = Getstring("AddUser");
+                txtPassword.Text = txtConfirmPassword.Text = "";
                 dgvUserInfo_SelectionChanged(sender, e);
                 txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
-                if(dgvUserInfo.Rows.Count>0)
+                if (dgvUserInfo.Rows.Count > 0)
                     btnDel.Enabled = btnModifyPassword.Enabled = true;
                 if (dgvUserInfo.SelectedRows.Count > 0)//this block add y 20180510
                 {
@@ -103,11 +104,14 @@ namespace BioBaseCLIA.InfoSetting
                     cmbType.Text = dgvUserInfo.SelectedRows[0].Cells["UserRoleType"].Value.ToString();
                     //2018-08-04 zlx mod
                     //txtPassword.Text = txtConfirmPassword.Text = dgvUserInfo.SelectedRows[0].Cells["Password"].Value.ToString();
+                    if (txtName.Text != LoginUserName)
+                        btnModifyPassword.Enabled = false;
+                    else
+                        btnModifyPassword.Enabled = true;
                 }
                 else
                 {
                     txtName.Text = "";
-                    txtPassword.Text = txtConfirmPassword.Text = "";
                 }//this block end
             }
         }
@@ -121,9 +125,12 @@ namespace BioBaseCLIA.InfoSetting
                 txtPassword.Enabled = txtConfirmPassword.Enabled = btnSave.Enabled = true;
                 btnModifyPassword.Text = Getstring("cancel");
                 btnDel.Enabled = btnAdd.Enabled = false;
+                dgvUserInfo.Enabled = false;
             }
             else
             {
+                dgvUserInfo.Enabled = true;
+                txtPassword.Text = txtConfirmPassword.Text = "";
                 btnModifyPassword.Text = Getstring("ChangePass");
                 //2018-08-04 zlx mod
                 if (Convert.ToInt32(LoginUserType) == 0)
@@ -145,7 +152,6 @@ namespace BioBaseCLIA.InfoSetting
                 else
                 {
                     txtName.Text = "";
-                    txtPassword.Text = txtConfirmPassword.Text = "";
                 }//this block end
             }
         }
@@ -189,7 +195,7 @@ namespace BioBaseCLIA.InfoSetting
                 txtName.Focus();
                 return;
             }
-            if (txtPassword.Text.Trim() =="")//20181129 zlx mod
+            if (txtPassword.Text.Trim() == "")//20181129 zlx mod
             {
                 frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("NullPassWord"));
                 txtPassword.Focus();
@@ -202,32 +208,31 @@ namespace BioBaseCLIA.InfoSetting
                 return;
             }//this end
 
-            var dr = dtUser.Select("UserName='"+txtName.Text.Trim()+"'");
+            var dr = dtUser.Select("UserName='" + txtName.Text.Trim() + "'");
             if (dr.Length < 1)
             {
-                modelUser.UserName=txtName.Text.Trim();
-                modelUser.UserPassword=txtPassword.Text.Trim();
-                modelUser.RoleType=cmbType.SelectedIndex;
-                modelUser.defaultValue=0;
+                modelUser.UserName = txtName.Text.Trim();
+                modelUser.UserPassword = txtPassword.Text.Trim();
+                modelUser.RoleType = cmbType.SelectedIndex;
+                modelUser.defaultValue = 0;
 
                 if (bllUser.Add(modelUser))
                 {
-                    dtData.Rows.Add(dtData.Rows.Count+1,modelUser.UserName, modelUser.RoleType==0? Getstring("Personal"):Getstring("Administrator"), modelUser.UserPassword);
-                    txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
+                    dtData.Rows.Add(dtData.Rows.Count + 1, modelUser.UserName, modelUser.RoleType == 0 ? Getstring("Personal") : Getstring("Administrator"), modelUser.UserPassword);                   
                     btnAdd.Text = Getstring("AddUser");
                     if (dgvUserInfo.Rows.Count != 0)//add y 20180510
-                        btnDel.Enabled = btnModifyPassword.Enabled = true;
-                    frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("AddSucess"));
-                    dtUser = bllUser.GetAllList().Tables[0];              
+                        btnDel.Enabled /*= btnModifyPassword.Enabled*/ = true;
+                    frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("AddSucess"));                    
+                    dtUser = bllUser.GetAllList().Tables[0];
                 }
             }
             else
             {
-                if (btnAdd.Text == Getstring("cancel") && btnModifyPassword.Text ==Getstring("ChangePass"))//add y 20180510
+                if (btnAdd.Text == Getstring("cancel") && btnModifyPassword.Text == Getstring("ChangePass"))//add y 20180510
                 {
                     frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("SameUser"));//add y 20180510
                 }
-                modelUser.UserID =int.Parse(dr[0]["UserID"].ToString());
+                modelUser.UserID = int.Parse(dr[0]["UserID"].ToString());
                 modelUser.UserName = dr[0]["UserName"].ToString();
                 modelUser.UserPassword = txtPassword.Text.Trim();
                 modelUser.RoleType = int.Parse(dr[0]["RoleType"].ToString());
@@ -236,13 +241,13 @@ namespace BioBaseCLIA.InfoSetting
                 if (bllUser.Update(modelUser))
                 {
                     btnModifyPassword.Text = Getstring("ChangePass");
-                    txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
                     btnAdd.Text = Getstring("AddUser");
                     //2018-08-04 zlx mod
                     if (Convert.ToInt32(LoginUserType) == 0)
-                        btnModifyPassword.Enabled = true;
+                        /*btnModifyPassword.Enabled = true*/
+                        ;
                     else
-                        btnDel.Enabled = btnAdd.Enabled = btnModifyPassword.Enabled = true;
+                        btnDel.Enabled = btnAdd.Enabled = /*btnModifyPassword.Enabled =*/ true;
 
                     dtUser = bllUser.GetAllList().Tables[0];
                     DataTableChange(Convert.ToInt32(LoginUserType));//2018-08-04 zlx mod
@@ -250,6 +255,14 @@ namespace BioBaseCLIA.InfoSetting
                     frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("ChangePassSucess"));
                 }
             }
+            if (txtName.Text != LoginUserName)
+                btnModifyPassword.Enabled = false;
+            else
+                btnModifyPassword.Enabled = true;
+            txtPassword.Text = "";
+            txtConfirmPassword.Text = "";
+            dgvUserInfo.Enabled = true;
+            txtName.Enabled = txtPassword.Enabled = txtConfirmPassword.Enabled = cmbType.Enabled = btnSave.Enabled = false;
         }
 
         private void btnDel_Click(object sender, EventArgs e)
