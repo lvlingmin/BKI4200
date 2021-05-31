@@ -115,7 +115,8 @@ namespace BioBaseCLIA.DataQuery
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
             DataTable dtRI = bllRg.GetAllList().Tables[0];
-            var dr = dtRI.Select("Status <> '" + Getstring("uninstall") + "'");
+            //var dr = dtRI.Select("Status <> '" + Getstring("uninstall") + "'");
+            var dr = dtRI.Select("Postion <> ''");
             for (int i = 0; i < dr.Length; i++)
             {
                 dtRgInfo.Rows.Add();
