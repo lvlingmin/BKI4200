@@ -1614,6 +1614,10 @@ namespace BioBaseCLIA.Run
             }
             else
             {
+                if(chDay[0] == '.')
+                {
+                    chDay[0] = 'V';
+                }
                 day = ((chDay[0] - 'A') + 10).ToString();
             }
             string checkNum = (int.Parse(year) ^ int.Parse(day)).ToString();
@@ -1892,6 +1896,10 @@ namespace BioBaseCLIA.Run
 
         private string reverseDate(char oriDate)
         {
+            if (oriDate == '.')
+            {
+                oriDate = 'V';
+            }
             string date = "";
             if (oriDate >= '0' && oriDate <= '9')
             {
