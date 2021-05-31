@@ -50,7 +50,6 @@ namespace BioBaseCLIA.Run
         /// </summary>
         enum ReagentType { ready = 0, reagent = 1, dilute = 2 };//lyq
         enum addRFlagState { ready = 0, success = 1, fail = 2, empty = 3 };
-        frmMessageShow frmMsgShow = new frmMessageShow();
         /// <summary
         /// 试剂警告最小值 2018-07-27 zlx add
         /// </summary>
@@ -450,7 +449,7 @@ namespace BioBaseCLIA.Run
                     txtRgCode.Focus();
                     return;
                 }
-                if (spacialProList.Find(ty => ty == cmbRgName.Text.Trim()) != "" && spacialProList.Find(ty => ty == cmbRgName.Text.Trim()) != null)
+                if (spacialProList.Find(ty => ty == cmbRgName.Text.Trim()) != null)
                 {
                     if(txtRgPosition.Text.Trim() == RegentNum.ToString())
                     {
@@ -484,7 +483,7 @@ namespace BioBaseCLIA.Run
                         rg[7] = dt2.Rows[0]["leftoverTestR4"].ToString();
                         rg[8] = dt2.Rows[0]["AddDate"].ToString();
                         ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()), rg);
-                        if (spacialProList.Find(ty => ty == rg[1]) != "" && spacialProList.Find(ty => ty == rg[1]) != null)
+                        if (spacialProList.Find(ty => ty == rg[1]) != null)
                         {
                             ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()) + 1, new string[9] { "", rg[1], "", "", "", "", "", "", "" });
                         }
@@ -578,7 +577,7 @@ namespace BioBaseCLIA.Run
                         rg[7] = ModelRg.leftoverTestR4.ToString();
                         rg[8] = ModelRg.AddDate.ToString();
                         ModifyRgIni(int.Parse(ModelRg.Postion.ToString()), rg);
-                        if (spacialProList.Find(ty => ty == rg[1]) != "" && spacialProList.Find(ty => ty == rg[1]) != null)
+                        if (spacialProList.Find(ty => ty == rg[1]) != null)
                         {
                             ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()) + 1, new string[9] { "", rg[1], "", "", "", "", "", "", "" });
                         }
@@ -962,7 +961,7 @@ namespace BioBaseCLIA.Run
                 //    btnDelR.Enabled = false;
                 //}
             }
-            if(spacialProList.Find(ty => ty == ModelRg.ReagentName) != "" && spacialProList.Find(ty => ty == ModelRg.ReagentName) != null)//卸载掉特殊分装项目的
+            if(spacialProList.Find(ty => ty == ModelRg.ReagentName) != null)//卸载掉特殊分装项目的
             {
                 srdReagent.RgTestNum[int.Parse(ModelRg.Postion)] = "";
                 srdReagent.RgName[int.Parse(ModelRg.Postion)] = "";
@@ -2648,6 +2647,7 @@ namespace BioBaseCLIA.Run
             }
             else
             {
+                frmMessageShow frmMsgShow = new frmMessageShow();
                 frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
                 return false;
             }
@@ -2816,6 +2816,7 @@ namespace BioBaseCLIA.Run
                 {
                     if (!isSp)//单次装载执行
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
                     }
                     addRFlag = (int)addRFlagState.fail;
@@ -2841,7 +2842,10 @@ namespace BioBaseCLIA.Run
                     if (!dealBatchOfRFID(order))
                     {
                         if (txtRgCode.Text.Trim() != "")
+                        {
+                            frmMessageShow frmMsgShow = new frmMessageShow();
                             frmMsgShow.MessageShow("射频卡扫描", "试剂条码处理失败！");
+                        }
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -2852,6 +2856,7 @@ namespace BioBaseCLIA.Run
                     //dealPro func
                     if (!dealProOfRFID(order))
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "项目流程处理失败！");
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
@@ -2863,6 +2868,7 @@ namespace BioBaseCLIA.Run
                     //dealConc func
                     if (!dealConcOfRFID(order))
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "项目定标浓度处理失败！");
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
@@ -2874,6 +2880,7 @@ namespace BioBaseCLIA.Run
                     //dealValue func
                     if (!dealValueOfRFID(order))
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "项目定标曲线处理失败！");
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
@@ -2885,6 +2892,7 @@ namespace BioBaseCLIA.Run
                     //dealQC func
                     if (!dealQcOfRFID(order))
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "项目质控信息处理失败！");
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
@@ -2897,7 +2905,10 @@ namespace BioBaseCLIA.Run
                     if (!dealDiluteOfRFID(order))
                     {
                         if (txtRgCode.Text.Trim() != "")
+                        {
+                            frmMessageShow frmMsgShow = new frmMessageShow();
                             frmMsgShow.MessageShow("射频卡扫描", "稀释液条码处理失败！");
+                        } 
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -2907,6 +2918,7 @@ namespace BioBaseCLIA.Run
                 {
                     if (!dealItemXmlOfRFID(order))
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "项目信息更新失败！");
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
@@ -2918,6 +2930,7 @@ namespace BioBaseCLIA.Run
                 {
                     if (!isSp)//单次装载执行
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
                     }
                     addRFlag = (int)addRFlagState.fail;
@@ -2966,6 +2979,7 @@ namespace BioBaseCLIA.Run
                 {
                     BeginInvoke(new Action(() =>
                     {
+                        frmMessageShow frmMsgShow = new frmMessageShow();
                         frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒");
                         //MessageBox.Show("数据获取失败！", "射频卡扫描");
                     }));
@@ -3327,6 +3341,12 @@ namespace BioBaseCLIA.Run
                     //如果当前位置已装载试剂，则卸载
                     if (bllRg.GetList("Postion='" + i + "'").Tables[0].Rows.Count > 0)//如果当前位置已装载试剂，扫描失败就卸载
                     {
+                        if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + i + "'")[0]["RgName"].ToString()) != null)
+                        {
+                            ModifyRgIni(i+1, new string[9] { "","", "", "", "", "", "", "", "" });
+                            srdReagent.RgTestNum[i] = "";
+                            srdReagent.RgName[i] = "";
+                        }
                         if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + i + "'") > 0)//更改db
                         {
                             //更改ini
@@ -3358,7 +3378,7 @@ namespace BioBaseCLIA.Run
                 }
                 string spRgcode = txtRgCode.Text.ToString();
                 string rgpostion = txtRgPosition.Text.ToString();
-                if (spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != null)
+                if (spacialProList.Find(ty => ty == cmbRgName.Text) != null)
                 {
                     if (rgpostion == RegentNum.ToString())
                     {
@@ -3395,7 +3415,7 @@ namespace BioBaseCLIA.Run
                                 //    "leftDiuVol", "0", iniPathReagentTrayInfo);
                                 if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
                                 {
-                                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.SelectedItem.ToString(), "", "", "", "", "", "", "" });
+                                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "","", "", "", "", "", "", "", "" });
                                     srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
                                     srdReagent.RgName[int.Parse(rgpostion)] = "";
                                 }
@@ -3461,7 +3481,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
                                         srdReagent.RgName[int.Parse(rgpostion)] = "";
-                                        ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.SelectedItem.ToString(), "", "", "", "", "", "", "" });
+                                        ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "","", "", "", "", "", "", "", "" });
                                     }
                                     srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
                                     srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
@@ -3827,7 +3847,7 @@ namespace BioBaseCLIA.Run
                             {
                                 srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
                                 srdReagent.RgName[int.Parse(rgpostion)] = "";
-                                ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.SelectedItem.ToString(), "", "", "", "", "", "", "" });
+                                ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                             }
                             srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
                             srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
@@ -3869,9 +3889,9 @@ namespace BioBaseCLIA.Run
                     }
                     #endregion
                 }
-                if (spacialProList.Find(ty => ty == cmbRgName.SelectedItem.ToString()) != null)
+                if (spacialProList.Find(ty => ty == cmbRgName.Text) != null)
                 {
-                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.SelectedItem.ToString(), "", "", "", "", "", "", "" });
+                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.Text, "", "", "", "", "", "", "" });
                 }
                 NetCom3.Instance.ReceiveHandel += dealSP;
                 if (RgType == (int)ReagentType.reagent)
