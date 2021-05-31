@@ -502,13 +502,20 @@ namespace BioBaseCLIA.CalculateCurve
         /// </summary>
         public void Preview()
         {
-            PaperSize ps = new PaperSize("OOO", mmToPerInch(210), mmToPerInch(297));//百分之一英寸
-            printDocument1.DefaultPageSettings.PaperSize = ps;
-            printDocument1.DefaultPageSettings.Landscape = false;
-            printDocument1.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);//百分之一英寸
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-            printPreviewDialog1.ShowDialog();
+            try
+            {
+                PaperSize ps = new PaperSize("OOO", mmToPerInch(210), mmToPerInch(297));//百分之一英寸
+                printDocument1.DefaultPageSettings.PaperSize = ps;
+                printDocument1.DefaultPageSettings.Landscape = false;
+                printDocument1.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);//百分之一英寸
+                printPreviewDialog1.Document = printDocument1;
+                printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+                printPreviewDialog1.ShowDialog();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
         public void printLandscape()
         {
