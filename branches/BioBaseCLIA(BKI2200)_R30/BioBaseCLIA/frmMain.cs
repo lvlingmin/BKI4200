@@ -409,7 +409,7 @@ namespace BioBaseCLIA
         {
             List<ReagentIniInfo> lisReagentIniInfo = new List<ReagentIniInfo>();
             ReagentIniInfo reagentIniInfo = new ReagentIniInfo();
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 30; i++)
             {
                 string ReagentType = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ReagentType", "", iniPathReagentTrayInfo);
                 if (ReagentType == "1") continue;
