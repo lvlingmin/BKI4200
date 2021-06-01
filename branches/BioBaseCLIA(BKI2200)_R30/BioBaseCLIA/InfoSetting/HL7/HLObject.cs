@@ -30,7 +30,7 @@ namespace BioBaseCLIA.InfoSetting
         /// <summary>
         /// 消息实时时间
         /// </summary>
-        public string GetTime { get { return DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss"); } }
+        public string GetTime { get { return DateTime.Now.ToString("yyyyMMddhhmmss"); } }
         /// <summary>
         /// 发送端应用程序
         /// </summary>
