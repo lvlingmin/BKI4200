@@ -61,7 +61,7 @@ namespace BioBaseCLIA.Run
                 dateselect.Add(newdate);
                 lOrigin.Add(new LogOfAlarm(imageList1.Images[3], newdate, "----", null));
                 string fileInfo = ReadTxtWarn.ReaderFile(filePath +"\\"+ lstFile);//all text
-                if (lstFile.Contains(DateTime.Now.ToString("yyyyMMdd")))
+                if (lstFile.Contains(SelectDate.Value.ToString("yyyyMMdd")))
                 {
                     string fileinto = fileInfo.Replace(GetString("Notread") ,GetString("Haveread") );
                     ReadTxtWarn.WriteFile(filePath + "\\" + lstFile, fileinto);//将配置文本信息里的未读替换为已读
