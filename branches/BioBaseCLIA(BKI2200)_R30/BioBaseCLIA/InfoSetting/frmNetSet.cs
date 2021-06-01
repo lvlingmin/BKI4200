@@ -216,7 +216,6 @@ namespace BioBaseCLIA.InfoSetting
         #region LIS设置
         void lisParaShow()
         {
-
             CommunicationType =OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
             string IPAddress = OperateIniFile.ReadInIPara("LisSet", "IPAddress");
             string Port = OperateIniFile.ReadInIPara("LisSet", "Port");
@@ -495,7 +494,7 @@ namespace BioBaseCLIA.InfoSetting
                 cmbLisConType.SelectedIndex = 0;
             if (!LisConnection.Instance.IsOpen())
             {
-                if(CommunicationType==Getstring("SerialConn"))
+                if (CommunicationType.Contains("SerialConn") || CommunicationType.Contains("串口通讯"))
                     OperateIniFile.WriteIniPara("LisSet", "CommunicationType",Getstring("SerialConn"));
                 else
                     OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));
