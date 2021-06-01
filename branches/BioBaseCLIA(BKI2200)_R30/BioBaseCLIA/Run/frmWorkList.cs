@@ -11421,7 +11421,7 @@ namespace BioBaseCLIA.Run
                 MessageBox.Show("当前供应品缺乏，请保证供应品充足后在进行实验操作！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            fbtnAddS.Enabled = false;
+            
             //while (AddingSampleFlag)
             //{
             //    NetCom3.Delay(10);//如果正在加样步骤，暂时先不会弹出样本装载界面
@@ -11434,6 +11434,7 @@ namespace BioBaseCLIA.Run
             }
 
             #endregion
+            fbtnAddS.Enabled = false;
             addOrdinaryFlag = true;//2018-10-18 zlx mod
             frmSampleLoad.DtItemInfoNoStat = GetNoAddLiquid().Copy();
             if (!CheckFormIsOpen("frmSampleLoad"))
