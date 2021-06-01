@@ -44,6 +44,7 @@ namespace BioBaseCLIA.Run
         int spUpdateItemFromXmlFlag = 0;
         List<int> loopSpFailResult = new List<int>();
         public static bool isSp = false;
+        bool noSpAddReagent = true;
         List<string> spacialProList = new List<string>();//两个试剂盒分装的特殊项目
         /// <summary>
         /// 准备=0，试剂=1，稀释液=2
@@ -454,10 +455,10 @@ namespace BioBaseCLIA.Run
                     if(txtRgPosition.Text.Trim() == RegentNum.ToString())
                     {
                         frmMessageShow msg = new frmMessageShow();
-                        msg.MessageShow("试剂装载", "特殊分装项目，请不要装在最后一个位置。");
+                        msg.MessageShow("试剂装载", "特殊分装项目不允许放置在最后位置！");
                         return;
                     }
-                    if (OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text.Trim()) + 1, "BarCode", "", iniPathReagentTrayInfo) != "")
+                    if (OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(txtRgPosition.Text.Trim()) + 1), "BarCode", "", iniPathReagentTrayInfo) != "")
                     {
                         frmMessageShow msg = new frmMessageShow();
                         msg.MessageShow("试剂装载", "特殊分装项目，请先卸载掉后一个试剂位的试剂。");
@@ -2060,10 +2061,69 @@ namespace BioBaseCLIA.Run
             {
                 //更新项目信息
                 spUpdateItemFromXmlFlag = (int)addRFlagState.ready;
+                noSpAddReagent = true;
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 CA 01 06"), 5);
                 if (!spSingleQuery())
                 {
-                    return false;
+                    string decryption = StringUtils.instance.ToDecryption(batchCA);
+                    DataTable dtAll = bllP.GetAllList().Tables[0];
+                    if (dtAll.Rows.Count < 1)
+                    {
+                        return false;
+                    }
+                    string rgNameCode = decryption.Substring(3, 3);//试剂编号
+                    int length = -1;
+                    try
+                    {
+                        length = dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'").Length;
+                    }
+                    catch(System.Exception ex)
+                    {
+                        return false;
+                    }
+                    if (length > 0)//如果有导入相关项目则继续
+                    {
+                        NetCom3.Instance.ReceiveHandel += dealSP;
+                    }
+                    else
+                        return false;
+                }
+                for(int i =0;i<4;i++)
+                {
+                    NetCom3.Delay(1000);
+                    string decryption = StringUtils.instance.ToDecryption(batchCA);
+                    string rgNameCode = decryption.Substring(3, 3);//试剂编号
+                    int length = -1;
+                    DataTable dtAll = bllP.GetAllList().Tables[0];
+                    if (dtAll.Rows.Count < 1)
+                    {
+                        if (i == 3)
+                            return false;
+                        else
+                            continue;
+                    }
+                    try
+                    {
+                        length = dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'").Length;
+                    }
+                    catch (System.Exception ex)
+                    {
+                        if (i == 3)
+                            return false;
+                        else
+                            continue;
+                    }
+                    if (length > 0)//如果有导入相关项目则继续
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if (i == 3)
+                            return false;
+                        else
+                            continue;
+                    }
                 }
                 DateTime tempDt = DateTime.Now;
                 while (spUpdateItemFromXmlFlag == (int)addRFlagState.ready && DateTime.Now.Subtract(tempDt).TotalMilliseconds < 20000)
@@ -2435,32 +2495,32 @@ namespace BioBaseCLIA.Run
 
                 //被反映需要可以作为定标曲线使用
                 #region 定标曲线
-                Model.tbScalingResult modelScalingResult = new Model.tbScalingResult();
-                modelScalingResult.ItemName = itemName;
-                modelScalingResult.RegentBatch = itemBatch;
-                modelScalingResult.ScalingModel = 6;
-                modelScalingResult.ActiveDate = activeDate;
-                modelScalingResult.PointCount = 6;
-                modelScalingResult.Points = pmtValue;
+                //Model.tbScalingResult modelScalingResult = new Model.tbScalingResult();
+                //modelScalingResult.ItemName = itemName;
+                //modelScalingResult.RegentBatch = itemBatch;
+                //modelScalingResult.ScalingModel = 6;
+                //modelScalingResult.ActiveDate = activeDate;
+                //modelScalingResult.PointCount = 6;
+                //modelScalingResult.Points = pmtValue;
 
-                //status
-                int sameScaling = int.Parse(DbHelperOleDb.GetSingle(1, @"select count(*) from tbScalingResult where ItemName = '"
-                                                              + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString());
-                //将已有定标的状态设为非正在使用的状态
-                if (sameScaling > 0)
-                {
-                    DbHelperOleDb.ExecuteSql(1, @"update tbScalingResult set Status=0 where ItemName = '"
-                                                           + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString();
-                }
-                modelScalingResult.Status = 1;
+                ////status
+                //int sameScaling = int.Parse(DbHelperOleDb.GetSingle(1, @"select count(*) from tbScalingResult where ItemName = '"
+                //                                              + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString());
+                ////将已有定标的状态设为非正在使用的状态
+                //if (sameScaling > 0)
+                //{
+                //    DbHelperOleDb.ExecuteSql(1, @"update tbScalingResult set Status=0 where ItemName = '"
+                //                                           + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString();
+                //}
+                //modelScalingResult.Status = 1;
 
-                modelScalingResult.Source = 2;
-                BLL.tbScalingResult bllScalingResult = new BLL.tbScalingResult();
-                if (!bllScalingResult.Add(modelScalingResult))
-                {
-                    MessageBox.Show("添加定标曲线失败，请重新装载!");
-                    return false;
-                }
+                //modelScalingResult.Source = 2;
+                //BLL.tbScalingResult bllScalingResult = new BLL.tbScalingResult();
+                //if (!bllScalingResult.Add(modelScalingResult))
+                //{
+                //    MessageBox.Show("添加定标曲线失败，请重新装载!");
+                //    return false;
+                //}
                 #endregion
             }
             return true;
@@ -2814,6 +2874,12 @@ namespace BioBaseCLIA.Run
             {
                 if (order.Contains("EB 90 CA A1 00 00 00 00 00"))
                 {
+                    if (noSpAddReagent == true)
+                    {
+                        addRFlag = (int)addRFlagState.success;
+                        spUpdateItemFromXmlFlag = (int)addRFlagState.success;
+                        return;
+                    }
                     if (!isSp)//单次装载执行
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
@@ -2841,11 +2907,11 @@ namespace BioBaseCLIA.Run
                     RgType = (int)ReagentType.reagent;//lyq
                     if (!dealBatchOfRFID(order))
                     {
-                        if (txtRgCode.Text.Trim() != "")
-                        {
-                            frmMessageShow frmMsgShow = new frmMessageShow();
-                            frmMsgShow.MessageShow("射频卡扫描", "试剂条码处理失败！");
-                        }
+                        //if (txtRgCode.Text.Trim() != "")
+                        //{
+                        //    frmMessageShow frmMsgShow = new frmMessageShow();
+                        //    frmMsgShow.MessageShow("射频卡扫描", "试剂条码处理失败！");
+                        //}
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -2969,6 +3035,12 @@ namespace BioBaseCLIA.Run
         }
         private bool sendSp(string caPara)
         {
+            if (caPara != "01")
+            {
+                noSpAddReagent = true;
+            }
+            else
+                noSpAddReagent = false;
             RgType = (int)ReagentType.ready;//lyq
             addRFlag = (int)addRFlagState.ready;
             addREmpty = (int)addRFlagState.ready;
@@ -3391,6 +3463,12 @@ namespace BioBaseCLIA.Run
                     //    goto errorEnd;
                     //}
                 }
+                if (dateValidDate.Value.Date <= DateTime.Today.Date)
+                {
+                    frmMessageShow msg = new frmMessageShow();
+                    msg.MessageShow("试剂装载", "试剂(稀释液)已过期！");
+                    goto errorEnd;
+                }
                 if (rgpostion != "1" && spacialProList.Find(ty =>
                 ty == OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "ItemName", "", iniPathReagentTrayInfo)) != null
                 && OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "BarCode", "", iniPathReagentTrayInfo) != "")//如果上一个项目是特殊项目,特殊项目第一盒才有射频卡
@@ -3401,6 +3479,58 @@ namespace BioBaseCLIA.Run
                 }
                 //根据条码判断已装载、已卸载、首次装载
                 var spdr = dtAllRS.Select("BarCode ='" + spRgcode + "'");
+                NetCom3.Instance.ReceiveHandel += dealSP;
+                if (RgType == (int)ReagentType.reagent)
+                {
+                    if (spdr.Length <= 0)
+                    {
+                        //pro
+                        if (!sendSp("02"))
+                        {
+                            goto errorEnd;
+                        }
+                        //conc
+                        if (!sendSp("03 01"))
+                        {
+                            goto errorEnd;
+                        }
+                        if (!sendSp("03 02"))
+                        {
+                            goto errorEnd;
+                        }
+
+                        //pmtValue
+                        int calNum = conc.Split(',').Length;
+                        if (!sendSp("04 01"))
+                        {
+                            goto errorEnd;
+                        }
+                        if (!sendSp("04 02"))
+                        {
+                            goto errorEnd;
+                        }
+                        if (!sendSp("04 03"))
+                        {
+                            goto errorEnd;
+                        }
+                        if (calNum == 7)
+                        {
+                            if (!sendSp("04 04"))
+                            {
+                                goto errorEnd;
+                            }
+                        }
+                    }
+                    if (!sendSp("05 01"))
+                    {
+                        goto errorEnd;
+                    }
+                    if (!sendSp("05 02"))
+                    {
+                        goto errorEnd;
+                    }
+                }
+                NetCom3.Instance.ReceiveHandel -= dealSP;
                 if (spdr.Length > 0)//非首次装载
                 {
                     if (spdr[0]["Postion"].ToString() == "")//已卸载
@@ -3893,58 +4023,60 @@ namespace BioBaseCLIA.Run
                 {
                     ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.Text, "", "", "", "", "", "", "" });
                 }
-                NetCom3.Instance.ReceiveHandel += dealSP;
-                if (RgType == (int)ReagentType.reagent)
-                {
-                    if(spdr.Length <= 0)
-                    {
-                        //pro
-                        if (!sendSp("02"))
-                        {
-                            goto errorEnd;
-                        }
-                        //conc
-                        if (!sendSp("03 01"))
-                        {
-                            goto errorEnd;
-                        }
-                        if (!sendSp("03 02"))
-                        {
-                            goto errorEnd;
-                        }
+                #region
+                //NetCom3.Instance.ReceiveHandel += dealSP;
+                //if (RgType == (int)ReagentType.reagent)
+                //{
+                //    if(spdr.Length <= 0)
+                //    {
+                //        //pro
+                //        if (!sendSp("02"))
+                //        {
+                //            goto errorEnd;
+                //        }
+                //        //conc
+                //        if (!sendSp("03 01"))
+                //        {
+                //            goto errorEnd;
+                //        }
+                //        if (!sendSp("03 02"))
+                //        {
+                //            goto errorEnd;
+                //        }
 
-                        //pmtValue
-                        int calNum = conc.Split(',').Length;
-                        if (!sendSp("04 01"))
-                        {
-                            goto errorEnd;
-                        }
-                        if (!sendSp("04 02"))
-                        {
-                            goto errorEnd;
-                        }
-                        if (!sendSp("04 03"))
-                        {
-                            goto errorEnd;
-                        }
-                        if (calNum == 7)
-                        {
-                            if (!sendSp("04 04"))
-                            {
-                                goto errorEnd;
-                            }
-                        }
-                    }
-                    if (!sendSp("05 01"))
-                    {
-                        goto errorEnd;
-                    }
-                    if (!sendSp("05 02"))
-                    {
-                        goto errorEnd;
-                    }
-                }
-                NetCom3.Instance.ReceiveHandel -= dealSP;
+                //        //pmtValue
+                //        int calNum = conc.Split(',').Length;
+                //        if (!sendSp("04 01"))
+                //        {
+                //            goto errorEnd;
+                //        }
+                //        if (!sendSp("04 02"))
+                //        {
+                //            goto errorEnd;
+                //        }
+                //        if (!sendSp("04 03"))
+                //        {
+                //            goto errorEnd;
+                //        }
+                //        if (calNum == 7)
+                //        {
+                //            if (!sendSp("04 04"))
+                //            {
+                //                goto errorEnd;
+                //            }
+                //        }
+                //    }
+                //    if (!sendSp("05 01"))
+                //    {
+                //        goto errorEnd;
+                //    }
+                //    if (!sendSp("05 02"))
+                //    {
+                //        goto errorEnd;
+                //    }
+                //}
+                //NetCom3.Instance.ReceiveHandel -= dealSP;
+                #endregion
                 dgvRgInfoList.SelectionChanged -= new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
                 ShowRgInfo(0);
                 dgvRgInfoList.SelectionChanged += new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
@@ -3990,6 +4122,8 @@ namespace BioBaseCLIA.Run
             btnAddR.Enabled = true;
             btnLoopAddR.Enabled = true;
             btnDelR.Enabled = true;
+            if (spBreak + succTip + failTip == "")
+                succTip = "装载完成0项,未检测到试剂盒！";
             BeginInvoke(new Action(() =>
             {
                 frmMsgShow.MessageShow("试剂装载", spBreak + succTip + failTip);
