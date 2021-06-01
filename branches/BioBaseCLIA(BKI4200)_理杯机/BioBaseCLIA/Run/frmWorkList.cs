@@ -11286,9 +11286,15 @@ namespace BioBaseCLIA.Run
                 return;
             }
             fbtnAddS.Enabled = false;
-            while (AddingSampleFlag)
+            //while (AddingSampleFlag)
+            //{
+            //    NetCom3.Delay(10);//如果正在加样步骤，暂时先不会弹出样本装载界面
+            //}
+
+            if (AddingSampleFlag)
             {
-                NetCom3.Delay(10);//如果正在加样步骤，暂时先不会弹出样本装载界面
+                MessageBox.Show("正在进行加样操作，请在当前样本加样后进行样本追加！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             #endregion
             addOrdinaryFlag = true;//2018-10-18 zlx mod
