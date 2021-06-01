@@ -344,9 +344,9 @@ namespace BioBaseCLIA.InfoSetting
                 LisCommunication.Instance.EncodeType = cmbLisCodeType.Text.ToString();
             if (LisCommunication.Instance.IsConnect())
             {
-                if(CommunicationType == "NetConn")
+                if(CommunicationType.Contains("NetConn") || CommunicationType.Contains("网口通讯"))
                     OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));//2018-5-14 zlx add
-                else if(CommunicationType == "SerialConn")
+                else if(CommunicationType.Contains("SerialConn") || CommunicationType.Contains("串口通讯"))
                     OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("SerialConn"));//2018-5-14 zlx add
                 OperateIniFile.WriteIniPara("LisSet", "IPAddress", txtLISIPAddress.Text.Trim());
                 OperateIniFile.WriteIniPara("LisSet", "Port", txtLISPort.Text.Trim());
