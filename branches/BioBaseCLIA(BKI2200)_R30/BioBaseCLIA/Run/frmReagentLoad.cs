@@ -254,7 +254,7 @@ namespace BioBaseCLIA.Run
             {
                 string BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                 string ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
-                if (txtRgCode.Text.Trim() == BarCode && cmbRgName.Text.Trim() == ItemName && ItemName!="")
+                if (txtRgCode.Text.Trim() == BarCode && cmbRgName.Text.Trim() == ItemName && ItemName!="" && BarCode!="")
                 {
                     frmMsgShow.MessageShow("试剂加载", "试剂条码与现有的重复（" + i + "号位置），请检查输入的试剂条码和试剂名称。本次加载操作已取消。");
                     return;
@@ -2069,6 +2069,8 @@ namespace BioBaseCLIA.Run
                     DataTable dtAll = bllP.GetAllList().Tables[0];
                     if (dtAll.Rows.Count < 1)
                     {
+                        frmMessageShow msg = new frmMessageShow();
+                        msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
                         return false;
                     }
                     string rgNameCode = decryption.Substring(3, 3);//试剂编号
@@ -2077,8 +2079,10 @@ namespace BioBaseCLIA.Run
                     {
                         length = dtAll.Select("ProjectNumber ='" + int.Parse(rgNameCode).ToString() + "'").Length;
                     }
-                    catch(System.Exception ex)
+                    catch (System.Exception ex)
                     {
+                        frmMessageShow msg = new frmMessageShow();
+                        msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
                         return false;
                     }
                     if (length > 0)//如果有导入相关项目则继续
@@ -2086,7 +2090,11 @@ namespace BioBaseCLIA.Run
                         NetCom3.Instance.ReceiveHandel += dealSP;
                     }
                     else
+                    {
+                        frmMessageShow msg = new frmMessageShow();
+                        msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
                         return false;
+                    }
                 }
                 for(int i =0;i<4;i++)
                 {
@@ -2098,7 +2106,11 @@ namespace BioBaseCLIA.Run
                     if (dtAll.Rows.Count < 1)
                     {
                         if (i == 3)
+                        {
+                            frmMessageShow msg = new frmMessageShow();
+                            msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
                             return false;
+                        }
                         else
                             continue;
                     }
@@ -2109,7 +2121,12 @@ namespace BioBaseCLIA.Run
                     catch (System.Exception ex)
                     {
                         if (i == 3)
+                        {
+                            frmMessageShow msg = new frmMessageShow();
+                            msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
                             return false;
+                        }
+                            
                         else
                             continue;
                     }
@@ -2120,7 +2137,11 @@ namespace BioBaseCLIA.Run
                     else
                     {
                         if (i == 3)
+                        {
+                            frmMessageShow msg = new frmMessageShow();
+                            msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
                             return false;
+                        }
                         else
                             continue;
                     }
