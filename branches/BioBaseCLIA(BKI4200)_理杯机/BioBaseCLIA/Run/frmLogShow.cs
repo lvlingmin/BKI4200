@@ -117,12 +117,12 @@ namespace BioBaseCLIA.Run
                 //{
                 //    if (a.Text != "----") continue;
                 //}
-                var y=DateTime.Now.ToString("yyyy");
-                var y2=DateTime.Now.ToString("MM");
-                var y3=DateTime.Now.ToString("dd");
-                if ((a.Date.Contains(DateTime.Now.ToString("yyyy")) &&
-                    a.Date.Contains(DateTime.Now.ToString("MM")))&&
-                    a.Date.Contains(DateTime.Now.ToString("dd"))/*&& putin*/)
+                var y =/*DateTime.Now.ToString("yyyy");*/SelectDate.Value.ToString("yyyy");
+                var y2 =/*DateTime.Now.ToString("MM");*/SelectDate.Value.ToString("MM");
+                var y3 =/*DateTime.Now.ToString("dd");*/SelectDate.Value.ToString("dd");
+                if ((a.Date.Contains(y) &&
+                    a.Date.Contains(y2)) &&
+                    a.Date.Contains(y3)/*&& putin*/)
                 {
                     putin = false;
                     lTemporary.Add(a);
