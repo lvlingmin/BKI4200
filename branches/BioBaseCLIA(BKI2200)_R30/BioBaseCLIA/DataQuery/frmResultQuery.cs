@@ -647,11 +647,11 @@ namespace BioBaseCLIA.DataQuery
 
         private void fbtnMakeupInfo_Click(object sender, EventArgs e)
         {
-            if (dgvPatientInfo.SelectedRows.Count == 0)
-            {
-                frmMsg.MessageShow(Getstring("SampleInputHead"), Getstring("SampleInputMessage"));
-                return;
-            }          
+            //if (dgvPatientInfo.SelectedRows.Count == 0)
+            //{
+            //    frmMsg.MessageShow(Getstring("SampleInputHead"), Getstring("SampleInputMessage"));
+            //    return;
+            //}          
             frmPatientInfo frmPI = new frmPatientInfo();
             //string SampleID = dgvSampleData.CurrentRow.Cells["SampleID"].Value.ToString();
             string SampleID = dgvPatientInfo.SelectedRows[0].Cells["SampleID1"].Value.ToString();//2018-11-13 zlx mod
@@ -706,7 +706,7 @@ namespace BioBaseCLIA.DataQuery
             string CommunicationType = OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
 
             string tranInfo = OperateIniFile.ReadInIPara("LisSet", "TransInfo");
-            if (CommunicationType == Getstring("NetConn"))
+            if (CommunicationType.Contains("NetConn") || CommunicationType.Contains("网口通讯"))
             {
                 #region 网口通讯批量发送实验结果
                 if (LisCommunication.Instance.IsConnect())
@@ -758,7 +758,7 @@ namespace BioBaseCLIA.DataQuery
                 }
                 #endregion
             }
-            else if(CommunicationType == Getstring("SerialConn"))
+            else if(CommunicationType.Contains("SerialConn") || CommunicationType.Contains("串口通讯"))
             {
                 #region 串口通讯批量发送实验结果
                 if (LisConnection.Instance.IsOpen())
@@ -807,7 +807,6 @@ namespace BioBaseCLIA.DataQuery
                         Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
                         Cmp.SendORU(resultlist);
                     }
-
                 }
                 else
                     MessageBox.Show(Getstring("SeriesNoOpenMessage"), Getstring("MessageHead"));
