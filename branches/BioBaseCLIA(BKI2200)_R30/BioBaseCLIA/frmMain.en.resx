@@ -473,7 +473,7 @@
     <value>NoControl</value>
   </data>
   <data name="temperatureButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 19</value>
+    <value>185, 19</value>
   </data>
   <data name="temperatureButton.ToolTip" xml:space="preserve">
     <value>Temperature query</value>

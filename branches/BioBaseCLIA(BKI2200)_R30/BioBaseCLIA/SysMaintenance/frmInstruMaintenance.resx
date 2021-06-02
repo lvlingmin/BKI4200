@@ -3529,7 +3529,7 @@
     <value>20, 210</value>
   </data>
   <data name="Hitstop" xml:space="preserve">
-    <value>移管手在管架向清洗盘取放管处抓管发生撞管，实验将进行停止！</value>
+    <value>移管手在暂存盘向清洗盘取放管处抓管发生撞管，实验将进行停止！</value>
   </data>
   <data name="chbPmt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4004,7 +4004,283 @@
   <data name="numDwPourin.TabIndex" type="System.Int32, mscorlib">
     <value>76</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>Add1</value>
+  </data>
+  <data name="String10" xml:space="preserve">
+    <value>Circulatoryperfusion</value>
+  </data>
+  <data name="String11" xml:space="preserve">
+    <value>Circulatoryperfusionbegins</value>
+  </data>
+  <data name="String12" xml:space="preserve">
+    <value>CleanIncubate</value>
+  </data>
+  <data name="String13" xml:space="preserve">
+    <value>CleanIncubatefinish</value>
+  </data>
+  <data name="String14" xml:space="preserve">
+    <value>Cleaningpipeline</value>
+  </data>
+  <data name="String15" xml:space="preserve">
+    <value>Cleaningpipelinefinish</value>
+  </data>
+  <data name="String16" xml:space="preserve">
+    <value>Cleanovertime</value>
+  </data>
+  <data name="String17" xml:space="preserve">
+    <value>Cleansubstrate</value>
+  </data>
+  <data name="String18" xml:space="preserve">
+    <value>Clearclean</value>
+  </data>
+  <data name="String19" xml:space="preserve">
+    <value>Clearcleanfinish</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value>Add2</value>
+  </data>
+  <data name="String20" xml:space="preserve">
+    <value>Cliptube</value>
+  </data>
+  <data name="String21" xml:space="preserve">
+    <value>connect</value>
+  </data>
+  <data name="String22" xml:space="preserve">
+    <value>Emptycleaning</value>
+  </data>
+  <data name="String23" xml:space="preserve">
+    <value>Emptycleaningfinish</value>
+  </data>
+  <data name="String24" xml:space="preserve">
+    <value>Emptycleaningfinishuse</value>
+  </data>
+  <data name="String25" xml:space="preserve">
+    <value>Emptystop</value>
+  </data>
+  <data name="String26" xml:space="preserve">
+    <value>Emptytimesstop</value>
+  </data>
+  <data name="String27" xml:space="preserve">
+    <value>EMptytube</value>
+  </data>
+  <data name="String28" xml:space="preserve">
+    <value>Gotohole</value>
+  </data>
+  <data name="String29" xml:space="preserve">
+    <value>gxg</value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value>Add3</value>
+  </data>
+  <data name="String30" xml:space="preserve">
+    <value>Handempty</value>
+  </data>
+  <data name="String31" xml:space="preserve">
+    <value>Handemptystop</value>
+  </data>
+  <data name="String32" xml:space="preserve">
+    <value>Handexception</value>
+  </data>
+  <data name="String33" xml:space="preserve">
+    <value>Handovertime</value>
+  </data>
+  <data name="String34" xml:space="preserve">
+    <value>Handputhit</value>
+  </data>
+  <data name="String35" xml:space="preserve">
+    <value>Handtakehit</value>
+  </data>
+  <data name="String36" xml:space="preserve">
+    <value>Hitstop</value>
+  </data>
+  <data name="String37" xml:space="preserve">
+    <value>Holereading</value>
+  </data>
+  <data name="String38" xml:space="preserve">
+    <value>Idleoperations</value>
+  </data>
+  <data name="String39" xml:space="preserve">
+    <value>implement</value>
+  </data>
+  <data name="String4" xml:space="preserve">
+    <value>Add4</value>
+  </data>
+  <data name="String40" xml:space="preserve">
+    <value>Init</value>
+  </data>
+  <data name="String41" xml:space="preserve">
+    <value>InitFalure</value>
+  </data>
+  <data name="String42" xml:space="preserve">
+    <value>Initfinish</value>
+  </data>
+  <data name="String43" xml:space="preserve">
+    <value>Initializing</value>
+  </data>
+  <data name="String44" xml:space="preserve">
+    <value>Insufficientsubstrate</value>
+  </data>
+  <data name="String45" xml:space="preserve">
+    <value>Maintenancecomplete</value>
+  </data>
+  <data name="String46" xml:space="preserve">
+    <value>Maintenancepause</value>
+  </data>
+  <data name="String47" xml:space="preserve">
+    <value>Noruning</value>
+  </data>
+  <data name="String48" xml:space="preserve">
+    <value>Over</value>
+  </data>
+  <data name="String49" xml:space="preserve">
+    <value>Overtimepause</value>
+  </data>
+  <data name="String5" xml:space="preserve">
+    <value>Adding</value>
+  </data>
+  <data name="String50" xml:space="preserve">
+    <value>Overtimestop</value>
+  </data>
+  <data name="String51" xml:space="preserve">
+    <value>Parameterincorrect</value>
+  </data>
+  <data name="String52" xml:space="preserve">
+    <value>Perfusionbegins</value>
+  </data>
+  <data name="String53" xml:space="preserve">
+    <value>Perfusionfailure</value>
+  </data>
+  <data name="String54" xml:space="preserve">
+    <value>Perfusionfinish</value>
+  </data>
+  <data name="String55" xml:space="preserve">
+    <value>Perfusionfinish2</value>
+  </data>
+  <data name="String56" xml:space="preserve">
+    <value>Perfusiontimes</value>
+  </data>
+  <data name="String57" xml:space="preserve">
+    <value>Perfusiontimeset</value>
+  </data>
+  <data name="String58" xml:space="preserve">
+    <value>Pipelinefillstart</value>
+  </data>
+  <data name="String59" xml:space="preserve">
+    <value>PMTdetection</value>
+  </data>
+  <data name="String6" xml:space="preserve">
+    <value>Beadmax20</value>
+  </data>
+  <data name="String60" xml:space="preserve">
+    <value>PMTdetectionfinish</value>
+  </data>
+  <data name="String61" xml:space="preserve">
+    <value>PMTParameter</value>
+  </data>
+  <data name="String62" xml:space="preserve">
+    <value>PMTValue</value>
+  </data>
+  <data name="String63" xml:space="preserve">
+    <value>probemax10</value>
+  </data>
+  <data name="String64" xml:space="preserve">
+    <value>probeperfusionfinish</value>
+  </data>
+  <data name="String65" xml:space="preserve">
+    <value>probeperfusionstart</value>
+  </data>
+  <data name="String66" xml:space="preserve">
+    <value>Runingnow</value>
+  </data>
+  <data name="String67" xml:space="preserve">
+    <value>Samplehit</value>
+  </data>
+  <data name="String68" xml:space="preserve">
+    <value>Sampleovertime</value>
+  </data>
+  <data name="String69" xml:space="preserve">
+    <value>Sampleperfusion</value>
+  </data>
+  <data name="String7" xml:space="preserve">
+    <value>beadperfusion</value>
+  </data>
+  <data name="String70" xml:space="preserve">
+    <value>SelectCleanperfusiontimes</value>
+  </data>
+  <data name="String71" xml:space="preserve">
+    <value>Selectperfusiontimes</value>
+  </data>
+  <data name="String72" xml:space="preserve">
+    <value>Selectsubstrateperfusiontimes</value>
+  </data>
+  <data name="String73" xml:space="preserve">
+    <value>Startclean</value>
+  </data>
+  <data name="String74" xml:space="preserve">
+    <value>Startcleanfinish</value>
+  </data>
+  <data name="String75" xml:space="preserve">
+    <value>startperfusion</value>
+  </data>
+  <data name="String76" xml:space="preserve">
+    <value>Stop1</value>
+  </data>
+  <data name="String77" xml:space="preserve">
+    <value>Stopperfusion1</value>
+  </data>
+  <data name="String78" xml:space="preserve">
+    <value>Substrateavailability</value>
+  </data>
+  <data name="String79" xml:space="preserve">
+    <value>Substrateempty</value>
+  </data>
+  <data name="String8" xml:space="preserve">
+    <value>beadPerfusionfinish</value>
+  </data>
+  <data name="String80" xml:space="preserve">
+    <value>Substrateinsufficient</value>
+  </data>
+  <data name="String81" xml:space="preserve">
+    <value>Substrateperfusion</value>
+  </data>
+  <data name="String82" xml:space="preserve">
+    <value>Substrateperfusionfinish</value>
+  </data>
+  <data name="String83" xml:space="preserve">
+    <value>The</value>
+  </data>
+  <data name="String84" xml:space="preserve">
+    <value>Throw1</value>
+  </data>
+  <data name="String85" xml:space="preserve">
+    <value>Throw2</value>
+  </data>
+  <data name="String86" xml:space="preserve">
+    <value>Throw3</value>
+  </data>
+  <data name="String87" xml:space="preserve">
+    <value>Throw4</value>
+  </data>
+  <data name="String88" xml:space="preserve">
+    <value>Throwovertimestop</value>
+  </data>
+  <data name="String89" xml:space="preserve">
+    <value>Throwstop</value>
+  </data>
+  <data name="String9" xml:space="preserve">
+    <value>Circulationcompleted</value>
+  </data>
+  <data name="String90" xml:space="preserve">
+    <value>Throwthe</value>
+  </data>
+  <data name="String91" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="String92" xml:space="preserve">
+    <value>Tubeemptystop</value>
+  </data>
 </root>

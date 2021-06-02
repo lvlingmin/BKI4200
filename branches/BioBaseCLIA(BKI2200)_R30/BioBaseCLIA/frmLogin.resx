@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+    <value>17, 17</value>
+  </data>
   <data name="chineseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 22</value>
   </data>
@@ -743,9 +743,9 @@
   <data name="&gt;&gt;titleofbio.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -975,7 +975,7 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-<data name="Alarmfailed" xml:space="preserve">
+  <data name="Alarmfailed" xml:space="preserve">
     <value>报警模块握手失败！</value>
   </data>
   <data name="Cleanfailed" xml:space="preserve">
@@ -1001,9 +1001,6 @@
   </data>
   <data name="InitMsg" xml:space="preserve">
     <value>初始化进度</value>
-  </data>
-  <data name="lbLanguage.Text" xml:space="preserve">
-    <value>语言</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>登录</value>
@@ -1034,5 +1031,8 @@
   </data>
   <data name="UsernameErr" xml:space="preserve">
     <value>用户名不正确，请重新输入！</value>
+  </data>
+  <data name="UserNameIsNull" xml:space="preserve">
+    <value>用户名输入为空，请重新输入！</value>
   </data>
 </root>
