@@ -15,6 +15,7 @@ using System.Data.OleDb;
 using NPOI.SS.UserModel;
 using NPOI.HSSF.UserModel;
 using System.Resources;
+using System.Text.RegularExpressions;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -1211,6 +1212,10 @@ namespace BioBaseCLIA.DataQuery
         {
             if (dgvSampleData.CurrentRow == null || Convert.ToInt32(dgvSampleData.CurrentRow.Cells["Status"].Value)== 9)
                 return;//Result
+            if (!Regex.IsMatch(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString(), @"^\d+\.?\d*$"))
+            {
+                return;
+            }
             if (dgvSampleData.CurrentCell.Value.ToString() == "")
                 dgvSampleData.CurrentCell.Value = 0;
             dgvSampleData.CurrentRow.Cells["Result"].ReadOnly = false;
@@ -1240,6 +1245,10 @@ namespace BioBaseCLIA.DataQuery
         {
             if (dgvSampleData.SelectedRows.Count  == 0)
                 return;
+            if (!Regex.IsMatch(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString(), @"^\d+\.?\d*$"))
+            {
+                return;
+            }
             DbHelperOleDb db = new DbHelperOleDb(1);
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update tbAssayResult set ");
