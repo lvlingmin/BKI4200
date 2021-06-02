@@ -6750,11 +6750,12 @@ namespace BioBaseCLIA.SysMaintenance
                 else if (rdbtnWashIn.Checked)
                 {
                     #region 清洗盘与温育盘之间取放管测试
+                    //BeginInvoke(new Action(() =>
+                    //{
+                    //    txtAgingInfoShow.AppendText("移管手老化测试开始，温育盘与清洗盘之间移管测试，测试次数：" + testNum.ToString() + "-----" + Environment.NewLine);
+                    //}));
                     LogFileRtest.Instance.Write(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "移管手老化测试开始，温育盘与清洗盘之间移管测试，测试次数：" + testNum.ToString());
-                    BeginInvoke(new Action(() =>
-                    {
-                        txtAgingInfoShow.AppendText("-----移管手老化测试开始，温育盘与清洗盘之间移管测试，测试次数：" + testNum.ToString() + "-----" + Environment.NewLine);
-                    }));
+                   
                     //2018-09-26
                     if (!washTrayTubeClear())
                     {
@@ -8324,11 +8325,14 @@ namespace BioBaseCLIA.SysMaintenance
                         flag = 8;
                     }
                     if (flag != -1)
+                    {
                         BeginInvoke(new Action(() =>
                         {
                             txtTestErrorShow.AppendText(DateTime.Now.ToString("HH:mm:ss->") + log + "——" + State[flag] + Environment.NewLine);
 
                         }));
+                    }
+                        
                 }
             }
             else if (order.Contains("EB 90 31 A2"))
