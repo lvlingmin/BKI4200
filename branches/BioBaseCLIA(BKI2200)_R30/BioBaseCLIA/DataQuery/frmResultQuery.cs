@@ -647,11 +647,11 @@ namespace BioBaseCLIA.DataQuery
 
         private void fbtnMakeupInfo_Click(object sender, EventArgs e)
         {
-            //if (dgvPatientInfo.SelectedRows.Count == 0)
-            //{
-            //    frmMsg.MessageShow(Getstring("SampleInputHead"), Getstring("SampleInputMessage"));
-            //    return;
-            //}          
+            if (dgvPatientInfo.SelectedRows.Count == 0)
+            {
+                frmMsg.MessageShow(Getstring("SampleInputHead"), Getstring("SampleInputMessage"));
+                return;
+            }
             frmPatientInfo frmPI = new frmPatientInfo();
             //string SampleID = dgvSampleData.CurrentRow.Cells["SampleID"].Value.ToString();
             string SampleID = dgvPatientInfo.SelectedRows[0].Cells["SampleID1"].Value.ToString();//2018-11-13 zlx mod
