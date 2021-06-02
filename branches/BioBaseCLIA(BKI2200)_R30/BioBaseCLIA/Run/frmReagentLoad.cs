@@ -1665,7 +1665,14 @@ namespace BioBaseCLIA.Run
                 else if (rgcode.Length == 15)
                 {
                     productDay = batch;//生产日期 得到有效期
-                    testTimes = (int.Parse(decryption.Substring(9, 2)) * 10).ToString();//测试
+                    try
+                    {
+                        testTimes = (int.Parse(decryption.Substring(9, 2)) * 10).ToString();//测试
+                    }
+                    catch(System.Exception ex)
+                    {
+                        testTimes = "100";
+                    }
                 }
                 else
                     return "";
