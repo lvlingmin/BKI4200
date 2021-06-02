@@ -875,7 +875,7 @@ namespace BioBaseCLIA
                     List<string> listItemName = new List<string>();
                     if (ReagentIniInfo.ItemName != "" && !listItemName.Contains(ReagentIniInfo.ItemName))
                     {
-                        List<ReagentIniInfo> list = lisRIinfo.FindAll(ty => ty.ItemName == ReagentIniInfo.ItemName);
+                        List<ReagentIniInfo> list = lisRIinfo.FindAll(ty => ty.ItemName == ReagentIniInfo.ItemName && ty.BarCode != "");
                         int count = 0;
                         foreach (ReagentIniInfo li in list)
                         {
