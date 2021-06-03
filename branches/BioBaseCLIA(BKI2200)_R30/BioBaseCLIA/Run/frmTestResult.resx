@@ -201,6 +201,9 @@
   <data name="PMT.HeaderText" xml:space="preserve">
     <value>PMT</value>
   </data>
+  <data name="PMT.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <metadata name="Concentration.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -293,87 +296,6 @@
   </data>
   <data name="&gt;&gt;dgvResultData.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestResult.Name" xml:space="preserve">
-    <value>fbtnTestResult</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestResult.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestResult.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestResult.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnWorkList.Name" xml:space="preserve">
-    <value>btnWorkList</value>
-  </data>
-  <data name="&gt;&gt;btnWorkList.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnWorkList.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btnWorkList.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
-    <value>fbtnReturn</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSample.Name" xml:space="preserve">
-    <value>btnLoadSample</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSample.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSample.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSample.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnLoadReagent.Name" xml:space="preserve">
-    <value>btnLoadReagent</value>
-  </data>
-  <data name="&gt;&gt;btnLoadReagent.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnLoadReagent.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;btnLoadReagent.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>837, 12</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 505</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="fbtnTestResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -881,113 +803,26 @@
   <data name="&gt;&gt;btnLoadReagent.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;functionButton1.Name" xml:space="preserve">
-    <value>functionButton1</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>837, 12</value>
   </data>
-  <data name="&gt;&gt;functionButton1.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 505</value>
   </data>
-  <data name="&gt;&gt;functionButton1.Parent" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="&gt;&gt;functionButton1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;fbtnTestAgain.Name" xml:space="preserve">
-    <value>fbtnTestAgain</value>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;fbtnTestAgain.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestAgain.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestAgain.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;fbtnRCalculatResult.Name" xml:space="preserve">
-    <value>fbtnRCalculatResult</value>
-  </data>
-  <data name="&gt;&gt;fbtnRCalculatResult.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnRCalculatResult.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;fbtnRCalculatResult.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;fbtnRSelectCurve.Name" xml:space="preserve">
-    <value>fbtnRSelectCurve</value>
-  </data>
-  <data name="&gt;&gt;fbtnRSelectCurve.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnRSelectCurve.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;fbtnRSelectCurve.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;fbtnPrint.Name" xml:space="preserve">
-    <value>fbtnPrint</value>
-  </data>
-  <data name="&gt;&gt;fbtnPrint.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnPrint.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;fbtnPrint.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;fbtnExportData.Name" xml:space="preserve">
-    <value>fbtnExportData</value>
-  </data>
-  <data name="&gt;&gt;fbtnExportData.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnExportData.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;fbtnExportData.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;fbtnSaveResult.Name" xml:space="preserve">
-    <value>fbtnSaveResult</value>
-  </data>
-  <data name="&gt;&gt;fbtnSaveResult.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;fbtnSaveResult.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;fbtnSaveResult.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 68</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 449</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>数据操作</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="functionButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1703,6 +1538,30 @@
   </data>
   <data name="&gt;&gt;fbtnSaveResult.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 68</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 449</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>数据操作</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
