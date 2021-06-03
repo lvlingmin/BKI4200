@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppDevelop" xml:space="preserve">
+    <value>程序开发</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnDel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -198,6 +201,9 @@
   <data name="&gt;&gt;btnUserInfo.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
+  <data name="ChangePassSucess" xml:space="preserve">
+    <value>密码修改成功</value>
+  </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -231,6 +237,9 @@
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
+  </data>
+  <data name="NullPassWord" xml:space="preserve">
+    <value>用户密码不能为空</value>
   </data>
   <data name="btnUserInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -314,6 +323,12 @@
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DeleteNoSelect" xml:space="preserve">
+    <value>删除的用户名不存在或未选中行，请重新选择</value>
+  </data>
+  <data name="btnInstrumentPara.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -340,6 +355,9 @@
   </data>
   <data name="btnDel.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -442,6 +460,9 @@
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -643,6 +664,9 @@
   <data name="&gt;&gt;txtPassword.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -664,14 +688,17 @@
   <data name="btnModifyPassword.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="DifPassWord" xml:space="preserve">
+    <value>确认密码与用户密码不一致，请重新输入！</value>
+  </data>
   <data name="btnDel.Text" xml:space="preserve">
     <value>删除用户</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="NoUserName" xml:space="preserve">
+    <value>未输入用户名，请输入</value>
   </data>
   <data name="&gt;&gt;txtConfirmPassword.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -711,6 +738,9 @@
   </data>
   <data name="cmbType.Items1" xml:space="preserve">
     <value>管理员</value>
+  </data>
+  <data name="&gt;&gt;btnUserInfo.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -964,8 +994,8 @@
   <data name="txtPassword.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="Personal" xml:space="preserve">
+    <value>普通用户</value>
   </data>
   <data name="btnProInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 120</value>
@@ -982,8 +1012,8 @@
   <data name="dgvUserInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 29</value>
   </data>
-  <data name="dgvUserInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="DeleteSucess" xml:space="preserve">
+    <value>删除成功</value>
   </data>
   <data name="cmbType.Items" xml:space="preserve">
     <value>普通用户</value>
@@ -997,8 +1027,8 @@
   <data name="btnProInfo.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="AddSucess" xml:space="preserve">
+    <value>添加成功</value>
   </data>
   <data name="&gt;&gt;cmbType.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1014,6 +1044,12 @@
   </data>
   <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
     <value>groupBox2</value>
+  </data>
+  <data name="dgvUserInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="txtPassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 143</value>
@@ -1033,8 +1069,14 @@
   <data name="label4.Text" xml:space="preserve">
     <value>用户密码：</value>
   </data>
+  <data name="btnProInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;dgvUserInfo.Parent" xml:space="preserve">
     <value>groupBox1</value>
+  </data>
+  <data name="UserInfoSet" xml:space="preserve">
+    <value>用户信息设置</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -1054,8 +1096,8 @@
   <data name="btnAdd.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnAdd.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="ChangePass" xml:space="preserve">
+    <value>修改密码</value>
   </data>
   <data name="btnUserInfo.Text" xml:space="preserve">
     <value>用户设置</value>
@@ -1072,7 +1114,7 @@
   <data name="btnDel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnInstrumentPara.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="btnAdd.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="&gt;&gt;cmbType.Name" xml:space="preserve">
@@ -1151,6 +1193,9 @@
   <data name="&gt;&gt;btnProInfo.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="&gt;&gt;btnInstrumentPara.Name" xml:space="preserve">
+    <value>btnInstrumentPara</value>
+  </data>
   <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1190,8 +1235,8 @@
   <data name="label1.Text" xml:space="preserve">
     <value>用户信息设置</value>
   </data>
-  <data name="&gt;&gt;btnInstrumentPara.Name" xml:space="preserve">
-    <value>btnInstrumentPara</value>
+  <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 50</value>
   </data>
   <data name="fbtnConnetSet.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 20</value>
@@ -1205,8 +1250,11 @@
   <data name="txtName.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="&gt;&gt;btnUserInfo.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 54</value>
+  </data>
+  <data name="AddUser" xml:space="preserve">
+    <value>添加用户</value>
   </data>
   <data name="fbtnConnetSet.Text" xml:space="preserve">
     <value>通讯设置</value>
@@ -1220,20 +1268,17 @@
   <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 32</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 54</value>
+  <data name="UserNameSet" xml:space="preserve">
+    <value>用户名至少由一位汉字、字母、星号、数字、.、下划线组成。</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
-  <data name="btnProInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="Administrator" xml:space="preserve">
+    <value>管理员</value>
   </data>
   <data name="&gt;&gt;Password.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="fbtnConnetSet.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -1247,20 +1292,26 @@
   <data name="&gt;&gt;UserRoleType.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="btnModifyPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 246</value>
+  </data>
   <data name="btnUserInfo.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
   <data name="btnUserInfo.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="PassWordSet" xml:space="preserve">
+    <value>密码不能存在汉字、字母、星号、数字、.、下划线以外的符号。</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>449, 417</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 21.75pt, style=Bold</value>
+  </data>
+  <data name="SameUser" xml:space="preserve">
+    <value>该账号已存在，请重新输入用户名！</value>
   </data>
   <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
     <value>fbtnReturn</value>
@@ -1329,8 +1380,8 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnModifyPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 246</value>
+  <data name="cancel" xml:space="preserve">
+    <value>取消</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>用户类别：</value>
@@ -1338,8 +1389,8 @@
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
@@ -1362,8 +1413,8 @@
   <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 50</value>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
@@ -1421,56 +1472,5 @@
   </data>
   <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>en</value>
-  </data>
-  <data name="AddSucess" xml:space="preserve">
-    <value>添加成功</value>
-  </data>
-  <data name="AddUser" xml:space="preserve">
-    <value>添加用户</value>
-  </data>
-  <data name="Administrator" xml:space="preserve">
-    <value>管理员</value>
-  </data>
-  <data name="AppDevelop" xml:space="preserve">
-    <value>程序开发</value>
-  </data>
-  <data name="cancel" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="ChangePass" xml:space="preserve">
-    <value>修改密码</value>
-  </data>
-  <data name="ChangePassSucess" xml:space="preserve">
-    <value>密码修改成功</value>
-  </data>
-  <data name="DeleteNoSelect" xml:space="preserve">
-    <value>删除的用户名不存在或未选中行，请重新选择</value>
-  </data>
-  <data name="DeleteSucess" xml:space="preserve">
-    <value>删除成功</value>
-  </data>
-  <data name="DifPassWord" xml:space="preserve">
-    <value>确认密码与用户密码不一致，请重新输入！</value>
-  </data>
-  <data name="NoUserName" xml:space="preserve">
-    <value>未输入用户名，请输入</value>
-  </data>
-  <data name="NullPassWord" xml:space="preserve">
-    <value>用户密码不能为空</value>
-  </data>
-  <data name="PassWordSet" xml:space="preserve">
-    <value>密码不能存在汉字、字母、星号、数字、\".\"、下划线以外的符号。</value>
-  </data>
-  <data name="Personal" xml:space="preserve">
-    <value>普通用户</value>
-  </data>
-  <data name="SameUser" xml:space="preserve">
-    <value>已有同名帐号，自动更新其密码。</value>
-  </data>
-  <data name="UserInfoSet" xml:space="preserve">
-    <value>用户信息设置</value>
-  </data>
-  <data name="UserNameSet" xml:space="preserve">
-    <value>用户名至少由一位汉字、字母、星号、数字、\".\"、下划线组成。</value>
   </data>
 </root>

@@ -178,18 +178,18 @@
     <value>加样模块旋转臂光电开关异常!\n</value>
   </data>
   <data name="Sampleabnormal" xml:space="preserve">
-    <value>加样模块样品盘光电开关异常!\n</value>
+    <value>加样模块样品盘光电开关异常!</value>
   </data>
   <data name="Sendfailed" xml:space="preserve">
     <value>消息发送失败</value>
   </data>
   <data name="Temporaryabnormal" xml:space="preserve">
-    <value>理杯机模块暂存盘光电开关异常!\n</value>
+    <value>理杯机模块暂存盘光电开关异常!</value>
   </data>
   <data name="Verticalanomal" xml:space="preserve">
-    <value>加样模块垂直臂光电开关异常!\n</value>
+    <value>加样模块垂直臂光电开关异常!</value>
   </data>
   <data name="Verticalphotoelectricabnormal" xml:space="preserve">
-    <value>理杯机模块垂直光电开关异常!\n</value>
+    <value>理杯机模块垂直光电开关异常!</value>
   </data>
 </root>

@@ -231,6 +231,8 @@ namespace BioBaseCLIA.InfoSetting
                 if (btnAdd.Text == Getstring("cancel") && btnModifyPassword.Text == Getstring("ChangePass"))//add y 20180510
                 {
                     frmMsgShow.MessageShow(Getstring("UserInfoSet"), Getstring("SameUser"));//add y 20180510
+                    txtName.Focus();
+                    return;
                 }
                 modelUser.UserID = int.Parse(dr[0]["UserID"].ToString());
                 modelUser.UserName = dr[0]["UserName"].ToString();

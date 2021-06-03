@@ -2305,7 +2305,7 @@ namespace BioBaseCLIA.SysMaintenance
             //int Num = 20;
             int Num = int.Parse(numDwPourin.Value.ToString());
             if (Num == 0)
-                Num = 20;
+                Num = 5;
             string subPipe = "";
             subPipe = "1";
             subBar = OperateIniFile.ReadIniData("Substrate" + subPipe, "BarCode", "", iniPathSubstrateTube);

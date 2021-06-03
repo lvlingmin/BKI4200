@@ -86,3 +86,9 @@ E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI
 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\obj\Debug\Model.dll
 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\obj\Debug\Model.pdb
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\bin\Debug\Model.dll
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\bin\Debug\Model.pdb
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\obj\Debug\Model.dll
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\obj\Debug\Model.pdb
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Model\obj\Debug\Model.csprojAssemblyReference.cache

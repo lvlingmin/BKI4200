@@ -134,3 +134,12 @@ E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI
 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.csproj.CoreCompileInputs.cache
 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.dll
 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.pdb
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\bin\Debug\Localization.dll
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\bin\Debug\Localization.pdb
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.en-US.resources
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.zh-CN.resources
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.csproj.GenerateResource.cache
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.csproj.CoreCompileInputs.cache
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.dll
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.pdb
+E:\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI2200)_R30\Localization\obj\Debug\Localization.csprojAssemblyReference.cache

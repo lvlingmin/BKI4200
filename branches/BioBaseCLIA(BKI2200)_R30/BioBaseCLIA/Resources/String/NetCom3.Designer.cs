@@ -241,7 +241,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 加样模块样品盘光电开关异常!\n 的本地化字符串。
+        ///   查找类似 加样模块样品盘光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Sampleabnormal {
             get {
@@ -259,7 +259,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 理杯机模块暂存盘光电开关异常!\n 的本地化字符串。
+        ///   查找类似 理杯机模块暂存盘光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Temporaryabnormal {
             get {
@@ -268,7 +268,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 加样模块垂直臂光电开关异常!\n 的本地化字符串。
+        ///   查找类似 加样模块垂直臂光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Verticalanomal {
             get {
@@ -277,7 +277,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 理杯机模块垂直光电开关异常!\n 的本地化字符串。
+        ///   查找类似 理杯机模块垂直光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Verticalphotoelectricabnormal {
             get {
