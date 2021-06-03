@@ -71,24 +71,24 @@ namespace BioBaseCLIA.DataQuery
         {
             //2018-12-15 zlx mod
             //dgvSampleData.DataSource = null;
-             DbHelperOleDb DB = new DbHelperOleDb(1);
+            DbHelperOleDb DB = new DbHelperOleDb(1);
             string str = "select distinct SampleNo,format(SendDateTime,'yyyy-mm-dd')AS SendDateTimeS,tbSampleInfo.SampleID,PatientName,Sex,Age,ClinicNo,InpatientArea," +
                   "Ward,BedNo,MedicaRecordNo,Diagnosis,InspectionItems,AcquisitionTime from tbSampleInfo INNER JOIN tbAssayResult on tbAssayResult.SampleID = tbSampleInfo.SampleID where " +
                   "tbSampleInfo.SendDateTime>=#" + dtpStartDate.Value.ToString("yyyy-MM-dd") + "# and tbSampleInfo.SendDateTime < #" + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "# ";//AND tbSampleInfo.Status>0 AND (tbSampleInfo.SampleType not like '标准品%' OR tbSampleInfo.SampleType not like '质控品%'
             if (cmbSelect.SelectedIndex == 0)
                 str = str + "AND tbSampleInfo.SampleNo like'%" + txtSampleNo.Text.ToString() + "%'";
-             else if (cmbSelect.SelectedIndex == 1)
-                 str = str + "AND tbSampleInfo.PatientName like'%" + txtSampleNo.Text.ToString() + "%'";
-             DataTable dtPatientInfo = DbHelperOleDb.Query(1,@str).Tables[0];
-             DataView dv = dtPatientInfo.DefaultView;
-             dv.Sort = "SendDateTimeS desc,SampleNo";
-             dgvPatientInfo.DataSource = dv;
-             if (dgvPatientInfo.Rows.Count == 0)
-             {
-                 while (dgvSampleData.Rows.Count > 0)
-                     dgvSampleData.Rows.Remove(dgvSampleData.Rows[dgvSampleData.Rows.Count - 1]);
-                 return;
-             }
+            else if (cmbSelect.SelectedIndex == 1)
+                str = str + "AND tbSampleInfo.PatientName like'%" + txtSampleNo.Text.ToString() + "%'";
+            DataTable dtPatientInfo = DbHelperOleDb.Query(1, @str).Tables[0];
+            DataView dv = dtPatientInfo.DefaultView;
+            dv.Sort = "SendDateTimeS desc,SampleNo";
+            dgvPatientInfo.DataSource = dv;
+            if (dgvPatientInfo.Rows.Count == 0)
+            {
+                while (dgvSampleData.Rows.Count > 0)
+                    dgvSampleData.Rows.Remove(dgvSampleData.Rows[dgvSampleData.Rows.Count - 1]);
+                return;
+            }
             //2018-08-09 zlx mod
             //string str = "select tbAssayResult.AssayResultID,tbAssayResult.SampleID,tbSampleInfo.SampleNo,"
             //          + "tbAssayResult.ItemName,tbAssayResult.TestDate,tbAssayResult.PMTCounter,"
@@ -99,13 +99,13 @@ namespace BioBaseCLIA.DataQuery
             //    str = str + " AND tbSampleInfo.SampleNo='" + txtSampleNo.Text.ToString() + "'";
             //DbHelperOleDb DB = new DbHelperOleDb(1);//2018-5-9 zlx add tbSampleInfo.SampleType
             //DataTable dtTestData = DbHelperOleDb.Query(@str).Tables[0];
-//            DataTable dtTestData = DbHelperOleDb.Query(@"select tbAssayResult.AssayResultID,tbAssayResult.SampleID,tbSampleInfo.SampleNo,
-//                                                         tbAssayResult.ItemName,tbAssayResult.TestDate,tbAssayResult.PMTCounter,
-//                                                         tbAssayResult.Concentration,tbAssayResult.Unit,tbAssayResult.Result,tbAssayResult.Range,tbSampleInfo.SampleType from 
-//                                                         tbAssayResult INNER JOIN tbSampleInfo on tbAssayResult.SampleID = tbSampleInfo.SampleID 
-//                                                         where tbAssayResult.TestDate >=#"
-//                                                         + dtpStartDate.Value.ToString("yyyy-MM-dd") + "#and tbAssayResult.TestDate <#"
-//                                                         + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "#").Tables[0];
+            //            DataTable dtTestData = DbHelperOleDb.Query(@"select tbAssayResult.AssayResultID,tbAssayResult.SampleID,tbSampleInfo.SampleNo,
+            //                                                         tbAssayResult.ItemName,tbAssayResult.TestDate,tbAssayResult.PMTCounter,
+            //                                                         tbAssayResult.Concentration,tbAssayResult.Unit,tbAssayResult.Result,tbAssayResult.Range,tbSampleInfo.SampleType from 
+            //                                                         tbAssayResult INNER JOIN tbSampleInfo on tbAssayResult.SampleID = tbSampleInfo.SampleID 
+            //                                                         where tbAssayResult.TestDate >=#"
+            //                                                         + dtpStartDate.Value.ToString("yyyy-MM-dd") + "#and tbAssayResult.TestDate <#"
+            //                                                         + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "#").Tables[0];
             //dgvSampleData.DataSource = dtTestData;          
         }
         private BLL.tbReagent bllRg = new BLL.tbReagent();
@@ -202,7 +202,7 @@ namespace BioBaseCLIA.DataQuery
                 {
                     dgvSampleData.SelectedRows[i].Cells["Result"].ReadOnly = false;
                     DbHelperOleDb db = new DbHelperOleDb(0);
-                    DataTable tbtbProject = DbHelperOleDb.Query(0,@"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgvSampleData.SelectedRows[i].Cells["ItemName"].Value + "'").Tables[0];
+                    DataTable tbtbProject = DbHelperOleDb.Query(0, @"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgvSampleData.SelectedRows[i].Cells["ItemName"].Value + "'").Tables[0];
                     string concentration = er.GetResultInverse(Convert.ToDouble(
                     dgvSampleData.SelectedRows[i].Cells[6].Value.ToString())).ToString("0.###");
                     if (concentration == Getstring("NoNumber"))
@@ -216,9 +216,9 @@ namespace BioBaseCLIA.DataQuery
                     if (concentration != Getstring("NoNumber") && dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString() != "")
                         dgvSampleData.SelectedRows[i].Cells["Result"].Value = GetResult(dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString(), double.Parse(concentration));
                     dgvSampleData.SelectedRows[i].Cells["Result"].ReadOnly = true;
-                    }
                 }
-                //fbtnSaveData.Visible = true;
+            }
+            //fbtnSaveData.Visible = true;
         }
         /// <summary>
         /// 获取结果标识  2018-12-07 zlx add
@@ -230,7 +230,7 @@ namespace BioBaseCLIA.DataQuery
         {
             string Result = "";
             DbHelperOleDb db = new DbHelperOleDb(0);
-            DataTable tbtbProject = DbHelperOleDb.Query(0,@"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + ProName + "'").Tables[0];
+            DataTable tbtbProject = DbHelperOleDb.Query(0, @"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + ProName + "'").Tables[0];
             if (concentration < double.Parse(tbtbProject.Rows[0]["MinValue"].ToString()))
             {
                 Result = Getstring("NotRangeMessage");
@@ -264,7 +264,7 @@ namespace BioBaseCLIA.DataQuery
                     }
                     else
                     {
-                        Result = Getstring("Normal"); 
+                        Result = Getstring("Normal");
                     }
                 }
                 else if (Range1.Contains("<="))
@@ -312,12 +312,12 @@ namespace BioBaseCLIA.DataQuery
             DbHelperOleDb DB = new DbHelperOleDb(1);
             for (int i = 0; i < dgvSampleData.SelectedRows.Count; i++)
             {
-                DbHelperOleDb.ExecuteSql(1,@"update tbAssayResult set Concentration = " + Convert.ToDouble(
+                DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Concentration = " + Convert.ToDouble(
                dgvSampleData.SelectedRows[i].Cells[7].Value.ToString()) + " where AssayResultID = " + int.Parse
                (dgvSampleData.SelectedRows[i].Cells[1].Value.ToString()));
             }
             frmMsgShow.MessageShow(Getstring("SaveHead"), Getstring("SaveMessage"));
-        } 
+        }
 
         private void fbtnDeleteResult_Click(object sender, EventArgs e)
         {
@@ -335,7 +335,7 @@ namespace BioBaseCLIA.DataQuery
                         //删除样本信息及对应的项目
                         bllAssayResult.Delete(int.Parse(dgvSampleData.Rows[i].Cells["AssayResultID"].Value.ToString()));
                         dgvSampleData.Rows.RemoveAt(i);
-                    }                   
+                    }
                 }
             }
             frmMsgShow.MessageShow(Getstring("SaveHead"), Getstring("DeleteMessage"));
@@ -443,23 +443,24 @@ namespace BioBaseCLIA.DataQuery
                 dtTestResult.DefaultView.Sort = "printIndex asc";
                 dtTestResult = dtTestResult.DefaultView.ToTable();
                 dtTestResult.TableName = "Records";
+                count = dtTestResult.Rows.Count;
                 if (printModel.Contains("模版一"))
                 {
-                    if (count <= 24)
+                    if (count <= 10)
                         ;
-                    else if (count <= 48)
+                    else if (count <= 20)
                     {
                         //移动到右列
-                        for (int i = 24; i < count; i++)
+                        for (int i = 10; i < count; i++)
                         {
-                            dtTestResult.Rows[i - 24]["ShortName-2"] = dtTestResult.Rows[i]["ShortName"];  //dtPro.Select("ShortName = '" + dgvSampleData.Rows[i + 24].Cells["ItemName"].Value.ToString() + "'")[0]["FullName"];//lyq
-                            dtTestResult.Rows[i - 24]["Concentration-2"] = dtTestResult.Rows[i]["Concentration"]; //dgvSampleData.Rows[i + 24].Cells["Concentration"].Value.ToString();
-                            dtTestResult.Rows[i - 24]["Result-2"] = dtTestResult.Rows[i]["Result"]; //dgvSampleData.Rows[i + 24].Cells["Result"].Value.ToString();
-                            dtTestResult.Rows[i - 24]["Range1-2"] = dtTestResult.Rows[i]["Range1"]; // dgvSampleData.Rows[i + 24].Cells["Range"].Value.ToString();
-                            dtTestResult.Rows[i - 24]["Range2-2"] = dtTestResult.Rows[i]["Range2"]; // dgvSampleData.Rows[i + 24].Cells["Unit"].Value.ToString();
+                            dtTestResult.Rows[i - 10]["ShortName-2"] = dtTestResult.Rows[i]["ShortName"];  //dtPro.Select("ShortName = '" + dgvSampleData.Rows[i + 24].Cells["ItemName"].Value.ToString() + "'")[0]["FullName"];//lyq
+                            dtTestResult.Rows[i - 10]["Concentration-2"] = dtTestResult.Rows[i]["Concentration"]; //dgvSampleData.Rows[i + 24].Cells["Concentration"].Value.ToString();
+                            dtTestResult.Rows[i - 10]["Result-2"] = dtTestResult.Rows[i]["Result"]; //dgvSampleData.Rows[i + 24].Cells["Result"].Value.ToString();
+                            dtTestResult.Rows[i - 10]["Range1-2"] = dtTestResult.Rows[i]["Range1"]; // dgvSampleData.Rows[i + 24].Cells["Range"].Value.ToString();
+                            dtTestResult.Rows[i - 10]["Range2-2"] = dtTestResult.Rows[i]["Range2"]; // dgvSampleData.Rows[i + 24].Cells["Unit"].Value.ToString();
                         }
                         //移除多余列
-                        for (int i = count; i > 24; i--)
+                        for (int i = count; i > 10; i--)
                         {
                             dtTestResult.Rows.RemoveAt(i - 1);
                         }
@@ -572,7 +573,6 @@ namespace BioBaseCLIA.DataQuery
                 report.SetParameterValue("title", OperateIniFile.ReadInIPara("PrintSet", "HospitalName"));
                 report.RegisterData(dsReport);
                 #endregion
-
                 //是否直接打印
                 report.PrintSettings.ShowDialog = !bool.Parse(OperateIniFile.ReadInIPara("PrintSet", "AutoPrint"));//2018-11-02 zlx mod
                 ReportPage rp = report.Pages[0] as ReportPage;
@@ -630,12 +630,12 @@ namespace BioBaseCLIA.DataQuery
                 //if (dgvSampleData.Rows[i].Cells["SampleID"].Value.ToString() != SampleID)
                 //    dgvSampleData.Rows[i].Visible = printFlag;
                 dgvSampleData.Rows[i].Cells["colChioce"].Value = true;//2018-11-02 zlx mod
-            } 
+            }
             if (printFlag == false)
             {
                 fbtnPrint.Text = Getstring("Determine");
                 dgvSampleData.Columns[0].Visible = true;
-                dgvSampleData.SelectionMode = DataGridViewSelectionMode.CellSelect;              
+                dgvSampleData.SelectionMode = DataGridViewSelectionMode.CellSelect;
             }
             else
             {
@@ -673,32 +673,32 @@ namespace BioBaseCLIA.DataQuery
         #endregion
 
         private void dgvSampleData_SelectionChanged(object sender, EventArgs e)
-        {          
-//            #region 获取选中样本的病人信息
-//            if (dgvSampleData.CurrentRow == null || dgvSampleData.CurrentRow.Cells["SampleID"].Value == null)
-//            {
-//                return;
-//            }
-//            //2018-08-10  zlx add
-//            if (dgvSampleData.CurrentRow.Cells["SampleType"].Value != null && dgvSampleData.CurrentRow.Cells["SampleType"].Value.ToString() == "外部信息")
-//            {
-//                fbtnSaveData.Enabled=fbtnModifyResult.Enabled = false;
-//            }
-//            else
-//            {
-//                fbtnSaveData.Enabled = fbtnModifyResult.Enabled = true;
-//            }
-//            string SampleID = dgvSampleData.CurrentRow.Cells["SampleID"].Value.ToString();
-//            if (SampleID == "")
-//            {
-//                return;
-//            }
-//            DbHelperOleDb DB = new DbHelperOleDb(1);
-//            DataTable dtPatientInfo = DbHelperOleDb.Query(@"select SampleID,PatientName,Sex,Age,ClinicNo,InpatientArea,
-//                                                            Ward,BedNo,MedicaRecordNo,Diagnosis from tbSampleInfo where
-//                                                            SampleID =  " + int.Parse(SampleID)).Tables[0];
-//            dgvPatientInfo.DataSource = dtPatientInfo;
-//            #endregion
+        {
+            //            #region 获取选中样本的病人信息
+            //            if (dgvSampleData.CurrentRow == null || dgvSampleData.CurrentRow.Cells["SampleID"].Value == null)
+            //            {
+            //                return;
+            //            }
+            //            //2018-08-10  zlx add
+            //            if (dgvSampleData.CurrentRow.Cells["SampleType"].Value != null && dgvSampleData.CurrentRow.Cells["SampleType"].Value.ToString() == "外部信息")
+            //            {
+            //                fbtnSaveData.Enabled=fbtnModifyResult.Enabled = false;
+            //            }
+            //            else
+            //            {
+            //                fbtnSaveData.Enabled = fbtnModifyResult.Enabled = true;
+            //            }
+            //            string SampleID = dgvSampleData.CurrentRow.Cells["SampleID"].Value.ToString();
+            //            if (SampleID == "")
+            //            {
+            //                return;
+            //            }
+            //            DbHelperOleDb DB = new DbHelperOleDb(1);
+            //            DataTable dtPatientInfo = DbHelperOleDb.Query(@"select SampleID,PatientName,Sex,Age,ClinicNo,InpatientArea,
+            //                                                            Ward,BedNo,MedicaRecordNo,Diagnosis from tbSampleInfo where
+            //                                                            SampleID =  " + int.Parse(SampleID)).Tables[0];
+            //            dgvPatientInfo.DataSource = dtPatientInfo;
+            //            #endregion
         }
 
         private void tbnSendResult_Click(object sender, EventArgs e)//2018-4-28 zlx add
@@ -759,7 +759,7 @@ namespace BioBaseCLIA.DataQuery
                 }
                 #endregion
             }
-            else if(CommunicationType.Contains("SerialConn") || CommunicationType.Contains("串口通讯"))
+            else if (CommunicationType.Contains("SerialConn") || CommunicationType.Contains("串口通讯"))
             {
                 #region 串口通讯批量发送实验结果
                 if (LisConnection.Instance.IsOpen())
@@ -930,7 +930,7 @@ namespace BioBaseCLIA.DataQuery
                 return;
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.InitialDirectory = System.Windows.Forms.Application.StartupPath;
-            dialog.Filter = "xls"+ Getstring("File") + "|*.xls";
+            dialog.Filter = "xls" + Getstring("File") + "|*.xls";
             frmMessageShow fmessage = new frmMessageShow();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -1010,7 +1010,7 @@ namespace BioBaseCLIA.DataQuery
                     dgvSampleData.DataSource = _dtData;
                 fmessage.MessageShow(Getstring("MessageHead"), Getstring("ImportSucessMessage"));
             }
-            
+
         }
 
         //Jun add 20190319 修复原本代码在一些情况下出现乱码
@@ -1029,8 +1029,8 @@ namespace BioBaseCLIA.DataQuery
                 dgvSampleData.SelectAll();
             }
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "xls"+ Getstring("File") + "|*.xls";
-            string FileName = dialog.FileName = DateTime.Now.ToString("yyyyMMdd") +Getstring("FileName");
+            dialog.Filter = "xls" + Getstring("File") + "|*.xls";
+            string FileName = dialog.FileName = DateTime.Now.ToString("yyyyMMdd") + Getstring("FileName");
             IWorkbook excel = new HSSFWorkbook();//创建.xls文件
             ISheet sheet = excel.CreateSheet(FileName); //创建sheet
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -1127,7 +1127,7 @@ namespace BioBaseCLIA.DataQuery
 
         private void dgvSampleData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-           
+
         }
         //2018-08-18 zlx add
         private void dgvPatientInfo_SelectionChanged(object sender, EventArgs e)
@@ -1146,14 +1146,14 @@ namespace BioBaseCLIA.DataQuery
             if (SampleID == "")
                 return;
             //string SampleID = dgvPatientInfo.CurrentRow.Cells[1].Value.ToString();
-            string str ="select tbAssayResult.AssayResultID,tbAssayResult.SampleID,tbSampleInfo.SampleNo,"
+            string str = "select tbAssayResult.AssayResultID,tbAssayResult.SampleID,tbSampleInfo.SampleNo,"
                       + "tbAssayResult.ItemName,tbAssayResult.TestDate,tbAssayResult.PMTCounter,"
                       + "tbAssayResult.Concentration,tbAssayResult.Unit,tbAssayResult.Result,tbAssayResult.Range,tbSampleInfo.SampleType,tbAssayResult.Status,tbAssayResult.Batch from " //2018-08-17  zlx 添加tbAssayResult.Status
                       + "tbAssayResult INNER JOIN tbSampleInfo on tbAssayResult.SampleID = tbSampleInfo.SampleID "
                       + "where tbAssayResult.SampleID=" + SampleID + " AND  tbAssayResult.TestDate >=#" + dtpStartDate.Value.ToString("yyyy-MM-dd") + "# and tbAssayResult.TestDate < #" + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "# AND tbAssayResult.Status=0";
-           
+
             DbHelperOleDb DB = new DbHelperOleDb(1);//2018-5-9 zlx add tbSampleInfo.SampleType
-            DataTable dtTestData = DbHelperOleDb.Query(1,@str).Tables[0];
+            DataTable dtTestData = DbHelperOleDb.Query(1, @str).Tables[0];
             DataTable dtResult = new DataTable();
             dtResult = dtTestData.Clone();
             foreach (DataColumn col in dtResult.Columns)
@@ -1190,27 +1190,27 @@ namespace BioBaseCLIA.DataQuery
             {
                 double concentration = double.Parse(dgv.Cells["Concentration"].Value.ToString());
                 DbHelperOleDb db = new DbHelperOleDb(0);
-                DataTable tbtbProject = DbHelperOleDb.Query(0,@"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgv.Cells["ItemName"].Value + "'").Tables[0];
+                DataTable tbtbProject = DbHelperOleDb.Query(0, @"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgv.Cells["ItemName"].Value + "'").Tables[0];
                 //2018-11-26 zlx mod
                 if (tbtbProject.Rows[0][0].ToString() != "")
                 {
-                    if (concentration ==double.Parse(tbtbProject.Rows[0][2].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
+                    if (concentration == double.Parse(tbtbProject.Rows[0][2].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
                         dgv.Cells["Concentration"].Value = "<" + concentration;
                     else if (concentration == double.Parse(tbtbProject.Rows[0][3].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
                         dgv.Cells["Concentration"].Value = ">" + concentration;
                     else
-                    dgv.Cells["Concentration"].Value = concentration.ToString("F" + int.Parse(tbtbProject.Rows[0][0].ToString()) + "");
+                        dgv.Cells["Concentration"].Value = concentration.ToString("F" + int.Parse(tbtbProject.Rows[0][0].ToString()) + "");
                 }
                 else
                     dgv.Cells["Concentration"].Value = concentration.ToString("F0");
-                
+
             }
-           
+
         }
         //2018-12-07 zlx mod
         private void dgvSampleData_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvSampleData.CurrentRow == null || Convert.ToInt32(dgvSampleData.CurrentRow.Cells["Status"].Value)== 9)
+            if (dgvSampleData.CurrentRow == null || Convert.ToInt32(dgvSampleData.CurrentRow.Cells["Status"].Value) == 9)
                 return;//Result
             if (!Regex.IsMatch(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString(), @"^\d+\.?\d*$"))
             {
@@ -1219,8 +1219,8 @@ namespace BioBaseCLIA.DataQuery
             if (dgvSampleData.CurrentCell.Value.ToString() == "")
                 dgvSampleData.CurrentCell.Value = 0;
             dgvSampleData.CurrentRow.Cells["Result"].ReadOnly = false;
-            if (double.Parse(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString())>0)
-               dgvSampleData.CurrentRow.Cells["Result"].Value = GetResult(dgvSampleData.CurrentRow.Cells["ItemName"].Value.ToString(),double.Parse(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString()));
+            if (double.Parse(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString()) > 0)
+                dgvSampleData.CurrentRow.Cells["Result"].Value = GetResult(dgvSampleData.CurrentRow.Cells["ItemName"].Value.ToString(), double.Parse(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString()));
             dgvSampleData.CurrentRow.Cells["Result"].ReadOnly = true;
             DbHelperOleDb db = new DbHelperOleDb(1);
             StringBuilder strSql = new StringBuilder();
@@ -1238,12 +1238,12 @@ namespace BioBaseCLIA.DataQuery
             parameters[1].Value = dgvSampleData.CurrentRow.Cells["Concentration"].Value;
             parameters[2].Value = dgvSampleData.CurrentRow.Cells["Result"].Value;
             parameters[3].Value = dgvSampleData.CurrentRow.Cells["AssayResultID"].Value;
-            DbHelperOleDb.ExecuteSql(1,strSql.ToString(), parameters);
+            DbHelperOleDb.ExecuteSql(1, strSql.ToString(), parameters);
         }
 
         private void dgvSampleData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvSampleData.SelectedRows.Count  == 0)
+            if (dgvSampleData.SelectedRows.Count == 0)
                 return;
             if (!Regex.IsMatch(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString(), @"^\d+\.?\d*$"))
             {
@@ -1265,7 +1265,7 @@ namespace BioBaseCLIA.DataQuery
             parameters[1].Value = dgvSampleData.CurrentRow.Cells["Concentration"].Value;
             parameters[2].Value = dgvSampleData.CurrentRow.Cells["Result"].Value;
             parameters[3].Value = dgvSampleData.CurrentRow.Cells["AssayResultID"].Value;
-            DbHelperOleDb.ExecuteSql(1,strSql.ToString(), parameters);
+            DbHelperOleDb.ExecuteSql(1, strSql.ToString(), parameters);
         }
         //2018-10-07 zlx add
         void control_KeyPress(object sender, KeyPressEventArgs e)
@@ -1308,12 +1308,12 @@ namespace BioBaseCLIA.DataQuery
         {
             control = (TextBox)e.Control;
             control.KeyPress += new KeyPressEventHandler(control_KeyPress);
-           
+
         }
 
         private void fbtnTestAgain_Click(object sender, EventArgs e)
         {
-            bool _boolAgain=false;
+            bool _boolAgain = false;
             if (dgvSampleData.SelectedRows.Count == 0)
             {
                 frmMsgShow.MessageShow(Getstring("MessageHead"), Getstring("ReTestMessage"));
@@ -1322,7 +1322,7 @@ namespace BioBaseCLIA.DataQuery
             if (dgvSampleData.SelectedRows.Count == 0) return;
             DbHelperOleDb db = new DbHelperOleDb(1);
             DataTable _dtSP = bllsp.GetList("SampleID=" + dgvSampleData.SelectedRows[0].Cells["SampleID"].Value + "").Tables[0];
-            if (_dtSP.Rows.Count > 0 )
+            if (_dtSP.Rows.Count > 0)
             {
                 if (Convert.ToInt32(_dtSP.Rows[0]["Status"]) == 1)
                 {
@@ -1345,9 +1345,9 @@ namespace BioBaseCLIA.DataQuery
                 if (Convert.ToInt32(_dtSP.Rows[0]["Status"]) == 0)
                     _boolAgain = true;
             }
-            int bUpdate=0;
-            if(_boolAgain)
-                bUpdate = DbHelperOleDb.ExecuteSql(1,@"update tbAssayResult set Status = -1  where SampleID=" + dgvSampleData.SelectedRows[0].Cells["SampleID"].Value + " AND ItemName='" + dgvSampleData.SelectedRows[0].Cells["ItemName"].Value + "'AND PMTCounter=" + dgvSampleData.SelectedRows[0].Cells["PMTCounter"].Value + "");
+            int bUpdate = 0;
+            if (_boolAgain)
+                bUpdate = DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Status = -1  where SampleID=" + dgvSampleData.SelectedRows[0].Cells["SampleID"].Value + " AND ItemName='" + dgvSampleData.SelectedRows[0].Cells["ItemName"].Value + "'AND PMTCounter=" + dgvSampleData.SelectedRows[0].Cells["PMTCounter"].Value + "");
             if (bUpdate > 0)
             {
                 frmMsgShow.MessageShow(Getstring("MessageHead"), Getstring("ReTestSetSucess"));
