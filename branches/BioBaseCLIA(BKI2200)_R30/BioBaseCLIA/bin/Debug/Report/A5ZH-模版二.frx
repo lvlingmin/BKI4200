@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report StartReportEvent="_StartReport" ReportInfo.Created="11/17/2009 14:37:31" ReportInfo.Modified="04/28/2021 17:14:06" ReportInfo.CreatorVersion="1.2.69.0">
+<Report StartReportEvent="_StartReport" ReportInfo.Created="11/17/2009 14:37:31" ReportInfo.Modified="06/03/2021 08:49:14" ReportInfo.CreatorVersion="1.2.69.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,14 +49,14 @@ namespace FastReport
         //Table3.Columns[2].Width=2.33f*37.8f;
         //Table3.Columns[3].Width=2.28f*37.8f;
         //Table1.Columns[4].Width=2.28f*37.8f;
-        Table1.Columns[0].Width=3.98f*37.8f;
+        Table1.Columns[0].Width=5.98f*37.8f;
         Table1.Columns[1].Width=2.75f*37.8f;
-        Table1.Columns[2].Width=2.64f*37.8f;
+        Table1.Columns[2].Width=3.64f*37.8f;
         Table1.Columns[3].Width=3.59f*37.8f;
         Table1.Columns[4].Width=4.59f*37.8f;
-        Table3.Columns[0].Width=3.98f*37.8f;
+        Table3.Columns[0].Width=5.98f*37.8f;
         Table3.Columns[1].Width=2.75f*37.8f;
-        Table3.Columns[2].Width=2.64f*37.8f;
+        Table3.Columns[2].Width=3.64f*37.8f;
         Table3.Columns[3].Width=3.59f*37.8f;
         Table1.Columns[4].Width=4.59f*37.8f;
         Table2.Visible=false;        
@@ -65,14 +65,14 @@ namespace FastReport
       {        
         Page1.Columns.Count=1;
         PassedRowsCount+=cerPageRowsCount;
-        Table1.Columns[0].Width=3.98f*37.8f;
+        Table1.Columns[0].Width=5.98f*37.8f;
         Table1.Columns[1].Width=2.75f*37.8f;
-        Table1.Columns[2].Width=2.64f*37.8f;
+        Table1.Columns[2].Width=3.64f*37.8f;
         Table1.Columns[3].Width=3.59f*37.8f;
         Table1.Columns[4].Width=4.59f*37.8f;
-        Table3.Columns[0].Width=3.98f*37.8f;
+        Table3.Columns[0].Width=5.98f*37.8f;
         Table3.Columns[1].Width=2.75f*37.8f;
-        Table3.Columns[2].Width=2.64f*37.8f;
+        Table3.Columns[2].Width=3.64f*37.8f;
         Table3.Columns[3].Width=3.59f*37.8f;
         Table1.Columns[4].Width=4.59f*37.8f;
         Table2.Visible=false;
@@ -90,9 +90,9 @@ namespace FastReport
     {      
       if (Page1.Columns.Count==1)
       {
-        Table3.Columns[0].Width=3.98f*37.8f;
+        Table3.Columns[0].Width=5.98f*37.8f;
         Table3.Columns[1].Width=2.75f*37.8f;
-        Table3.Columns[2].Width=2.64f*37.8f;
+        Table3.Columns[2].Width=3.64f*37.8f;
         Table3.Columns[3].Width=3.59f*37.8f;
         Table3.Columns[4].Width=4.59f*37.8f;
       }
@@ -206,7 +206,7 @@ namespace FastReport
       </TableObject>
       <LineObject Name="Line2" Top="18.9" Width="699.3" Diagonal="true"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="178.1" Width="718.2" Height="56.7" BeforeLayoutEvent="Data1_BeforeLayout" DataSource="Records" Columns.Count="1">
+    <DataBand Name="Data1" Top="178.1" Width="718.2" Height="22.68" BeforeLayoutEvent="Data1_BeforeLayout" DataSource="Records" Columns.Count="1">
       <TableObject Name="Table3" Left="9.45" Width="338.6" Height="47.25">
         <TableColumn Name="Column12" Width="62.97"/>
         <TableColumn Name="Column13" Width="63.73"/>
@@ -218,11 +218,11 @@ namespace FastReport
           <TableCell Name="Cell13" Text="[Records.Concentration]" Padding="0, 1, 0, 0" Font="Arial, 9pt"/>
           <TableCell Name="Cell14" Text="[Records.Result]" Padding="0, 1, 0, 0" Font="Arial, 9pt"/>
           <TableCell Name="Cell16" Text="[Records.Range1]" Font="Arial, 9pt"/>
-          <TableCell Name="Cell42" Text="[Records.Range2]"/>
+          <TableCell Name="Cell42" Text="[Records.Range2]" Font="Arial, 9pt"/>
         </TableRow>
       </TableObject>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="238.8" Width="718.2" Height="75.6">
+    <PageFooterBand Name="PageFooter1" Top="204.78" Width="718.2" Height="75.6">
       <TextObject Name="Text14" Left="595.35" Top="37.8" Width="94.5" Height="18.9" Text="[PageN]"/>
       <TextObject Name="Text15" Left="274.05" Top="37.8" Width="189" Height="18.9" Text="**结果仅对本次测试有效**"/>
       <TextObject Name="Text16" Left="18.9" Top="37.8" Width="217.35" Height="18.9" Text="报告日期:[Date]"/>
