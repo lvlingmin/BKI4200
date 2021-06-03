@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddSample));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Programs = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +43,15 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.definePanalLoad = new BioBaseCLIA.CustomControl.definePanal(this.components);
+            this.groupBoxLoad = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.loadNum = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.loadStar = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.fbLoadClose = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbLoadRun = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbLoadAll = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.chbMoreSampleScan = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.cmbmSpType = new System.Windows.Forms.ComboBox();
@@ -89,15 +98,6 @@
             this.cmbSpType = new System.Windows.Forms.ComboBox();
             this.txtSpRepetitions = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.btnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.definePanalLoad = new BioBaseCLIA.CustomControl.definePanal(this.components);
-            this.groupBoxLoad = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.loadNum = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.loadStar = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.fbLoadClose = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbLoadRun = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbLoadAll = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSampleList = new System.Windows.Forms.DataGridView();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,9 +119,9 @@
             this.btnAddtoProgram = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.definePanalLoad.SuspendLayout();
             this.groupBoxLoad.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSampleList)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -228,6 +228,106 @@
             resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
+            // 
+            // definePanalLoad
+            // 
+            this.definePanalLoad.Controls.Add(this.groupBoxLoad);
+            resources.ApplyResources(this.definePanalLoad, "definePanalLoad");
+            this.definePanalLoad.Name = "definePanalLoad";
+            // 
+            // groupBoxLoad
+            // 
+            this.groupBoxLoad.Controls.Add(this.label16);
+            this.groupBoxLoad.Controls.Add(this.loadNum);
+            this.groupBoxLoad.Controls.Add(this.loadStar);
+            this.groupBoxLoad.Controls.Add(this.label15);
+            this.groupBoxLoad.Controls.Add(this.fbLoadClose);
+            this.groupBoxLoad.Controls.Add(this.fbLoadRun);
+            this.groupBoxLoad.Controls.Add(this.fbLoadAll);
+            resources.ApplyResources(this.groupBoxLoad, "groupBoxLoad");
+            this.groupBoxLoad.Name = "groupBoxLoad";
+            this.groupBoxLoad.TabStop = false;
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // loadNum
+            // 
+            this.loadNum.IsNull = false;
+            resources.ApplyResources(this.loadNum, "loadNum");
+            this.loadNum.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.loadNum.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.loadNum.Name = "loadNum";
+            // 
+            // loadStar
+            // 
+            this.loadStar.IsNull = false;
+            resources.ApplyResources(this.loadStar, "loadStar");
+            this.loadStar.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.loadStar.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.loadStar.Name = "loadStar";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // fbLoadClose
+            // 
+            this.fbLoadClose.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbLoadClose, "fbLoadClose");
+            this.fbLoadClose.EnabledSet = true;
+            this.fbLoadClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbLoadClose.FlatAppearance.BorderSize = 0;
+            this.fbLoadClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbLoadClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbLoadClose.Name = "fbLoadClose";
+            this.fbLoadClose.UseVisualStyleBackColor = false;
+            this.fbLoadClose.Click += new System.EventHandler(this.fbLoadClose_Click);
+            // 
+            // fbLoadRun
+            // 
+            this.fbLoadRun.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbLoadRun, "fbLoadRun");
+            this.fbLoadRun.EnabledSet = true;
+            this.fbLoadRun.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbLoadRun.FlatAppearance.BorderSize = 0;
+            this.fbLoadRun.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbLoadRun.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbLoadRun.Name = "fbLoadRun";
+            this.fbLoadRun.UseVisualStyleBackColor = false;
+            this.fbLoadRun.Click += new System.EventHandler(this.fbLoadRun_Click);
+            // 
+            // fbLoadAll
+            // 
+            this.fbLoadAll.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbLoadAll, "fbLoadAll");
+            this.fbLoadAll.EnabledSet = true;
+            this.fbLoadAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbLoadAll.FlatAppearance.BorderSize = 0;
+            this.fbLoadAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbLoadAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbLoadAll.Name = "fbLoadAll";
+            this.fbLoadAll.UseVisualStyleBackColor = false;
+            this.fbLoadAll.Click += new System.EventHandler(this.fbLoadAll_Click);
             // 
             // chbMoreSampleScan
             // 
@@ -645,15 +745,7 @@
             resources.GetString("cmbSpType.Items5"),
             resources.GetString("cmbSpType.Items6"),
             resources.GetString("cmbSpType.Items7"),
-            resources.GetString("cmbSpType.Items8"),
-            resources.GetString("cmbSpType.Items9"),
-            resources.GetString("cmbSpType.Items10"),
-            resources.GetString("cmbSpType.Items11"),
-            resources.GetString("cmbSpType.Items12"),
-            resources.GetString("cmbSpType.Items13"),
-            resources.GetString("cmbSpType.Items14"),
-            resources.GetString("cmbSpType.Items15"),
-            resources.GetString("cmbSpType.Items16")});
+            resources.GetString("cmbSpType.Items8")});
             this.cmbSpType.Name = "cmbSpType";
             this.cmbSpType.SelectedIndexChanged += new System.EventHandler(this.cmbSpType_SelectedIndexChanged);
             // 
@@ -687,106 +779,6 @@
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // definePanalLoad
-            // 
-            this.definePanalLoad.Controls.Add(this.groupBoxLoad);
-            resources.ApplyResources(this.definePanalLoad, "definePanalLoad");
-            this.definePanalLoad.Name = "definePanalLoad";
-            // 
-            // groupBoxLoad
-            // 
-            this.groupBoxLoad.Controls.Add(this.label16);
-            this.groupBoxLoad.Controls.Add(this.loadNum);
-            this.groupBoxLoad.Controls.Add(this.loadStar);
-            this.groupBoxLoad.Controls.Add(this.label15);
-            this.groupBoxLoad.Controls.Add(this.fbLoadClose);
-            this.groupBoxLoad.Controls.Add(this.fbLoadRun);
-            this.groupBoxLoad.Controls.Add(this.fbLoadAll);
-            resources.ApplyResources(this.groupBoxLoad, "groupBoxLoad");
-            this.groupBoxLoad.Name = "groupBoxLoad";
-            this.groupBoxLoad.TabStop = false;
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
-            // loadNum
-            // 
-            this.loadNum.IsNull = false;
-            resources.ApplyResources(this.loadNum, "loadNum");
-            this.loadNum.MaxValue = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.loadNum.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.loadNum.Name = "loadNum";
-            // 
-            // loadStar
-            // 
-            this.loadStar.IsNull = false;
-            resources.ApplyResources(this.loadStar, "loadStar");
-            this.loadStar.MaxValue = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.loadStar.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.loadStar.Name = "loadStar";
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.Name = "label15";
-            // 
-            // fbLoadClose
-            // 
-            this.fbLoadClose.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.fbLoadClose, "fbLoadClose");
-            this.fbLoadClose.EnabledSet = true;
-            this.fbLoadClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbLoadClose.FlatAppearance.BorderSize = 0;
-            this.fbLoadClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbLoadClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbLoadClose.Name = "fbLoadClose";
-            this.fbLoadClose.UseVisualStyleBackColor = false;
-            this.fbLoadClose.Click += new System.EventHandler(this.fbLoadClose_Click);
-            // 
-            // fbLoadRun
-            // 
-            this.fbLoadRun.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.fbLoadRun, "fbLoadRun");
-            this.fbLoadRun.EnabledSet = true;
-            this.fbLoadRun.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbLoadRun.FlatAppearance.BorderSize = 0;
-            this.fbLoadRun.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbLoadRun.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbLoadRun.Name = "fbLoadRun";
-            this.fbLoadRun.UseVisualStyleBackColor = false;
-            this.fbLoadRun.Click += new System.EventHandler(this.fbLoadRun_Click);
-            // 
-            // fbLoadAll
-            // 
-            this.fbLoadAll.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.fbLoadAll, "fbLoadAll");
-            this.fbLoadAll.EnabledSet = true;
-            this.fbLoadAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbLoadAll.FlatAppearance.BorderSize = 0;
-            this.fbLoadAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbLoadAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbLoadAll.Name = "fbLoadAll";
-            this.fbLoadAll.UseVisualStyleBackColor = false;
-            this.fbLoadAll.Click += new System.EventHandler(this.fbLoadAll_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvSampleList);
@@ -801,13 +793,13 @@
             this.dgvSampleList.AllowUserToResizeRows = false;
             this.dgvSampleList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSampleList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSampleList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSampleList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSampleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSampleList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Position,
@@ -927,14 +919,14 @@
             this.crysDgGroupPro.AllowUserToResizeRows = false;
             this.crysDgGroupPro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.crysDgGroupPro.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.crysDgGroupPro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.crysDgGroupPro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.crysDgGroupPro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.crysDgGroupPro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SelectGP,
@@ -998,11 +990,11 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.definePanalLoad.ResumeLayout(false);
             this.groupBoxLoad.ResumeLayout(false);
             this.groupBoxLoad.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSampleList)).EndInit();
             this.groupBox2.ResumeLayout(false);
