@@ -1082,7 +1082,7 @@ namespace BioBaseCLIA.Run
         int LastMaxTime = 0;//记录加急诊前的试验时间最大值
         double MaxTime = 0;//记录实验剩余时间
         int LastSumTime = 0;//记录上一次sunmtime的值
-        const float PiusTimes = 1.1f;//增长的beilv
+        const float PiusTimes = 1.15f;//增长的beilv
         void SetStopWatch()//实验倒计时,初始化并开始
         {
             MaxTime = lisTestSchedule.Select(it => it.EndTime).ToList<int>().Max();
@@ -11358,7 +11358,7 @@ namespace BioBaseCLIA.Run
         private void fbtnAddE_Click(object sender, EventArgs e)
         {
             #region 提示
-            if (Convert.ToInt16(TimeLabel2.Text) * 60 + Convert.ToInt16(TimeLabel3.Text) < 8)
+            if (Convert.ToInt16(TimeLabel2.Text) * 60 + Convert.ToInt16(TimeLabel3.Text) < 12)
             {
                 MessageBox.Show("实验即将结束，请稍后再继续添加实验！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -11407,7 +11407,7 @@ namespace BioBaseCLIA.Run
         private void fbtnAddS_Click(object sender, EventArgs e)
         {
             #region 提示
-            if (Convert.ToInt16(TimeLabel2.Text) * 60 + Convert.ToInt16(TimeLabel3.Text) < 8)
+            if (Convert.ToInt16(TimeLabel2.Text) * 60 + Convert.ToInt16(TimeLabel3.Text) < 12)
             {
                 MessageBox.Show("实验即将结束，请稍后再继续添加实验！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
