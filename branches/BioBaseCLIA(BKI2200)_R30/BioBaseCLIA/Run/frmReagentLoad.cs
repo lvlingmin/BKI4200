@@ -2884,6 +2884,33 @@ namespace BioBaseCLIA.Run
                 return false;
             }
             #endregion
+            #region 打印排序配置文件
+            int sortMax = 0;
+            try
+            {
+                DataTable dtTemp = OperateIniFile.ReadConfig(Application.StartupPath + "//ReportSort.ini");   
+                foreach (DataRow dr in dtTemp.Rows)
+                {
+                    if (dr[0].ToString() == model.ShortName)
+                    {
+                        sortMax = int.Parse(dr[1].ToString());
+                        break;
+                    }
+                    if (int.Parse(dr[1].ToString()) > sortMax)
+                    {
+                        sortMax = int.Parse(dr[1].ToString());
+                    }
+                }
+            }
+            catch(System.Exception ex)
+            {
+                sortMax = 500;
+            }
+            finally
+            {
+                OperateIniFile.WriteIniData("RpSort", model.ShortName, sortMax.ToString("D3"), Application.StartupPath + "//ReportSort.ini");
+            }
+            #endregion
             #endregion
             Invoke(new Action(()=>
             {
