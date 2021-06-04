@@ -121,61 +121,61 @@
     <value>正在中止线程</value>
   </data>
   <data name="Cleanabnormal" xml:space="preserve">
-    <value>清洗模块清洗盘光电异常!\n</value>
+    <value>清洗模块清洗盘光电异常!</value>
   </data>
   <data name="Cleanverticalabnormal" xml:space="preserve">
-    <value>清洗模块垂直光电异常!\n</value>
+    <value>清洗模块垂直光电异常!</value>
   </data>
   <data name="communicationfail" xml:space="preserve">
     <value>调试系统通讯故障，实验将停止</value>
   </data>
   <data name="Cupabnormal" xml:space="preserve">
-    <value>理杯机模块理杯块光电开关异常!\n"</value>
+    <value>理杯机模块理杯块光电开关异常!</value>
   </data>
   <data name="Disconnect" xml:space="preserve">
     <value>断开连接！</value>
   </data>
   <data name="Emptyabnormal" xml:space="preserve">
-    <value>理杯机模块抓空光电开关异常\n</value>
+    <value>理杯机模块抓空光电开关异常！</value>
   </data>
   <data name="Gripperabnormal" xml:space="preserve">
-    <value>理杯机模块抓手光电开关异常!\n</value>
+    <value>理杯机模块抓手光电开关异常!</value>
   </data>
   <data name="Incubateabnormal" xml:space="preserve">
-    <value>温育盘模块温育盘光电开关异常!\n</value>
+    <value>温育盘模块温育盘光电开关异常!</value>
   </data>
   <data name="Incubatepressureabnormal" xml:space="preserve">
-    <value>温育盘模块压杯光电开关异常!\n</value>
+    <value>温育盘模块压杯光电开关异常!</value>
   </data>
   <data name="Incubateverticalabnormal" xml:space="preserve">
-    <value>温育盘模块垂直光电开关异常!\n</value>
+    <value>温育盘模块垂直光电开关异常!</value>
   </data>
   <data name="Measureabnormal" xml:space="preserve">
-    <value>清洗模块计量泵光耦异常!\n</value>
+    <value>清洗模块计量泵光耦异常!</value>
   </data>
   <data name="Networkunavailable" xml:space="preserve">
     <value>网络连接不可用</value>
   </data>
   <data name="Plungerabnormal" xml:space="preserve">
-    <value>加样模块柱塞泵光电开关异常!\n</value>
+    <value>加样模块柱塞泵光电开关异常!</value>
   </data>
   <data name="Portclosed" xml:space="preserve">
     <value>端口关闭！</value>
   </data>
   <data name="Pressureabnormal" xml:space="preserve">
-    <value>清洗模块压杯光电异常!\n</value>
+    <value>清洗模块压杯光电异常!</value>
   </data>
   <data name="Reagentabnormal" xml:space="preserve">
-    <value>加样模块试剂盘光电开关异常!\n</value>
+    <value>加样模块试剂盘光电开关异常!</value>
   </data>
   <data name="Receiveexception" xml:space="preserve">
     <value>接收数据异常:</value>
   </data>
   <data name="Rotatingphotoelectricabnormal" xml:space="preserve">
-    <value>理杯机模块旋转光电开关异常!\n</value>
+    <value>理杯机模块旋转光电开关异常!</value>
   </data>
   <data name="Rotationabnormal" xml:space="preserve">
-    <value>加样模块旋转臂光电开关异常!\n</value>
+    <value>加样模块旋转臂光电开关异常!</value>
   </data>
   <data name="Sampleabnormal" xml:space="preserve">
     <value>加样模块样品盘光电开关异常!</value>

@@ -47,8 +47,8 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性，对
-        ///   使用此强类型资源类的所有资源查找执行重写。
+        ///   重写当前线程的 CurrentUICulture 属性
+        ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -70,7 +70,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 清洗模块清洗盘光电异常!\n 的本地化字符串。
+        ///   查找类似 清洗模块清洗盘光电异常! 的本地化字符串。
         /// </summary>
         internal static string Cleanabnormal {
             get {
@@ -79,7 +79,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 清洗模块垂直光电异常!\n 的本地化字符串。
+        ///   查找类似 清洗模块垂直光电异常! 的本地化字符串。
         /// </summary>
         internal static string Cleanverticalabnormal {
             get {
@@ -97,7 +97,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 理杯机模块理杯块光电开关异常!\n&quot; 的本地化字符串。
+        ///   查找类似 理杯机模块理杯块光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Cupabnormal {
             get {
@@ -115,7 +115,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 理杯机模块抓空光电开关异常\n 的本地化字符串。
+        ///   查找类似 理杯机模块抓空光电开关异常！ 的本地化字符串。
         /// </summary>
         internal static string Emptyabnormal {
             get {
@@ -124,7 +124,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 理杯机模块抓手光电开关异常!\n 的本地化字符串。
+        ///   查找类似 理杯机模块抓手光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Gripperabnormal {
             get {
@@ -133,7 +133,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 温育盘模块温育盘光电开关异常!\n 的本地化字符串。
+        ///   查找类似 温育盘模块温育盘光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Incubateabnormal {
             get {
@@ -142,7 +142,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 温育盘模块压杯光电开关异常!\n 的本地化字符串。
+        ///   查找类似 温育盘模块压杯光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Incubatepressureabnormal {
             get {
@@ -151,7 +151,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 温育盘模块垂直光电开关异常!\n 的本地化字符串。
+        ///   查找类似 温育盘模块垂直光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Incubateverticalabnormal {
             get {
@@ -160,7 +160,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 清洗模块计量泵光耦异常!\n 的本地化字符串。
+        ///   查找类似 清洗模块计量泵光耦异常! 的本地化字符串。
         /// </summary>
         internal static string Measureabnormal {
             get {
@@ -178,7 +178,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 加样模块柱塞泵光电开关异常!\n 的本地化字符串。
+        ///   查找类似 加样模块柱塞泵光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Plungerabnormal {
             get {
@@ -196,7 +196,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 清洗模块压杯光电异常!\n 的本地化字符串。
+        ///   查找类似 清洗模块压杯光电异常! 的本地化字符串。
         /// </summary>
         internal static string Pressureabnormal {
             get {
@@ -205,7 +205,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 加样模块试剂盘光电开关异常!\n 的本地化字符串。
+        ///   查找类似 加样模块试剂盘光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Reagentabnormal {
             get {
@@ -223,7 +223,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 理杯机模块旋转光电开关异常!\n 的本地化字符串。
+        ///   查找类似 理杯机模块旋转光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Rotatingphotoelectricabnormal {
             get {
@@ -232,7 +232,7 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
-        ///   查找类似 加样模块旋转臂光电开关异常!\n 的本地化字符串。
+        ///   查找类似 加样模块旋转臂光电开关异常! 的本地化字符串。
         /// </summary>
         internal static string Rotationabnormal {
             get {

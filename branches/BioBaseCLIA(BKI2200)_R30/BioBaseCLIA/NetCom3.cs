@@ -1368,23 +1368,23 @@ namespace BioBaseCLIA
                                             }
                                             if (tempII[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Sampleabnormal;
+                                                ErrorMessage = ErrorMessage + Res.Sampleabnormal + "\n";
                                             }
                                             if (tempII[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Reagentabnormal;
+                                                ErrorMessage = ErrorMessage + Res.Reagentabnormal + "\n";
                                             }
                                             if (tempII[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Verticalanomal;
+                                                ErrorMessage = ErrorMessage + Res.Verticalanomal + "\n";
                                             }
                                             if (tempII[4] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Rotationabnormal;
+                                                ErrorMessage = ErrorMessage + Res.Rotationabnormal + "\n";
                                             }
                                             if (tempII[3] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Plungerabnormal;
+                                                ErrorMessage = ErrorMessage + Res.Plungerabnormal + "\n";
                                             }
                                         }
 
@@ -1401,27 +1401,27 @@ namespace BioBaseCLIA
                                             }
                                             if (tempJJ[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Cupabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Cupabnormal + "\n";
                                             }
                                             if (tempJJ[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Temporaryabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Temporaryabnormal + "\n";
                                             }
                                             if (tempJJ[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Verticalphotoelectricabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Verticalphotoelectricabnormal + "\n";
                                             }
                                             if (tempJJ[4] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Rotatingphotoelectricabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Rotatingphotoelectricabnormal + "\n";
                                             }
                                             if (tempJJ[3] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Gripperabnormal;
+                                                ErrorMessage = ErrorMessage + Res.Gripperabnormal + "\n";
                                             }
                                             if (tempJJ[2] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Emptyabnormal;
+                                                ErrorMessage = ErrorMessage + Res.Emptyabnormal + "\n";
                                             }
 
                                         }
@@ -1438,19 +1438,19 @@ namespace BioBaseCLIA
 
                                             if (tempKK[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Cleanabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Cleanabnormal + "\n";
                                             }
                                             if (tempKK[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Pressureabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Pressureabnormal + "\n";
                                             }
                                             if (tempKK[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Cleanverticalabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Cleanverticalabnormal + "\n";
                                             }
                                             if (tempKK[4] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Measureabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Measureabnormal + "\n";
                                             }
                                         }
 
@@ -1467,15 +1467,15 @@ namespace BioBaseCLIA
 
                                             if (tempMM[7] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Incubateabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Incubateabnormal + "\n";
                                             }
                                             if (tempMM[6] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Incubateverticalabnormal;
+                                                ErrorMessage = ErrorMessage + Res.Incubateverticalabnormal + "\n";
                                             }
                                             if (tempMM[5] != '1')
                                             {
-                                                ErrorMessage = ErrorMessage + Res.Incubatepressureabnormal ;
+                                                ErrorMessage = ErrorMessage + Res.Incubatepressureabnormal + "\n";
                                             }
                                         }
                                     }
