@@ -2044,7 +2044,10 @@ namespace BioBaseCLIA.SysMaintenance
                 TExtAppend(GetString("CleanIncubate"));
                 if (!reactTrayTubeClear())
                 {
-                    NewWashEnd(1);
+                    if (!isNewWashEnd())
+                    {
+                        NewWashEnd(1);
+                    }
                     return;
                 }
                 TExtAppend(GetString("CleanIncubatefinish"));
@@ -2219,7 +2222,7 @@ namespace BioBaseCLIA.SysMaintenance
                 if (isNewWashEnd()) return;  //lyq add 20190822
                 if (flow[5] && tray.pointer[10].Value[1] == 1)
                 {
-                    TExtAppend(GetString("Throwthe") + tubecount);
+                    TExtAppend(GetString("Throwthe") + tubecount + GetString("gxg"));
                     int iNeedCool = 0;
                     AgainNewMove:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 01"), 1);
@@ -2586,7 +2589,7 @@ namespace BioBaseCLIA.SysMaintenance
         {
             if (CancellationToken)
             {
-                NewWashEnd();
+                //NewWashEnd();
                 return true;
             }
             else return false;

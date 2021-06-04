@@ -2369,7 +2369,10 @@ namespace BioBaseCLIA.SysMaintenance
                 TExtAppend("开始清空温育盘。。。\n");
                 if (!reactTrayTubeClear())
                 {
-                    NewWashEnd();
+                    if (!isNewWashEnd())
+                    {
+                        NewWashEnd(1);
+                    }
                     return;
                 }
                 TExtAppend("清空温育盘结束。。。\n");

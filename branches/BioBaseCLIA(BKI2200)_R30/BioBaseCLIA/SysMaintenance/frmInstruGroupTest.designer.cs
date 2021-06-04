@@ -1040,7 +1040,7 @@
             resources.ApplyResources(this.numDwPourin, "numDwPourin");
             this.numDwPourin.Name = "numDwPourin";
             this.numDwPourin.Value = new decimal(new int[] {
-            20,
+            5,
             0,
             0,
             0});

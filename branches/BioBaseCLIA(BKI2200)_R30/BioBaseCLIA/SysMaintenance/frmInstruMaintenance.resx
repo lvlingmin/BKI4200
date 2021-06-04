@@ -3228,9 +3228,9 @@
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -3418,5 +3418,287 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="Add1" xml:space="preserve">
+    <value>夹第1个新管</value>
+  </data>
+  <data name="Add2" xml:space="preserve">
+    <value>夹第2个新管</value>
+  </data>
+  <data name="Add3" xml:space="preserve">
+    <value>夹第3个新管</value>
+  </data>
+  <data name="Add4" xml:space="preserve">
+    <value>夹第4个新管</value>
+  </data>
+  <data name="Adding" xml:space="preserve">
+    <value>正在夹第</value>
+  </data>
+  <data name="Beadmax20" xml:space="preserve">
+    <value>磁珠清洗液灌注限制最大次数为20，请输入适当灌注次数！</value>
+  </data>
+  <data name="beadperfusion" xml:space="preserve">
+    <value>磁珠清洗液灌注。。。</value>
+  </data>
+  <data name="beadPerfusionfinish" xml:space="preserve">
+    <value>磁珠清洗液灌注完成。。。</value>
+  </data>
+  <data name="Circulationcompleted" xml:space="preserve">
+    <value>循环灌注完成。。。</value>
+  </data>
+  <data name="Circulatoryperfusion" xml:space="preserve">
+    <value>循环灌注</value>
+  </data>
+  <data name="Circulatoryperfusionbegins" xml:space="preserve">
+    <value>循环灌注开始。。。</value>
+  </data>
+  <data name="CleanIncubate" xml:space="preserve">
+    <value>开始清空温育盘。。。</value>
+  </data>
+  <data name="CleanIncubatefinish" xml:space="preserve">
+    <value>清空温育盘结束。。。</value>
+  </data>
+  <data name="Cleaningpipeline" xml:space="preserve">
+    <value>清洗管路灌注。。。</value>
+  </data>
+  <data name="Cleaningpipelinefinish" xml:space="preserve">
+    <value>清洗管路灌注完成。</value>
+  </data>
+  <data name="Cleanovertime" xml:space="preserve">
+    <value>清洗指令接收超时。</value>
+  </data>
+  <data name="Cleansubstrate" xml:space="preserve">
+    <value>进行清洗时，必须同时选择加底物。</value>
+  </data>
+  <data name="Clearclean" xml:space="preserve">
+    <value>清空清洗盘。。。</value>
+  </data>
+  <data name="Clearcleanfinish" xml:space="preserve">
+    <value>清洗盘清管完成。。。</value>
+  </data>
+  <data name="Cliptube" xml:space="preserve">
+    <value>开始夹新管。。。</value>
+  </data>
+  <data name="connect" xml:space="preserve">
+    <value>上下位机连接...</value>
+  </data>
+  <data name="Emptycleaning" xml:space="preserve">
+    <value>清空清洗盘的反应管。。。</value>
+  </data>
+  <data name="Emptycleaningfinish" xml:space="preserve">
+    <value>清空温育盘使用过的反应管。。。</value>
+  </data>
+  <data name="Emptycleaningfinishuse" xml:space="preserve">
+    <value>清空温育盘使用过的反应管。。。</value>
+  </data>
+  <data name="Emptystop" xml:space="preserve">
+    <value>移管手在清洗盘抓管时发生撞管，实验将进行停止！</value>
+  </data>
+  <data name="Emptytimesstop" xml:space="preserve">
+    <value>移管手在清洗盘扔废管时多次抓空，实验将进行停止！</value>
+  </data>
+  <data name="EMptytube" xml:space="preserve">
+    <value>理杯机位置缺管。</value>
+  </data>
+  <data name="Gotohole" xml:space="preserve">
+    <value>转到开始孔位</value>
+  </data>
+  <data name="gxg" xml:space="preserve">
+    <value>个管</value>
+  </data>
+  <data name="Handempty" xml:space="preserve">
+    <value>移管手多次抓空，暂存盘无管！</value>
+  </data>
+  <data name="Handemptystop" xml:space="preserve">
+    <value>移管手抓新管抓空！实验将停止运行！</value>
+  </data>
+  <data name="Handexception" xml:space="preserve">
+    <value>抓管出现异常，请确认仪器是否运行故障！</value>
+  </data>
+  <data name="Handovertime" xml:space="preserve">
+    <value>移管手指令接收超时。</value>
+  </data>
+  <data name="Handputhit" xml:space="preserve">
+    <value>抓手在放管位置发生了撞管。</value>
+  </data>
+  <data name="Handtakehit" xml:space="preserve">
+    <value>抓手在取管位置发生了撞管。</value>
+  </data>
+  <data name="Hitstop" xml:space="preserve">
+    <value>移管手在暂存盘向清洗盘取放管处抓管发生撞管，实验将进行停止！</value>
+  </data>
+  <data name="Holereading" xml:space="preserve">
+    <value>个管正在读数</value>
+  </data>
+  <data name="Idleoperations" xml:space="preserve">
+    <value>请在仪器空闲时执行此操作</value>
+  </data>
+  <data name="implement" xml:space="preserve">
+    <value>执行</value>
+  </data>
+  <data name="Init" xml:space="preserve">
+    <value>仪器初始化...</value>
+  </data>
+  <data name="InitFalure" xml:space="preserve">
+    <value>仪器初始化失败。。。</value>
+  </data>
+  <data name="Initfinish" xml:space="preserve">
+    <value>仪器初始化完成</value>
+  </data>
+  <data name="Initializing" xml:space="preserve">
+    <value>仪器正在初始化。。。</value>
+  </data>
+  <data name="Insufficientsubstrate" xml:space="preserve">
+    <value>底物不足，请及时更换。</value>
+  </data>
+  <data name="Maintenancecomplete" xml:space="preserve">
+    <value>----------维护操作已结束----------</value>
+  </data>
+  <data name="Maintenancepause" xml:space="preserve">
+    <value>----------维护操作已提前终止----------</value>
+  </data>
+  <data name="Noruning" xml:space="preserve">
+    <value>已经准备终止或者实验没有在运行。</value>
+  </data>
+  <data name="Over" xml:space="preserve">
+    <value>已结束。</value>
+  </data>
+  <data name="Overtimepause" xml:space="preserve">
+    <value>指令接收超时，实验已终止</value>
+  </data>
+  <data name="Overtimestop" xml:space="preserve">
+    <value>移管手在管架向清洗盘取放管处抓管接收数据超时，实验将进行停止！</value>
+  </data>
+  <data name="Parameterincorrect" xml:space="preserve">
+    <value>参数不正确</value>
+  </data>
+  <data name="Perfusionbegins" xml:space="preserve">
+    <value>灌注开始。。。</value>
+  </data>
+  <data name="Perfusionfailure" xml:space="preserve">
+    <value>灌注失败，错误类型为</value>
+  </data>
+  <data name="Perfusionfinish" xml:space="preserve">
+    <value>灌注完成。。。</value>
+  </data>
+  <data name="Perfusionfinish2" xml:space="preserve">
+    <value>灌注完成。。。</value>
+  </data>
+  <data name="Perfusiontimes" xml:space="preserve">
+    <value>灌注次数为0，请输入适当循环次数！</value>
+  </data>
+  <data name="Perfusiontimeset" xml:space="preserve">
+    <value>灌注次数为0，请输入适当灌注次数！</value>
+  </data>
+  <data name="Pipelinefillstart" xml:space="preserve">
+    <value>管路灌注开始。。。</value>
+  </data>
+  <data name="PMTdetection" xml:space="preserve">
+    <value>正在进行PMT背景值检测。。。</value>
+  </data>
+  <data name="PMTdetectionfinish" xml:space="preserve">
+    <value>PMT背景值检测完成。。。</value>
+  </data>
+  <data name="PMTParameter" xml:space="preserve">
+    <value>请选择PMT背景检测功能的参数！</value>
+  </data>
+  <data name="PMTValue" xml:space="preserve">
+    <value>PMT背景值：</value>
+  </data>
+  <data name="probemax10" xml:space="preserve">
+    <value>探针清洗液灌注限制最大次数为10，请输入适当灌注次数！&lt;</value>
+  </data>
+  <data name="probeperfusionfinish" xml:space="preserve">
+    <value>探针清洗液灌注完成。。。</value>
+  </data>
+  <data name="probeperfusionstart" xml:space="preserve">
+    <value>探针清洗液灌注开始。。。</value>
+  </data>
+  <data name="Runingnow" xml:space="preserve">
+    <value>正在运行。</value>
+  </data>
+  <data name="Samplehit" xml:space="preserve">
+    <value>加样针加样时发生撞针。</value>
+  </data>
+  <data name="Sampleovertime" xml:space="preserve">
+    <value>加样指令接收超时。</value>
+  </data>
+  <data name="Sampleperfusion" xml:space="preserve">
+    <value>加样管路灌注。。。</value>
+  </data>
+  <data name="SelectCleanperfusiontimes" xml:space="preserve">
+    <value>选择清洗管路灌注功能的次数！</value>
+  </data>
+  <data name="Selectperfusiontimes" xml:space="preserve">
+    <value>请选择加样管路灌注功能的次数！</value>
+  </data>
+  <data name="Selectsubstrateperfusiontimes" xml:space="preserve">
+    <value>请选择底物管路灌注功能的次数！</value>
+  </data>
+  <data name="Startclean" xml:space="preserve">
+    <value>开始清空清洗盘</value>
+  </data>
+  <data name="Startcleanfinish" xml:space="preserve">
+    <value>清空清洗盘完成</value>
+  </data>
+  <data name="startperfusion" xml:space="preserve">
+    <value>开始灌注。。。</value>
+  </data>
+  <data name="Stop1" xml:space="preserve">
+    <value>停止</value>
+  </data>
+  <data name="Stopperfusion1" xml:space="preserve">
+    <value>停止灌注</value>
+  </data>
+  <data name="Substrateavailability" xml:space="preserve">
+    <value>正在进行底物有效性检测。。。</value>
+  </data>
+  <data name="Substrateempty" xml:space="preserve">
+    <value>管路1无底物，请装载！</value>
+  </data>
+  <data name="Substrateinsufficient" xml:space="preserve">
+    <value>底物不足，请及时更换！</value>
+  </data>
+  <data name="Substrateperfusion" xml:space="preserve">
+    <value>底物管路灌注。。。</value>
+  </data>
+  <data name="Substrateperfusionfinish" xml:space="preserve">
+    <value>底物管路灌注完成。。。</value>
+  </data>
+  <data name="The" xml:space="preserve">
+    <value>第</value>
+  </data>
+  <data name="Throw1" xml:space="preserve">
+    <value>扔第1个反应管完成。。。</value>
+  </data>
+  <data name="Throw2" xml:space="preserve">
+    <value>扔第2个反应管完成。。。</value>
+  </data>
+  <data name="Throw3" xml:space="preserve">
+    <value>扔第3个反应管完成。。。</value>
+  </data>
+  <data name="Throw4" xml:space="preserve">
+    <value>扔第4个反应管完成。。。</value>
+  </data>
+  <data name="Throwovertimestop" xml:space="preserve">
+    <value>移管手在清洗盘扔废管时接收数据超时，实验将进行停止！</value>
+  </data>
+  <data name="Throwstop" xml:space="preserve">
+    <value>移管手在清洗盘扔废管时发生撞管，实验将进行停止！</value>
+  </data>
+  <data name="Throwthe" xml:space="preserve">
+    <value>正在从清洗盘扔第</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
+  <data name="Tubeemptystop" xml:space="preserve">
+    <value>理杯机缺管，实验停止运行!</value>
+  </data>
+  <data name="Tue1substrate" xml:space="preserve">
+    <value>管路1无底物，请装载！</value>
+  </data>
+  <data name="Tue2substrate" xml:space="preserve">
+    <value>管路2无底物，请装载！</value>
   </data>
 </root>
