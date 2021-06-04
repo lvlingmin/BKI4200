@@ -2009,6 +2009,12 @@ namespace BioBaseCLIA.SysMaintenance
             }
             if (checkBox3.Checked)
             {
+                if (string.IsNullOrEmpty(OperateIniFile.ReadIniData("Substrate" + whichPipe + "", "LeftCount", "", iniPathSubstrateTube))) 
+                {
+                    MessageBox.Show(GetString("Insufficientsubstrate"));
+                    return;
+                }
+
                 int LeftCount1 = int.Parse(OperateIniFile.ReadIniData("Substrate" + whichPipe + "", "LeftCount", "", iniPathSubstrateTube));
                 int CleanTray = 0;
                 if (cbCleanTray.Checked)
