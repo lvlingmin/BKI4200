@@ -2564,6 +2564,7 @@ namespace BioBaseCLIA.SysMaintenance
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + i.ToString("x2")), 1);
                 if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag != (int)ErrorState.IsNull)
                 {
+                    iNeedCool ++;
                     if (iNeedCool < 2)
                     {
                         if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked ||
