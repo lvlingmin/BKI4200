@@ -73,3 +73,14 @@ F:\二代机\1编码\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.pdb
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.csprojAssemblyReference.cache
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.csproj.CoreCompileInputs.cache
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.csproj.CopyComplete
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\bin\Debug\DBUtility.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\bin\Debug\DBUtility.pdb
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\bin\Debug\System.Data.SQLite.DLL
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.csprojAssemblyReference.cache
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.csproj.CopyComplete
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DBUtility\obj\Debug\DBUtility.pdb

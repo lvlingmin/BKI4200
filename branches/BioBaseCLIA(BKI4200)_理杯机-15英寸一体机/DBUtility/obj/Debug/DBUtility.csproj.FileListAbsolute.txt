@@ -117,3 +117,10 @@ E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\D
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DBUtility\obj\Debug\DBUtility.dll
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DBUtility\obj\Debug\DBUtility.pdb
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DBUtility\obj\Debug\DBUtility.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\DBUtility\bin\Debug\DBUtility.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\DBUtility\bin\Debug\DBUtility.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\DBUtility\bin\Debug\System.Data.SQLite.DLL
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\DBUtility\obj\Debug\DBUtility.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\DBUtility\obj\Debug\DBUtility.csproj.CopyComplete
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\DBUtility\obj\Debug\DBUtility.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\DBUtility\obj\Debug\DBUtility.pdb

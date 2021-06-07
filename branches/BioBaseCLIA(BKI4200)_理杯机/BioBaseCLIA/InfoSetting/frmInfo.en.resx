@@ -2585,4 +2585,10 @@
   <data name="W" xml:space="preserve">
     <value>wash</value>
   </data>
+  <data name="cmbFormat.Items" xml:space="preserve">
+    <value>A4</value>
+  </data>
+  <data name="cmbFormat.Items1" xml:space="preserve">
+    <value>A5</value>
+  </data>
 </root>

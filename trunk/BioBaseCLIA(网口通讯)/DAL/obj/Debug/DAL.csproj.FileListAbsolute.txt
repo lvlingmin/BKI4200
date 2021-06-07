@@ -82,3 +82,15 @@ F:\二代机\1编码\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.pdb
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\bin\Debug\DAL.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\bin\Debug\DAL.pdb
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\bin\Debug\DBUtility.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\bin\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\bin\Debug\System.Data.SQLite.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\bin\Debug\DBUtility.pdb
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\bin\Debug\Model.pdb
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\DAL\obj\Debug\DAL.pdb

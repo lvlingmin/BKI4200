@@ -65,3 +65,8 @@ E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\M
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.dll
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.pdb
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Model\bin\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Model\bin\Debug\Model.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Model\obj\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Model\obj\Debug\Model.pdb

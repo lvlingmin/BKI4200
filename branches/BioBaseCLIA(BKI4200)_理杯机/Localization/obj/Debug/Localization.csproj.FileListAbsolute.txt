@@ -91,3 +91,11 @@ E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\B
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.dll
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.pdb
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.csprojAssemblyReference.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\bin\Debug\Localization.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\bin\Debug\Localization.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.en-US.resources
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.zh-CN.resources
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.csproj.GenerateResource.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.pdb

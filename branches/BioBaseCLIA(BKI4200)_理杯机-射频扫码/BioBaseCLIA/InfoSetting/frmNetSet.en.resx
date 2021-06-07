@@ -1332,4 +1332,58 @@
   <data name="NetSaveSucess" xml:space="preserve">
     <value>Saved successfully</value>
   </data>
+  <data name="cmbBaud.Items" xml:space="preserve">
+    <value>9600</value>
+  </data>
+  <data name="cmbBaud.Items1" xml:space="preserve">
+    <value>38400</value>
+  </data>
+  <data name="cmbLisCodeType.AutoCompleteCustomSource" xml:space="preserve">
+    <value>Unicode</value>
+  </data>
+  <data name="cmbLisCodeType.AutoCompleteCustomSource1" xml:space="preserve">
+    <value>ASCII</value>
+  </data>
+  <data name="cmbLisCodeType.AutoCompleteCustomSource2" xml:space="preserve">
+    <value>UTF8</value>
+  </data>
+  <data name="cmbLisCodeType.AutoCompleteCustomSource3" xml:space="preserve">
+    <value>UTF32</value>
+  </data>
+  <data name="cmbLisCodeType.Items" xml:space="preserve">
+    <value>UNICODE</value>
+  </data>
+  <data name="cmbLisCodeType.Items1" xml:space="preserve">
+    <value>ASCII</value>
+  </data>
+  <data name="cmbLisCodeType.Items2" xml:space="preserve">
+    <value>UTF8</value>
+  </data>
+  <data name="cmbLisCodeType.Items3" xml:space="preserve">
+    <value>UTF32</value>
+  </data>
+  <data name="comEncodType.AutoCompleteCustomSource" xml:space="preserve">
+    <value>Unicode</value>
+  </data>
+  <data name="comEncodType.AutoCompleteCustomSource1" xml:space="preserve">
+    <value>ASCII</value>
+  </data>
+  <data name="comEncodType.AutoCompleteCustomSource2" xml:space="preserve">
+    <value>UTF8</value>
+  </data>
+  <data name="comEncodType.AutoCompleteCustomSource3" xml:space="preserve">
+    <value>UTF32</value>
+  </data>
+  <data name="comEncodType.Items" xml:space="preserve">
+    <value>UNICODE</value>
+  </data>
+  <data name="comEncodType.Items1" xml:space="preserve">
+    <value>ASCII</value>
+  </data>
+  <data name="comEncodType.Items2" xml:space="preserve">
+    <value>UTF8</value>
+  </data>
+  <data name="comEncodType.Items3" xml:space="preserve">
+    <value>UTF32</value>
+  </data>
 </root>

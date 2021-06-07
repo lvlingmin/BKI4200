@@ -100,3 +100,11 @@ E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\L
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.dll
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.pdb
 E:\资料\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Localization\obj\Debug\Localization.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\bin\Debug\Localization.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\bin\Debug\Localization.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\obj\Debug\Localization.en-US.resources
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\obj\Debug\Localization.zh-CN.resources
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\obj\Debug\Localization.csproj.GenerateResource.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\obj\Debug\Localization.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\obj\Debug\Localization.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机-15英寸一体机\Localization\obj\Debug\Localization.pdb

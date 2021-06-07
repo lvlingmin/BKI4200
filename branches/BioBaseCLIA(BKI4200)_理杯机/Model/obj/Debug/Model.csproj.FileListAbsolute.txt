@@ -59,3 +59,8 @@ E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\B
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.dll
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.pdb
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Model\bin\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Model\bin\Debug\Model.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\Model\obj\Debug\Model.pdb

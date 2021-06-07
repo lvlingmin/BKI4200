@@ -37,3 +37,8 @@ F:\二代机\1编码\BioBaseCLIA(网口通讯)\Model\obj\Debug\Model.dll
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\Model\obj\Debug\Model.pdb
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\Model\obj\Debug\Model.csprojAssemblyReference.cache
 F:\二代机\1编码\BioBaseCLIA(网口通讯)\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\Model\bin\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\Model\bin\Debug\Model.pdb
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\Model\obj\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\trunk\BioBaseCLIA(网口通讯)\Model\obj\Debug\Model.pdb

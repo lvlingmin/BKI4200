@@ -128,3 +128,15 @@ E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\B
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.pdb
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 E:\博科软件\化学发光项目开发\2软件开发过程\二代机\1编码\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DAL.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\System.Data.SQLite.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\DBUtility.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\bin\Debug\Model.pdb
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.dll
+D:\Code\BioBaseCLIA\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\DAL\obj\Debug\DAL.pdb
