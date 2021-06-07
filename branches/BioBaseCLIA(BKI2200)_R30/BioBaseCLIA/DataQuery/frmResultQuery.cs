@@ -39,10 +39,11 @@ namespace BioBaseCLIA.DataQuery
         public frmResultQuery()
         {
             InitializeComponent();
-
         }
         private void frmResultQuery_Load(object sender, EventArgs e)
         {
+            var item = Getstring("NotRangeMessage");
+
             //2018-5-14 zlx add
             bool IsLisConnect = bool.Parse(OperateIniFile.ReadInIPara("LisSet", "IsLisConnect"));
             if (!IsLisConnect)
@@ -750,7 +751,6 @@ namespace BioBaseCLIA.DataQuery
                         Cmp.SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
                         Cmp.SendORU(resultlist);
                     }
-
                 }
                 else
                 {
@@ -1194,6 +1194,8 @@ namespace BioBaseCLIA.DataQuery
                 //2018-11-26 zlx mod
                 if (tbtbProject.Rows[0][0].ToString() != "")
                 {
+                    string  content=Getstring("NotRangeMessage");
+                    string content2 = Getstring("NoNumber");
                     if (concentration == double.Parse(tbtbProject.Rows[0][2].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
                         dgv.Cells["Concentration"].Value = "<" + concentration;
                     else if (concentration == double.Parse(tbtbProject.Rows[0][3].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
@@ -1360,5 +1362,9 @@ namespace BioBaseCLIA.DataQuery
             return resManagerA.GetString(key);
         }
 
+        private void fbtnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

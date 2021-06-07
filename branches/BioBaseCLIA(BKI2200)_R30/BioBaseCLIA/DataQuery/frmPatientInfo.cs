@@ -10,6 +10,8 @@ using Maticsoft.DBUtility;
 using BioBaseCLIA.InfoSetting;
 using Common;
 using System.Resources;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -133,50 +135,63 @@ namespace BioBaseCLIA.DataQuery
         {
             //2018-4-27 zlx add
             if (modelSp.SampleNo == "") return;
+            LogFile.Instance.Write("测试");
 
+            Thread connectThread = new Thread(connectWork);
+            connectThread.Start();
+        }
 
+        private void connectWork()
+        {
             string CommunicationType = OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
             string ConnectType = OperateIniFile.ReadInIPara("LisSet", "ConnectType");
-
-            if (ConnectType != Getstring("TwoWay"))
+            if (ConnectType != Getstring("TwoWay") && ConnectType != "双向")
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow( Getstring("MessageHead"), Getstring("ConnMessage"));
+                frmMessage.MessageShow(Getstring("MessageHead"), Getstring("ConnMessage"));
                 return;
             }
             else//如果与LIS连接，发送查询
             {
-                if (CommunicationType == Getstring("NetConn"))
+                if (CommunicationType == Getstring("NetConn") ||
+                    CommunicationType.Contains("网口通讯") ||
+                    CommunicationType.Contains("NetConn"))
                 {
+                    //暂时注释
                     if (!LisCommunication.Instance.IsConnect())
                     {
                         MessageBox.Show(Getstring("NoConnMessage"), Getstring("MessageHead"));
                         return;
                     }
+
+                    LogFile.Instance.Write("连接后");
+
                     CMessageParser Cmp = new CMessageParser();
+                    LisCommunication.Instance.comWait = new AutoResetEvent(false);
                     Cmp.SelectBySampleNo(modelSp.SampleNo);
+
                     //LisCommunication.Instance.comWait.WaitOne();
-                    bool delay = LisCommunication.Instance.comWait.WaitOne(10000);
+                    bool delay = LisCommunication.Instance.comWait.WaitOne(5000);
                     if (!delay)
                     {
                         LisCommunication.Instance.comWait.Set();
                     }
                     modelSp = Cmp.GetSampleInfo(modelSp);
                 }
-                else if (CommunicationType == Getstring("SerialConn"))
+                else if (CommunicationType == Getstring("SerialConn") ||
+                    CommunicationType.Contains("串口通讯") ||
+                    CommunicationType.Contains("SerialConn"))
                 {
                     if (!LisConnection.Instance.IsOpen())
                     {
                         MessageBox.Show(Getstring("NoConnMessage"), Getstring("MessageHead"));
                         return;
                     }
+
                     CAMessageParser CAmp = new CAMessageParser();
                     CAmp.SelectBySampleNo(modelSp.SampleNo);
-                    //delay = LisConnection.Instance.SelectWait.WaitOne(10000);
-                    //if (!delay)
-                    //{
-                    //    LisConnection.Instance.SelectWait.Set();
-                    //}
+
+                    Thread.Sleep(2000);
                     modelSp = CAmp.GetSampleInfo(modelSp);
                 }
                 //switch (CommunicationType)
@@ -215,17 +230,24 @@ namespace BioBaseCLIA.DataQuery
                 //    default:
                 //        break;
                 //}
-                txtAge.Text = modelSp.Age.ToString();
-                txtBedNo.Text = modelSp.BedNo;
-                txtClinicNo.Text = modelSp.ClinicNo;
-                //txtInpatientArea.Text = modelSp.InpatientArea;
-                txtMedicaRecordNo.Text = modelSp.MedicaRecordNo;
-                txtPatientName.Text = modelSp.PatientName;
-                //txtWard.Text = modelSp.Ward;
-                cmbSex.Text = modelSp.Sex;
-                txtDiagnosis.Text = modelSp.Diagnosis;
+                this.BeginInvoke(new Action(() =>
+                {
+                    txtAge.Text = (modelSp.Age == null || string.IsNullOrEmpty(modelSp.Age.ToString())) ? "" : modelSp.Age.ToString();
+                    txtBedNo.Text = modelSp.BedNo;
+                    txtClinicNo.Text = modelSp.ClinicNo;
+                    //txtInpatientArea.Text = modelSp.InpatientArea;
+                    txtMedicaRecordNo.Text = modelSp.MedicaRecordNo;
+                    txtPatientName.Text = modelSp.PatientName;
+                    //txtWard.Text = modelSp.Ward;
+                    cmbSex.Text = modelSp.Sex;
+                    txtDiagnosis.Text = modelSp.Diagnosis;
+                    cmbDepartment.Text = modelSp.Department;
+                    cmbSendDoctor.Text = modelSp.SendDoctor;
+                    txtAge.Text = (modelSp.Age == null) ? "" : modelSp.Age.ToString();
+                }));
             }
         }
+
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbDepartment.SelectedItem.ToString() != "")
