@@ -23,13 +23,13 @@ namespace BioBaseCLIA.InfoSetting
         /// <summary>
         /// LIS服务器信息传递事件
         /// </summary>
-        public event Action <List<string>> ReceiveHandel;
+        public event Action<List<string>> ReceiveHandel;
         public DelayClass comDelayer = new DelayClass();
         public EventWaitHandle comWait { get; set; }
         public string EncodeType { get; set; } //2018-4-25 zlxadd
         List<string> _recivelist;
         public CAMessageParser Cmp;
-
+        public string endLine = "\u000d";
         public LisConnection()
         {
             _recivelist = new List<string>();
@@ -40,7 +40,6 @@ namespace BioBaseCLIA.InfoSetting
         /// </summary>
         public void connect()
         {
-
             string COM = OperateIniFile.ReadInIPara("LisSet", "IPAddress");
             int ComRate = int.Parse(OperateIniFile.ReadInIPara("LisSet", "Port"));
             sp = new SerialPort();
@@ -53,6 +52,7 @@ namespace BioBaseCLIA.InfoSetting
             sp.DtrEnable = true;
             sp.ReceivedBytesThreshold = 1;
             sp.Encoding = System.Text.Encoding.GetEncoding("GB2312");
+            sp.DataReceived -= new SerialDataReceivedEventHandler(CommDataReceived); //设置数据接收事件（监听）
             sp.DataReceived += new SerialDataReceivedEventHandler(CommDataReceived); //设置数据接收事件（监听）
             try
             {
@@ -64,7 +64,6 @@ namespace BioBaseCLIA.InfoSetting
                 MessageBox.Show("串口打开失败：" + e.Message);
                 return;
             }
-
         }
         /// <summary>
         /// 关闭串口
@@ -84,7 +83,6 @@ namespace BioBaseCLIA.InfoSetting
                 {
                 }
             }
-
         }
         /// <summary>
         /// 判断串口是否为打开转态
@@ -143,8 +141,8 @@ namespace BioBaseCLIA.InfoSetting
         /// 通讯正在工作的标志
         /// </summary>
         public bool BWork { get; set; }
-      
-        public List<string> ReciveList { get { return _recivelist; } set { _recivelist=value; } }
+
+        public List<string> ReciveList { get { return _recivelist; } set { _recivelist = value; } }
         /// <summary>
         /// LIS连接返回信息处理类
         /// </summary> 
@@ -153,7 +151,7 @@ namespace BioBaseCLIA.InfoSetting
             Thread.Sleep(500);
             string msg = string.Empty;
             byte[] readBuffer;
-           
+
             try
             {
                 //Comm.BytesToRead中为要读入的字节长度
@@ -180,36 +178,22 @@ namespace BioBaseCLIA.InfoSetting
                 }
                 if (msg != "")
                 {
-                    if (msg == Cmp.ENQ)
+                    if (msg.Contains("ACK^R01")&&msg.Contains("AA")) 
                     {
-                        write(Cmp.ACK);
-                        BWork = true;
-                        ReciveList.Clear();
-                        if (ReceiveHandel != null)
-                            ReceiveHandel -= new Action<List<string>>(AnalysDate);
-                        comWait.Set();
-                    }
-                    else if (msg == Cmp.ACK)
-                    {
-                        comWait.Set();
-                    }
-                    else if (msg == Cmp.EOT)
-                    {
-                        BWork = false;
-                        ReceiveHandel += new Action<List<string>>(AnalysDate);
-                    }
-                    else
-                    {
-                        if (msg.Length > 1)
-                        {
-                            ReciveList.Add(msg);
-                            write(Cmp.ACK);
-                            comWait.Set();
-                        }
+                        MessageBox.Show("数据发送成功");
                     }
 
+                    if (msg.Contains("QCK^Q02")) 
+                    {
+                        
+                    }
+
+                    if (msg.Contains("DSR^Q03")) 
+                    {
+                        SetQryResult(msg);
+                    }
+                    
                 }
-
             }
             catch (Exception ex)
             {
@@ -226,6 +210,162 @@ namespace BioBaseCLIA.InfoSetting
                         MessageBox.Show(ex.Message);
                         break;
                     }
+        }
+        /// <summary>
+        /// 设置获取到的病人信息
+        /// </summary>
+        /// <param name="result"></param>
+        private void SetQryResult(string result)
+        {
+            string[] splidate= result.Split('\u000d');
+            CAMessageParser.p = new Patient();
+            CAMessageParser.rp = new ServeyReport();
+            CAMessageParser.rp.ProjectInfo = new List<string>();
+            for (int i = 0; i < splidate.Length; i++)
+            {
+                if (string.IsNullOrEmpty(splidate[i])||!splidate[i].Contains('|')) continue;
+
+                string[] message = splidate[i].Split('|');
+                if (message[0] == "MSH" && message[16] != "")
+                {
+                    CAMessageParser.rp.TestResult = Convert.ToInt32(message[16]);
+                }
+                if (message[0] == "DSP")
+                {
+                    switch (Convert.ToInt32(message[1]))
+                    {
+                        case 1:
+                            CAMessageParser.p.Patientid = message[3];
+                            //record.Append("Patientid"+ message[3]+"\n");
+                            break;
+                        case 2:
+                            //p.Bedid = Convert.ToInt32(message[3]);
+                            //record.Append("Bedid" + message[3] + "\n");
+                            break;
+                        case 3:
+                            CAMessageParser.p.Pname = message[3];
+                            //record.Append("Bedid" + message[3] + "\n");
+                            break;
+                        case 4:
+                            CAMessageParser.p.Birth = message[3];
+                            //record.Append("Bedid" + message[3] + "\n");
+                            break;
+                        case 5:
+                            if (message[3] == "M")
+                                CAMessageParser.p.Sex = 'M';
+                            else if (message[3] == "F")
+                                CAMessageParser.p.Sex = 'F';
+                            else
+                                CAMessageParser.p.Sex = 'O';
+                            break;
+                        case 6:
+                            CAMessageParser.p.Blood = message[3];
+                            //record.Append("Blood" + message[3] + "\n");
+                            break;
+                        case 7:
+                            CAMessageParser.p.Race = message[3];
+                            //record.Append("Race" + message[3] + "\n");
+                            break;
+                        case 8:
+                            CAMessageParser.p.Address = message[3];
+                            //record.Append("Address" + message[3] + "\n");
+                            break;
+                        case 9:
+                            CAMessageParser.p.Post = message[3];
+                            //record.Append("Post" + message[3] + "\n");
+                            break;
+                        case 10:
+                            CAMessageParser.p.PhoneNum = message[3];
+                            //record.Append("PhoneNum" + message[3] + "\n");
+                            break;
+                        case 11:
+                            CAMessageParser.p.Workphone = message[3];
+                            //record.Append("Workphone" + message[3] + "\n");
+                            break;
+                        case 13:
+                            CAMessageParser.p.Marriage = message[3];
+                            //record.Append("Marriage" + message[3] + "\n");
+                            break;
+                        case 14:
+                            CAMessageParser.p.Region = message[3];
+                            //record.Append("Region" + message[3] + "\n");
+                            break;
+                        case 15:
+                            CAMessageParser.p.PatientType = message[3];
+                            //record.Append("Race" + message[3] + "\n");
+                            break;
+                        case 16:
+                            CAMessageParser.p.Ybnum = message[3];
+                            //record.Append("PatientType" + message[3] + "\n");
+                            break;
+                        case 17:
+                            CAMessageParser.p.FeeType = message[3];
+                            //record.Append("FeeType" + message[3] + "\n");
+                            break;
+                        case 18:
+                            CAMessageParser.p.National = message[3];
+                            //record.Append("National" + message[3] + "\n");
+                            break;
+                        case 19:
+                            CAMessageParser.p.Origo = message[3];
+                            //record.Append("Origo" + message[3] + "\n");
+                            break;
+                        //case 20:
+                        //    CAMessageParser.Country = message[3];
+                            //record.Append("Country" + message[3] + "\n");
+                            break;
+                        case 21:
+                            CAMessageParser.rp.PorderNum = message[3];
+                            //record.Append("PorderNum" + message[3] + "\n");
+                            break;
+                        case 22:
+                            CAMessageParser.rp.ForderNum = message[3];
+                            //record.Append("ForderNum" + message[3] + "\n");
+                            break;
+                        case 23:
+                            CAMessageParser.rp.ReceiveTime = message[3];
+                            //record.Append("ReceiveTime" + message[3] + "\n");
+                            break;
+                        case 24:
+                            CAMessageParser.rp.Priority = (message[3].Contains("N") || message[3].Contains("n")) ? false : true;
+                            //record.Append("Priority" + message[3] + "\n");
+                            break;
+                        case 25:
+                            //样本采集量
+                            CAMessageParser.rp.CollectV = message[3];
+                            //record.Append("CollectV" + message[3] + "\n");
+                            break;
+                        case 26:
+                            //样本类型
+                            CAMessageParser.rp.Source = message[3];
+                            //record.Append("Source" + message[3] + "\n");
+                            break;
+                        case 27:
+                            CAMessageParser.rp.OProvider = message[3];
+                            //record.Append("OProvider" + message[3] + "\n");
+                            break;
+                        case 28:
+                            CAMessageParser.rp.OCallbackNum = message[3];
+                            //record.Append("OCallbackNum" + message[3] + "\n");
+                            break;
+                        case 29:
+                            CAMessageParser.rp.ProjectInfo.Add(message[3]);
+                            //record.Append("ProjectInfo" + message[3] + "\n");
+                            break;
+                        case 31:
+                            CAMessageParser.rp.OProvider = message[3];
+                            //record.Append("ProjectInfo" + message[3] + "\n");
+                            break;
+                        case 32:
+                            CAMessageParser.rp.OCallbackNum = message[3];
+                            //record.Append("ProjectInfo" + message[3] + "\n");
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+            }
         }
 
         /// <summary>

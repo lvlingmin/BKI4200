@@ -10,7 +10,9 @@ using Maticsoft.DBUtility;
 using System.Data;
 namespace BioBaseCLIA.InfoSetting
 {
-   
+   /// <summary>
+   /// 网口Lis处理
+   /// </summary>
     public class CMessageParser:HLObject 
     {
 
@@ -25,7 +27,13 @@ namespace BioBaseCLIA.InfoSetting
             get { return _dalaytime; }
             set { _dalaytime = value; }
         }
-
+        /// <summary>
+        /// 应用程序应答类型，发送结果
+        /// <param name="0">0病人样本测试结果</param> 
+        /// <param name="1">1校准结果</param> 
+        /// <param name="2">2质控结果</param> 
+        /// </summary>
+        public int Sendtype { get; set; }
         //public static  LabResult rs { get; set; }
         //LisCommunication liscon = new LisCommunication();
         /// <summary>
@@ -132,9 +140,9 @@ namespace BioBaseCLIA.InfoSetting
                     }
                     try
                     {
-                        if (read.GetString(8) == "")
+                        if (read.GetString(8) == "男"|| read.GetString(8) == "M"||read.GetString(8) == "m")
                             p.Sex = 'M';
-                        else if (read.GetString(8) == "女")
+                        else if (read.GetString(8) == "女"|| read.GetString(8) == "F" || read.GetString(8) == "F")
                             p.Sex = 'F';
                         else
                             p.Sex = 'O';
@@ -191,11 +199,11 @@ namespace BioBaseCLIA.InfoSetting
                 }
                 read = null;
 
-                rp.ODate = DateTime.Now.ToShortDateString();
-                rp.OEDate = DateTime.Now.ToString();
+                rp.ODate = DateTime.Now.ToString("yyyyMMdd");
+                rp.OEDate = DateTime.Now.ToString("yyyyMMddhhmmss");
                 rp.CollectV = "1";
                 rp.CollectIdent = "^" + list[0].SamplePos;
-                rp.ReseltDate = DateTime.Now.ToShortDateString();
+                rp.ReseltDate = DateTime.Now.ToString("yyyyMMdd");
                 rp.ResuleState = list[0].Result;
                 Message = startMessage + MSH() + PID(p) + OBR(rp);
                 SetID = 1;
@@ -308,6 +316,13 @@ namespace BioBaseCLIA.InfoSetting
                 }
             }
         }
+
+        public string TestContent()
+        {
+             var content= startMessage + MSH() + QRD() + QRF() + endMessage;
+            return content;
+        }
+
         /// <summary>
         /// 发送查询消息
         /// </summary>
@@ -315,6 +330,9 @@ namespace BioBaseCLIA.InfoSetting
         public void SendQry()
         {
             string Message = startMessage + MSH() + QRD() + QRF() + endMessage;
+
+            LogFile.Instance.Write("发送查询：\n"+ Message+"\n");
+
             LisCommunication.Instance.write(Message);
             bool delay = LisCommunication.Instance.comWait.WaitOne(Dalaytime);
             if (!delay)
@@ -328,53 +346,61 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string SendACK()
         {
-            return startMessage + MSH() + MSA()+ endMessage;
+            SendApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
+            SendFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
+            Ackcode = "AA";
+            string backmessag = startMessage + MSH() + MSA() + ERR()+endMessage;
+            return backmessag;
         }
         private static tbSampleInfo _sampleInfo=new tbSampleInfo();
         public tbSampleInfo GetSampleInfo(tbSampleInfo modelSp)
         {
-           if (p != null)
+            if (p != null)
+            {
+                _sampleInfo = modelSp;
+                try
                 {
-                    _sampleInfo = modelSp;
-                    try
-                    {
-                        _sampleInfo.Age = Convert.ToDouble(p.Age);
-                    }
-                    catch
-                    {
-                        _sampleInfo.Age = 0;
-                    }
-                    _sampleInfo.BedNo = p.Bedid.ToString();
-                    _sampleInfo.ClinicNo = p.Patientid;
-                    _sampleInfo.InpatientArea = p.SickArea;
-                    _sampleInfo.MedicaRecordNo = p.PIdent;
-                    _sampleInfo.PatientName = p.Pname;
-                    if (p.Sex == 'M')
-                        _sampleInfo.Sex = "男";
-                    else if (p.Sex == 'F')
-                        _sampleInfo.Sex = "女";
-                    else
-                        _sampleInfo.Sex = "其他";
-                    _sampleInfo.Ward = p.SickRoom;
+                    _sampleInfo.Age = Convert.ToDouble(p.Age);
                 }
-                if (rp != null)
+                catch
                 {
-                    _sampleInfo.InspectDoctor = rp.FilletF1;
-                    _sampleInfo.SendDoctor = rp.OProvider;
-                    _sampleInfo.Department = rp.OCallbackNum;
-                    /*暂时屏蔽更新项目信息
-                    if (rp.ProjectInfo!=null&& rp.ProjectInfo.Count > 0)
-                    {
-                        for (int i = 0; i < rp.ProjectInfo.Count; i++)
-                        {
-                           string []info= rp.ProjectInfo[i].Split('^');
-                           _sampleInfo.ProjectName = info[1] + " ";
-                        }
-                    }
-                    */
+                    _sampleInfo.Age = 0;
                 }
-                
-                return _sampleInfo; 
+                _sampleInfo.BedNo = p.Bedid.ToString();
+                _sampleInfo.ClinicNo = p.Patientid;
+                _sampleInfo.InpatientArea = p.SickArea;
+                _sampleInfo.MedicaRecordNo = p.PIdent;
+                _sampleInfo.PatientName = p.Pname;
+                if (p.Sex == 'M')
+                    _sampleInfo.Sex = "男";
+                else if (p.Sex == 'F')
+                    _sampleInfo.Sex = "女";
+                else
+                    _sampleInfo.Sex = "其他";
+                _sampleInfo.Ward = p.SickRoom;
+                if (!string.IsNullOrEmpty(p.Birth) && p.Birth.Length == 14)
+                {
+                    _sampleInfo.Age = DateTime.Now.Year - int.Parse(p.Birth.Substring(0, 4));
+                }
+            }
+            if (rp != null)
+            {
+                _sampleInfo.InspectDoctor = rp.FilletF1;
+                _sampleInfo.SendDoctor = rp.OProvider;
+                _sampleInfo.Department = rp.OCallbackNum;
+                /*暂时屏蔽更新项目信息
+                if (rp.ProjectInfo!=null&& rp.ProjectInfo.Count > 0)
+                {
+                    for (int i = 0; i < rp.ProjectInfo.Count; i++)
+                    {
+                       string []info= rp.ProjectInfo[i].Split('^');
+                       _sampleInfo.ProjectName = info[1] + " ";
+                    }
+                }
+                */
+            }
+
+            return _sampleInfo;
         }
         public tbSampleInfo SampleInfo
         {
@@ -422,15 +448,19 @@ namespace BioBaseCLIA.InfoSetting
                     {
                         case 1:
                             p.Patientid = message[3];
+                            //record.Append("Patientid"+ message[3]+"\n");
                             break;
                         case 2:
-                            p.Bedid = Convert.ToInt32(message[3]);
+                            //p.Bedid = Convert.ToInt32(message[3]);
+                            //record.Append("Bedid" + message[3] + "\n");
                             break;
                         case 3:
                             p.Pname = message[3];
+                            //record.Append("Bedid" + message[3] + "\n");
                             break;
                         case 4:
                             p.Birth = message[3];
+                            //record.Append("Bedid" + message[3] + "\n");
                             break;
                         case 5:
                             if (message[3] == "M")
@@ -442,74 +472,105 @@ namespace BioBaseCLIA.InfoSetting
                             break;
                         case 6:
                             p.Blood = message[3];
+                            //record.Append("Blood" + message[3] + "\n");
                             break;
                         case 7:
                             p.Race = message[3];
+                            //record.Append("Race" + message[3] + "\n");
                             break;
                         case 8:
                             p.Address = message[3];
+                            //record.Append("Address" + message[3] + "\n");
                             break;
                         case 9:
                             p.Post = message[3];
+                            //record.Append("Post" + message[3] + "\n");
                             break;
                         case 10:
                             p.PhoneNum = message[3];
+                            //record.Append("PhoneNum" + message[3] + "\n");
                             break;
                         case 11:
                             p.Workphone = message[3];
+                            //record.Append("Workphone" + message[3] + "\n");
                             break;
                         case 13:
                             p.Marriage = message[3];
+                            //record.Append("Marriage" + message[3] + "\n");
                             break;
                         case 14:
                             p.Region = message[3];
+                            //record.Append("Region" + message[3] + "\n");
                             break;
                         case 15:
                             p.PatientType = message[3];
+                                //record.Append("Race" + message[3] + "\n");
                             break;
                         case 16:
                             p.Ybnum = message[3];
+                            //record.Append("PatientType" + message[3] + "\n");
                             break;
                         case 17:
                             p.FeeType = message[3];
+                            //record.Append("FeeType" + message[3] + "\n");
                             break;
                         case 18:
                             p.National = message[3];
+                            //record.Append("National" + message[3] + "\n");
                             break;
                         case 19:
                             p.Origo = message[3];
+                            //record.Append("Origo" + message[3] + "\n");
                             break;
                         case 20:
                             Country = message[3];
+                            //record.Append("Country" + message[3] + "\n");
                             break;
                         case 21:
                             rp.PorderNum = message[3];
+                            //record.Append("PorderNum" + message[3] + "\n");
                             break;
                         case 22:
                             rp.ForderNum = message[3];
+                            //record.Append("ForderNum" + message[3] + "\n");
                             break;
                         case 23:
                             rp.ReceiveTime = message[3];
+                            //record.Append("ReceiveTime" + message[3] + "\n");
                             break;
                         case 24:
-                            rp.Priority  =Convert.ToBoolean(message[3]);
+                            rp.Priority  =(message[3].Contains("N")|| message[3].Contains("n"))?false:true;
+                            //record.Append("Priority" + message[3] + "\n");
                             break;
                         case 25:
                             //样本采集量
                             rp.CollectV = message[3];
+                            //record.Append("CollectV" + message[3] + "\n");
                             break;
                         case 26:
                            //样本类型
                             rp.Source = message[3];
+                            //record.Append("Source" + message[3] + "\n");
                             break;
                         case 27:
                             rp.OProvider = message[3];
+                            //record.Append("OProvider" + message[3] + "\n");
                             break;
                         case 28:
                             rp.OCallbackNum = message[3];
+                            //record.Append("OCallbackNum" + message[3] + "\n");
                             break;
                         case 29:
                             rp.ProjectInfo.Add(message[3]);
+                            //record.Append("ProjectInfo" + message[3] + "\n");
+                            break;
+                        case 31:
+                            rp.OProvider= message[3];
+                            //record.Append("ProjectInfo" + message[3] + "\n");
+                            break;
+                        case 32:
+                            rp.OCallbackNum= message[3];
+                            //record.Append("ProjectInfo" + message[3] + "\n");
                             break;
                         default :
                             break;
@@ -517,6 +578,9 @@ namespace BioBaseCLIA.InfoSetting
 
                 }
             }
+
+            //LogFile.Instance.Write(record.ToString());
+
             //GetSampleInfo();
             LisCommunication.Instance.comWait.Set();
         }

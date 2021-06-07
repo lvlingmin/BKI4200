@@ -83,17 +83,7 @@ namespace BioBaseCLIA.InfoSetting
         /// 消息主要语言
         /// </summary>
         public string Language { get; set; }
-        /// <summary>
-        /// 消息头
-        /// </summary>
-        /// <returns></returns>
-        public string MSH()
-        {
-            string msh = @"MSH|^~\&|" + SendApplication + "|" + SendFacility + "|" + ResiveApplication + "|" + ResiveFacility + "|"
-                + GetTime + "|" + Security + "|" + Mtype + "|" + ConstrolID + "|P|2.3.1|"
-                + Sequence + "|" + Continuation + "|" + AcceptType + "|" + Sendtype + "|" + Country + "|" + _character + "|" + Language + "|" + "\u000d";
-            return msh;
-        }
+
         /// <summary>
         /// 接收确认编码
         /// <para name="AA">AA接收</para>
@@ -119,14 +109,30 @@ namespace BioBaseCLIA.InfoSetting
         /// 错误条件
         /// </summary>
         public string ErrorCode { get; set; }
-       /// <summary>
-       /// 消息确认
-       /// </summary>
-       /// <returns></returns>
+        /// <summary>
+        /// 消息头
+        /// </summary>
+        /// <returns></returns>
+        public string MSH()
+        {
+            string msh = @"MSH|^~\&|" + SendApplication + "|" + SendFacility + "|" + ResiveApplication + "|" + ResiveFacility + "|"
+                + GetTime + "|" + Security + "|" + Mtype + "|" + (ConstrolID++) + "|P|2.3.1|"
+                + Sequence + "|" + Continuation + "|" + AcceptType + "|||" + /*"ASCII" + ""*/ /*+ Country*//*_character*/ "Unicode" + "|" + "|"  /*Language*/ + "|" + "\u000d";
+            return msh;
+        }
+        /// <summary>
+        /// 消息确认
+        /// </summary>
+        /// <returns></returns>
         public string MSA()
         {
             string msa = @"MSA|" + Ackcode + "|" + ConstrolID + "|" + Tmessage + "|" + Expnem + "|" + Delaytype + "|" + ErrorCode + "\u000d";
             return msa;
+        }
+        public string ERR() 
+        {
+            string msg = @"ERR|0|" + "\u000d";
+            return msg;
         }
         /// <summary>
         /// 不同病人消息
@@ -143,7 +149,8 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string PID(Patient p)
         {
-            string pid = @"PID|" + Pid + "|" + p.Patientid + "|" + p.PIdent + "|" + p.Bedid + "|" + p.Pname + "|" +p.SickArea +"^"+p.SickRoom + "|" + p.Birth + "|" + p.Sex + "|" + p.Blood + "|"
+            string pid = @"PID|" + ConstrolID + "|" + p.Patientid + "|" + p.PIdent + "|" + p.Bedid + "|" + p.Pname + "|" +
+                (string.IsNullOrEmpty(p.SickArea)?"": (p.SickArea + "^"))+p.SickRoom + "|" + p.Age + "|" + p.Sex + "|" + p.Blood + "|"
                 + p.Race + "|" + p.Address + "|" + p.Post + "|" + p.PhoneNum + "|" + p.Workphone + "|" + PLanguage + "|" + p.Marriage + "|"+p.Region+"|" + p.PatientType + "|" + p.Ybnum + "|" + p.FeeType + "||" + p.National + "|"
                 + p.Origo + "|" + p.BirthIndic + "|" + p.BirthOrder + "|" + p.Demo + "|" + p.BmilitaryStatus + "|" + p.Country + "|" + p.Deathtime + "|"
                 + p.Bdeath + "\u000d";
@@ -177,7 +184,7 @@ namespace BioBaseCLIA.InfoSetting
         {
             r.SpcCode = SampleNo;
             r.CollectIdent = Collect+"^"+Ident;
-            string obr = "OBR|" + obrID + "|" + r.PorderNum + "|" + r.ForderNum + "|" + r.UnserviceId + "|" + r.Priority + "|" + r.RDate + "|" + r.ODate + "|" + r.OEDate + "|"
+            string obr = "OBR|" + obrID + "|" + r.PorderNum + "|" + r.ForderNum + "|" + r.UnserviceId + "|" + (r.Priority==true?"Y":"N") + "|" + r.RDate + "|" + r.ODate + "|" + r.OEDate + "|"
                 + r.CollectV + "|" + r.CollectIdent + "|" + r.SpcCode + "|" + r.Bdilute + "|"+r.RelevantInfo +"|"+r.ReseltDate +"|" + r.Source  + "|" + r.OProvider  + "|"+r.OCallbackNum +"|"+
                 r.SimpleState +"|"+r.XdCode+"|"+r.FilletF1 +"|"+r.FilletF2 +"|"+r.ReseltDate +"|"+r.Chargepractice+"||"+r.ResuleState+"||||||||||||||||||||||" + "\u000d";
             //string obr = "OBR|" + obrID.ToString() + "|" + SamplebarCode + "|" + SampleNo + "||||||||||||"+SampleSource+"|"+doctor+"||||||结果报告日期/时间||||||||||||||||||||||||\u000d";
@@ -195,7 +202,7 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string OBX(LabResult r) 
         {
-            string obx = @"OBX|" + SetID + "|" + r.Obxtype + "|" + r.ProjectId + "|" + r.ProjectName + "^" + r.SubId + "|" + r.Resulttype + "|" + r.Unit + "|" + r.Rrs + "|" + r.Abnormalflag + "||" + r.Abnormaltest + "|" + r.ResultFlag + "|" + r.Resulttype + "|" + r.NormalLTime + "|" + r.Beginresult + "|" + r.Observetime + "||" + r.Doctor + "|" + r.Method + "\u000d";
+            string obx = @"OBX|" + SetID + "|" + r.Obxtype + "|" + r.ProjectId + "|" + r.ProjectName + "|" + r.Resulttype + "|" + r.Unit + "|" + r.Rrs + "|" + r.Abnormalflag + "||" + r.Abnormaltest + "|" + r.ResultFlag + "|" + r.Resulttype + "|" + r.NormalLTime.ToString("yyyyMMddhhmmss") + "|" + r.Beginresult + "|" + r.Observetime.ToString("yyyyMMddhhmmss") + "||" + r.Doctor + "|" + r.Method + "\u000d";
             return obx;
         }
         /// <summary>
@@ -230,9 +237,15 @@ namespace BioBaseCLIA.InfoSetting
         /// 查询定义
         /// </summary>
         /// <returns></returns>
+        //public string QRD()
+        //{
+        //    string qrd = @"QRD|" + GetTime + "|R|D|" + QueryId + "|" + DalayType + "|"+DalayTime +"|RD|" + SampleNo + "|" + FindCintext + "|" + DataCode + "|" + DataCodeValue + "|T" + "\u000d";
+        //    return qrd;
+        //}
         public string QRD()
         {
-            string qrd = @"QRD|" + GetTime + "|R|D|" + QueryId + "|" + DalayType + "|"+DalayTime +"|RD|" + SampleNo + "|" + FindCintext + "|" + DataCode + "|" + DataCodeValue + "|T" + "\u000d";
+            //string qrd = @"QRD|" + GetTime + "|R|D|" + QueryId + "|" + DalayType + "|"+DalayTime +"|RD|" + SampleNo + "|" + FindCintext + "|" + DataCode + "|" + DataCodeValue + "|T" + "\u000d";
+            string qrd = @"QRD|" + GetTime + "|R|D|" + QueryId + "|" + DalayType + "|" + DalayTime + "|RD|" + SampleNo + "|" + "OTH" + "|" + DataCode + "|" + DataCodeValue + "|T|" + "\u000d";
             return qrd;
         }
         /// <summary>
@@ -243,16 +256,35 @@ namespace BioBaseCLIA.InfoSetting
         /// 记录结束日期/时间
         /// </summary>
         public string EndTime { get; set; }
+        public string RecordStartTime
+        {
+            get
+            {
+                return DateTime.Now.ToString("yyyyMMdd") + "000000";
+            }
+        }
+        public string RecordEndTime
+        {
+            get
+            {
+                return DateTime.Now.ToString("yyyyMMddhhmmss");
+            }
+        }
         /// <summary>
         /// 查询筛选
         /// </summary>
         /// <returns></returns>
+        //public string QRF()
+        //{
+        //    string qrf = @"QRF|" + SendFacility + "|" + BeginTime + "|" + EndTime + "|||RCT|COR|ALL|" + "\u000d";
+        //    return qrf;
+        //}
         public string QRF()
         {
-            string qrf = @"QRF|" + SendFacility + "|" + BeginTime + "|" + EndTime + "|||RCT|COR|ALL|" + "\u000d";
+            //string qrf = @"QRF|" + SendFacility + "|" + BeginTime + "|" + EndTime + "|||RCT|COR|ALL||" + "\u000d";
+            string qrf = @"QRF|" + SendFacility + "|" + RecordStartTime + "|" + RecordEndTime + "|||RCT|COR|ALL||" + "\u000d";
             return qrf;
         }
-
         /// <summary>
         /// 确定不同的DSP片段
         /// </summary>

@@ -16,7 +16,7 @@ namespace BioBaseCLIA.InfoSetting
         /// </summary>
         /// <param name="Message"></param>
         /// <returns></returns>
-        
+
         //public string[] sliptMessage(string Message)
         //{
         //    string EndString = @"<EB>";
@@ -52,7 +52,6 @@ namespace BioBaseCLIA.InfoSetting
         //            sMessageLines[i] = Message.Substring(thegetStartindex, thegetEndindex - thegetStartindex);
         //            thegetStartindex = Message.IndexOf(getStartStrings[i], thegetEndindex);
 
-
         //        }
         //        #endregion
 
@@ -60,11 +59,10 @@ namespace BioBaseCLIA.InfoSetting
 
         //    return sMessageLines;
         //}
-         public string[] sliptMessage(string Message)
+        public string[] sliptMessage(string Message)
         {
             return Message.Split(new string[] { "\v" }, StringSplitOptions.RemoveEmptyEntries);
             //return System.Text.RegularExpressions.Regex.Split(Message,"MSH");
-
         }
         #endregion
 
@@ -131,42 +129,37 @@ namespace BioBaseCLIA.InfoSetting
         //    return null;
         //}
 
+        public List<string[]> SplitSegment(string Message, string MessageType)
+        {
+            List<string[]> sFieldss = new List<string[]>();
+            string[] sMessageLines = Message.Split(new string[] { "\r" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string sMessageLine1 in sMessageLines)
+            {
+                if (sMessageLine1 != string.Empty)
+                {
+                    if (sMessageLine1.Contains(MessageType))
+                    {
 
-         public List<string[]> SplitSegment(string Message, string MessageType)
-         {
-             List<string[]> sFieldss = new List<string[]>();
-             string[] sMessageLines = Message.Split(new string[] { "\r" }, StringSplitOptions.RemoveEmptyEntries);
-             foreach (string sMessageLine1 in sMessageLines)
-             {
+                        string[] sFields = sMessageLine1.Split('|');
+                        sFieldss.Add(sFields);
 
-
-                 if (sMessageLine1 != string.Empty)
-                 {
-                     if (sMessageLine1.Contains(MessageType))
-                     {
-
-                         string[] sFields = sMessageLine1.Split('|');
-                         sFieldss.Add(sFields);
-
-                         return sFieldss;
-                     }
-                 }
-             }
-             return null;
-         }
+                        return sFieldss;
+                    }
+                }
+            }
+            return null;
+        }
         /// <summary>
         /// 接收病人信息时多个DSP信息分割
         /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
-        public string[] DSPSplit(string message) {
-
+        public string[] DSPSplit(string message)
+        {
             int index = message.IndexOf("DSP");
             string message1 = message.Substring(index);
 
-
             return message1.Split(new string[] { "\r" }, StringSplitOptions.RemoveEmptyEntries);
-            
         }
 
         /// <summary>
@@ -196,14 +189,15 @@ namespace BioBaseCLIA.InfoSetting
                 {
                     return LanguageManager.Instance.getLocaltionStr("TableValueNotFound");
                 }
-
             }
             else if (message1 == "AR")
             {
-                if (message2 == "200") {
+                if (message2 == "200")
+                {
                     return LanguageManager.Instance.getLocaltionStr("UnsupportedMessageType");
                 }
-                else if (message2 == "201") {
+                else if (message2 == "201")
+                {
                     return LanguageManager.Instance.getLocaltionStr("UnsupportedEventcode");
                 }
                 else if (message2 == "202")
@@ -230,11 +224,9 @@ namespace BioBaseCLIA.InfoSetting
                 {
                     return LanguageManager.Instance.getLocaltionStr("ApplicationInternalError");
                 }
-            
+
             }
             return null;
-
-
         }
 
         string currentDateTime = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -262,11 +254,9 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string MSH()
         {
-
-           string msh = @"MSH|^~\&|"+sendApplication+"|"+sendFacility+"|||" + currentDateTime + "||"+MessageType+"|" 
-                         +this.mshID.ToString() + "|P|2.3.1|" + ApplicationAckType + "||Unicode|||"+ "\u000d";
+            string msh = @"MSH|^~\&|" + sendApplication + "|" + sendFacility + "|||" + currentDateTime + "||" + MessageType + "|"
+                          + this.mshID.ToString() + "|P|2.3.1|" + ApplicationAckType + "||Unicode|||" + "\u000d";
             return msh;
-
         }
 
         public int pidID { get; set; }
@@ -296,14 +286,10 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string PID()
         {
-
-
             string pid = "PID|" + pidID.ToString() + "|" + PatientID + "|" + PatienIdentifierID + "|" + BedID + "|" + PatientName + "|||"
                           + Sex + "|||||||||||||||||||||||" + "\u000d";
             return pid;
-
         }
-
 
         public int obrID { get; set; }
         /// <summary>
@@ -344,13 +330,10 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string OBR()
         {
-
             string obr = "OBR|" + obrID.ToString() + "|" + SamplebarCode + "|" + SampleNo + "|||||||||||" + InspectionTime + "|"
                           + SampleSource + "|" + doctor + "|" + InspectionRoom + "|||" + Verifier + "||||||||||||" + Moderator + "||||||||||||||" + "\u000d";
             return obr;
-
         }
-
 
         public int obxID { get; set; }
         /// <summary>
@@ -403,7 +386,6 @@ namespace BioBaseCLIA.InfoSetting
         {
             string qrd = "QRD|" + currentDateTime + "|R|D|" + qrdID.ToString() + "|||RD|" + SamplebarCode + "|OTH|||T|" + "\u000d";
             return qrd;
-
         }
         /// <summary>
         /// 设备型号
@@ -423,21 +405,18 @@ namespace BioBaseCLIA.InfoSetting
         {
             string qrf = "QRF|" + EquipmentType + "|" + BegainSampleReceive + "|" + EndSampleReceive + "|||RCT|COR|ALL||" + "\u000d";
             return qrf;
-
         }
         public string errorPosition { get; set; }
         public string ERR()
         {
             string ord = "ERR|" + errorPosition + "|" + "\u000d";
             return ord;
-
         }
         public string QueryACKStatus { get; set; }
         public string QAK()
         {
             string qak = "QAK|SR|" + QueryACKStatus + "|" + "\u000d";
             return qak;
-
         }
 
         public int dspID { get; set; }
@@ -446,7 +425,6 @@ namespace BioBaseCLIA.InfoSetting
         {
             string dsp = "DSP|" + dspID.ToString() + "||" + dataLine + "|||" + "\u000d";
             return dsp;
-
         }
 
         public int sampleN { get; set; }
@@ -454,7 +432,6 @@ namespace BioBaseCLIA.InfoSetting
         {
             string dsc = "DSC|" + sampleN + "|" + "\u000d";
             return dsc;
-
         }
         public string startMessage = "\u000b";
         public string endMessage = "\u001c\u000d";
@@ -465,8 +442,7 @@ namespace BioBaseCLIA.InfoSetting
         }
         public string sendQRYMessage()
         {
-
-            return startMessage+MSH() + QRD() + QRF() + endMessage;
+            return startMessage + MSH() + QRD() + QRF() + endMessage;
         }
 
         /// <summary>
@@ -475,7 +451,6 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string sendDSRMessage()
         {
-
             return startMessage + MSH() + MSA() + ERR() + endMessage;
         }
         public string sendACKMessage()
@@ -483,7 +458,5 @@ namespace BioBaseCLIA.InfoSetting
             return startMessage + MSH() + MSA() + endMessage;
 
         }
-
-
     }
 }

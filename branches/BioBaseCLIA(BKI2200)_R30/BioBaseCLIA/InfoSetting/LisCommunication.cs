@@ -73,9 +73,7 @@ namespace BioBaseCLIA.InfoSetting
             if (client.Connected)
                 return true;
             else
-                return false;
-        
-        
+                return false;               
         }
 
        /// <summary>
@@ -112,12 +110,8 @@ namespace BioBaseCLIA.InfoSetting
             }
             catch (Exception e)
             {
-
                 MessageBox.Show("发送消息失败" +e.Message+ "！");
             }
-
-
-
         }
         /// <summary>
         /// LIS连接返回信息处理类
@@ -158,10 +152,10 @@ namespace BioBaseCLIA.InfoSetting
                             }
                             if (msg != "" && ReceiveHandel != null)
                             {
+                                ReceiveHandel -= AnalysDate;
                                 ReceiveHandel += AnalysDate;
                             }
                         }
-
                     }
                     catch (Exception e)
                     {
@@ -194,9 +188,19 @@ namespace BioBaseCLIA.InfoSetting
         public void AnalysDate(string message)
         {
             if (message == "") return;
-            
+
+            LogFile.Write("接受到数据2121" + message);
+
             CMessageParser Cmp = new CMessageParser();
             string[] spdate = Cmp.SplitMessage(message);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("\n"+"当前数据334343"+"\n");
+            foreach (var item in spdate)
+            {
+                sb.Append(item + "\n");
+            }
+
             string[] DMSH = spdate[0].Split('|');
             string[] DMSA = spdate[1].Split('|');
             string _errorinfo = "";
@@ -208,9 +212,17 @@ namespace BioBaseCLIA.InfoSetting
             {
                 _errorinfo = Cmp.ErrorInfo(DMSA[1], 0);
             }
+            //LogFile.Write("接受到数据 DMSH[8]" + DMSH[8]);
+
             switch (DMSH[8])
             {
+                 
                 case "ACK^R01":
+                    if (message.Contains("ACK^R01") && message.Contains("AA")) 
+                    {
+                        MessageBox.Show("数据发送成功");
+                    }
+                    //LogFile.Write("接受到数据" + "ACK^R01");
                     if (_errorinfo != "")
                     {
                         //MessageBox.Show("编号为" + CMessageParser.ConstrolID + "消息发送结果为:"+ _errorinfo);
@@ -219,15 +231,17 @@ namespace BioBaseCLIA.InfoSetting
                     }
                     break;
                 case "QCK^Q02":
-                      if (_errorinfo != "")
+                    //LogFile.Write("接受到数据" + "QCK^Q02");
+                    if (_errorinfo != "")
                         LogFile.Write("编号为" + CMessageParser.ConstrolID + "消息发送结果为:" + _errorinfo);
                         //LogFile.Write(DateTime.Now + "消息编号为" + CMessageParser.ConstrolID + "的反馈结果为：" + _errorinfo);
                     break;
                 case "DSR^Q03":
+                    //LogFile.Write("接受到数据" + "DSR^Q03");
                     if (_errorinfo != "")
                         LogFile.Write("编号为" + CMessageParser.ConstrolID + "消息发送结果为:" + _errorinfo);
                         //LogFile.Write(DateTime.Now + "消息编号为" + CMessageParser.ConstrolID + "的反馈结果为：" + _errorinfo);
-                    if (DMSA[1] == "OK")
+                    //if (DMSA[1] == "OK")
                         Cmp.ReciveInfo(spdate);
                     Cmp.AcceptType = "AA";
                     Cmp.Mtype = "ACK^Q03";
