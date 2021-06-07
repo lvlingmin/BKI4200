@@ -11,6 +11,7 @@ using Common;
 using DBUtility;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Resources;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -122,12 +123,12 @@ namespace BioBaseCLIA.DataQuery
             #region 扫码-卸载 //lyq mod 20201012
             if (dtSb.Rows.Count <= 0)
             {
-                frmMsgShow.MessageShow("底物装载", "没有检测到已装载底物，请装载底物");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("NoSubstrate"));
                 return;
             }
             if (txtSubstrateCode.Text == "")
             {
-                frmMsgShow.MessageShow("底物装载", "底物条码为空，请重新打开本界面");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("SubstrateBarcodeEmpty"));
                 return;
             }
             btnDelSubstrate.Enabled = false;
@@ -135,7 +136,7 @@ namespace BioBaseCLIA.DataQuery
             DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set Status='卸载' where Status ='正常' and BarCode = '" + dtSb.Rows[0]["BarCode"].ToString() + "'");
             //清除ini配置文件
             deleteSuIni();
-            frmMsgShow.MessageShow("底物装载", "卸载成功！");
+            frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("UnloadSubstrateSuccess"));
             btnDelSubstrate.Enabled = true;
             if (suTestRatio != null)
             {
@@ -149,7 +150,7 @@ namespace BioBaseCLIA.DataQuery
         {
             if (int.Parse(txtSubstrateLastTest.Text) > int.Parse(txtSubstrateAllTest.Text))
             {
-                frmMsgShow.MessageShow("底物装载", "剩余测数不应该大于总测数！");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("LeftTestLessAllTest") );
                 txtSubstrateLastTest.Focus();
                 frmLoadSu_Load(null, null);
                 return;
@@ -157,24 +158,24 @@ namespace BioBaseCLIA.DataQuery
             if (txtSubstrateCode.Text.Trim() == "")
             {
                 txtSubstrateCode.Focus();
-                frmMsgShow.MessageShow("底物装载", "请输入底物条码！");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("InputBarcode") );
                 return;
             }
             if (!judgeSubBarCode(txtSubstrateCode.Text.Trim()))
             {
                 initContr();
-                frmMsgShow.MessageShow("底物装载", "条码校验未通过！请重新输入");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("CheckBarcode") );
                 return;
             }
             if (bllsb.GetList("Status='正常'").Tables[0].Rows.Count > 0)
             {
-                frmMsgShow.MessageShow("底物装载", "已装载底物,请先卸载底物！");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("AlreadySubstate") );
                 return;
             }
             if (!fillFlag)
             {
                 txtSubstrateCode.Focus();
-                frmMsgShow.MessageShow("底物装载", "手动输入条码后，请按回车键解析条码信息！");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("InputBarcodeEnter") );
                 return;
             }
             Model.tbSubstrate modelSb = new Model.tbSubstrate();
@@ -191,7 +192,7 @@ namespace BioBaseCLIA.DataQuery
                 //SuInfo[3] = modelSb.AddDate;
                 SuInfo[3] = dt.Rows[0]["ValidDate"].ToString();
                 ModifySuIni(SuInfo, dt.Rows[0]["AddDate"].ToString().Replace(@"/", "-"));
-                frmMsgShow.MessageShow("供应品状态", "底物装载成功！");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("SubstrateLoadSuccess"));
                 if (suTestRatio != null)
                 {
                     suTestRatio(int.Parse(SuInfo[2]), int.Parse(SuInfo[1]));
@@ -235,14 +236,14 @@ namespace BioBaseCLIA.DataQuery
                 {
                     this.BeginInvoke(new Action(() => { btnBtnColor(3, 0, 3); }));
                 }
-                frmMsgShow.MessageShow("供应品状态", "底物装载成功！");
+                frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("SubstrateLoadSuccess") );
                 this.Close();
             }
             #endregion
             txtSubstrateAllTest.Enabled = txtSubstrateCode.Enabled = txtSubstrateLastTest.Enabled = false;
             btnLoadSubstrate.Enabled = false;
             btnDelSubstrate.Enabled = true;
-            btnDelSubstrate.Text = "装载底物";
+            btnDelSubstrate.Text = Getstring("LoadSubstrate");
         }
         void ModifySuIni(string[] suInfo, string loadData = "")
         {
@@ -297,7 +298,7 @@ namespace BioBaseCLIA.DataQuery
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow fr = new frmMessageShow();
-                    fr.MessageShow("底物装载", "条码校验未通过！请重新输入！");
+                    fr.MessageShow(Getstring("MessageCaption"), Getstring("CheckBarcode"));
                 }))
                 { IsBackground = true }.Start();
                 Invoke(new Action(() =>
@@ -313,7 +314,7 @@ namespace BioBaseCLIA.DataQuery
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow fr = new frmMessageShow();
-                    fr.MessageShow("底物装载", "已装载底物,请先卸载底物！");
+                    fr.MessageShow(Getstring("MessageCaption"), Getstring("AlreadySubstate"));
                 }))
                 { IsBackground = true }.Start();
                 Invoke(new Action(() =>
@@ -520,7 +521,7 @@ namespace BioBaseCLIA.DataQuery
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow fr = new frmMessageShow();
-                    fr.MessageShow("底物装载", "未通过条码校验！");
+                    fr.MessageShow(Getstring("MessageCaption"), Getstring("CheckBarcodeFail"));
                 }))
                 { IsBackground = true }.Start();
                 BeginInvoke(new Action(() =>
@@ -535,7 +536,7 @@ namespace BioBaseCLIA.DataQuery
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow fr = new frmMessageShow();
-                    fr.MessageShow("底物装载", "已装载底物,请先卸载底物！");
+                    fr.MessageShow(Getstring("MessageCaption"), Getstring("AlreadySubstate") );
                 }))
                 { IsBackground = true }.Start();
                 BeginInvoke(new Action(() =>
@@ -574,6 +575,13 @@ namespace BioBaseCLIA.DataQuery
                 }));
             }
             changeFlag = true;
+        }
+
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmLoadSu", typeof(frmLoadSu).Assembly);
+            return resManagerA.GetString(key);
         }
 
     }

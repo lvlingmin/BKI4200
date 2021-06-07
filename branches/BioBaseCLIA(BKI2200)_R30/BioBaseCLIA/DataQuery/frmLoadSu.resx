@@ -572,9 +572,9 @@
   <data name="&gt;&gt;btnLoadSubstrate.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -589,5 +589,41 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmSmallParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="AlreadySubstate" xml:space="preserve">
+    <value>已装载底物,请先卸载底物！</value>
+  </data>
+  <data name="CheckBarcode" xml:space="preserve">
+    <value>条码校验未通过！请重新输入</value>
+  </data>
+  <data name="CheckBarcodeFail" xml:space="preserve">
+    <value>未通过条码校验！</value>
+  </data>
+  <data name="InputBarcode" xml:space="preserve">
+    <value>请输入底物条码！</value>
+  </data>
+  <data name="InputBarcodeEnter" xml:space="preserve">
+    <value>手动输入条码后，请按回车键解析条码信息！</value>
+  </data>
+  <data name="LeftTestLessAllTest" xml:space="preserve">
+    <value>剩余测数不应该大于总测数</value>
+  </data>
+  <data name="LoadSubstrate" xml:space="preserve">
+    <value>装载底物</value>
+  </data>
+  <data name="MessageCaption" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
+  <data name="NoSubstrate" xml:space="preserve">
+    <value>没有检测到已装载底物，请装载底物</value>
+  </data>
+  <data name="SubstrateBarcodeEmpty" xml:space="preserve">
+    <value>底物条码为空，请重新打开本界面</value>
+  </data>
+  <data name="SubstrateLoadSuccess" xml:space="preserve">
+    <value>底物装载成功！</value>
+  </data>
+  <data name="UnloadSubstrateSuccess" xml:space="preserve">
+    <value>卸载成功！</value>
   </data>
 </root>
