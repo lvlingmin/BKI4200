@@ -178,6 +178,12 @@
   <data name="ValidDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 30</value>
   </data>
+  <data name="chkManualInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 26</value>
+  </data>
+  <data name="chkManualInput.Text" xml:space="preserve">
+    <value>Manual input</value>
+  </data>
   <data name="btnDelSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -241,6 +247,9 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="btnDelSubstrate.Text" xml:space="preserve">
+    <value>Unload</value>
   </data>
   <data name="btnLoadSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -314,5 +323,68 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Substrate loading</value>
+  </data>
+  <data name="AlreadySubstate" xml:space="preserve">
+    <value>The substrate is loaded. Please unload the substrate first!</value>
+  </data>
+  <data name="btnDelSubstrate.Text1" xml:space="preserve">
+    <value>Unload</value>
+  </data>
+  <data name="btnLoadSubstrate.Text1" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CheckBarcode" xml:space="preserve">
+    <value>Bar code verification failed! Please re-enter</value>
+  </data>
+  <data name="CheckBarcodeFail" xml:space="preserve">
+    <value>Failed to pass barcode verification!</value>
+  </data>
+  <data name="chkManualInput.Text1" xml:space="preserve">
+    <value>Manual input</value>
+  </data>
+  <data name="InputBarcode" xml:space="preserve">
+    <value>Please input substrate barcode!</value>
+  </data>
+  <data name="InputBarcodeEnter" xml:space="preserve">
+    <value>After entering the barcode manually, press enter to parse the barcode information!</value>
+  </data>
+  <data name="label1.Text1" xml:space="preserve">
+    <value>Period of validity：</value>
+  </data>
+  <data name="label6.Text1" xml:space="preserve">
+    <value>Substrate Barcode：</value>
+  </data>
+  <data name="label7.Text1" xml:space="preserve">
+    <value>Total number of tests：</value>
+  </data>
+  <data name="label8.Text1" xml:space="preserve">
+    <value>Remaining tests：</value>
+  </data>
+  <data name="LeftTestLessAllTest" xml:space="preserve">
+    <value>The remaining measurements should not be greater than the total measurements</value>
+  </data>
+  <data name="LoadSubstrate" xml:space="preserve">
+    <value>Load Substrate</value>
+  </data>
+  <data name="MessageCaption" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="NoSubstrate" xml:space="preserve">
+    <value>No loaded substrate detected, please load the substrate</value>
+  </data>
+  <data name="SubstrateBarcodeEmpty" xml:space="preserve">
+    <value>Substrate barcode is empty, please re open this interface</value>
+  </data>
+  <data name="SubstrateLoadSuccess" xml:space="preserve">
+    <value>Substrate loading successful!</value>
+  </data>
+  <data name="txtSubstrateAllTest.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtSubstrateLastTest.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="UnloadSubstrateSuccess" xml:space="preserve">
+    <value>Unload success</value>
   </data>
 </root>
