@@ -650,4 +650,112 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
+  <data name="AllTest.HeaderText1" xml:space="preserve">
+    <value>Total number of tests</value>
+  </data>
+  <data name="btnLoadRackA.Text" xml:space="preserve">
+    <value>Loading pipe support a</value>
+  </data>
+  <data name="btnLoadRackB.Text" xml:space="preserve">
+    <value>Loading pipe support b</value>
+  </data>
+  <data name="btnLoadRackC.Text" xml:space="preserve">
+    <value>Loading pipe support c</value>
+  </data>
+  <data name="btnLoadRackD.Text" xml:space="preserve">
+    <value>Loading pipe support d</value>
+  </data>
+  <data name="btnReturn.Text1" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Reagent name</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn3.HeaderText" xml:space="preserve">
+    <value>Diluent No</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn4.HeaderText" xml:space="preserve">
+    <value>Diluent position</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn5.HeaderText" xml:space="preserve">
+    <value>Residual volume</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Diluent status</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Pipe support status</value>
+  </data>
+  <data name="groupBox4.Text1" xml:space="preserve">
+    <value>Reagent status</value>
+  </data>
+  <data name="groupBox5.Text1" xml:space="preserve">
+    <value>Substrate state</value>
+  </data>
+  <data name="ItemUnLoad.Text" xml:space="preserve">
+    <value>uninstall</value>
+  </data>
+  <data name="label1.Text1" xml:space="preserve">
+    <value>Supply status</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Pipe support a:</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Pipe support b:</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Pipe support b:</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Pipe support d:</value>
+  </data>
+  <data name="LastTest.HeaderText1" xml:space="preserve">
+    <value>Residual measurement</value>
+  </data>
+  <data name="lblRackA.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblRackB.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblRackC.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblRackD.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblSuBottle1.Text" xml:space="preserve">
+    <value>0/500</value>
+  </data>
+  <data name="lblSuBottle2.Text" xml:space="preserve">
+    <value>0/500</value>
+  </data>
+  <data name="MessageHead1" xml:space="preserve">
+    <value>Information tips</value>
+  </data>
+  <data name="normal" xml:space="preserve">
+    <value>normal</value>
+  </data>
+  <data name="Postion.HeaderText1" xml:space="preserve">
+    <value>position</value>
+  </data>
+  <data name="RgCode.HeaderText1" xml:space="preserve">
+    <value>Reagent barcode</value>
+  </data>
+  <data name="RgName.HeaderText1" xml:space="preserve">
+    <value>Reagent name</value>
+  </data>
+  <data name="uninstall" xml:space="preserve">
+    <value>uninstall</value>
+  </data>
+  <data name="UnstallSubSucess" xml:space="preserve">
+    <value>The substrate was unloaded successfully</value>
+  </data>
+  <data name="ValiData.HeaderText" xml:space="preserve">
+    <value>Period of validity</value>
+  </data>
 </root>
