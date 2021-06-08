@@ -566,4 +566,10 @@
   <data name="UsernameErr" xml:space="preserve">
     <value>The username is incorrect, please re-enter!</value>
   </data>
+  <data name="cbLanguage.Items" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="cbLanguage.Items1" xml:space="preserve">
+    <value>English</value>
+  </data>
 </root>
