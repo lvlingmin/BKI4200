@@ -4362,52 +4362,211 @@
   <data name="chkItemUseOrNot.Text" xml:space="preserve">
     <value>项目可用</value>
   </data>
-  <metadata name="NO.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="NO.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="ParaUnit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="ParaUnit.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="Doctor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="Doctor.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="conc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="conc.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
     <value>en</value>
-  </metadata>
-  <metadata name="StepName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="StepName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="PrintNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="PrintNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="colNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="colNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="colShortName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="colShortName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="StepPara.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="StepPara.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="DocID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="DocID.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="StnNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="StnNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="StdName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="StdName.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <metadata name="Department.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  </data>
+  <data name="Department.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>加磁珠</value>
+  </data>
+  <data name="BasicSetHead" xml:space="preserve">
+    <value>基础信息设置</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="D" xml:space="preserve">
+    <value>读数</value>
+  </data>
+  <data name="DepartAddInfo" xml:space="preserve">
+    <value>请先添加科室信息</value>
+  </data>
+  <data name="DepartAddSucess" xml:space="preserve">
+    <value>科室信息添加成功</value>
+  </data>
+  <data name="DepartAlterSucess" xml:space="preserve">
+    <value>科室信息修改成功</value>
+  </data>
+  <data name="DepartDeleteInfo" xml:space="preserve">
+    <value>该科室下存有医生信息，需删除该科室下所有医生信息后才可删除该科室信息</value>
+  </data>
+  <data name="DepartDeleteSucess" xml:space="preserve">
+    <value>科室信息删除成功</value>
+  </data>
+  <data name="DepartNameSet" xml:space="preserve">
+    <value>科室名称只能由二到十个汉字、字母、数字、星号、.、下划线组成！</value>
+  </data>
+  <data name="DepartReName" xml:space="preserve">
+    <value>科室信息不能重名</value>
+  </data>
+  <data name="DepartSDeleteInfo" xml:space="preserve">
+    <value>请选中要删除的信息</value>
+  </data>
+  <data name="DepartSelectInfo" xml:space="preserve">
+    <value>请选中修改项</value>
+  </data>
+  <data name="DoctorAddSucess" xml:space="preserve">
+    <value>医生信息添加成功</value>
+  </data>
+  <data name="DoctorDeleteSucess" xml:space="preserve">
+    <value>医生信息删除成功</value>
+  </data>
+  <data name="DoctorModifySucess" xml:space="preserve">
+    <value>医生信息修改成功</value>
+  </data>
+  <data name="DoctorNameSet" xml:space="preserve">
+    <value>医生姓名只能由二到十个汉字、字母、数字、星号、.或下划线组成！</value>
+  </data>
+  <data name="DoctorReName" xml:space="preserve">
+    <value>相同的科室下已有同名的医生</value>
+  </data>
+  <data name="DoctorSelectInfo" xml:space="preserve">
+    <value>请选择需要修改的医生信息</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="GroupAddSucess" xml:space="preserve">
+    <value>组合项目添加成功</value>
+  </data>
+  <data name="GroupDeleteSucess" xml:space="preserve">
+    <value>组合项目删除成功</value>
+  </data>
+  <data name="GroupModifySucess" xml:space="preserve">
+    <value>组合项目修改成功！</value>
+  </data>
+  <data name="GroupNameInfo" xml:space="preserve">
+    <value>组合项目名称只能由二到十个汉字、字母、星号、数字、.、下划线组成</value>
+  </data>
+  <data name="GroupReName" xml:space="preserve">
+    <value>组合项目不能重名</value>
+  </data>
+  <data name="GroupSDeleteInfo" xml:space="preserve">
+    <value>请选择要删除的组合项目</value>
+  </data>
+  <data name="GroupSItemInfo" xml:space="preserve">
+    <value>未选择实验项目，请选择</value>
+  </data>
+  <data name="GroupSModify" xml:space="preserve">
+    <value>修改组合项目前请先选中修改项</value>
+  </data>
+  <data name="H" xml:space="preserve">
+    <value>孵育</value>
+  </data>
+  <data name="HospitalName" xml:space="preserve">
+    <value>XXXX医院</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="PrinterSelect" xml:space="preserve">
+    <value>请选择默认的打印机</value>
+  </data>
+  <data name="PrinterSetFail" xml:space="preserve">
+    <value>设置为默认打印机失败！</value>
+  </data>
+  <data name="PrintHead" xml:space="preserve">
+    <value>打印设置</value>
+  </data>
+  <data name="PrintMode" xml:space="preserve">
+    <value>请选择打印模板</value>
+  </data>
+  <data name="PrintParaSetSucess" xml:space="preserve">
+    <value>打印参数设置成功</value>
+  </data>
+  <data name="ProjectDeleteSucess" xml:space="preserve">
+    <value>项目删除成功</value>
+  </data>
+  <data name="ProjectHead" xml:space="preserve">
+    <value>项目管理</value>
+  </data>
+  <data name="ProjectImportSucess" xml:space="preserve">
+    <value>导入项目成功</value>
+  </data>
+  <data name="ProjectIPFormat" xml:space="preserve">
+    <value>导入格式不正确</value>
+  </data>
+  <data name="ProjectReAdd" xml:space="preserve">
+    <value>项目已经存在，导入将删除原有项目，是否继续</value>
+  </data>
+  <data name="ProjectSaveError" xml:space="preserve">
+    <value>导入项目出错，请重新导入</value>
+  </data>
+  <data name="ProjectSaveSucess" xml:space="preserve">
+    <value>项目信息保存成功</value>
+  </data>
+  <data name="R1" xml:space="preserve">
+    <value>试剂1</value>
+  </data>
+  <data name="R2" xml:space="preserve">
+    <value>试剂2</value>
+  </data>
+  <data name="R3" xml:space="preserve">
+    <value>试剂3</value>
+  </data>
+  <data name="RD" xml:space="preserve">
+    <value>试剂D</value>
+  </data>
+  <data name="ReportNameSet" xml:space="preserve">
+    <value>报告名称只能由汉字、字母、数字、星号、.或下划线组成，且不能为空！</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>加样</value>
+  </data>
+  <data name="T" xml:space="preserve">
+    <value>加底物</value>
+  </data>
+  <data name="W" xml:space="preserve">
+    <value>清洗</value>
+  </data>
 </root>

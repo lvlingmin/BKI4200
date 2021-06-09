@@ -2444,4 +2444,164 @@
   <data name="cmbFormat.Items1" xml:space="preserve">
     <value>A5</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>Add beads</value>
+  </data>
+  <data name="BasicSetHead" xml:space="preserve">
+    <value>Basic information settings</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="D" xml:space="preserve">
+    <value>read</value>
+  </data>
+  <data name="DepartAddInfo" xml:space="preserve">
+    <value>Please add department information first</value>
+  </data>
+  <data name="DepartAddSucess" xml:space="preserve">
+    <value>Department information added successfully</value>
+  </data>
+  <data name="DepartAlterSucess" xml:space="preserve">
+    <value>Department information modified successfully</value>
+  </data>
+  <data name="DepartDeleteInfo" xml:space="preserve">
+    <value>There is doctor information in the Department. You need to delete all doctor information in the Department before deleting the Department information</value>
+  </data>
+  <data name="DepartDeleteSucess" xml:space="preserve">
+    <value>Department information deleted successfully</value>
+  </data>
+  <data name="DepartNameSet" xml:space="preserve">
+    <value>Department name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,..., underscores!</value>
+  </data>
+  <data name="DepartReName" xml:space="preserve">
+    <value>Department information cannot have the same name
+</value>
+  </data>
+  <data name="DepartSDeleteInfo" xml:space="preserve">
+    <value>Please select the information to delete</value>
+  </data>
+  <data name="DepartSelectInfo" xml:space="preserve">
+    <value>Please select the modified item</value>
+  </data>
+  <data name="DoctorAddSucess" xml:space="preserve">
+    <value>Doctor information added successfully</value>
+  </data>
+  <data name="DoctorDeleteSucess" xml:space="preserve">
+    <value>Doctor information deleted successfully</value>
+  </data>
+  <data name="DoctorModifySucess" xml:space="preserve">
+    <value>Doctor information modified successfully</value>
+  </data>
+  <data name="DoctorNameSet" xml:space="preserve">
+    <value>Doctor's name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,. Or underscores!</value>
+  </data>
+  <data name="DoctorReName" xml:space="preserve">
+    <value>There are doctors with the same name in the same department</value>
+  </data>
+  <data name="DoctorSelectInfo" xml:space="preserve">
+    <value>Please select the doctor information to be modified</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>file</value>
+  </data>
+  <data name="GroupAddSucess" xml:space="preserve">
+    <value>Portfolio item added successfully</value>
+  </data>
+  <data name="GroupDeleteSucess" xml:space="preserve">
+    <value>Combination item deleted successfully</value>
+  </data>
+  <data name="GroupModifySucess" xml:space="preserve">
+    <value>Modification of combination project succeeded!</value>
+  </data>
+  <data name="GroupNameInfo" xml:space="preserve">
+    <value>The combination item name can only be composed of two to ten Chinese characters, letters, asterisks, numbers,..., and underscores</value>
+  </data>
+  <data name="GroupReName" xml:space="preserve">
+    <value>Portfolio items cannot have the same name</value>
+  </data>
+  <data name="GroupSDeleteInfo" xml:space="preserve">
+    <value>Please select the combination item to delete</value>
+  </data>
+  <data name="GroupSItemInfo" xml:space="preserve">
+    <value>No experiment item selected, please select</value>
+  </data>
+  <data name="GroupSModify" xml:space="preserve">
+    <value>Please select the modification item before modifying the combination item</value>
+  </data>
+  <data name="H" xml:space="preserve">
+    <value>Incubation</value>
+  </data>
+  <data name="HospitalName" xml:space="preserve">
+    <value>XXX hospital</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>modify</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>normal</value>
+  </data>
+  <data name="PrinterSelect" xml:space="preserve">
+    <value>Please select the default printer</value>
+  </data>
+  <data name="PrinterSetFail" xml:space="preserve">
+    <value>Setting default printer failed!</value>
+  </data>
+  <data name="PrintHead" xml:space="preserve">
+    <value>Print settings</value>
+  </data>
+  <data name="PrintMode" xml:space="preserve">
+    <value>Please select print template</value>
+  </data>
+  <data name="PrintParaSetSucess" xml:space="preserve">
+    <value>Print parameters set successfully</value>
+  </data>
+  <data name="ProjectDeleteSucess" xml:space="preserve">
+    <value>project deleted successfully</value>
+  </data>
+  <data name="ProjectHead" xml:space="preserve">
+    <value>project management</value>
+  </data>
+  <data name="ProjectImportSucess" xml:space="preserve">
+    <value>Import project succeeded</value>
+  </data>
+  <data name="ProjectIPFormat" xml:space="preserve">
+    <value>Import format error</value>
+  </data>
+  <data name="ProjectReAdd" xml:space="preserve">
+    <value>The project already exists. Importing will delete the original project. Do you want to continue</value>
+  </data>
+  <data name="ProjectSaveError" xml:space="preserve">
+    <value>Error importing project, please import again</value>
+  </data>
+  <data name="ProjectSaveSucess" xml:space="preserve">
+    <value>Project information saved successfully</value>
+  </data>
+  <data name="R1" xml:space="preserve">
+    <value>Reagent 1</value>
+  </data>
+  <data name="R2" xml:space="preserve">
+    <value>Reagent 2</value>
+  </data>
+  <data name="R3" xml:space="preserve">
+    <value>Reagent 3</value>
+  </data>
+  <data name="RD" xml:space="preserve">
+    <value>Reagent D</value>
+  </data>
+  <data name="ReportNameSet" xml:space="preserve">
+    <value>The report name can only be composed of Chinese characters, letters, numbers, asterisks,. Or underscores, and cannot be empty!</value>
+  </data>
+  <data name="S" xml:space="preserve">
+    <value>Add sample</value>
+  </data>
+  <data name="T" xml:space="preserve">
+    <value>Adding substrate</value>
+  </data>
+  <data name="W" xml:space="preserve">
+    <value>Wash</value>
+  </data>
 </root>
