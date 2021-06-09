@@ -413,6 +413,8 @@ namespace BioBaseCLIA.Run
             //如果登录账号没有管理员权限，则移除“交叉污染样品项目”
             if (frmParent.LoginUserType == "0") //lyq 1114
             {
+                if (cmbSpType.Items.IndexOf("交叉污染检测") < 0) return;
+
                 cmbSpType.Items.RemoveAt(cmbSpType.Items.IndexOf("交叉污染检测"));
             }
 
