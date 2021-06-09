@@ -7866,6 +7866,8 @@ namespace BioBaseCLIA.Run
         }
         private void setmainformbutten()//更改主界面按钮颜色
         {
+            if (this.Parent.Parent == null) return;
+
             if (this.Parent.Parent is frmMain)
             {
                 ((frmMain)this.Parent.Parent).LogBtnColorChange(1);
