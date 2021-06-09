@@ -10169,6 +10169,11 @@ namespace BioBaseCLIA.Run
                     #endregion
                     #endregion
                 }
+
+                if (sampleType.Contains("标准") || sampleType.Contains("质控"))
+                {
+                    result = "";
+                }
                 #endregion
             }
             #endregion
