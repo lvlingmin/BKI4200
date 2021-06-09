@@ -2401,6 +2401,9 @@
   <data name="cmbSpType.Items8" xml:space="preserve">
     <value>质控品H</value>
   </data>
+  <data name="cmbSpType.Items9" xml:space="preserve">
+    <value>交叉污染检测</value>
+  </data>
   <data name="cmbSpType.Location" type="System.Drawing.Point, System.Drawing">
     <value>276, 35</value>
   </data>
