@@ -156,7 +156,7 @@ namespace BioBaseCLIA.DataQuery
                 DataRow[] dr = dtRgInfo.Select("Batch='" + dgvSampleData.Rows[i].Cells["ReagentBeach"].Value + "'");
                 if (dr.Length > 0)
                 {
-                    if (Convert.ToDateTime(dr[0]["ValidDate"]) < DateTime.Now.Date)
+                    if (Convert.ToDateTime(dr[0]["ValidDate"]) < Convert.ToDateTime(dgvSampleData.Rows[i].Cells["TestDate"].Value))
                     {
                         dgvSampleData.Rows[i].Cells["ItemName"].Style.BackColor = Color.Pink;
                         //dgvSampleData.Rows[i].DefaultCellStyle.BackColor = Color.Pink;
