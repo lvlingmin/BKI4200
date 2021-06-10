@@ -402,7 +402,10 @@ namespace BioBaseCLIA.DataQuery
             {
                 string batchDate = decryption.Substring(1, 3);//批号日期
                 int testN = Convert.ToInt32(decryption.Substring(4, 3), 16);//测试次数
-                int serialNum = Convert.ToInt32(decryption.Substring(7, 4), 16);//流水号
+                string productDate = decryption.Substring(7, 1);//生产日期
+                string serialNum = decryption.Substring(8, 3);//流水号
+                //int serialNum = Convert.ToInt32(decryption.Substring(8, 3), 16);//流水号
+
                 string year = "", month = "", day = "";
                 try
                 {
@@ -414,7 +417,6 @@ namespace BioBaseCLIA.DataQuery
                 {
                     return false;
                 }
-
                 while (year.Length < 4)
                 {
                     year = year.Insert(0, "20");
@@ -427,18 +429,45 @@ namespace BioBaseCLIA.DataQuery
                 {
                     day = day.Insert(0, "0");
                 }
-
                 int batchTime = int.Parse(year + month + day);
-                int check = (10 + batchTime + testN + serialNum) % 7;
+
+                #region productDate
+                if (productDate == "0")//旧版没有生产日期
+                {
+                    serialNum = Convert.ToInt32(serialNum, 16).ToString();
+                }
+                else//添加了生产日期
+                {
+                    if (productDate == "z")
+                    {
+                        productDate = "0";
+                    }
+                    else
+                    {
+                        productDate = StringUtils.instance.reverseDate(productDate.ToCharArray()[0]);
+                    }
+                    
+                    //添加生产日期后的流水号
+                    string tempNum1 = serialNum.Substring(0, 1);
+                    string tempNum2 = serialNum.Substring(1, 1);
+                    string tempNum3 = serialNum.Substring(2, 1);
+                    tempNum1 = (int.Parse(StringUtils.instance.reverseDate(tempNum1.ToCharArray()[0])) * Math.Pow(62, 2)).ToString();
+                    tempNum2 = (int.Parse(StringUtils.instance.reverseDate(tempNum2.ToCharArray()[0])) * Math.Pow(62, 1)).ToString();
+                    tempNum3 = (int.Parse(StringUtils.instance.reverseDate(tempNum3.ToCharArray()[0])) * Math.Pow(62, 0)).ToString();
+                    serialNum = (int.Parse(tempNum1) + int.Parse(tempNum2) + int.Parse(tempNum3)).ToString();
+                }
+                #endregion
+
+                int check = (10 + batchTime + testN + int.Parse(productDate) +int.Parse(serialNum)) % 7;
                 if (decryption.Substring(11, 1) != check.ToString())
                 {
                     return false;
                 }
-
+                productDate = DateTime.Parse(year + "/" + month + "/" + day).AddDays(double.Parse(productDate)).ToString("yyyyMMdd");
                 testNum = testN.ToString();
                 try
                 {
-                    dtime = DateTime.ParseExact(batchTime.ToString(), "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
+                    dtime = DateTime.ParseExact(productDate, "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
                 }
                 catch
                 {
