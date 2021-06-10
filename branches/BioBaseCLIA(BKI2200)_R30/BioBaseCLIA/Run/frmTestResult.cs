@@ -63,6 +63,8 @@ namespace BioBaseCLIA.Run
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
+
+            dgvResultData.AutoGenerateColumns = false;
         }
 
         private void frmTestResult_Load(object sender, EventArgs e)
@@ -113,7 +115,7 @@ namespace BioBaseCLIA.Run
                 DataRow[] dr = dtRgInfo.Select("Batch='" + dgvResultData.Rows[i].Cells["ReagentBeach"].Value + "'");
                 if (dr.Length > 0)
                 {
-                    if (Convert.ToDateTime(dr[0]["ValidDate"]) < DateTime.Now.Date)
+                    if (Convert.ToDateTime(dr[0]["ValidDate"]) < Convert.ToDateTime(dgvResultData.Rows[i].Cells["ResultDatetime"].Value))
                     {
                         dgvResultData.Rows[i].Cells["ItemName"].Style.BackColor = Color.Pink;
                     }
@@ -800,7 +802,7 @@ namespace BioBaseCLIA.Run
             DataRow[] dr = dtRgInfo.Select("Batch='" + dgvResultData.Rows[dgvResultData.Rows.Count - 1].Cells["ReagentBeach"].Value + "'");
             if (dr.Length > 0)
             {
-                if (Convert.ToDateTime(dr[0]["ValidDate"]) < DateTime.Now.Date)
+                if (Convert.ToDateTime(dr[0]["ValidDate"]) < Convert.ToDateTime(dgvResultData.Rows[dgvResultData.Rows.Count - 1].Cells["ResultDatetime"].Value))
                 {
                     dgvResultData.Rows[dgvResultData.Rows.Count - 1].Cells["ItemName"].Style.BackColor = Color.Pink;
                 }

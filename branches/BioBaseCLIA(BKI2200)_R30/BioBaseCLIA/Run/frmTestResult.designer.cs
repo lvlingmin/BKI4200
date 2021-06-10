@@ -62,6 +62,7 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubstratePipe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultDatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultData)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -96,7 +97,8 @@
             this.ReagentBeach,
             this.Status,
             this.sco,
-            this.SubstratePipe});
+            this.SubstratePipe,
+            this.ResultDatetime});
             resources.ApplyResources(this.dgvResultData, "dgvResultData");
             this.dgvResultData.Name = "dgvResultData";
             this.dgvResultData.ReadOnly = true;
@@ -431,6 +433,13 @@
             this.SubstratePipe.ReadOnly = true;
             this.SubstratePipe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // ResultDatetime
+            // 
+            this.ResultDatetime.DataPropertyName = "ResultDatetime";
+            resources.ApplyResources(this.ResultDatetime, "ResultDatetime");
+            this.ResultDatetime.Name = "ResultDatetime";
+            this.ResultDatetime.ReadOnly = true;
+            // 
             // frmTestResult
             // 
             resources.ApplyResources(this, "$this");
@@ -485,5 +494,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn sco;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubstratePipe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResultDatetime;
     }
 }
