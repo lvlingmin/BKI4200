@@ -10198,6 +10198,7 @@ namespace BioBaseCLIA.Run
             testResult.ReagentBeach = dgvWorkListData.Rows[testid - 1].Cells["RegentBatch"].Value.ToString();
             testResult.SubstratePipe = dgvWorkListData.Rows[testid - 1].Cells["SubstratePipe"].Value.ToString();
             testResult.Unit = Unit;//2018-11-10 zlx add
+            testResult.ResultDatetime = DateTime.Now;
 
             SaveTestResultData(BToListTi, lis1, lis2);
 
