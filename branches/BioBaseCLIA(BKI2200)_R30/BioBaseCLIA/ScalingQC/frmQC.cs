@@ -105,6 +105,7 @@ namespace BioBaseCLIA.ScalingQC
             }
             #endregion            
             #endregion
+            cmbBype.DataSource = new string[3] { getString("keywordText.High"), getString("keywordText.Middle"), getString("keywordText.Low") };
         }
         #region 质控管理
         /// <summary>
@@ -220,6 +221,10 @@ namespace BioBaseCLIA.ScalingQC
                 if (chk10x.Checked)
                 {
                     rl += ",5";
+                }
+                if(rl.Substring(0,1) == ",")
+                {
+                    rl = rl.Substring(1, rl.Length - 1);
                 }
                 mQC.QCRules = rl;
                 if (bllQC.Add(mQC))
@@ -784,6 +789,10 @@ namespace BioBaseCLIA.ScalingQC
 
         private void fbtnPrint_MouseDown(object sender, MouseEventArgs e)
         {
+            if (dgvQCValue.Rows.Count < 1)
+            {
+                return;
+            }
             DataTable dtPrint;
             if (tabControl1.SelectedIndex == 0)
                 dtPrint = dtQCValue;
@@ -853,6 +862,10 @@ namespace BioBaseCLIA.ScalingQC
 
         private void fbtnDelete_Click(object sender, EventArgs e)
         {
+            if(dgvQCValue.Rows.Count < 1)
+            {
+                return;
+            }
             int index = dgvQCValue.CurrentRow.Index; //lyq 20190911
             bool updFlag = false; //lyq 190911
             
