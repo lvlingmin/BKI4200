@@ -129,8 +129,12 @@ namespace BioBaseCLIA.Run
        /// 取值单位 2018-11-10 zlx add
        /// </summary>
        public string Unit { get; set; }
+        /// <summary>
+        /// 得到实验结果时间
+        /// </summary>
+        public DateTime ResultDatetime { get; set; }
 
-       object ICloneable.Clone()
+        object ICloneable.Clone()
        {
            return this.Clone();
        }
