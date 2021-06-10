@@ -66,7 +66,10 @@ namespace DBUtility
             }
             else
             {
-                date = ((oriDate - 'A') + 10).ToString();
+                int temp = 10;
+                if (oriDate > 'Z')
+                    temp -= 6;
+                date = ((oriDate - 'A') + temp).ToString();
             }
             return date;
         }
