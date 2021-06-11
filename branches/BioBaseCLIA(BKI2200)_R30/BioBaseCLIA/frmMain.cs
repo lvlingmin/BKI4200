@@ -1571,6 +1571,7 @@ namespace BioBaseCLIA
                 NetCom3.Instance.ConnectServer();
 
                 if (!NetCom3.isConnect)
+
                 {
                     frmMessageShow frmMS = new frmMessageShow();
                     frmMS.MessageShow(GetString("Tips"),GetString("Unableconnect"));
@@ -1579,6 +1580,19 @@ namespace BioBaseCLIA
                 }
                 else
                 {
+                    #region 判断各个模组是否握手成功
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 F1 01"), 5);
+                    if (!NetCom3.Instance.SingleQuery())
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            MessageBox.Show(GetString("InitExcetion"), GetString("MessageboxTitle"),
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }));
+                        return;
+                    }
+                    #endregion
+
                     NetCom3.Instance.SendHeartbeat();
                     fbtnTest.Enabled = true;
                     fbtnMaintenance.Enabled = true;
