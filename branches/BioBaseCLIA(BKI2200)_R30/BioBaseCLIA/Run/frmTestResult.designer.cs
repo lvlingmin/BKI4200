@@ -77,6 +77,7 @@
             // 
             this.dgvResultData.AllowUserToAddRows = false;
             this.dgvResultData.AllowUserToDeleteRows = false;
+            this.dgvResultData.AllowUserToOrderColumns = true;
             this.dgvResultData.AllowUserToResizeColumns = false;
             this.dgvResultData.AllowUserToResizeRows = false;
             this.dgvResultData.BackgroundColor = System.Drawing.Color.White;
@@ -291,7 +292,6 @@
             resources.ApplyResources(this.SampleID, "SampleID");
             this.SampleID.Name = "SampleID";
             this.SampleID.ReadOnly = true;
-            this.SampleID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // No
             // 
@@ -301,7 +301,6 @@
             resources.ApplyResources(this.No, "No");
             this.No.Name = "No";
             this.No.ReadOnly = true;
-            this.No.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SampleNo
             // 
@@ -311,7 +310,6 @@
             resources.ApplyResources(this.SampleNo, "SampleNo");
             this.SampleNo.Name = "SampleNo";
             this.SampleNo.ReadOnly = true;
-            this.SampleNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Position
             // 
@@ -321,7 +319,6 @@
             resources.ApplyResources(this.Position, "Position");
             this.Position.Name = "Position";
             this.Position.ReadOnly = true;
-            this.Position.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SampleType
             // 
@@ -331,7 +328,6 @@
             resources.ApplyResources(this.SampleType, "SampleType");
             this.SampleType.Name = "SampleType";
             this.SampleType.ReadOnly = true;
-            this.SampleType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ItemName
             // 
@@ -341,7 +337,6 @@
             resources.ApplyResources(this.ItemName, "ItemName");
             this.ItemName.Name = "ItemName";
             this.ItemName.ReadOnly = true;
-            this.ItemName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // PMT
             // 
@@ -351,7 +346,6 @@
             resources.ApplyResources(this.PMT, "PMT");
             this.PMT.Name = "PMT";
             this.PMT.ReadOnly = true;
-            this.PMT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Concentration
             // 
@@ -361,7 +355,6 @@
             resources.ApplyResources(this.Concentration, "Concentration");
             this.Concentration.Name = "Concentration";
             this.Concentration.ReadOnly = true;
-            this.Concentration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Unit
             // 
@@ -371,7 +364,6 @@
             resources.ApplyResources(this.Unit, "Unit");
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
-            this.Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Result
             // 
@@ -381,7 +373,6 @@
             resources.ApplyResources(this.Result, "Result");
             this.Result.Name = "Result";
             this.Result.ReadOnly = true;
-            this.Result.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Range1
             // 
@@ -390,7 +381,6 @@
             resources.ApplyResources(this.Range1, "Range1");
             this.Range1.Name = "Range1";
             this.Range1.ReadOnly = true;
-            this.Range1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Range2
             // 
@@ -399,7 +389,6 @@
             resources.ApplyResources(this.Range2, "Range2");
             this.Range2.Name = "Range2";
             this.Range2.ReadOnly = true;
-            this.Range2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ReagentBeach
             // 
@@ -407,7 +396,6 @@
             resources.ApplyResources(this.ReagentBeach, "ReagentBeach");
             this.ReagentBeach.Name = "ReagentBeach";
             this.ReagentBeach.ReadOnly = true;
-            this.ReagentBeach.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Status
             // 
@@ -415,7 +403,6 @@
             resources.ApplyResources(this.Status, "Status");
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // sco
             // 
@@ -423,7 +410,6 @@
             resources.ApplyResources(this.sco, "sco");
             this.sco.Name = "sco";
             this.sco.ReadOnly = true;
-            this.sco.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SubstratePipe
             // 
@@ -431,7 +417,6 @@
             resources.ApplyResources(this.SubstratePipe, "SubstratePipe");
             this.SubstratePipe.Name = "SubstratePipe";
             this.SubstratePipe.ReadOnly = true;
-            this.SubstratePipe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ResultDatetime
             // 
