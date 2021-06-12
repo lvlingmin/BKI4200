@@ -148,6 +148,10 @@ namespace BioBaseCLIA.SysMaintenance
         string showLog = "";
         //暂存盘是否有管
         bool AgingHaveTube = false;
+        //lyq add 20210612
+        int isRackTakefromAging = 0;
+        double RackTakeCarryRecordNum = 0;//老化测试，暂存盘取管执行次数记录
+        double RackTakeSuccessRecordNum = 0; //老化测试，暂存盘取管成功次数记录
         #endregion
         public frmDiagnost()
         {
@@ -6207,7 +6211,26 @@ namespace BioBaseCLIA.SysMaintenance
         private void fbtnMoveAgingStop_Click(object sender, EventArgs e)
         {
             txtmoveNum.ReadOnly = false;
-            NetCom3.Instance.ReceiveHandel -= dealAgingBack;
+            if(isRackTakefromAging > 0)
+            {
+                BeginInvoke(new Action(()=>
+                {
+                    NetCom3.Instance.WashQuery();
+                    NetCom3.Instance.ReceiveHandel -= dealAgingBack;
+                    if (cmbRackTakeType.Text.Contains("执行次数"))
+                    {
+                        textRackTakeRecord.Text = RackTakeCarryRecordNum.ToString();
+                    }
+                    else if (cmbRackTakeType.Text.Contains("取出管次数"))
+                    {
+                        textRackTakeRecord.Text = RackTakeSuccessRecordNum.ToString();
+                    }
+                    else
+                        textRackTakeRecord.Text = "0";
+                }));
+            }
+            else
+                NetCom3.Instance.ReceiveHandel -= dealAgingBack;
             if (AgingTestRun != null)
                 AgingTestRun.Abort();
             ControlIntit();
@@ -6306,11 +6329,15 @@ namespace BioBaseCLIA.SysMaintenance
             NetCom3.Instance.ReceiveHandel += dealAgingBack;
             AgingTestRun.Name = "AgingTestRun";
             threadList.Add(AgingTestRun);
+            Invoke(new Action(() =>
+            { textRackTakeRecord.Text = "0"; }));
             if (fbtnMoveAgingStop.Enabled)
             {
                 #region 移管手
                 LogFileRtest.Instance.Bcount = true;
                 LogFileRtest.Instance.Testcount = 0;
+                RackTakeCarryRecordNum = 0;//老化测试，暂存盘取管执行次数记录
+                RackTakeSuccessRecordNum = 0; //老化测试，暂存盘取管成功次数记录
                 //总测试数
                 int testNum = int.Parse(txtmoveNum.Text);
                 //夹管临时计数
@@ -6371,7 +6398,7 @@ namespace BioBaseCLIA.SysMaintenance
                             }));
                             //管架取管放到温育盘
                             ReactNewTube:
-                            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 01 " + CurrentReactPos.ToString("x2")), 1);
+                            rackMoveSend("EB 90 31 01 01 " + CurrentReactPos.ToString("x2"));
                             if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag != (int)ErrorState.IsNull)
                             {
                                 if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.LackTube)
@@ -6517,7 +6544,7 @@ namespace BioBaseCLIA.SysMaintenance
                             }));
                             //管架取管放到清洗盘
                             WashNewTube:
-                            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 06"), 1);
+                            rackMoveSend("EB 90 31 01 06");
                             if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag != (int)ErrorState.IsNull)
                             {
                                 if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.LackTube)
@@ -6653,7 +6680,7 @@ namespace BioBaseCLIA.SysMaintenance
                             txtAgingInfoShow.AppendText("移管手正在暂存盘扔第" + ++num + "个管" + Environment.NewLine);
                         }));
                         AgainNewMove:
-                        NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 07"), 1);
+                        rackMoveSend("EB 90 31 01 07");
                         if (!NetCom3.Instance.MoveQuery())
                         {
                             #region 异常处理                            
@@ -6763,7 +6790,7 @@ namespace BioBaseCLIA.SysMaintenance
                         }));
                         //管架取管放到清洗盘
                         AgainReactAndWash:
-                        NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 06"), 1);
+                        rackMoveSend("EB 90 31 01 06");
                         if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag != (int)ErrorState.IsNull)
                         {
                             if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.LackTube)
@@ -6973,7 +7000,7 @@ namespace BioBaseCLIA.SysMaintenance
                         //int column = CurrentTubePos % 11 == 0 ? CurrentTubePos / 11 - (plate * 8) : CurrentTubePos / 11 + 1 - (plate * 8);
                         //int hole = CurrentTubePos % 11 == 0 ? 11 : CurrentTubePos % 11;
                         //管架取管放到温育盘
-                        NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 01 " + CurrentReactPos.ToString("x2")), 1);
+                        rackMoveSend("EB 90 31 01 01 " + CurrentReactPos.ToString("x2"));
                         if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag != (int)ErrorState.IsNull)
                         {
                             BeginInvoke(new Action(() =>
@@ -7155,7 +7182,7 @@ namespace BioBaseCLIA.SysMaintenance
                         //int column = CurrentTubePos % 11 == 0 ? CurrentTubePos / 11 - (plate * 8) : CurrentTubePos / 11 + 1 - (plate * 8);
                         //int hole = CurrentTubePos % 11 == 0 ? 11 : CurrentTubePos % 11;
                         //管架取管放到清洗盘
-                        NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 06"), 1);
+                        rackMoveSend("EB 90 31 01 06");
                         if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag != (int)ErrorState.IsNull)
                         {
                             BeginInvoke(new Action(() =>
@@ -7272,8 +7299,33 @@ namespace BioBaseCLIA.SysMaintenance
                 txtAgingInfoShow.AppendText("--------------------------测试完成--------------------------" + Environment.NewLine);
                 txtmoveNum.ReadOnly = false;
             }));
-            ControlIntit();
-            NetCom3.Instance.ReceiveHandel -= dealAgingBack;
+            if (isRackTakefromAging > 0)
+            {
+                Invoke(new Action(() =>
+                {
+                    NetCom3.Instance.WashQuery();
+                    ControlIntit();
+                    NetCom3.Instance.ReceiveHandel -= dealAgingBack;
+                }));
+            }
+            else
+            {
+                ControlIntit();
+                NetCom3.Instance.ReceiveHandel -= dealAgingBack;
+            }
+            Invoke(new Action(() =>
+            {
+                if (cmbRackTakeType.Text.Contains("执行次数"))
+                {
+                    textRackTakeRecord.Text = RackTakeCarryRecordNum.ToString();
+                }
+                else if (cmbRackTakeType.Text.Contains("取出管次数"))
+                {
+                    textRackTakeRecord.Text = RackTakeSuccessRecordNum.ToString();
+                }
+                else
+                    textRackTakeRecord.Text = "0";
+            }));
         }
 
         #endregion
@@ -8216,6 +8268,10 @@ namespace BioBaseCLIA.SysMaintenance
                 int flag = -1;
                 if (bit != Byte.MaxValue)
                 {
+                    if (isRackTakefromAging > 0)
+                    {
+                        isRackTakefromAging--;
+                    }
                     temp = Convert.ToString(bit, 2);
                     while (temp.Length < 8)
                     {
@@ -8247,6 +8303,24 @@ namespace BioBaseCLIA.SysMaintenance
                             txtTestErrorShow.AppendText(DateTime.Now.ToString("HH:mm:ss->") + log + "——" + State[flag] + Environment.NewLine);
 
                         }));
+                }
+                else if(isRackTakefromAging > 0)
+                {
+                    isRackTakefromAging--;
+                    RackTakeSuccessRecordNum++;
+                    //Invoke(new Action(() =>
+                    //{
+                    //    if (cmbRackTakeType.Text.Contains("执行次数"))
+                    //    {
+                    //        textRackTakeRecord.Text = RackTakeCarryRecordNum.ToString();
+                    //    }
+                    //    else if (cmbRackTakeType.Text.Contains("取出管次数"))
+                    //    {
+                    //        textRackTakeRecord.Text = RackTakeSuccessRecordNum.ToString();
+                    //    }
+                    //    else
+                    //        textRackTakeRecord.Text = "0";
+                    //}));
                 }
             }
             else if (order.Contains("EB 90 31 A2"))
@@ -8340,6 +8414,7 @@ namespace BioBaseCLIA.SysMaintenance
                 untxtSampleVol.Enabled = true;
                 untxtSamplePos.Enabled = true;
                 untxtReadNum.Enabled = true;
+                untxtInjection.Enabled = true;
                 untxtPos2.MaxValue = frmParent.ReactTrayNum;
             }
             else
@@ -8349,6 +8424,7 @@ namespace BioBaseCLIA.SysMaintenance
                 untxtSampleVol.Enabled = false;
                 untxtSamplePos.Enabled = false;
                 untxtReadNum.Enabled = false;
+                untxtInjection.Enabled = false;
             }
         }
 
@@ -10401,6 +10477,20 @@ namespace BioBaseCLIA.SysMaintenance
             }
         }
 
+        private void cmbRackTakeType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRackTakeType.Text.Contains("执行次数"))
+            {
+                textRackTakeRecord.Text = RackTakeCarryRecordNum.ToString();
+            }
+            else if (cmbRackTakeType.Text.Contains("取出管次数"))
+            {
+                textRackTakeRecord.Text = RackTakeSuccessRecordNum.ToString();
+            }
+            else
+                textRackTakeRecord.Text = "0";
+        }
+
         ////添加一个清洗盘个数移动，TextChanged验证是否是数字  jun add，2019/2/18
         //private string pattern = @"^[\-]?[0-9]*$";
         //private string temp = String.Empty;
@@ -10441,6 +10531,32 @@ namespace BioBaseCLIA.SysMaintenance
             {
                 this.Close();
             }));
+        }
+        private void rackMoveSend(string order)
+        {
+            if(!order.Contains("EB 90 31 01"))
+            {
+                MessageBox.Show("指令异常！");
+                Environment.Exit(0);
+            }    
+            isRackTakefromAging++;//标志
+            RackTakeCarryRecordNum++;//执行次数加1
+            NetCom3.Instance.Send(NetCom3.Cover(order), 1);
+            //成功判断在dealAging中执行
+            Invoke(new Action(() =>
+            {
+                if (cmbRackTakeType.Text.Contains("执行次数"))
+                {
+                    textRackTakeRecord.Text = RackTakeCarryRecordNum.ToString();
+                }
+                else if (cmbRackTakeType.Text.Contains("取出管次数"))
+                {
+                    textRackTakeRecord.Text = RackTakeSuccessRecordNum.ToString();
+                }
+                else
+                    textRackTakeRecord.Text = "0";
+            }));
+
         }
     }
 }
