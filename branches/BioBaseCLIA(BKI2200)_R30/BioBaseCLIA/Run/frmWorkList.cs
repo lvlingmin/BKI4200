@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using BioBaseCLIA.CalculateCurve;
+using BioBaseCLIA.DataQuery;
 using BioBaseCLIA.InfoSetting;
 using Common;
 using Maticsoft.DBUtility;
@@ -11876,6 +11877,46 @@ namespace BioBaseCLIA.Run
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void fbtnPatientInfo_Click(object sender, EventArgs e)
+        {
+            #region 提示
+            if (dgvWorkListData.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("请选择要进行信息设置样本.", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (IsSelectedRowsExitStandard())
+            {
+                MessageBox.Show("标准品，质控品请勿操作.", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            #endregion
+
+            #region 设置
+            string sampleNo = dgvWorkListData.SelectedRows[0].Cells["SampleNo"].Value.ToString();
+            string sampleID = dgvWorkListData.SelectedRows[0].Cells["SampleID"].Value.ToString();
+
+            frmPatientInfo frmPI = new frmPatientInfo();
+            frmPI.SampleID = int.Parse(sampleID);
+            frmPI.LoginGName = LoginGName;
+            if (frmPI.ShowDialog() != DialogResult.OK) return;
+            #endregion
+        }
+
+        bool IsSelectedRowsExitStandard()
+        {
+            bool isExitStandard = false;
+            for (int m = 0; m < dgvWorkListData.SelectedRows.Count; m++)
+            {
+                string sampleType = dgvWorkListData.SelectedRows[m].Cells["SampleType"].Value.ToString();
+
+                if (sampleType.Contains("标准") || sampleType.Contains("质控")
+                    || sampleType.Contains("校准品") || sampleType.Contains("定标液")) return true;
+            }
+
+            return isExitStandard;
         }
     }
     public class TestResultInfo
