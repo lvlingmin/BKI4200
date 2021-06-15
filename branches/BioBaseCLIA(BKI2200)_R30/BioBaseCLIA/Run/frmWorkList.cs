@@ -11246,7 +11246,15 @@ namespace BioBaseCLIA.Run
             int viewRows = this.dgvWorkListData.DisplayedRowCount(true);
             for (int i = firstViewRowIndex; i < firstViewRowIndex + viewRows; i++)
             {
-                proBar = lisProBar[i];
+                try
+                {
+                    proBar = lisProBar[i];
+                }
+                catch (IndexOutOfRangeException exception) 
+                {
+                    LogFile.Instance.Write(DateTime.Now.ToString("mm:ss:ms") + " 记录进度条数组越界异常");
+                }
+               
                 #region 获取显示在界面上的进度列表单元格的大小并赋值给进度控件
                 proBar.Tag = dgvWorkListData.Rows[i].Cells[6].Tag;
                 Rectangle rec = this.dgvWorkListData.GetCellDisplayRectangle(6, i, false);
