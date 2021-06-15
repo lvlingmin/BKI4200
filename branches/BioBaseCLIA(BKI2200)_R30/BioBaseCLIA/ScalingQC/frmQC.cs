@@ -300,6 +300,8 @@ namespace BioBaseCLIA.ScalingQC
 
         private void btnDeleteQC_Click(object sender, EventArgs e)
         {
+            if (dgvQCInfo.SelectedRows.Count < 1) return;
+
             if (btnDeleteQC.Text.Trim() == getString("keywordText.Delete"))
             {
                 DbHelperOleDb db = new DbHelperOleDb(3);
