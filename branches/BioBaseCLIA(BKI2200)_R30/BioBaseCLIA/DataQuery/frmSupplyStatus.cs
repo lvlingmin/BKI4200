@@ -487,10 +487,11 @@ namespace BioBaseCLIA.DataQuery
                 return;
             }
             DbHelperOleDb db = new DbHelperOleDb(3);
-            DataTable dtSb = bllsb.GetList("Status='"+Getstring("normal") +"'and SubstrateNumber = '" + CurBottle.ToString()+ "'").Tables[0];
+            //DataTable dtSb = bllsb.GetList("Status='"+Getstring("normal") +"'and SubstrateNumber = '" + CurBottle.ToString()+ "'").Tables[0];
+            DataTable dtSb = bllsb.GetList("Status='正常'and SubstrateNumber = '" + CurBottle.ToString() + "'").Tables[0];
             Model.tbSubstrate modelSb = new Model.tbSubstrate();
             modelSb = bllsb.GetModel(int.Parse(dtSb.Rows[0]["SubstrateID"].ToString()));
-            modelSb.Status = Getstring("uninstall");
+            modelSb.Status = "卸载"/*Getstring("uninstall")*/;
             if (bllsb.Update(modelSb))
             {
                 frmMsgShow.MessageShow(Getstring("MessageHead1"), Getstring("UnstallSubSucess"));
