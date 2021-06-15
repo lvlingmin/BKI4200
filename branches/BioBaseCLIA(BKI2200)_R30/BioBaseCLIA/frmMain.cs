@@ -1496,6 +1496,7 @@ namespace BioBaseCLIA
                 {
                     new Thread(new ParameterizedThreadStart((obj) =>
                     {
+                        SetCultureInfo();
                         frmMessageShow f = new frmMessageShow();
                         f.MessageShow(GetString("Temperaturewarning"), st.ToString() + st2.ToString());
                     })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
@@ -1511,6 +1512,7 @@ namespace BioBaseCLIA
                 {
                     new Thread(new ParameterizedThreadStart((obj) =>
                     {
+                        SetCultureInfo();
                         frmMessageShow f = new frmMessageShow();
                         f.MessageShow(GetString("Temperaturewarning"),GetString("Standardtemperature"));
                     })) { IsBackground = true ,CurrentCulture = Language.AppCultureInfo,CurrentUICulture = Language.AppCultureInfo}.Start();
@@ -1533,7 +1535,7 @@ namespace BioBaseCLIA
                   if (!Selectlist.Contains("EB 90 11 07 04") && Temprrature[3] == 0)
                       Selectlist.Add("EB 90 11 07 04");
               }
-              Thread.Sleep(100);
+              //Thread.Sleep(100);
             alarmOfTemperature(true,"04,05,06,07");
         }
 

@@ -510,28 +510,28 @@
 </value>
   </data>
   <data name="Alarmfailed" xml:space="preserve">
-    <value>The alarm module handshake failed!\n</value>
+    <value>The alarm module handshake failed!</value>
   </data>
   <data name="Cleanfailed" xml:space="preserve">
-    <value>The cleaning module handshake failed!\n</value>
+    <value>The cleaning module handshake failed!</value>
   </data>
   <data name="ConnectErr" xml:space="preserve">
     <value>Instrument initialization failed! Please confirm whether the connection status of the network cable and the connection address of the instrument are correct! Whether to run offline!</value>
   </data>
   <data name="Counterfailed" xml:space="preserve">
-    <value>Counter module handshake failed!\n</value>
+    <value>Counter module handshake failed!</value>
   </data>
   <data name="Cupmanagementfailed" xml:space="preserve">
-    <value>The handshake of the cup processor module failed!\n</value>
+    <value>The handshake of the cup processor module failed!</value>
   </data>
   <data name="Incubationfailure" xml:space="preserve">
-    <value>The incubation plate module handshake failed!\n</value>
+    <value>The incubation plate module handshake failed!</value>
   </data>
   <data name="InitErr" xml:space="preserve">
     <value>Instrument initialization failed! Please confirm whether the instrument is turned on! Whether to run offline!</value>
   </data>
   <data name="InitExcetion" xml:space="preserve">
-    <value>Instrument initialization abnormal\n</value>
+    <value>Instrument initialization abnormal</value>
   </data>
   <data name="InitMsg" xml:space="preserve">
     <value>Initialization progress</value>
@@ -552,10 +552,10 @@
     <value>Language environment switch, please restart the software</value>
   </data>
   <data name="Runoffline" xml:space="preserve">
-    <value>\rWhether to run offline!</value>
+    <value>Whether to run offline!</value>
   </data>
   <data name="Samplefailed" xml:space="preserve">
-    <value>Handshake failed to add prototype module!\n</value>
+    <value>Handshake failed to add prototype module!</value>
   </data>
   <data name="UnexpectedCharacter" xml:space="preserve">
     <value>Unexpected characters, please re-enter</value>

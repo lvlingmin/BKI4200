@@ -3252,4 +3252,13 @@
   <data name="keywordText.UpdateSuccess" xml:space="preserve">
     <value>信息更新成功！</value>
   </data>
+  <data name="DeleteError" xml:space="preserve">
+    <value>暂无信息，无法删除！</value>
+  </data>
+  <data name="PrintError" xml:space="preserve">
+    <value>暂无信息，无法打印！</value>
+  </data>
+  <data name="reminder" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
 </root>

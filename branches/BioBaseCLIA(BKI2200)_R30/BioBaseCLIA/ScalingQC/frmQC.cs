@@ -791,6 +791,11 @@ namespace BioBaseCLIA.ScalingQC
 
         private void fbtnPrint_MouseDown(object sender, MouseEventArgs e)
         {
+            if (txtMean.Text == "" || textSDc.Text == "" || cmbItem.SelectedItem.ToString() == "" || cmbQCBatch.SelectedItem.ToString() == "" || cmbQClevel.SelectedItem.ToString() == "")
+            {
+                frmMsgShow.MessageShow(getString("reminder"), getString("PrintError"));
+                return;
+            }
             if (dgvQCValue.Rows.Count < 1)
             {
                 return;
@@ -864,7 +869,12 @@ namespace BioBaseCLIA.ScalingQC
 
         private void fbtnDelete_Click(object sender, EventArgs e)
         {
-            if(dgvQCValue.Rows.Count < 1)
+            if (txtQCValue.Text == "" || txtQCNewValue.Text == "")
+            {
+                frmMsgShow.MessageShow(getString("reminder"), getString("DeleteError"));
+                return;
+            }
+            if (dgvQCValue.Rows.Count < 1)
             {
                 return;
             }

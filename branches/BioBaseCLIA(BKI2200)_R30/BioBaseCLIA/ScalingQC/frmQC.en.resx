@@ -1210,4 +1210,13 @@
   <data name="keywordText.UpdateSuccess" xml:space="preserve">
     <value>Information updated successfully!</value>
   </data>
+  <data name="DeleteError" xml:space="preserve">
+    <value>No information can not be deleted!</value>
+  </data>
+  <data name="PrintError" xml:space="preserve">
+    <value>No information can not be printed!</value>
+  </data>
+  <data name="reminder" xml:space="preserve">
+    <value>Kind reminder</value>
+  </data>
 </root>

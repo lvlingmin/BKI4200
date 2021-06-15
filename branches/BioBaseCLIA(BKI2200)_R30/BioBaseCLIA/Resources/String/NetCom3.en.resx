@@ -121,75 +121,75 @@
     <value>Aborting thread</value>
   </data>
   <data name="Cleanabnormal" xml:space="preserve">
-    <value>The photoelectricity of the cleaning disk of the cleaning module is abnormal!\n</value>
+    <value>The photoelectricity of the cleaning disk of the cleaning module is abnormal!</value>
   </data>
   <data name="Cleanverticalabnormal" xml:space="preserve">
-    <value>The vertical photoelectricity of the cleaning module is abnormal!\n</value>
+    <value>The vertical photoelectricity of the cleaning module is abnormal!</value>
   </data>
   <data name="communicationfail" xml:space="preserve">
     <value>Debugging system communication failure, the experiment will stop</value>
   </data>
   <data name="Cupabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the cup sorting block of the cup sorting machine module is abnormal!\n</value>
+    <value>The photoelectric switch of the cup sorting block of the cup sorting machine module is abnormal!</value>
   </data>
   <data name="Disconnect" xml:space="preserve">
     <value>Disconnect</value>
   </data>
   <data name="Emptyabnormal" xml:space="preserve">
-    <value>The empty photoelectric switch of the unscrambler module is abnormal\n</value>
+    <value>The empty photoelectric switch of the unscrambler module is abnormal</value>
   </data>
   <data name="Gripperabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the gripper of the cup sorting machine module is abnormal!\n</value>
+    <value>The photoelectric switch of the gripper of the cup sorting machine module is abnormal!</value>
   </data>
   <data name="Incubateabnormal" xml:space="preserve">
-    <value>The incubation plate photoelectric switch of the incubation plate module is abnormal!\n</value>
+    <value>The incubation plate photoelectric switch of the incubation plate module is abnormal!</value>
   </data>
   <data name="Incubatepressureabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the pressure cup of the incubation plate module is abnormal!\n</value>
+    <value>The photoelectric switch of the pressure cup of the incubation plate module is abnormal!</value>
   </data>
   <data name="Incubateverticalabnormal" xml:space="preserve">
-    <value>The vertical photoelectric switch of the incubation tray module is abnormal!\n</value>
+    <value>The vertical photoelectric switch of the incubation tray module is abnormal!</value>
   </data>
   <data name="Measureabnormal" xml:space="preserve">
-    <value>The optocoupler of the cleaning module metering pump is abnormal!\n</value>
+    <value>The optocoupler of the cleaning module metering pump is abnormal!</value>
   </data>
   <data name="Networkunavailable" xml:space="preserve">
     <value>Network connection is unavailable</value>
   </data>
   <data name="Plungerabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the plunger pump of the sampling module is abnormal!\n</value>
+    <value>The photoelectric switch of the plunger pump of the sampling module is abnormal!</value>
   </data>
   <data name="Portclosed" xml:space="preserve">
     <value>Port closed</value>
   </data>
   <data name="Pressureabnormal" xml:space="preserve">
-    <value>The photoelectricity of the pressure cup of the cleaning module is abnormal!\n</value>
+    <value>The photoelectricity of the pressure cup of the cleaning module is abnormal!</value>
   </data>
   <data name="Reagentabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the reagent tray of the sample loading module is abnormal!\n</value>
+    <value>The photoelectric switch of the reagent tray of the sample loading module is abnormal!</value>
   </data>
   <data name="Receiveexception" xml:space="preserve">
     <value>Received data abnormal:</value>
   </data>
   <data name="Rotatingphotoelectricabnormal" xml:space="preserve">
-    <value>The rotating photoelectric switch of the cup processor module is abnormal!\n</value>
+    <value>The rotating photoelectric switch of the cup processor module is abnormal!</value>
   </data>
   <data name="Rotationabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the rotating arm of the sample loading module is abnormal!\n</value>
+    <value>The photoelectric switch of the rotating arm of the sample loading module is abnormal!</value>
   </data>
   <data name="Sampleabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the sample tray of the sample loading module is abnormal!\n</value>
+    <value>The photoelectric switch of the sample tray of the sample loading module is abnormal!</value>
   </data>
   <data name="Sendfailed" xml:space="preserve">
     <value>Message failed</value>
   </data>
   <data name="Temporaryabnormal" xml:space="preserve">
-    <value>The photoelectric switch of the temporary storage disk of the cup processor module is abnormal!\n</value>
+    <value>The photoelectric switch of the temporary storage disk of the cup processor module is abnormal!</value>
   </data>
   <data name="Verticalanomal" xml:space="preserve">
-    <value>The photoelectric switch of the vertical arm of the sample loading module is abnormal!\n</value>
+    <value>The photoelectric switch of the vertical arm of the sample loading module is abnormal!</value>
   </data>
   <data name="Verticalphotoelectricabnormal" xml:space="preserve">
-    <value>The vertical photoelectric switch of the unscrambler module is abnormal!\n</value>
+    <value>The vertical photoelectric switch of the unscrambler module is abnormal!</value>
   </data>
 </root>

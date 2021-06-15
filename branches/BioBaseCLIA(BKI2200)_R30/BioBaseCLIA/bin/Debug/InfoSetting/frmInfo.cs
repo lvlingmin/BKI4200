@@ -697,7 +697,7 @@ namespace BioBaseCLIA.InfoSetting
             DbHelperOleDb db = new DbHelperOleDb(0);
             DataTable dtProject = bllPj.GetList("ActiveStatus=1").Tables[0];
             db = new DbHelperOleDb(3);
-            DataTable dtRgItem = bllRg.GetList("Status='"+Getstring("Normal") +"'").Tables[0];
+            DataTable dtRgItem = bllRg.GetList("Status='正常'").Tables[0];//DataTable dtRgItem = bllRg.GetList("Status='"+Getstring("Normal") +"'").Tables[0];
             dtRgItem = Distinct(dtRgItem, "ReagentName");
             dtItemInfo1 = dtProject.Clone();
             for (int i = 0; i < dtRgItem.Rows.Count; i++)

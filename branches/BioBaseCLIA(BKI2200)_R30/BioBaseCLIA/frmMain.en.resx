@@ -2306,4 +2306,292 @@
   <data name="AccessInterruption" xml:space="preserve">
     <value>Please reconfirm the connection and restart the instrument and software</value>
   </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Abnormalexit" xml:space="preserve">
+    <value>Abnormal exit software detected, please empty the incubator disk!</value>
+  </data>
+  <data name="Beadfluid" xml:space="preserve">
+    <value>The magnetic bead cleaning fluid is normal</value>
+  </data>
+  <data name="Beadfluidempty" xml:space="preserve">
+    <value>The magnetic bead cleaning fluid is empty</value>
+  </data>
+  <data name="btnExit.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnHelp.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnVersion.Text1" xml:space="preserve">
+    <value>minimize</value>
+  </data>
+  <data name="btnVersion.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnWasteRack.tip" xml:space="preserve">
+    <value>Waste tube box information</value>
+  </data>
+  <data name="btnWasteRack.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Clean" xml:space="preserve">
+    <value>Cleaning plate</value>
+  </data>
+  <data name="Cleaningfluidempty" xml:space="preserve">
+    <value>Magnetic bead cleaning solution is empty</value>
+  </data>
+  <data name="Cleaningfluidnormal" xml:space="preserve">
+    <value>Magnetic bead cleaning solution is normal</value>
+  </data>
+  <data name="Cleantemperature" xml:space="preserve">
+    <value>Temperature of cleaning plate</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Network connected</value>
+  </data>
+  <data name="dbtnBuffer.tip" xml:space="preserve">
+    <value>Magnetic bead cleaning solution query</value>
+  </data>
+  <data name="dbtnBuffer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnConnect.connecttip" xml:space="preserve">
+    <value>Network connected</value>
+  </data>
+  <data name="dbtnConnect.disconnecttip" xml:space="preserve">
+    <value>Network not connected</value>
+  </data>
+  <data name="dbtnConnect.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnLog.tip" xml:space="preserve">
+    <value>Alarm information</value>
+  </data>
+  <data name="dbtnLog.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnRack.tip" xml:space="preserve">
+    <value>Information of cup machine</value>
+  </data>
+  <data name="dbtnRack.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnRegent.tip" xml:space="preserve">
+    <value>Reagent information</value>
+  </data>
+  <data name="dbtnRegent.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnSound.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnSubstract.tip" xml:space="preserve">
+    <value>Substrate information</value>
+  </data>
+  <data name="dbtnSubstract.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnWash.tip" xml:space="preserve">
+    <value>Probe cleaning solution query</value>
+  </data>
+  <data name="dbtnWash.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dbtnWaste.tip" xml:space="preserve">
+    <value>Waste liquid inquiry</value>
+  </data>
+  <data name="dbtnWaste.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="defineButton1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="defineButton2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="defineButton3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Disconnect" xml:space="preserve">
+    <value>Network not connected</value>
+  </data>
+  <data name="Err" xml:space="preserve">
+    <value>error</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>error</value>
+  </data>
+  <data name="ExitTip" xml:space="preserve">
+    <value>Are you sure to shut down the running system!</value>
+  </data>
+  <data name="fbtnDataQuery.Text1" xml:space="preserve">
+    <value>historical data</value>
+  </data>
+  <data name="fbtnDataQuery.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fbtnMaintenance.Text1" xml:space="preserve">
+    <value>system maintenance</value>
+  </data>
+  <data name="fbtnMaintenance.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fbtnScalQc.Text1" xml:space="preserve">
+    <value>Calibration and QC</value>
+  </data>
+  <data name="fbtnScalQc.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fbtnSet.Text1" xml:space="preserve">
+    <value>setting</value>
+  </data>
+  <data name="fbtnSet.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="fbtnTest.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Incubation" xml:space="preserve">
+    <value>Incubation plate</value>
+  </data>
+  <data name="Incubationtemperature" xml:space="preserve">
+    <value>Incubation plate temperature</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Lefttests" xml:space="preserve">
+    <value>The remaining number of reagents in the project is</value>
+  </data>
+  <data name="logo.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NotRead" xml:space="preserve">
+    <value>unread</value>
+  </data>
+  <data name="NotRun" xml:space="preserve">
+    <value>The experiment is not running, please do not pause!</value>
+  </data>
+  <data name="Notstandardtemperature" xml:space="preserve">
+    <value>Not up to standard</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>The experiment is suspended!</value>
+  </data>
+  <data name="Pipeline" xml:space="preserve">
+    <value>Clean pipeline</value>
+  </data>
+  <data name="Pipelinetemperature" xml:space="preserve">
+    <value>Temperature of cleaning pipeline</value>
+  </data>
+  <data name="pnlbarDown.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlbarUP.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlPublic.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pnlSidebar.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Probeempty" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="Probefluid" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="Probefluidempty" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="Probenormal" xml:space="preserve">
+    <value>Probe cleaning solution is normal</value>
+  </data>
+  <data name="Reagentresidue" xml:space="preserve">
+    <value>The remaining number of project reagents is</value>
+  </data>
+  <data name="Standardtemperature" xml:space="preserve">
+    <value>The temperature has reached the operating standard</value>
+  </data>
+  <data name="Stopexperiment" xml:space="preserve">
+    <value>Stopping the experiment will invalidate this experiment, confirm whether you want to stop this experiment!</value>
+  </data>
+  <data name="Substrate" xml:space="preserve">
+    <value>Substrate</value>
+  </data>
+  <data name="Substratesurplus" xml:space="preserve">
+    <value>Substrate remaining test is</value>
+  </data>
+  <data name="Substratetemperature" xml:space="preserve">
+    <value>Ambient temperature of substrate</value>
+  </data>
+  <data name="SystemExitTip" xml:space="preserve">
+    <value>Are you sure to shut down the running system!</value>
+  </data>
+  <data name="temperatureButton.ToolTip1" xml:space="preserve">
+    <value>System temperature query</value>
+  </data>
+  <data name="Temperaturesign" xml:space="preserve">
+    <value>℃</value>
+  </data>
+  <data name="Temperaturewarning" xml:space="preserve">
+    <value>Temperature warning</value>
+  </data>
+  <data name="Temporarystorage" xml:space="preserve">
+    <value>Temporary storage location has control</value>
+  </data>
+  <data name="Temporarystorageempty" xml:space="preserve">
+    <value>Temporary disk location is missing</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+  <data name="Unableconnect" xml:space="preserve">
+    <value>Cannot connect to the instrument!</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Wastefull" xml:space="preserve">
+    <value>Waste liquid tank full</value>
+  </data>
+  <data name="Wasteliquid" xml:space="preserve">
+    <value>Waste tank is full</value>
+  </data>
+  <data name="Wastenormal" xml:space="preserve">
+    <value>Waste liquid bucket is normal</value>
+  </data>
+  <data name="Wastepipe" xml:space="preserve">
+    <value>Waste tube box is full</value>
+  </data>
+  <data name="Wastepipenormal" xml:space="preserve">
+    <value>The waste tube box is normal</value>
+  </data>
+  <data name="Wastetubefull" xml:space="preserve">
+    <value>Waste tube box is full</value>
+  </data>
+  <data name="Alarmfailed" xml:space="preserve">
+    <value>Alarm module handshake failed！</value>
+  </data>
+  <data name="Cleanfailed" xml:space="preserve">
+    <value>Washing module handshake failed！</value>
+  </data>
+  <data name="Counterfailed" xml:space="preserve">
+    <value>Counter module handshake failure！</value>
+  </data>
+  <data name="Cupmanagementfailed" xml:space="preserve">
+    <value>Cup handshake failure！</value>
+  </data>
+  <data name="Incubationfailure" xml:space="preserve">
+    <value>Handshake failure of Wen pan module</value>
+  </data>
+  <data name="Samplefailed" xml:space="preserve">
+    <value>Add prototype module handshake failed!</value>
+  </data>
 </root>

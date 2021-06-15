@@ -127,335 +127,8 @@
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
     <value>364, 45</value>
   </data>
-  <data name="btnUnLoadItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="btnUnLoadItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt</value>
-  </data>
-  <data name="btnSaveItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="btnSaveItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt</value>
-  </data>
-  <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 11.25pt</value>
-  </data>
-  <data name="btnModifyStep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="btnModifyStep.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt</value>
-  </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 11.25pt</value>
-  </data>
-  <data name="NumResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 86</value>
-  </data>
-  <data name="NumResult.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 25</value>
-  </data>
-  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 90</value>
-  </data>
-  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 17</value>
-  </data>
-  <data name="numExpiryDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 53</value>
-  </data>
-  <data name="numExpiryDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 25</value>
-  </data>
-  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 57</value>
-  </data>
-  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 17</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 57</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 17</value>
-  </data>
-  <data name="chkItemUseOrNot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 123</value>
-  </data>
-  <data name="chkItemUseOrNot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 21</value>
-  </data>
-  <data name="cmbItemType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 20</value>
-  </data>
-  <data name="cmbItemType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 25</value>
-  </data>
-  <data name="txtItemFullName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 20</value>
-  </data>
-  <data name="txtItemFullName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 25</value>
-  </data>
-  <data name="txtDilutionFactor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 53</value>
-  </data>
-  <data name="txtDilutionFactor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 25</value>
-  </data>
-  <data name="txtValueRange2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 86</value>
-  </data>
-  <data name="txtValueRange2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 25</value>
-  </data>
-  <data name="txtValueUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 53</value>
-  </data>
-  <data name="txtValueUnit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 25</value>
-  </data>
-  <data name="txtValueRange1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 86</value>
-  </data>
-  <data name="txtValueRange1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 25</value>
-  </data>
-  <data name="txtItemShortName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 20</value>
-  </data>
-  <data name="txtItemShortName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 25</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>450, 24</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 17</value>
-  </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 90</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>454, 57</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 17</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 90</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
-  </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 57</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 17</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 24</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 17</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 24</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 17</value>
-  </data>
-  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 11.25pt</value>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Information settings</value>
   </data>
   <data name="btnLoadItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -524,6 +197,414 @@
   <data name="btnLoadItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt</value>
   </data>
+  <data name="btnLoadItem.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="btnUnLoadItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="btnUnLoadItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 15pt</value>
+  </data>
+  <data name="btnUnLoadItem.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="btnSaveItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
+        DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
+        bGUAAEjHnZZ3VFTXFofPvXd6oc0w0hl6ky4wgPQuIB0EURhmBhjKAMMMTWyIqEBEEREBRZCggAGjoUis
+        iGIhKKhgD0gQUGIwiqioZEbWSnx5ee/l5ffHvd/aZ+9z99l7n7UuACRPHy4vBZYCIJkn4Ad6ONNXhUfQ
+        sf0ABniAAaYAMFnpqb5B7sFAJC83F3q6yAn8i94MAUj8vmXo6U+ng/9P0qxUvgAAyF/E5mxOOkvE+SJO
+        yhSkiu0zIqbGJIoZRomZL0pQxHJijlvkpZ99FtlRzOxkHlvE4pxT2clsMfeIeHuGkCNixEfEBRlcTqaI
+        b4tYM0mYzBXxW3FsMoeZDgCKJLYLOKx4EZuImMQPDnQR8XIAcKS4LzjmCxZwsgTiQ7mkpGbzuXHxArou
+        S49uam3NoHtyMpM4AoGhP5OVyOSz6S4pyalMXjYAi2f+LBlxbemiIluaWltaGpoZmX5RqP+6+Dcl7u0i
+        vQr43DOI1veH7a/8UuoAYMyKarPrD1vMfgA6tgIgd/8Pm+YhACRFfWu/8cV5aOJ5iRcIUm2MjTMzM424
+        HJaRuKC/6386/A198T0j8Xa/l4fuyollCpMEdHHdWClJKUI+PT2VyeLQDf88xP848K/zWBrIieXwOTxR
+        RKhoyri8OFG7eWyugJvCo3N5/6mJ/zDsT1qca5Eo9Z8ANcoISN2gAuTnPoCiEAESeVDc9d/75oMPBeKb
+        F6Y6sTj3nwX9+65wifiRzo37HOcSGExnCfkZi2viawnQgAAkARXIAxWgAXSBITADVsAWOAI3sAL4gWAQ
+        DtYCFogHyYAPMkEu2AwKQBHYBfaCSlAD6kEjaAEnQAc4DS6Ay+A6uAnugAdgBIyD52AGvAHzEARhITJE
+        geQhVUgLMoDMIAZkD7lBPlAgFA5FQ3EQDxJCudAWqAgqhSqhWqgR+hY6BV2ArkID0D1oFJqCfoXewwhM
+        gqmwMqwNG8MM2An2hoPhNXAcnAbnwPnwTrgCroOPwe3wBfg6fAcegZ/DswhAiAgNUUMMEQbigvghEUgs
+        wkc2IIVIOVKHtCBdSC9yCxlBppF3KAyKgqKjDFG2KE9UCIqFSkNtQBWjKlFHUe2oHtQt1ChqBvUJTUYr
+        oQ3QNmgv9Cp0HDoTXYAuRzeg29CX0HfQ4+g3GAyGhtHBWGE8MeGYBMw6TDHmAKYVcx4zgBnDzGKxWHms
+        AdYO64dlYgXYAux+7DHsOewgdhz7FkfEqeLMcO64CBwPl4crxzXhzuIGcRO4ebwUXgtvg/fDs/HZ+BJ8
+        Pb4LfwM/jp8nSBN0CHaEYEICYTOhgtBCuER4SHhFJBLVidbEACKXuIlYQTxOvEIcJb4jyZD0SS6kSJKQ
+        tJN0hHSedI/0ikwma5MdyRFkAXknuZF8kfyY/FaCImEk4SXBltgoUSXRLjEo8UISL6kl6SS5VjJHslzy
+        pOQNyWkpvJS2lIsUU2qDVJXUKalhqVlpirSptJ90snSxdJP0VelJGayMtoybDFsmX+awzEWZMQpC0aC4
+        UFiULZR6yiXKOBVD1aF6UROoRdRvqP3UGVkZ2WWyobJZslWyZ2RHaAhNm+ZFS6KV0E7QhmjvlygvcVrC
+        WbJjScuSwSVzcopyjnIcuUK5Vrk7cu/l6fJu8onyu+U75B8poBT0FQIUMhUOKlxSmFakKtoqshQLFU8o
+        3leClfSVApXWKR1W6lOaVVZR9lBOVd6vfFF5WoWm4qiSoFKmclZlSpWiaq/KVS1TPaf6jC5Ld6In0Svo
+        PfQZNSU1TzWhWq1av9q8uo56iHqeeqv6Iw2CBkMjVqNMo1tjRlNV01czV7NZ874WXouhFa+1T6tXa05b
+        RztMe5t2h/akjpyOl06OTrPOQ12yroNumm6d7m09jB5DL1HvgN5NfVjfQj9ev0r/hgFsYGnANThgMLAU
+        vdR6KW9p3dJhQ5Khk2GGYbPhqBHNyMcoz6jD6IWxpnGE8W7jXuNPJhYmSSb1Jg9MZUxXmOaZdpn+aqZv
+        xjKrMrttTjZ3N99o3mn+cpnBMs6yg8vuWlAsfC22WXRbfLS0suRbtlhOWWlaRVtVWw0zqAx/RjHjijXa
+        2tl6o/Vp63c2ljYCmxM2v9ga2ibaNtlOLtdZzllev3zMTt2OaVdrN2JPt4+2P2Q/4qDmwHSoc3jiqOHI
+        dmxwnHDSc0pwOub0wtnEme/c5jznYuOy3uW8K+Lq4Vro2u8m4xbiVun22F3dPc692X3Gw8Jjncd5T7Sn
+        t+duz2EvZS+WV6PXzAqrFetX9HiTvIO8K72f+Oj78H26fGHfFb57fB+u1FrJW9nhB/y8/Pb4PfLX8U/z
+        /z4AE+AfUBXwNNA0MDewN4gSFBXUFPQm2Dm4JPhBiG6IMKQ7VDI0MrQxdC7MNaw0bGSV8ar1q66HK4Rz
+        wzsjsBGhEQ0Rs6vdVu9dPR5pEVkQObRGZ03WmqtrFdYmrT0TJRnFjDoZjY4Oi26K/sD0Y9YxZ2O8Yqpj
+        ZlgurH2s52xHdhl7imPHKeVMxNrFlsZOxtnF7YmbineIL4+f5rpwK7kvEzwTahLmEv0SjyQuJIUltSbj
+        kqOTT/FkeIm8nhSVlKyUgVSD1ILUkTSbtL1pM3xvfkM6lL4mvVNAFf1M9Ql1hVuFoxn2GVUZbzNDM09m
+        SWfxsvqy9bN3ZE/kuOd8vQ61jrWuO1ctd3Pu6Hqn9bUboA0xG7o3amzM3zi+yWPT0c2EzYmbf8gzySvN
+        e70lbEtXvnL+pvyxrR5bmwskCvgFw9tst9VsR23nbu/fYb5j/45PhezCa0UmReVFH4pZxde+Mv2q4quF
+        nbE7+0ssSw7uwuzi7Rra7bD7aKl0aU7p2B7fPe1l9LLCstd7o/ZeLV9WXrOPsE+4b6TCp6Jzv+b+Xfs/
+        VMZX3qlyrmqtVqreUT13gH1g8KDjwZYa5ZqimveHuIfu1nrUttdp15UfxhzOOPy0PrS+92vG140NCg1F
+        DR+P8I6MHA082tNo1djYpNRU0gw3C5unjkUeu/mN6zedLYYtta201qLj4Ljw+LNvo78dOuF9ovsk42TL
+        d1rfVbdR2grbofbs9pmO+I6RzvDOgVMrTnV32Xa1fW/0/ZHTaqerzsieKTlLOJt/duFczrnZ86nnpy/E
+        XRjrjup+cHHVxds9AT39l7wvXbnsfvlir1PvuSt2V05ftbl66hrjWsd1y+vtfRZ9bT9Y/NDWb9nffsPq
+        RudN65tdA8sHzg46DF645Xrr8m2v29fvrLwzMBQydHc4cnjkLvvu5L2key/vZ9yff7DpIfph4SOpR+WP
+        lR7X/aj3Y+uI5ciZUdfRvidBTx6Mscae/5T+04fx/Kfkp+UTqhONk2aTp6fcp24+W/1s/Hnq8/npgp+l
+        f65+ofviu18cf+mbWTUz/pL/cuHX4lfyr468Xva6e9Z/9vGb5Dfzc4Vv5d8efcd41/s+7P3EfOYH7IeK
+        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALDAAACwwBP0AiyAAAAzFJREFUeF7t2MtL1FEY
+        h/FW/gcRrYIgDEGDoAtFRRRitGtTiYsIohZFIkG2iIjI6GJKU9IgKaUW0c1CmUSN7KZpZlrTZGqllkpE
+        CUEQCKfzLqbO4MC71bdn8YE5P87M7vvMMHOcc2llbLmQ6ZV6L7wpzwGY8WSrslnZbma6bYfSPvRvLPJ+
+        Hah67OoeJlxX/7jrHpgAMMPJVmWzsl3ZsGw53caTUg7+coYX23oq5m4/G3Sd/RMAZinZsGxZNi3bDree
+        lHLwl8rzzzS59sQ4ACNk037bpeHWk/6+8BeyvamHfZ/dk/gYACNaX40m/xvICscvwgCUF1Y+cm2vvwAw
+        Zl+0Le2vgDAA7y4/SLjW3lEAxlS3vJUAxMPxizAAvxu7PrmmlyMAjLndPiQBmAzHL8IAuMYXwwCMko0n
+        956UEoC7zz8CMEoNwM32DwCMUgNw7ckQAKPUANS0DQAwSg1A1YP3AIxSAxBtfgfAKDUA5+8nABilBqCs
+        MQ7AKDUAp++9AWCUGoCSO30AjFIDcPRmLwCj1AAcvt4DwCg1AMXXXgIwSg3AgdpuAEapASi80gXAKDUA
+        e6s7ARilBmDPpecAjFIDsKuyA4BRagB2RjsAGKUGYNWxRwCM0gNQ8hSAUXoATnYAMEoNwOqz3QCMUgOw
+        JtIHwCg1AOuiCQBGqQFYXz0IwCg1ABvrhgEYpQYg98YYAKPUAOTVfwVglBqATQ3fARilBmBzbBKAUXoA
+        7vuLAEwiAMB/TA9A7AcAo9QAbGr4BsAoNQB59eMAjFIDkHtjBIBRagA21A4CMEoNwPqqOACj1ACsregG
+        YJQagNVlTwEYpQXg94qSFrfyRCsAY5Yfb5YA/AzHL8IADOQcqnfLjjQCMCa7uF4CEA/HL8IARBbsrnFL
+        D94CYIxs22+8PBy/CAOQ7U0tKbzqANiRs/+qjH9KNh6OX6Qc/IXIvIKoy95TDcAI2bTf9rRvf5Fy8Jcy
+        vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
+        /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnSaveItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 15pt</value>
+  </data>
+  <data name="btnSaveItem.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="StdName.HeaderText" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="conc.HeaderText" xml:space="preserve">
+    <value>Concentration</value>
+  </data>
+  <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Scaling Information</value>
+  </data>
+  <data name="btnModifyStep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="btnModifyStep.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 15pt</value>
+  </data>
+  <data name="btnModifyStep.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="StepName.HeaderText" xml:space="preserve">
+    <value>Step Name</value>
+  </data>
+  <data name="StepPara.HeaderText" xml:space="preserve">
+    <value>Parameter</value>
+  </data>
+  <data name="ParaUnit.HeaderText" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Experimental Steps</value>
+  </data>
+  <data name="NumResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>491, 86</value>
+  </data>
+  <data name="NumResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 25</value>
+  </data>
+  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>424, 90</value>
+  </data>
+  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="label20.Text" xml:space="preserve">
+    <value>Precision:</value>
+  </data>
+  <data name="numExpiryDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 53</value>
+  </data>
+  <data name="numExpiryDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 57</value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 17</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 57</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 17</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Scaling Data:</value>
+  </data>
+  <data name="chkItemUseOrNot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 123</value>
+  </data>
+  <data name="chkItemUseOrNot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 21</value>
+  </data>
+  <data name="chkItemUseOrNot.Text" xml:space="preserve">
+    <value>Normal Items</value>
+  </data>
+  <data name="cmbItemType.Items" xml:space="preserve">
+    <value>qualitative</value>
+  </data>
+  <data name="cmbItemType.Items1" xml:space="preserve">
+    <value>quantitative</value>
+  </data>
+  <data name="cmbItemType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>491, 20</value>
+  </data>
+  <data name="cmbItemType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 25</value>
+  </data>
+  <data name="txtItemFullName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 20</value>
+  </data>
+  <data name="txtItemFullName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 25</value>
+  </data>
+  <data name="txtDilutionFactor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 53</value>
+  </data>
+  <data name="txtDilutionFactor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 25</value>
+  </data>
+  <data name="txtValueRange2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 86</value>
+  </data>
+  <data name="txtValueRange2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 25</value>
+  </data>
+  <data name="txtValueUnit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>491, 53</value>
+  </data>
+  <data name="txtValueUnit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 25</value>
+  </data>
+  <data name="txtValueRange1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 86</value>
+  </data>
+  <data name="txtValueRange1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 25</value>
+  </data>
+  <data name="txtItemShortName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 20</value>
+  </data>
+  <data name="txtItemShortName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 25</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>450, 24</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 17</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 90</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 17</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Range 2:</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>454, 57</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Unit:</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>44, 90</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 17</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Range 1:</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 57</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 17</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Dilution ratio:</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 24</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 17</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Project Name:</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 24</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 17</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Short:</value>
+  </data>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Project Information</value>
+  </data>
+  <data name="colShortName.HeaderText" xml:space="preserve">
+    <value>Short</value>
+  </data>
   <data name="tabPPro.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9.75pt</value>
   </data>
@@ -532,6 +613,9 @@
   </data>
   <data name="tabPPro.Size" type="System.Drawing.Size, System.Drawing">
     <value>828, 438</value>
+  </data>
+  <data name="tabPPro.Text" xml:space="preserve">
+    <value>Project Information</value>
   </data>
   <data name="btnSaveDoc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -600,6 +684,9 @@
   <data name="btnSaveDoc.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
   </data>
+  <data name="btnSaveDoc.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="btnDelDoc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -666,6 +753,9 @@
   </data>
   <data name="btnDelDoc.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
+  </data>
+  <data name="btnDelDoc.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="btnModifyDoc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -734,6 +824,9 @@
   <data name="btnModifyDoc.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
   </data>
+  <data name="btnModifyDoc.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="btnAddDoc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -801,6 +894,9 @@
   <data name="btnAddDoc.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
   </data>
+  <data name="btnAddDoc.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="cmbDep.Location" type="System.Drawing.Point, System.Drawing">
     <value>301, 60</value>
   </data>
@@ -812,6 +908,9 @@
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 17</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Department:</value>
   </data>
   <data name="txtDocName.Location" type="System.Drawing.Point, System.Drawing">
     <value>301, 24</value>
@@ -825,11 +924,23 @@
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 17</value>
   </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Doctor.HeaderText" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="Department.HeaderText" xml:space="preserve">
+    <value>Department</value>
+  </data>
   <data name="dgvDoctor.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 149</value>
   </data>
   <data name="groupBox5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Doctor</value>
   </data>
   <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -895,6 +1006,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="btnDelete.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -958,6 +1072,9 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="btnDelete.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="btnModify.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1023,6 +1140,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnModify.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="btnAdd.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1087,14 +1207,23 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 17</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Project list:</value>
   </data>
   <data name="txtGroupItemName.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 25</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 17</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Name:</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbGroupItem.ItemHeight" type="System.Int32, mscorlib">
@@ -1105,6 +1234,9 @@
   </data>
   <data name="groupBox4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Portfolio project Information</value>
   </data>
   <data name="btnSaveDep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1173,6 +1305,9 @@
   <data name="btnSaveDep.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
   </data>
+  <data name="btnSaveDep.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="btnDelDep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1239,6 +1374,9 @@
   </data>
   <data name="btnDelDep.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
+  </data>
+  <data name="btnDelDep.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="btnModifyDep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1307,6 +1445,9 @@
   <data name="btnModifyDep.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
   </data>
+  <data name="btnModifyDep.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="btnAddDep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1374,6 +1515,9 @@
   <data name="btnAddDep.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 23</value>
   </data>
+  <data name="btnAddDep.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="txtDepName.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 25</value>
   </data>
@@ -1382,6 +1526,9 @@
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 17</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Name:</value>
   </data>
   <data name="lbDep.ItemHeight" type="System.Int32, mscorlib">
     <value>17</value>
@@ -1392,11 +1539,17 @@
   <data name="groupBox8.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
   </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Departments</value>
+  </data>
   <data name="tabPBaseInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
   <data name="tabPBaseInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>828, 438</value>
+  </data>
+  <data name="tabPBaseInfo.Text" xml:space="preserve">
+    <value>Basic Information</value>
   </data>
   <data name="btnMoveDown.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1464,6 +1617,9 @@
   </data>
   <data name="btnMoveDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 26</value>
+  </data>
+  <data name="btnMoveDown.Text" xml:space="preserve">
+    <value>Down</value>
   </data>
   <data name="btnMoveUP.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1535,23 +1691,44 @@
   <data name="btnMoveUP.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 26</value>
   </data>
+  <data name="btnMoveUP.Text" xml:space="preserve">
+    <value>UP</value>
+  </data>
+  <data name="PrintNo.HeaderText" xml:space="preserve">
+    <value>NO.</value>
+  </data>
+  <data name="ItemName.HeaderText" xml:space="preserve">
+    <value>Project Name</value>
+  </data>
   <data name="groupBox7.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt</value>
   </data>
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>489, 3</value>
   </data>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Print Order</value>
+  </data>
+  <data name="cmbPrintMode.Items" xml:space="preserve">
+    <value>Mode 1</value>
+  </data>
+  <data name="cmbPrintMode.Items1" xml:space="preserve">
+    <value>Mode 2</value>
+  </data>
   <data name="cmbPrintMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>165, 127</value>
+    <value>165, 124</value>
   </data>
   <data name="cmbPrintMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>221, 30</value>
   </data>
   <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 130</value>
+    <value>30, 128</value>
   </data>
   <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 22</value>
+  </data>
+  <data name="label21.Text" xml:space="preserve">
+    <value>Print Mode：</value>
   </data>
   <data name="nudRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 30</value>
@@ -1565,12 +1742,18 @@
   <data name="nudUP.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 30</value>
   </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Print content position adjustment (unit: cm)</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rdbClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="rdbClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 26</value>
+  </data>
+  <data name="rdbClose.Text" xml:space="preserve">
+    <value>Close</value>
   </data>
   <data name="rdbOpen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1581,11 +1764,20 @@
   <data name="rdbOpen.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 26</value>
   </data>
+  <data name="rdbOpen.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
     <value>-1, 155</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>164, 22</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Automatic Printing:</value>
+  </data>
+  <data name="cmbFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 92</value>
   </data>
   <data name="cmbFormat.Size" type="System.Drawing.Size, System.Drawing">
     <value>221, 30</value>
@@ -1660,11 +1852,20 @@
   <data name="btnSetHospitalName.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 34</value>
   </data>
+  <data name="btnSetHospitalName.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 108</value>
+    <value>32, 96</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 22</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Report Format:</value>
+  </data>
+  <data name="cmbPrinter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 28</value>
   </data>
   <data name="cmbPrinter.Size" type="System.Drawing.Size, System.Drawing">
     <value>221, 30</value>
@@ -1675,11 +1876,20 @@
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 22</value>
   </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>Default Printer:</value>
+  </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 68</value>
+    <value>42, 64</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Report Name:</value>
+  </data>
+  <data name="txtHospitalName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 60</value>
   </data>
   <data name="txtHospitalName.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 30</value>
@@ -1690,11 +1900,17 @@
   <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>467, 415</value>
   </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Print report settings</value>
+  </data>
   <data name="tabPint.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
   <data name="tabPint.Size" type="System.Drawing.Size, System.Drawing">
     <value>828, 438</value>
+  </data>
+  <data name="tabPint.Text" xml:space="preserve">
+    <value>Print Settings</value>
   </data>
   <data name="tabInfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9.75pt</value>
@@ -1766,6 +1982,9 @@
   <data name="btnUserInfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt, style=Bold</value>
   </data>
+  <data name="btnUserInfo.Text" xml:space="preserve">
+    <value>User</value>
+  </data>
   <data name="fbtnConnetSet.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1832,6 +2051,9 @@
   </data>
   <data name="fbtnConnetSet.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt, style=Bold</value>
+  </data>
+  <data name="fbtnConnetSet.Text" xml:space="preserve">
+    <value>Connect</value>
   </data>
   <data name="btnInstrumentPara.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1900,6 +2122,9 @@
   <data name="btnInstrumentPara.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt, style=Bold</value>
   </data>
+  <data name="btnInstrumentPara.Text" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1967,6 +2192,9 @@
   <data name="fbtnReturn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt, style=Bold</value>
   </data>
+  <data name="fbtnReturn.Text" xml:space="preserve">
+    <value>Return</value>
+  </data>
   <data name="btnProInfo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -2033,6 +2261,9 @@
   </data>
   <data name="btnProInfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt, style=Bold</value>
+  </data>
+  <data name="btnProInfo.Text" xml:space="preserve">
+    <value>Information</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2207,6 +2438,12 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
+  <data name="cmbFormat.Items" xml:space="preserve">
+    <value>A4</value>
+  </data>
+  <data name="cmbFormat.Items1" xml:space="preserve">
+    <value>A5</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -2216,98 +2453,8 @@
   <data name="BasicSetHead" xml:space="preserve">
     <value>Basic information settings</value>
   </data>
-  <data name="btnAdd.Text" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="btnAddDep.Text" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="btnAddDoc.Text" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="btnDelDep.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="btnDelDoc.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="btnDelete.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="btnInstrumentPara.Text" xml:space="preserve">
-    <value>Alarm</value>
-  </data>
-  <data name="btnLoadItem.Text" xml:space="preserve">
-    <value>Import</value>
-  </data>
-  <data name="btnModify.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="btnModifyDep.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="btnModifyDoc.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="btnModifyStep.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="btnMoveDown.Text" xml:space="preserve">
-    <value>Down</value>
-  </data>
-  <data name="btnMoveUP.Text" xml:space="preserve">
-    <value>UP</value>
-  </data>
-  <data name="btnProInfo.Text" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="btnSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="btnSaveDep.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="btnSaveDoc.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="btnSaveItem.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="btnSetHospitalName.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="btnUnLoadItem.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="btnUserInfo.Text" xml:space="preserve">
-    <value>User</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="chkItemUseOrNot.Text" xml:space="preserve">
-    <value>Normal Items</value>
-  </data>
-  <data name="cmbItemType.Items" xml:space="preserve">
-    <value>qualitative</value>
-  </data>
-  <data name="cmbItemType.Items1" xml:space="preserve">
-    <value>quantitative</value>
-  </data>
-  <data name="cmbPrintMode.Items" xml:space="preserve">
-    <value>Mode 1</value>
-  </data>
-  <data name="cmbPrintMode.Items1" xml:space="preserve">
-    <value>Mode 2</value>
-  </data>
-  <data name="colShortName.HeaderText" xml:space="preserve">
-    <value>Short</value>
-  </data>
-  <data name="conc.HeaderText" xml:space="preserve">
-    <value>Concentration</value>
-  </data>
-  <data name="Custom" xml:space="preserve">
-    <value>Custom</value>
+    <value>cancel</value>
   </data>
   <data name="D" xml:space="preserve">
     <value>read</value>
@@ -2316,7 +2463,7 @@
     <value>Please add department information first</value>
   </data>
   <data name="DepartAddSucess" xml:space="preserve">
-    <value>Department information added success</value>
+    <value>Department information added successfully</value>
   </data>
   <data name="DepartAlterSucess" xml:space="preserve">
     <value>Department information modified successfully</value>
@@ -2327,23 +2474,18 @@
   <data name="DepartDeleteSucess" xml:space="preserve">
     <value>Department information deleted successfully</value>
   </data>
-  <data name="Department.HeaderText" xml:space="preserve">
-    <value>Department</value>
-  </data>
   <data name="DepartNameSet" xml:space="preserve">
-    <value>Department name can only be composed of two to ten Chinese characters, letters, numbers, asterisks, .  and underscores!</value>
+    <value>Department name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,..., underscores!</value>
   </data>
   <data name="DepartReName" xml:space="preserve">
-    <value>Department information cannot have the same name</value>
+    <value>Department information cannot have the same name
+</value>
   </data>
   <data name="DepartSDeleteInfo" xml:space="preserve">
     <value>Please select the information to delete</value>
   </data>
   <data name="DepartSelectInfo" xml:space="preserve">
     <value>Please select the modified item</value>
-  </data>
-  <data name="Doctor.HeaderText" xml:space="preserve">
-    <value>Doctor</value>
   </data>
   <data name="DoctorAddSucess" xml:space="preserve">
     <value>Doctor information added successfully</value>
@@ -2355,7 +2497,7 @@
     <value>Doctor information modified successfully</value>
   </data>
   <data name="DoctorNameSet" xml:space="preserve">
-    <value>The doctor's name can only be composed of two to ten Chinese characters, letters, numbers, asterisks, .  or underscores!</value>
+    <value>Doctor's name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,. Or underscores!</value>
   </data>
   <data name="DoctorReName" xml:space="preserve">
     <value>There are doctors with the same name in the same department</value>
@@ -2363,44 +2505,11 @@
   <data name="DoctorSelectInfo" xml:space="preserve">
     <value>Please select the doctor information to be modified</value>
   </data>
-  <data name="fbtnConnetSet.Text" xml:space="preserve">
-    <value>Connect</value>
-  </data>
-  <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>Return</value>
-  </data>
   <data name="File" xml:space="preserve">
-    <value>File</value>
+    <value>file</value>
   </data>
   <data name="GroupAddSucess" xml:space="preserve">
     <value>Portfolio item added successfully</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Project Information</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Experimental Steps</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Scaling Information</value>
-  </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Portfolio project Information</value>
-  </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>Doctor</value>
-  </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Print report settings</value>
-  </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Print Order</value>
-  </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Departments</value>
-  </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>Print content position adjustment (unit: cm)</value>
   </data>
   <data name="GroupDeleteSucess" xml:space="preserve">
     <value>Combination item deleted successfully</value>
@@ -2409,7 +2518,7 @@
     <value>Modification of combination project succeeded!</value>
   </data>
   <data name="GroupNameInfo" xml:space="preserve">
-    <value>The combination item name can only be composed of two to ten Chinese characters, letters, asterisks, numbers, . and underscores</value>
+    <value>The combination item name can only be composed of two to ten Chinese characters, letters, asterisks, numbers,..., and underscores</value>
   </data>
   <data name="GroupReName" xml:space="preserve">
     <value>Portfolio items cannot have the same name</value>
@@ -2421,106 +2530,37 @@
     <value>No experiment item selected, please select</value>
   </data>
   <data name="GroupSModify" xml:space="preserve">
-    <value>Please select the modified item before modifying the combination item</value>
+    <value>Please select the modification item before modifying the combination item</value>
   </data>
   <data name="H" xml:space="preserve">
     <value>Incubation</value>
   </data>
   <data name="HospitalName" xml:space="preserve">
-    <value>XXXX hospital</value>
-  </data>
-  <data name="ItemName.HeaderText" xml:space="preserve">
-    <value>Project Name</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Department:</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>Name:</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>Project list:</value>
-  </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>Name:</value>
-  </data>
-  <data name="label13.Text" xml:space="preserve">
-    <value>Report Name:</value>
-  </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>Name:</value>
-  </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>Information settings</value>
-  </data>
-  <data name="label16.Text" xml:space="preserve">
-    <value>Default Printer:</value>
-  </data>
-  <data name="label17.Text" xml:space="preserve">
-    <value>Report Format:</value>
-  </data>
-  <data name="label18.Text" xml:space="preserve">
-    <value>Automatic Printing:</value>
-  </data>
-  <data name="label19.Text" xml:space="preserve">
-    <value>Day</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Short:</value>
-  </data>
-  <data name="label20.Text" xml:space="preserve">
-    <value>Precision:</value>
-  </data>
-  <data name="label21.Text" xml:space="preserve">
-    <value>Print Mode：</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Project Name:</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Dilution ratio:</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Range 1:</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Scaling Data:</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Unit:</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>Range 2:</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Type:</value>
+    <value>XXX hospital</value>
   </data>
   <data name="Modify" xml:space="preserve">
-    <value>Modify</value>
+    <value>Edit</value>
   </data>
   <data name="Normal" xml:space="preserve">
-    <value>Normal</value>
-  </data>
-  <data name="ParaUnit.HeaderText" xml:space="preserve">
-    <value>Unit</value>
+    <value>normal</value>
   </data>
   <data name="PrinterSelect" xml:space="preserve">
     <value>Please select the default printer</value>
   </data>
   <data name="PrinterSetFail" xml:space="preserve">
-    <value>Setting as default printer failed!</value>
+    <value>Setting default printer failed!</value>
   </data>
   <data name="PrintHead" xml:space="preserve">
     <value>Print settings</value>
   </data>
-  <data name="PrintNo.HeaderText" xml:space="preserve">
-    <value>NO.</value>
+  <data name="PrintMode" xml:space="preserve">
+    <value>Please select print template</value>
   </data>
   <data name="PrintParaSetSucess" xml:space="preserve">
     <value>Print parameters set successfully</value>
   </data>
   <data name="ProjectDeleteSucess" xml:space="preserve">
-    <value>Item deleted successfully</value>
+    <value>project deleted successfully</value>
   </data>
   <data name="ProjectHead" xml:space="preserve">
     <value>project management</value>
@@ -2529,7 +2569,7 @@
     <value>Import project succeeded</value>
   </data>
   <data name="ProjectIPFormat" xml:space="preserve">
-    <value>Incorrect import format</value>
+    <value>Import format error</value>
   </data>
   <data name="ProjectReAdd" xml:space="preserve">
     <value>The project already exists. Importing will delete the original project. Do you want to continue</value>
@@ -2552,40 +2592,16 @@
   <data name="RD" xml:space="preserve">
     <value>Reagent D</value>
   </data>
-  <data name="rdbClose.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="rdbOpen.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
   <data name="ReportNameSet" xml:space="preserve">
-    <value>The report name can only be composed of Chinese characters, letters, numbers, asterisks, .  or underscores, and cannot be empty!</value>
+    <value>The report name can only be composed of Chinese characters, letters, numbers, asterisks,. Or underscores, and cannot be empty!</value>
   </data>
   <data name="S" xml:space="preserve">
     <value>Add sample</value>
   </data>
-  <data name="StdName.HeaderText" xml:space="preserve">
-    <value>Standard</value>
-  </data>
-  <data name="StepName.HeaderText" xml:space="preserve">
-    <value>Step Name</value>
-  </data>
-  <data name="StepPara.HeaderText" xml:space="preserve">
-    <value>Parameter</value>
-  </data>
   <data name="T" xml:space="preserve">
     <value>Adding substrate</value>
   </data>
-  <data name="tabPBaseInfo.Text" xml:space="preserve">
-    <value>Basic Information</value>
-  </data>
-  <data name="tabPint.Text" xml:space="preserve">
-    <value>Print Settings</value>
-  </data>
-  <data name="tabPPro.Text" xml:space="preserve">
-    <value>Project Information</value>
-  </data>
   <data name="W" xml:space="preserve">
-    <value>wash</value>
+    <value>Wash</value>
   </data>
 </root>
