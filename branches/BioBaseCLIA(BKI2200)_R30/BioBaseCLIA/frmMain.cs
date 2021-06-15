@@ -1498,7 +1498,7 @@ namespace BioBaseCLIA
                     {
                         frmMessageShow f = new frmMessageShow();
                         f.MessageShow(GetString("Temperaturewarning"), st.ToString() + st2.ToString());
-                    })) { IsBackground = true }.Start();
+                    })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                     
                 }
             }
