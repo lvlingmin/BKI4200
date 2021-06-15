@@ -1565,38 +1565,45 @@ namespace BioBaseCLIA
         {
             if (NetCom3.isConnect && NetCom3.Instance.isHeartbeatLive) return;
 
-            if (NetCom3.Instance.CheckMyIp_Port_Link())
+            try
             {
-                NetCom3.Instance.close();
-                NetCom3.Instance.ConnectServer();
-
-                if (!NetCom3.isConnect)
-
+                if (NetCom3.Instance.CheckMyIp_Port_Link())
                 {
-                    frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow(GetString("Tips"),GetString("Unableconnect"));
-                    frmMS.Dispose();
-                    return;
-                }
-                else
-                {
-                    #region 判断各个模组是否握手成功
-                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 F1 01"), 5);
-                    if (!NetCom3.Instance.SingleQuery())
+                    NetCom3.Instance.close();
+                    NetCom3.Instance.ConnectServer();
+
+                    if (!NetCom3.isConnect)
+
                     {
-                        Invoke(new Action(() =>
-                        {
-                            MessageBox.Show(GetString("InitExcetion"), GetString("MessageboxTitle"),
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }));
+                        frmMessageShow frmMS = new frmMessageShow();
+                        frmMS.MessageShow(GetString("Tips"), GetString("Unableconnect"));
+                        frmMS.Dispose();
                         return;
                     }
-                    #endregion
+                    else
+                    {
+                        #region 判断各个模组是否握手成功
+                        NetCom3.Instance.Send(NetCom3.Cover("EB 90 F1 01"), 5);
+                        if (!NetCom3.Instance.SingleQuery())
+                        {
+                            Invoke(new Action(() =>
+                            {
+                                MessageBox.Show(GetString("InitExcetion"), GetString("MessageboxTitle"),
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }));
+                            return;
+                        }
+                        #endregion
 
-                    NetCom3.Instance.SendHeartbeat();
-                    fbtnTest.Enabled = true;
-                    fbtnMaintenance.Enabled = true;
+                        NetCom3.Instance.SendHeartbeat();
+                        fbtnTest.Enabled = true;
+                        fbtnMaintenance.Enabled = true;
+                    }
                 }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(GetString("AccessInterruption"), GetString("Tips"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
 

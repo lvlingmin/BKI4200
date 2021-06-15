@@ -3302,4 +3302,7 @@
   <data name="Samplefailed" xml:space="preserve">
     <value>加样机模组握手失败！</value>
   </data>
+  <data name="AccessInterruption" xml:space="preserve">
+    <value>通路中断，请重新确认连接并重启仪器与软件</value>
+  </data>
 </root>
