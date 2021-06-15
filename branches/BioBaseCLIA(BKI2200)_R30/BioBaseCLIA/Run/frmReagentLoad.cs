@@ -16,6 +16,7 @@ using DBUtility;
 using System.Text.RegularExpressions;
 using Common;
 using BioBaseCLIA.DataQuery;
+using System.Resources;
 
 namespace BioBaseCLIA.Run
 {
@@ -108,8 +109,7 @@ namespace BioBaseCLIA.Run
             {
                 if (DateTime.Now.Date > Convert.ToDateTime(odr["ValidDate"]).Date)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "条码编号："
-                                + odr["BarCode"] + "项目名称:" + odr["RgName"] + "试剂已经过期，请及时更换");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + string.Format(getString("keywordText.ReagentExpiredAlerm"), odr["BarCode"], odr["RgName"]));
                     OverDateC++;
                 }
             }
@@ -229,23 +229,23 @@ namespace BioBaseCLIA.Run
             frmMessageShow frmMsgShow = new frmMessageShow();
             //if (txtRgCode.Text == "")
             //{
-            //    frmMsgShow.MessageShow("试剂加载", "试剂条码为空。本次加载操作已取消。");
+            //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "试剂条码为空。本次加载操作已取消。");
             //    return;
             //}
             //if (txtRgBatch.Text == "")
             //{
-            //    frmMsgShow.MessageShow("试剂加载", "试剂批号为空。本次加载操作已取消。");
+            //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "试剂批号为空。本次加载操作已取消。");
             //    return;
             //}
             //if (txtRgAllTest.Text == "")
             //{
-            //    frmMsgShow.MessageShow("试剂装载", "总测数为空，请重新输入！");
+            //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "总测数为空，请重新输入！");
             //    txtRgAllTest.Focus();
             //    return;
             //}
             //if (txtRgLastTest.Text == "")
             //{
-            //    frmMsgShow.MessageShow("试剂装载", "剩余测数为空，请重新输入！");
+            //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "剩余测数为空，请重新输入！");
             //    txtRgLastTest.Focus();
             //    return;
             //}
@@ -255,9 +255,9 @@ namespace BioBaseCLIA.Run
             {
                 string BarCode = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                 string ItemName = OperateIniFile.ReadIniData("ReagentPos" + i.ToString(), "ItemName", "", iniPathReagentTrayInfo);
-                if (txtRgCode.Text.Trim() == BarCode && cmbRgName.Text.Trim() == ItemName && ItemName!="" && BarCode!="")
+                if (txtRgCode.Text.Trim() == BarCode && cmbRgName.Text.Trim() == ItemName && ItemName != "" && BarCode != "")
                 {
-                    frmMsgShow.MessageShow("试剂加载", "试剂条码与现有的重复（" + i + "号位置），请检查输入的试剂条码和试剂名称。本次加载操作已取消。");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), string.Format(getString("keywordText.ReagentBarcodeRepeat"), i));
                     return;
                 }
             }
@@ -267,13 +267,13 @@ namespace BioBaseCLIA.Run
             string[] rg = new string[9];
             if (dt1.Rows.Count > 0)
             {
-                frmMsgShow.MessageShow("试剂装载", "请先卸载该位置试剂！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseUnloadReagent"));
                 dgvRgInfoList_SelectionChanged(null, null);
                 return;
             }
             if (dt.Rows.Count > 0)
             {
-                frmMsgShow.MessageShow("试剂装载", "该条码试剂已装载！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ThisBarcodeLoaded"));
                 dgvRgInfoList_SelectionChanged(null, null);
                 return;
                 #region 屏蔽
@@ -296,31 +296,31 @@ namespace BioBaseCLIA.Run
                 //    #region 检测输入项
                 //    if (txtRgBatch.Text.Trim() == "")
                 //    {
-                //        frmMsgShow.MessageShow("试剂装载", "未输入批号，请重新输入！");
+                //        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "未输入批号，请重新输入！");
                 //        txtRgBatch.Focus();
                 //        return;
                 //    }
                 //    if (cmbRgName.Text.Trim() == "")
                 //    {
-                //        frmMsgShow.MessageShow("试剂装载", "未选择试剂名称，请重新输入！");
+                //        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "未选择试剂名称，请重新输入！");
                 //        cmbRgName.Focus();
                 //        return;
                 //    }
                 //    if (txtRgAllTest.Text.Trim() == "")
                 //    {
-                //        frmMsgShow.MessageShow("试剂装载", "未输入总测数，请重新输入！");
+                //        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "未输入总测数，请重新输入！");
                 //        txtRgAllTest.Focus();
                 //        return;
                 //    }
                 //    if (txtRgLastTest.Text.Trim() == "")
                 //    {
-                //        frmMsgShow.MessageShow("试剂装载", "未输入剩余测数，请重新输入！");
+                //        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "未输入剩余测数，请重新输入！");
                 //        txtRgLastTest.Focus();
                 //        return;
                 //    }
                 //    if (int.Parse(txtRgAllTest.Text.Trim()) < int.Parse(txtRgLastTest.Text.Trim()))
                 //    {
-                //        frmMsgShow.MessageShow("试剂装载", "剩余测数大于总测数，请重新输入！");
+                //        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "剩余测数大于总测数，请重新输入！");
                 //        txtRgLastTest.Focus();
                 //        return;
                 //    }
@@ -341,7 +341,7 @@ namespace BioBaseCLIA.Run
                 //{
                 //    ShowRgInfo();
 
-                //    frmMsgShow.MessageShow("试剂装载", "装载成功！");
+                //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "装载成功！");
                 //}
                 //rg[0] = ModelRg.BarCode;
                 //rg[1] = ModelRg.ReagentName;
@@ -370,7 +370,7 @@ namespace BioBaseCLIA.Run
                     srdReagent.Enabled = false;
                     #region 旋转到读卡器位置
                     int hole = Convert.ToInt32(addUseHole, 16);
-                    hole = hole - 15 > 0 ? (hole - 15) : (30 + hole - 15);
+                    hole = hole - 15 > 0 ? (hole - 15) : (RegentNum + hole - 15);
                     string HoleNum = hole.ToString("x2");
 
                     RotSendAgain:
@@ -380,7 +380,7 @@ namespace BioBaseCLIA.Run
                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                             goto RotSendAgain;
                         else
-                            frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                            frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                     }
                     while (!NetCom3.SpReciveFlag)
                     {
@@ -405,64 +405,64 @@ namespace BioBaseCLIA.Run
                 #region addCheck
                 if (txtRgPosition.Text.Trim() == "")
                 {
-                    frmMsgShow.MessageShow("试剂装载", "未选择试剂位置，请重新输入！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseChooseLoadPosition"));
                     txtRgPosition.Focus();
                     return;
                 }
                 if (cmbRgName.Text.Trim() == "")
                 {
-                    frmMsgShow.MessageShow("试剂装载", "未选择试剂名称，请重新选择！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseChooseReagentName"));
                     cmbRgName.Focus();
                     return;
                 }
                 if (txtRgBatch.Text.Trim() == "")
                 {
-                    frmMsgShow.MessageShow("试剂装载", "未输入批号，请重新输入！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseInputBatch"));
                     txtRgBatch.Focus();
                     return;
                 }
                 if (txtRgAllTest.Text.Trim() == "")
                 {
-                    frmMsgShow.MessageShow("试剂装载", "未输入总测数，请重新输入！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseInputAllTestNum"));
                     txtRgAllTest.Focus();
                     return;
                 }
                 if (txtRgLastTest.Text.Trim() == "")
                 {
-                    frmMsgShow.MessageShow("试剂装载", "未输入剩余测数，请重新输入！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseInputLastTestNum"));
                     txtRgLastTest.Focus();
                     return;
                 }
                 if (int.Parse(txtRgAllTest.Text.Trim()) < int.Parse(txtRgLastTest.Text.Trim()))
                 {
-                    frmMsgShow.MessageShow("试剂装载", "剩余测数大于总测数，请重新输入！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseAgainInputTestNum"));
                     txtRgLastTest.Focus();
                     return;
                 }
                 if (txtRgCode.Text.Trim() == "")
                 {
-                    frmMsgShow.MessageShow("试剂装载", "未输入试剂条码，请重新输入！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseInputReagentBarcode"));
                     txtRgCode.Focus();
                     return;
                 }
                 //if (dateValidDate.Value.Date <= DateTime.Today.Date)
                 //{
-                //    frmMsgShow.MessageShow("试剂装载", "试剂(稀释液)有效期信息有误或已过期！");
+                //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"),getString("keywordText.ReagentExpired"));
                 //    txtRgCode.Focus();
                 //    return;
                 //}
                 if (spacialProList.Find(ty => ty == cmbRgName.Text.Trim()) != null)
                 {
-                    if(txtRgPosition.Text.Trim() == RegentNum.ToString())
+                    if (txtRgPosition.Text.Trim() == RegentNum.ToString())
                     {
                         frmMessageShow msg = new frmMessageShow();
-                        msg.MessageShow("试剂装载", "特殊分装项目不允许放置在最后位置！");
+                        msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.SpecialItemNotAllowPutLast"));
                         return;
                     }
                     if (OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(txtRgPosition.Text.Trim()) + 1), "BarCode", "", iniPathReagentTrayInfo) != "")
                     {
                         frmMessageShow msg = new frmMessageShow();
-                        msg.MessageShow("试剂装载", "特殊分装项目，请先卸载掉后一个试剂位的试剂。");
+                        msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.SpecialItemFirstUnloadNext"));
                         return;
                     }
                 }
@@ -475,9 +475,9 @@ namespace BioBaseCLIA.Run
                 {
                     if (dateValidDate.Value.Date <= DateTime.Today.Date)
                     {
-                        if(validTime <= DateTime.Now)
+                        if (validTime <= DateTime.Now)
                         {
-                            frmMsgShow.MessageShow("试剂装载", "试剂(稀释液)有效期信息有误或已过期！");
+                            frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"),getString("keywordText.ReagentExpired"));
                             txtRgCode.Focus();
                             fbtnReturn.Enabled = true;
                             btnAddR.Enabled = true;
@@ -511,18 +511,18 @@ namespace BioBaseCLIA.Run
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                     goto SendAgain;
                                 else
-                                    frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                             }
                             else
                             {
-                                frmMsgShow.MessageShow("试剂装载", "装载成功！");
+                                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.LoadSuccess"));
                                 btnAddR.Enabled = false;
                                 SetDiskProperty();
                             }
                         }
                         else
                         {
-                            frmMsgShow.MessageShow("试剂装载", "网络未连接请先进行网络连接！");
+                            frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NetErrorAndRetry"));
                             return;
                         }
                     }
@@ -533,7 +533,7 @@ namespace BioBaseCLIA.Run
                 {
                     if (dateValidDate.Value.Date <= DateTime.Today.Date)
                     {
-                        frmMsgShow.MessageShow("试剂装载", "试剂(稀释液)有效期信息有误或已过期！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ReagentExpired"));
                         txtRgCode.Focus();
                         fbtnReturn.Enabled = true;
                         btnAddR.Enabled = true;
@@ -580,11 +580,11 @@ namespace BioBaseCLIA.Run
                     }
                     if (DateTime.Compare(dateValidDate.Value, DateTime.Now) <= 0)
                     {
-                        status = "过期";
+                        status = "过期";//getString("keywordText.Expired");
                     }
                     else
                     {
-                        status = "正常";
+                        status = "正常";//getString("keywordText.Normal");
                     }
                     ModelRg.Status = status;/*"正常";*/
                     ModelRg.ReagentNumber = txtRgPosition.Text.Trim();
@@ -614,18 +614,18 @@ namespace BioBaseCLIA.Run
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                     goto SendAgain;
                                 else
-                                    frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                             }
                             else
                             {
-                                frmMsgShow.MessageShow("试剂装载", "装载成功！");
+                                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.LoadSuccess"));
                                 btnAddR.Enabled = false;
                                 SetDiskProperty();
                             }
                         }
                         else
                         {
-                            frmMsgShow.MessageShow("试剂装载", "网络未连接请先进行网络连接！");
+                            frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NetErrorAndRetry"));
                             return;
                         }
                     }
@@ -676,9 +676,9 @@ namespace BioBaseCLIA.Run
                     dtRgInfo.Rows[i]["ValidDate"] = dr[i]["ValidDate"];//2018-08-18 zlx add
                     //2018-11-14  zlx mod
                     if (Convert.ToDateTime(dtRgInfo.Rows[i]["ValidDate"]) < DateTime.Now.Date)
-                        dtRgInfo.Rows[i]["Status"] = "过期";
+                        dtRgInfo.Rows[i]["Status"] = getString("keywordText.Expired");
                     else
-                        dtRgInfo.Rows[i]["Status"] = "正常";
+                        dtRgInfo.Rows[i]["Status"] = getString("keywordText.Normal");
                     //if (dtItemInfo.Select("ShortName='" + dr[i]["ReagentName"] + "'")[0]["NoUsePro"].ToString() == "")
                     //    dtRgInfo.Rows[i]["NoUsePro"] = "500-ul";
                     //else
@@ -704,8 +704,7 @@ namespace BioBaseCLIA.Run
             {
                 if (DateTime.Now.Date > Convert.ToDateTime(odr["ValidDate"]).Date)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "条码编号："
-                                + odr["BarCode"] + "项目名称:" + odr["ReagentName"] + "试剂已经过期，请及时更换");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + string.Format(getString("keywordText.ReagentExpiredAlerm"), odr["BarCode"], odr["ReagentName"]));
                     OverDateC++;
                 }
 
@@ -723,7 +722,7 @@ namespace BioBaseCLIA.Run
                 if (!frmMsgShow.Created)
                 {
                     frmMsgShow = new frmMessageShow();
-                    frmMsgShow.MessageShow("试剂过期警告", "有过期试剂，请及时卸载！详情请查日志信息！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentExpiredHead"), getString("keywordText.PleaseUnloadExpiredReagent"));
                 }
             }
 
@@ -742,7 +741,7 @@ namespace BioBaseCLIA.Run
             if (srdReagent.rgSelectedNo >= -1)
             {
                 if (srdReagent.rgSelectedNo == -1)
-                    RgSelectedNo = 29;
+                    RgSelectedNo = frmParent.RegentNum - 1;
                 else
                     RgSelectedNo = srdReagent.rgSelectedNo;
                 string sc = srdReagent.RgColor[GetSelectedNo].Name;
@@ -751,8 +750,7 @@ namespace BioBaseCLIA.Run
                     srdReagent.RgColor[GetSelectedNo] = Color.White;
                     srdReagent.BdColor[GetSelectedNo] = Color.White;
                 }
-                string ss = srdReagent.RgName[RgSelectedNo].ToString().Trim();
-                btnAddD.Text = "绑定稀释液";
+                btnAddD.Text = getString("keywordText.BindDiluteReagent");
                 if (srdReagent.RgName[RgSelectedNo].ToString().Trim() == "")
                 {
                     srdReagent.RgColor[RgSelectedNo] = Color.Yellow;
@@ -779,7 +777,7 @@ namespace BioBaseCLIA.Run
                         {
                             srdReagent.RgColor[RgSelectedNo] = Color.Purple;
                             srdReagent.BdColor[RgSelectedNo] = Color.Purple;
-                            btnAddD.Text = "一键解绑";
+                            btnAddD.Text = getString("keywordText.OneKeyUnbundling");
                         }
                         else
                         {
@@ -832,7 +830,7 @@ namespace BioBaseCLIA.Run
                     else
                     {
                         cmbProType.SelectedIndex = 0;
-                        labUnit.Text = "测";
+                        labUnit.Text = getString("keywordText.Measurement");
                     }
                     txtRgPosition.Text = dtRgInfo.Rows[i]["Postion"].ToString();
                     cmbRgName.Text = dtRgInfo.Rows[i]["RgName"].ToString();
@@ -858,19 +856,19 @@ namespace BioBaseCLIA.Run
             //lyq mod 20190828
             if (txtRgCode.Text == "")
             {
-                frmMsgShow.MessageShow("试剂装载", "试剂条码为空，请重新输入！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ReagentBarcodeIsNull"));
                 txtRgCode.Focus();
                 return;
             }
             if (txtRgAllTest.Text == "")
             {
-                frmMsgShow.MessageShow("试剂装载", "总测数为空，请重新输入！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.AllTestNumIsNull"));
                 txtRgAllTest.Focus();
                 return;
             }
             if (txtRgLastTest.Text == "")
             {
-                frmMsgShow.MessageShow("试剂装载", "剩余测数为空，请重新输入！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.LastTestNumIsNull"));
                 txtRgLastTest.Focus();
                 return;
             }
@@ -879,7 +877,7 @@ namespace BioBaseCLIA.Run
             {
                 if (dr["ItemName"].ToString().Contains(cmbRgName.Text.ToString()))
                 {
-                    frmMsgShow.MessageShow("试剂卸载", "此项目有待检测样本，请先卸载相关的样本信息！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentUnload"), getString("keywordText.PealseFirstUnloadSampleAbout"));
                     txtRgLastTest.Focus();
                     return;
                 }
@@ -901,7 +899,7 @@ namespace BioBaseCLIA.Run
             dt = bllRg.GetList(" BarCode='" + txtRgCode.Text.Trim() + "' and Postion<>''").Tables[0];//Postion<>null and
             if (!(dt.Rows.Count > 0))
             {
-                frmMsgShow.MessageShow("试剂装载", "试剂条码错误，请检查后重新输入！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ReagentBarcodeErrorAndRetry"));
                 txtRgCode.Focus();
                 return;
             }
@@ -910,7 +908,7 @@ namespace BioBaseCLIA.Run
             {
                 if (!CheckDiuDelete(txtRgPosition.Text))
                 {
-                    frmMsgShow.MessageShow("试剂装载", "稀释液信息正在被使用，请先卸载相关试剂！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.DiluteBeUsedAndUnloadAbout"));
                     txtRgLastTest.Focus();
                     return;
                 }
@@ -933,7 +931,7 @@ namespace BioBaseCLIA.Run
             ModelRg.AllTestNumber = int.Parse(txtRgAllTest.Text.Trim());
             ModelRg.Postion = txtRgPosition.Text.Trim();
             ModelRg.ReagentName = cmbRgName.Text.Trim();
-            ModelRg.Status = "卸载";
+            ModelRg.Status = getString("keywordText.Unload");
             for (int i = 0; i < rg.Length; i++)
             {
                 rg[i] = "";
@@ -964,31 +962,31 @@ namespace BioBaseCLIA.Run
                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                             goto SendAgain;
                         else
-                            frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                            frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                     }
                     else
                     {
 
-                        frmMsgShow.MessageShow("试剂装载", "卸载成功！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.UnloadSuccess"));
                         btnDelR.Enabled = false;
                     }
                     //NetCom3.Delay(1000);
                 }
                 else
                 {
-                    frmMsgShow.MessageShow("试剂装载", "网络未连接请先进行网络连接！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NetErrorAndRetry"));
                 }
                 //if (NetCom3.Instance.SPQuery())
                 //{
-                //    frmMsgShow.MessageShow("试剂装载", "卸载成功！");
+                //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "卸载成功！");
                 //    btnDelR.Enabled = false;
                 //}
             }
-            if(spacialProList.Find(ty => ty == ModelRg.ReagentName) != null)//卸载掉特殊分装项目的
+            if (spacialProList.Find(ty => ty == ModelRg.ReagentName) != null)//卸载掉特殊分装项目的
             {
                 srdReagent.RgTestNum[int.Parse(ModelRg.Postion)] = "";
                 srdReagent.RgName[int.Parse(ModelRg.Postion)] = "";
-                ModifyRgIni(int.Parse(ModelRg.Postion) + 1, new string[9]{ "","","","","","","","",""});
+                ModifyRgIni(int.Parse(ModelRg.Postion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                 ShowRgInfo(0);
             }
             fbtnReturn.Enabled = true;
@@ -1094,7 +1092,7 @@ namespace BioBaseCLIA.Run
                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                         goto SendAgain;
                     else
-                        frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                 }
                 if (ReagentCaculatingFlag)
                 {
@@ -1105,7 +1103,7 @@ namespace BioBaseCLIA.Run
             }
             else
             {
-                frmMsgShow.MessageShow("试剂装载", "网络未连接请先进行网络连接！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NetErrorAndRetry"));
                 if (ReagentCaculatingFlag)
                 {
                     ReagentCaculatingFlag = false;
@@ -1147,18 +1145,18 @@ namespace BioBaseCLIA.Run
                 if (dr["ValidDate"].ToString() != "" && DateTime.Parse(dr["ValidDate"].ToString()) < DateTime.Now.Date)
                 {
                     if (strPos == "")
-                        strPos = "试剂位:" + dr["Postion"].ToString();
+                        strPos = string.Format(getString("keywordText.ReagentPositionPartOf"), dr["Postion"].ToString());
                     else
                         strPos = strPos + "," + dr["Postion"].ToString();
 
                 }
             }
             if (logAlarm == 1)
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + strPos + "试剂(稀释液)已经过期，请卸载或者更换！");
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + string.Format(getString("keywordText.ReagentExpiredAlerm2"), strPos));
             if (strPos != "")
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("过期提醒", strPos + "试剂(稀释液)已经过期，请卸载或者更换！");
+                frmMessage.MessageShow(getString("keywordText.ReagentExpiredHead"), string.Format(getString("keywordText.ReagentExpiredAndPlzrReplace"), strPos));
                 return true;
             }
             return false;
@@ -1204,7 +1202,7 @@ namespace BioBaseCLIA.Run
                 }
                 if (spacialProList.Find(ty => ty == dtRgInfo.Rows[j]["RgName"].ToString()) != null)//特殊分装项目染色
                 {
-                    if(srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] == srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1])
+                    if (srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] == srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1])
                     {
                         srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CRgLoaded;
                         srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CBeedsLoaded;
@@ -1300,7 +1298,7 @@ namespace BioBaseCLIA.Run
                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                             goto SendAgain;
                         else
-                            frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                            frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                     }
                     //while (!NetCom3.SpReciveFlag)
                     //{
@@ -1310,11 +1308,11 @@ namespace BioBaseCLIA.Run
                 }
                 else
                 {
-                    frmMsgShow.MessageShow("试剂装载", "网络未连接请先进行网络连接！");
+                    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NetErrorAndRetry"));
                     return;
                 }
                 //zlx modify点击10-15报错，及启用卸载按钮
-                if((RgSelectedNo + 1) != 1)//点击特殊分装项目次瓶
+                if ((RgSelectedNo + 1) != 1)//点击特殊分装项目次瓶
                 {
                     if (dtRgInfo.Select("Postion='" + (RgSelectedNo) + "'").Length <= 0)
                         ;
@@ -1391,7 +1389,7 @@ namespace BioBaseCLIA.Run
                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                         goto SendAgain;
                     else
-                        frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                 }
                 //while (!NetCom3.SpReciveFlag)
                 //{
@@ -1402,7 +1400,7 @@ namespace BioBaseCLIA.Run
             }
             else
             {
-                frmMsgShow.MessageShow("试剂装载", "网络未连接请先进行网络连接！");
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NetErrorAndRetry"));
                 return;
             }
 
@@ -1424,7 +1422,7 @@ namespace BioBaseCLIA.Run
             if (DiuFlag == "1")
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                DialogResult result = frmMessage.MessageShow("稀释液解绑", "是否确认将稀释液与试剂进行解绑？");
+                DialogResult result = frmMessage.MessageShow(getString("keywordText.DiluteUnbundlingHead"), getString("keywordText.ConfirmUnbundlingYes"));
                 if (result == DialogResult.OK)
                 {
                     foreach (DataRow dr in dtRgInfo.Rows)
@@ -1442,7 +1440,7 @@ namespace BioBaseCLIA.Run
             if (ItemName == "")
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("绑定稀释液", "请选择试剂项目来绑定稀释液！");
+                frmMessage.MessageShow(getString("keywordText.BindDiluteReagent"), getString("keywordText.PleaseChooseItemToBind"));
                 return;
             }
             if (dtRgInfo.Select("Postion=" + txtRgPosition.Text + "").Length == 0)
@@ -1457,14 +1455,14 @@ namespace BioBaseCLIA.Run
                 if (ItemName.Trim() == PItemName.Trim())
                 {
                     frmMessageShow frmMessage = new frmMessageShow();
-                    frmMessage.MessageShow("绑定稀释液", "此位置不能进行稀释液的绑定，请在" + PRgPos + "位置绑定稀释液信息！");
+                    frmMessage.MessageShow(getString("keywordText.BindDiluteReagent"), string.Format(getString("keywordText.NotAllowBindAndRetry"), PRgPos));
                     return;
                 }
             }
             if (frmParent.DiuPosList.Count == 0)
             {
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("绑定稀释液", "未找到已装载的稀释液信息，此次操作不成功！");
+                frmMessage.MessageShow(getString("keywordText.BindDiluteReagent"), getString("keywordText.NotFindDiluteAndFail"));
                 return;
             }
 
@@ -1476,7 +1474,7 @@ namespace BioBaseCLIA.Run
             //if (dtRgInfo.Select("Postion=" + Convert.ToInt32(txtRgPosition.Text) + "").Length == 0)
             //{
             //    frmMessageShow frmMsgShow = new frmMessageShow();
-            //    frmMsgShow.MessageShow("试剂装载", "请先装载试剂盒！");
+            //    frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "请先装载试剂盒！");
             //    return;
             //}
             //frmLoadSu f = new frmLoadSu();
@@ -1537,7 +1535,7 @@ namespace BioBaseCLIA.Run
                     new Thread(new ParameterizedThreadStart((obj) =>
                     {
                         frmMessageShow frmMessage = new frmMessageShow();
-                        frmMessage.MessageShow("试剂装载", "未找到此条码对应的项目信息！");
+                        frmMessage.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemFromThisBarcode"));
                     }))
                     { IsBackground = true }.Start();
                     return false;
@@ -1585,11 +1583,11 @@ namespace BioBaseCLIA.Run
                     dateValidDate.Value = validTime;
                     if (DateTime.Compare(validTime, DateTime.Now) <= 0)
                     {
-                        status = "过期";
+                        status = "过期";//getString("keywordText.Expired");
                     }
                     else
                     {
-                        status = "正常";
+                        status = "正常";//getString("keywordText.Normal");
                     }
                 }));
             }
@@ -1642,7 +1640,7 @@ namespace BioBaseCLIA.Run
             }
             else
             {
-                if(chDay[0] == '.')
+                if (chDay[0] == '.')
                 {
                     chDay[0] = 'V';
                 }
@@ -1697,7 +1695,7 @@ namespace BioBaseCLIA.Run
                     {
                         testTimes = (int.Parse(decryption.Substring(9, 2)) * 10).ToString();//测试
                     }
-                    catch(System.Exception ex)
+                    catch (System.Exception ex)
                     {
                         testTimes = "100";
                     }
@@ -1746,7 +1744,7 @@ namespace BioBaseCLIA.Run
             }
             #endregion
             #region productDay
-            if(productDay.Length == 1)
+            if (productDay.Length == 1)
             {
                 productDay = reverseDate(productDay.ToCharArray()[0]);
                 if (productDay == "61")
@@ -1757,7 +1755,7 @@ namespace BioBaseCLIA.Run
             {
                 productDay = year + month + day;
             }
-            
+
             #endregion
 
             return shortName + "?" + shortName + year + month + day + "?" + productDay + "?" + testTimes;
@@ -1891,7 +1889,7 @@ namespace BioBaseCLIA.Run
                     {
                         return false;
                     }
-                    else if (check[4] == "0" &&!Regex.IsMatch(check[5], @"^[a-fA-F0-9]{1,4}$"))
+                    else if (check[4] == "0" && !Regex.IsMatch(check[5], @"^[a-fA-F0-9]{1,4}$"))
                     {
                         return false;
                     }
@@ -1921,10 +1919,10 @@ namespace BioBaseCLIA.Run
                             }
                             //check[4] = DateTime.Parse(year + "/" + month + "/" + day).AddDays(double.Parse(check[4])).ToString("yyyyMMdd");
                             //添加生产日期后的流水号
-                            string tempNum1 = check[5].Substring(0,1);
+                            string tempNum1 = check[5].Substring(0, 1);
                             string tempNum2 = check[5].Substring(1, 1);
                             string tempNum3 = check[5].Substring(2, 1);
-                            tempNum1 = (int.Parse(reverseDate(tempNum1.ToCharArray()[0])) * Math.Pow(62,2)).ToString();
+                            tempNum1 = (int.Parse(reverseDate(tempNum1.ToCharArray()[0])) * Math.Pow(62, 2)).ToString();
                             tempNum2 = (int.Parse(reverseDate(tempNum2.ToCharArray()[0])) * Math.Pow(62, 1)).ToString();
                             tempNum3 = (int.Parse(reverseDate(tempNum3.ToCharArray()[0])) * Math.Pow(62, 0)).ToString();
                             check[5] = (int.Parse(tempNum1) + int.Parse(tempNum2) + int.Parse(tempNum3)).ToString();
@@ -1979,13 +1977,13 @@ namespace BioBaseCLIA.Run
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow fr = new frmMessageShow();
-                    fr.MessageShow("试剂装载", "条码校验未通过！请重新输入！");
+                    fr.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedCheckedOfBarcode"));
                 }))
                 { IsBackground = true }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
-                    //frmMsgShow.MessageShow("试剂装载", "条码校验未通过！请重新输入");
+                    //frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "条码校验未通过！请重新输入");
                 }));
                 return;
             }
@@ -2017,13 +2015,13 @@ namespace BioBaseCLIA.Run
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     frmMessageShow fr = new frmMessageShow();
-                    fr.MessageShow("试剂装载", "未通过条码校验！");
+                    fr.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedCheckedOfBarcode"));
                 }))
                 { IsBackground = true }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
-                    //frmMsgShow.MessageShow("试剂装载", "未通过条码校验！");
+                    //frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), "未通过条码校验！");
                 }));
                 return;
             }
@@ -2090,7 +2088,7 @@ namespace BioBaseCLIA.Run
                     if (batchCA == BarCode/* && cmbRgName.Text.Trim() == ItemName*/)
                     {
                         frmMessageShow msg = new frmMessageShow();
-                        msg.MessageShow("试剂加载", "试剂条码与现有的重复（" + i + "号位置），请检查输入的试剂条码。本次加载操作已取消。");
+                        msg.MessageShow(getString("keywordText.ReagentLoad"), string.Format(getString("keywordText.ReagentBarcodeRepeat"), i));
                         return false;
                     }
                 }
@@ -2111,7 +2109,7 @@ namespace BioBaseCLIA.Run
             }
             #region 判断是否是首次装载，首次装载首先更新项目信息       
             DataTable dt = bllRg.GetList("BarCode='" + batchCA + "'").Tables[0];
-            if(dt.Rows.Count > 0)//已经装载过
+            if (dt.Rows.Count > 0)//已经装载过
             {
                 ;
             }
@@ -2130,10 +2128,10 @@ namespace BioBaseCLIA.Run
                         if (btnLoopAddR.Enabled == true)
                         {
                             frmMessageShow msg = new frmMessageShow();
-                            msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
+                            msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemAndPlzImport"));
                         }
                         else
-                            loopSpFailReason.Add("\n" + txtRgPosition.Text + "：未检测到对应项目，请导入相关项目信息文件！");
+                            loopSpFailReason.Add("\n" + txtRgPosition.Text + "：" + getString("keywordText.NotFindItemAndPlzImport"));
                         return false;
                     }
                     string rgNameCode = decryption.Substring(3, 3);//试剂编号
@@ -2147,10 +2145,10 @@ namespace BioBaseCLIA.Run
                         if (btnLoopAddR.Enabled == true)
                         {
                             frmMessageShow msg = new frmMessageShow();
-                            msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
+                            msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemAndPlzImport"));
                         }
                         else
-                            loopSpFailReason.Add("\n" + txtRgPosition.Text + "：未检测到对应项目，请导入相关项目信息文件！");
+                            loopSpFailReason.Add("\n" + txtRgPosition.Text + "：" + getString("keywordText.NotFindItemAndPlzImport"));
                         return false;
                     }
                     if (length > 0)//如果有导入相关项目则继续
@@ -2162,14 +2160,14 @@ namespace BioBaseCLIA.Run
                         if (btnLoopAddR.Enabled == true)
                         {
                             frmMessageShow msg = new frmMessageShow();
-                            msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
+                            msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemAndPlzImport"));
                         }
                         else
-                            loopSpFailReason.Add("\n" + txtRgPosition.Text + "：未检测到对应项目，请导入相关项目信息文件！");
+                            loopSpFailReason.Add("\n" + txtRgPosition.Text + "：" + getString("keywordText.NotFindItemAndPlzImport"));
                         return false;
                     }
                 }
-                for(int i =0;i<4;i++)
+                for (int i = 0; i < 4; i++)
                 {
                     NetCom3.Delay(1000);
                     string decryption = StringUtils.instance.ToDecryption(batchCA);
@@ -2183,10 +2181,10 @@ namespace BioBaseCLIA.Run
                             if (btnLoopAddR.Enabled == true)
                             {
                                 frmMessageShow msg = new frmMessageShow();
-                                msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
+                                msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemAndPlzImport"));
                             }
                             else
-                                loopSpFailReason.Add("\n" + txtRgPosition.Text + "：未检测到对应项目，请导入相关项目信息文件！");
+                                loopSpFailReason.Add("\n" + txtRgPosition.Text + "：" + getString("keywordText.NotFindItemAndPlzImport"));
                             return false;
                         }
                         else
@@ -2203,13 +2201,13 @@ namespace BioBaseCLIA.Run
                             if (btnLoopAddR.Enabled == true)
                             {
                                 frmMessageShow msg = new frmMessageShow();
-                                msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
+                                msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemAndPlzImport"));
                             }
                             else
-                                loopSpFailReason.Add("\n" + txtRgPosition.Text + "：未检测到对应项目，请导入相关项目信息文件！");
+                                loopSpFailReason.Add("\n" + txtRgPosition.Text + "：" + getString("keywordText.NotFindItemAndPlzImport"));
                             return false;
                         }
-                            
+
                         else
                             continue;
                     }
@@ -2224,10 +2222,10 @@ namespace BioBaseCLIA.Run
                             if (btnLoopAddR.Enabled == true)
                             {
                                 frmMessageShow msg = new frmMessageShow();
-                                msg.MessageShow("试剂加载", "未检测到对应项目，请导入相关项目信息文件！");
+                                msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemAndPlzImport"));
                             }
                             else
-                                loopSpFailReason.Add("\n" + txtRgPosition.Text + "：未检测到对应项目，请导入相关项目信息文件！");
+                                loopSpFailReason.Add("\n" + txtRgPosition.Text + "：" + getString("keywordText.NotFindItemAndPlzImport"));
                             return false;
                         }
                         else
@@ -2811,7 +2809,7 @@ namespace BioBaseCLIA.Run
                 DataTable dtQI = bllQC.GetAllList().Tables[0];
                 for (int i = 0; i < dtQI.Rows.Count; i++)
                 {
-                    dtQI.Rows[i]["QCLevel"] = dtQI.Rows[i]["QCLevel"].ToString() == "0" ? "高" : (dtQI.Rows[i]["QCLevel"].ToString() == "1" ? "中" : "低");
+                    dtQI.Rows[i]["QCLevel"] = dtQI.Rows[i]["QCLevel"].ToString() == "0" ? getString("keywordText.High") : (dtQI.Rows[i]["QCLevel"].ToString() == "1" ? getString("keywordText.Middle") : getString("keywordText.Low"));
                 }
             }
             else
@@ -2851,7 +2849,7 @@ namespace BioBaseCLIA.Run
                     if (rgcode == BarCode)
                     {
                         frmMessageShow msg = new frmMessageShow();
-                        msg.MessageShow("试剂加载", "稀释液条码与现有的重复（" + i + "号位置），请检查输入的稀释液条码。本次加载操作已取消。");
+                        msg.MessageShow(getString("keywordText.ReagentLoad"), string.Format(getString("keywordText.DiluteBarcodeRepeat"), i));
                         return false;
                     }
                 }
@@ -2894,18 +2892,18 @@ namespace BioBaseCLIA.Run
             #endregion
             #region 处理条码取得数据
             string decryption = itemXmlToDecryption(rgcode);
-            string[] xmlInfo = decryption.Split(new string[1] { "$$" } , System.StringSplitOptions.None);
+            string[] xmlInfo = decryption.Split(new string[1] { "$$" }, System.StringSplitOptions.None);
             #region 处理校验
-            string checkNum = xmlInfo[xmlInfo.Length - 1].Trim().Substring(0,2);
+            string checkNum = xmlInfo[xmlInfo.Length - 1].Trim().Substring(0, 2);
             double caluCheckNum = 0;
             caluCheckNum += 'F';
             int index = decryption.LastIndexOf(checkNum);
-            for(int i = 1; i < index; i++)
+            for (int i = 1; i < index; i++)
             {
                 caluCheckNum += decryption[i];
             }
             caluCheckNum %= 97;
-            if (Convert.ToInt16(checkNum,16) != caluCheckNum)
+            if (Convert.ToInt16(checkNum, 16) != caluCheckNum)
             {
                 spUpdateItemFromXmlFlag = (int)addRFlagState.fail;
                 return false;
@@ -2945,7 +2943,7 @@ namespace BioBaseCLIA.Run
                 frmMessageShow frmMsg = new frmMessageShow();
                 if (!bllP.Delete_(model.ShortName))
                 {
-                    frmMsg.MessageShow("试剂装载", "项目更新失败");
+                    frmMsg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfItemXmlUpdate"));
                     spUpdateItemFromXmlFlag = (int)addRFlagState.fail;
                     return false;
                 }
@@ -2959,7 +2957,7 @@ namespace BioBaseCLIA.Run
             else
             {
                 frmMessageShow frmMsg = new frmMessageShow();
-                frmMsg.MessageShow("试剂装载" ,"项目更新失败" );
+                frmMsg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfItemXmlUpdate"));
                 spUpdateItemFromXmlFlag = (int)addRFlagState.fail;
                 return false;
             }
@@ -2968,7 +2966,7 @@ namespace BioBaseCLIA.Run
             int sortMax = 0;
             try
             {
-                DataTable dtTemp = OperateIniFile.ReadConfig(Application.StartupPath + "//ReportSort.ini");   
+                DataTable dtTemp = OperateIniFile.ReadConfig(Application.StartupPath + "//ReportSort.ini");
                 foreach (DataRow dr in dtTemp.Rows)
                 {
                     if (dr[0].ToString() == model.ShortName)
@@ -2982,7 +2980,7 @@ namespace BioBaseCLIA.Run
                     }
                 }
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 sortMax = 500;
             }
@@ -2992,7 +2990,7 @@ namespace BioBaseCLIA.Run
             }
             #endregion
             #endregion
-            Invoke(new Action(()=>
+            Invoke(new Action(() =>
             {
                 cmbProType.SelectedIndex = 0;
                 cmbRgName.DataSource = GetItemShortName();
@@ -3018,7 +3016,7 @@ namespace BioBaseCLIA.Run
                     if (!isSp)//单次装载执行
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindReagentKit"));
                     }
                     addRFlag = (int)addRFlagState.fail;
                     addREmpty = (int)addRFlagState.empty;
@@ -3028,7 +3026,7 @@ namespace BioBaseCLIA.Run
                     return;
                 }
                 string signChar = order.Split(' ')[5];
-                if(order.Length > 300)
+                if (order.Length > 300)
                 {
                     signChar = order.Split(' ')[6];
                 }
@@ -3058,7 +3056,7 @@ namespace BioBaseCLIA.Run
                     if (!dealProOfRFID(order))
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "项目流程处理失败！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfItemProcess"));
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -3070,7 +3068,7 @@ namespace BioBaseCLIA.Run
                     if (!dealConcOfRFID(order))
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "项目定标浓度处理失败！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfItemProcess"));
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -3082,7 +3080,7 @@ namespace BioBaseCLIA.Run
                     if (!dealValueOfRFID(order))
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "项目定标曲线处理失败！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfItemMaincurve"));
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -3094,7 +3092,7 @@ namespace BioBaseCLIA.Run
                     if (!dealQcOfRFID(order))
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "项目质控信息处理失败！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfItemQc"));
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -3108,19 +3106,19 @@ namespace BioBaseCLIA.Run
                         if (txtRgCode.Text.Trim() != "")
                         {
                             frmMessageShow frmMsgShow = new frmMessageShow();
-                            frmMsgShow.MessageShow("射频卡扫描", "稀释液条码处理失败！");
-                        } 
+                            frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfDilute"));
+                        }
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
                     }
                 }
-                else if(signChar == "C")
+                else if (signChar == "C")
                 {
                     if (!dealItemXmlOfRFID(order))
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "项目信息更新失败！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedOfItemXmlUpdate"));
                         addRFlag = (int)addRFlagState.fail;
                         NetCom3.Instance.ReceiveHandel -= dealSP;
                         return;
@@ -3132,7 +3130,7 @@ namespace BioBaseCLIA.Run
                     if (!isSp)//单次装载执行
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindReagentKit"));
                     }
                     addRFlag = (int)addRFlagState.fail;
                     NetCom3.Instance.ReceiveHandel -= dealSP;
@@ -3152,14 +3150,14 @@ namespace BioBaseCLIA.Run
             {
                 NetCom3.totalOrderFlag = true;
                 NetCom3.Instance.errorFlag = (int)ErrorState.OverTime;
-                LogFile.Instance.Write("errorFlag = ： " + NetCom3.Instance.errorFlag + "  *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
+                LogFile.Instance.Write(string.Format(getString("keywordText.LogOfErrorFlag"), NetCom3.Instance.errorFlag, DateTime.Now.ToString("HH - mm - ss")));
                 NetCom3.DiagnostDone.Set();
                 NetCom3.Instance.ReceiveHandel -= dealSP;
                 return false;
             }
             else if (NetCom3.Instance.errorFlag != (int)ErrorState.Success)//其他错误
             {
-                LogFile.Instance.Write("errorFlag = ： " + NetCom3.Instance.errorFlag + "  *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
+                LogFile.Instance.Write(string.Format(getString("keywordText.LogOfErrorFlag"), NetCom3.Instance.errorFlag, DateTime.Now.ToString("HH - mm - ss")));
                 NetCom3.Instance.ReceiveHandel -= dealSP;
                 return false;
             }
@@ -3187,7 +3185,7 @@ namespace BioBaseCLIA.Run
                     BeginInvoke(new Action(() =>
                     {
                         frmMessageShow frmMsgShow = new frmMessageShow();
-                        frmMsgShow.MessageShow("射频卡扫描", "未检测到试剂盒");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindReagentKit"));
                         //MessageBox.Show("数据获取失败！", "射频卡扫描");
                     }));
                 }
@@ -3241,7 +3239,7 @@ namespace BioBaseCLIA.Run
             if (RgType == (int)ReagentType.ready)
                 return false;
 
-            DataTable dtable = bllRg.GetList("BarCode='" + txtRgBatch.Text + "'").Tables[0];            
+            DataTable dtable = bllRg.GetList("BarCode='" + txtRgBatch.Text + "'").Tables[0];
             if (loadItem.Substring(1, 1) == "1" && dtable.Rows.Count <= 0 && RgType == (int)ReagentType.reagent)//首次装载
             {
                 //pro
@@ -3419,7 +3417,7 @@ namespace BioBaseCLIA.Run
             if (frmParent.dtSampleRunInfo.Rows.Count > 0)
             {
                 frmMessageShow msg = new frmMessageShow();
-                msg.MessageShow("试剂装载", "请先卸载已装载的样本信息！");
+                msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseUnloadSampleFirst"));
                 return;
             }
             isSp = true;
@@ -3438,7 +3436,7 @@ namespace BioBaseCLIA.Run
             loopSpFailResult.Clear();
             loopSpFailReason.Clear();
             List<int> loopSpSuccessResult = new List<int>();
-            string spBreak = "装载中断！\n";
+            string spBreak = getString("keywordText.LoadBreak");
             dgvRgInfoList.Enabled = false;
             srdReagent.Enabled = false;
             //点击装载
@@ -3485,7 +3483,7 @@ namespace BioBaseCLIA.Run
                                 srdReagent.RgColor[RgSelectedNo] = Color.Orange;
                                 srdReagent.BdColor[RgSelectedNo] = Color.Orange;
                             }
-                            else if(!srdReagent.RgName[RgSelectedNo].ToString().Trim().Contains("SD"))
+                            else if (!srdReagent.RgName[RgSelectedNo].ToString().Trim().Contains("SD"))
                             {
                                 srdReagent.RgColor[RgSelectedNo] = srdReagent.CRgLoaded;
                                 srdReagent.BdColor[RgSelectedNo] = srdReagent.CBeedsLoaded;
@@ -3523,7 +3521,7 @@ namespace BioBaseCLIA.Run
                 }));
 
                 int hole = i;
-                hole = hole - 15 > 0 ? (hole - 15) : (frmParent.RegentNum + hole - 15);
+                hole = hole - 15 > 0 ? (hole - 15) : (RegentNum + hole - 15);
                 string HoleNum = hole.ToString("x2");
 
                 RotSendAgain:
@@ -3534,7 +3532,7 @@ namespace BioBaseCLIA.Run
                         goto RotSendAgain;
                     else
                     {
-                        frmMsgShow.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                         goto errorEnd;
                     }
                 }
@@ -3551,7 +3549,7 @@ namespace BioBaseCLIA.Run
                     {
                         if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + i + "'")[0]["RgName"].ToString()) != null)
                         {
-                            ModifyRgIni(i+1, new string[9] { "","", "", "", "", "", "", "", "" });
+                            ModifyRgIni(i + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                             srdReagent.RgTestNum[i] = "";
                             srdReagent.RgName[i] = "";
                         }
@@ -3569,7 +3567,7 @@ namespace BioBaseCLIA.Run
                             goto errorEnd;
                         }
                     }
-                    if (i == frmParent.RegentNum)
+                    if (i == RegentNum)
                     {
                         spBreak = "";
                     }
@@ -3595,7 +3593,7 @@ namespace BioBaseCLIA.Run
                     {
                         //frmMessageShow msg = new frmMessageShow();
                         //msg.MessageShow("一键装载", "特殊分装项目不允许放置在最后位置！");
-                        loopSpFailReason.Add("\n" + i + "：特殊分装项目不允许放置在最后位置！");
+                        loopSpFailReason.Add("\n" + i + "：" + getString("keywordText.SpecialItemNotAllowPutLast"));
                         goto errorEnd;
                     }
                     //if (OperateIniFile.ReadIniData("ReagentPos" + int.Parse(rgpostion) + 1, "BarCode", "", iniPathReagentTrayInfo) != "")
@@ -3606,7 +3604,7 @@ namespace BioBaseCLIA.Run
                 //if (dateValidDate.Value.Date <= DateTime.Today.Date)
                 //{
                 //    frmMessageShow msg = new frmMessageShow();
-                //    msg.MessageShow("试剂装载", "试剂(稀释液)已过期！");
+                //    msg.MessageShow(getString("keywordText.ReagentLoad"), "试剂(稀释液)已过期！");
                 //    goto errorEnd;
                 //}
                 if (rgpostion != "1" && spacialProList.Find(ty =>
@@ -3615,21 +3613,21 @@ namespace BioBaseCLIA.Run
                 {
                     //frmMessageShow msg = new frmMessageShow();
                     //msg.MessageShow("一键装载", "特殊分装项目,请规范放置在试剂盘！");
-                    loopSpFailReason.Add("\n" + i + "：特殊分装项目,请规范放置在试剂盘！");
+                    loopSpFailReason.Add("\n" + i + "：" + getString("keywordText.PleaseStandard"));
                     //goto errorEnd;
                     continue;
                 }
                 //根据条码判断已装载、已卸载、首次装载
                 var spdr = dtAllRS.Select("BarCode ='" + spRgcode + "'");
-                if(spdr.Length > 0)//非首次装载
+                if (spdr.Length > 0)//非首次装载
                 {
                     if (dateValidDate.Value.Date <= DateTime.Today.Date)
                     {
                         if (validTime <= DateTime.Now)
                         {
                             //frmMessageShow msg = new frmMessageShow();
-                            //msg.MessageShow("试剂装载", "试剂(稀释液)已过期！");
-                            loopSpFailReason.Add("\n" + i + "：试剂(稀释液)已过期！");
+                            //msg.MessageShow(getString("keywordText.ReagentLoad"), "试剂(稀释液)已过期！");
+                            loopSpFailReason.Add("\n" + i + "：" + getString("keywordText.ReagentOrDiluteExpired"));
                             //goto errorEnd;
                             continue;
                         }
@@ -3640,8 +3638,8 @@ namespace BioBaseCLIA.Run
                     if (dateValidDate.Value.Date <= DateTime.Today.Date)
                     {
                         //frmMessageShow msg = new frmMessageShow();
-                        //msg.MessageShow("试剂装载", "试剂(稀释液)已过期！");
-                        loopSpFailReason.Add("\n" + i + "：试剂(稀释液)已过期！");
+                        //msg.MessageShow(getString("keywordText.ReagentLoad"), "试剂(稀释液)已过期！");
+                        loopSpFailReason.Add("\n" + i + "：" + getString("keywordText.ReagentOrDiluteExpired"));
                         //goto errorEnd;
                         continue;
                     }
@@ -3712,7 +3710,7 @@ namespace BioBaseCLIA.Run
                                 //    "leftDiuVol", "0", iniPathReagentTrayInfo);
                                 if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
                                 {
-                                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "","", "", "", "", "", "", "", "" });
+                                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                                     srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
                                     srdReagent.RgName[int.Parse(rgpostion)] = "";
                                 }
@@ -3778,7 +3776,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
                                         srdReagent.RgName[int.Parse(rgpostion)] = "";
-                                        ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "","", "", "", "", "", "", "", "" });
+                                        ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                                     }
                                     srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
                                     srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
@@ -4094,7 +4092,7 @@ namespace BioBaseCLIA.Run
                                 if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where BarCode = '" + spRgcode + "'") > 0)
                                 {
                                     ModifyRgIni(int.Parse(spRgPostion), new string[9] { "", "", "", "", "", "", "", "", "" });
-                                    if ( spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + spRgPostion + "'")[0]["RgName"].ToString()) != null)//卸载掉特殊分装项目的
+                                    if (spacialProList.Find(ty => ty == dtRgInfo.Select("Postion='" + spRgPostion + "'")[0]["RgName"].ToString()) != null)//卸载掉特殊分装项目的
                                     {
                                         srdReagent.RgTestNum[int.Parse(spRgPostion)] = "";
                                         srdReagent.RgName[int.Parse(spRgPostion)] = "";
@@ -4257,7 +4255,7 @@ namespace BioBaseCLIA.Run
                 dgvRgInfoList.SelectionChanged += new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
                 loopSpFailResult.Remove(i);
                 loopSpSuccessResult.Add(i);
-                if (i == frmParent.RegentNum)
+                if (i == RegentNum)
                 {
                     spBreak = "";
                 }
@@ -4266,7 +4264,7 @@ namespace BioBaseCLIA.Run
             NetCom3.Instance.ReceiveHandel -= dealSP;
             dgvRgInfoList.Enabled = true;
             srdReagent.Enabled = true;
-            string failTip = "", succTip = "",failReason = "";
+            string failTip = "", succTip = "", failReason = "";
             if (loopSpFailResult.Count > 0)
             {
                 string failPosition = "";
@@ -4275,7 +4273,7 @@ namespace BioBaseCLIA.Run
                     failPosition += tempi + "、";
                 }
                 failPosition = failPosition.Substring(0, failPosition.Length - 1);
-                failTip = "\n装载失败 " + loopSpFailResult.Count + " 项（试剂位：" + failPosition + "）！";
+                failTip = string.Format(getString("keywordText.TipsAboutReagentLoadFailed"), loopSpFailResult.Count, failPosition);
             }
             if (loopSpSuccessResult.Count > 0)
             {
@@ -4285,11 +4283,11 @@ namespace BioBaseCLIA.Run
                     succPosition += tempi + "、";
                 }
                 succPosition = succPosition.Substring(0, succPosition.Length - 1);
-                succTip = "装载完成 " + loopSpSuccessResult.Count + " 项（试剂位：" + succPosition + "）！";
+                succTip = string.Format(getString("keywordText.TipsAboutReagentLoadSuccess"), loopSpSuccessResult.Count, succPosition);
             }
-            if(loopSpFailReason.Count > 0)
+            if (loopSpFailReason.Count > 0)
             {
-                foreach(string str in loopSpFailReason)
+                foreach (string str in loopSpFailReason)
                 {
                     failReason += str;
                 }
@@ -4305,10 +4303,10 @@ namespace BioBaseCLIA.Run
             btnLoopAddR.Enabled = true;
             btnDelR.Enabled = true;
             if (spBreak + succTip + failTip + failReason == "")
-                succTip = "装载完成0项,未检测到试剂盒！";
+                succTip = getString("keywordText.TipsAboutLoadZero");
             BeginInvoke(new Action(() =>
             {
-                frmMsgShow.MessageShow("试剂装载", spBreak + succTip + failTip + failReason);
+                frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), spBreak + succTip + failTip + failReason);
             }));
         }
         /// <summary>
@@ -4317,12 +4315,12 @@ namespace BioBaseCLIA.Run
         int DiuFlag = 0;
         private void cmbProType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbProType.SelectedItem.ToString() == "试剂")
+            if (cmbProType.SelectedItem.ToString() == getString("keywordText.Reagent"))
             {
                 cmbRgName.DataSource = GetItemShortName();
                 cmbRgName.DisplayMember = "ItemShortName";//设置显示列
                 txtRgAllTest.MaxValue = txtRgLastTest.MaxValue = 100;
-                labUnit.Text = labUnit2.Text = "测";
+                labUnit.Text = labUnit2.Text = getString("keywordText.Measurement");
                 DiuFlag = 0;
                 txtRgAllTest.Text = "100";
                 txtRgLastTest.Text = "100";
@@ -4366,6 +4364,11 @@ namespace BioBaseCLIA.Run
             }
             return true;
 
+        }
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmReagentLoad));
+            return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
         }
 
     }
