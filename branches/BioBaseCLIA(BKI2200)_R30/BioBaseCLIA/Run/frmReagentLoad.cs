@@ -2401,13 +2401,13 @@ namespace BioBaseCLIA.Run
                 }
                 conc = conc.Trim().Substring(0, conc.Length - 1);
 
-                string sql = "update tbProject set CalPointConc ='" + conc + "'" + "where ShortName = '" + itemName + "'";
-                int rows = DbHelperOleDb.ExecuteSql(0, sql);
-                if (rows <= 0)
-                {
-                    //MessageBox.Show("项目标准定标浓度更新失败,请重新装载！");
-                    return false;
-                }
+                //string sql = "update tbProject set CalPointConc ='" + conc + "'" + "where ShortName = '" + itemName + "'";
+                //int rows = DbHelperOleDb.ExecuteSql(0, sql);
+                //if (rows <= 0)
+                //{
+                //    //MessageBox.Show("项目标准定标浓度更新失败,请重新装载！");
+                //    return false;
+                //}
                 //addR[3] = true;
             }
             return true;
