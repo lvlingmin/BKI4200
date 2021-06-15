@@ -400,15 +400,19 @@ namespace BioBaseCLIA.DataQuery
             }
             else if (subCode.Length == 12)
             {
-                string batchDate = decryption.Substring(1, 3);//批号日期
-                int testN = Convert.ToInt32(decryption.Substring(4, 3), 16);//测试次数
-                string productDate = decryption.Substring(7, 1);//生产日期
-                string serialNum = decryption.Substring(8, 3);//流水号
+                string batchDate/* = decryption.Substring(1, 3)*/;//批号日期
+                int testN /*= Convert.ToInt32(decryption.Substring(4, 3), 16)*/;//测试次数
+                string productDate /*= decryption.Substring(7, 1)*/;//生产日期
+                string serialNum /*= decryption.Substring(8, 3)*/;//流水号
                 //int serialNum = Convert.ToInt32(decryption.Substring(8, 3), 16);//流水号
 
                 string year = "", month = "", day = "";
                 try
                 {
+                    batchDate = decryption.Substring(1, 3);//批号日期
+                    testN = Convert.ToInt32(decryption.Substring(4, 3), 16);//测试次数
+                    productDate = decryption.Substring(7, 1);//生产日期
+                    serialNum = decryption.Substring(8, 3);//流水号
                     year = StringUtils.instance.reverseDate(batchDate.Substring(0, 1).ToCharArray()[0]);
                     month = StringUtils.instance.reverseDate(batchDate.Substring(1, 1).ToCharArray()[0]);
                     day = StringUtils.instance.reverseDate(batchDate.Substring(2, 1).ToCharArray()[0]);

@@ -117,8 +117,8 @@
             // 
             // btnDelSubstrate
             // 
-            this.btnDelSubstrate.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnDelSubstrate, "btnDelSubstrate");
+            this.btnDelSubstrate.BackColor = System.Drawing.Color.Transparent;
             this.btnDelSubstrate.EnabledSet = true;
             this.btnDelSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelSubstrate.FlatAppearance.BorderSize = 0;
@@ -130,8 +130,8 @@
             // 
             // btnLoadSubstrate
             // 
-            this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadSubstrate, "btnLoadSubstrate");
+            this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadSubstrate.EnabledSet = true;
             this.btnLoadSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadSubstrate.FlatAppearance.BorderSize = 0;

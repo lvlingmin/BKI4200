@@ -388,15 +388,15 @@ namespace BioBaseCLIA.DataQuery
                 DataTable dtTestResult = new DataTable();
                 string printModel = OperateIniFile.ReadIniData("PrintSet", "PrintMode", "", Application.StartupPath + "//InstrumentPara.ini");
                 string modelPath = Application.StartupPath + @"\Report\";
-                if (printModel.Contains("模版一"))
+                if (printModel.Contains("模版一") || printModel.Contains("1"))
                 {
                     modelPath += "A5ZH-模版一.frx";
                 }
-                else if (printModel.Contains("模版二"))
+                else if (printModel.Contains("模版二")|| printModel.Contains("2"))
                 {
                     modelPath += "A5ZH-模版二.frx";
                 }
-                else if (printModel.Contains("模版三"))
+                else if (printModel.Contains("模版三")|| printModel.Contains("3"))
                 {
                     modelPath += "A5ZH-模版三.frx";
                 }

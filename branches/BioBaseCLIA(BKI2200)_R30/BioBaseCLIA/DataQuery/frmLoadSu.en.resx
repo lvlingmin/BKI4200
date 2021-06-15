@@ -118,71 +118,86 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
+  </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 75</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 22</value>
+    <value>69, 16</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Total tests:</value>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 40</value>
+    <value>18, 40</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>158, 22</value>
+    <value>113, 16</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Substrate barcode:</value>
+  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 110</value>
+    <value>31, 110</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>100, 16</value>
   </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>Remaining tests:</value>
+  <data name="txtSubstrateCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="txtSubstrateCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 37</value>
   </data>
   <data name="txtSubstrateCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+    <value>163, 23</value>
+  </data>
+  <data name="txtSubstrateLastTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="txtSubstrateLastTest.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 107</value>
   </data>
   <data name="txtSubstrateLastTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+    <value>163, 23</value>
+  </data>
+  <data name="txtSubstrateAllTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="txtSubstrateAllTest.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 72</value>
   </data>
   <data name="txtSubstrateAllTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+    <value>163, 23</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 143</value>
+    <value>80, 143</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 22</value>
+    <value>51, 16</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Validity:</value>
+  <data name="ValidDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="ValidDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 137</value>
   </data>
   <data name="ValidDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 30</value>
+    <value>163, 23</value>
+  </data>
+  <data name="chkManualInput.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
+  </data>
+  <data name="chkManualInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>227, 166</value>
   </data>
   <data name="chkManualInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 26</value>
-  </data>
-  <data name="chkManualInput.Text" xml:space="preserve">
-    <value>Manual input</value>
+    <value>100, 20</value>
   </data>
   <data name="btnDelSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -231,7 +246,7 @@
         RudN65tdA8sHzg46DF645Xrr8m2v29fvrLwzMBQydHc4cnjkLvvu5L2key/vZ9yff7DpIfph4SOpR+WP
         lR7X/aj3Y+uI5ciZUdfRvidBTx6Mscae/5T+04fx/Kfkp+UTqhONk2aTp6fcp24+W/1s/Hnq8/npgp+l
         f65+ofviu18cf+mbWTUz/pL/cuHX4lfyr468Xva6e9Z/9vGb5Dfzc4Vv5d8efcd41/s+7P3EfOYH7IeK
-        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAzFJREFUeF7t2MtL1FEY
+        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEAAACxABrSO9dQAAAzFJREFUeF7t2MtL1FEY
         h/FW/gcRrYIgDEGDoAtFRRRitGtTiYsIohZFIkG2iIjI6GJKU9IgKaUW0c1CmUSN7KZpZlrTZGqllkpE
         CUEQCKfzLqbO4MC71bdn8YE5P87M7vvMMHOcc2llbLmQ6ZV6L7wpzwGY8WSrslnZbma6bYfSPvRvLPJ+
         Hah67OoeJlxX/7jrHpgAMMPJVmWzsl3ZsGw53caTUg7+coYX23oq5m4/G3Sd/RMAZinZsGxZNi3bDree
@@ -248,8 +263,8 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnDelSubstrate.Text" xml:space="preserve">
-    <value>Unload</value>
+  <data name="btnDelSubstrate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="btnLoadSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -315,8 +330,8 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnLoadSubstrate.Text" xml:space="preserve">
-    <value>Save</value>
+  <data name="btnLoadSubstrate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 10pt</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt</value>
@@ -327,8 +342,14 @@
   <data name="AlreadySubstate" xml:space="preserve">
     <value>The substrate is loaded. Please unload the substrate first!</value>
   </data>
+  <data name="btnDelSubstrate.Text" xml:space="preserve">
+    <value>Unload</value>
+  </data>
   <data name="btnDelSubstrate.Text1" xml:space="preserve">
     <value>Unload</value>
+  </data>
+  <data name="btnLoadSubstrate.Text" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="btnLoadSubstrate.Text1" xml:space="preserve">
     <value>Save</value>
@@ -339,6 +360,9 @@
   <data name="CheckBarcodeFail" xml:space="preserve">
     <value>Failed to pass barcode verification!</value>
   </data>
+  <data name="chkManualInput.Text" xml:space="preserve">
+    <value>Manual input</value>
+  </data>
   <data name="chkManualInput.Text1" xml:space="preserve">
     <value>Manual input</value>
   </data>
@@ -348,14 +372,26 @@
   <data name="InputBarcodeEnter" xml:space="preserve">
     <value>After entering the barcode manually, press enter to parse the barcode information!</value>
   </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Validity:</value>
+  </data>
   <data name="label1.Text1" xml:space="preserve">
     <value>Period of validity：</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Substrate barcode:</value>
   </data>
   <data name="label6.Text1" xml:space="preserve">
     <value>Substrate Barcode：</value>
   </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Total tests:</value>
+  </data>
   <data name="label7.Text1" xml:space="preserve">
     <value>Total number of tests：</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Remaining tests:</value>
   </data>
   <data name="label8.Text1" xml:space="preserve">
     <value>Remaining tests：</value>
