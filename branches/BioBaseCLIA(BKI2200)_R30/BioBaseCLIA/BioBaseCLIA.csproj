@@ -452,6 +452,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmResultQuery.en.resx">
       <DependentUpon>frmResultQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmResultQuery.resx">
       <DependentUpon>frmResultQuery.cs</DependentUpon>
@@ -465,12 +466,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmSupplyStatus.en.resx">
       <DependentUpon>frmSupplyStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmSupplyStatus.resx">
       <DependentUpon>frmSupplyStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.en-US.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.en.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -481,6 +485,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.en.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -510,10 +515,12 @@
     <EmbeddedResource Include="InfoSetting\frmInfo.en.resx">
       <DependentUpon>frmInfo.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoSetting\frmInfo.resx">
       <DependentUpon>frmInfo.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoSetting\frmInstrumentPara.en-US.resx">
       <DependentUpon>frmInstrumentPara.cs</DependentUpon>
@@ -585,6 +592,9 @@
       <DependentUpon>frmLoadSu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmLogShow.en-US.resx">
+      <DependentUpon>frmLogShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmLogShow.en.resx">
       <DependentUpon>frmLogShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmLogShow.resx">
