@@ -45,8 +45,8 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.definePanalLoad = new BioBaseCLIA.CustomControl.definePanal(this.components);
             this.groupBoxLoad = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.loadNum = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.loadStar = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.fbLoadClose = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -60,20 +60,23 @@
             this.btnMoreDelete = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.txtMoreSpRepetitions = new BioBaseCLIA.CustomControl.userNumTextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.cmbMorePipeType = new System.Windows.Forms.ComboBox();
             this.btnMoreSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnMoreAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.label9 = new System.Windows.Forms.Label();
             this.txtSpStartPos = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.chkMoreEmergency = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSpNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSpCode2 = new BioBaseCLIA.CustomControl.userTextBoxBase();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtSpCode1 = new BioBaseCLIA.CustomControl.userTextBoxBase();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtSpRepetitions = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.txtSpBarCode = new BioBaseCLIA.CustomControl.userTextBoxBase();
+            this.cmbPipeType = new System.Windows.Forms.ComboBox();
             this.chbSampleNoScan = new System.Windows.Forms.CheckBox();
             this.txtScanEndNo = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.txtScanStartNo = new BioBaseCLIA.CustomControl.userNumTextBox();
@@ -86,17 +89,14 @@
             this.txtSpPosition = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.chkEmergency = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSpBarCode = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.btnDelete = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.btnModify = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbPipeType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbSpType = new System.Windows.Forms.ComboBox();
-            this.txtSpRepetitions = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.btnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSampleList = new System.Windows.Forms.DataGridView();
@@ -194,15 +194,16 @@
             // 
             // groupBox4
             // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.groupBox6);
             this.groupBox4.Controls.Add(this.groupBox5);
             this.groupBox4.Controls.Add(this.btnReturn);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
             // groupBox6
             // 
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.definePanalLoad);
             this.groupBox6.Controls.Add(this.chbMoreSampleScan);
             this.groupBox6.Controls.Add(this.label17);
@@ -212,51 +213,45 @@
             this.groupBox6.Controls.Add(this.btnMoreDelete);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.txtMoreSpRepetitions);
-            this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Controls.Add(this.cmbMorePipeType);
             this.groupBox6.Controls.Add(this.btnMoreSave);
             this.groupBox6.Controls.Add(this.btnMoreAdd);
-            this.groupBox6.Controls.Add(this.label9);
             this.groupBox6.Controls.Add(this.txtSpStartPos);
             this.groupBox6.Controls.Add(this.chkMoreEmergency);
             this.groupBox6.Controls.Add(this.label8);
             this.groupBox6.Controls.Add(this.txtSpNum);
             this.groupBox6.Controls.Add(this.label7);
             this.groupBox6.Controls.Add(this.txtSpCode2);
-            this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Controls.Add(this.txtSpCode1);
-            resources.ApplyResources(this.groupBox6, "groupBox6");
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.label10);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
             // definePanalLoad
             // 
-            this.definePanalLoad.Controls.Add(this.groupBoxLoad);
             resources.ApplyResources(this.definePanalLoad, "definePanalLoad");
+            this.definePanalLoad.Controls.Add(this.groupBoxLoad);
             this.definePanalLoad.Name = "definePanalLoad";
             // 
             // groupBoxLoad
             // 
-            this.groupBoxLoad.Controls.Add(this.label16);
+            resources.ApplyResources(this.groupBoxLoad, "groupBoxLoad");
             this.groupBoxLoad.Controls.Add(this.loadNum);
+            this.groupBoxLoad.Controls.Add(this.label16);
             this.groupBoxLoad.Controls.Add(this.loadStar);
             this.groupBoxLoad.Controls.Add(this.label15);
             this.groupBoxLoad.Controls.Add(this.fbLoadClose);
             this.groupBoxLoad.Controls.Add(this.fbLoadRun);
             this.groupBoxLoad.Controls.Add(this.fbLoadAll);
-            resources.ApplyResources(this.groupBoxLoad, "groupBoxLoad");
             this.groupBoxLoad.Name = "groupBoxLoad";
             this.groupBoxLoad.TabStop = false;
             // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
             // loadNum
             // 
-            this.loadNum.IsNull = false;
             resources.ApplyResources(this.loadNum, "loadNum");
+            this.loadNum.IsNull = false;
             this.loadNum.MaxValue = new decimal(new int[] {
             60,
             0,
@@ -269,10 +264,15 @@
             0});
             this.loadNum.Name = "loadNum";
             // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
             // loadStar
             // 
-            this.loadStar.IsNull = false;
             resources.ApplyResources(this.loadStar, "loadStar");
+            this.loadStar.IsNull = false;
             this.loadStar.MaxValue = new decimal(new int[] {
             60,
             0,
@@ -292,8 +292,8 @@
             // 
             // fbLoadClose
             // 
-            this.fbLoadClose.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbLoadClose, "fbLoadClose");
+            this.fbLoadClose.BackColor = System.Drawing.Color.Transparent;
             this.fbLoadClose.EnabledSet = true;
             this.fbLoadClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbLoadClose.FlatAppearance.BorderSize = 0;
@@ -305,8 +305,8 @@
             // 
             // fbLoadRun
             // 
-            this.fbLoadRun.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbLoadRun, "fbLoadRun");
+            this.fbLoadRun.BackColor = System.Drawing.Color.Transparent;
             this.fbLoadRun.EnabledSet = true;
             this.fbLoadRun.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbLoadRun.FlatAppearance.BorderSize = 0;
@@ -318,8 +318,8 @@
             // 
             // fbLoadAll
             // 
-            this.fbLoadAll.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbLoadAll, "fbLoadAll");
+            this.fbLoadAll.BackColor = System.Drawing.Color.Transparent;
             this.fbLoadAll.EnabledSet = true;
             this.fbLoadAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbLoadAll.FlatAppearance.BorderSize = 0;
@@ -343,8 +343,8 @@
             // 
             // cmbmSpType
             // 
-            this.cmbmSpType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmbmSpType, "cmbmSpType");
+            this.cmbmSpType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbmSpType.FormattingEnabled = true;
             this.cmbmSpType.Items.AddRange(new object[] {
             resources.GetString("cmbmSpType.Items"),
@@ -362,8 +362,8 @@
             // 
             // btnUnloadSP
             // 
-            this.btnUnloadSP.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnUnloadSP, "btnUnloadSP");
+            this.btnUnloadSP.BackColor = System.Drawing.Color.Transparent;
             this.btnUnloadSP.EnabledSet = true;
             this.btnUnloadSP.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnUnloadSP.FlatAppearance.BorderSize = 0;
@@ -375,8 +375,8 @@
             // 
             // btnMoreDelete
             // 
-            this.btnMoreDelete.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnMoreDelete, "btnMoreDelete");
+            this.btnMoreDelete.BackColor = System.Drawing.Color.Transparent;
             this.btnMoreDelete.EnabledSet = true;
             this.btnMoreDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnMoreDelete.FlatAppearance.BorderSize = 0;
@@ -408,15 +408,10 @@
             this.txtMoreSpRepetitions.Name = "txtMoreSpRepetitions";
             this.txtMoreSpRepetitions.Validated += new System.EventHandler(this.txtSpPosition_Validated);
             // 
-            // label10
-            // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
-            // 
             // cmbMorePipeType
             // 
-            this.cmbMorePipeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmbMorePipeType, "cmbMorePipeType");
+            this.cmbMorePipeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMorePipeType.FormattingEnabled = true;
             this.cmbMorePipeType.Items.AddRange(new object[] {
             resources.GetString("cmbMorePipeType.Items"),
@@ -425,8 +420,8 @@
             // 
             // btnMoreSave
             // 
-            this.btnMoreSave.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnMoreSave, "btnMoreSave");
+            this.btnMoreSave.BackColor = System.Drawing.Color.Transparent;
             this.btnMoreSave.EnabledSet = true;
             this.btnMoreSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnMoreSave.FlatAppearance.BorderSize = 0;
@@ -438,8 +433,8 @@
             // 
             // btnMoreAdd
             // 
-            this.btnMoreAdd.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnMoreAdd, "btnMoreAdd");
+            this.btnMoreAdd.BackColor = System.Drawing.Color.Transparent;
             this.btnMoreAdd.EnabledSet = true;
             this.btnMoreAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnMoreAdd.FlatAppearance.BorderSize = 0;
@@ -448,11 +443,6 @@
             this.btnMoreAdd.Name = "btnMoreAdd";
             this.btnMoreAdd.UseVisualStyleBackColor = false;
             this.btnMoreAdd.Click += new System.EventHandler(this.btnMoreAdd_Click);
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
             // 
             // txtSpStartPos
             // 
@@ -510,18 +500,32 @@
             this.txtSpCode2.Name = "txtSpCode2";
             this.txtSpCode2.Validated += new System.EventHandler(this.txtSpPosition_Validated);
             // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
             // txtSpCode1
             // 
             resources.ApplyResources(this.txtSpCode1, "txtSpCode1");
             this.txtSpCode1.Name = "txtSpCode1";
             // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
             // groupBox5
             // 
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Controls.Add(this.txtSpRepetitions);
+            this.groupBox5.Controls.Add(this.txtSpBarCode);
+            this.groupBox5.Controls.Add(this.cmbPipeType);
             this.groupBox5.Controls.Add(this.chbSampleNoScan);
             this.groupBox5.Controls.Add(this.txtScanEndNo);
             this.groupBox5.Controls.Add(this.txtScanStartNo);
@@ -534,20 +538,49 @@
             this.groupBox5.Controls.Add(this.txtSpPosition);
             this.groupBox5.Controls.Add(this.chkEmergency);
             this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.txtSpBarCode);
             this.groupBox5.Controls.Add(this.btnDelete);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.btnModify);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.btnAdd);
             this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.cmbPipeType);
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.cmbSpType);
-            this.groupBox5.Controls.Add(this.txtSpRepetitions);
-            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
+            // 
+            // txtSpRepetitions
+            // 
+            resources.ApplyResources(this.txtSpRepetitions, "txtSpRepetitions");
+            this.txtSpRepetitions.IsNull = false;
+            this.txtSpRepetitions.MaxValue = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.txtSpRepetitions.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtSpRepetitions.Name = "txtSpRepetitions";
+            this.txtSpRepetitions.Validated += new System.EventHandler(this.txtSpPosition_Validated);
+            // 
+            // txtSpBarCode
+            // 
+            resources.ApplyResources(this.txtSpBarCode, "txtSpBarCode");
+            this.txtSpBarCode.Name = "txtSpBarCode";
+            this.txtSpBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSpBarCode_KeyPress);
+            // 
+            // cmbPipeType
+            // 
+            resources.ApplyResources(this.cmbPipeType, "cmbPipeType");
+            this.cmbPipeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPipeType.FormattingEnabled = true;
+            this.cmbPipeType.Items.AddRange(new object[] {
+            resources.GetString("cmbPipeType.Items"),
+            resources.GetString("cmbPipeType.Items1")});
+            this.cmbPipeType.Name = "cmbPipeType";
             // 
             // chbSampleNoScan
             // 
@@ -558,8 +591,8 @@
             // 
             // txtScanEndNo
             // 
-            this.txtScanEndNo.IsNull = false;
             resources.ApplyResources(this.txtScanEndNo, "txtScanEndNo");
+            this.txtScanEndNo.IsNull = false;
             this.txtScanEndNo.MaxValue = new decimal(new int[] {
             60,
             0,
@@ -574,8 +607,8 @@
             // 
             // txtScanStartNo
             // 
-            this.txtScanStartNo.IsNull = false;
             resources.ApplyResources(this.txtScanStartNo, "txtScanStartNo");
+            this.txtScanStartNo.IsNull = false;
             this.txtScanStartNo.MaxValue = new decimal(new int[] {
             60,
             0,
@@ -598,8 +631,8 @@
             // 
             // cmbBatch
             // 
-            this.cmbBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmbBatch, "cmbBatch");
+            this.cmbBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBatch.FormattingEnabled = true;
             this.cmbBatch.Items.AddRange(new object[] {
             resources.GetString("cmbBatch.Items"),
@@ -656,16 +689,10 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // txtSpBarCode
-            // 
-            resources.ApplyResources(this.txtSpBarCode, "txtSpBarCode");
-            this.txtSpBarCode.Name = "txtSpBarCode";
-            this.txtSpBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSpBarCode_KeyPress);
-            // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnDelete, "btnDelete");
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
             this.btnDelete.EnabledSet = true;
             this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelete.FlatAppearance.BorderSize = 0;
@@ -682,8 +709,8 @@
             // 
             // btnModify
             // 
-            this.btnModify.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnModify, "btnModify");
+            this.btnModify.BackColor = System.Drawing.Color.Transparent;
             this.btnModify.EnabledSet = true;
             this.btnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnModify.FlatAppearance.BorderSize = 0;
@@ -700,8 +727,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnAdd, "btnAdd");
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
             this.btnAdd.EnabledSet = true;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
@@ -716,16 +743,6 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // cmbPipeType
-            // 
-            this.cmbPipeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cmbPipeType, "cmbPipeType");
-            this.cmbPipeType.FormattingEnabled = true;
-            this.cmbPipeType.Items.AddRange(new object[] {
-            resources.GetString("cmbPipeType.Items"),
-            resources.GetString("cmbPipeType.Items1")});
-            this.cmbPipeType.Name = "cmbPipeType";
-            // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
@@ -733,8 +750,8 @@
             // 
             // cmbSpType
             // 
-            this.cmbSpType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmbSpType, "cmbSpType");
+            this.cmbSpType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSpType.FormattingEnabled = true;
             this.cmbSpType.Items.AddRange(new object[] {
             resources.GetString("cmbSpType.Items"),
@@ -745,32 +762,14 @@
             resources.GetString("cmbSpType.Items5"),
             resources.GetString("cmbSpType.Items6"),
             resources.GetString("cmbSpType.Items7"),
-            resources.GetString("cmbSpType.Items8"),
-            resources.GetString("cmbSpType.Items9")});
+            resources.GetString("cmbSpType.Items8")});
             this.cmbSpType.Name = "cmbSpType";
             this.cmbSpType.SelectedIndexChanged += new System.EventHandler(this.cmbSpType_SelectedIndexChanged);
             // 
-            // txtSpRepetitions
-            // 
-            resources.ApplyResources(this.txtSpRepetitions, "txtSpRepetitions");
-            this.txtSpRepetitions.IsNull = false;
-            this.txtSpRepetitions.MaxValue = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.txtSpRepetitions.MinValue = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.txtSpRepetitions.Name = "txtSpRepetitions";
-            this.txtSpRepetitions.Validated += new System.EventHandler(this.txtSpPosition_Validated);
-            // 
             // btnReturn
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnReturn, "btnReturn");
+            this.btnReturn.BackColor = System.Drawing.Color.Transparent;
             this.btnReturn.EnabledSet = true;
             this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnReturn.FlatAppearance.BorderSize = 0;
@@ -782,13 +781,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvSampleList);
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.dgvSampleList);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // dgvSampleList
             // 
+            resources.ApplyResources(this.dgvSampleList, "dgvSampleList");
             this.dgvSampleList.AllowUserToAddRows = false;
             this.dgvSampleList.AllowUserToDeleteRows = false;
             this.dgvSampleList.AllowUserToResizeRows = false;
@@ -811,7 +811,6 @@
             this.RepeatCount,
             this.Emergency,
             this.Status});
-            resources.ApplyResources(this.dgvSampleList, "dgvSampleList");
             this.dgvSampleList.Name = "dgvSampleList";
             this.dgvSampleList.ReadOnly = true;
             this.dgvSampleList.RowHeadersVisible = false;
@@ -832,7 +831,7 @@
             // 
             this.SampleNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SampleNo.DataPropertyName = "SampleNo";
-            this.SampleNo.FillWeight = 180F;
+            this.SampleNo.FillWeight = 170F;
             resources.ApplyResources(this.SampleNo, "SampleNo");
             this.SampleNo.Name = "SampleNo";
             this.SampleNo.ReadOnly = true;
@@ -841,7 +840,7 @@
             // 
             this.SampleType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.SampleType.DataPropertyName = "SampleType";
-            this.SampleType.FillWeight = 120F;
+            this.SampleType.FillWeight = 110F;
             resources.ApplyResources(this.SampleType, "SampleType");
             this.SampleType.Name = "SampleType";
             this.SampleType.ReadOnly = true;
@@ -850,7 +849,7 @@
             // 
             this.TubeType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TubeType.DataPropertyName = "TubeType";
-            this.TubeType.FillWeight = 120F;
+            this.TubeType.FillWeight = 110F;
             resources.ApplyResources(this.TubeType, "TubeType");
             this.TubeType.Name = "TubeType";
             this.TubeType.ReadOnly = true;
@@ -859,7 +858,7 @@
             // 
             this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.FillWeight = 120F;
+            this.ItemName.FillWeight = 110F;
             resources.ApplyResources(this.ItemName, "ItemName");
             this.ItemName.Name = "ItemName";
             this.ItemName.ReadOnly = true;
@@ -868,7 +867,6 @@
             // 
             this.RepeatCount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.RepeatCount.DataPropertyName = "RepeatCount";
-            this.RepeatCount.FillWeight = 90F;
             resources.ApplyResources(this.RepeatCount, "RepeatCount");
             this.RepeatCount.Name = "RepeatCount";
             this.RepeatCount.ReadOnly = true;
@@ -892,8 +890,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.flpItemName);
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.flpItemName);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -906,15 +904,16 @@
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.crysDgGroupPro);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.btnAddtoProgram);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
             // crysDgGroupPro
             // 
+            resources.ApplyResources(this.crysDgGroupPro, "crysDgGroupPro");
             this.crysDgGroupPro.AllowUserToAddRows = false;
             this.crysDgGroupPro.AllowUserToResizeColumns = false;
             this.crysDgGroupPro.AllowUserToResizeRows = false;
@@ -933,7 +932,6 @@
             this.SelectGP,
             this.ProjectGroupNumber,
             this.GroupContent});
-            resources.ApplyResources(this.crysDgGroupPro, "crysDgGroupPro");
             this.crysDgGroupPro.Name = "crysDgGroupPro";
             this.crysDgGroupPro.RowHeadersVisible = false;
             this.crysDgGroupPro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -961,8 +959,8 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.button1, "button1");
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.EnabledSet = true;
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -970,8 +968,8 @@
             // 
             // btnAddtoProgram
             // 
-            this.btnAddtoProgram.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnAddtoProgram, "btnAddtoProgram");
+            this.btnAddtoProgram.BackColor = System.Drawing.Color.Transparent;
             this.btnAddtoProgram.EnabledSet = true;
             this.btnAddtoProgram.Name = "btnAddtoProgram";
             this.btnAddtoProgram.UseVisualStyleBackColor = true;
@@ -1064,14 +1062,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SampleNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SampleType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TubeType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RepeatCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Emergency;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.CheckBox AutoUploadAndUnload1;
         private System.Windows.Forms.CheckBox AutoUploadAndUnload2;
         private CustomControl.definePanal definePanalLoad;
@@ -1085,12 +1075,20 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cmbmSpType;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn SelectGP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectGroupNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GroupContent;
         private CustomControl.userNumTextBox txtScanEndNo;
         private CustomControl.userNumTextBox txtScanStartNo;
         private System.Windows.Forms.CheckBox chbSampleNoScan;
         private System.Windows.Forms.CheckBox chbMoreSampleScan;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn SelectGP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectGroupNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GroupContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SampleNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SampleType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TubeType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RepeatCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Emergency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }
