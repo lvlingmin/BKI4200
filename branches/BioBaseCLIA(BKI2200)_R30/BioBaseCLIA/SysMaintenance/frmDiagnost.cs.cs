@@ -38,7 +38,7 @@ namespace BioBaseCLIA.SysMaintenance
         /// <summary>
         /// 液位开始查询标志
         /// </summary>
-        public static bool BQLiquaid = false;
+        //public static bool BQLiquaid = false;
         #region 基础性能变量
         /// <summary>
         /// 反应盘待使用空白反应管个数
@@ -223,7 +223,7 @@ namespace BioBaseCLIA.SysMaintenance
                 NetCom3.Delay(1);
             }
             bClose = true;
-            BQLiquaid = false;
+            frmMain.BQLiquaid = false;
             cmbSendDelay.SelectedIndex = 2;
             cmbConnDelay.SelectedIndex = 1;
         }
@@ -311,6 +311,7 @@ namespace BioBaseCLIA.SysMaintenance
                 if (a != null && a.IsAlive)
                     a.Abort();
             }
+            frmMain.BQLiquaid = true;
             //2018-08-31 ZLX add 试剂盘加载完成
             fbtnReturn.Enabled = false;
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 0B B0 00 00"), 0);
@@ -9882,12 +9883,12 @@ namespace BioBaseCLIA.SysMaintenance
             btnBQLiquaid.Enabled = false;
             if (btnBQLiquaid.Text.Trim() == "打开报警查询")
             {
-                BQLiquaid = true;
+                frmMain.BQLiquaid = true;
                 btnBQLiquaid.Text = "关闭报警查询";
             }
             else
             {
-                BQLiquaid = false;
+                frmMain.BQLiquaid = false;
                 btnBQLiquaid.Text = "打开报警查询";
             }
             btnBQLiquaid.Enabled = true;
