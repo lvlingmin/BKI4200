@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -34,19 +35,19 @@ namespace BioBaseCLIA.Run
             if (DiuPos != "")
             {
                 cmbDiuPos.Text = DiuPos;
-                label4.Text = "已绑定";
+                label4.Text = getString("keywordText.Bound");
             }
             else
-                label4.Text = "未绑定";
+                label4.Text = getString("keywordText.Unbound");
         }
         private void btnLoadSubstrate_Click(object sender, EventArgs e)
         {
             if(cmbDiuPos.SelectedItem!=null && cmbDiuPos.SelectedItem.ToString()!="")
             {
                 OperateIniFile.WriteIniData("ReagentPos" + RegentPos, "DiuPos", cmbDiuPos.SelectedItem.ToString(), iniPathReagentTrayInfo);
-                label4.Text = "已绑定";
+                label4.Text = getString("keywordText.Bound");
                 frmMessageShow frmMessage = new frmMessageShow();
-                frmMessage.MessageShow("绑定稀释液","绑定稀释液信息成功！");
+                frmMessage.MessageShow(getString("keywordText.BoundDiluent"), getString("keywordText.BindingSuccee"));
             }
                 
         }
@@ -54,11 +55,15 @@ namespace BioBaseCLIA.Run
         private void functionButton1_Click(object sender, EventArgs e)
         {
             OperateIniFile.WriteIniData("ReagentPos" + RegentPos, "DiuPos", "", iniPathReagentTrayInfo);
-            label4.Text = "未绑定";
+            label4.Text = getString("keywordText.Unbound");
             frmMessageShow frmMessage = new frmMessageShow();
-            frmMessage.MessageShow("解绑稀释液","稀释液信息成功解绑！");
+            frmMessage.MessageShow(getString("keywordText.Unbundling"), getString("keywordText.UnbindSuccess"));
         }
 
-       
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmLoadDiu));
+            return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
+        }
     }
 }

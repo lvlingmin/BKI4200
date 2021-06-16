@@ -117,167 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 47</value>
+    <value>33, 47</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+    <value>107, 12</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>试剂位置:</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="txtRegentPos.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+    <value>Reagent Position:</value>
   </data>
   <data name="txtRegentPos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 43</value>
-  </data>
-  <data name="txtRegentPos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 21</value>
-  </data>
-  <data name="txtRegentPos.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="txtRegentPos.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;txtRegentPos.Name" xml:space="preserve">
-    <value>txtRegentPos</value>
-  </data>
-  <data name="&gt;&gt;txtRegentPos.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtRegentPos.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtRegentPos.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>146, 44</value>
   </data>
   <data name="cmbDiuPos.Items" xml:space="preserve">
-    <value>样本稀释液一</value>
+    <value>Sample dilution 1</value>
   </data>
   <data name="cmbDiuPos.Items1" xml:space="preserve">
-    <value>样本稀释液二</value>
+    <value />
   </data>
   <data name="cmbDiuPos.Items2" xml:space="preserve">
-    <value>样本稀释液三</value>
+    <value />
   </data>
   <data name="cmbDiuPos.Items3" xml:space="preserve">
-    <value>样本稀释液四</value>
+    <value>Sample dilution 2</value>
   </data>
   <data name="cmbDiuPos.Items4" xml:space="preserve">
-    <value>样本稀释液五</value>
+    <value />
   </data>
   <data name="cmbDiuPos.Items5" xml:space="preserve">
-    <value>样本稀释液六</value>
-  </data>
-  <data name="cmbDiuPos.Items6" xml:space="preserve">
-    <value>Sample dilution 3</value>
-  </data>
-  <data name="cmbDiuPos.Items7" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbDiuPos.Items8" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbDiuPos.Items9" xml:space="preserve">
-    <value>Sample dilution 4</value>
-  </data>
-  <data name="cmbDiuPos.Items10" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbDiuPos.Items11" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbDiuPos.Items12" xml:space="preserve">
-    <value>Sample dilution 5</value>
-  </data>
-  <data name="cmbDiuPos.Items13" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbDiuPos.Items14" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cmbDiuPos.Items15" xml:space="preserve">
-    <value>Sample dilution 6</value>
-  </data>
-  <data name="cmbDiuPos.Items16" xml:space="preserve">
     <value />
   </data>
   <data name="cmbDiuPos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 77</value>
-  </data>
-  <data name="cmbDiuPos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 20</value>
-  </data>
-  <data name="cmbDiuPos.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="&gt;&gt;cmbDiuPos.Name" xml:space="preserve">
-    <value>cmbDiuPos</value>
-  </data>
-  <data name="&gt;&gt;cmbDiuPos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbDiuPos.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cmbDiuPos.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>146, 78</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 81</value>
+    <value>33, 81</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 12</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
+    <value>107, 12</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>稀释液位置:</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>Diluent Position:</value>
   </data>
   <data name="functionButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -343,38 +224,11 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="functionButton1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="functionButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="functionButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="functionButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 141</value>
-  </data>
   <data name="functionButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 27</value>
-  </data>
-  <data name="functionButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
+    <value>80, 27</value>
   </data>
   <data name="functionButton1.Text" xml:space="preserve">
-    <value>解绑</value>
-  </data>
-  <data name="&gt;&gt;functionButton1.Name" xml:space="preserve">
-    <value>functionButton1</value>
-  </data>
-  <data name="&gt;&gt;functionButton1.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;functionButton1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;functionButton1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>Unbundling</value>
   </data>
   <data name="btnLoadSubstrate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -440,142 +294,59 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnLoadSubstrate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnLoadSubstrate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnLoadSubstrate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnLoadSubstrate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>56, 141</value>
+    <value>42, 141</value>
   </data>
   <data name="btnLoadSubstrate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 27</value>
-  </data>
-  <data name="btnLoadSubstrate.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
+    <value>80, 27</value>
   </data>
   <data name="btnLoadSubstrate.Text" xml:space="preserve">
-    <value>绑定</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSubstrate.Name" xml:space="preserve">
-    <value>btnLoadSubstrate</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSubstrate.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSubstrate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnLoadSubstrate.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Binding</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 115</value>
+    <value>33, 117</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
+    <value>89, 12</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>绑定状态:</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt, style=Bold</value>
-  </data>
-  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Binding State:</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 113</value>
+    <value>146, 114</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 17</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
+    <value>65, 17</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>未绑定</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
-    <value>en</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>Unbound</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>259, 223</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>768, 192, 768, 192</value>
+    <value>12288, 1536, 12288, 1536</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>绑定稀释液</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmLoadDiu</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>BioBaseCLIA.frmSmallParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>Bound Diluent</value>
   </data>
   <data name="keywordText.BindingSuccee" xml:space="preserve">
-    <value>绑定稀释液信息成功！</value>
+    <value>Binding diluent information succeeded！</value>
   </data>
   <data name="keywordText.Bound" xml:space="preserve">
-    <value>已绑定</value>
+    <value>Bound</value>
   </data>
   <data name="keywordText.BoundDiluent" xml:space="preserve">
-    <value>绑定稀释液</value>
+    <value>Binding Diluent</value>
   </data>
   <data name="keywordText.UnbindSuccess" xml:space="preserve">
-    <value>稀释液信息成功解绑！</value>
+    <value>The diluent information was successfully unbound！</value>
   </data>
   <data name="keywordText.Unbound" xml:space="preserve">
-    <value>未绑定</value>
+    <value>Unbound</value>
   </data>
   <data name="keywordText.Unbundling" xml:space="preserve">
-    <value>解绑稀释液</value>
+    <value>Unbound Diluent</value>
   </data>
 </root>
