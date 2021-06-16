@@ -10,6 +10,7 @@ using Maticsoft.DBUtility;
 using System.Threading;
 using Common;
 using System.IO;
+using System.Resources;
 
 namespace BioBaseCLIA.Run
 {
@@ -170,7 +171,7 @@ namespace BioBaseCLIA.Run
         }
         private void fbtnModify_Click(object sender, EventArgs e)
         {
-            if (fbtnModify.Text == "修改")
+            if (fbtnModify.Text == getString("keywordText.Update"))
             {
                 cmbDilutionTimes.Enabled = true;
                 if (frmWorkList.RunFlag==(int)RunFlagStart.IsRuning && frmWorkList.EmergencyFlag)
@@ -181,14 +182,14 @@ namespace BioBaseCLIA.Run
                 {
                     chkEmergency.Enabled = true;
                 }
-                fbtnModify.Text = "取消";
+                fbtnModify.Text = getString("keywordText.Cancel");
                 fbtnOK.Enabled = true;//y add 20180426
             }
             else
             {
                 cmbDilutionTimes.Enabled = false;
                 chkEmergency.Enabled = false;
-                fbtnModify.Text = "修改";
+                fbtnModify.Text = getString("keywordText.Update");
             }
         }
         private void fbtnOK_Click(object sender, EventArgs e)
@@ -196,12 +197,12 @@ namespace BioBaseCLIA.Run
             if (dgvSpRunInfoList.SelectedRows.Count == 0)
             {
                 frmMessageShow frmMsg = new frmMessageShow();
-                frmMsg.MessageShow("运行信息修改", "请选择需要修改的样本！");
+                frmMsg.MessageShow(getString("keywordText.UpdateRunningInfomation"), getString("keywordText.PleaseChooseSampleNeededModify"));
             }
             if (dgvSpRunInfoList.SelectedRows.Count == 0)
             {
                 frmMessageShow frmMsg = new frmMessageShow();
-                frmMsg.MessageShow("运行信息修改", "请选择需要修改的样本！");
+                frmMsg.MessageShow(getString("keywordText.UpdateRunningInfomation"), getString("keywordText.PleaseChooseSampleNeededModify"));
             }
             string ItemName = dgvSpRunInfoList.SelectedRows[0].Cells["ItemName"].Value.ToString();
             int ODiuCount = int.Parse(dgvSpRunInfoList.SelectedRows[0].Cells["DilutionTimes"].Value.ToString());
@@ -240,7 +241,7 @@ namespace BioBaseCLIA.Run
                 if (sdiuvol + AddDiuVol * RepeatCount > DiuVolleft)
                 {
                     frmMessageShow frmMsg = new frmMessageShow();
-                    frmMsg.MessageShow("运行信息修改", DiuName + "稀释液不足！");
+                    frmMsg.MessageShow(getString("keywordText.UpdateRunningInfomation"), string.Format(getString("keywordText.InsufficientDilute"),DiuName));
                     return;
                 }
                 else
@@ -303,14 +304,14 @@ namespace BioBaseCLIA.Run
                 if (chkEmergency.Checked)
                 {
                     //修改样本运行信息表的急诊信息
-                    frmParent.dtSampleRunInfo.Rows[RinfoIndex]["Emergency"] = "是";
+                    frmParent.dtSampleRunInfo.Rows[RinfoIndex]["Emergency"] =getString("keywordText.Yes");
                     //修改样本装载界面的控件急诊信息
-                    frmSampleLoad.dtSpInfo.Rows[rowIndex]["Emergency"] = "是";
+                    frmSampleLoad.dtSpInfo.Rows[rowIndex]["Emergency"] = getString("keywordText.Yes");
                 }
                 else
                 {
-                    frmParent.dtSampleRunInfo.Rows[RinfoIndex]["Emergency"] = "否";
-                    frmSampleLoad.dtSpInfo.Rows[rowIndex]["Emergency"] = "否";
+                    frmParent.dtSampleRunInfo.Rows[RinfoIndex]["Emergency"] = getString("keywordText.No");
+                    frmSampleLoad.dtSpInfo.Rows[rowIndex]["Emergency"] = getString("keywordText.No");
                 }
             }
             cmbDilutionTimes.Enabled = false;
@@ -419,7 +420,7 @@ namespace BioBaseCLIA.Run
         {
             if (dgvSpRunInfoList.SelectedRows.Count > 0)
             {
-                if (dgvSpRunInfoList.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("标准品") || dgvSpRunInfoList.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("质控品"))
+                if (dgvSpRunInfoList.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) || dgvSpRunInfoList.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Control")))
                 {
                     fbtnOK.Enabled = false;
                     fbtnModify.Enabled = false;
@@ -449,7 +450,7 @@ namespace BioBaseCLIA.Run
                 if (frmParent.dtSampleRunInfo.Rows[RinfoIndex].ItemArray != null)
                     cmbDilutionTimes.Text = (int.Parse(frmParent.dtSampleRunInfo.Rows[RinfoIndex]["DilutionTimes"].ToString())/(int.Parse(DiluteCount.ToString()))).ToString();
                 txtDilutionTimes.Text = DiluteCount.ToString();
-                if (frmParent.dtSampleRunInfo.Rows[RinfoIndex]["Emergency"].ToString() == "是")
+                if (frmParent.dtSampleRunInfo.Rows[RinfoIndex]["Emergency"].ToString() == getString("keywordText.Yes"))
                 {
                     chkEmergency.Checked = true;
                 }
@@ -459,7 +460,11 @@ namespace BioBaseCLIA.Run
                 }
             }
         }
-
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmRunInfoModify));
+            return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
+        }
 
     }
 }

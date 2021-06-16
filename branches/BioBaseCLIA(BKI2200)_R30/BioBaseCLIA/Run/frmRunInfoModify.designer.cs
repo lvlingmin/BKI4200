@@ -29,16 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRunInfoModify));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSpRunInfoList = new System.Windows.Forms.DataGridView();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DilutionTimes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiluteName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Emergency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDilutionTimes = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,12 +40,20 @@
             this.fbtnOK = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.chkEmergency = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DilutionTimes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiluteName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Emergency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSpRunInfoList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvSpRunInfoList
             // 
+            resources.ApplyResources(this.dgvSpRunInfoList, "dgvSpRunInfoList");
             this.dgvSpRunInfoList.AllowUserToAddRows = false;
             this.dgvSpRunInfoList.AllowUserToDeleteRows = false;
             this.dgvSpRunInfoList.AllowUserToResizeRows = false;
@@ -74,7 +75,6 @@
             this.DilutionTimes,
             this.DiluteName,
             this.Emergency});
-            resources.ApplyResources(this.dgvSpRunInfoList, "dgvSpRunInfoList");
             this.dgvSpRunInfoList.Name = "dgvSpRunInfoList";
             this.dgvSpRunInfoList.ReadOnly = true;
             this.dgvSpRunInfoList.RowHeadersVisible = false;
@@ -82,57 +82,9 @@
             this.dgvSpRunInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSpRunInfoList.SelectionChanged += new System.EventHandler(this.dgvSpRunInfoList_SelectionChanged);
             // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            resources.ApplyResources(this.Position, "Position");
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            // 
-            // SampleNo
-            // 
-            this.SampleNo.DataPropertyName = "SampleNo";
-            resources.ApplyResources(this.SampleNo, "SampleNo");
-            this.SampleNo.Name = "SampleNo";
-            this.SampleNo.ReadOnly = true;
-            // 
-            // SampleType
-            // 
-            this.SampleType.DataPropertyName = "SampleType";
-            resources.ApplyResources(this.SampleType, "SampleType");
-            this.SampleType.Name = "SampleType";
-            this.SampleType.ReadOnly = true;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "ItemName";
-            resources.ApplyResources(this.ItemName, "ItemName");
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            // 
-            // DilutionTimes
-            // 
-            this.DilutionTimes.DataPropertyName = "DilutionTimes";
-            resources.ApplyResources(this.DilutionTimes, "DilutionTimes");
-            this.DilutionTimes.Name = "DilutionTimes";
-            this.DilutionTimes.ReadOnly = true;
-            // 
-            // DiluteName
-            // 
-            this.DiluteName.DataPropertyName = "DiluteName";
-            resources.ApplyResources(this.DiluteName, "DiluteName");
-            this.DiluteName.Name = "DiluteName";
-            this.DiluteName.ReadOnly = true;
-            // 
-            // Emergency
-            // 
-            this.Emergency.DataPropertyName = "Emergency";
-            resources.ApplyResources(this.Emergency, "Emergency");
-            this.Emergency.Name = "Emergency";
-            this.Emergency.ReadOnly = true;
-            // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.txtDilutionTimes);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cmbDilutionTimes);
@@ -140,7 +92,6 @@
             this.groupBox1.Controls.Add(this.fbtnOK);
             this.groupBox1.Controls.Add(this.chkEmergency);
             this.groupBox1.Controls.Add(this.label1);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -156,15 +107,15 @@
             // 
             // cmbDilutionTimes
             // 
-            this.cmbDilutionTimes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmbDilutionTimes, "cmbDilutionTimes");
+            this.cmbDilutionTimes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDilutionTimes.FormattingEnabled = true;
             this.cmbDilutionTimes.Name = "cmbDilutionTimes";
             // 
             // fbtnModify
             // 
-            this.fbtnModify.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnModify, "fbtnModify");
+            this.fbtnModify.BackColor = System.Drawing.Color.Transparent;
             this.fbtnModify.EnabledSet = true;
             this.fbtnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnModify.FlatAppearance.BorderSize = 0;
@@ -176,8 +127,8 @@
             // 
             // fbtnOK
             // 
-            this.fbtnOK.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnOK, "fbtnOK");
+            this.fbtnOK.BackColor = System.Drawing.Color.Transparent;
             this.fbtnOK.EnabledSet = true;
             this.fbtnOK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnOK.FlatAppearance.BorderSize = 0;
@@ -197,6 +148,61 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.FillWeight = 64.83389F;
+            resources.ApplyResources(this.Position, "Position");
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
+            // 
+            // SampleNo
+            // 
+            this.SampleNo.DataPropertyName = "SampleNo";
+            this.SampleNo.FillWeight = 114.756F;
+            resources.ApplyResources(this.SampleNo, "SampleNo");
+            this.SampleNo.Name = "SampleNo";
+            this.SampleNo.ReadOnly = true;
+            // 
+            // SampleType
+            // 
+            this.SampleType.DataPropertyName = "SampleType";
+            this.SampleType.FillWeight = 114.756F;
+            resources.ApplyResources(this.SampleType, "SampleType");
+            this.SampleType.Name = "SampleType";
+            this.SampleType.ReadOnly = true;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            this.ItemName.FillWeight = 114.756F;
+            resources.ApplyResources(this.ItemName, "ItemName");
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // DilutionTimes
+            // 
+            this.DilutionTimes.DataPropertyName = "DilutionTimes";
+            this.DilutionTimes.FillWeight = 114.756F;
+            resources.ApplyResources(this.DilutionTimes, "DilutionTimes");
+            this.DilutionTimes.Name = "DilutionTimes";
+            this.DilutionTimes.ReadOnly = true;
+            // 
+            // DiluteName
+            // 
+            this.DiluteName.DataPropertyName = "DiluteName";
+            resources.ApplyResources(this.DiluteName, "DiluteName");
+            this.DiluteName.Name = "DiluteName";
+            this.DiluteName.ReadOnly = true;
+            // 
+            // Emergency
+            // 
+            this.Emergency.DataPropertyName = "Emergency";
+            this.Emergency.FillWeight = 76.14214F;
+            resources.ApplyResources(this.Emergency, "Emergency");
+            this.Emergency.Name = "Emergency";
+            this.Emergency.ReadOnly = true;
             // 
             // frmRunInfoModify
             // 
