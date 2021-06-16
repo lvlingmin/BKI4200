@@ -1980,7 +1980,7 @@ namespace BioBaseCLIA.Run
                     frmMessageShow fr = new frmMessageShow();
                     fr.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedCheckedOfBarcode"));
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true , CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo}.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
@@ -2018,7 +2018,7 @@ namespace BioBaseCLIA.Run
                     frmMessageShow fr = new frmMessageShow();
                     fr.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.FailedCheckedOfBarcode"));
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true , CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo}.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
