@@ -1030,7 +1030,7 @@
     <value>用户</value>
   </data>
   <data name="UsernameErr" xml:space="preserve">
-    <value>用户名不正确，请重新输入！</value>
+    <value>信息不正确，请重新输入！</value>
   </data>
   <data name="UserNameIsNull" xml:space="preserve">
     <value>用户名输入为空，请重新输入！</value>

@@ -3254,9 +3254,6 @@
   <data name="Temporarystorageempty" xml:space="preserve">
     <value>暂存盘位置缺管</value>
   </data>
-  <data name="Temporarystorageempty1" xml:space="preserve">
-    <value>暂存盘位置缺管</value>
-  </data>
   <data name="Tips" xml:space="preserve">
     <value>温馨提示</value>
   </data>
