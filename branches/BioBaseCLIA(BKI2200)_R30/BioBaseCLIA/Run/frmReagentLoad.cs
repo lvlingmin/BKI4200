@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using Common;
 using BioBaseCLIA.DataQuery;
 using System.Resources;
+using Localization;
 
 namespace BioBaseCLIA.Run
 {
@@ -1537,7 +1538,7 @@ namespace BioBaseCLIA.Run
                         frmMessageShow frmMessage = new frmMessageShow();
                         frmMessage.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.NotFindItemFromThisBarcode"));
                     }))
-                    { IsBackground = true }.Start();
+                    { IsBackground = true , CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo}.Start();
                     return false;
                 }
                 string shortName = dealCode[0];//试剂名
