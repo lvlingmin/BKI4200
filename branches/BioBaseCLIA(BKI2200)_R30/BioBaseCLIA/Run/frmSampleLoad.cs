@@ -10,6 +10,7 @@ using Maticsoft.DBUtility;
 using BioBaseCLIA.DataQuery;
 using Common;
 using System.IO;
+using System.Resources;
 
 namespace BioBaseCLIA.Run
 {
@@ -388,7 +389,7 @@ namespace BioBaseCLIA.Run
         {
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show("实验中，请勿添加试剂！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.DontAddReagentWithWorking"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
@@ -460,13 +461,13 @@ namespace BioBaseCLIA.Run
             frmMessageShow frmMsg = new frmMessageShow();
             if (dgvSpInfoList.CurrentRow == null||dgvSpInfoList.SelectedRows.Count==0)//y modify 20180426
             {
-                frmMsg.MessageShow("样本录入", "请选择需要录入信息的样本");
+                frmMsg.MessageShow(getString("keywordText.SampleEntry"), getString("keywordText.PleaseChooseSample"));
                 return;
             }
             string sampleType = dgvSpInfoList.CurrentRow.Cells["SampleType"].Value.ToString();
-            if (sampleType.Contains("标准品") || sampleType.Contains("校准品") || sampleType.Contains("定标液") || sampleType.Contains("质控品"))
+            if (sampleType.Contains(getString("keywordText.Standard")) || sampleType.Contains(getString("keywordText.Calibrator")) || sampleType.Contains(getString("keywordText.CalibrationSolution")) || sampleType.Contains(getString("keywordText.Control")))
             {
-                frmMsg.MessageShow("样本录入", sampleType+"无需录入病人信息！");
+                frmMsg.MessageShow(getString("keywordText.SampleEntry"), string.Format(getString("keywordText.NeedlessEntryInfomationOfPatient"),sampleType));
                 return;
             }
             frmPatientInfo frmPI = new frmPatientInfo();
@@ -581,7 +582,7 @@ namespace BioBaseCLIA.Run
                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                             goto SendAgain;
                         else
-                            frmMsg.MessageShow("试剂装载", "通讯异常，请核对连接情况并对仪器系统进行重启！");
+                            frmMsg.MessageShow(getString("keywordText.SampleLoad"), getString("keywordText.ConnectionErrorAndRetry"));
                     }
                     //while (!NetCom3.SpReciveFlag)
                     //{
@@ -591,7 +592,7 @@ namespace BioBaseCLIA.Run
                 }
                 else
                 {
-                    frmMsg.MessageShow("试剂装载", "网络未连接请先进行网络连接！");
+                    frmMsg.MessageShow(getString("keywordText.SampleLoad"), getString("keywordText.NetErrorAndRetry"));
                     return;
                 }
                 SpSelectedNo = -1;
@@ -603,7 +604,7 @@ namespace BioBaseCLIA.Run
             if (dgvSpInfoList.SelectedRows.Count == 0)
             {
                 frmMessageShow messageshow = new frmMessageShow();
-                messageshow.MessageShow("样本装载", "请选择要修改的样本信息！");
+                messageshow.MessageShow(getString("keywordText.SampleLoad"), getString("keywordText.PleaseChoose"));
                 return;
             }
             string SPSampleNo = dgvSpInfoList.SelectedRows[0].Cells["SampleNo"].Value.ToString();
@@ -611,7 +612,7 @@ namespace BioBaseCLIA.Run
             if (drRunInfo.Length > 0)
             {
                 frmMessageShow frmMsg = new frmMessageShow();
-                frmMsg.MessageShow("运行信息修改", "样本编号为" + SPSampleNo + "的测试已经完成或卸载，不能修改运行信息！");
+                frmMsg.MessageShow(getString("keywordText.UpdateRunningInfomation"), string.Format(getString("keywordText.CantUpdateRunInfomation"), SPSampleNo));
                 return;
             }
             frmRunInfoModify frmPI = new frmRunInfoModify();
@@ -622,6 +623,11 @@ namespace BioBaseCLIA.Run
         private void btnLoadSample_Click(object sender, EventArgs e)
         {
 
+        }
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmSampleLoad));
+            return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
         }
     }
 }
