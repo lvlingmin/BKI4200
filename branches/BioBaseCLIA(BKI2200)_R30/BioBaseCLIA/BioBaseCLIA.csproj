@@ -572,6 +572,9 @@
     <EmbeddedResource Include="Run\frmAddSample.en-US.resx">
       <DependentUpon>frmAddSample.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmAddSample.en.resx">
+      <DependentUpon>frmAddSample.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Run\frmAddSample.resx">
       <DependentUpon>frmAddSample.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -584,6 +587,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmAddScaling.resx">
       <DependentUpon>frmAddScaling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmLoadDiu.en.resx">
+      <DependentUpon>frmLoadDiu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmLoadDiu.resx">
       <DependentUpon>frmLoadDiu.cs</DependentUpon>
@@ -604,11 +610,17 @@
     <EmbeddedResource Include="Run\frmReagentLoad.en-US.resx">
       <DependentUpon>frmReagentLoad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmReagentLoad.en.resx">
+      <DependentUpon>frmReagentLoad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Run\frmReagentLoad.resx">
       <DependentUpon>frmReagentLoad.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmRunInfoModify.en-US.resx">
+      <DependentUpon>frmRunInfoModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmRunInfoModify.en.resx">
       <DependentUpon>frmRunInfoModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmRunInfoModify.resx">
@@ -617,10 +629,16 @@
     <EmbeddedResource Include="Run\frmSampleLoad.en-US.resx">
       <DependentUpon>frmSampleLoad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmSampleLoad.en.resx">
+      <DependentUpon>frmSampleLoad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Run\frmSampleLoad.resx">
       <DependentUpon>frmSampleLoad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmTestResult.en-US.resx">
+      <DependentUpon>frmTestResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmTestResult.en.resx">
       <DependentUpon>frmTestResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmTestResult.resx">
@@ -639,6 +657,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmWorkList.resx">
       <DependentUpon>frmWorkList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run\LoaderForm.en.resx">
+      <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
