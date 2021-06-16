@@ -931,7 +931,7 @@ namespace BioBaseCLIA.Run
             ModelRg.AllTestNumber = int.Parse(txtRgAllTest.Text.Trim());
             ModelRg.Postion = txtRgPosition.Text.Trim();
             ModelRg.ReagentName = cmbRgName.Text.Trim();
-            ModelRg.Status = getString("keywordText.Unload");
+            ModelRg.Status = "卸载";//getString("keywordText.Unload");
             for (int i = 0; i < rg.Length; i++)
             {
                 rg[i] = "";
