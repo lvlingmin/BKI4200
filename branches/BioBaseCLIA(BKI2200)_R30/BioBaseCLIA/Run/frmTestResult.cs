@@ -12,6 +12,7 @@ using Common;
 using System.IO;
 using NPOI.SS.UserModel;
 using NPOI.HSSF.UserModel;
+using System.Resources;
 
 namespace BioBaseCLIA.Run
 {
@@ -166,14 +167,14 @@ namespace BioBaseCLIA.Run
                 }
               
                 //存储质控实验结果到数据库
-                if (listResult[i].SampleType.Contains("质控品"))
+                if (listResult[i].SampleType.Contains(getString("keywordText.ControlPlasmids")))
                 {
                     string QCLevel;
-                    if (listResult[i].SampleType == "质控品H")
+                    if (listResult[i].SampleType == getString("keywordText.ControlHigh"))
                     {
                         QCLevel = "0";
                     }
-                    else if (listResult[i].SampleType == "质控品M")
+                    else if (listResult[i].SampleType == getString("keywordText.ControlMiddle"))
                     {
                         QCLevel = "1";
                     }
@@ -186,7 +187,7 @@ namespace BioBaseCLIA.Run
                                                                 + listResult[i].ItemName + "'and QCLevel = '" + QCLevel + "' and Status = '1'").Tables[0];
                     if (dtQCInfo == null || dtQCInfo.Rows.Count == 0)
                     {
-                        frmMsgShow.MessageShow("实验结果", "查找不到相关质控的信息！");
+                        frmMsgShow.MessageShow(getString("keywordText.ExperimentalResult"), getString("keywordText.NotFindInformationOfControl"));
                         return;
                     }
                     modelQCResult.Batch = dtQCInfo.Rows[0][1].ToString();
@@ -238,10 +239,11 @@ namespace BioBaseCLIA.Run
             //查询已经装载的项目
             DbHelperOleDb db1 = new DbHelperOleDb(3);
             //2018-08-28 zlx mod
-            DataTable UsingItem = DbHelperOleDb.Query(3,@"select ReagentName,Batch from tbReagent where Status = '正常'").Tables[0];
+            DataTable UsingItem = DbHelperOleDb.Query(3, @"select ReagentName,Batch from tbReagent where Status = '正常'").Tables[0];
+            //DataTable UsingItem = DbHelperOleDb.Query(3,@"select ReagentName,Batch from tbReagent where Status = '"+ getString("keywordText.Normal") +"'").Tables[0];
             if (UsingItem == null || UsingItem.Rows.Count == 0)
             {
-                frmMsgShow.MessageShow("实验结果", "未有正在使用的项目！");
+                frmMsgShow.MessageShow(getString("keywordText.ExperimentalResult"), getString("keywordText.HaveNotBeUsedItem"));
                 return;
             }
             //2018-08-28 zlx mod
@@ -250,7 +252,7 @@ namespace BioBaseCLIA.Run
             {
                 //取出定性实验的定标液结果
                 List<TestResult> lisCutoffResult = listResult.FindAll(ty => ty.ItemName == UsingItemNew.Rows[j][0].ToString()
-                                                                          && ty.SampleType.Contains("定标液"));
+                                                                          && ty.SampleType.Contains(getString("keywordText.CalibrationSolution")));
 
                 if (lisCutoffResult.Count == 0)
                 {
@@ -300,7 +302,7 @@ namespace BioBaseCLIA.Run
             }
             #endregion
             //2018-07-24 zlx add
-           frmMsgShow.MessageShow("结果保存", "实验结果保存成功！");
+           frmMsgShow.MessageShow(getString("keywordText.SaveResult"), getString("keywordText.SavedSuccessfully"));
         }
 
         /// <summary>
@@ -311,10 +313,11 @@ namespace BioBaseCLIA.Run
         {
             //查询已经装载的项目
             DbHelperOleDb db1 = new DbHelperOleDb(3);
-            DataTable UsingItem = DbHelperOleDb.Query(3,@"select ReagentName,Batch from tbReagent where Status ='正常'").Tables[0];
+            DataTable UsingItem = DbHelperOleDb.Query(3, @"select ReagentName,Batch from tbReagent where Status ='正常'").Tables[0];
+            //DataTable UsingItem = DbHelperOleDb.Query(3,@"select ReagentName,Batch from tbReagent where Status ='"+getString("keywordText.Normal")+"'").Tables[0];
             if (UsingItem == null || UsingItem.Rows.Count == 0)
             {
-                frmMsgShow.MessageShow("实验结果", "未有正在使用的项目！");
+                frmMsgShow.MessageShow(getString("keywordText.ExperimentalResult"), getString("keywordText.HaveNotBeUsedItem"));
                 return;
             }
             //2018-08-28 zlx mod
@@ -323,7 +326,7 @@ namespace BioBaseCLIA.Run
             {
                 //取出实验结果中相同项目名称的标准品
                 List<TestResult> FilistStandardResult = listResult.FindAll(ty => ty.ItemName == UsingItemNew.Rows[j][0].ToString()
-                                                                          && ty.SampleType.Contains("标准品") && ty.ReagentBeach == UsingItemNew.Rows[j][1].ToString());
+                                                                          && ty.SampleType.Contains(getString("keywordText.StandardPlasmids")) && ty.ReagentBeach == UsingItemNew.Rows[j][1].ToString());
                 if (FilistStandardResult.Count == 0)
                 {
                     continue;
@@ -420,8 +423,8 @@ namespace BioBaseCLIA.Run
                 bool hasPointerC = false, hasPoniterE = false;
                 foreach (var item in ilistStandardResult)
                 {
-                    if (item.SampleType == "标准品C") hasPointerC = true;
-                    if (item.SampleType == "标准品E") hasPoniterE = true;
+                    if (item.SampleType == getString("keywordText.StandardC")) hasPointerC = true;
+                    if (item.SampleType == getString("keywordText.StandardE")) hasPoniterE = true;
                 }
                 if (!hasPoniterE && !hasPointerC)
                 {
@@ -430,7 +433,7 @@ namespace BioBaseCLIA.Run
                 //计算实验的标准品浓度种类、数量是否满足对应实验项目的要求
                 if (hasWrongPointer)//PointsNum > ilistStandardResult.Count &&
                 {
-                    frmMsgShow.MessageShow("实验结果", "标准品数据不足");
+                    frmMsgShow.MessageShow(getString("keywordText.ExperimentalResult"), getString("keywordText.InsufficientStandardData"));
                     continue;
                 }
                 else
@@ -450,37 +453,37 @@ namespace BioBaseCLIA.Run
                     string[] tempConc = new string[7];
                     for (int i = 0; i < ilistStandardResult.Count; i++)
                     {
-                        if (ilistStandardResult[i].SampleType == "标准品A")
+                        if (ilistStandardResult[i].SampleType == getString("keywordText.StandardA"))
                         {
                             //points.Append("(" + pointConc[i] + "," + ilistStandardResult[i].PMT + ")");
                             tempConc[0] = "(" + pointConc[0] + "," + ilistStandardResult[i].PMT + ")";
                         }
-                        else if (ilistStandardResult[i].SampleType == "标准品B")
+                        else if (ilistStandardResult[i].SampleType == getString("keywordText.StandardB"))
                         {
                             //points.Append("(" + pointConc[i] + "," + ilistStandardResult[i].PMT + ")");
                             tempConc[1] = "(" + pointConc[1] + "," + ilistStandardResult[i].PMT + ")";
                         }
-                        else if (ilistStandardResult[i].SampleType == "标准品C")
+                        else if (ilistStandardResult[i].SampleType == getString("keywordText.StandardC"))
                         {
                             //points.Append(";(" + pointConc[i] + "," + ilistStandardResult[i].PMT + ")");
                             tempConc[2] = "(" + pointConc[2] + "," + ilistStandardResult[i].PMT + ")";
                         }
-                        else if (ilistStandardResult[i].SampleType == "标准品D")
+                        else if (ilistStandardResult[i].SampleType == getString("keywordText.StandardD"))
                         {
                             //points.Append(";(" + pointConc[i] + "," + ilistStandardResult[i].PMT + ")");
                             tempConc[3] = "(" + pointConc[3] + "," + ilistStandardResult[i].PMT + ")";
                         }
-                        else if (ilistStandardResult[i].SampleType == "标准品E")
+                        else if (ilistStandardResult[i].SampleType == getString("keywordText.StandardE"))
                         {
                             //points.Append(";(" + pointConc[i] + "," + ilistStandardResult[i].PMT + ")");
                             tempConc[4] = "(" + pointConc[4] + "," + ilistStandardResult[i].PMT + ")";
                         }
-                        else if (ilistStandardResult[i].SampleType == "标准品F")
+                        else if (ilistStandardResult[i].SampleType == getString("keywordText.StandardF"))
                         {
                             //points.Append(";(" + pointConc[i] + "," + ilistStandardResult[i].PMT + ")");
                             tempConc[5] = "(" + pointConc[5] + "," + ilistStandardResult[i].PMT + ")";
                         }
-                        else if (ilistStandardResult[i].SampleType == "标准品G")
+                        else if (ilistStandardResult[i].SampleType == getString("keywordText.StandardG"))
                         {
                             tempConc[6] = "(" + pointConc[6] + "," + ilistStandardResult[i].PMT + ")";
                         }
@@ -594,12 +597,12 @@ namespace BioBaseCLIA.Run
             if (dgvResultData.Rows.Count == 0)
             {
                 frmMessageShow fmessage = new frmMessageShow();
-                fmessage.MessageShow("导出提示", "没有数据，无法进行导出操作  ！");
+                fmessage.MessageShow(getString("keywordText.TipsOfExport"), getString("keywordText.CanNotExport"));
                 return;
             }
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "xls文件|*.xls";
-            string FileName = dialog.FileName = DateTime.Now.ToString("yyyyMMdd") + "_实验结果";
+            dialog.Filter = "xls"+getString("keywordText.File") +"|*.xls";
+            string FileName = dialog.FileName = DateTime.Now.ToString("yyyyMMdd") + "_" + getString("keywordText.ExperimentalResult");
             IWorkbook excel = new HSSFWorkbook();//创建.xls文件
             ISheet sheet = excel.CreateSheet(FileName); //创建sheet
             if (dialog.ShowDialog() != DialogResult.OK)
@@ -651,11 +654,11 @@ namespace BioBaseCLIA.Run
             catch (Exception exc)
             {
                 frmMessageShow fmessage = new frmMessageShow();
-                fmessage.MessageShow("导出提示", "文件导出出错，文件可能正在被操作！");
+                fmessage.MessageShow(getString("keywordText.TipsOfExport"), getString("keywordText.ExportFailedMaybeInOperation"));
                 return;
             }
             frmMessageShow frmessage = new frmMessageShow();
-            frmessage.MessageShow("导出提示", "文件导出成功！");
+            frmessage.MessageShow(getString("keywordText.TipsOfExport"), getString("keywordText.ExportedSuccessfully"));
         }
 
 
@@ -771,7 +774,7 @@ namespace BioBaseCLIA.Run
                 {
                     string concentration = er.GetResultInverse(Convert.ToDouble(
                    dgvResultData.SelectedRows[i].Cells[6].Value.ToString())).ToString("0.###");
-                    if (concentration == "非数字")
+                    if (concentration == getString("keywordText.NonNumeric"))
                     {
                         dgvResultData.SelectedRows[i].Cells[7].Value = 0;
                     }
@@ -815,11 +818,11 @@ namespace BioBaseCLIA.Run
         {
             if (dgvResultData.SelectedRows.Count == 0||frmWorkList.RunFlag==(int)RunFlagStart.IsRuning) return;
 
-            if (dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("标准")||
-                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("校准")||
-                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains("质控")) 
+            if (dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))||
+                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Calibrator"))||
+                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Control"))) 
             {
-                MessageBox.Show("非血清样本请手动添加操作","温馨提示", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.NotSerumAndPleaseAddManually"),getString("keywordText.Tips"), MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
 
@@ -849,17 +852,22 @@ namespace BioBaseCLIA.Run
                 if(_boolAgain)
                     bUpdate = DbHelperOleDb.ExecuteSql(1,@"update tbAssayResult set Status = -1  where SampleID=" + dgvResultData.SelectedRows[0].Cells["SampleID"].Value + " AND ItemName='" + dgvResultData.SelectedRows[0].Cells["ItemName"].Value + "'AND PMTCounter=" + dgvResultData.SelectedRows[0].Cells["PMT"].Value + "");
             if (bUpdate > 0)
-                MessageBox.Show("重测设置成功！");
+                MessageBox.Show(getString("keywordText.SettingSuccessfully"));
         }
 
         private void functionButton1_Click(object sender, EventArgs e)
         {
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show("请在实验结束后进行清空操作！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.PleaseEmptyAfterTheExperiment"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             frmWorkList.BTestResult.Clear();
+        }
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmTestResult));
+            return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
         }
     }
 }
