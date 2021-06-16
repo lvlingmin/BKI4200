@@ -5249,13 +5249,27 @@ namespace BioBaseCLIA.Run
                                         else
                                             Message = Message + ",废管盒已满";
                                     }
-                                    MessageBox.Show(Message + "，部分实验已完成！详细信息请在报警信息查看！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                                    this.Invoke(new Action(() =>
+                                    {
+                                        MessageBox.Show(Message + "，部分实验已完成！详细信息请在报警信息查看！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                                    }));
                                 }
-                                else
-                                    MessageBox.Show("供应品缺少，部分实验已完成！详细信息请在报警信息查看！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                                else 
+                                {
+                                    this.Invoke(new Action(() =>
+                                    {
+                                        MessageBox.Show("供应品缺少，部分实验已完成！详细信息请在报警信息查看！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                                    }));
+                                }
                             }
-                            else
-                                MessageBox.Show("实验完成！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);//2018-07-13 zlx mod
+                            else 
+                            {
+                                this.Invoke(new Action(() =>
+                                {
+                                    MessageBox.Show("实验完成！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);//2018-07-13 zlx mod
+                                }));
+                            }
+                                
                             RunFlag = (int)RunFlagStart.Stoped;
                             if (frmMain.pauseFlag)
                                 frmMain.pauseFlag = false;
