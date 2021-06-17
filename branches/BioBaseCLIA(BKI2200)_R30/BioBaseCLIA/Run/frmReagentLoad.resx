@@ -121,6 +121,12 @@
   <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="&gt;&gt;btnAddR.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="keywordText.LoadSuccess" xml:space="preserve">
+    <value>装载成功！</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
@@ -144,6 +150,9 @@
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="fbtnTestResult.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnWorkList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -155,9 +164,6 @@
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>17</value>
-  </data>
-  <data name="textBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 108</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -244,14 +250,17 @@
   <data name="&gt;&gt;textBox4.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="&gt;&gt;btnDelR.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 18</value>
   </data>
   <data name="&gt;&gt;RgName.Name" xml:space="preserve">
     <value>RgName</value>
   </data>
   <data name="btnAddD.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="btnAddCurve.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -262,14 +271,14 @@
   <data name="txtRgCode.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="keywordText.ReagentExpired" xml:space="preserve">
+    <value>试剂(稀释液)有效期信息有误或已过期！</value>
+  </data>
   <data name="LabValidDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
   <data name="btnDelR.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnDelR.Name" xml:space="preserve">
-    <value>btnDelR</value>
   </data>
   <data name="&gt;&gt;cmbProType.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -283,26 +292,35 @@
   <data name="&gt;&gt;label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="keywordText.PleaseInputReagentBarcode" xml:space="preserve">
+    <value>未输入试剂条码，请重新输入！</value>
+  </data>
   <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;LabValidDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnLoadSample.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;cmbProType.Name" xml:space="preserve">
+    <value>cmbProType</value>
+  </data>
+  <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
+    <value>fbtnReturn</value>
   </data>
   <data name="&gt;&gt;cmbRgName.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="textBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 22</value>
   </data>
   <data name="btnAddR.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="RgStatic.HeaderText" xml:space="preserve">
-    <value>状态</value>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cmbRgName.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;labUnit2.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -380,23 +398,29 @@
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
   </data>
-  <data name="label16.Text" xml:space="preserve">
-    <value>稀释液</value>
+  <data name="keywordText.Middle" xml:space="preserve">
+    <value>中</value>
+  </data>
+  <data name="keywordText.SpecialItemFirstUnloadNext" xml:space="preserve">
+    <value>特殊分装项目，请先卸载掉后一个试剂位的试剂。</value>
   </data>
   <data name="label11.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
   </data>
+  <data name="keywordText.PleaseInputAllTestNum" xml:space="preserve">
+    <value>未输入总测数，请重新输入！</value>
+  </data>
   <data name="txtRgLastTest.Text" xml:space="preserve">
     <value>100</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
   </data>
   <data name="LeftRg2.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="&gt;&gt;label15.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnLoadReagent.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;txtRgPosition.Name" xml:space="preserve">
     <value>txtRgPosition</value>
@@ -410,8 +434,8 @@
   <data name="&gt;&gt;labUnit.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtRgAllTest.ZOrder" xml:space="preserve">
-    <value>14</value>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 43</value>
@@ -419,17 +443,17 @@
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
-  <data name="&gt;&gt;dateValidDate.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
   </data>
-  <data name="groupBox3.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="keywordText.ReagentBarcodeErrorAndRetry" xml:space="preserve">
+    <value>试剂条码错误，请检查后重新输入！</value>
   </data>
   <data name="&gt;&gt;txtRgCode.Name" xml:space="preserve">
     <value>txtRgCode</value>
   </data>
-  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
+  <data name="btnLoadReagent.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
   <data name="&gt;&gt;btnAddR.Name" xml:space="preserve">
     <value>btnAddR</value>
@@ -448,6 +472,9 @@
   </data>
   <data name="&gt;&gt;dateValidDate.Name" xml:space="preserve">
     <value>dateValidDate</value>
+  </data>
+  <data name="&gt;&gt;cmbRgName.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
   <data name="btnLoadReagent.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 29</value>
@@ -534,11 +561,14 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>试剂图例</value>
-  </data>
   <data name="textBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 21</value>
+  </data>
+  <data name="keywordText.ReagentLoad" xml:space="preserve">
+    <value>试剂装载</value>
+  </data>
+  <data name="keywordText.FailedOfItemProcessUpdateAndRetry" xml:space="preserve">
+    <value>项目流程更新失败，请重新装载！</value>
   </data>
   <data name="&gt;&gt;txtRgCode.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -552,6 +582,12 @@
   <data name="btnLoadReagent.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="keywordText.NotAllowBindAndRetry" xml:space="preserve">
+    <value>此位置不能进行稀释液的绑定，请在{0}位置绑定稀释液信息！</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
   <data name="txtRgBatch.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -561,8 +597,11 @@
   <data name="txtRgPosition.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 21</value>
   </data>
-  <data name="&gt;&gt;btnLoadReagent.Name" xml:space="preserve">
-    <value>btnLoadReagent</value>
+  <data name="keywordText.ReagentExpiredAlerm2" xml:space="preserve">
+    <value> *** 错误 *** 未读 *** {0}试剂(稀释液)已经过期，请卸载或者更换！</value>
+  </data>
+  <data name="keywordText.TipsAboutLoadZero" xml:space="preserve">
+    <value>装载完成0项,未检测到试剂盒！</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -576,20 +615,35 @@
   <data name="&gt;&gt;label11.Name" xml:space="preserve">
     <value>label11</value>
   </data>
+  <data name="&gt;&gt;ValidDate.Name" xml:space="preserve">
+    <value>ValidDate</value>
+  </data>
   <data name="label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>条码：</value>
   </data>
-  <data name="&gt;&gt;LeftRg4.Name" xml:space="preserve">
-    <value>LeftRg4</value>
+  <data name="fbtnReturn.Text" xml:space="preserve">
+    <value>返回</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;textBox8.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 143</value>
+  </data>
+  <data name="keywordText.ThisBarcodeLoaded" xml:space="preserve">
+    <value>该条码试剂已装载！</value>
   </data>
   <data name="&gt;&gt;btnLoadSample.Name" xml:space="preserve">
     <value>btnLoadSample</value>
+  </data>
+  <data name="keywordText.ReagentOrDiluteExpired" xml:space="preserve">
+    <value>试剂(稀释液)已过期！</value>
+  </data>
+  <data name="keywordText.NotFindDiluteAndFail" xml:space="preserve">
+    <value>未找到已装载的稀释液信息，此次操作不成功！</value>
   </data>
   <data name="btnAddR.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 27</value>
@@ -600,14 +654,11 @@
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 125</value>
   </data>
-  <data name="label15.Text" xml:space="preserve">
-    <value>项目类型:</value>
+  <data name="keywordText.ReagentBarcodeIsNull" xml:space="preserve">
+    <value>试剂条码为空，请重新输入！</value>
   </data>
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
   </data>
   <data name="btnLoadReagent.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 14.25pt, style=Bold</value>
@@ -633,8 +684,8 @@
   <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 41</value>
   </data>
-  <data name="&gt;&gt;txtRgBatch.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="txtRgLastTest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 139</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
@@ -645,17 +696,11 @@
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="RgPosition.HeaderText" xml:space="preserve">
-    <value>位号</value>
-  </data>
   <data name="&gt;&gt;txtRgLastTest.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;RgPosition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fbtnTestResult.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 104</value>
@@ -663,23 +708,11 @@
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
-  <data name="&gt;&gt;dgvRgInfoList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnLoopAddR.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="fbtnReturn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
-  </data>
-  <data name="txtRgBatch.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
   </data>
   <data name="btnLoopAddR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;NoUsePro.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -687,14 +720,14 @@
   <data name="&gt;&gt;textBox6.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
+  </data>
   <data name="txtRgPosition.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="&gt;&gt;textBox7.Name" xml:space="preserve">
     <value>textBox7</value>
-  </data>
-  <data name="LeftRg2.HeaderText" xml:space="preserve">
-    <value>LeftRg2</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>20</value>
@@ -705,11 +738,14 @@
   <data name="btnLoadSample.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="txtRgCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 64</value>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
+  </data>
+  <data name="btnLoopAddR.Text" xml:space="preserve">
+    <value>一键装载</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -719,6 +755,12 @@
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 93</value>
+  </data>
+  <data name="label15.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btnDelR.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -738,14 +780,26 @@
   <data name="txtRgBatch.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 21</value>
   </data>
+  <data name="&gt;&gt;textBox8.Name" xml:space="preserve">
+    <value>textBox8</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 12</value>
+  </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
   </data>
   <data name="LabValidDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnDelR.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 27</value>
+  </data>
+  <data name="keywordText.FailedOfItemMainCurveUpdateAndRetry1" xml:space="preserve">
+    <value>项目标准定标浓度更新失败，请重新装载！</value>
   </data>
   <data name="btnLoopAddR.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -756,14 +810,17 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 18</value>
   </data>
+  <data name="btnAddD.Text" xml:space="preserve">
+    <value>绑定稀释液</value>
+  </data>
+  <data name="keywordText.TipsAboutReagentLoadSuccess" xml:space="preserve">
+    <value>装载完成 {0} 项（试剂位：{1}）！</value>
+  </data>
   <data name="&gt;&gt;label16.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dateValidDate.CustomFormat" xml:space="preserve">
-    <value>yyyy-MM-dd</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>规格：</value>
+  <data name="&gt;&gt;fbtnTestResult.Name" xml:space="preserve">
+    <value>fbtnTestResult</value>
   </data>
   <data name="&gt;&gt;srdReagent.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -777,8 +834,11 @@
   <data name="&gt;&gt;label14.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="dgvRgInfoList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 249</value>
+  <data name="keywordText.ReagentExpiredAndPlzrReplace" xml:space="preserve">
+    <value>{0}试剂(稀释液)已经过期，请卸载或者更换！</value>
+  </data>
+  <data name="keywordText.ReagentBarcodeRepeat" xml:space="preserve">
+    <value>试剂条码与现有的重复（{0}号位置），请检查输入的试剂条码和试剂名称。本次加载操作已取消。</value>
   </data>
   <data name="&gt;&gt;dgvRgInfoList.Parent" xml:space="preserve">
     <value>$this</value>
@@ -786,11 +846,14 @@
   <data name="srdReagent.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 8</value>
   </data>
-  <data name="label10.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
+  <data name="&gt;&gt;txtRgBatch.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
+  </data>
+  <data name="&gt;&gt;btnLoadSample.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="btnLoopAddR.Location" type="System.Drawing.Point, System.Drawing">
     <value>238, 162</value>
@@ -798,11 +861,17 @@
   <data name="&gt;&gt;txtRgPosition.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="keywordText.PleaseStandard" xml:space="preserve">
+    <value>特殊分装项目,请规范放置在试剂盘！</value>
+  </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 65</value>
   </data>
   <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
     <value>textBox3</value>
+  </data>
+  <data name="&gt;&gt;txtRgPosition.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="btnLoadSample.Text" xml:space="preserve">
     <value>样本装载</value>
@@ -813,23 +882,17 @@
   <data name="&gt;&gt;txtRgBatch.Name" xml:space="preserve">
     <value>txtRgBatch</value>
   </data>
-  <data name="textBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 14</value>
-  </data>
   <data name="label15.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="srdReagent.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="keywordText.ConfirmUnbundlingYes" xml:space="preserve">
+    <value>是否确认将稀释液与试剂进行解绑？</value>
   </data>
   <data name="btnAddR.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="cmbProType.Items" xml:space="preserve">
-    <value>试剂</value>
-  </data>
-  <data name="&gt;&gt;textBox8.Name" xml:space="preserve">
-    <value>textBox8</value>
+  <data name="cmbProType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 14</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -837,20 +900,23 @@
   <data name="btnAddR.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="keywordText.PealseFirstUnloadSampleAbout" xml:space="preserve">
+    <value>此项目有待检测样本，请先卸载相关的样本信息！</value>
+  </data>
+  <data name="chkManualInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 168</value>
+  </data>
   <data name="label16.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
   <data name="&gt;&gt;txtRgLastTest.Name" xml:space="preserve">
     <value>txtRgLastTest</value>
   </data>
-  <data name="Batch.HeaderText" xml:space="preserve">
-    <value>批号</value>
+  <data name="&gt;&gt;btnAddCurve.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;textBox8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnLoadReagent.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="keywordText.SpecialItemNotAllowPutLast" xml:space="preserve">
+    <value>特殊分装项目不允许放置在最后位置！</value>
   </data>
   <data name="&gt;&gt;textBox8.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -859,6 +925,12 @@
     <value>26, 124</value>
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;ValidDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fbtnReturn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;labUnit.Name" xml:space="preserve">
@@ -876,32 +948,41 @@
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;fbtnReturn.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="labUnit2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="keywordText.NetErrorAndRetry" xml:space="preserve">
+    <value>网络未连接请先进行网络连接！</value>
+  </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 19</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>剩余量：</value>
+  <data name="&gt;&gt;RgLastTest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkManualInput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 168</value>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnLoadReagent.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
+  </data>
+  <data name="keywordText.LogOfErrorFlag" xml:space="preserve">
+    <value>errorFlag = ： {0}  *****当前 {1}</value>
   </data>
   <data name="LabValidDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labUnit2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="keywordText.PleaseInputLastTestNum" xml:space="preserve">
+    <value>未输入剩余测数，请重新输入！</value>
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
@@ -912,6 +993,9 @@
   <data name="textBox8.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 14</value>
   </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -921,14 +1005,23 @@
   <data name="&gt;&gt;label13.Name" xml:space="preserve">
     <value>label13</value>
   </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="keywordText.PleaseChooseItemToBind" xml:space="preserve">
+    <value>请选择试剂项目来绑定稀释液！</value>
+  </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="textBox5.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <data name="labUnit2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>298, 143</value>
+  <data name="keywordText.FailedOfItemXmlUpdate" xml:space="preserve">
+    <value>项目信息更新失败！</value>
+  </data>
+  <data name="&gt;&gt;RgStatic.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -936,8 +1029,8 @@
   <data name="txtRgLastTest.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
   </data>
   <data name="&gt;&gt;cmbProType.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -945,8 +1038,17 @@
   <data name="&gt;&gt;textBox7.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="textBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 46</value>
+  <data name="keywordText.LastTestNumIsNull" xml:space="preserve">
+    <value>剩余测数为空，请重新输入！</value>
+  </data>
+  <data name="&gt;&gt;txtRgAllTest.Name" xml:space="preserve">
+    <value>txtRgAllTest</value>
+  </data>
+  <data name="&gt;&gt;LabValidDate.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="dateValidDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 114</value>
   </data>
   <data name="&gt;&gt;btnLoadSample.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -956,9 +1058,6 @@
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
-  </data>
-  <data name="btnWorkList.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1039,11 +1138,14 @@
   <data name="&gt;&gt;btnLoopAddR.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="btnAddCurve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 27</value>
+  <data name="fbtnTestResult.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;LeftRg3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnLoadReagent.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;btnWorkList.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -1060,14 +1162,14 @@
   <data name="label1.Text" xml:space="preserve">
     <value>试剂装载</value>
   </data>
-  <data name="textBox8.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
   <data name="LeftRg4.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="Batch.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="keywordText.Expired" xml:space="preserve">
+    <value>过期</value>
+  </data>
+  <data name="&gt;&gt;txtRgBatch.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
   <data name="cmbProType.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1075,8 +1177,17 @@
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 12</value>
   </data>
-  <data name="btnLoadSample.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;labUnit2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="keywordText.PleaseUnloadReagent" xml:space="preserve">
+    <value>请先卸载该位置试剂！</value>
+  </data>
+  <data name="keywordText.PleaseAgainInputTestNum" xml:space="preserve">
+    <value>剩余测数大于总测数，请重新输入！</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>501, 44</value>
@@ -1084,8 +1195,8 @@
   <data name="&gt;&gt;label13.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnWorkList.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
   <data name="btnWorkList.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1160,11 +1271,11 @@
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;cmbRgName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="keywordText.PleaseInputBatch" xml:space="preserve">
+    <value>未输入批号，请重新输入！</value>
   </data>
-  <data name="chkManualInput.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="keywordText.AllTestNumIsNull" xml:space="preserve">
+    <value>总测数为空，请重新输入！</value>
   </data>
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -1178,11 +1289,20 @@
   <data name="&gt;&gt;btnWorkList.Name" xml:space="preserve">
     <value>btnWorkList</value>
   </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 21.75pt, style=Bold</value>
+  </data>
   <data name="labUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>153, 143</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="keywordText.NotFindItemAndPlzImport" xml:space="preserve">
+    <value>未检测到对应项目，请导入相关项目信息文件！</value>
+  </data>
+  <data name="keywordText.Normal" xml:space="preserve">
+    <value>正常</value>
   </data>
   <data name="btnWorkList.Text" xml:space="preserve">
     <value>工作列表</value>
@@ -1211,26 +1331,26 @@
   <data name="&gt;&gt;chkManualInput.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="LeftRg3.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="&gt;&gt;label16.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
+  <data name="keywordText.Measurement" xml:space="preserve">
+    <value>测</value>
+  </data>
   <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;cmbRgName.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;LabValidDate.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;txtRgBatch.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="txtRgCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 64</value>
   </data>
   <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
     <value>groupBox4</value>
@@ -1238,11 +1358,17 @@
   <data name="btnAddR.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="keywordText.PleaseUnloadExpiredReagent" xml:space="preserve">
+    <value>有过期试剂，请及时卸载！详情请查日志信息！</value>
+  </data>
+  <data name="btnWorkList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 61</value>
+  </data>
   <data name="txtRgBatch.Location" type="System.Drawing.Point, System.Drawing">
     <value>78, 89</value>
   </data>
-  <data name="&gt;&gt;labUnit2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;LeftRg2.Name" xml:space="preserve">
+    <value>LeftRg2</value>
   </data>
   <data name="btnAddR.Text" xml:space="preserve">
     <value>装载</value>
@@ -1256,8 +1382,8 @@
   <data name="&gt;&gt;textBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtRgLastTest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 139</value>
+  <data name="&gt;&gt;cmbRgName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnLoadReagent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1265,14 +1391,11 @@
   <data name="chkManualInput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnReturn.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
-  </data>
-  <data name="cmbProType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 14</value>
   </data>
   <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1285,9 +1408,6 @@
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 421</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RgStatic.Name" xml:space="preserve">
     <value>RgStatic</value>
@@ -1310,17 +1430,26 @@
   <data name="&gt;&gt;textBox5.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
+  <data name="LeftRg4.HeaderText" xml:space="preserve">
+    <value>LeftRg4</value>
+  </data>
+  <data name="textBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
   <data name="btnLoadSample.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>试剂充足</value>
   </data>
+  <data name="keywordText.ReagentExpiredHead" xml:space="preserve">
+    <value>过期警告</value>
+  </data>
   <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 42</value>
   </data>
   <data name="btnAddR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1328,11 +1457,8 @@
   <data name="&gt;&gt;btnLoopAddR.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="btnAddD.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="&gt;&gt;textBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnAddD.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1346,29 +1472,29 @@
   <data name="textBox6.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="&gt;&gt;btnAddD.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;fbtnReturn.Name" xml:space="preserve">
-    <value>fbtnReturn</value>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
   </data>
-  <data name="label14.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
+  <data name="&gt;&gt;fbtnReturn.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="cmbRgName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 39</value>
+  <data name="textBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 108</value>
   </data>
-  <data name="cmbRgName.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="RgPosition.HeaderText" xml:space="preserve">
+    <value>位号</value>
   </data>
-  <data name="&gt;&gt;txtRgBatch.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;txtRgCode.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="&gt;&gt;label15.Parent" xml:space="preserve">
     <value>groupBox2</value>
+  </data>
+  <data name="keywordText.NotFindItemFromThisBarcode" xml:space="preserve">
+    <value>未找到此条码对应的项目信息！</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
@@ -1376,11 +1502,8 @@
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btnWorkList.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnLoadReagent.Name" xml:space="preserve">
+    <value>btnLoadReagent</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>501, 317</value>
@@ -1403,26 +1526,35 @@
   <data name="&gt;&gt;cmbRgName.Name" xml:space="preserve">
     <value>cmbRgName</value>
   </data>
-  <data name="&gt;&gt;RgLastTest.Name" xml:space="preserve">
-    <value>RgLastTest</value>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 505</value>
+  </data>
+  <data name="&gt;&gt;btnWorkList.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="btnWorkList.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="srdReagent.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="NoUsePro.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>操作</value>
   </data>
   <data name="txtRgAllTest.Text" xml:space="preserve">
     <value>100</value>
   </data>
   <data name="label13.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
+  </data>
+  <data name="&gt;&gt;btnAddR.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="textBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 46</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>414, 11</value>
@@ -1442,8 +1574,11 @@
   <data name="&gt;&gt;btnLoadReagent.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="labUnit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;dateValidDate.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="keywordText.PleaseChooseLoadPosition" xml:space="preserve">
+    <value>未选择试剂位置，请重新输入！</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 29</value>
@@ -1457,9 +1592,6 @@
   <data name="labUnit.Text" xml:space="preserve">
     <value>测</value>
   </data>
-  <data name="&gt;&gt;btnAddR.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
   <data name="&gt;&gt;label12.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
@@ -1471,6 +1603,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1024, 547</value>
+  </data>
+  <data name="btnAddCurve.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 27</value>
   </data>
   <data name="&gt;&gt;dgvRgInfoList.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1484,69 +1619,14 @@
   <data name="btnAddCurve.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnAddR.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
+  <data name="keywordText.UnloadSuccess" xml:space="preserve">
+    <value>卸载成功！</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>规格：</value>
+  </data>
+  <data name="&gt;&gt;txtRgBatch.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1563,8 +1643,8 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmReagentLoad</value>
   </data>
-  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
+  <data name="&gt;&gt;cmbProType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtRgLastTest.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -1575,14 +1655,14 @@
   <data name="&gt;&gt;label13.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;textBox8.Parent" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="labUnit2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>298, 143</value>
   </data>
   <data name="btnWorkList.Font" type="System.Drawing.Font, System.Drawing">
     <value>宋体, 14.25pt, style=Bold</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 505</value>
+  <data name="fbtnReturn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 60</value>
   </data>
   <data name="dateValidDate.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -1605,14 +1685,20 @@
   <data name="&gt;&gt;txtRgLastTest.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <data name="keywordText.Reagent" xml:space="preserve">
+    <value>试剂</value>
+  </data>
   <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 14</value>
   </data>
   <data name="&gt;&gt;label12.Name" xml:space="preserve">
     <value>label12</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;textBox4.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -1684,17 +1770,17 @@
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;btnWorkList.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;LeftRg4.Name" xml:space="preserve">
+    <value>LeftRg4</value>
   </data>
-  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labUnit2.Name" xml:space="preserve">
     <value>labUnit2</value>
   </data>
-  <data name="&gt;&gt;btnAddR.Type" xml:space="preserve">
-    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  <data name="dateValidDate.CustomFormat" xml:space="preserve">
+    <value>yyyy-MM-dd</value>
   </data>
   <data name="txtRgAllTest.Location" type="System.Drawing.Point, System.Drawing">
     <value>77, 139</value>
@@ -1714,11 +1800,8 @@
   <data name="fbtnReturn.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 425</value>
   </data>
-  <data name="btnAddD.Text" xml:space="preserve">
-    <value>绑定稀释液</value>
-  </data>
-  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
-    <value>groupBox3</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>操作</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>已测样本</value>
@@ -1726,35 +1809,44 @@
   <data name="btnDelR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;textBox6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;dateValidDate.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
+  <data name="btnLoadSample.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="&gt;&gt;textBox5.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;txtRgPosition.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="cmbRgName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 39</value>
   </data>
-  <data name="fbtnTestResult.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="keywordText.ReagentUnload" xml:space="preserve">
+    <value>试剂卸载</value>
   </data>
-  <data name="&gt;&gt;cmbProType.Name" xml:space="preserve">
-    <value>cmbProType</value>
+  <data name="btnDelR.Text" xml:space="preserve">
+    <value>卸载</value>
   </data>
-  <data name="&gt;&gt;label14.Name" xml:space="preserve">
-    <value>label14</value>
+  <data name="btnLoopAddR.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;textBox6.Name" xml:space="preserve">
+    <value>textBox6</value>
   </data>
   <data name="&gt;&gt;textBox7.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;fbtnTestResult.Name" xml:space="preserve">
-    <value>fbtnTestResult</value>
+  <data name="Batch.HeaderText" xml:space="preserve">
+    <value>批号</value>
   </data>
   <data name="&gt;&gt;textBox4.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>待测样本</value>
   </data>
   <data name="&gt;&gt;timer1.Name" xml:space="preserve">
     <value>timer1</value>
@@ -1762,23 +1854,87 @@
   <data name="btnLoopAddR.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 27</value>
   </data>
-  <data name="&gt;&gt;cmbProType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmbProType.Items" xml:space="preserve">
+    <value>试剂</value>
   </data>
-  <data name="txtRgLastTest.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="keywordText.Unload" xml:space="preserve">
+    <value>卸载</value>
   </data>
-  <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>返回</value>
+  <data name="btnAddR.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
   </data>
-  <data name="&gt;&gt;label7.Name" xml:space="preserve">
-    <value>label7</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>剩余量：</value>
   </data>
-  <data name="btnWorkList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 61</value>
+  <data name="keywordText.FailedOfItemConc" xml:space="preserve">
+    <value>项目定标浓度处理失败！</value>
   </data>
-  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fbtnTestResult.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1795,17 +1951,14 @@
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="cmbProType.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="LeftRg4.HeaderText" xml:space="preserve">
-    <value>LeftRg4</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>试剂图例</value>
   </data>
   <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 18</value>
   </data>
-  <data name="&gt;&gt;LeftRg2.Name" xml:space="preserve">
-    <value>LeftRg2</value>
+  <data name="RgStatic.HeaderText" xml:space="preserve">
+    <value>状态</value>
   </data>
   <data name="&gt;&gt;LabValidDate.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1816,29 +1969,32 @@
   <data name="&gt;&gt;txtRgAllTest.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="btnDelR.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 27</value>
+  <data name="textBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
   </data>
   <data name="textBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 71</value>
   </data>
-  <data name="&gt;&gt;dateValidDate.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
     <value>groupBox2</value>
   </data>
   <data name="dateValidDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 21</value>
   </data>
-  <data name="fbtnTestResult.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 61</value>
-  </data>
   <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label15.Text" xml:space="preserve">
+    <value>项目类型:</value>
   </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="keywordText.ReagentPositionPartOf" xml:space="preserve">
+    <value>试剂位:{0}</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>样本图例</value>
   </data>
   <data name="&gt;&gt;btnLoopAddR.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -1867,11 +2023,11 @@
   <data name="btnLoadReagent.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
   </data>
-  <data name="&gt;&gt;textBox6.Name" xml:space="preserve">
-    <value>textBox6</value>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
   <data name="labUnit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1882,8 +2038,8 @@
   <data name="&gt;&gt;LeftRg3.Name" xml:space="preserve">
     <value>LeftRg3</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="btnLoadReagent.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="btnLoopAddR.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1949,8 +2105,11 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="fbtnReturn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;RgPosition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="keywordText.FailedOfDilute" xml:space="preserve">
+    <value>稀释液条码处理失败！</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>42, 68</value>
@@ -1967,8 +2126,11 @@
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 87</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="groupBox3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="keywordText.DiluteUnbundlingHead" xml:space="preserve">
+    <value>稀释液解绑</value>
   </data>
   <data name="txtRgAllTest.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1976,8 +2138,8 @@
   <data name="btnAddCurve.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 143</value>
+  <data name="LeftRg2.HeaderText" xml:space="preserve">
+    <value>LeftRg2</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1985,8 +2147,11 @@
   <data name="&gt;&gt;btnAddD.Name" xml:space="preserve">
     <value>btnAddD</value>
   </data>
-  <data name="&gt;&gt;RgStatic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="keywordText.NotFindReagentKit" xml:space="preserve">
+    <value>未检测到试剂盒！</value>
+  </data>
+  <data name="&gt;&gt;btnLoadSample.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1994,11 +2159,23 @@
   <data name="&gt;&gt;btnDelR.ZOrder" xml:space="preserve">
     <value>22</value>
   </data>
+  <data name="keywordText.DiluteBarcodeRepeat" xml:space="preserve">
+    <value>稀释液条码与现有的重复（{0}号位置），请检查输入的稀释液条码。本次加载操作已取消。</value>
+  </data>
   <data name="&gt;&gt;txtRgCode.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="fbtnTestResult.Text" xml:space="preserve">
     <value>实验结果</value>
+  </data>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="keywordText.Low" xml:space="preserve">
+    <value>低</value>
   </data>
   <data name="&gt;&gt;btnAddCurve.Name" xml:space="preserve">
     <value>btnAddCurve</value>
@@ -2006,35 +2183,32 @@
   <data name="&gt;&gt;LabValidDate.Name" xml:space="preserve">
     <value>LabValidDate</value>
   </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="textBox3.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="&gt;&gt;btnLoadSample.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="cmbProType.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="keywordText.OneKeyUnbundling" xml:space="preserve">
+    <value>一键解绑</value>
   </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 42</value>
+  <data name="Batch.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox5.Name" xml:space="preserve">
     <value>textBox5</value>
   </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>837, 12</value>
+  </data>
   <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="fbtnReturn.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>试剂耗尽</value>
-  </data>
-  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;dgvRgInfoList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnLoadReagent.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -2051,14 +2225,20 @@
   <data name="label10.Text" xml:space="preserve">
     <value>试剂警告</value>
   </data>
+  <data name="keywordText.TipsAboutReagentLoadFailed" xml:space="preserve">
+    <value>\n装载失败 {0} 项（试剂位：{1}）！</value>
+  </data>
   <data name="&gt;&gt;LeftRg4.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
   </data>
-  <data name="&gt;&gt;dgvRgInfoList.Name" xml:space="preserve">
-    <value>dgvRgInfoList</value>
+  <data name="keywordText.FailedOfItemMainCurveUpdateAndRetry2" xml:space="preserve">
+    <value>添加主曲线失败，请重新装载!</value>
+  </data>
+  <data name="&gt;&gt;btnDelR.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;textBox6.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -2066,26 +2246,26 @@
   <data name="dgvRgInfoList.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 21.75pt, style=Bold</value>
+  <data name="&gt;&gt;RgLastTest.Name" xml:space="preserve">
+    <value>RgLastTest</value>
   </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="label9.Text" xml:space="preserve">
+    <value>试剂耗尽</value>
   </data>
-  <data name="&gt;&gt;ValidDate.Name" xml:space="preserve">
-    <value>ValidDate</value>
+  <data name="btnLoadSample.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 14.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnAddCurve.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;fbtnReturn.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;txtRgPosition.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
   <data name="txtRgAllTest.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 21</value>
@@ -2099,6 +2279,15 @@
   <data name="&gt;&gt;textBox7.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="keywordText.FailedCheckedOfBarcode" xml:space="preserve">
+    <value>未通过条码校验！</value>
+  </data>
+  <data name="keywordText.ConnectionErrorAndRetry" xml:space="preserve">
+    <value>通讯异常，请核对连接情况并对仪器系统进行重启！</value>
+  </data>
+  <data name="&gt;&gt;RgAllTest.Name" xml:space="preserve">
+    <value>RgAllTest</value>
+  </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -2108,32 +2297,47 @@
   <data name="&gt;&gt;LeftRg2.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="keywordText.DiluteBeUsedAndUnloadAbout" xml:space="preserve">
+    <value>稀释液信息正在被使用，请先卸载相关试剂！</value>
+  </data>
+  <data name="keywordText.High" xml:space="preserve">
+    <value>高</value>
+  </data>
   <data name="labUnit.Size" type="System.Drawing.Size, System.Drawing">
     <value>17, 12</value>
   </data>
   <data name="&gt;&gt;srdReagent.Name" xml:space="preserve">
     <value>srdReagent</value>
   </data>
-  <data name="LabValidDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 118</value>
+  <data name="btnAddD.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;label16.Name" xml:space="preserve">
-    <value>label16</value>
+  <data name="textBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 14</value>
   </data>
-  <data name="dateValidDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 114</value>
+  <data name="txtRgLastTest.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="keywordText.LoadBreak" xml:space="preserve">
+    <value>装载中断！\n</value>
   </data>
   <data name="labUnit2.Text" xml:space="preserve">
     <value>测</value>
   </data>
-  <data name="ValidDate.HeaderText" xml:space="preserve">
-    <value>ValidDate</value>
+  <data name="keywordText.ReagentExpiredAlerm" xml:space="preserve">
+    <value>*** 错误 *** 未读 *** 条码编号：{0}项目名称:{1}试剂已经过期，请及时更换</value>
   </data>
-  <data name="label15.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="keywordText.FailedOfItemQc" xml:space="preserve">
+    <value>项目质控信息处理失败！</value>
   </data>
-  <data name="&gt;&gt;txtRgPosition.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="label16.Text" xml:space="preserve">
+    <value>稀释液</value>
+  </data>
+  <data name="labUnit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="keywordText.FailedOfItemProcess" xml:space="preserve">
+    <value>项目流程处理失败！</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -2144,17 +2348,17 @@
   <data name="&gt;&gt;fbtnTestResult.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="fbtnReturn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 60</value>
+  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
   </data>
   <data name="btnDelR.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>未装载样本</value>
+  <data name="keywordText.BindDiluteReagent" xml:space="preserve">
+    <value>绑定稀释液</value>
   </data>
-  <data name="&gt;&gt;RgLastTest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="textBox6.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 14</value>
@@ -2162,17 +2366,17 @@
   <data name="&gt;&gt;NoUsePro.Name" xml:space="preserve">
     <value>NoUsePro</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>837, 12</value>
+  <data name="txtRgBatch.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
-  <data name="&gt;&gt;LeftRg3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkManualInput.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnLoadSample.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
   </data>
-  <data name="label13.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="LabValidDate.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
   </data>
   <data name="&gt;&gt;btnWorkList.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2180,29 +2384,26 @@
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="LabValidDate.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="btnAddCurve.Text" xml:space="preserve">
-    <value>更新流程信息</value>
+  <data name="&gt;&gt;txtRgAllTest.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="&gt;&gt;fbtnTestResult.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>待测样本</value>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
   </data>
-  <data name="LabValidDate.Text" xml:space="preserve">
-    <value>有效期：</value>
+  <data name="ValidDate.HeaderText" xml:space="preserve">
+    <value>ValidDate</value>
   </data>
-  <data name="&gt;&gt;btnLoadReagent.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 22</value>
+  <data name="&gt;&gt;txtRgCode.Type" xml:space="preserve">
+    <value>BioBaseCLIA.CustomControl.userTextBoxBase, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="fbtnReturn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;fbtnReturn.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;Batch.Name" xml:space="preserve">
     <value>Batch</value>
@@ -2210,44 +2411,44 @@
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="btnDelR.Location" type="System.Drawing.Point, System.Drawing">
     <value>238, 194</value>
   </data>
-  <data name="&gt;&gt;RgAllTest.Name" xml:space="preserve">
-    <value>RgAllTest</value>
+  <data name="LabValidDate.Text" xml:space="preserve">
+    <value>有效期：</value>
   </data>
-  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 18</value>
+  <data name="&gt;&gt;btnAddD.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 93</value>
+  <data name="label14.Text" xml:space="preserve">
+    <value>未装载样本</value>
   </data>
-  <data name="btnLoopAddR.Text" xml:space="preserve">
-    <value>一键装载</value>
+  <data name="LabValidDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 118</value>
   </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="keywordText.FailedOfItemMaincurve" xml:space="preserve">
+    <value>项目定标曲线处理失败！</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>19</value>
   </data>
+  <data name="keywordText.PleaseUnloadSampleFirst" xml:space="preserve">
+    <value>请先卸载已装载的样本信息！</value>
+  </data>
   <data name="textBox7.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 14</value>
   </data>
-  <data name="&gt;&gt;txtRgAllTest.Name" xml:space="preserve">
-    <value>txtRgAllTest</value>
+  <data name="btnWorkList.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="cmbProType.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 20</value>
   </data>
-  <data name="&gt;&gt;fbtnReturn.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;dgvRgInfoList.Name" xml:space="preserve">
+    <value>dgvRgInfoList</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="dgvRgInfoList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>317, 249</value>
   </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2313,17 +2514,20 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="fbtnTestResult.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="btnAddCurve.Text" xml:space="preserve">
+    <value>更新流程信息</value>
   </data>
-  <data name="fbtnReturn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="keywordText.PleaseChooseReagentName" xml:space="preserve">
+    <value>未选择试剂名称，请重新选择！</value>
+  </data>
+  <data name="&gt;&gt;textBox8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="btnLoadSample.Font" type="System.Drawing.Font, System.Drawing">
-    <value>宋体, 14.25pt, style=Bold</value>
+  <data name="&gt;&gt;btnDelR.Name" xml:space="preserve">
+    <value>btnDelR</value>
   </data>
   <data name="btnLoadReagent.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2392,11 +2596,11 @@
   <data name="&gt;&gt;labUnit2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnDelR.Text" xml:space="preserve">
-    <value>卸载</value>
+  <data name="fbtnReturn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;ValidDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnTestResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 61</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2404,259 +2608,55 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>样本图例</value>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
   </data>
-  <data name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="RgPosition.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="RgPosition.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="RgStatic.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="LeftRg3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="RgAllTest.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="RgStatic.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="Batch.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="NoUsePro.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="$this.TrayHeight" type="System.Int32, mscorlib">
-    <value>52</value>
-  </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>en</value>
-  </data>
-  <data name="ValidDate.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="Batch.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="RgLastTest.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="NoUsePro.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="RgName.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>52</value>
+  </metadata>
+  <metadata name="RgAllTest.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="LeftRg3.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="ValidDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="RgName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="RgCode.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="RgLastTest.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="LeftRg2.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="LeftRg4.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="RgCode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="keywordText.AllTestNumIsNull" xml:space="preserve">
-    <value>总测数为空，请重新输入！</value>
-  </data>
-  <data name="keywordText.BindDiluteReagent" xml:space="preserve">
-    <value>绑定稀释液</value>
-  </data>
-  <data name="keywordText.ConfirmUnbundlingYes" xml:space="preserve">
-    <value>是否确认将稀释液与试剂进行解绑？</value>
-  </data>
-  <data name="keywordText.ConnectionErrorAndRetry" xml:space="preserve">
-    <value>通讯异常，请核对连接情况并对仪器系统进行重启！</value>
-  </data>
-  <data name="keywordText.DiluteBarcodeRepeat" xml:space="preserve">
-    <value>稀释液条码与现有的重复（{0}号位置），请检查输入的稀释液条码。本次加载操作已取消。</value>
-  </data>
-  <data name="keywordText.DiluteBeUsedAndUnloadAbout" xml:space="preserve">
-    <value>稀释液信息正在被使用，请先卸载相关试剂！</value>
-  </data>
-  <data name="keywordText.DiluteUnbundlingHead" xml:space="preserve">
-    <value>稀释液解绑</value>
-  </data>
-  <data name="keywordText.Expired" xml:space="preserve">
-    <value>过期</value>
-  </data>
-  <data name="keywordText.FailedCheckedOfBarcode" xml:space="preserve">
-    <value>未通过条码校验！</value>
-  </data>
-  <data name="keywordText.FailedOfDilute" xml:space="preserve">
-    <value>稀释液条码处理失败！</value>
-  </data>
-  <data name="keywordText.FailedOfItemConc" xml:space="preserve">
-    <value>项目定标浓度处理失败！</value>
-  </data>
-  <data name="keywordText.FailedOfItemMaincurve" xml:space="preserve">
-    <value>项目定标曲线处理失败！</value>
-  </data>
-  <data name="keywordText.FailedOfItemMainCurveUpdateAndRetry1" xml:space="preserve">
-    <value>项目标准定标浓度更新失败，请重新装载！</value>
-  </data>
-  <data name="keywordText.FailedOfItemMainCurveUpdateAndRetry2" xml:space="preserve">
-    <value>添加主曲线失败，请重新装载!</value>
-  </data>
-  <data name="keywordText.FailedOfItemProcess" xml:space="preserve">
-    <value>项目流程处理失败！</value>
-  </data>
-  <data name="keywordText.FailedOfItemProcessUpdateAndRetry" xml:space="preserve">
-    <value>项目流程更新失败，请重新装载！</value>
-  </data>
-  <data name="keywordText.FailedOfItemQc" xml:space="preserve">
-    <value>项目质控信息处理失败！</value>
-  </data>
-  <data name="keywordText.FailedOfItemXmlUpdate" xml:space="preserve">
-    <value>项目信息更新失败！</value>
-  </data>
-  <data name="keywordText.High" xml:space="preserve">
-    <value>高</value>
-  </data>
-  <data name="keywordText.LastTestNumIsNull" xml:space="preserve">
-    <value>剩余测数为空，请重新输入！</value>
-  </data>
-  <data name="keywordText.LoadBreak" xml:space="preserve">
-    <value>装载中断！\n</value>
-  </data>
-  <data name="keywordText.LoadSuccess" xml:space="preserve">
-    <value>装载成功！</value>
-  </data>
-  <data name="keywordText.LogOfErrorFlag" xml:space="preserve">
-    <value>errorFlag = ： {0}  *****当前 {1}</value>
-  </data>
-  <data name="keywordText.Low" xml:space="preserve">
-    <value>低</value>
-  </data>
-  <data name="keywordText.Measurement" xml:space="preserve">
-    <value>测</value>
-  </data>
-  <data name="keywordText.Middle" xml:space="preserve">
-    <value>中</value>
-  </data>
-  <data name="keywordText.NetErrorAndRetry" xml:space="preserve">
-    <value>网络未连接请先进行网络连接！</value>
-  </data>
-  <data name="keywordText.Normal" xml:space="preserve">
-    <value>正常</value>
-  </data>
-  <data name="keywordText.NotAllowBindAndRetry" xml:space="preserve">
-    <value>此位置不能进行稀释液的绑定，请在{0}位置绑定稀释液信息！</value>
-  </data>
-  <data name="keywordText.NotFindDiluteAndFail" xml:space="preserve">
-    <value>未找到已装载的稀释液信息，此次操作不成功！</value>
-  </data>
-  <data name="keywordText.NotFindItemAndPlzImport" xml:space="preserve">
-    <value>未检测到对应项目，请导入相关项目信息文件！</value>
-  </data>
-  <data name="keywordText.NotFindItemFromThisBarcode" xml:space="preserve">
-    <value>未找到此条码对应的项目信息！</value>
-  </data>
-  <data name="keywordText.NotFindReagentKit" xml:space="preserve">
-    <value>未检测到试剂盒！</value>
-  </data>
-  <data name="keywordText.OneKeyUnbundling" xml:space="preserve">
-    <value>一键解绑</value>
-  </data>
-  <data name="keywordText.PealseFirstUnloadSampleAbout" xml:space="preserve">
-    <value>此项目有待检测样本，请先卸载相关的样本信息！</value>
-  </data>
-  <data name="keywordText.PleaseAgainInputTestNum" xml:space="preserve">
-    <value>剩余测数大于总测数，请重新输入！</value>
-  </data>
-  <data name="keywordText.PleaseChooseItemToBind" xml:space="preserve">
-    <value>请选择试剂项目来绑定稀释液！</value>
-  </data>
-  <data name="keywordText.PleaseChooseLoadPosition" xml:space="preserve">
-    <value>未选择试剂位置，请重新输入！</value>
-  </data>
-  <data name="keywordText.PleaseChooseReagentName" xml:space="preserve">
-    <value>未选择试剂名称，请重新选择！</value>
-  </data>
-  <data name="keywordText.PleaseInputAllTestNum" xml:space="preserve">
-    <value>未输入总测数，请重新输入！</value>
-  </data>
-  <data name="keywordText.PleaseInputBatch" xml:space="preserve">
-    <value>未输入批号，请重新输入！</value>
-  </data>
-  <data name="keywordText.PleaseInputLastTestNum" xml:space="preserve">
-    <value>未输入剩余测数，请重新输入！</value>
-  </data>
-  <data name="keywordText.PleaseInputReagentBarcode" xml:space="preserve">
-    <value>未输入试剂条码，请重新输入！</value>
-  </data>
-  <data name="keywordText.PleaseStandard" xml:space="preserve">
-    <value>特殊分装项目,请规范放置在试剂盘！</value>
-  </data>
-  <data name="keywordText.PleaseUnloadExpiredReagent" xml:space="preserve">
-    <value>有过期试剂，请及时卸载！详情请查日志信息！</value>
-  </data>
-  <data name="keywordText.PleaseUnloadReagent" xml:space="preserve">
-    <value>请先卸载该位置试剂！</value>
-  </data>
-  <data name="keywordText.PleaseUnloadSampleFirst" xml:space="preserve">
-    <value>请先卸载已装载的样本信息！</value>
-  </data>
-  <data name="keywordText.Reagent" xml:space="preserve">
-    <value>试剂</value>
-  </data>
-  <data name="keywordText.ReagentBarcodeErrorAndRetry" xml:space="preserve">
-    <value>试剂条码错误，请检查后重新输入！</value>
-  </data>
-  <data name="keywordText.ReagentBarcodeIsNull" xml:space="preserve">
-    <value>试剂条码为空，请重新输入！</value>
-  </data>
-  <data name="keywordText.ReagentBarcodeRepeat" xml:space="preserve">
-    <value>试剂条码与现有的重复（{0}号位置），请检查输入的试剂条码和试剂名称。本次加载操作已取消。</value>
-  </data>
-  <data name="keywordText.ReagentExpired" xml:space="preserve">
-    <value>试剂(稀释液)有效期信息有误或已过期！</value>
-  </data>
-  <data name="keywordText.ReagentExpiredAlerm" xml:space="preserve">
-    <value>*** 错误 *** 未读 *** 条码编号：{0}项目名称:{1}试剂已经过期，请及时更换</value>
-  </data>
-  <data name="keywordText.ReagentExpiredAlerm2" xml:space="preserve">
-    <value> *** 错误 *** 未读 *** {0}试剂(稀释液)已经过期，请卸载或者更换！</value>
-  </data>
-  <data name="keywordText.ReagentExpiredAndPlzrReplace" xml:space="preserve">
-    <value>{0}试剂(稀释液)已经过期，请卸载或者更换！</value>
-  </data>
-  <data name="keywordText.ReagentExpiredHead" xml:space="preserve">
-    <value>过期警告</value>
-  </data>
-  <data name="keywordText.ReagentLoad" xml:space="preserve">
-    <value>试剂装载</value>
-  </data>
-  <data name="keywordText.ReagentOrDiluteExpired" xml:space="preserve">
-    <value>试剂(稀释液)已过期！</value>
-  </data>
-  <data name="keywordText.ReagentPositionPartOf" xml:space="preserve">
-    <value>试剂位:{0}</value>
-  </data>
-  <data name="keywordText.ReagentUnload" xml:space="preserve">
-    <value>试剂卸载</value>
-  </data>
-  <data name="keywordText.SpecialItemFirstUnloadNext" xml:space="preserve">
-    <value>特殊分装项目，请先卸载掉后一个试剂位的试剂。</value>
-  </data>
-  <data name="keywordText.SpecialItemNotAllowPutLast" xml:space="preserve">
-    <value>特殊分装项目不允许放置在最后位置！</value>
-  </data>
-  <data name="keywordText.ThisBarcodeLoaded" xml:space="preserve">
-    <value>该条码试剂已装载！</value>
-  </data>
-  <data name="keywordText.TipsAboutLoadZero" xml:space="preserve">
-    <value>装载完成0项,未检测到试剂盒！</value>
-  </data>
-  <data name="keywordText.TipsAboutReagentLoadFailed" xml:space="preserve">
-    <value>\n装载失败 {0} 项（试剂位：{1}）！</value>
-  </data>
-  <data name="keywordText.TipsAboutReagentLoadSuccess" xml:space="preserve">
-    <value>装载完成 {0} 项（试剂位：{1}）！</value>
-  </data>
-  <data name="keywordText.Unload" xml:space="preserve">
-    <value>卸载</value>
-  </data>
-  <data name="keywordText.UnloadSuccess" xml:space="preserve">
-    <value>卸载成功！</value>
-  </data>
+  </metadata>
+  <metadata name="LeftRg2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="LeftRg4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

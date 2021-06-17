@@ -204,7 +204,7 @@
 </value>
   </data>
   <data name="fbLoadClose.Text" xml:space="preserve">
-    <value>Return</value>
+    <value>Back</value>
   </data>
   <data name="fbLoadRun.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

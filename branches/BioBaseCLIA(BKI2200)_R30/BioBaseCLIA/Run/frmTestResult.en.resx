@@ -359,7 +359,7 @@
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>Return</value>
+    <value>Back</value>
   </data>
   <data name="btnLoadSample.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -500,9 +500,6 @@
   </data>
   <data name="btnLoadReagent.Text" xml:space="preserve">
     <value>Reagent Load</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Data operation</value>
   </data>
   <data name="functionButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -996,6 +993,9 @@
   </data>
   <data name="fbtnSaveResult.Text" xml:space="preserve">
     <value>Save results</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Data operation</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>

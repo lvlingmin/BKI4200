@@ -59,6 +59,18 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvRgInfoList = new System.Windows.Forms.DataGridView();
+            this.RgPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RgCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RgAllTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RgLastTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RgStatic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeftRg2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeftRg3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LeftRg4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValidDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoUsePro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labUnit2 = new System.Windows.Forms.Label();
             this.labUnit = new System.Windows.Forms.Label();
@@ -94,18 +106,6 @@
             this.btnLoadSample = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnLoadReagent = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.RgPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RgCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RgAllTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RgLastTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RgStatic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Batch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeftRg2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeftRg3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LeftRg4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValidDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoUsePro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRgInfoList)).BeginInit();
@@ -293,6 +293,108 @@
             this.dgvRgInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRgInfoList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRgInfoList_CellClick);
             this.dgvRgInfoList.SelectionChanged += new System.EventHandler(this.dgvRgInfoList_SelectionChanged);
+            // 
+            // RgPosition
+            // 
+            this.RgPosition.DataPropertyName = "Postion";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgPosition.DefaultCellStyle = dataGridViewCellStyle3;
+            this.RgPosition.FillWeight = 89.67584F;
+            resources.ApplyResources(this.RgPosition, "RgPosition");
+            this.RgPosition.Name = "RgPosition";
+            this.RgPosition.ReadOnly = true;
+            // 
+            // RgName
+            // 
+            this.RgName.DataPropertyName = "RgName";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgName.DefaultCellStyle = dataGridViewCellStyle4;
+            this.RgName.FillWeight = 167.4305F;
+            resources.ApplyResources(this.RgName, "RgName");
+            this.RgName.Name = "RgName";
+            this.RgName.ReadOnly = true;
+            // 
+            // RgCode
+            // 
+            this.RgCode.DataPropertyName = "BarCode";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgCode.DefaultCellStyle = dataGridViewCellStyle5;
+            this.RgCode.FillWeight = 104.5899F;
+            resources.ApplyResources(this.RgCode, "RgCode");
+            this.RgCode.Name = "RgCode";
+            this.RgCode.ReadOnly = true;
+            // 
+            // RgAllTest
+            // 
+            this.RgAllTest.DataPropertyName = "AllTestNumber";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgAllTest.DefaultCellStyle = dataGridViewCellStyle6;
+            this.RgAllTest.FillWeight = 93.71016F;
+            resources.ApplyResources(this.RgAllTest, "RgAllTest");
+            this.RgAllTest.Name = "RgAllTest";
+            this.RgAllTest.ReadOnly = true;
+            // 
+            // RgLastTest
+            // 
+            this.RgLastTest.DataPropertyName = "leftoverTestR1";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgLastTest.DefaultCellStyle = dataGridViewCellStyle7;
+            this.RgLastTest.FillWeight = 101.8099F;
+            resources.ApplyResources(this.RgLastTest, "RgLastTest");
+            this.RgLastTest.Name = "RgLastTest";
+            this.RgLastTest.ReadOnly = true;
+            // 
+            // RgStatic
+            // 
+            this.RgStatic.DataPropertyName = "Status";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.RgStatic.DefaultCellStyle = dataGridViewCellStyle8;
+            this.RgStatic.FillWeight = 69.55108F;
+            resources.ApplyResources(this.RgStatic, "RgStatic");
+            this.RgStatic.Name = "RgStatic";
+            this.RgStatic.ReadOnly = true;
+            // 
+            // Batch
+            // 
+            this.Batch.DataPropertyName = "Batch";
+            resources.ApplyResources(this.Batch, "Batch");
+            this.Batch.Name = "Batch";
+            this.Batch.ReadOnly = true;
+            // 
+            // LeftRg2
+            // 
+            this.LeftRg2.DataPropertyName = "leftoverTestR2";
+            resources.ApplyResources(this.LeftRg2, "LeftRg2");
+            this.LeftRg2.Name = "LeftRg2";
+            this.LeftRg2.ReadOnly = true;
+            // 
+            // LeftRg3
+            // 
+            this.LeftRg3.DataPropertyName = "leftoverTestR3";
+            resources.ApplyResources(this.LeftRg3, "LeftRg3");
+            this.LeftRg3.Name = "LeftRg3";
+            this.LeftRg3.ReadOnly = true;
+            // 
+            // LeftRg4
+            // 
+            this.LeftRg4.DataPropertyName = "leftoverTestR4";
+            resources.ApplyResources(this.LeftRg4, "LeftRg4");
+            this.LeftRg4.Name = "LeftRg4";
+            this.LeftRg4.ReadOnly = true;
+            // 
+            // ValidDate
+            // 
+            this.ValidDate.DataPropertyName = "ValidDate";
+            resources.ApplyResources(this.ValidDate, "ValidDate");
+            this.ValidDate.Name = "ValidDate";
+            this.ValidDate.ReadOnly = true;
+            // 
+            // NoUsePro
+            // 
+            this.NoUsePro.DataPropertyName = "NoUsePro";
+            resources.ApplyResources(this.NoUsePro, "NoUsePro");
+            this.NoUsePro.Name = "NoUsePro";
+            this.NoUsePro.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -1006,108 +1108,6 @@
             // 
             this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // RgPosition
-            // 
-            this.RgPosition.DataPropertyName = "Postion";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgPosition.DefaultCellStyle = dataGridViewCellStyle3;
-            this.RgPosition.FillWeight = 89.67584F;
-            resources.ApplyResources(this.RgPosition, "RgPosition");
-            this.RgPosition.Name = "RgPosition";
-            this.RgPosition.ReadOnly = true;
-            // 
-            // RgName
-            // 
-            this.RgName.DataPropertyName = "RgName";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgName.DefaultCellStyle = dataGridViewCellStyle4;
-            this.RgName.FillWeight = 167.4305F;
-            resources.ApplyResources(this.RgName, "RgName");
-            this.RgName.Name = "RgName";
-            this.RgName.ReadOnly = true;
-            // 
-            // RgCode
-            // 
-            this.RgCode.DataPropertyName = "BarCode";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgCode.DefaultCellStyle = dataGridViewCellStyle5;
-            this.RgCode.FillWeight = 104.5899F;
-            resources.ApplyResources(this.RgCode, "RgCode");
-            this.RgCode.Name = "RgCode";
-            this.RgCode.ReadOnly = true;
-            // 
-            // RgAllTest
-            // 
-            this.RgAllTest.DataPropertyName = "AllTestNumber";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgAllTest.DefaultCellStyle = dataGridViewCellStyle6;
-            this.RgAllTest.FillWeight = 93.71016F;
-            resources.ApplyResources(this.RgAllTest, "RgAllTest");
-            this.RgAllTest.Name = "RgAllTest";
-            this.RgAllTest.ReadOnly = true;
-            // 
-            // RgLastTest
-            // 
-            this.RgLastTest.DataPropertyName = "leftoverTestR1";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgLastTest.DefaultCellStyle = dataGridViewCellStyle7;
-            this.RgLastTest.FillWeight = 101.8099F;
-            resources.ApplyResources(this.RgLastTest, "RgLastTest");
-            this.RgLastTest.Name = "RgLastTest";
-            this.RgLastTest.ReadOnly = true;
-            // 
-            // RgStatic
-            // 
-            this.RgStatic.DataPropertyName = "Status";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.RgStatic.DefaultCellStyle = dataGridViewCellStyle8;
-            this.RgStatic.FillWeight = 69.55108F;
-            resources.ApplyResources(this.RgStatic, "RgStatic");
-            this.RgStatic.Name = "RgStatic";
-            this.RgStatic.ReadOnly = true;
-            // 
-            // Batch
-            // 
-            this.Batch.DataPropertyName = "Batch";
-            resources.ApplyResources(this.Batch, "Batch");
-            this.Batch.Name = "Batch";
-            this.Batch.ReadOnly = true;
-            // 
-            // LeftRg2
-            // 
-            this.LeftRg2.DataPropertyName = "leftoverTestR2";
-            resources.ApplyResources(this.LeftRg2, "LeftRg2");
-            this.LeftRg2.Name = "LeftRg2";
-            this.LeftRg2.ReadOnly = true;
-            // 
-            // LeftRg3
-            // 
-            this.LeftRg3.DataPropertyName = "leftoverTestR3";
-            resources.ApplyResources(this.LeftRg3, "LeftRg3");
-            this.LeftRg3.Name = "LeftRg3";
-            this.LeftRg3.ReadOnly = true;
-            // 
-            // LeftRg4
-            // 
-            this.LeftRg4.DataPropertyName = "leftoverTestR4";
-            resources.ApplyResources(this.LeftRg4, "LeftRg4");
-            this.LeftRg4.Name = "LeftRg4";
-            this.LeftRg4.ReadOnly = true;
-            // 
-            // ValidDate
-            // 
-            this.ValidDate.DataPropertyName = "ValidDate";
-            resources.ApplyResources(this.ValidDate, "ValidDate");
-            this.ValidDate.Name = "ValidDate";
-            this.ValidDate.ReadOnly = true;
-            // 
-            // NoUsePro
-            // 
-            this.NoUsePro.DataPropertyName = "NoUsePro";
-            resources.ApplyResources(this.NoUsePro, "NoUsePro");
-            this.NoUsePro.Name = "NoUsePro";
-            this.NoUsePro.ReadOnly = true;
             // 
             // frmReagentLoad
             // 

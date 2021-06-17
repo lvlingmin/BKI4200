@@ -94,12 +94,12 @@ namespace BioBaseCLIA.Run
             fs.Close();
 
             dateValidDate.MinDate = Convert.ToDateTime("2020/01/01");
-            dgvRgInfoList.Columns[0].Width = 65;
-            dgvRgInfoList.Columns[1].Width = 75;
+            dgvRgInfoList.Columns[0].Width = 67;
+            dgvRgInfoList.Columns[1].Width = 91;
             dgvRgInfoList.Columns[2].Width = 120;
-            dgvRgInfoList.Columns[3].Width = 70;
-            dgvRgInfoList.Columns[4].Width = 70;
-            dgvRgInfoList.Columns[5].Width = 65;
+            dgvRgInfoList.Columns[3].Width = 65;
+            dgvRgInfoList.Columns[4].Width = 67;
+            dgvRgInfoList.Columns[5].Width = 60;
             ShowRgInfo(1);
             cmbRgName.DataSource = GetItemShortName();
             cmbRgName.DisplayMember = "ItemShortName";//设置显示列
