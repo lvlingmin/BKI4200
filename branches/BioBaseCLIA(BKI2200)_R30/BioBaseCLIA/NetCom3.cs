@@ -13,6 +13,7 @@ using Common;
 using BioBaseCLIA.User;
 using NPOI.Util;
 using Res = BioBaseCLIA.Resources.String.NetCom3;
+using Localization;
 
 namespace BioBaseCLIA
 {
@@ -278,6 +279,11 @@ namespace BioBaseCLIA
         //联机检测
         public bool CheckMyIp_Port_Link()
         {
+            if (Thread.CurrentThread.CurrentCulture != Language.AppCultureInfo)//lyq
+            {
+                Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+                Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
+            }
             string myip = GetIP();
             //string[] myiparray = myip.Split('.');
             if (!CheckNetWorkLink())
@@ -509,7 +515,12 @@ namespace BioBaseCLIA
         /// <param name="order">发送指令</param>
         /// <param name="orderType">发送指令类型，加样：0，移管：1，清洗：2,仪器调试：5</param>
         public void Send(String order, int orderType)
-        { 
+        {
+            if (Thread.CurrentThread.CurrentCulture != Language.AppCultureInfo)//lyq
+            {
+                Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+                Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
+            }
             //2018-02-21 zlx add
             while (stopsendFlag)
             {
@@ -748,6 +759,11 @@ namespace BioBaseCLIA
         }
         public void iapSend(String order, int orderType)
         {
+            if (Thread.CurrentThread.CurrentCulture != Language.AppCultureInfo)//lyq
+            {
+                Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+                Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
+            }
             //2018-02-21 zlx add
             while (stopsendFlag)
             {
@@ -1207,6 +1223,11 @@ namespace BioBaseCLIA
         {
             lock (locker)
             {
+                if (Thread.CurrentThread.CurrentCulture != Language.AppCultureInfo)//lyq
+                {
+                    Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+                    Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
+                }
                 if (!isConnect)
                 {
                     //dw2018.12.24
@@ -1591,12 +1612,23 @@ namespace BioBaseCLIA
                                 {
                                     thDataHandle = new Thread(new ParameterizedThreadStart(HandleMessage));
                                     thDataHandle.IsBackground = true;
+                                    if (thDataHandle.CurrentCulture != Language.AppCultureInfo)//lyq
+                                    {
+                                        thDataHandle.CurrentCulture = Language.AppCultureInfo;
+                                        thDataHandle.CurrentUICulture = Language.AppCultureInfo;
+                                    }
+                                   
                                     thDataHandle.Start(tempResponse);
                                 }
                                 else if (WhereToReceive == 2)
                                 {
                                     thDataHandle = new Thread(new ParameterizedThreadStart(HandleMessageForTemperatureAndLiquidLevel));
                                     thDataHandle.IsBackground = true;
+                                    if (thDataHandle.CurrentCulture != Language.AppCultureInfo)//lyq
+                                    {
+                                        thDataHandle.CurrentCulture = Language.AppCultureInfo;
+                                        thDataHandle.CurrentUICulture = Language.AppCultureInfo;
+                                    }
                                     thDataHandle.Start(tempResponse);
                                 }
                                 //response = string.Empty;
@@ -1747,6 +1779,11 @@ namespace BioBaseCLIA
         {
             try
             {
+                if (Thread.CurrentThread.CurrentCulture != Language.AppCultureInfo)//lyq
+                {
+                    Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+                    Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
+                }
                 DisConnect();
                 Delay(3000);
                 Socket sc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);

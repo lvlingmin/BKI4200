@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Localization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 
@@ -46,7 +48,7 @@ namespace BioBaseCLIA
             //this.Height = ;
             this.btnOK.Left = this.Width / 2 - 37;//设置弹窗中按钮的位置
             //2018-11-23 zlx add
-            if (this.Text.Contains("警告"))
+            if (this.Text.Contains(getString("keywordText.Warning1")) || this.Text.Contains(getString("keywordText.Warning2")))//lyq
                 StartKiller();
             DialogResult dr =  this.ShowDialog();//增加DialogResult返回值
             return dr;
@@ -95,6 +97,11 @@ namespace BioBaseCLIA
         internal void MessageShow(string p)
         {
             throw new NotImplementedException();
+        }
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmMessageShow));
+            return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
         }
     }
 }
