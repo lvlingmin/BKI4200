@@ -467,10 +467,11 @@ namespace BioBaseCLIA.DataQuery
                 {
                     return false;
                 }
-                productDate = DateTime.Parse(year + "/" + month + "/" + day).AddDays(double.Parse(productDate)).ToString("yyyyMMdd");
+                //productDate = DateTime.Parse(year + "/" + month + "/" + day).AddDays(double.Parse(productDate)).ToString("yyyyMMdd");
                 testNum = testN.ToString();
                 try
                 {
+                    productDate = DateTime.Parse(year + "/" + month + "/" + day).AddDays(double.Parse(productDate)).ToString("yyyyMMdd");
                     dtime = DateTime.ParseExact(productDate, "yyyyMMdd", null, System.Globalization.DateTimeStyles.AllowWhiteSpaces);
                 }
                 catch
