@@ -1604,6 +1604,7 @@ namespace BioBaseCLIA.Run
         }
         /// <summary>
         /// 返回校验位
+        /// 旧版校验
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>
@@ -1653,6 +1654,65 @@ namespace BioBaseCLIA.Run
                 checkNum = checkNum.Insert(0, "0");
             }
             return checkNum;
+        }
+        /// <summary>
+        /// 新版返回校验位
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="barcode"></param>
+        /// <returns></returns>
+        private string getCheckNum(string type,string barcode)
+        {
+            string decryption = StringUtils.instance.ToDecryption(barcode);
+            try
+            {
+                int id = 1;
+                int itemNum = int.Parse(decryption.Substring(3, 3));//试剂编号;
+                string batch = decryption.Substring(6, 3);
+                int allTest = int.Parse(decryption.Substring(9, 2));//测试
+                string productDay = decryption.Substring(11, 1);
+                string num = decryption.Substring(12, 3);
+                #region batch
+                string year = "";
+                string month = "";
+                string day = "";
+                year = reverseDate(batch.Substring(0, 1).ToCharArray()[0]);
+                month = reverseDate(batch.Substring(1, 1).ToCharArray()[0]);
+                day = reverseDate(batch.Substring(2, 1).ToCharArray()[0]);
+                while (year.Length < 4)
+                {
+                    year = year.Insert(0, "20");
+                }
+                while (month.Length < 2)
+                {
+                    month = month.Insert(0, "0");
+                }
+                while (day.Length < 2)
+                {
+                    day = day.Insert(0, "0");
+                }
+                batch = year + month + day;
+                #endregion
+                productDay = reverseDate(productDay.ToCharArray()[0]);
+                if (productDay == "61")
+                    productDay = "0";
+
+                string tempNum1 = num.Substring(0, 1);
+                string tempNum2 = num.Substring(1, 1);
+                string tempNum3 = num.Substring(2, 1);
+                tempNum1 = (int.Parse(reverseDate(tempNum1.ToCharArray()[0])) * Math.Pow(62, 2)).ToString();
+                tempNum2 = (int.Parse(reverseDate(tempNum2.ToCharArray()[0])) * Math.Pow(62, 1)).ToString();
+                tempNum3 = (int.Parse(reverseDate(tempNum3.ToCharArray()[0])) * Math.Pow(62, 0)).ToString();
+                num = (int.Parse(tempNum1) + int.Parse(tempNum2) + int.Parse(tempNum3)).ToString();
+                int checkedNum = (id + itemNum + int.Parse(batch) + allTest + int.Parse(productDay) + int.Parse(num)) % 97;
+                return checkedNum.ToString("X2");
+            }
+            catch (System.Exception ex)
+            {
+                return "";
+            }
+
+            return "";
         }
         private string dealBarCode(string rgcode)
         {
@@ -1750,7 +1810,15 @@ namespace BioBaseCLIA.Run
                 productDay = reverseDate(productDay.ToCharArray()[0]);
                 if (productDay == "61")
                     productDay = "0";
-                productDay = DateTime.Parse(year + "/" + month + "/" + day).AddDays(double.Parse(productDay)).ToString("yyyyMMdd");
+                try
+                {
+                    productDay = DateTime.Parse(year + "/" + month + "/" + day).AddDays(double.Parse(productDay)).ToString("yyyyMMdd");
+                }
+                catch(System.Exception ex)
+                {
+                    return "";
+                }
+                
             }
             else
             {
@@ -1776,12 +1844,31 @@ namespace BioBaseCLIA.Run
             }
             if (decryption.Substring(0, 1) == "1")//rg
             {
-                string productDay = decryption.Substring(6, 3);
-                string countCheckNum = getCheckNum(productDay);
-                string checkNum = decryption.Substring(1, 2);
-                if (checkNum != countCheckNum) //计算得到的校验位和明文校验位不相等    
+                //string productDay = decryption.Substring(6, 3);
+                //string countCheckNum = getCheckNum(productDay);
+                //string checkNum = decryption.Substring(1, 2);
+                //if (checkNum != countCheckNum) //计算得到的校验位和明文校验位不相等    
+                //{
+                //    return false;
+                //}
+                if (decryption.Substring(11, 1) == "0" || code.Length == 18)//old version
                 {
-                    return false;
+                    string productDay = decryption.Substring(6, 3);
+                    string countCheckNum = getCheckNum(productDay);
+                    string checkNum = decryption.Substring(1, 2);
+                    if (checkNum != countCheckNum) //计算得到的校验位和明文校验位不相等    
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    string countCheckNum = getCheckNum("1", code);
+                    string checkNum = decryption.Substring(1, 2);
+                    if (checkNum != countCheckNum) //计算得到的校验位和明文校验位不相等    
+                    {
+                        return false;
+                    }
                 }
             }
             else//dilute
