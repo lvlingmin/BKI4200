@@ -226,9 +226,9 @@ namespace BioBaseCLIA
             temperatureButton.Location = new Point((newx - controlWidth * 9 - 20), warnControlL_Y);
             LackLq = new int[] { 0, 0, 0, 0 };
             frmSupplyStatus.btnBtnColor += new Action<int, int, int>(RegenColorChange);
-            new Thread(new ParameterizedThreadStart((obj) =>
+            Thread thread = new Thread(new ParameterizedThreadStart((obj) =>
             {
-                NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel += 
+                NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel +=
                     new Action<string>(Instance_ReceiveHandel);//更改注册事件
                 if (!NetCom3.isConnect)
                 {
@@ -239,7 +239,11 @@ namespace BioBaseCLIA
                             return;
                     }
                 }
-            })) { IsBackground = true }.Start();
+            })); //{ IsBackground = true}.Start();
+            thread.IsBackground = true;
+            thread.CurrentCulture = Language.AppCultureInfo;
+            thread.CurrentUICulture = Language.AppCultureInfo;
+            thread.Start();
             Selectlist = new List<string>();
             QueryThread = new Thread(new ParameterizedThreadStart(Instance_QueryInfo));
             QueryThread.IsBackground = true;
@@ -1403,7 +1407,7 @@ namespace BioBaseCLIA
                     if (Temp > 55)
                         Temp = 55;
                     st.Append(GetString("Incubationtemperature"));
-                    st2.Append(GetString("Incubation" + Temp.ToString() +GetString("Temperaturesign")));
+                    st2.Append(GetString("Incubation" +" : "+ Temp.ToString() +GetString("Temperaturesign"))+"");
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + 
                         " *** " +GetString("Err") + " *** " +GetString("NotRead") + 
                         " *** " + GetString("Incubationtemperature")+ GetString("Notstandardtemperature")+
@@ -1416,17 +1420,17 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append("、"+  GetString("Cleantemperature") );
-                        st2.Append("，" +GetString("Clean") + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append(","+  GetString("Cleantemperature") );
+                        st2.Append("," + GetString("Clean") + ":"  + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     else
                     {
                         st.Append( GetString("Cleantemperature"));
-                        st2.Append(GetString("Clean") + Temp.ToString() + GetString("Temperaturesign"));
+                        st2.Append(GetString("Clean")  +":" + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " +
                         GetString("Err") + " *** " + GetString("NotRead") + " *** " +
-                        GetString("Cleantemperature") + GetString("Notstandardtemperature") + "：" + Temp.ToString() + GetString("Temperaturesign"));
+                        GetString("Cleantemperature") + GetString("Notstandardtemperature") + ":" + Temp.ToString() + GetString("Temperaturesign"));
                 }
                 if (Ttype.Contains("07") && (Temprrature[3] < RangeSubstrate[0] || Temprrature[3] > RangeSubstrate[1]))
                 {
@@ -1435,13 +1439,13 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append("、" + GetString("Substratetemperature"));
-                        st2.Append("，"+ GetString("Substrate") + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append("," + GetString("Substratetemperature"));
+                        st2.Append("," + GetString("Substrate") + ":"+ Temp.ToString() + GetString("Temperaturesign"));
                     }
                     else
                     {
                         st.Append(GetString("Substratetemperature"));
-                        st2.Append(GetString("Substrate") + Temp.ToString() + GetString("Temperaturesign"));
+                        st2.Append(GetString("Substrate") + ":" + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Err") +
                         " *** " + GetString("NotRead") + " *** " + GetString("Substrate") + GetString("Notstandardtemperature") +"：" +
@@ -1454,13 +1458,13 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append("、"+ GetString("Pipelinetemperature"));
-                        st2.Append("，"+ GetString("Pipeline") + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append(","+ GetString("Pipelinetemperature"));
+                        st2.Append("," + GetString("Pipeline") + ":" + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     else
                     {
                         st.Append(GetString("Pipelinetemperature"));
-                        st2.Append(GetString("Pipeline")+ Temp.ToString() + GetString("Temperaturesign"));
+                        st2.Append(GetString("Pipeline") + ":" + Temp.ToString() + GetString("Temperaturesign"));
                     }
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Err") +
                         " *** " + GetString("NotRead") + " *** " + GetString("Pipeline") + GetString("Notstandardtemperature") + "：" +
@@ -1476,7 +1480,7 @@ namespace BioBaseCLIA
                     {
                         SetCultureInfo();
                         frmMessageShow f = new frmMessageShow();
-                        f.MessageShow(GetString("Temperaturewarning"), st.ToString() + st2.ToString());
+                        f.MessageShow(GetString("Temperaturewarning"),st.ToString() +st2.ToString());
                     })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                     
                 }

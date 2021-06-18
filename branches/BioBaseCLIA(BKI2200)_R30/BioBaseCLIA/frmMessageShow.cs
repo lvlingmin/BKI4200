@@ -1,4 +1,5 @@
-﻿using Localization;
+﻿using Common;
+using Localization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,22 +36,82 @@ namespace BioBaseCLIA
             //20180524 zlx mod
             //this.Text = title;
             //this.lblMessage.Text = content;
+            string culture = OperateIniFile.ReadInIPara("CultureInfo", "Culture");
+            int maxllenth = 0;
+            string newcontent = "";
             if (this.IsHandleCreated)
             {
                 this.Invoke(new SetTextCallBack(SetText), content);
+                maxllenth = content.Length;
             }
             else
             {
+
+                if (culture == "en")
+                {
+                    maxllenth = 125;
+                    if (content.Length > maxllenth)
+                    {
+                        int beginPos = 0;
+                        while (beginPos < content.Length)
+                        {
+                            int endpos = beginPos + maxllenth;
+                            if (endpos > content.Length)
+                            {
+                                endpos = content.Length;
+                                newcontent = newcontent + content.Substring(beginPos, endpos - beginPos) + "\r";
+                            }
+                            else
+                            {
+                                string str = content.Substring(beginPos, endpos - beginPos);
+                                endpos = str.LastIndexOf(' ') + beginPos;
+                                newcontent = newcontent + content.Substring(beginPos, endpos - beginPos) + "\r";
+
+                            }
+                            beginPos = endpos;
+                        }
+                    }
+                    else
+                    {
+                        newcontent = content;
+                        maxllenth = content.Length;
+                    }
+                }
+                if (culture == "zh-CN")
+                {
+                    maxllenth = 50;
+                    if (content.Length > maxllenth)
+                    {
+                        int beginPos = 0;
+                        while (beginPos < content.Length)
+                        {
+                            int endpos = beginPos + maxllenth;
+                            if (endpos > content.Length)
+                                endpos = content.Length;
+                            newcontent = newcontent + content.Substring(beginPos, endpos - beginPos) + "\r";
+                            beginPos = endpos;
+                        }
+                    }
+                    else
+                    {
+                        newcontent = content;
+                        maxllenth = content.Length;
+                    }
+                    maxllenth = maxllenth * 2;
+                }
+
                 this.Text = title;
-                this.lblMessage.Text = content;
+                this.lblMessage.Text = newcontent;
+                this.Width = 6 * maxllenth + 80;
             }
-            this.Width = 12 * content.Length + 80;//根据提示信息长短确定弹窗大小。
+            //根据提示信息长短确定弹窗大小。
+            //this.Width = 8 * maxllenth+80;
             //this.Height = ;
             this.btnOK.Left = this.Width / 2 - 37;//设置弹窗中按钮的位置
             //2018-11-23 zlx add
             if (this.Text.Contains(getString("keywordText.Warning1")) || this.Text.Contains(getString("keywordText.Warning2")))//lyq
                 StartKiller();
-            DialogResult dr =  this.ShowDialog();//增加DialogResult返回值
+            DialogResult dr = this.ShowDialog();//增加DialogResult返回值
             return dr;
         }
         public void MessageWrite(string title, string content)
