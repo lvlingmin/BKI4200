@@ -32,6 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestResult));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvResultData = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.fbtnTestResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnWorkList = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnLoadSample = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.btnLoadReagent = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.functionButton1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnTestAgain = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnRCalculatResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnRSelectCurve = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnPrint = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnExportData = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnSaveResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.SampleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SampleNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,20 +63,6 @@
             this.sco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubstratePipe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ResultDatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.fbtnTestResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnWorkList = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnReturn = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnLoadSample = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.btnLoadReagent = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.functionButton1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnTestAgain = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnRCalculatResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnRSelectCurve = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnPrint = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnExportData = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
-            this.fbtnSaveResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultData)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,9 +75,9 @@
             // 
             // dgvResultData
             // 
-            resources.ApplyResources(this.dgvResultData, "dgvResultData");
             this.dgvResultData.AllowUserToAddRows = false;
             this.dgvResultData.AllowUserToDeleteRows = false;
+            this.dgvResultData.AllowUserToOrderColumns = true;
             this.dgvResultData.AllowUserToResizeColumns = false;
             this.dgvResultData.AllowUserToResizeRows = false;
             this.dgvResultData.BackgroundColor = System.Drawing.Color.White;
@@ -100,6 +100,7 @@
             this.sco,
             this.SubstratePipe,
             this.ResultDatetime});
+            resources.ApplyResources(this.dgvResultData, "dgvResultData");
             this.dgvResultData.Name = "dgvResultData";
             this.dgvResultData.ReadOnly = true;
             this.dgvResultData.RowHeadersVisible = false;
@@ -107,13 +108,190 @@
             this.dgvResultData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvResultData.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvResultData_RowsAdded);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.fbtnTestResult);
+            this.panel1.Controls.Add(this.btnWorkList);
+            this.panel1.Controls.Add(this.fbtnReturn);
+            this.panel1.Controls.Add(this.btnLoadSample);
+            this.panel1.Controls.Add(this.btnLoadReagent);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // fbtnTestResult
+            // 
+            this.fbtnTestResult.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnTestResult, "fbtnTestResult");
+            this.fbtnTestResult.EnabledSet = true;
+            this.fbtnTestResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnTestResult.FlatAppearance.BorderSize = 0;
+            this.fbtnTestResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestResult.Name = "fbtnTestResult";
+            this.fbtnTestResult.UseVisualStyleBackColor = false;
+            // 
+            // btnWorkList
+            // 
+            this.btnWorkList.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnWorkList, "btnWorkList");
+            this.btnWorkList.EnabledSet = true;
+            this.btnWorkList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnWorkList.FlatAppearance.BorderSize = 0;
+            this.btnWorkList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnWorkList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnWorkList.Name = "btnWorkList";
+            this.btnWorkList.UseVisualStyleBackColor = false;
+            this.btnWorkList.Click += new System.EventHandler(this.btnWorkList_Click);
+            // 
+            // fbtnReturn
+            // 
+            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
+            this.fbtnReturn.EnabledSet = true;
+            this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnReturn.FlatAppearance.BorderSize = 0;
+            this.fbtnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnReturn.Name = "fbtnReturn";
+            this.fbtnReturn.UseVisualStyleBackColor = false;
+            this.fbtnReturn.Click += new System.EventHandler(this.fbtnReturn_Click);
+            // 
+            // btnLoadSample
+            // 
+            this.btnLoadSample.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadSample, "btnLoadSample");
+            this.btnLoadSample.EnabledSet = true;
+            this.btnLoadSample.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLoadSample.FlatAppearance.BorderSize = 0;
+            this.btnLoadSample.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadSample.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadSample.Name = "btnLoadSample";
+            this.btnLoadSample.UseVisualStyleBackColor = false;
+            this.btnLoadSample.Click += new System.EventHandler(this.btnLoadSample_Click);
+            // 
+            // btnLoadReagent
+            // 
+            this.btnLoadReagent.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadReagent, "btnLoadReagent");
+            this.btnLoadReagent.EnabledSet = true;
+            this.btnLoadReagent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnLoadReagent.FlatAppearance.BorderSize = 0;
+            this.btnLoadReagent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadReagent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnLoadReagent.Name = "btnLoadReagent";
+            this.btnLoadReagent.UseVisualStyleBackColor = false;
+            this.btnLoadReagent.Click += new System.EventHandler(this.btnLoadReagent_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.functionButton1);
+            this.groupBox1.Controls.Add(this.fbtnTestAgain);
+            this.groupBox1.Controls.Add(this.fbtnRCalculatResult);
+            this.groupBox1.Controls.Add(this.fbtnRSelectCurve);
+            this.groupBox1.Controls.Add(this.fbtnPrint);
+            this.groupBox1.Controls.Add(this.fbtnExportData);
+            this.groupBox1.Controls.Add(this.fbtnSaveResult);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // functionButton1
+            // 
+            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.functionButton1, "functionButton1");
+            this.functionButton1.EnabledSet = true;
+            this.functionButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.functionButton1.FlatAppearance.BorderSize = 0;
+            this.functionButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.functionButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.functionButton1.Name = "functionButton1";
+            this.functionButton1.UseVisualStyleBackColor = false;
+            this.functionButton1.Click += new System.EventHandler(this.functionButton1_Click);
+            // 
+            // fbtnTestAgain
+            // 
+            this.fbtnTestAgain.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnTestAgain, "fbtnTestAgain");
+            this.fbtnTestAgain.EnabledSet = true;
+            this.fbtnTestAgain.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnTestAgain.FlatAppearance.BorderSize = 0;
+            this.fbtnTestAgain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestAgain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnTestAgain.Name = "fbtnTestAgain";
+            this.fbtnTestAgain.UseVisualStyleBackColor = false;
+            this.fbtnTestAgain.Click += new System.EventHandler(this.fbtnTestAgain_Click);
+            // 
+            // fbtnRCalculatResult
+            // 
+            this.fbtnRCalculatResult.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnRCalculatResult, "fbtnRCalculatResult");
+            this.fbtnRCalculatResult.EnabledSet = true;
+            this.fbtnRCalculatResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnRCalculatResult.FlatAppearance.BorderSize = 0;
+            this.fbtnRCalculatResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnRCalculatResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnRCalculatResult.Name = "fbtnRCalculatResult";
+            this.fbtnRCalculatResult.UseVisualStyleBackColor = false;
+            this.fbtnRCalculatResult.Click += new System.EventHandler(this.fbtnRCalculatResult_Click);
+            // 
+            // fbtnRSelectCurve
+            // 
+            this.fbtnRSelectCurve.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnRSelectCurve, "fbtnRSelectCurve");
+            this.fbtnRSelectCurve.EnabledSet = true;
+            this.fbtnRSelectCurve.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnRSelectCurve.FlatAppearance.BorderSize = 0;
+            this.fbtnRSelectCurve.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnRSelectCurve.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnRSelectCurve.Name = "fbtnRSelectCurve";
+            this.fbtnRSelectCurve.UseVisualStyleBackColor = false;
+            this.fbtnRSelectCurve.Click += new System.EventHandler(this.fbtnRSelectCurve_Click);
+            // 
+            // fbtnPrint
+            // 
+            this.fbtnPrint.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnPrint, "fbtnPrint");
+            this.fbtnPrint.EnabledSet = true;
+            this.fbtnPrint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnPrint.FlatAppearance.BorderSize = 0;
+            this.fbtnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnPrint.Name = "fbtnPrint";
+            this.fbtnPrint.UseVisualStyleBackColor = false;
+            this.fbtnPrint.Click += new System.EventHandler(this.fbtnPrint_Click);
+            // 
+            // fbtnExportData
+            // 
+            this.fbtnExportData.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnExportData, "fbtnExportData");
+            this.fbtnExportData.EnabledSet = true;
+            this.fbtnExportData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnExportData.FlatAppearance.BorderSize = 0;
+            this.fbtnExportData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnExportData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnExportData.Name = "fbtnExportData";
+            this.fbtnExportData.UseVisualStyleBackColor = false;
+            this.fbtnExportData.Click += new System.EventHandler(this.fbtnExportData_Click);
+            // 
+            // fbtnSaveResult
+            // 
+            this.fbtnSaveResult.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnSaveResult, "fbtnSaveResult");
+            this.fbtnSaveResult.EnabledSet = true;
+            this.fbtnSaveResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnSaveResult.FlatAppearance.BorderSize = 0;
+            this.fbtnSaveResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnSaveResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnSaveResult.Name = "fbtnSaveResult";
+            this.fbtnSaveResult.UseVisualStyleBackColor = false;
+            this.fbtnSaveResult.Click += new System.EventHandler(this.fbtnSaveResult_Click);
+            // 
             // SampleID
             // 
             this.SampleID.DataPropertyName = "SampleID";
             resources.ApplyResources(this.SampleID, "SampleID");
             this.SampleID.Name = "SampleID";
             this.SampleID.ReadOnly = true;
-            this.SampleID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // No
             // 
@@ -123,7 +301,6 @@
             resources.ApplyResources(this.No, "No");
             this.No.Name = "No";
             this.No.ReadOnly = true;
-            this.No.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SampleNo
             // 
@@ -133,7 +310,6 @@
             resources.ApplyResources(this.SampleNo, "SampleNo");
             this.SampleNo.Name = "SampleNo";
             this.SampleNo.ReadOnly = true;
-            this.SampleNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Position
             // 
@@ -143,7 +319,6 @@
             resources.ApplyResources(this.Position, "Position");
             this.Position.Name = "Position";
             this.Position.ReadOnly = true;
-            this.Position.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SampleType
             // 
@@ -153,7 +328,6 @@
             resources.ApplyResources(this.SampleType, "SampleType");
             this.SampleType.Name = "SampleType";
             this.SampleType.ReadOnly = true;
-            this.SampleType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ItemName
             // 
@@ -163,7 +337,6 @@
             resources.ApplyResources(this.ItemName, "ItemName");
             this.ItemName.Name = "ItemName";
             this.ItemName.ReadOnly = true;
-            this.ItemName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // PMT
             // 
@@ -173,7 +346,6 @@
             resources.ApplyResources(this.PMT, "PMT");
             this.PMT.Name = "PMT";
             this.PMT.ReadOnly = true;
-            this.PMT.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Concentration
             // 
@@ -183,7 +355,6 @@
             resources.ApplyResources(this.Concentration, "Concentration");
             this.Concentration.Name = "Concentration";
             this.Concentration.ReadOnly = true;
-            this.Concentration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Unit
             // 
@@ -193,7 +364,6 @@
             resources.ApplyResources(this.Unit, "Unit");
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
-            this.Unit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Result
             // 
@@ -203,7 +373,6 @@
             resources.ApplyResources(this.Result, "Result");
             this.Result.Name = "Result";
             this.Result.ReadOnly = true;
-            this.Result.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Range1
             // 
@@ -212,7 +381,6 @@
             resources.ApplyResources(this.Range1, "Range1");
             this.Range1.Name = "Range1";
             this.Range1.ReadOnly = true;
-            this.Range1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Range2
             // 
@@ -221,7 +389,6 @@
             resources.ApplyResources(this.Range2, "Range2");
             this.Range2.Name = "Range2";
             this.Range2.ReadOnly = true;
-            this.Range2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ReagentBeach
             // 
@@ -229,7 +396,6 @@
             resources.ApplyResources(this.ReagentBeach, "ReagentBeach");
             this.ReagentBeach.Name = "ReagentBeach";
             this.ReagentBeach.ReadOnly = true;
-            this.ReagentBeach.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Status
             // 
@@ -261,184 +427,6 @@
             resources.ApplyResources(this.ResultDatetime, "ResultDatetime");
             this.ResultDatetime.Name = "ResultDatetime";
             this.ResultDatetime.ReadOnly = true;
-            // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Controls.Add(this.fbtnTestResult);
-            this.panel1.Controls.Add(this.btnWorkList);
-            this.panel1.Controls.Add(this.fbtnReturn);
-            this.panel1.Controls.Add(this.btnLoadSample);
-            this.panel1.Controls.Add(this.btnLoadReagent);
-            this.panel1.Name = "panel1";
-            // 
-            // fbtnTestResult
-            // 
-            resources.ApplyResources(this.fbtnTestResult, "fbtnTestResult");
-            this.fbtnTestResult.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestResult.EnabledSet = true;
-            this.fbtnTestResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnTestResult.FlatAppearance.BorderSize = 0;
-            this.fbtnTestResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestResult.Name = "fbtnTestResult";
-            this.fbtnTestResult.UseVisualStyleBackColor = false;
-            // 
-            // btnWorkList
-            // 
-            resources.ApplyResources(this.btnWorkList, "btnWorkList");
-            this.btnWorkList.BackColor = System.Drawing.Color.Transparent;
-            this.btnWorkList.EnabledSet = true;
-            this.btnWorkList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnWorkList.FlatAppearance.BorderSize = 0;
-            this.btnWorkList.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnWorkList.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnWorkList.Name = "btnWorkList";
-            this.btnWorkList.UseVisualStyleBackColor = false;
-            this.btnWorkList.Click += new System.EventHandler(this.btnWorkList_Click);
-            // 
-            // fbtnReturn
-            // 
-            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
-            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.EnabledSet = true;
-            this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnReturn.FlatAppearance.BorderSize = 0;
-            this.fbtnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnReturn.Name = "fbtnReturn";
-            this.fbtnReturn.UseVisualStyleBackColor = false;
-            this.fbtnReturn.Click += new System.EventHandler(this.fbtnReturn_Click);
-            // 
-            // btnLoadSample
-            // 
-            resources.ApplyResources(this.btnLoadSample, "btnLoadSample");
-            this.btnLoadSample.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoadSample.EnabledSet = true;
-            this.btnLoadSample.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLoadSample.FlatAppearance.BorderSize = 0;
-            this.btnLoadSample.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadSample.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadSample.Name = "btnLoadSample";
-            this.btnLoadSample.UseVisualStyleBackColor = false;
-            this.btnLoadSample.Click += new System.EventHandler(this.btnLoadSample_Click);
-            // 
-            // btnLoadReagent
-            // 
-            resources.ApplyResources(this.btnLoadReagent, "btnLoadReagent");
-            this.btnLoadReagent.BackColor = System.Drawing.Color.Transparent;
-            this.btnLoadReagent.EnabledSet = true;
-            this.btnLoadReagent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLoadReagent.FlatAppearance.BorderSize = 0;
-            this.btnLoadReagent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadReagent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnLoadReagent.Name = "btnLoadReagent";
-            this.btnLoadReagent.UseVisualStyleBackColor = false;
-            this.btnLoadReagent.Click += new System.EventHandler(this.btnLoadReagent_Click);
-            // 
-            // groupBox1
-            // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.functionButton1);
-            this.groupBox1.Controls.Add(this.fbtnTestAgain);
-            this.groupBox1.Controls.Add(this.fbtnRCalculatResult);
-            this.groupBox1.Controls.Add(this.fbtnRSelectCurve);
-            this.groupBox1.Controls.Add(this.fbtnPrint);
-            this.groupBox1.Controls.Add(this.fbtnExportData);
-            this.groupBox1.Controls.Add(this.fbtnSaveResult);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // functionButton1
-            // 
-            resources.ApplyResources(this.functionButton1, "functionButton1");
-            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
-            this.functionButton1.EnabledSet = true;
-            this.functionButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.functionButton1.FlatAppearance.BorderSize = 0;
-            this.functionButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.functionButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.functionButton1.Name = "functionButton1";
-            this.functionButton1.UseVisualStyleBackColor = false;
-            this.functionButton1.Click += new System.EventHandler(this.functionButton1_Click);
-            // 
-            // fbtnTestAgain
-            // 
-            resources.ApplyResources(this.fbtnTestAgain, "fbtnTestAgain");
-            this.fbtnTestAgain.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestAgain.EnabledSet = true;
-            this.fbtnTestAgain.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnTestAgain.FlatAppearance.BorderSize = 0;
-            this.fbtnTestAgain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestAgain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnTestAgain.Name = "fbtnTestAgain";
-            this.fbtnTestAgain.UseVisualStyleBackColor = false;
-            this.fbtnTestAgain.Click += new System.EventHandler(this.fbtnTestAgain_Click);
-            // 
-            // fbtnRCalculatResult
-            // 
-            resources.ApplyResources(this.fbtnRCalculatResult, "fbtnRCalculatResult");
-            this.fbtnRCalculatResult.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnRCalculatResult.EnabledSet = true;
-            this.fbtnRCalculatResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnRCalculatResult.FlatAppearance.BorderSize = 0;
-            this.fbtnRCalculatResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnRCalculatResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnRCalculatResult.Name = "fbtnRCalculatResult";
-            this.fbtnRCalculatResult.UseVisualStyleBackColor = false;
-            this.fbtnRCalculatResult.Click += new System.EventHandler(this.fbtnRCalculatResult_Click);
-            // 
-            // fbtnRSelectCurve
-            // 
-            resources.ApplyResources(this.fbtnRSelectCurve, "fbtnRSelectCurve");
-            this.fbtnRSelectCurve.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnRSelectCurve.EnabledSet = true;
-            this.fbtnRSelectCurve.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnRSelectCurve.FlatAppearance.BorderSize = 0;
-            this.fbtnRSelectCurve.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnRSelectCurve.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnRSelectCurve.Name = "fbtnRSelectCurve";
-            this.fbtnRSelectCurve.UseVisualStyleBackColor = false;
-            this.fbtnRSelectCurve.Click += new System.EventHandler(this.fbtnRSelectCurve_Click);
-            // 
-            // fbtnPrint
-            // 
-            resources.ApplyResources(this.fbtnPrint, "fbtnPrint");
-            this.fbtnPrint.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnPrint.EnabledSet = true;
-            this.fbtnPrint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnPrint.FlatAppearance.BorderSize = 0;
-            this.fbtnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnPrint.Name = "fbtnPrint";
-            this.fbtnPrint.UseVisualStyleBackColor = false;
-            this.fbtnPrint.Click += new System.EventHandler(this.fbtnPrint_Click);
-            // 
-            // fbtnExportData
-            // 
-            resources.ApplyResources(this.fbtnExportData, "fbtnExportData");
-            this.fbtnExportData.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnExportData.EnabledSet = true;
-            this.fbtnExportData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnExportData.FlatAppearance.BorderSize = 0;
-            this.fbtnExportData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnExportData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnExportData.Name = "fbtnExportData";
-            this.fbtnExportData.UseVisualStyleBackColor = false;
-            this.fbtnExportData.Click += new System.EventHandler(this.fbtnExportData_Click);
-            // 
-            // fbtnSaveResult
-            // 
-            resources.ApplyResources(this.fbtnSaveResult, "fbtnSaveResult");
-            this.fbtnSaveResult.BackColor = System.Drawing.Color.Transparent;
-            this.fbtnSaveResult.EnabledSet = true;
-            this.fbtnSaveResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.fbtnSaveResult.FlatAppearance.BorderSize = 0;
-            this.fbtnSaveResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.fbtnSaveResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.fbtnSaveResult.Name = "fbtnSaveResult";
-            this.fbtnSaveResult.UseVisualStyleBackColor = false;
-            this.fbtnSaveResult.Click += new System.EventHandler(this.fbtnSaveResult_Click);
             // 
             // frmTestResult
             // 

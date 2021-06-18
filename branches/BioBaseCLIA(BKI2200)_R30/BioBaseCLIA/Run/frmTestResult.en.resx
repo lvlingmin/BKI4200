@@ -124,33 +124,6 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 32</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Result</value>
-  </data>
-  <data name="No.HeaderText" xml:space="preserve">
-    <value>Test Id</value>
-  </data>
-  <data name="SampleNo.HeaderText" xml:space="preserve">
-    <value>Sample number</value>
-  </data>
-  <data name="Position.HeaderText" xml:space="preserve">
-    <value>Position</value>
-  </data>
-  <data name="SampleType.HeaderText" xml:space="preserve">
-    <value>Sample type</value>
-  </data>
-  <data name="ItemName.HeaderText" xml:space="preserve">
-    <value>Project name</value>
-  </data>
-  <data name="Concentration.HeaderText" xml:space="preserve">
-    <value>result</value>
-  </data>
-  <data name="Unit.HeaderText" xml:space="preserve">
-    <value>unit</value>
-  </data>
-  <data name="Result.HeaderText" xml:space="preserve">
-    <value>sign</value>
-  </data>
   <data name="fbtnTestResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -217,9 +190,6 @@
   </data>
   <data name="fbtnTestResult.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt, style=Bold</value>
-  </data>
-  <data name="fbtnTestResult.Text" xml:space="preserve">
-    <value>Result</value>
   </data>
   <data name="btnWorkList.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -288,9 +258,6 @@
   <data name="btnWorkList.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
-  <data name="btnWorkList.Text" xml:space="preserve">
-    <value>Work List</value>
-  </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -357,9 +324,6 @@
   </data>
   <data name="fbtnReturn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt, style=Bold</value>
-  </data>
-  <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>Back</value>
   </data>
   <data name="btnLoadSample.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -428,9 +392,6 @@
   <data name="btnLoadSample.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
-  <data name="btnLoadSample.Text" xml:space="preserve">
-    <value>Sample Load</value>
-  </data>
   <data name="btnLoadReagent.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -497,9 +458,6 @@
   </data>
   <data name="btnLoadReagent.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 14.25pt, style=Bold</value>
-  </data>
-  <data name="btnLoadReagent.Text" xml:space="preserve">
-    <value>Reagent Load</value>
   </data>
   <data name="functionButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -568,9 +526,6 @@
   <data name="functionButton1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
-  <data name="functionButton1.Text" xml:space="preserve">
-    <value>Clear results</value>
-  </data>
   <data name="fbtnTestAgain.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -638,9 +593,6 @@
   <data name="fbtnTestAgain.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
-  <data name="fbtnTestAgain.Text" xml:space="preserve">
-    <value>Retest</value>
-  </data>
   <data name="fbtnRCalculatResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -707,9 +659,6 @@
   </data>
   <data name="fbtnRCalculatResult.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
-  </data>
-  <data name="fbtnRCalculatResult.Text" xml:space="preserve">
-    <value>Recalculation</value>
   </data>
   <data name="fbtnRSelectCurve.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -781,9 +730,6 @@
   <data name="fbtnRSelectCurve.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 45</value>
   </data>
-  <data name="fbtnRSelectCurve.Text" xml:space="preserve">
-    <value>Reselection calibration</value>
-  </data>
   <data name="fbtnPrint.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -850,9 +796,6 @@
   </data>
   <data name="fbtnPrint.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
-  </data>
-  <data name="fbtnPrint.Text" xml:space="preserve">
-    <value>Printing</value>
   </data>
   <data name="fbtnExportData.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -921,9 +864,6 @@
   <data name="fbtnExportData.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
-  <data name="fbtnExportData.Text" xml:space="preserve">
-    <value>Export data</value>
-  </data>
   <data name="fbtnSaveResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -990,12 +930,6 @@
   </data>
   <data name="fbtnSaveResult.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
-  </data>
-  <data name="fbtnSaveResult.Text" xml:space="preserve">
-    <value>Save results</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Data operation</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
@@ -1173,6 +1107,51 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
+  <data name="btnLoadReagent.Text" xml:space="preserve">
+    <value>Reagent Load</value>
+  </data>
+  <data name="btnLoadSample.Text" xml:space="preserve">
+    <value>Sample Load</value>
+  </data>
+  <data name="btnWorkList.Text" xml:space="preserve">
+    <value>Work List</value>
+  </data>
+  <data name="Concentration.HeaderText" xml:space="preserve">
+    <value>result</value>
+  </data>
+  <data name="fbtnExportData.Text" xml:space="preserve">
+    <value>Export data</value>
+  </data>
+  <data name="fbtnPrint.Text" xml:space="preserve">
+    <value>Printing</value>
+  </data>
+  <data name="fbtnRCalculatResult.Text" xml:space="preserve">
+    <value>Recalculation</value>
+  </data>
+  <data name="fbtnReturn.Text" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="fbtnRSelectCurve.Text" xml:space="preserve">
+    <value>Reselection calibration</value>
+  </data>
+  <data name="fbtnSaveResult.Text" xml:space="preserve">
+    <value>Save results</value>
+  </data>
+  <data name="fbtnTestAgain.Text" xml:space="preserve">
+    <value>Retest</value>
+  </data>
+  <data name="fbtnTestResult.Text" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="functionButton1.Text" xml:space="preserve">
+    <value>Clear results</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Data operation</value>
+  </data>
+  <data name="ItemName.HeaderText" xml:space="preserve">
+    <value>Project name</value>
+  </data>
   <data name="keywordText.CalibrationSolution" xml:space="preserve">
     <value>Calibration Solution</value>
   </data>
@@ -1268,5 +1247,26 @@
   </data>
   <data name="keywordText.TipsOfExport" xml:space="preserve">
     <value>Export Prompt</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="No.HeaderText" xml:space="preserve">
+    <value>Test Id</value>
+  </data>
+  <data name="Position.HeaderText" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Result.HeaderText" xml:space="preserve">
+    <value>sign</value>
+  </data>
+  <data name="SampleNo.HeaderText" xml:space="preserve">
+    <value>Sample number</value>
+  </data>
+  <data name="SampleType.HeaderText" xml:space="preserve">
+    <value>Sample type</value>
+  </data>
+  <data name="Unit.HeaderText" xml:space="preserve">
+    <value>unit</value>
   </data>
 </root>
