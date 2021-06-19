@@ -3701,4 +3701,7 @@
   <data name="Tue2substrate" xml:space="preserve">
     <value>管路2无底物，请装载！</value>
   </data>
+  <data name="Running" xml:space="preserve">
+    <value>正在运行</value>
+  </data>
 </root>

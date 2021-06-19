@@ -2604,4 +2604,7 @@
   <data name="W" xml:space="preserve">
     <value>Wash</value>
   </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
 </root>
