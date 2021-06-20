@@ -21,6 +21,7 @@ using BioBaseCLIA.User;
 using System.Reflection;
 using BioBaseCLIA;
 using Localization;
+using System.Resources;
 
 namespace BioBaseCLIA
 {
@@ -292,6 +293,131 @@ namespace BioBaseCLIA
                 frmMsgShow.MessageShow(GetString("Tips"), GetString("Abnormalexit"));
             }
             timerConnect.Enabled = true;
+
+            #region 登录lis逻辑
+            Thread loginThread = new Thread(Work);
+            loginThread.Start();
+            #endregion
+        }
+
+        public EventWaitHandle wait = new AutoResetEvent(false);
+        DelayClass delayer = new DelayClass();//延时类
+        private void Work()
+        {
+            bool isLisConnect = bool.Parse(OperateIniFile.ReadInIPara("LisSet", "IsLisConnect"));
+            string communicationType = OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
+            string IPAddress = OperateIniFile.ReadInIPara("LisSet", "IPAddress");
+            string Port = OperateIniFile.ReadInIPara("LisSet", "Port");
+            string ConnectType = OperateIniFile.ReadInIPara("LisSet", "ConnectType");
+            string LisCodeType = OperateIniFile.ReadInIPara("LisSet", "LisCodeType");
+            bool IsTrueTimeTran = bool.Parse(OperateIniFile.ReadInIPara("LisSet", "IsTrueTimeTran"));
+            string transinfo = OperateIniFile.ReadInIPara("LisSet", "TransInfo");
+
+            if (communicationType.Contains("NetConn") || communicationType.Contains("网口通讯"))
+            {
+                if (string.IsNullOrEmpty(ConnectType))
+                {
+                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("LisSelect"));
+                    return;
+                }
+
+                if (Port.Trim() == "")
+                {
+                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("NullPort"));
+                    return;
+                }
+
+                if (!Inspect.InspectIP(IPAddress.Trim()))
+                {
+                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("IPErrorMesage"));
+                    return;
+                }
+
+                wait.Reset();
+                LisCommunication.Instance.comDelayer = delayer;
+                LisCommunication.Instance.comWait = wait;
+
+                delayer.sign = wait;
+                LisCommunication.Instance.ReceiveHandel -= InstanceLIS_ReceiveHandel;
+                LisCommunication.Instance.ReceiveHandel += InstanceLIS_ReceiveHandel;
+                if (!LisCommunication.Instance.IsConnect())
+                {
+                    int port = int.Parse(Port);
+                    LisCommunication.Instance.connect(IPAddress, port);
+                }
+                if (LisCodeType == null)
+                    LisCommunication.Instance.EncodeType = "Unicode";
+                else
+                    LisCommunication.Instance.EncodeType = LisCodeType;
+                if (LisCommunication.Instance.IsConnect())
+                {
+                    if (communicationType.Contains("NetConn") || communicationType.Contains("网口通讯"))
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));
+                    else if (communicationType.Contains("SerialConn") || communicationType.Contains("串口通讯"))
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("SerialConn"));
+                    OperateIniFile.WriteIniPara("LisSet", "IPAddress", IPAddress.Trim());
+                    OperateIniFile.WriteIniPara("LisSet", "Port", Port.Trim());
+                    OperateIniFile.WriteIniPara("LisSet", "ConnectType", ConnectType);
+                    OperateIniFile.WriteIniPara("LisSet", "LisCodeType", LisCommunication.Instance.EncodeType);
+                }
+            }
+
+            if (communicationType.Contains("SerialConn") || communicationType.Contains("串口通讯"))
+            {
+                if (string.IsNullOrEmpty(IPAddress))
+                {
+                    frmMsgShow.MessageShow(Getstring("SerialConnSet"), Getstring("NullPort"));
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(Port))
+                {
+                    frmMsgShow.MessageShow(Getstring("SerialConnSet"), Getstring("NullBaud"));
+                    return;
+                }
+                wait.Reset();
+                LisConnection.Instance.comDelayer = delayer;
+                LisConnection.Instance.comWait = wait;
+                delayer.sign = wait;
+                if (string.IsNullOrWhiteSpace(LisCodeType))
+                    LisConnection.Instance.EncodeType = "Unicode";
+                else
+                    LisConnection.Instance.EncodeType = LisCodeType;
+                if (!LisConnection.Instance.IsOpen())
+                {
+                    if (communicationType.Contains("SerialConn") || communicationType.Contains("串口通讯"))
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("SerialConn"));
+                    else
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));
+                    OperateIniFile.WriteIniPara("LisSet", "IPAddress", IPAddress);
+                    OperateIniFile.WriteIniPara("LisSet", "Port", Port);
+                    OperateIniFile.WriteIniPara("LisSet", "ConnectType", ConnectType);
+                    OperateIniFile.WriteIniPara("LisSet", "LisCodeType", LisConnection.Instance.EncodeType);
+                    LisConnection.Instance.connect();
+                }
+                if (LisConnection.Instance.IsOpen())
+                {
+                }
+            }
+        }
+
+        void InstanceLIS_ReceiveHandel(string obj)
+        {
+            byte[] data = new byte[8000];
+            try
+            {
+                data = new byte[8000];
+            }
+            catch (Exception e)
+            {
+                frmMsgShow.MessageShow("", e.Message);
+            }
+        }
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.InfoSetting.frmNetSet", typeof(frmNetSet).Assembly);
+            return resManagerA.GetString(key);
         }
         /// <summary>
         /// 液位检测报警
