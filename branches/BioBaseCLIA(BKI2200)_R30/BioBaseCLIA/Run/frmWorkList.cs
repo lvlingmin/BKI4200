@@ -10439,7 +10439,7 @@ namespace BioBaseCLIA.Run
                 modelAssayResult.DiluteCount = 0;
                 modelAssayResult.ItemName = result.ItemName;
                 modelAssayResult.PMTCounter = result.PMT;
-                modelAssayResult.Range = result.Range1 + (string.IsNullOrEmpty(result.Range1) ? "" : ";" + result.Range1);
+                modelAssayResult.Range = result.Range1 + " " + result.Range2;
                 modelAssayResult.Result = result.Result;
                 modelAssayResult.Specification = "";
                 //modelAssayResult.Status = 0;
