@@ -105,6 +105,7 @@ namespace BioBaseCLIA.ScalingQC
             }
             #endregion            
             #endregion
+            fbtnAdd.Visible = true;
             cmbBype.DataSource = new string[3] { getString("keywordText.High"), getString("keywordText.Middle"), getString("keywordText.Low") };
         }
         #region 质控管理
@@ -926,16 +927,21 @@ namespace BioBaseCLIA.ScalingQC
                     //lyq 注释20190910
                     //string date = dtpQCTime.Value.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString();
                     //mdqcresult.TestDate = DateTime.Parse(date);
-                    string date = dgvQCValue.Rows[index].Cells[2].Value.ToString(); //lyq 190911
+                    //string date = dgvQCValue.Rows[index].Cells[2].Value.ToString(); //lyq 190911
 
-                    mdqcresult.TestDate = DateTime.Parse(date); //不改变日期
+                    //mdqcresult.TestDate = DateTime.Parse(date); //不改变日期
 
                     mdqcresult.Unit = "";
                     db = new DbHelperOleDb(1);
                     if (isAdd)
+                    {
+                        mdqcresult.TestDate = DateTime.Parse(dtpQCTime.Value.ToString());
                         bllqcresult.Add(mdqcresult);
+                    }
                     else
                     {
+                        string date = dgvQCValue.Rows[index].Cells[2].Value.ToString(); //lyq 190911
+                        mdqcresult.TestDate = DateTime.Parse(date); //不改变日期
                         mdqcresult.QCResultID = int.Parse(dgvQCValue.CurrentRow.Cells["QCResultID"].Value.ToString());
                         bllqcresult.Update(mdqcresult);
                     }
