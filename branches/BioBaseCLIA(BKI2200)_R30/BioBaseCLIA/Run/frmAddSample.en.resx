@@ -1805,4 +1805,10 @@
   <data name="keywordText.Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="keywordText.Stopload" xml:space="preserve">
+    <value>There are standard or quality control materials in the loaded samples. The loading of samples failed this time</value>
+  </data>
+  <data name="keywordText.StoploadStandard" xml:space="preserve">
+    <value>There are non-standard or non-quality control samples in the loaded samples. The loading of samples failed this time</value>
+  </data>
 </root>
