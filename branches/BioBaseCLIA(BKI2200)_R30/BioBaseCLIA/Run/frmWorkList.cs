@@ -11235,6 +11235,7 @@ namespace BioBaseCLIA.Run
                 frmTR.TopLevel = false;
                 frmTR.Parent = this.Parent;
                 frmTR.Show();
+                frmTR.BringToFront();
             }
             else
             {
