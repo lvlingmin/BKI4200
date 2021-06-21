@@ -171,7 +171,7 @@ namespace BioBaseCLIA.DataQuery
                     Cmp.SelectBySampleNo(modelSp.SampleNo);
 
                     //LisCommunication.Instance.comWait.WaitOne();
-                    bool delay = LisCommunication.Instance.comWait.WaitOne(5000);
+                    bool delay = LisCommunication.Instance.comWait.WaitOne(3000);
                     if (!delay)
                     {
                         LisCommunication.Instance.comWait.Set();
