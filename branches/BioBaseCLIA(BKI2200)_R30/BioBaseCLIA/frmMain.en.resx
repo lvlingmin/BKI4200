@@ -484,9 +484,6 @@
   <data name="btnVersion.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
-  <data name="btnVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>843, 14</value>
-  </data>
   <data name="btnVersion.Text" xml:space="preserve">
     <value>About</value>
   </data>
@@ -498,9 +495,6 @@
   </data>
   <data name="btnHelp.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
-  </data>
-  <data name="btnHelp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>762, 15</value>
   </data>
   <data name="btnHelp.Text" xml:space="preserve">
     <value>Help</value>

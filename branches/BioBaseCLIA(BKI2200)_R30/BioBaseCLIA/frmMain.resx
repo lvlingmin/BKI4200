@@ -741,7 +741,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>724, 15</value>
+    <value>824, 15</value>
   </data>
   <data name="btnVersion.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 30</value>
@@ -831,7 +831,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnHelp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>824, 15</value>
+    <value>624, 15</value>
   </data>
   <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 30</value>
