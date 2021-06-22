@@ -127,6 +127,9 @@
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>365, 37</value>
   </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Historical Results Query</value>
+  </data>
   <data name="fbtnTestAgain.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -199,6 +202,9 @@
   </data>
   <data name="fbtnTestAgain.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 40</value>
+  </data>
+  <data name="fbtnTestAgain.Text" xml:space="preserve">
+    <value>Retest</value>
   </data>
   <data name="btnExPort.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -273,6 +279,9 @@
   <data name="btnExPort.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 40</value>
   </data>
+  <data name="btnExPort.Text" xml:space="preserve">
+    <value>Export Data</value>
+  </data>
   <data name="btnImPort.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -345,6 +354,9 @@
   </data>
   <data name="btnImPort.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 40</value>
+  </data>
+  <data name="btnImPort.Text" xml:space="preserve">
+    <value>Import Data</value>
   </data>
   <data name="fbtnRecalculate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -419,6 +431,9 @@
   <data name="fbtnRecalculate.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 40</value>
   </data>
+  <data name="fbtnRecalculate.Text" xml:space="preserve">
+    <value>Recalculation</value>
+  </data>
   <data name="tbnSendResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -491,6 +506,9 @@
   </data>
   <data name="tbnSendResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 40</value>
+  </data>
+  <data name="tbnSendResult.Text" xml:space="preserve">
+    <value>Send Data</value>
   </data>
   <data name="fbtnPrint.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -565,6 +583,9 @@
   <data name="fbtnPrint.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 40</value>
   </data>
+  <data name="fbtnPrint.Text" xml:space="preserve">
+    <value>Print</value>
+  </data>
   <data name="fbtnMakeupInfo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -637,6 +658,87 @@
   </data>
   <data name="fbtnMakeupInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 40</value>
+  </data>
+  <data name="fbtnMakeupInfo.Text" xml:space="preserve">
+    <value>Additional Patient </value>
+  </data>
+  <data name="colChioce.HeaderText" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="SampleNo.HeaderText" xml:space="preserve">
+    <value>Sample Number</value>
+  </data>
+  <data name="ItemName.HeaderText" xml:space="preserve">
+    <value>Project Name</value>
+  </data>
+  <data name="TestDate.HeaderText" xml:space="preserve">
+    <value>Test Date</value>
+  </data>
+  <data name="PMTCounter.HeaderText" xml:space="preserve">
+    <value>PMT</value>
+  </data>
+  <data name="Concentration.HeaderText" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Unit.HeaderText" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Result.HeaderText" xml:space="preserve">
+    <value>Identification</value>
+  </data>
+  <data name="Range.HeaderText" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="SampleType.HeaderText" xml:space="preserve">
+    <value>Sample Type</value>
+  </data>
+  <data name="SendDateTime.HeaderText" xml:space="preserve">
+    <value>Send Date</value>
+  </data>
+  <data name="SampleNo1.HeaderText" xml:space="preserve">
+    <value>Sample Number</value>
+  </data>
+  <data name="PatientName.HeaderText" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Sex.HeaderText" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Age.HeaderText" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="ClinicNo.HeaderText" xml:space="preserve">
+    <value>Outpatient Number</value>
+  </data>
+  <data name="InpatientArea.HeaderText" xml:space="preserve">
+    <value>Inpatient Area</value>
+  </data>
+  <data name="Ward.HeaderText" xml:space="preserve">
+    <value>Inpatient Ward</value>
+  </data>
+  <data name="BedNo.HeaderText" xml:space="preserve">
+    <value>Bed Number</value>
+  </data>
+  <data name="MedicaRecordNo.HeaderText" xml:space="preserve">
+    <value>Medical record number</value>
+  </data>
+  <data name="Diagnosis.HeaderText" xml:space="preserve">
+    <value>clinical diagnosis</value>
+  </data>
+  <data name="InspectionItems.HeaderText" xml:space="preserve">
+    <value>Inspection Items</value>
+  </data>
+  <data name="AcquisitionTime.HeaderText" xml:space="preserve">
+    <value>Acquisition Time</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Data Query Results</value>
+  </data>
+  <data name="cmbSelect.Items" xml:space="preserve">
+    <value>Sample Number</value>
+  </data>
+  <data name="cmbSelect.Items1" xml:space="preserve">
+    <value>Patient's name</value>
   </data>
   <data name="cmbSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 25</value>
@@ -717,6 +819,9 @@
   <data name="fbtnQuery.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 36</value>
   </data>
+  <data name="fbtnQuery.Text" xml:space="preserve">
+    <value>Query</value>
+  </data>
   <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>522, 29</value>
   </data>
@@ -726,11 +831,17 @@
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 17</value>
   </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>End Date:</value>
+  </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>221, 33</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 17</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Start Date:</value>
   </data>
   <data name="dtpStartDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>293, 29</value>
@@ -740,6 +851,9 @@
   </data>
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11pt</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Query Criteria</value>
   </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -807,6 +921,9 @@
   </data>
   <data name="fbtnReturn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt, style=Bold</value>
+  </data>
+  <data name="fbtnReturn.Text" xml:space="preserve">
+    <value>Return</value>
   </data>
   <data name="fbtnSaveData.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -878,6 +995,9 @@
   <data name="fbtnSaveData.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 44</value>
   </data>
+  <data name="fbtnSaveData.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="fbtnChoiceCurve.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -948,6 +1068,9 @@
   <data name="fbtnChoiceCurve.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 44</value>
   </data>
+  <data name="fbtnChoiceCurve.Text" xml:space="preserve">
+    <value>Reselection calibration</value>
+  </data>
   <data name="fbtnDeleteResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1015,6 +1138,9 @@
   <data name="fbtnDeleteResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 44</value>
   </data>
+  <data name="fbtnDeleteResult.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="fbtnModifyResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1081,6 +1207,9 @@
   </data>
   <data name="fbtnModifyResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 44</value>
+  </data>
+  <data name="fbtnModifyResult.Text" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11pt</value>
@@ -1258,44 +1387,11 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
-  <data name="AcquisitionTime.HeaderText" xml:space="preserve">
-    <value>Acquisition Time</value>
-  </data>
-  <data name="Age.HeaderText" xml:space="preserve">
-    <value>Age</value>
-  </data>
-  <data name="BedNo.HeaderText" xml:space="preserve">
-    <value>Bed Number</value>
-  </data>
-  <data name="btnExPort.Text" xml:space="preserve">
-    <value>Export Data</value>
-  </data>
-  <data name="btnImPort.Text" xml:space="preserve">
-    <value>Import Data</value>
-  </data>
-  <data name="ClinicNo.HeaderText" xml:space="preserve">
-    <value>Outpatient Number</value>
-  </data>
-  <data name="cmbSelect.Items" xml:space="preserve">
-    <value>Sample Number</value>
-  </data>
-  <data name="cmbSelect.Items1" xml:space="preserve">
-    <value>Patient's name</value>
-  </data>
-  <data name="colChioce.HeaderText" xml:space="preserve">
-    <value>Select</value>
-  </data>
-  <data name="Concentration.HeaderText" xml:space="preserve">
-    <value>Result</value>
-  </data>
   <data name="DeleteMessage" xml:space="preserve">
     <value>Successfully delete</value>
   </data>
   <data name="Determine" xml:space="preserve">
     <value>OK</value>
-  </data>
-  <data name="Diagnosis.HeaderText" xml:space="preserve">
-    <value>clinical diagnosis</value>
   </data>
   <data name="ExportErrorMessage" xml:space="preserve">
     <value>Error exporting file, the file may be being manipulated!</value>
@@ -1303,47 +1399,11 @@
   <data name="ExportSucessMessage" xml:space="preserve">
     <value>File Export Successfully</value>
   </data>
-  <data name="fbtnChoiceCurve.Text" xml:space="preserve">
-    <value>Reselection calibration</value>
-  </data>
-  <data name="fbtnDeleteResult.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="fbtnMakeupInfo.Text" xml:space="preserve">
-    <value>Additional Patient </value>
-  </data>
-  <data name="fbtnModifyResult.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="fbtnPrint.Text" xml:space="preserve">
-    <value>Print</value>
-  </data>
-  <data name="fbtnQuery.Text" xml:space="preserve">
-    <value>Query</value>
-  </data>
-  <data name="fbtnRecalculate.Text" xml:space="preserve">
-    <value>Recalculation</value>
-  </data>
-  <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>Return</value>
-  </data>
-  <data name="fbtnSaveData.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="fbtnTestAgain.Text" xml:space="preserve">
-    <value>Retest</value>
-  </data>
   <data name="File" xml:space="preserve">
     <value>file</value>
   </data>
   <data name="FileName" xml:space="preserve">
     <value>The experimental results</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Query Criteria</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Data Query Results</value>
   </data>
   <data name="ImportErrorMessage" xml:space="preserve">
     <value>The value of imported external data is wrong, and the experimental result is numerica</value>
@@ -1354,32 +1414,8 @@
   <data name="ImportSucessMessage" xml:space="preserve">
     <value>Data import completed</value>
   </data>
-  <data name="InpatientArea.HeaderText" xml:space="preserve">
-    <value>Inpatient Area</value>
-  </data>
-  <data name="InspectionItems.HeaderText" xml:space="preserve">
-    <value>Inspection Items</value>
-  </data>
-  <data name="ItemName.HeaderText" xml:space="preserve">
-    <value>Project Name</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Start Date:</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>End Date:</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Historical Results Query</value>
-  </data>
-  <data name="MedicaRecordNo.HeaderText" xml:space="preserve">
-    <value>Medical record number</value>
-  </data>
   <data name="MessageHead" xml:space="preserve">
     <value>Prompt Information</value>
-  </data>
-  <data name="MessageHead1" xml:space="preserve">
-    <value>Prompt information</value>
   </data>
   <data name="NetConn" xml:space="preserve">
     <value>Network Port Connection</value>
@@ -1402,26 +1438,14 @@
   <data name="OutInfo" xml:space="preserve">
     <value>External information</value>
   </data>
-  <data name="PatientName.HeaderText" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="PMTCounter.HeaderText" xml:space="preserve">
-    <value>PMT</value>
-  </data>
   <data name="Print" xml:space="preserve">
     <value>Print</value>
-  </data>
-  <data name="Range.HeaderText" xml:space="preserve">
-    <value>Reference</value>
   </data>
   <data name="Recalculate" xml:space="preserve">
     <value>Recalculation Tip</value>
   </data>
   <data name="RecalculateMessage" xml:space="preserve">
     <value>Select the item on which you want to recalculate the results!</value>
-  </data>
-  <data name="Result.HeaderText" xml:space="preserve">
-    <value>Identification</value>
   </data>
   <data name="ReTestMessage" xml:space="preserve">
     <value>Please select the item information to be retested</value>
@@ -1435,15 +1459,6 @@
   <data name="SampleInputMessage" xml:space="preserve">
     <value>Please select the sample you want to enter the information on</value>
   </data>
-  <data name="SampleNo.HeaderText" xml:space="preserve">
-    <value>Sample Number</value>
-  </data>
-  <data name="SampleNo1.HeaderText" xml:space="preserve">
-    <value>Sample Number</value>
-  </data>
-  <data name="SampleType.HeaderText" xml:space="preserve">
-    <value>Sample Type</value>
-  </data>
   <data name="SampleUnStall" xml:space="preserve">
     <value>The samples have been unloaded</value>
   </data>
@@ -1452,9 +1467,6 @@
   </data>
   <data name="SaveMessage" xml:space="preserve">
     <value>Data saved successfully</value>
-  </data>
-  <data name="SendDateTime.HeaderText" xml:space="preserve">
-    <value>Send Date</value>
   </data>
   <data name="SerialConn" xml:space="preserve">
     <value>Serial Port Connection</value>
@@ -1465,25 +1477,7 @@
   <data name="SeriesNoOpenMessage" xml:space="preserve">
     <value>The serial port is not open</value>
   </data>
-  <data name="Sex.HeaderText" xml:space="preserve">
-    <value>Gender</value>
-  </data>
-  <data name="tbnSendResult.Text" xml:space="preserve">
-    <value>Send Data</value>
-  </data>
-  <data name="TestDate.HeaderText" xml:space="preserve">
-    <value>Test Date</value>
-  </data>
   <data name="uninstall" xml:space="preserve">
     <value>uninstall</value>
-  </data>
-  <data name="Unit.HeaderText" xml:space="preserve">
-    <value>Unit</value>
-  </data>
-  <data name="UnstallSubSucess" xml:space="preserve">
-    <value>Substrate unloaded successfully</value>
-  </data>
-  <data name="Ward.HeaderText" xml:space="preserve">
-    <value>Inpatient Ward</value>
   </data>
 </root>

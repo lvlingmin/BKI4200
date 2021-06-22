@@ -661,20 +661,6 @@
         private System.Windows.Forms.ComboBox cmbSelect;
         private System.Windows.Forms.DataGridView dgvSampleData;
         private CustomControl.FunctionButton fbtnTestAgain;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AssayResultID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SampleID;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colChioce;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SampleNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TestDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PMTCounter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Concentration;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Result;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Range;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SampleType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReagentBeach;
         private System.Windows.Forms.DataGridViewTextBoxColumn SampleID1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SendDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn SampleNo1;
@@ -689,5 +675,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Diagnosis;
         private System.Windows.Forms.DataGridViewTextBoxColumn InspectionItems;
         private System.Windows.Forms.DataGridViewTextBoxColumn AcquisitionTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssayResultID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SampleID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colChioce;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SampleNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TestDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PMTCounter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Concentration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Result;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Range;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SampleType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReagentBeach;
     }
 }
