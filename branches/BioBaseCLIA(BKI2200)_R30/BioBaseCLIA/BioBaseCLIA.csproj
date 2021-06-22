@@ -258,6 +258,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\String\LIS\ASTM\CAMessageParser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CAMessageParser.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\String\LIS\ASTM\LisConnection.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LisConnection.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\String\LIS\HL7Analysis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HL7Analysis.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\String\LIS\HL7\CMessageParser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMessageParser.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\String\LIS\HL7\HLObject.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HLObject.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\String\LIS\LisCommunication.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LisCommunication.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\String\NetCom3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -430,6 +460,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmModifyTestResult.en.resx">
       <DependentUpon>frmModifyTestResult.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmModifyTestResult.resx">
       <DependentUpon>frmModifyTestResult.cs</DependentUpon>
@@ -555,6 +586,36 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\LIS\ASTM\CAMessageParser.en.resx" />
+    <EmbeddedResource Include="Resources\String\LIS\ASTM\CAMessageParser.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CAMessageParser.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\LIS\ASTM\LisConnection.en.resx" />
+    <EmbeddedResource Include="Resources\String\LIS\ASTM\LisConnection.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LisConnection.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\LIS\HL7Analysis.en.resx" />
+    <EmbeddedResource Include="Resources\String\LIS\HL7Analysis.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HL7Analysis.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\LIS\HL7\CMessageParser.en.resx" />
+    <EmbeddedResource Include="Resources\String\LIS\HL7\CMessageParser.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CMessageParser.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\LIS\HL7\HLObject.en.resx" />
+    <EmbeddedResource Include="Resources\String\LIS\HL7\HLObject.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>HLObject.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\String\LIS\LisCommunication.en.resx" />
+    <EmbeddedResource Include="Resources\String\LIS\LisCommunication.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LisCommunication.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\String\NetCom3.en.resx">
       <SubType>Designer</SubType>

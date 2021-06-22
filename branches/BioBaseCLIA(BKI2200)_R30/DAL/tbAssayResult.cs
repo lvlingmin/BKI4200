@@ -72,7 +72,7 @@ namespace BioBaseCLIA.DAL
 					new OleDbParameter("@PMTCounter", OleDbType.Integer,4),
 					new OleDbParameter("@Batch", OleDbType.VarChar,50),//2018-08-20 zlx mod
 					new OleDbParameter("@DiluteCount", OleDbType.Integer,4),
-					new OleDbParameter("@Concentration", OleDbType.Double),
+					new OleDbParameter("@Concentration", OleDbType.VarChar,20),
 					new OleDbParameter("@ConcSpec", OleDbType.VarChar,64),
 					new OleDbParameter("@Unit", OleDbType.VarChar,20),
 					new OleDbParameter("@Range", OleDbType.VarChar,255),
@@ -134,7 +134,7 @@ namespace BioBaseCLIA.DAL
 					new OleDbParameter("@PMTCounter", OleDbType.Integer,4),
 					new OleDbParameter("@Batch", OleDbType.VarChar,10),
 					new OleDbParameter("@DiluteCount", OleDbType.Integer,4),
-					new OleDbParameter("@Concentration", OleDbType.Double),
+					new OleDbParameter("@Concentration", OleDbType.VarChar,20),
 					new OleDbParameter("@ConcSpec", OleDbType.VarChar,64),
 					new OleDbParameter("@Unit", OleDbType.VarChar,20),
 					new OleDbParameter("@Range", OleDbType.VarChar,255),
@@ -277,7 +277,7 @@ namespace BioBaseCLIA.DAL
 				//2018-4-20 zlx modified
 				if (row["Concentration"] != null && row["Concentration"].ToString() != "")
 				{
-					model.Concentration = Convert.ToDouble(row["Concentration"]);
+					model.Concentration = row["Concentration"].ToString();
 				}
 				if (row["ConcSpec"] != null)
 				{

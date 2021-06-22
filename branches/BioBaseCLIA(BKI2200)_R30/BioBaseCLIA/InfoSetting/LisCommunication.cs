@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.IO;
 using Localization;
 using Common;
-
+using Res = BioBaseCLIA.Resources.String.LIS.LisCommunication;
 namespace BioBaseCLIA.InfoSetting
 {
     class LisCommunication
@@ -48,7 +48,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             catch (Exception e) {
 
-                MessageBox.Show("Lis服务器无法连接" + "：" + e.Message);
+                MessageBox.Show(Res.LISserverNoconnect + "：" + e.Message);
                 return;
             }
 
@@ -110,7 +110,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             catch (Exception e)
             {
-                MessageBox.Show("发送消息失败" +e.Message+ "！");
+                MessageBox.Show(Res.FailedSendmessage +e.Message+ "！");
             }
         }
         /// <summary>
@@ -220,7 +220,7 @@ namespace BioBaseCLIA.InfoSetting
                 case "ACK^R01":
                     if (message.Contains("ACK^R01") && message.Contains("AA")) 
                     {
-                        MessageBox.Show("数据发送成功");
+                        MessageBox.Show(Res.Datasentsuccessfully);
                     }
                     //LogFile.Write("接受到数据" + "ACK^R01");
                     if (_errorinfo != "")

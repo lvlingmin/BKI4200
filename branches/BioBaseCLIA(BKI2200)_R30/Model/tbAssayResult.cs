@@ -32,7 +32,7 @@ namespace BioBaseCLIA.Model
 		private int? _pmtcounter;
 		private string _batch;
 		private int? _dilutecount;
-		private double? _concentration;
+		private string _concentration;
 		private string _concspec;
 		private string _unit;
 		private string _range;
@@ -92,7 +92,7 @@ namespace BioBaseCLIA.Model
 		/// <summary>
 		/// 浓度
 		/// </summary>
-		public double? Concentration
+		public string Concentration
 		{
 			set{ _concentration=value;}
 			get{return _concentration;}

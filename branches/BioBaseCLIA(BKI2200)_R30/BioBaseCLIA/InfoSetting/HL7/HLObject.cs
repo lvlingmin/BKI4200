@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Res = BioBaseCLIA.Resources.String.LIS.HL7.HLObject;
 namespace BioBaseCLIA.InfoSetting
 {
     public class HLObject
@@ -354,22 +354,22 @@ namespace BioBaseCLIA.InfoSetting
         {
             string _errorinfo="";
             if (ackType == "NF")
-                _errorinfo = "查询没有找到数据";
+                _errorinfo = Res.NoData;
             else if (ackType == "AE")
             {
                 switch (ackcode)
                 { 
                     case 100:
-                        _errorinfo = "消息中段的顺序不正确";
+                        _errorinfo = Res.OrderErr;
                         break;
                     case 101:
-                        _errorinfo = "一个段中丢失必须的字段";
+                        _errorinfo = Res.FieldMiss;
                         break;
                     case 102:
-                        _errorinfo = "字段的数据类型错误";
+                        _errorinfo = Res.DatatypeErr;
                         break;
                     case 103:
-                        _errorinfo = "表值为找到";
+                        _errorinfo = Res.TableNoFount;
                         break;
                     default:
                         break;
@@ -381,28 +381,28 @@ namespace BioBaseCLIA.InfoSetting
                 switch (ackcode)
                 {
                     case 200:
-                        _errorinfo = "消息类型不正确";
+                        _errorinfo = Res.MessageTypeErr;
                         break;
                     case 201:
-                        _errorinfo = "事件代号不支持";
+                        _errorinfo =Res.EventcodeNosupported;
                         break;
                     case 202:
-                        _errorinfo = "处理ID不支持";
+                        _errorinfo = Res.Processidnosupported;
                         break;
                     case 203:
-                        _errorinfo = "版本ID不支持";
+                        _errorinfo = Res.Versionidnosupported;
                         break;
                     case 204:
-                        _errorinfo = "病人信息不存在";
+                        _errorinfo = Res.NoPatient;
                         break;
                     case 205:
-                        _errorinfo = "已存在重复的关键字";
+                        _errorinfo = Res.keywordrepeat;
                         break;
                     case 206:
-                        _errorinfo = "事务在应用程序存储级不能执行";
+                        _errorinfo = Res.TransactionsNoExecute;
                         break;
                     case 207:
-                        _errorinfo = "不明的应用程序内部其他错误";
+                        _errorinfo = Res.UnknownErr;
                         break;
                     default:
                         break;
@@ -411,7 +411,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             else
             {
-                _errorinfo = "成功";
+                _errorinfo = Res.success;
             }
             return _errorinfo; 
         }

@@ -2193,7 +2193,7 @@
     <value>Times New Roman, 15pt, style=Bold</value>
   </data>
   <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>Return</value>
+    <value>back</value>
   </data>
   <data name="btnProInfo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2605,6 +2605,6 @@
     <value>Wash</value>
   </data>
   <data name="Custom" xml:space="preserve">
-    <value>Custom</value>
+    <value>custom</value>
   </data>
 </root>

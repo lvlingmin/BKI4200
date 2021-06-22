@@ -10427,14 +10427,15 @@ namespace BioBaseCLIA.Run
                 modelAssayResult.Batch = "";
                 if (result.concentration == "")
                 {
-                    modelAssayResult.Concentration = 0;
+                    modelAssayResult.Concentration = "0";
                 }
-                else if (result.concentration.Contains(">") || result.concentration.Contains("<"))
-                    modelAssayResult.Concentration = double.Parse(result.concentration.Substring(1, result.concentration.Length - 1));
-                else
-                {
-                    modelAssayResult.Concentration = double.Parse(result.concentration);
-                }
+                modelAssayResult.Concentration =result.concentration;
+                //else if (result.concentration.Contains(">") || result.concentration.Contains("<"))
+                //    modelAssayResult.Concentration = double.Parse(result.concentration.Substring(1, result.concentration.Length - 1));
+                //else
+                //{
+                //    modelAssayResult.Concentration = double.Parse(result.concentration);
+                //}
                 modelAssayResult.ConcSpec = "";
                 modelAssayResult.DiluteCount = 0;
                 modelAssayResult.ItemName = result.ItemName;

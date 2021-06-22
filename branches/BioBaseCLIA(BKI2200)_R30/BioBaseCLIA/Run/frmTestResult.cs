@@ -210,11 +210,11 @@ namespace BioBaseCLIA.Run
                     modelAssayResult.Batch = "";
                     if (listResult[i].concentration == "")
                     {
-                        modelAssayResult.Concentration = 0;
+                        modelAssayResult.Concentration ="0";
                     }
                     else
                     {
-                        modelAssayResult.Concentration = double.Parse(listResult[i].concentration);
+                        modelAssayResult.Concentration = listResult[i].concentration;
                     }
                     modelAssayResult.ConcSpec = "";
                     modelAssayResult.DiluteCount = 0;

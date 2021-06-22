@@ -9,7 +9,7 @@ using System.IO;
 using Localization;
 using Common;
 using System.IO.Ports;
-
+using Res = BioBaseCLIA.Resources.String.LIS.ASTM.LisConnection;
 namespace BioBaseCLIA.InfoSetting
 {
     /// <summary>
@@ -61,7 +61,7 @@ namespace BioBaseCLIA.InfoSetting
             catch (Exception e)
             {
 
-                MessageBox.Show("串口打开失败：" + e.Message);
+                MessageBox.Show(Res.SerialOpenfailed + "：" + e.Message);
                 return;
             }
         }
@@ -180,7 +180,7 @@ namespace BioBaseCLIA.InfoSetting
                 {
                     if (msg.Contains("ACK^R01")&&msg.Contains("AA")) 
                     {
-                        MessageBox.Show("数据发送成功");
+                        MessageBox.Show(Res.Datasentsuccessfully);
                     }
 
                     if (msg.Contains("QCK^Q02")) 
@@ -197,7 +197,7 @@ namespace BioBaseCLIA.InfoSetting
             }
             catch (Exception ex)
             {
-                MessageBox.Show("提示信息", "接收返回消息异常！具体原因：" + ex.Message);
+                MessageBox.Show(Res.Tip, Res.ReceiveErr+Res.reason+":"+ ex.Message);
             }
             if (ReceiveHandel != null)
                 foreach (Delegate dele in ReceiveHandel.GetInvocationList())

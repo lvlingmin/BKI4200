@@ -8,6 +8,7 @@ using BioBaseCLIA.Model;
 using BioBaseCLIA.Run;
 using Maticsoft.DBUtility;
 using System.Data;
+using Res = BioBaseCLIA.Resources.String.LIS.HL7.CMessageParser;
 namespace BioBaseCLIA.InfoSetting
 {
    /// <summary>
@@ -49,7 +50,7 @@ namespace BioBaseCLIA.InfoSetting
             
             string Message = "";
             string _samplet = list[0].SampleType.Trim();
-            if (list[0].SampleType.Contains("质控品"))
+            if (list[0].SampleType.Contains(Res.Control))
             {
                 ConstrolID = ConstrolID + 1;
                 DbHelperOleDb db = new DbHelperOleDb(3);
@@ -140,9 +141,9 @@ namespace BioBaseCLIA.InfoSetting
                     }
                     try
                     {
-                        if (read.GetString(8) == "男"|| read.GetString(8) == "M"||read.GetString(8) == "m")
+                        if (read.GetString(8) == Res.male|| read.GetString(8) == "M"||read.GetString(8) == "m")
                             p.Sex = 'M';
-                        else if (read.GetString(8) == "女"|| read.GetString(8) == "F" || read.GetString(8) == "F")
+                        else if (read.GetString(8) == Res.female|| read.GetString(8) == "F" || read.GetString(8) == "F")
                             p.Sex = 'F';
                         else
                             p.Sex = 'O';
@@ -271,9 +272,9 @@ namespace BioBaseCLIA.InfoSetting
                             p.Pname = read.GetString(7) ;
                             break;
                         case"03":
-                            if (read.GetString(8) == "男")
+                            if (read.GetString(8) == Res.male)
                                 p.Sex = 'M';
-                            else if (read.GetString(8) == "女")
+                            else if (read.GetString(8) == Res.female)
                                 p.Sex = 'F';
                             else
                                 p.Sex = 'O';
@@ -372,11 +373,11 @@ namespace BioBaseCLIA.InfoSetting
                 _sampleInfo.MedicaRecordNo = p.PIdent;
                 _sampleInfo.PatientName = p.Pname;
                 if (p.Sex == 'M')
-                    _sampleInfo.Sex = "男";
+                    _sampleInfo.Sex = Res.male;
                 else if (p.Sex == 'F')
-                    _sampleInfo.Sex = "女";
+                    _sampleInfo.Sex = Res.female;
                 else
-                    _sampleInfo.Sex = "其他";
+                    _sampleInfo.Sex = Res.other;
                 _sampleInfo.Ward = p.SickRoom;
                 if (!string.IsNullOrEmpty(p.Birth) && p.Birth.Length == 14)
                 {

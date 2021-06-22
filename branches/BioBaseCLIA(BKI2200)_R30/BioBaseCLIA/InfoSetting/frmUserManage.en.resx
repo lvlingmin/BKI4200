@@ -824,7 +824,7 @@
     <value>Times New Roman, 15pt, style=Bold</value>
   </data>
   <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>Return</value>
+    <value>back</value>
   </data>
   <data name="panel1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt, style=Bold</value>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Localization;
 using Common;
-
+using Res = BioBaseCLIA.Resources.String.LIS.HL7Analysis;
 namespace BioBaseCLIA.InfoSetting
 {
     class HL7Analysis
@@ -366,7 +366,7 @@ namespace BioBaseCLIA.InfoSetting
         /// <returns></returns>
         public string OBX()
         {
-            string obx = "OBX|" + obxID.ToString() + "|ST|" + ProNumber + "|" + ProName + "|" + resultValue + "|单位|" + Range + "|" + resultJuge
+            string obx = "OBX|" + obxID.ToString() + "|ST|" + ProNumber + "|" + ProName + "|" + resultValue + "|"+Res.unit+"|" + Range + "|" + resultJuge
                           + "|" + Result + "||F|||||" + doctor + "||" + "\u000d";
             return obx;
         }

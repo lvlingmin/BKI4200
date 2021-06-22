@@ -216,7 +216,7 @@ namespace BioBaseCLIA.DataQuery
                         dgvSampleData.SelectedRows[i].Cells[7].Value = concentration;
                     }
                     if (concentration != Getstring("NoNumber") && dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString() != "")
-                        dgvSampleData.SelectedRows[i].Cells["Result"].Value = GetResult(dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString(), double.Parse(concentration));
+                        dgvSampleData.SelectedRows[i].Cells["Result"].Value = GetResult(dgvSampleData.SelectedRows[i].Cells["AssayResultID"].Value.ToString(), concentration);
                     dgvSampleData.SelectedRows[i].Cells["Result"].ReadOnly = true;
                 }
             }
@@ -225,81 +225,87 @@ namespace BioBaseCLIA.DataQuery
         /// <summary>
         /// 获取结果标识  2018-12-07 zlx add
         /// </summary>
-        /// <param name="ProName">项目名称</param>
+        /// <param name="ResultId">实验结果编号</param>
         /// <param name="concentration">浓度值</param>
         /// <returns></returns>
-        private string GetResult(string ProName, double concentration)
+        private string GetResult(string ResultId, string concentration)
         {
             string Result = "";
-            DbHelperOleDb db = new DbHelperOleDb(0);
-            DataTable tbtbProject = DbHelperOleDb.Query(0, @"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + ProName + "'").Tables[0];
-            if (concentration < double.Parse(tbtbProject.Rows[0]["MinValue"].ToString()))
+            DbHelperOleDb db = new DbHelperOleDb(1);
+            DataTable tbtbProject = DbHelperOleDb.Query(0, @"select Range from tbAssayResult where AssayResultID = '" + long.Parse(ResultId) + "'").Tables[0];
+            if (concentration.Contains("<"))
             {
                 Result = Getstring("NotRangeMessage");
             }
-            else if (concentration > double.Parse(tbtbProject.Rows[0]["MaxValue"].ToString()))
+            else if (concentration.Contains(">"))
             {
                 Result = Getstring("NotRangeMessage");
             }
             else
             {
-                string Range1 = tbtbProject.Rows[0]["ValueRange1"].ToString();
-                if (Range1.Contains("-"))
+                string Range = tbtbProject.Rows[0]["Range"].ToString();
+                string[] SpRange = Range.Split(' ');
+                if (SpRange.Length == 1)
                 {
-                    string[] ranges = Range1.Split('-');
-                    if (concentration < double.Parse(ranges[0]))
+                    string Range1 = SpRange[0];
+                    double dconcentration = double.Parse(concentration);
+                    if (Range1.Contains("-"))
                     {
-                        Result = "↓";
+                        string[] ranges = Range1.Split('-');
+                        if (dconcentration < double.Parse(ranges[0]))
+                        {
+                            Result = "↓";
+                        }
+                        else if (dconcentration > double.Parse(ranges[1]))
+                        {
+                            Result = "↑";
+                        }
+                        else
+                            Result = Getstring("Normal");
                     }
-                    else if (concentration > double.Parse(ranges[1]))
+                    else if (Range1.Contains("<"))
                     {
-                        Result = "↑";
+                        if (dconcentration >= double.Parse(Range1.Substring(1)))
+                        {
+                            Result = "↑";
+                        }
+                        else
+                        {
+                            Result = Getstring("Normal");
+                        }
                     }
-                    else
-                        Result = Getstring("Normal");
-                }
-                else if (Range1.Contains("<"))
-                {
-                    if (concentration >= double.Parse(Range1.Substring(1)))
+                    else if (Range1.Contains("<="))
                     {
-                        Result = "↑";
+                        if (dconcentration > double.Parse(Range1.Substring(2)))
+                        {
+                            Result = "↑";
+                        }
+                        else
+                        {
+                            Result = Getstring("Normal");
+                        }
                     }
-                    else
+                    else if (Range1.Contains(">"))
                     {
-                        Result = Getstring("Normal");
+                        if (dconcentration <= double.Parse(Range1.Substring(1)))
+                        {
+                            Result = "↓";
+                        }
+                        else
+                        {
+                            Result = Getstring("Normal");
+                        }
                     }
-                }
-                else if (Range1.Contains("<="))
-                {
-                    if (concentration > double.Parse(Range1.Substring(2)))
+                    else if (Range1.Contains(">="))
                     {
-                        Result = "↑";
-                    }
-                    else
-                    {
-                        Result = Getstring("Normal");
-                    }
-                }
-                else if (Range1.Contains(">"))
-                {
-                    if (concentration <= double.Parse(Range1.Substring(1)))
-                    {
-                        Result = "↓";
-                    }
-                    else
-                    {
-                        Result = Getstring("Normal");
-                    }
-                }
-                else if (Range1.Contains(">="))
-                {
-                    if (concentration < double.Parse(Range1.Substring(2)))
-                    {
-                        Result = "↓";
-                    }
-                    else
-                    {
-                        Result = Getstring("Normal");
+                        if (dconcentration < double.Parse(Range1.Substring(2)))
+                        {
+                            Result = "↓";
+                        }
+                        else
+                        {
+                            Result = Getstring("Normal");
+                        }
                     }
                 }
             }
@@ -314,8 +320,8 @@ namespace BioBaseCLIA.DataQuery
             DbHelperOleDb DB = new DbHelperOleDb(1);
             for (int i = 0; i < dgvSampleData.SelectedRows.Count; i++)
             {
-                DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Concentration = " + Convert.ToDouble(
-               dgvSampleData.SelectedRows[i].Cells[7].Value.ToString()) + " where AssayResultID = " + int.Parse
+                DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Concentration = " + 
+               dgvSampleData.SelectedRows[i].Cells[7].Value.ToString() + " where AssayResultID = " + int.Parse
                (dgvSampleData.SelectedRows[i].Cells[1].Value.ToString()));
             }
             frmMsgShow.MessageShow(Getstring("SaveHead"), Getstring("SaveMessage"));
@@ -993,7 +999,7 @@ namespace BioBaseCLIA.DataQuery
                     modelAssayResult.ItemName = dr[1].ToString();
                     modelAssayResult.TestDate = Convert.ToDateTime(dr[2]);
                     modelAssayResult.PMTCounter = int.Parse(dr[3].ToString());
-                    modelAssayResult.Concentration = double.Parse(dr[4].ToString());
+                    modelAssayResult.Concentration = dr[4].ToString();
                     modelAssayResult.Unit = dr[5].ToString();
                     modelAssayResult.Result = dr[6].ToString();
                     modelAssayResult.Range = dr[7].ToString();
@@ -1187,27 +1193,27 @@ namespace BioBaseCLIA.DataQuery
             GetDataGridColor();
             dgvSampleData.ClearSelection();
             //2018-11-08 zlx add
-            foreach (DataGridViewRow dgv in dgvSampleData.Rows)
-            {
-                double concentration = double.Parse(dgv.Cells["Concentration"].Value.ToString());
-                DbHelperOleDb db = new DbHelperOleDb(0);
-                DataTable tbtbProject = DbHelperOleDb.Query(0, @"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgv.Cells["ItemName"].Value + "'").Tables[0];
-                //2018-11-26 zlx mod
-                if (tbtbProject.Rows[0][0].ToString() != "")
-                {
-                    string  content=Getstring("NotRangeMessage");
-                    string content2 = Getstring("NoNumber");
-                    if (concentration == double.Parse(tbtbProject.Rows[0][2].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
-                        dgv.Cells["Concentration"].Value = "<" + concentration;
-                    else if (concentration == double.Parse(tbtbProject.Rows[0][3].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
-                        dgv.Cells["Concentration"].Value = ">" + concentration;
-                    else
-                        dgv.Cells["Concentration"].Value = concentration.ToString("F" + int.Parse(tbtbProject.Rows[0][0].ToString()) + "");
-                }
-                else
-                    dgv.Cells["Concentration"].Value = concentration.ToString("F0");
+            //foreach (DataGridViewRow dgv in dgvSampleData.Rows)
+            //{
+            //    string concentration = dgv.Cells["Concentration"].Value.ToString();
+            //    DbHelperOleDb db = new DbHelperOleDb(0);
+            //    DataTable tbtbProject = DbHelperOleDb.Query(0, @"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgv.Cells["ItemName"].Value + "'").Tables[0];
+            //    //2018-11-26 zlx mod
+            //    if (tbtbProject.Rows[0][0].ToString() != "")
+            //    {
+            //        string  content=Getstring("NotRangeMessage");
+            //        string content2 = Getstring("NoNumber");
+            //        if (concentration == double.Parse(tbtbProject.Rows[0][2].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
+            //            dgv.Cells["Concentration"].Value = "<" + concentration;
+            //        else if (concentration == double.Parse(tbtbProject.Rows[0][3].ToString()) && dgv.Cells["Result"].Value.ToString().Contains(Getstring("NotRangeMessage")))
+            //            dgv.Cells["Concentration"].Value = ">" + concentration;
+            //        else
+            //            dgv.Cells["Concentration"].Value = concentration.ToString("F" + int.Parse(tbtbProject.Rows[0][0].ToString()) + "");
+            //    }
+            //    else
+            //        dgv.Cells["Concentration"].Value = concentration.ToString("F0");
 
-            }
+            //}
 
         }
         //2018-12-07 zlx mod
@@ -1223,7 +1229,7 @@ namespace BioBaseCLIA.DataQuery
                 dgvSampleData.CurrentCell.Value = 0;
             dgvSampleData.CurrentRow.Cells["Result"].ReadOnly = false;
             if (double.Parse(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString()) > 0)
-                dgvSampleData.CurrentRow.Cells["Result"].Value = GetResult(dgvSampleData.CurrentRow.Cells["ItemName"].Value.ToString(), double.Parse(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString()));
+                dgvSampleData.CurrentRow.Cells["Result"].Value = GetResult(dgvSampleData.CurrentRow.Cells["AssayResultID"].Value.ToString(), dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString());
             dgvSampleData.CurrentRow.Cells["Result"].ReadOnly = true;
             DbHelperOleDb db = new DbHelperOleDb(1);
             StringBuilder strSql = new StringBuilder();
@@ -1234,7 +1240,7 @@ namespace BioBaseCLIA.DataQuery
             strSql.Append(" where AssayResultID=@AssayResultID");
             OleDbParameter[] parameters = {
                     new OleDbParameter("@PMTCounter", OleDbType.Integer,4),
-                    new OleDbParameter("@Concentration", OleDbType.Double),
+                    new OleDbParameter("@Concentration", OleDbType.VarChar,20),
                     new OleDbParameter("@Result", OleDbType.VarChar,20),
                     new OleDbParameter("@AssayResultID", OleDbType.Integer,4)};
             parameters[0].Value = dgvSampleData.CurrentRow.Cells["PMTCounter"].Value;
@@ -1261,7 +1267,7 @@ namespace BioBaseCLIA.DataQuery
             strSql.Append(" where AssayResultID=@AssayResultID");
             OleDbParameter[] parameters = {
                     new OleDbParameter("@PMTCounter", OleDbType.Integer,4),
-                    new OleDbParameter("@Concentration", OleDbType.Double),
+                    new OleDbParameter("@Concentration", OleDbType.VarChar,20),
                      new OleDbParameter("@Result", OleDbType.VarChar,20),
                     new OleDbParameter("@AssayResultID", OleDbType.Integer,4)};
             parameters[0].Value = dgvSampleData.CurrentRow.Cells["PMTCounter"].Value;

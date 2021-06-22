@@ -60,7 +60,7 @@ namespace BioBaseCLIA.DataQuery
 					new OleDbParameter("@SampleID", OleDbType.Integer,4),
 					new OleDbParameter("@ItemName", OleDbType.VarChar,30),
 					new OleDbParameter("@PMTCounter", OleDbType.Integer,4),
-					new OleDbParameter("@Concentration", OleDbType.Double),
+					new OleDbParameter("@Concentration", OleDbType.VarChar,20),
 					new OleDbParameter("@Unit", OleDbType.VarChar,20),
 					new OleDbParameter("@Range", OleDbType.VarChar,255),
 					new OleDbParameter("@TestDate", OleDbType.VarChar,30),

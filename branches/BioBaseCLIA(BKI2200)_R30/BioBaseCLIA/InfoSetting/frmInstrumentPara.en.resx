@@ -1035,7 +1035,7 @@
     <value>133, 61</value>
   </data>
   <data name="fbtnReturn.Text" xml:space="preserve">
-    <value>Return</value>
+    <value>back</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 30pt, style=Bold</value>
