@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -15,6 +17,7 @@ using BioBaseCLIA.CalculateCurve;
 using BioBaseCLIA.DataQuery;
 using BioBaseCLIA.InfoSetting;
 using Common;
+using Localization;
 using Maticsoft.DBUtility;
 using static BioBaseCLIA.Run.TestSchedule;
 
@@ -499,7 +502,7 @@ namespace BioBaseCLIA.Run
                 NetCom3.Instance.stopsendFlag = false;
             if (!NetCom3.isConnect)
             {
-                frmMsgShow.MessageShow("上下位机连接", "系统与仪器连接失败，请查看连接设置！");
+                frmMsgShow.MessageShow(getString("keywordText.Scnn"), getString("keywordText.ConnectErr"));
                 return;
             }
 
@@ -655,7 +658,7 @@ namespace BioBaseCLIA.Run
                     int tempSamNum = templisTestSchedule.FindAll(tx => tx.TestScheduleStep == TestSchedule.ExperimentScheduleStep.AddLiquidTube).Count;
                     //查询还未开始运行的标准品和定标液数量或急诊样本数量
                     int NoStartScalNum = new List<TestItem>((BindingList<TestItem>)this.dgvWorkListData.DataSource).FindAll(ty =>
-                        ty.TestID >= NoStartTestId && (ty.SampleType.Contains("标准品") || ty.SampleType.Contains("定标液"))).Count;
+                        ty.TestID >= NoStartTestId && (ty.SampleType.Contains(getString("keywordText.Standard")) || ty.SampleType.Contains(getString("keywordText.CalibrationSolution")))).Count;
                     int NoStartTestID = NoStartTestId + NoStartScalNum;
                     //被延后的反应管的所在位置
                     int OldAddSamPos = lisTestSchedule.Find(ty => ty.TestID == NoStartTestID - 1 &&
@@ -1096,9 +1099,9 @@ namespace BioBaseCLIA.Run
             {
                 Thread.Sleep(30);
             }
-            LogFile.Instance.Write("**********时间更新1："+DateTime.Now.ToString("HH-mm-ss") +
-                " H :"+ ((int)span.TotalHours).ToString("00") +
-                "M :" + span.Minutes.ToString("00")+"**********");
+            LogFile.Instance.Write("**********时间更新1：" + DateTime.Now.ToString("HH-mm-ss") +
+                " H :" + ((int)span.TotalHours).ToString("00") +
+                "M :" + span.Minutes.ToString("00") + "**********");
             TimeLabel2.Invoke(new Action(() =>
             {
                 TimeLabel2.Text = ((int)span.TotalHours).ToString("00");
@@ -1121,7 +1124,7 @@ namespace BioBaseCLIA.Run
             {
                 Thread.Sleep(30);
             }
-            LogFile.Instance.Write("**********时间更新5：" + DateTime.Now.ToString("HH-mm-ss") );
+            LogFile.Instance.Write("**********时间更新5：" + DateTime.Now.ToString("HH-mm-ss"));
             lock (TimeLabel2)
             {
                 TimeLabel2.Invoke(new Action(() =>
@@ -1250,31 +1253,31 @@ namespace BioBaseCLIA.Run
                     }
                     else
                     {
-                        if (rows[0]["SampleType"].ToString().Contains("标准品") ||
-                            rows[0]["SampleType"].ToString().Contains("定标液") ||
-                            rows[0]["SampleType"].ToString().Contains("校准品"))
+                        if (rows[0]["SampleType"].ToString().Contains(getString("keywordText.Standard")) ||
+                            rows[0]["SampleType"].ToString().Contains(getString("keywordText.CalibrationSolution")) ||
+                            rows[0]["SampleType"].ToString().Contains(getString("keywordText.Calibrator")))
                         {
                             Emergency = "5";
                         }
-                        else if (rows[0]["SampleType"].ToString().Contains("质控品"))
+                        else if (rows[0]["SampleType"].ToString().Contains(getString("keywordText.Control")))
                         {
                             Emergency = "4";
                         }
-                        else if (rows[0]["SampleType"].ToString().Contains("交叉污染"))//lyq add 20190830
+                        else if (rows[0]["SampleType"].ToString().Contains(getString("keywordText.CrossContamination")))//lyq add 20190830
                         {
                             Emergency = (int.Parse(dtSampleInfo.Rows[i]["RepeatCount"].ToString()) - j - 6).ToString();
                         }
                         else
                         {
                             //获取急诊信息
-                            Emergency = rows[0]["Emergency"].ToString() == "是" ?
+                            Emergency = rows[0]["Emergency"].ToString() == getString("keywordText.Is") ?
                                 ((frmWorkList.RunFlag == (int)RunFlagStart.IsRuning) ? "2" : "3") :
                                 (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning ? "0" : "1");
                         }
                         if (rows.Length > 0 &&
-                            !(rows[0]["SampleType"].ToString().Contains("标准品")
-                            || rows[0]["SampleType"].ToString().Contains("质控品")
-                            || rows[0]["SampleType"].ToString().Contains("校准品")))
+                            !(rows[0]["SampleType"].ToString().Contains(getString("keywordText.Standard"))
+                            || rows[0]["SampleType"].ToString().Contains(getString("keywordText.Control"))
+                            || rows[0]["SampleType"].ToString().Contains(getString("keywordText.Calibrator"))))
                         {
                             //获取稀释倍数
                             DiuTimes = int.Parse(rows[0]["DilutionTimes"].ToString());
@@ -2452,7 +2455,7 @@ namespace BioBaseCLIA.Run
             bool isAllowFlag = false;
             int beforeTime = 0;
             int firstTime = 0;
-        sequel:
+            sequel:
             if (firstTime != 0)
             {
                 addLiquidStartTime += 1;
@@ -2798,6 +2801,24 @@ namespace BioBaseCLIA.Run
             //2018-07-23
             if (frmMain.BQLiquaid)
                 frmMain.BQLiquaid = false;
+            if (dtSpInfo.Select("SampleType='" + getString("keywordText.CalibrationSolution")+"' and Status='0'").Length > 0 ||
+                   dtSpInfo.Select("SampleType like '" + getString("keywordText.Calibrator") + "%' and Status='0'").Length > 0 ||
+                   dtSpInfo.Select("SampleType like '" + getString("keywordText.Control") + "%' and Status='0'").Length > 0 ||
+                   dtSpInfo.Select("SampleType like '" + getString("keywordText.Standard") + "%' and Status='0'").Length > 0)
+            {
+                if (dtSpInfo.Select("SampleType ='" + getString("keywordText.Serum") + "' and Status='0'").Length > 0 ||
+                    dtSpInfo.Select("SampleType ='" + getString("keywordText.Urine") + "' and Status='0'").Length > 0 ||
+                    dtSpInfo.Select("SampleType ='" + getString("keywordText.BodyFluid") + "' and Status='0'").Length > 0)
+                {
+                    MessageBox.Show(getString("keywordText.SerumSampleCannotTestWithOther") + getString("keywordText.testNoStart"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (btnRunStatus != null)
+                    {
+                        btnRunStatus();
+                    }
+                    buttonEnableRun(false);
+                    return;
+                }
+            }
             //2018-07-18
             #region 缺液提示
             if (frmMain.LackLq[0] > 0 || frmMain.LackLq[1] > 0 || frmMain.LackLq[2] > 0 || frmMain.LackLq[3] > 0)
@@ -2806,33 +2827,33 @@ namespace BioBaseCLIA.Run
                 StringBuilder st = new StringBuilder();
                 if (frmMain.LackLq[0] > 0)
                 {
-                    st.Append("磁珠清洗液缺液！");
+                    st.Append(getString("keywordText.liquidB"));
                 }
                 if (frmMain.LackLq[1] > 0)
                 {
                     if (st.Length == 0)
-                        st.Append("探针清洗液缺液！");
+                        st.Append(getString("keywordText.liquidWash"));
                     else
-                        st.Append("\n探针清洗液缺液！");
+                        st.Append("\n" + getString("keywordText.liquidWash"));
                 }
                 if (frmMain.LackLq[2] > 0)
                 {
                     if (st.Length == 0)
-                        st.Append("废液桶已满！");
+                        st.Append(getString("keywordText.liquidWaste"));
                     else
-                        st.Append("\n废液桶已满！");
+                        st.Append("\n" + getString("keywordText.liquidWaste"));
                 }
                 if (frmMain.LackLq[3] > 0)
                 {
                     if (st.Length == 0)
-                        st.Append("废管盒已满！");
+                        st.Append(getString("keywordText.tubeWaste"));
                     else
-                        st.Append("\n废管盒已满！");
+                        st.Append("\n" + getString("keywordText.tubeWaste"));
                 }
                 if ((frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2] || frmMain.StopFlag[3]))
                 {
-                    st.Append("\n实验无法开始！");
-                    MessageBox.Show(st.ToString(), "缺液警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    st.Append("\n" + getString("keywordText.testNoStart"));
+                    MessageBox.Show(st.ToString(), getString("keywordText.LiquidWarn"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     if (btnRunStatus != null)
                     {
                         btnRunStatus();
@@ -2842,8 +2863,8 @@ namespace BioBaseCLIA.Run
                 }
                 else
                 {
-                    st.Append("\n将会影响到此次实验,请确认是否继续？");
-                    DialogResult dr = MessageBox.Show(st.ToString(), "缺液警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    st.Append("\n" + getString("keywordText.ifcontinue"));
+                    DialogResult dr = MessageBox.Show(st.ToString(), getString("keywordText.LiquidWarn"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     if (dr != DialogResult.OK)
                     {
                         if (btnRunStatus != null)
@@ -2865,6 +2886,8 @@ namespace BioBaseCLIA.Run
             btnLoadReagent.Enabled = btnLoadSample.Enabled = fbtnReturn.Enabled = fbtnReturn.Enabled = false;//2018-07-26 zlx add
             lisSavedId = new List<int>();
             MoveTubeThread = new Thread(new ParameterizedThreadStart(MoveTube));
+            MoveTubeThread.CurrentCulture = Language.AppCultureInfo;
+            MoveTubeThread.CurrentUICulture = Language.AppCultureInfo;
             MoveTubeThread.IsBackground = true;
             MoveTubeThread.Start();
             EntertRun = false;
@@ -2920,6 +2943,8 @@ namespace BioBaseCLIA.Run
             buttonEnableRun(true);//2018-11-29 zlx mod
             EntertRun = true;
             RunThread = new Thread(new ParameterizedThreadStart(GaTestRun));// GaTestRun  TestRun
+            RunThread.CurrentCulture = Language.AppCultureInfo;
+            RunThread.CurrentUICulture = Language.AppCultureInfo;
             RunThread.IsBackground = true;
             RunThread.Start();
 
@@ -2951,34 +2976,6 @@ namespace BioBaseCLIA.Run
                 return false;
             }
             #region 判断各个模组是否初始化成功
-            //int[] HandData = new int[16];
-            //while (dataRecive[0] == null || dataRecive[2] != "F1")//2018-07-18 zlx add
-            //{
-            //    NetCom3.Delay(10);//2018-07-01
-            //}
-            //HandData = NetCom3.converTo10(dataRecive);
-            /*
-            if (HandData[4] != 255)
-            {
-                frmMsgShow.MessageShow("仪器初始化", "计数器模组初始化失败！");
-                return false;
-            }
-            if (HandData[5] != 255)
-            {
-                frmMsgShow.MessageShow("仪器初始化", "抓手模组初始化失败！");
-                return false;
-            }
-            if (HandData[6] != 255)
-            {
-                frmMsgShow.MessageShow("仪器初始化", "加样机模组初始化失败！");
-                return false;
-            }
-            if (HandData[7] != 255)
-            {
-                frmMsgShow.MessageShow("仪器初始化", "清洗模组初始化失败！");
-                return false;
-            }
-             */
             if (NetCom3.Instance.ErrorMessage != null)
             {
                 //2018-09-06 zlx mod
@@ -2993,21 +2990,21 @@ namespace BioBaseCLIA.Run
             #region 查询仪器中是否有使用过的反应管，若有夹出
             if (!washTrayTubeClear(null))
             {
-                MessageBox.Show("清空清洗盘故障，请检查仪器");
+                MessageBox.Show(getString("keywordText.EmptyWashErr"));
                 return false;
             }
             //washTrayTubeClear();
             //if (RunFlag != (int)RunFlagStart.IsRuning) return false;
             if (!CleanTrayWashPipeline())
             {
-                MessageBox.Show("清洗盘清洗故障");
+                MessageBox.Show(getString("keywordText.cleanWashEr"));
                 return false;
             }
             //if (RunFlag != (int)RunFlagStart.IsRuning) return false;
             //reactTrayTubeClear();
             if (!reactTrayTubeClear(null))
             {
-                MessageBox.Show("清空温育盘故障");
+                MessageBox.Show(getString("keywordText.Emptytray"));
                 return false;
             }
             if (RunFlag != (int)RunFlagStart.IsRuning) return false;
@@ -3046,7 +3043,7 @@ namespace BioBaseCLIA.Run
             LogFile.Instance.Write("2温育盘有管数量" + sumReactTubeNum);
             if (sumReactTubeNum < toUsedTube)
             {
-                DataRow[] dr = dtReactTrayInfo.Select("Pos='no80'");
+                DataRow[] dr = dtReactTrayInfo.Select("Pos='no" + frmParent.ReactTrayNum + "'");
                 if (Convert.ToInt32(dr[0][1]) == 1)
                 {
                     for (int i = 3; i < dtReactTrayInfo.Rows.Count; i++)
@@ -3108,27 +3105,27 @@ namespace BioBaseCLIA.Run
         {
             if (!washTrayTubeClear(null))
             {
-                MessageBox.Show("清空清洗盘故障，请检查仪器！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getString("keywordText.EmptyWashErr"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (RunFlag != (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show("实验状态故障，请检查运行状态！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getString("keywordText.RunStatusErr"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (!CleanTrayWashPipeline())
             {
-                MessageBox.Show("清洗故障，请检查清洗装置运行状况！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getString("keywordText.cleanWashEr"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (!reactTrayTubeClear(null))
             {
-                MessageBox.Show("清空温育盘故障，请检查温育盘是否异常！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getString("keywordText.Emptytray"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if (RunFlag != (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show("实验状态故障，请检查运行状态！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(getString("keywordText.RunStatusErr"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -3146,7 +3143,7 @@ namespace BioBaseCLIA.Run
 
             if (dtSampleRunInfo.Rows.Count == 0 || dtSampleRunInfo == null)
             {
-                frmMsgShow.MessageShow("工作列表", "请重新装载样本！");
+                frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.ReLoadS"));
                 return false;
             }
             #endregion
@@ -3179,10 +3176,10 @@ namespace BioBaseCLIA.Run
                     if (listDiu.Count > 0)
                     {
                         string DiuName = "";
-                        List<ReagentIniInfo> lisRTtem = lisRIinfo.FindAll(ty => (ty.ItemName ==item.Key));
+                        List<ReagentIniInfo> lisRTtem = lisRIinfo.FindAll(ty => (ty.ItemName == item.Key));
                         foreach (ReagentIniInfo RTtem in lisRTtem)
                         {
-                           string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RTtem.Postion, "DiuPos", "", iniPathReagentTrayInfo);
+                            string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + RTtem.Postion, "DiuPos", "", iniPathReagentTrayInfo);
                             if (DiuPos != "")
                             {
                                 DiuName = OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "ItemName", "", iniPathReagentTrayInfo);
@@ -3227,7 +3224,7 @@ namespace BioBaseCLIA.Run
                         {
                             newrow = DtRgInfoNoStat.NewRow();
                             newrow["RgName"] = DiuName;
-                            newrow["TestRg"] = SumDiluteVol; 
+                            newrow["TestRg"] = SumDiluteVol;
                             newrow["TestDiu"] = 0;
                             DtRgInfoNoStat.Rows.Add(newrow);
                         }
@@ -3242,14 +3239,14 @@ namespace BioBaseCLIA.Run
                 foreach (ReagentIniInfo R in lisRTtem)
                 {
                     string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + R.Postion, "DiuFlag", "", iniPathReagentTrayInfo);
-                    if(DiuFlag=="1")
-                        left = left + R.LeftReagent1- DiuNoUsePro;
+                    if (DiuFlag == "1")
+                        left = left + R.LeftReagent1 - DiuNoUsePro;
                     else
                         left = left + R.LeftReagent1;
                 }
                 if (left < int.Parse(dr["TestRg"].ToString()))
                 {
-                    frmMsgShow.MessageShow("工作列表", dr["RgName"].ToString()+ "项目不足，请及时进行更换！");
+                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), dr["RgName"].ToString() + getString("keywordText.ProjectLess"));
                     return false;
                 }
             }
@@ -3304,31 +3301,31 @@ namespace BioBaseCLIA.Run
                                 switch (i)
                                 {
                                     case 0:
-                                        dtScal.Rows.Add("标准品A", lisItem.FindAll(ty => ty.SampleType == "标准品A"
+                                        dtScal.Rows.Add(getString("keywordText.StandardA"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.StandardA")
                                             && ty.RegentBatch == reBNum.Key).Count);
                                         break;
                                     case 1:
-                                        dtScal.Rows.Add("标准品B", lisItem.FindAll(ty => ty.SampleType == "标准品B"
+                                        dtScal.Rows.Add(getString("keywordText.StandardB"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.StandardB")
                                             && ty.RegentBatch == reBNum.Key).Count);
                                         break;
                                     case 2:
-                                        dtScal.Rows.Add("标准品C", lisItem.FindAll(ty => ty.SampleType == "标准品C"
+                                        dtScal.Rows.Add(getString("keywordText.StandardC"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.StandardC")
                                         && ty.RegentBatch == reBNum.Key).Count);
                                         break;
                                     case 3:
-                                        dtScal.Rows.Add("标准品D", lisItem.FindAll(ty => ty.SampleType == "标准品D"
+                                        dtScal.Rows.Add(getString("keywordText.StandardD"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.StandardD")
                                         && ty.RegentBatch == reBNum.Key).Count);
                                         break;
                                     case 4:
-                                        dtScal.Rows.Add("标准品E", lisItem.FindAll(ty => ty.SampleType == "标准品E"
+                                        dtScal.Rows.Add(getString("keywordText.StandardE"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.StandardE")
                                         && ty.RegentBatch == reBNum.Key).Count);
                                         break;
                                     case 5:
-                                        dtScal.Rows.Add("标准品F", lisItem.FindAll(ty => ty.SampleType == "标准品F"
+                                        dtScal.Rows.Add(getString("keywordText.StandardF"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.StandardF")
                                         && ty.RegentBatch == reBNum.Key).Count);
                                         break;
                                     case 6:
-                                        dtScal.Rows.Add("标准品G", lisItem.FindAll(ty => ty.SampleType == "标准品G"
+                                        dtScal.Rows.Add(getString("keywordText.StandardG"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.StandardG")
                                         && ty.RegentBatch == reBNum.Key).Count);
                                         break;
                                 }
@@ -3354,7 +3351,7 @@ namespace BioBaseCLIA.Run
                                     if (ExitsMainCurve) //有主曲线
                                     {
 
-                                        if (lisSameItem.FindAll(ty => (ty.SampleType.Contains("标准品"))).Count == 0)
+                                        if (lisSameItem.FindAll(ty => (ty.SampleType.Contains(getString("keywordText.Standard")))).Count == 0)
                                         {
                                             #region 判断定标曲线是否可以使用
                                             string[] scpoint = points.Split(';');
@@ -3389,7 +3386,7 @@ namespace BioBaseCLIA.Run
                                             Calculater er = GetCalculater(DataMain, tempdt, item.Key);
                                             if (er.R2 < 0.99)
                                             {
-                                                frmMsgShow.MessageShow("工作列表", "批号为：" + reBNum.Key + " 项目名称为：" + item.Key + "的试剂定标曲线相关性较差，请进行更换或重新定标！");
+                                                frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.Recalibrate"));
                                                 return false;
                                             }
                                             #endregion
@@ -3408,18 +3405,18 @@ namespace BioBaseCLIA.Run
                                         //判断是否有历史定标
                                         if (points == null || points == "")
                                         {
-                                            frmMsgShow.MessageShow("工作列表", "无主曲线无法两点校准进行计算！");
+                                            frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.noMainCurve"));
                                             return false;
                                         }
                                         else if (DateTime.Now.Date.AddDays(-Convert.ToInt32(dtItemInfo.Rows[0][3])).Date > Convert.ToDateTime(ActiveDate))
                                         {
                                             //2018-07-31 zlx add
-                                            frmMsgShow.MessageShow("工作列表", "无主曲线已有的历史定标已经过期，请更换定标信息！");
+                                            frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.hiscalibrationOver"));
                                             return false;
                                         }
                                         else
                                         {
-                                            if (lisSameItem.FindAll(ty => (ty.SampleType.Contains("标准品"))).Count == 0)
+                                            if (lisSameItem.FindAll(ty => (ty.SampleType.Contains(getString("keywordText.Standard")))).Count == 0)
                                             {
                                                 #region 判断定标曲线是否可以使用
                                                 string[] scpoint = points.Split(';');
@@ -3455,7 +3452,7 @@ namespace BioBaseCLIA.Run
                                                 Calculater er = GetCalculater(DataMain, tempdt, item.Key);
                                                 if (er.R2 < 0.99)
                                                 {
-                                                    frmMsgShow.MessageShow("工作列表", "批号为：" + reBNum.Key + " 项目名称为：" + item.Key + "的试剂定标曲线相关性较差，请进行更换或重新定标！");
+                                                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.Recalibrate"));
                                                     return false;
                                                 }
                                                 #endregion
@@ -3475,18 +3472,18 @@ namespace BioBaseCLIA.Run
                                     //判断是否有历史定标
                                     if (points == null || points == "")
                                     {
-                                        frmMsgShow.MessageShow("工作列表", "请对批号为：" + reBNum.Key + " 项目名称为：" + item.Key + "的试剂进行定标");
+                                        frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.NoScling"));
                                         return false;
                                     }
                                     else if (DateTime.Now.Date.AddDays(-Convert.ToInt32(dtItemInfo.Rows[0][3])).Date > Convert.ToDateTime(ActiveDate))
                                     {
                                         //2018-07-31 zlx add
-                                        frmMsgShow.MessageShow("工作列表", "批号为：" + reBNum.Key + " 项目名称为：" + item.Key + "的试剂定标信息已经过期，请进行更换或重新定标！");
+                                        frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.SclingOver"));
                                         return false;
                                     }
                                     else
                                     {
-                                        if (lisSameItem.FindAll(ty => (ty.SampleType.Contains("标准品"))).Count == 0)
+                                        if (lisSameItem.FindAll(ty => (ty.SampleType.Contains(getString("keywordText.Standard")))).Count == 0)
                                         {
                                             #region 判断定标曲线是否可以使用
                                             string[] scpoint = points.Split(';');
@@ -3522,7 +3519,7 @@ namespace BioBaseCLIA.Run
                                             Calculater er = GetCalculater(DataMain, tempdt, item.Key);
                                             if (er.R2 < 0.99)
                                             {
-                                                frmMsgShow.MessageShow("工作列表", "批号为：" + reBNum.Key + " 项目名称为：" + item.Key + "的试剂定标曲线相关性较差，请进行更换或重新定标！");
+                                                frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.Recalibrate"));
                                                 return false;
                                             }
                                             #endregion
@@ -3539,7 +3536,7 @@ namespace BioBaseCLIA.Run
                             }
                             else//六个标准品都不为0
                             {
-                                if (lisSameItem.FindAll(ty => (ty.SampleType.Contains("标准品"))).Count == 0)
+                                if (lisSameItem.FindAll(ty => (ty.SampleType.Contains(getString("keywordText.Standard")))).Count == 0)
                                 {
                                     #region 判断定标曲线是否可以使用
                                     string[] scpoint = points.Split(';');
@@ -3575,7 +3572,7 @@ namespace BioBaseCLIA.Run
                                     Calculater er = GetCalculater(DataMain, tempdt, item.Key);
                                     if (er.R2 < 0.99)
                                     {
-                                        frmMsgShow.MessageShow("工作列表", "批号为：" + reBNum.Key + " 项目名称为：" + item.Key + "的试剂定标曲线相关性较差，请进行更换或重新定标！");
+                                        frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.Recalibrate"));
                                         return false;
                                     }
                                     #endregion
@@ -3604,12 +3601,12 @@ namespace BioBaseCLIA.Run
                         else
                         {
                             #region 定性实验
-                            dtScal.Rows.Add("定标液", lisItem.FindAll(ty => ty.SampleType == "定标液" && ty.RegentBatch == reBNum.Key).Count);
+                            dtScal.Rows.Add(getString("keywordText.CalibrationSolution"), lisItem.FindAll(ty => ty.SampleType == getString("keywordText.CalibrationSolution") && ty.RegentBatch == reBNum.Key).Count);
                             if (int.Parse(dtScal.Rows[0][1].ToString()) == 0)//实验运行中未装载定标液
                             {
                                 if (points == "")
                                 {
-                                    frmMsgShow.MessageShow("工作列表", "无CUTOFF值，无法计算样本结果！");
+                                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.NoCUTOFF"));
                                     return false;
                                 }
                                 else
@@ -3643,7 +3640,7 @@ namespace BioBaseCLIA.Run
             string BarCode = OperateIniFile.ReadIniData("Substrate1", "BarCode", "", iniPathSubstrateTube);
             if (BarCode == "")
             {
-                frmMsgShow.MessageShow("工作列表", "未检测到底物信息，请装载底物！");
+                frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Nosubstrate"));
                 return false;
             }
             string ValidDate1 = OperateIniFile.ReadIniData("Substrate1", "ValidDate", "", iniPathSubstrateTube);//2018-10-17 zlx add
@@ -3654,28 +3651,28 @@ namespace BioBaseCLIA.Run
             {
                 string OverInfo = "";
                 if (Convert.ToDateTime(ValidDate1) < DateTime.Now.Date)
-                    OverInfo = "底物";
+                    OverInfo = getString("keywordText.substrate");
                 LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "底物1已经过期");
-                DialogResult r = MessageBox.Show("" + OverInfo + "已过期需更换。本次仍然继续测试？", "底物检查信息", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult r = MessageBox.Show("" + OverInfo + getString("keywordText.OvertimeInfo"), getString("tip"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (DialogResult.OK != r)
                     return false;
             }
 
             if (substrateNum1 + substrateNum2 < BTestItem.Count + WashTrayCleanTimes)//6次是实验前和实验后维护需要
             {
-                frmMsgShow.MessageShow("工作列表", "底物测数不够本次实验测试，请装载底物！");
+                frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.SubstrateLess"));
                 return false;
             }
             #endregion
-            List<TestItem> QCList = lisItem.FindAll(x => x.SampleType.Contains("质控品"));
+            List<TestItem> QCList = lisItem.FindAll(x => x.SampleType.Contains(getString("keywordText.Control")));
             foreach (TestItem item in QCList)
             {
                 string QCLevel;
-                if (item.SampleType == "质控品H")
+                if (item.SampleType == getString("keywordText.ControlHigh"))
                 {
                     QCLevel = "0";
                 }
-                else if (item.SampleType == "质控品M")
+                else if (item.SampleType == getString("keywordText.ControlMiddle"))
                 {
                     QCLevel = "1";
                 }
@@ -3688,43 +3685,10 @@ namespace BioBaseCLIA.Run
                                                             + item.ItemName + "'and QCLevel = '" + QCLevel + "' and Status = '1'").Tables[0];
                 if (dtQCInfo == null || dtQCInfo.Rows.Count == 0)
                 {
-                    frmMsgShow.MessageShow("工作列表", "查找不到项目名称为:" + item.ItemName + ",质控类别与:" + item.SampleType + "相对应的相关质控的信息！");
+                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.ProjectName") + item.ItemName + "," + getString("keywordText.controltype") + item.SampleType + getString("keywordText.controlInfo"));
                     return false;
                 }
             }
-
-            #region 检测管架剩余管数是否够本次实验使用
-            //查询反应盘管信息
-            /*
-            DataTable dtReactTrayInfo = OperateIniFile.ReadConfig(iniPathReactTrayInfo);
-            //反应盘上空反应管个数
-            int sumReactTubeNum = 0;
-            //反应管的位置
-            //string TrayPos = "";
-            for (int i = 0; i < dtReactTrayInfo.Rows.Count; i++)
-            {
-                if (dtReactTrayInfo.Rows[i][1].ToString() == "1")
-                {
-                    sumReactTubeNum++;
-                    ////后一个值一直覆盖前一个最终的赋值为最后一个位置
-                    //TrayPos = dtReactTrayInfo.Rows[i][0].ToString();
-                }
-            }
-            List<int> lisTubeNum = new List<int>();
-            lisTubeNum = QueryTubeNum();
-            int sumTubeNum = 0;
-            for (int i = 0; i < lisTubeNum.Count; i++)
-            {
-                sumTubeNum = sumTubeNum + lisTubeNum[i];
-            }
-            //添加稀释所占反应管的计算。 LYN add 20171114
-            if (sumTubeNum + sumReactTubeNum < BTestItem.Count + DiuTubeNum + toUsedTube + 4)//2018-06-23 zlx mod//y add4because of clean tray clean pipe
-            {
-                frmMsgShow.MessageShow("工作列表", "管架反应管不够请装载新的反应管！");
-                return false;
-            }
-             */
-            #endregion
             return true;
         }
 
@@ -3789,7 +3753,7 @@ namespace BioBaseCLIA.Run
                     //对处理过的数据进行纠错
                     if (double.IsNaN(CurveData[i].DataValue) || double.IsNaN(CurveData[i].Data))
                     {
-                        MessageBox.Show("函数计算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(getString("keywordText.CalculationInfo"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return null;
                     }
                 }
@@ -3805,7 +3769,7 @@ namespace BioBaseCLIA.Run
                 if (double.IsNaN(par) || double.IsInfinity(par))
                 {
                     //dtScalCacResult.Rows.Add(dtCaculate.Rows[0]["ItemName"].ToString(), 1, "");
-                    MessageBox.Show(dtCaculate.Rows[0]["ItemName"].ToString() + "项目回归计算时出现运算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(getString("keywordText.ProjectName") + dtCaculate.Rows[0]["ItemName"].ToString() + getString("keywordText.CalculationInfo"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
             }
@@ -3821,7 +3785,7 @@ namespace BioBaseCLIA.Run
             LogFile.Instance.Write("======>" + "清洗盘开始清管");
             DataTable dtWashTrayIni = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
             //TrayRemoveAllTube = true;//y add 抓空标志位，保证不触发抓空异常
-            for (int i = 0; i <frmParent.WashTrayNum; i++)
+            for (int i = 0; i < frmParent.WashTrayNum; i++)
             {
                 if (RunFlag != (int)RunFlagStart.IsRuning || NetCom3.Instance.stopsendFlag)
                 {
@@ -3829,8 +3793,8 @@ namespace BioBaseCLIA.Run
                 }
                 if (i != 0)
                 {
-                //顺时针旋转1个孔位
-                AgainSend:
+                    //顺时针旋转1个孔位
+                    AgainSend:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (-1).ToString("X2").Substring(6, 2)), 2);
                     //NetCom3.Instance.WashQuery();
                     if (!NetCom3.Instance.WashQuery())
@@ -3840,7 +3804,7 @@ namespace BioBaseCLIA.Run
                         else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                         {
                             NetCom3.Instance.stopsendFlag = true;
-                            ShowWarnInfo("清洗盘旋转指令接收超时", "清洗", 1);
+                            ShowWarnInfo(getString("keywordText.WashTurnOver"), getString("keywordText.Wash"), 1);
                             //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                             //MessageBox.Show("指令接收超时，实验已终止", "清洗指令错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             //addLiquiding = false;
@@ -3884,7 +3848,7 @@ namespace BioBaseCLIA.Run
                 MoveTubeUseFlag = true;
                 WashTrayUseFlag = true;
                 int IsKnockedCool = 0;
-            AgainNewMove:
+                AgainNewMove:
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                 LogFile.Instance.Write("==================  位置  " + washCountNum + "  扔管");
                 //NetCom3.Instance.MoveQuery();
@@ -3911,7 +3875,7 @@ namespace BioBaseCLIA.Run
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                     {
                         NetCom3.Instance.stopsendFlag = true;
-                        ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
+                        ShowWarnInfo(getString("keywordText..MWashLossOver"), getString("keywordText.Move"), 1);
                         AllStop();
                         //setmainformbutten();
                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
@@ -3943,8 +3907,8 @@ namespace BioBaseCLIA.Run
                 }
                 if (i != 0)
                 {
-                //顺时针旋转1个孔位
-                AgainSend:
+                    //顺时针旋转1个孔位
+                    AgainSend:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (-1).ToString("X2").Substring(6, 2)), 2);
                     //NetCom3.Instance.WashQuery();
                     if (!NetCom3.Instance.WashQuery())
@@ -3954,7 +3918,7 @@ namespace BioBaseCLIA.Run
                         else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                         {
                             NetCom3.Instance.stopsendFlag = true;
-                            ShowWarnInfo("清洗盘旋转指令接收超时", "清洗", 1);
+                            ShowWarnInfo(getString("keywordText.WashTurnOver"), getString("keywordText.Wash"), 1);
                             //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                             //MessageBox.Show("指令接收超时，实验已终止", "清洗指令错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             //addLiquiding = false;
@@ -3973,7 +3937,7 @@ namespace BioBaseCLIA.Run
 
                     //顺时针应该是加的 jun add 
                     tubeHoleNum = tubeHoleNum + 1;
-                    if (tubeHoleNum >= frmParent.WashTrayNum+1)
+                    if (tubeHoleNum >= frmParent.WashTrayNum + 1)
                     {
                         tubeHoleNum = tubeHoleNum - frmParent.WashTrayNum;
                     }
@@ -3997,7 +3961,7 @@ namespace BioBaseCLIA.Run
                 MoveTubeUseFlag = true;
                 WashTrayUseFlag = true;
                 int IsKnockedCool = 0;
-            AgainNewMove:
+                AgainNewMove:
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                 LogFile.Instance.Write("==================  位置  " + washCountNum + "  扔管");
                 //NetCom3.Instance.MoveQuery();
@@ -4016,7 +3980,7 @@ namespace BioBaseCLIA.Run
                         else
                         {
                             NetCom3.Instance.stopsendFlag = true;
-                            ShowWarnInfo("移管手在清洗盘扔废管时取管撞管,撞管位置为：" + tubeHoleNum, "移管", 1);
+                            ShowWarnInfo(getString("keywordText.MWashLossIsKnocked") + "," + getString("keywordText.Pos") + tubeHoleNum, getString("keywordText.Move"), 1);
                             AllStop();
                             //setmainformbutten();
                             //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管,撞管位置为：" + tubeHoleNum);
@@ -4028,7 +3992,7 @@ namespace BioBaseCLIA.Run
                     {
 
                         NetCom3.Instance.stopsendFlag = true;
-                        ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
+                        ShowWarnInfo(getString("keywordText.MWashLossOver"), getString("keywordText.Move"), 1);
                         AllStop();
                         //setmainformbutten();
                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
@@ -4138,7 +4102,7 @@ namespace BioBaseCLIA.Run
             {
                 throw new Exception();
             }
-        AgainNewMove:
+            AgainNewMove:
             NetCom3.Instance.Send(NetCom3.Cover(order), 2);
             if (!NetCom3.Instance.WashQuery())
             {
@@ -4147,7 +4111,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("清洗灌注指令接收数据超时", "清洗", 1);
+                    ShowWarnInfo(getString("keywordText.WashPourOver"), getString("keywordText.Wash"), 1);
                     AllStop();
                     //NetCom3.Instance.stopsendFlag = true;
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清洗盘在清洗时接收数据超时！");
@@ -4211,7 +4175,7 @@ namespace BioBaseCLIA.Run
              */
             int iNeedCool = 0;
             int IsKnockedCool = 0;
-        AgainNewMove:
+            AgainNewMove:
             //string order = "EB 90 31 01 06 " + plate.ToString("x2") + " " + column.ToString("x2") + " " + hole.ToString("x2");
             //NetCom3.Instance.Send(NetCom3.Cover(order), 1);
             string order = "EB 90 31 01 06";
@@ -4228,7 +4192,7 @@ namespace BioBaseCLIA.Run
                     else
                     {
                         //NetCom3.Instance.stopsendFlag = true;
-                        ShowWarnInfo("移管手在向清洗盘移新管时取管抓空", "移管", 1);
+                        ShowWarnInfo(getString("keywordText.MAddNewTWashnull"), getString("keywordText.Move"), 1);
                         //setmainformbutten();
                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘抓管时多次抓空!实验停止！");
                         //DialogResult tempresult = MessageBox.Show("移管手抓新管抓空！实验将停止运行！", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
@@ -4237,7 +4201,7 @@ namespace BioBaseCLIA.Run
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.LackTube)
                 {
-                    ShowWarnInfo("理杯机缺", "移管", 1);
+                    ShowWarnInfo(getString("keywordText.LackTube"), getString("keywordText.Move"), 1);
                     //AllStop();
                     //setmainformbutten();
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "理杯机缺管，实验停止运行！");
@@ -4259,7 +4223,7 @@ namespace BioBaseCLIA.Run
                         goto AgainNewMove;
                     else
                     {
-                        ShowWarnInfo("移管手在向清洗盘移管时取管撞管", "移管", 1);
+                        ShowWarnInfo(getString("keywordText.MAddNewTWashnull"), getString("keywordText.Move"), 1);
                         //setmainformbutten();
                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘取放管处抓管时取管撞管！");
                         //LogFile.Instance.Write("==============  移管手在暂存盘向清洗盘取放管处抓管发生撞管  " + currentHoleNum);
@@ -4271,7 +4235,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                 {
                     IsKnockedCool++;
-                GAgainMove:
+                    GAgainMove:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                     if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
                     {
@@ -4280,7 +4244,7 @@ namespace BioBaseCLIA.Run
                             goto GAgainMove;
                         else
                         {
-                            ShowWarnInfo("移管手在向清洗盘移管时取管撞管", "移管", 1);
+                            ShowWarnInfo(getString("keywordText.MWashLossIsKnocked"), getString("keywordText.Move"), 1);
                             //setmainformbutten();
                             //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔管时取管撞管！");
                             //LogFile.Instance.Write("==============  移管手在清洗盘扔管时发生撞管  " + currentHoleNum);
@@ -4293,7 +4257,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
                     //NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("移管手在暂存盘向清洗盘取放管处抓管接收数据超时", "移管", 1);
+                    ShowWarnInfo(getString("keywordText.MAddNewTWashOver"), getString("keywordText.Move"), 1);
                     //AllStop();
                     //setmainformbutten();
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘抓管时接收数据超时！");
@@ -4326,7 +4290,7 @@ namespace BioBaseCLIA.Run
             //WashTurnFlag = true;
             int iNeedCool = 0;
             int IsKnockedCool = 0;
-        AgainNewMove:
+            AgainNewMove:
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
             LogFile.Instance.Write("==============  从清洗盘取放管处扔管  " + washCountNum);
             if (!NetCom3.Instance.MoveQuery())
@@ -4337,7 +4301,7 @@ namespace BioBaseCLIA.Run
                     iNeedCool++;
                     if (iNeedCool < 2)
                     {
-                    AgainReSetSend:
+                        AgainReSetSend:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 08"), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4349,7 +4313,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("清洗盘复位返回指令接收超时", "清洗", 1);
+                                ShowWarnInfo(getString("keywordText.WashResetOver"), getString("keywordText.Wash"), 1);
                                 AllStop();
                             }
                         }
@@ -4358,9 +4322,11 @@ namespace BioBaseCLIA.Run
                     else
                     {
                         setmainformbutten();
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时多次抓空！抓空位置为" + tubeHoleNum);
-                        //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "请洗盘抓空孔位置" + tubeHoleNum + " *** ");
-                        DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        ShowWarnInfo(getString("keywordText.MWashLossNullS"), getString("keywordText.Move"), 1);
+                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时多次抓空！抓空位置为" + tubeHoleNum);
+
+                        ////LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "请洗盘抓空孔位置" + tubeHoleNum + " *** ");
+                        //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         return false;
                     }
                 }
@@ -4383,16 +4349,17 @@ namespace BioBaseCLIA.Run
                     {
                         setmainformbutten();
                         LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时取管撞管！撞管位置为：" + tubeHoleNum);
+                        ShowWarnInfo(getString("keywordText.MWashLossIsKnocked"), getString("keywordText.Move"), 1);
                         //LogFileAlarm.Instance.Write(" *** " + "时间" + DateTime.Now.ToString("HH-mm-ss") + "清洗盘扔废管时发生撞管孔位置" + tubeHoleNum + " *** ");
-                        LogFile.Instance.Write("==============  移管手在清洗盘扔废管时发生撞管  " + washCountNum + "取扔管");
-                        DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        //LogFile.Instance.Write("==============  移管手在清洗盘扔废管时发生撞管  " + washCountNum + "取扔管");
+                        //DialogResult tempresult = MessageBox.Show("移管手在清洗盘扔废管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         return false;
                     }
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
+                    ShowWarnInfo(getString("keywordText.MWashLossOver"), getString("keywordText.Move"), 1);
                     AllStop();
                     //setmainformbutten();
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
@@ -4428,7 +4395,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("清洗盘旋转指令接收超时", "清洗", 1);
+                    ShowWarnInfo(getString("keywordText.WashTurnOver"), getString("keywordText.Wash"), 1);
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                     //MessageBox.Show("指令接收超时，实验已终止", "清洗指令错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //addLiquiding = false;
@@ -4480,7 +4447,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) >= 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4505,14 +4472,14 @@ namespace BioBaseCLIA.Run
                                     //setmainformbutten();
                                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
                                     //NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("移管手在温育盘扔废管时取管撞管", "移管", 1);
+                                    ShowWarnInfo(getString("keywordText.MReactLossIsKnocked"), getString("keywordText.Move"), 1);
                                     return false;
                                 }
                             }
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
                                 //NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                ShowWarnInfo(getString("keywordText.MReactLossOver"), getString("keywordText.Move"), 1);
                                 //AllStop();
                                 //setmainformbutten();
                                 //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
@@ -4529,7 +4496,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) > 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4552,7 +4519,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     //NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("移管手在温育盘扔废管时取管撞管", "移管", 1);
+                                    ShowWarnInfo(getString("keywordText.MReactLossIsKnocked"), getString("keywordText.Move"), 1);
                                     //setmainformbutten();
                                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
                                     return false;
@@ -4561,7 +4528,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
                                 //NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                ShowWarnInfo(getString("keywordText.MReactLossOver"), getString("keywordText.Move"), 1);
                                 AllStop();
                                 //setmainformbutten();
                                 //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
@@ -4590,7 +4557,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) >= 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4620,7 +4587,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                ShowWarnInfo(getString("keywordText.MReactLossOver"), getString("keywordText.Move"), 1);
                                 AllStop();
                                 //setmainformbutten();
                                 //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
@@ -4637,7 +4604,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) > 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4667,7 +4634,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                ShowWarnInfo(getString("keywordText.MReactLossOver"), getString("keywordText.Move"), 1);
                                 AllStop();
                                 //setmainformbutten();
                                 //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
@@ -4787,9 +4754,9 @@ namespace BioBaseCLIA.Run
                     {
                         Thread.Sleep(20);
                         TestStep = GaNextOne();
-                    StartRun:
+                        StartRun:
                         DalayFlag = false;
-                    waitTime:
+                        waitTime:
                         if (RunFlag != (int)RunFlagStart.IsRuning)//增加一个停止按钮的过程中防止标志位被改写！！！！
                         {
                             continue;
@@ -5014,6 +4981,8 @@ namespace BioBaseCLIA.Run
                                 stepTime = TestStep.EndTime;
                                 NoStartTestId++;
                                 AddLiquidThread = new Thread(new ParameterizedThreadStart(addLiquid));
+                                AddLiquidThread.CurrentCulture = Language.AppCultureInfo;
+                                AddLiquidThread.CurrentUICulture = Language.AppCultureInfo;
                                 AddLiquidThread.IsBackground = true;
                                 AddLiquidThread.Start(TestStep);
                                 break;
@@ -5041,6 +5010,8 @@ namespace BioBaseCLIA.Run
                                     && ty.TestScheduleStep == TestSchedule.ExperimentScheduleStep.AddLiquidTube && ty.TestID == TestStep.TestID).AddSamplePos;
                                 TestStep.AddSamplePos = addSampos;
                                 AddLiquidThread = new Thread(new ParameterizedThreadStart(addLiquid));
+                                AddLiquidThread.CurrentCulture = Language.AppCultureInfo;
+                                AddLiquidThread.CurrentUICulture = Language.AppCultureInfo;
                                 AddLiquidThread.IsBackground = true;
                                 AddLiquidThread.Start(TestStep);
                                 break;
@@ -5067,6 +5038,8 @@ namespace BioBaseCLIA.Run
                                      && ty.TestScheduleStep == TestSchedule.ExperimentScheduleStep.AddLiquidTube && ty.TestID == TestStep.TestID).AddSamplePos;
                                 TestStep.AddSamplePos = addSampos;
                                 AddLiquidThread = new Thread(new ParameterizedThreadStart(addLiquid));
+                                AddLiquidThread.CurrentCulture = Language.AppCultureInfo;
+                                AddLiquidThread.CurrentUICulture = Language.AppCultureInfo;
                                 AddLiquidThread.IsBackground = true;
                                 AddLiquidThread.Start(TestStep);
                                 break;
@@ -5081,7 +5054,7 @@ namespace BioBaseCLIA.Run
                                 }
                                 if (this.IsHandleCreated)
                                 {
-                                    BeginInvoke(TestStatusInfo, new object[] { "正在温育", TestStep.TestID });
+                                    BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.Incubation"), TestStep.TestID });
                                 }
                                 break;
                             case TestSchedule.ExperimentScheduleStep.Wash1:
@@ -5124,6 +5097,8 @@ namespace BioBaseCLIA.Run
                                 {
                                     FirstTubeWash = false;
                                     washThread = new Thread(new ParameterizedThreadStart(washTray));
+                                    washThread.CurrentCulture = Language.AppCultureInfo;
+                                    washThread.CurrentUICulture = Language.AppCultureInfo;
                                     washThread.IsBackground = true;
                                     washThread.Start();
                                 }
@@ -5167,6 +5142,8 @@ namespace BioBaseCLIA.Run
                                 {
                                     FirstTubeWash = false;
                                     washThread = new Thread(new ParameterizedThreadStart(washTray));
+                                    washThread.CurrentCulture = Language.AppCultureInfo;
+                                    washThread.CurrentUICulture = Language.AppCultureInfo;
                                     washThread.IsBackground = true;
                                     washThread.Start();
                                 }
@@ -5217,7 +5194,7 @@ namespace BioBaseCLIA.Run
                             washCountNum = 1;
                             if (!CleanTrayWashPipeline())
                             {
-                                MessageBox.Show("实验结束清洗故障，请在稍后检查并清空清洗盘");
+                                MessageBox.Show(getString("keywordText.Testcomplete") + "," + getString("keywordText.cleanWashEr"));
                             }
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 F1 02"), 5);
                             NetCom3.Instance.SingleQuery();
@@ -5234,42 +5211,42 @@ namespace BioBaseCLIA.Run
                                 {
                                     string Message = "";
                                     if (frmMain.StopFlag[0] || frmMain.StopFlag[1])
-                                        Message = "仪器缺液";
+                                        Message = getString("keywordText.LiquidWarn");
                                     if (frmMain.StopFlag[2])
                                     {
                                         if (Message == "")
-                                            Message = "仪器废液桶已满";
+                                            Message = getString("keywordText.liquidWaste");
                                         else
-                                            Message = Message + ",废液桶已满";
+                                            Message = Message + "," + getString("keywordText.liquidWaste");
                                     }
                                     if (frmMain.StopFlag[3])
                                     {
                                         if (Message == "")
-                                            Message = "仪器废管盒已满";
+                                            Message = getString("keywordText.tubeWaste");
                                         else
-                                            Message = Message + ",废管盒已满";
+                                            Message = Message + "," + getString("keywordText.tubeWaste");
                                     }
                                     this.Invoke(new Action(() =>
                                     {
-                                        MessageBox.Show(Message + "，部分实验已完成！详细信息请在报警信息查看！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                                        MessageBox.Show(Message + "，" + getString("keywordText.finshApartTest") + getString("keywordText.ReadWarn"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
                                     }));
                                 }
-                                else 
+                                else
                                 {
                                     this.Invoke(new Action(() =>
                                     {
-                                        MessageBox.Show("供应品缺少，部分实验已完成！详细信息请在报警信息查看！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
+                                        MessageBox.Show(getString("keywordText.LackSupplies") + "," + getString("keywordText.finshApartTest") + getString("keywordText.ReadWarn"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
                                     }));
                                 }
                             }
-                            else 
+                            else
                             {
                                 this.Invoke(new Action(() =>
                                 {
-                                    MessageBox.Show("实验完成！", "实验状态", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);//2018-07-13 zlx mod
+                                    MessageBox.Show(getString("keywordText.Testcomplete"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);//2018-07-13 zlx mod
                                 }));
                             }
-                                
+
                             RunFlag = (int)RunFlagStart.Stoped;
                             if (frmMain.pauseFlag)
                                 frmMain.pauseFlag = false;
@@ -5285,7 +5262,7 @@ namespace BioBaseCLIA.Run
             }
             catch (ThreadAbortException ex)
             {
-                frmMsgShow.MessageShow("工作列表", ex.Message);
+                frmMsgShow.MessageShow(getString("btnWorkList.Text"), ex.Message);
                 IniUpdateAccess();
             }
             finally { }
@@ -5397,9 +5374,9 @@ namespace BioBaseCLIA.Run
                         if (int.Parse(dr.Cells[1].Value.ToString()) == item.TestID)
                         {
                             if (IsDiu)
-                                dr.Cells["TestStatus"].Value = "稀释液已用完";
+                                dr.Cells["TestStatus"].Value = getString("keywordText.NoDiu");
                             else
-                                dr.Cells["TestStatus"].Value = "试剂用完";
+                                dr.Cells["TestStatus"].Value = getString("keywordText.NoRTeagent");
                             dr.DefaultCellStyle.BackColor = Color.Gray;
                         }
                     }
@@ -5561,7 +5538,7 @@ namespace BioBaseCLIA.Run
                             {
                                 Thread.Sleep(30);
                             }
-                            BeginInvoke(TestStatusInfo, new object[] { "正在稀释", testTempS.TestID });
+                            BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.Diluting"), testTempS.TestID });
 
                             lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "D")]
                                 = Color.Yellow;
@@ -5597,8 +5574,8 @@ namespace BioBaseCLIA.Run
                                     {
                                         foreach (var reagent in currentReagent)
                                         {
-                                            string DiuPos =OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "DiuPos", "", iniPathReagentTrayInfo);
-                                            if(DiuPos != "")
+                                            string DiuPos = OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "DiuPos", "", iniPathReagentTrayInfo);
+                                            if (DiuPos != "")
                                             {
                                                 DiuName = OperateIniFile.ReadIniData("ReagentPos" + DiuPos, "ItemName", "", iniPathReagentTrayInfo);
                                                 break;
@@ -5614,7 +5591,7 @@ namespace BioBaseCLIA.Run
                                     }
                                     if (DiuName != "")
                                     {
-                                        currentReagent =   QueryReagentIniInfo().Where(reagent => reagent.ItemName == DiuName && reagent.LeftReagent1 > 0)
+                                        currentReagent = QueryReagentIniInfo().Where(reagent => reagent.ItemName == DiuName && reagent.LeftReagent1 > 0)
                                         .ToList();
                                         foreach (var reagent in currentReagent)
                                         {
@@ -5639,7 +5616,7 @@ namespace BioBaseCLIA.Run
                                         rackToReact(pos);
                                         if (TubeStop)//加新管时暂存盘为空 2019-02-22
                                         {
-                                            RemoveTestList(testTempS, "稀释样品时暂存盘缺管");
+                                            RemoveTestList(testTempS, getString("keywordText.LackTube"));
                                             #region 稀释不成功扔管
                                             for (int index = 1; index < 4; index++)
                                             {
@@ -5660,7 +5637,7 @@ namespace BioBaseCLIA.Run
                                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("加稀释液指令接收超时", "加样", 1);
+                                            ShowWarnInfo(getString("keywordText.AddDiuOver"), getString("keywordText.Samplingneedle"), 1);
                                             AllStop();
                                         }
                                         if (AddErrorCount > 0)
@@ -5668,17 +5645,17 @@ namespace BioBaseCLIA.Run
                                             if (AddErrorCount > 1)
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("加样针加稀释液时撞针", "加样", 1);
+                                                ShowWarnInfo(getString("keywordText.AddDiuOverIsKnocked"), getString("keywordText.Samplingneedle"), 1);
                                                 AllStop();
                                             }
                                             else
                                             {
                                                 MoveTubeListAddTubeDispose(pos);
-                                                RemoveTestList(testTempS, "加样针加稀释液时撞针");
+                                                RemoveTestList(testTempS, getString("keywordText.AddDiuOverIsKnocked"));
                                             }
                                             break;
                                         }
-                                        DataRow[]drDiu = dtRgInfo.Select("Postion='" + rgPos + "'");
+                                        DataRow[] drDiu = dtRgInfo.Select("Postion='" + rgPos + "'");
                                         drDiu[0]["leftoverTestR1"] = OperateIniFile.ReadIniData("ReagentPos" + rgPos, "LeftReagent1", "", iniPathReagentTrayInfo);
                                         string rgBar = OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                                         DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + (drDiu[0]["leftoverTestR1"]).ToString() + " where BarCode = '"
@@ -5699,8 +5676,8 @@ namespace BioBaseCLIA.Run
                                                 + " " + SampleVol.ToString("x2")), 0);
                                         if (!NetCom3.Instance.SPQuery())
                                         {
-                                        #region 异常处理
-                                        Again:
+                                            #region 异常处理
+                                            Again:
                                             string againSend = "";
                                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                             {
@@ -5720,7 +5697,7 @@ namespace BioBaseCLIA.Run
                                             else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("加样针加样本时指令接收超时", "加样", 1);
+                                                ShowWarnInfo(getString("keywordText.AddSampleOver"), getString("keywordText.Samplingneedle"), 1);
                                                 AllStop();
                                             }
                                             int sendFlag = SendAgain(againSend, 0);
@@ -5732,8 +5709,8 @@ namespace BioBaseCLIA.Run
                                         }
                                         if (NetCom3.Instance.LiquidLevelDetectionFlag == (int)LiquidLevelDetectionAlarm.Low &&
                                             LiquidLevelDetectionEvent != null &&
-                                            (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))))
-                                            LiquidLevelDetectionEvent("样本位置" + samplePos + "：样本出现凝块或样本量不足", 2);
+                                            (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))))
+                                            LiquidLevelDetectionEvent(getString("keywordText.SamplePos") + samplePos + "：" + getString("keywordText.SampleClot"), 2);
                                         //配置文件进行修改
                                         //diupos[0] = pos.ToString();
                                         OperateIniFile.WriteIniData("ReactTrayInfo", "no" + diupos[0], "2", iniPathReactTrayInfo);
@@ -5742,18 +5719,18 @@ namespace BioBaseCLIA.Run
                                             if (AddErrorCount > 1)
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("加样针加样本时多次撞针未能恢复", "加样", 1);
+                                                ShowWarnInfo(getString("keywordText.AddSampleIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                                 AllStop();
                                             }
                                             else
                                             {
                                                 MoveTubeListAddTubeDispose(pos);
-                                                RemoveTestList(testTempS, "加样针加样本时发生撞针");
+                                                RemoveTestList(testTempS, getString("keywordText.AddSampleIsKnocked"));
                                             }
                                             break;
                                         }
-                                    //混匀
-                                    AgainMix:
+                                        //混匀
+                                        AgainMix:
                                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 04 01 " + pos.ToString("x2")), 0);
                                         if (!NetCom3.Instance.SPQuery())//NetCom3.Instance.MoveQuery()
                                         {
@@ -5766,7 +5743,7 @@ namespace BioBaseCLIA.Run
                                             else
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("混匀" + pos + "位置指令接收异常", "混匀", 1);
+                                                ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + pos, getString("keywordText.Mix"), 1);
                                                 AllStop();
                                                 break;
                                             }
@@ -5776,7 +5753,7 @@ namespace BioBaseCLIA.Run
                                     }
                                     else
                                     {
-                                        RemoveTestList(testTempS, "当前项目稀释液不足");
+                                        RemoveTestList(testTempS, getString("keywordText.NoDiu"));
                                         return;
                                     }
                                     #region 扔上一次稀释的管
@@ -5808,7 +5785,7 @@ namespace BioBaseCLIA.Run
                             LogFile.Instance.Write(DateTime.Now + ":" + records);
                             #endregion 
 
-                            BeginInvoke(TestStatusInfo, new object[] { "正在加样", testTempS.TestID });
+                            BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingS"), testTempS.TestID });
                             lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "S")]
                                 = Color.Yellow;
                             lisProBar[testTempS.TestID - 1].Invalidate();
@@ -5828,8 +5805,8 @@ namespace BioBaseCLIA.Run
                                     + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2")), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -5849,7 +5826,7 @@ namespace BioBaseCLIA.Run
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加样本时指令接收异常", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddSampleOver"), getString("keywordText.Samplingneedle"), 1);
                                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                         //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
@@ -5864,8 +5841,8 @@ namespace BioBaseCLIA.Run
                                 }
                                 if (NetCom3.Instance.LiquidLevelDetectionFlag == (int)LiquidLevelDetectionAlarm.Low &&
                                    LiquidLevelDetectionEvent != null &&
-                                   (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))))
-                                    LiquidLevelDetectionEvent("样本位置" + samplePos + "：样本出现凝块或样本量不足", 2);
+                                   (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))))
+                                    LiquidLevelDetectionEvent(getString("keywordText.SamplePos") + samplePos + getString("keywordText.SampleClot"), 2);
                                 //该位置信息写入配置文件
                                 OperateIniFile.WriteIniData("ReactTrayInfo", "no" + pos.ToString(), "2", iniPathReactTrayInfo);
                                 if (AddErrorCount > 0)
@@ -5873,14 +5850,14 @@ namespace BioBaseCLIA.Run
                                     if (AddErrorCount > 1)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加样本时发生撞针", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddSampleIsKnocked"), getString("keywordText.Samplingneedle"), 1);
                                         AllStop();
                                     }
                                     else
                                     {
                                         MoveTubeListAddTubeDispose(pos);
                                         MoveTubeListAddTubeDispose(samplePos);
-                                        RemoveTestList(testTempS, "加样针加样本时发生撞针");
+                                        RemoveTestList(testTempS, getString("keywordText.AddSampleIsKnocked"));
                                     }
                                     break;
                                 }
@@ -5893,8 +5870,8 @@ namespace BioBaseCLIA.Run
                                     + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2")), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -5914,7 +5891,7 @@ namespace BioBaseCLIA.Run
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加样本时指令接收超时", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddSampleOver"), getString("keywordText.Samplingneedle"), 1);
                                         //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
                                         AllStop();
@@ -5928,8 +5905,8 @@ namespace BioBaseCLIA.Run
                                 }
                                 if (NetCom3.Instance.LiquidLevelDetectionFlag == (int)LiquidLevelDetectionAlarm.Low &&
                                     LiquidLevelDetectionEvent != null &&
-                                    (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))))
-                                    LiquidLevelDetectionEvent("样本位置" + samplePos + "：样本出现凝块或样本量不足", 2);
+                                    (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))))
+                                    LiquidLevelDetectionEvent(getString("keywordText.SamplePos") + samplePos + "：" + getString("keywordText.SampleClot"), 2);
                                 //该位置信息写入配置文件
                                 OperateIniFile.WriteIniData("ReactTrayInfo", "no" + pos.ToString(), "2", iniPathReactTrayInfo);
                                 if (AddErrorCount > 0)
@@ -5937,7 +5914,7 @@ namespace BioBaseCLIA.Run
                                     if (AddErrorCount > 1)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加样本时撞针未能修复", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddSampleIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                         //MessageBox.Show("加样针撞针未能修复，实验已终止", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
                                         AllStop();
@@ -5945,7 +5922,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         MoveTubeListAddTubeDispose(pos);
-                                        RemoveTestList(testTempS, "加样针加样本时发生撞针");
+                                        RemoveTestList(testTempS, getString("keywordText.AddSampleIsKnocked"));
                                     }
                                     break;
                                 }
@@ -5971,7 +5948,7 @@ namespace BioBaseCLIA.Run
                             {
                                 Thread.Sleep(30);
                             }
-                            BeginInvoke(TestStatusInfo, new object[] { "正在加试剂1", testTempS.TestID });
+                            BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingR1"), testTempS.TestID });
                             lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R1")]
                                 = Color.Yellow;
                             lisProBar[testTempS.TestID - 1].Invalidate();
@@ -5982,8 +5959,8 @@ namespace BioBaseCLIA.Run
                                 {
                                     //drRg = dtRgInfo.Select("RgName='" + testTempS.ItemName.ToString() + "'");
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 添加
-                                    //if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品") || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
-                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))
+                                    //if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString() || int.Parse(drRg[g]["leftoverTestR1"].ToString()) <= 0)
                                             continue;
@@ -6030,8 +6007,8 @@ namespace BioBaseCLIA.Run
                                     + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR1Vol.Substring(0, 2) + " " + leftR1Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6078,7 +6055,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
                                         //setmainformbutten();
-                                        ShowWarnInfo("加样针加试剂时撞针未能恢复", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddRIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "加样针加试剂1时发生撞针！");
                                         //frmMsgShow.MessageShow("加样错误提示", "加样针撞针未能修复，实验已终止");
                                         //addLiquiding = false;
@@ -6087,7 +6064,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         MoveTubeListAddTubeDispose(pos);
-                                        RemoveTestList(testTempS, "加样针加试剂1时发生撞针");
+                                        RemoveTestList(testTempS, getString("keywordText.AddRIsKnocked"));
                                     }
                                     break;
                                 }
@@ -6098,7 +6075,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         #region 异常处理
                                         string againSend = "";
-                                    Again:
+                                        Again:
                                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                         {
                                             //重新发送指令
@@ -6110,7 +6087,7 @@ namespace BioBaseCLIA.Run
                                         else
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("混匀" + pos + "位置指令接收超时", "混匀", 1);
+                                            ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                             //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             AllStop();
                                             break;
@@ -6132,7 +6109,7 @@ namespace BioBaseCLIA.Run
                             {
                                 Thread.Sleep(30);
                             }
-                            BeginInvoke(TestStatusInfo, new object[] { "正在加试剂2", testTempS.TestID });
+                            BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingR2"), testTempS.TestID });
                             lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R2")]
                                 = Color.Yellow;
                             lisProBar[testTempS.TestID - 1].Invalidate();
@@ -6146,8 +6123,8 @@ namespace BioBaseCLIA.Run
                                     for (int g = 0; g < drRg.Length; g++)
                                     {
                                         //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
-                                        //if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品") || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
-                                        if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))
+                                        //if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
+                                        if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))
                                         //|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
                                         {
                                             if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
@@ -6201,8 +6178,8 @@ namespace BioBaseCLIA.Run
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6222,7 +6199,7 @@ namespace BioBaseCLIA.Run
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加试剂时发生指令接收异常", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddROver"), getString("keywordText.Samplingneedle"), 1);
                                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                         //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
@@ -6249,7 +6226,7 @@ namespace BioBaseCLIA.Run
                                     if (AddErrorCount > 1)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加试剂时发生撞针", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddSampleIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                         //MessageBox.Show("加样针撞针未能修复，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
                                         AllStop();
@@ -6257,7 +6234,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         MoveTubeListAddTubeDispose(pos);
-                                        RemoveTestList(testTempS, "加样针加试剂2时发生撞针");
+                                        RemoveTestList(testTempS, getString("keywordText.AddRIsKnocked"));
                                     }
                                     break;
                                 }
@@ -6269,7 +6246,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         #region 异常处理
                                         string againSend = "";
-                                    Again:
+                                        Again:
                                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                         {
                                             //重新发送指令
@@ -6281,7 +6258,7 @@ namespace BioBaseCLIA.Run
                                         else
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("混匀" + pos + "位置指令接收异常", "混匀", 1);
+                                            ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                             //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             //addLiquiding = false;
                                             AllStop();
@@ -6305,7 +6282,7 @@ namespace BioBaseCLIA.Run
                             {
                                 Thread.Sleep(30);
                             }
-                            BeginInvoke(TestStatusInfo, new object[] { "正在加试剂3", testTempS.TestID });
+                            BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingR3"), testTempS.TestID });
                             lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R3")]
                                 = Color.Yellow;
                             lisProBar[testTempS.TestID - 1].Invalidate();
@@ -6319,8 +6296,8 @@ namespace BioBaseCLIA.Run
                                     for (int g = 0; g < drRg.Length; g++)
                                     {
                                         //2018-08-27 zlx add
-                                        //if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品") || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
-                                        if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))
+                                        //if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
+                                        if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))
                                         //|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
                                         {
                                             if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
@@ -6348,8 +6325,8 @@ namespace BioBaseCLIA.Run
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6369,7 +6346,7 @@ namespace BioBaseCLIA.Run
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddROver"), getString("keywordText.Samplingneedle"), 1);
                                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                         //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
@@ -6394,7 +6371,7 @@ namespace BioBaseCLIA.Run
                                     if (AddErrorCount > 1)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("加样针加试剂时发生撞针", "加样", 1);
+                                        ShowWarnInfo(getString("keywordText.AddRIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                         //MessageBox.Show("加样针撞针未能修复，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
                                         AllStop();
@@ -6402,7 +6379,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         MoveTubeListAddTubeDispose(pos);
-                                        RemoveTestList(testTempS, "加样针加试剂3时发生撞针");
+                                        RemoveTestList(testTempS, getString("keywordText.AddRIsKnocked"));
                                     }
                                     break;
                                 }
@@ -6413,7 +6390,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         #region 异常处理
                                         string againSend = "";
-                                    Again:
+                                        Again:
                                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                         {
                                             //重新发送指令
@@ -6425,7 +6402,7 @@ namespace BioBaseCLIA.Run
                                         else
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("混匀" + pos + "位置指令接收超时", "混匀", 1);
+                                            ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                             //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             AllStop();
                                             break;
@@ -6472,8 +6449,8 @@ namespace BioBaseCLIA.Run
                             lisMoveTube.Add(moveTube6);
                         }
                     }
-                #endregion
-                outAddLiquidTube:
+                    #endregion
+                    outAddLiquidTube:
                     DalayFlag = false;
                     stepTime = 0;
                     break;
@@ -6492,7 +6469,7 @@ namespace BioBaseCLIA.Run
                     {
                         Thread.Sleep(30);
                     }
-                    BeginInvoke(TestStatusInfo, new object[] { "正在加磁珠", testTempS.TestID });
+                    BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingB"), testTempS.TestID });
                     lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "B")]
                         = Color.Yellow;
                     lisProBar[testTempS.TestID - 1].Invalidate();
@@ -6505,7 +6482,7 @@ namespace BioBaseCLIA.Run
                         {
                             for (int g = 0; g < drRg.Length; g++)
                             {
-                                if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品"))
+                                if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))
                                 {
                                     if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString() || int.Parse(drRg[g]["leftoverTestR1"].ToString()) <= 0)
                                         continue;
@@ -6542,8 +6519,8 @@ namespace BioBaseCLIA.Run
                             + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR4Vol.Substring(0, 2) + " " + leftR4Vol.Substring(2, 2)), 0);
                         if (!NetCom3.Instance.SPQuery())
                         {
-                        #region 异常处理
-                        Again:
+                            #region 异常处理
+                            Again:
                             string againSend = "";
                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                             {
@@ -6563,7 +6540,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("加样针加磁珠时指令接收超时", "加样", 1);
+                                ShowWarnInfo(getString("keywordText.AddBOver"), getString("keywordText.Samplingneedle"), 1);
                                 //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                 //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //addLiquiding = false;
@@ -6587,13 +6564,13 @@ namespace BioBaseCLIA.Run
                             if (AddErrorCount > 1)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("加样针加磁珠时多次撞针未能修复", "加样", 1);
+                                ShowWarnInfo(getString("keywordText.AddBIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                 AllStop();
                             }
                             else
                             {
                                 MoveTubeListAddTubeDispose(pos);
-                                RemoveTestList(testTempS, "加样针加磁珠时发生撞针");
+                                RemoveTestList(testTempS, getString("keywordText.AddBIsKnocked"));
                             }
                             break;
                         }
@@ -6603,7 +6580,7 @@ namespace BioBaseCLIA.Run
                         {
                             #region 异常处理
                             string againSend = "";
-                        Again:
+                            Again:
                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                             {
                                 //重新发送指令
@@ -6615,7 +6592,8 @@ namespace BioBaseCLIA.Run
                             else
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("混匀" + pos + "位置时指令接收超时", "混匀", 1);
+
+                                ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                 //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //addLiquiding = false;
                                 AllStop();
@@ -6654,7 +6632,7 @@ namespace BioBaseCLIA.Run
                         {
                             Thread.Sleep(30);
                         }
-                        BeginInvoke(TestStatusInfo, new object[] { "正在加试剂1", testTempS.TestID });
+                        BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingR1"), testTempS.TestID });
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R1")]
                             = Color.Yellow;
                         lisProBar[testTempS.TestID - 1].Invalidate();
@@ -6668,7 +6646,7 @@ namespace BioBaseCLIA.Run
                                 for (int g = 0; g < drRg.Length; g++)
                                 {
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
-                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))
                                         /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
@@ -6698,8 +6676,8 @@ namespace BioBaseCLIA.Run
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR1Vol.Substring(0, 2) + " " + leftR1Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
-                            #region 异常处理
-                            Again:
+                                #region 异常处理
+                                Again:
                                 string againSend = "";
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                 {
@@ -6719,7 +6697,7 @@ namespace BioBaseCLIA.Run
                                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddROver"), getString("keywordText.Samplingneedle"), 1);
                                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                     //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //addLiquiding = false;
@@ -6747,12 +6725,12 @@ namespace BioBaseCLIA.Run
                                 if (AddErrorCount > 1)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时撞针未能修复", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddRIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                     AllStop();
                                 }
                                 else
                                 {
-                                    RemoveTestList(testTempS, "加样针加试剂时撞针未能修复");
+                                    RemoveTestList(testTempS, getString("keywordText.AddRIsKnocked"));
                                     MoveTubeListAddTubeDispose(pos);
                                 }
                                 break;
@@ -6763,7 +6741,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -6775,7 +6753,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常", "混匀", 1);
+                                    ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //addLiquiding = false;
                                     AllStop();
@@ -6799,7 +6777,7 @@ namespace BioBaseCLIA.Run
                         {
                             Thread.Sleep(30);
                         }
-                        BeginInvoke(TestStatusInfo, new object[] { "正在加试剂2", testTempS.TestID });
+                        BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingR2"), testTempS.TestID });
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R2")]
                             = Color.Yellow;
                         lisProBar[testTempS.TestID - 1].Invalidate();
@@ -6813,7 +6791,7 @@ namespace BioBaseCLIA.Run
                                 for (int g = 0; g < drRg.Length; g++)
                                 {
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
-                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))
                                         /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
@@ -6849,8 +6827,8 @@ namespace BioBaseCLIA.Run
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
-                            #region 异常处理
-                            Again:
+                                #region 异常处理
+                                Again:
                                 string againSend = "";
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                 {
@@ -6870,7 +6848,7 @@ namespace BioBaseCLIA.Run
                                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddROver"), getString("keywordText.Samplingneedle"), 1);
                                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                     //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //addLiquiding = false;
@@ -6895,13 +6873,13 @@ namespace BioBaseCLIA.Run
                                 if (AddErrorCount > 1)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时撞针未能修复", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddRIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                     AllStop();
                                 }
                                 else
                                 {
                                     MoveTubeListAddTubeDispose(pos);
-                                    RemoveTestList(testTempS, "加样针加试剂2时发生撞针");
+                                    RemoveTestList(testTempS, getString("keywordText.AddRIsKnocked"));
                                 }
                                 break;
                             }
@@ -6911,7 +6889,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -6923,7 +6901,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常！", "混匀", 1);
+                                    ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                     break;
@@ -6945,7 +6923,7 @@ namespace BioBaseCLIA.Run
                         {
                             Thread.Sleep(30);
                         }
-                        BeginInvoke(TestStatusInfo, new object[] { "正在加试剂3", testTempS.TestID });
+                        BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingR3"), testTempS.TestID });
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R3")]
                             = Color.Yellow;
                         lisProBar[testTempS.TestID - 1].Invalidate();
@@ -6959,7 +6937,7 @@ namespace BioBaseCLIA.Run
                                 for (int g = 0; g < drRg.Length; g++)
                                 {
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
-                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))
                                         /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
@@ -6986,8 +6964,8 @@ namespace BioBaseCLIA.Run
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
-                            #region 异常处理
-                            Again:
+                                #region 异常处理
+                                Again:
                                 string againSend = "";
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                 {
@@ -7007,7 +6985,7 @@ namespace BioBaseCLIA.Run
                                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddROver"), getString("keywordText.Samplingneedle"), 1);
                                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                     //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //addLiquiding = false;
@@ -7032,14 +7010,14 @@ namespace BioBaseCLIA.Run
                                 if (AddErrorCount > 1)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时多次撞针未能修复！", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddRIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                     //MessageBox.Show("加样针撞针未能修复，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                 }
                                 else
                                 {
                                     MoveTubeListAddTubeDispose(pos);
-                                    RemoveTestList(testTempS, "加样针加试剂3时发生撞针");
+                                    RemoveTestList(testTempS, getString("keywordText.AddRIsKnocked"));
                                 }
                                 break;
                             }
@@ -7049,7 +7027,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -7061,7 +7039,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收超时！", "混匀", 1);
+                                    ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                     break;
@@ -7083,7 +7061,7 @@ namespace BioBaseCLIA.Run
                         {
                             Thread.Sleep(30);
                         }
-                        BeginInvoke(TestStatusInfo, new object[] { "正在加试剂D", testTempS.TestID });
+                        BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingRD"), testTempS.TestID });
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "RD")]
                             = Color.Yellow;
                         lisProBar[testTempS.TestID - 1].Invalidate();
@@ -7092,12 +7070,12 @@ namespace BioBaseCLIA.Run
                             rgPos = int.Parse(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString());
                         else
                         {
-                             if (drRg.Length > 0)
+                            if (drRg.Length > 0)
                             {
                                 for (int g = 0; g < drRg.Length; g++)
                                 {
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
-                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))
                                         /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
@@ -7123,7 +7101,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -7135,7 +7113,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收超时！", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                     break;
@@ -7156,7 +7134,7 @@ namespace BioBaseCLIA.Run
                         {
                             Thread.Sleep(30);
                         }
-                        BeginInvoke(TestStatusInfo, new object[] { "正在加试剂2", testTempS.TestID });
+                        BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingR2"), testTempS.TestID });
                         lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "R2")]
                             = Color.Yellow;
                         lisProBar[testTempS.TestID - 1].Invalidate();
@@ -7170,7 +7148,7 @@ namespace BioBaseCLIA.Run
                                 for (int g = 0; g < drRg.Length; g++)
                                 {
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
-                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("标准品")
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))
                                         /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
@@ -7197,8 +7175,8 @@ namespace BioBaseCLIA.Run
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
-                            #region 异常处理
-                            Again:
+                                #region 异常处理
+                                Again:
                                 string againSend = "";
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                 {
@@ -7218,7 +7196,7 @@ namespace BioBaseCLIA.Run
                                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时指令接收超时", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddROver"), getString("keywordText.Samplingneedle"), 1);
                                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
                                     //MessageBox.Show("指令接收超时，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     //addLiquiding = false;
@@ -7243,13 +7221,13 @@ namespace BioBaseCLIA.Run
                                 if (AddErrorCount > 1)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("加样针加试剂时撞针未能修复", "加样", 1);
+                                    ShowWarnInfo(getString("keywordText.AddRIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                     AllStop();
                                 }
                                 else
                                 {
                                     MoveTubeListAddTubeDispose(pos);
-                                    RemoveTestList(testTempS, "加样针加试剂2时发生撞针");
+                                    RemoveTestList(testTempS, getString("keywordText.AddRIsKnocked"));
                                 }
                                 break;
                             }
@@ -7259,7 +7237,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -7271,7 +7249,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("混匀" + pos + "位置时指令接收异常！", "混匀", 1);
+                                    ShowWarnInfo(getString("keywordText.MixOver") + "," + getString("keywordText.Pos") + ":" + pos, getString("keywordText.Mix"), 1);
                                     //MessageBox.Show("混匀异常！", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     AllStop();
                                     break;
@@ -7320,8 +7298,8 @@ namespace BioBaseCLIA.Run
             //指令未执行完成进行等待
             if (!NetCom3.Instance.SPQuery())
             {
-            #region 异常处理
-            Again:
+                #region 异常处理
+                Again:
                 string againSend = "";
                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                 {
@@ -7378,8 +7356,8 @@ namespace BioBaseCLIA.Run
 
             if (!NetCom3.Instance.SPQuery())
             {
-            #region 异常处理
-            Again:
+                #region 异常处理
+                Again:
                 string againSend = "";
                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                 {
@@ -7399,7 +7377,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("加样针加稀释液时指令接收超时", "加样", 1);
+                    ShowWarnInfo(getString("keywordText.AddDiuOver"), getString("keywordText.Samplingneedle"), 1);
                     AllStop();
                     //NetCom3.Instance.stopsendFlag = true;
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘夹管到温育盘时发生撞管！");
@@ -7431,9 +7409,9 @@ namespace BioBaseCLIA.Run
         {
             setmainformbutten();
             string stopMessage = "";
-            if (stopLog == 1) stopMessage = ",实验已停止！";
-            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + message);
-            MessageBox.Show(message + stopMessage, state + "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (stopLog == 1) stopMessage = "," + getString("keywordText.TestStoped");
+            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + message);
+            MessageBox.Show(message + stopMessage, state + getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         /// <summary>
         /// 将本步骤之前的步骤对应的进度条变灰
@@ -7495,49 +7473,6 @@ namespace BioBaseCLIA.Run
         void rackToReact(int ReactPos)
         {
             #region 发送指令及配置文件的实时更改（暂存盘夹新管到反应盘）
-            /*
-            while (MoveTubeUseFlag)
-            {
-                NetCom3.Delay(10);
-            }
-            MoveTubeUseFlag = true;
-            //移管手到取管位置takepos[1]（暂存盘）取管
-            int plate = RackPos % 88 == 0 ? RackPos / 88 - 1 : RackPos / 88;//几号板
-            int column = RackPos % 11 == 0 ? RackPos / 11 - (plate * 8) : RackPos / 11 + 1 - (plate * 8);
-            int hole = RackPos % 11 == 0 ? 11 : RackPos % 11;
-        
-            #region 取管成功
-            int TubeRack = RackPos / 88;
-            int curTube = RackPos % 88;
-            if (curTube == 0 && RackPos != 0)
-            {
-                TubeRack = TubeRack - 1;
-                curTube = 88;
-            }
-            //那个架子减了一个管
-            OperateIniFile.WriteIniData("Tube", "Pos" + (TubeRack + 1).ToString(), (88 - curTube).ToString(), iniPathSubstrateTube);
-            List<int> lisTubeNum = new List<int>();
-            lisTubeNum = QueryTubeNum();
-            //移管手要夹的下一个暂存盘位置
-            int NextPos = RackPos + 1;
-            //暂存盘中第一个装载暂存盘的索引
-            int firstTubeIndex = lisTubeNum.FindIndex(ty => ty <= 88 && ty > 0);
-            if (firstTubeIndex < 0)
-            {
-                setmainformbutten();
-                TubeStop = true;
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "异常" + " *** " + "未读" + " *** " + "暂存盘为空，将停止加样！");
-            }
-            for (int i = 1; i <= lisTubeNum.Count; i++)
-            {
-                if (NextPos == i * 88 + 1)
-                {
-                    NextPos = firstTubeIndex * 88 + (88 - lisTubeNum[firstTubeIndex]) + 1;
-                }
-            }
-          
-            OperateIniFile.WriteIniData("Tube", "TubePos", NextPos.ToString(), iniPathSubstrateTube);
-             */
             while (MoveTubeUseFlag && !NetCom3.Instance.stopsendFlag)
             {
                 Thread.Sleep(30);
@@ -7549,7 +7484,7 @@ namespace BioBaseCLIA.Run
             int iNeedCool = 0;
             int IsKnockedCool = 0;
             MoveTubeUseFlag = true;
-        AgainNewMove:
+            AgainNewMove:
             //到暂存盘takepos[1]位置取管放到温育盘putpos位置
             //NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 01 " + plate.ToString("x2") + " " + column.ToString("x2")
             //    + " " + hole.ToString("x2") + " " + ReactPos.ToString("x2")), 1);
@@ -7580,7 +7515,7 @@ namespace BioBaseCLIA.Run
                         }
                         dbtnRackStatus();
                         setmainformbutten();
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管多次抓空!实验暂停加样！");
+                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.MAddNewTReactNullS") + "!" + getString("keywordText.TestStopedAddS"));
                         TubeProblemFlag = false; //2019-08-24 ZLX add
                     }
 
@@ -7598,7 +7533,7 @@ namespace BioBaseCLIA.Run
                     }
                     dbtnRackStatus();
                     setmainformbutten();
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "理杯机缺管!实验暂停加样！");
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Warning") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.LackTube") + "!" + getString("keywordText.TestStopedAddS"));
                     TubeProblemFlag = false;//2019-08-24 ZLX add
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
@@ -7619,7 +7554,7 @@ namespace BioBaseCLIA.Run
                     else
                     {
                         NetCom3.Instance.stopsendFlag = true;
-                        ShowWarnInfo("移管手向温育盘移管时在取管位置发生撞管", "移管", 1);
+                        ShowWarnInfo(getString("keywordText.MAddNewTReactIsKnocked"), getString("keywordText.Move"), 1);
                         AllStop();
                         //setmainformbutten();
                         //NetCom3.Instance.stopsendFlag = true;
@@ -7631,7 +7566,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                 {
                     IsKnockedCool++;
-                GAgainNewMove:
+                    GAgainNewMove:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + ReactPos.ToString("x2")), 1);
                     if (!NetCom3.Instance.MoveQuery())
                     {
@@ -7646,7 +7581,7 @@ namespace BioBaseCLIA.Run
                             else
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("移管手在温育盘扔管时取管撞管", "移管", 1);
+                                ShowWarnInfo(getString("keywordText.MReactLossIsKnocked"), getString("keywordText.Move"), 1);
                                 AllStop();
                                 //setmainformbutten();
                                 //NetCom3.Instance.stopsendFlag = true;
@@ -7664,7 +7599,7 @@ namespace BioBaseCLIA.Run
                     else
                     {
                         NetCom3.Instance.stopsendFlag = true;
-                        ShowWarnInfo("移管手向温育盘抓新管时取管撞管", "移管", 1);
+                        ShowWarnInfo(getString("keywordText.MAddNewTReactIsKnocked"), getString("keywordText.Move"), 1);
                         AllStop();
                         //setmainformbutten();
                         //NetCom3.Instance.stopsendFlag = true;
@@ -7676,7 +7611,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("移管手向温育盘抓新管时放管撞管", "移管", 1);
+                    ShowWarnInfo(getString("keywordText.MAddNewTReactPutKnocked"), getString("keywordText.Move"), 1);
                     AllStop();
                 }
                 #endregion
@@ -7701,7 +7636,7 @@ namespace BioBaseCLIA.Run
             //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
             int iNeedCool = 0;
             int IsKnockedCool = 0;
-        AgainNewMove:
+            AgainNewMove:
             ///温育盘takepos[1]取管扔废管
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + takepos.ToString("x2")), 1);
             if (!NetCom3.Instance.MoveQuery())
@@ -7714,10 +7649,8 @@ namespace BioBaseCLIA.Run
                         goto AgainNewMove;
                     else
                     {
-                        setmainformbutten();
                         NetCom3.Instance.stopsendFlag = true;
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时多次抓空！");
-                        DialogResult tempresult = MessageBox.Show("移管手在温育盘扔废管时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        ShowWarnInfo(getString("keywordText.MReactLossNulls"), getString("keywordText.Move"), 1);
                         AllStop();
                     }
                 }
@@ -7751,7 +7684,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                 {
                     NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                    ShowWarnInfo(getString("keywordText.MReactLossOver"), getString("keywordText.Move"), 1);
                     AllStop();
                     //setmainformbutten();
                     //NetCom3.Instance.stopsendFlag = true;
@@ -7810,6 +7743,8 @@ namespace BioBaseCLIA.Run
         }
         private void timerWash_Tick(object sender, EventArgs e)
         {
+            System.Threading.Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
             if (RunFlag != (int)RunFlagStart.IsRuning || NetCom3.Instance.stopsendFlag)//2018-5-22 zlx add
             {
                 return;
@@ -7826,9 +7761,9 @@ namespace BioBaseCLIA.Run
             }
             WashTrayUseFlag = true;//20180526 y move
             WashTurnFlag = true;
-        #region 清洗盘旋转一位
-        ///清洗盘逆时针旋转一位(发送指令)
-        AgainSend:
+            #region 清洗盘旋转一位
+            ///清洗盘逆时针旋转一位(发送指令)
+            AgainSend:
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 01"), 2);
             timer.Enabled = true;//20180525 y add
             if (!NetCom3.Instance.WashQuery())//2018-10-13 zlx mod
@@ -7842,7 +7777,7 @@ namespace BioBaseCLIA.Run
                 {
 
                     NetCom3.Instance.stopsendFlag = true;
-                    ShowWarnInfo("清洗盘旋转指令接收超时", "清洗", 1);
+                    ShowWarnInfo(getString("keywordText.WashTurnOver"), getString("keywordText.Wash"), 1);
                     AllStop();
                     //NetCom3.Instance.stopsendFlag = true;
                     //ShowWarnInfo("清洗盘旋转指令接收超时", "清洗", 1);
@@ -7903,450 +7838,6 @@ namespace BioBaseCLIA.Run
             ipostemp++;
             if (ipostemp == 15) ipostemp = 0;
         }
-        #region 屏蔽异常处理
-        /*
-        private void DisposeMoveAndAddError(Object obj,EventArgs args)//返回移管手或加液臂执行出错的指令时，对移管进度指令进行调整
-        {
-            int Type = (int)obj;//出错的类型
-            if (Type < 6)
-            {
-                if ((Type == 3 || Type == 2) && TrayRemoveAllTube) return;//如果是清洗盘清空或者温育盘清空，则不触发异常处理
-                if ((Type == 1) && TrayRemoveAllTube)//清空时撞管
-                {
-                    string order = ((AddOrder)args).order;
-                    MoveTubeStatus status = new MoveTubeStatus() { putTubePos = "0-" + order + currentHoleNum, TakeTubePos = "2-" + currentHoleNum };
-                    int temptemp = 0;
-                    foreach (var item in MoveTubeError)
-                    {
-                        if (status.Equals(item)) temptemp++;
-                    }
-                    if (temptemp > 0)
-                    {
-                        MessageBox.Show("清空清洗盘或温育盘时多次撞管，请进行维修。实验已终止。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清空清洗盘或温育盘时多次撞管，请进行维修。实验已终止。");
-                        setmainformbutten();
-                        AllStop();
-                        return;
-                    }
-                    else
-                    {
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "清空清洗盘或温育盘时撞管。");
-                        setmainformbutten();
-                    }
-                    SetItemInMoveTubeError(status);
-                    NetCom3.Instance.Send(order, 4);
-                    return;
-                }
-                if ((Type == 1 || Type == 3)&& isCleanPipeLineNow)//清洗管路时在清洗盘撞针或抓空
-                {
-                    string order = ((AddOrder)args).order;
-                    MoveTubeStatus status = new MoveTubeStatus() { putTubePos = "0-" + order + currentHoleNum, TakeTubePos = "2-" + currentHoleNum };
-                    int temptemp = 0;
-                    foreach (var item in MoveTubeError)
-                    {
-                        if (status.Equals(item)) temptemp++;
-                    }
-                    if (temptemp > 0)
-                    {
-                        MessageBox.Show("移管手多次撞管，请进行维修。实验已终止。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);//"+ (Type == 1 ?"撞针":"在清洗盘抓空多次")+ "
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手" + (Type == 1 ? "撞针" : "在清洗盘抓空多次") + "，请进行维修。实验已终止。");
-                        setmainformbutten();
-                        AllStop();
-                        return;
-                    }
-                    else
-                    {
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "移管手" + (Type == 1 ? "撞针" : "抓空") + "。");
-                        setmainformbutten();
-                    }
-                    SetItemInMoveTubeError(status);
-                    NetCom3.Instance.Send(order, 4);
-                    return;
-                }
-                MoveTubeStatus moveTubeError = tempMoveTubeStatus ?? (lisMoveTube.Count>0? lisMoveTube[0]:null);
-                MoveTubeStatus moveTubeCopy = MoveTubeListAddOne(moveTubeError);
-                if (moveTubeError == null || moveTubeCopy == null) return;
-                lock (locker2)
-                {
-                    moveTubeError.isRetransmit = true;
-                }
-
-                int iNeedCool = 0;//此前有多少个相同的出错类型
-                foreach (var item in MoveTubeError)
-                {
-                    if (moveTubeError.Equals(item)) iNeedCool++;
-                }
-                SetItemInMoveTubeError(moveTubeError);
-                if (Type == 1)//撞管
-                {
-                    if (iNeedCool > 0)
-                    {
-                        MessageBox.Show("移管手撞管，请进行维修。实验已终止。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        ThreadPool.QueueUserWorkItem(new WaitCallback((ob) => { NetCom3.Instance.CleanAllReactTray(); }), null);
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "温育盘移管手多次撞针，实验已停止。");
-                        setmainformbutten();
-                        AllStop();
-                    }
-                    else
-                    {
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "温育盘移管手撞针。");
-                        setmainformbutten();
-                    }
-                }
-                else
-                {
-                    if (Type == 2)//温育盘抓空
-                    {
-                        if (iNeedCool > 0)
-                        {
-                            MessageBox.Show("移管手多次抓空，请进行维修,实验已终止。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            ThreadPool.QueueUserWorkItem(new WaitCallback((ob) => { NetCom3.Instance.CleanAllReactTray(); }), null);
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "温育盘移管手多次抓空，实验已停止。");
-                            setmainformbutten();
-                            AllStop();
-                        }
-                        else
-                        {
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "温育盘移管手抓空。");
-                            setmainformbutten();
-                        }
-                        CatchVacancyThisTime = true;
-                    }
-                    else if (Type == 3)//清洗盘抓空
-                    {
-                        if (iNeedCool > 0)
-                        {
-                            MessageBox.Show("移管手多次抓空，请进行维修,实验已终止。", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            ThreadPool.QueueUserWorkItem(new WaitCallback((ob) => { NetCom3.Instance.CleanAllReactTray(); }), null);
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清洗盘移管手多次抓空，实验已停止。");
-                            setmainformbutten();
-                            AllStop();
-                        }
-                        else
-                        {
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "清洗盘移管手抓空。");
-                            setmainformbutten();
-                        }
-                        CatchVacancyThisTime = true;
-                    }
-                    else if (Type == 4)//暂存盘抓空
-                    {
-                        string[] takepos = moveTubeError.TakeTubePos.Split('-');
-                        bool isMoevtoNextBoard;
-                        int nextPos = 0;
-                        if (iNeedCool == 3 || iNeedCool == 6 || iNeedCool == 9)
-                        {
-                            nextPos = BoardNextPos(int.Parse(takepos[1]), true, out isMoevtoNextBoard);
-                        }
-                        else
-                        {
-                            nextPos = BoardNextPos(int.Parse(takepos[1]), false, out isMoevtoNextBoard);
-                            if (isMoevtoNextBoard)
-                            {
-                                int intTemp = 3 - (iNeedCool % 3);
-                                iNeedCool += intTemp;
-                                for (int i = 0; i < intTemp; i++)
-                                {
-                                    SetItemInMoveTubeError(moveTubeError);
-                                }
-                            }
-                        }
-                        int j = 0;
-                        for (; j < lisMoveTube.Count; j++)
-                        {
-                            if (lisMoveTube[j] == moveTubeCopy) break;
-                        }
-                        if (iNeedCool > 11)
-                        {
-                            SortMoveTubeList(1,j);//整理顺序
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "暂存盘移管手多次抓空");
-                            setmainformbutten();
-                            DialogResult tempresult = MessageBox.Show("移管手多次抓空，请进行维修,实验已暂停。" + Environment.NewLine
-                                + "点击“确定”实验继续，并视为一号暂存盘装载完成。" + Environment.NewLine + "点击“取消”终止实验", "错误"
-                                , MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                            if (tempresult == System.Windows.Forms.DialogResult.Cancel)
-                            {
-                                AllStop();
-                            }
-                        }
-                        else
-                        {
-                            SortMoveTubeList(nextPos,j);
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "暂存盘移管手抓空");
-                            setmainformbutten();
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (Type == 6)//从暂存盘抓新管到清洗盘，抓空处理
-                {
-                    string order = ((AddOrder)args).order;
-                    string[] OrderPart = order.Split(' ');
-                    int plate = int.Parse(OrderPart[5]);
-                    int colum = int.Parse(OrderPart[6]);
-                    int hole = int.Parse(OrderPart[7]);
-                    int ciunt = plate * 88 + (colum - 1) * 11 + hole;
-                    MoveTubeStatus moveTube = new MoveTubeStatus();
-                    moveTube.TakeTubePos = "0-" + ciunt;
-                    moveTube.putTubePos = "2-" + currentHoleNum;
-                    moveTube.StepNum = -1;
-                    moveTube.TestId = -1;
-
-                    int iNeedCool = 0;
-                    foreach (var item in MoveTubeError)
-                    {
-                        if (moveTube.Equals(item)) iNeedCool++;
-                    }
-                    SetItemInMoveTubeError(moveTube);
-
-                    bool isMoevtoNextBoard;
-                    int nextPos = 0;
-                    if (iNeedCool == 3 || iNeedCool == 6 || iNeedCool == 9)
-                    {
-                        nextPos = BoardNextPos(ciunt, true, out isMoevtoNextBoard);
-                    }
-                    else
-                    {
-                        nextPos = BoardNextPos(ciunt, false, out isMoevtoNextBoard);
-                        if (isMoevtoNextBoard)
-                        {
-                            int intTemp = 3 - (iNeedCool % 3);
-                            iNeedCool += intTemp;
-                            for (int i = 0; i < intTemp; i++)
-                            {
-                                SetItemInMoveTubeError(moveTube);
-                            }
-                        }
-                    }
-                    if (iNeedCool > 11)
-                    {
-                        SortMoveTubeList(1);//整理顺序
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "暂存盘移管手多次抓空");
-                        setmainformbutten();
-                        DialogResult tempresult = MessageBox.Show("移管手多次抓空，请进行维修,实验已暂停。" + Environment.NewLine
-                            + "点击“确定”实验继续，并视为一号暂存盘装载完成。" + Environment.NewLine + "点击“取消”终止实验", "错误"
-                            , MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                        if (tempresult == System.Windows.Forms.DialogResult.Cancel)
-                        {
-                            AllStop();
-                        }
-                    }
-                    else
-                    {
-                        AddTubeInCleanTray(nextPos);
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "暂存盘移管手抓空");
-                        setmainformbutten();
-                    }
-                }
-                if (Type == 11)//加液针撞针
-                {
-                    string order = ((AddOrder)args).order;
-                    bool IsDouble = ((AddOrder)args).IsDoubleTimeAndSucceed;
-                    string[] orderPart = order.Split(' ');
-                    if (IsDouble)
-                    {
-                        IsDoubleTime = false;
-                        MoveTubeManualReset.Reset();
-
-                        bool isDuilte = false;
-                        //int pos = Convert.ToInt32(orderPart[6], 16);
-                        //int posTwo = Convert.ToInt32(orderPart[6], 16);
-                        //if (orderPart[4] == "02")
-                        //{
-                        //    pos = Convert.ToInt32(orderPart[5], 16);
-                        //    isDuilte = true;
-                        //}
-                        int pos = Convert.ToInt32(orderPart[5], 16);
-                        int posTwo = Convert.ToInt32(orderPart[5], 16);
-                        MoveTubeListAddTubeDispose(pos);
-                        if (isDuilte)
-                        {
-                            MoveTubeListAddTubeDispose(posTwo);
-                        }
-                        MoveTubeManualReset.Set();
-                        
-                        RemoveTestList(pos, posTwo, isDuilte);
-
-                        AddResetEvent.Set();
-                        NetCom3.ComWait.Set();
-                        //2018-12-03 zlx add
-                        string step = "";
-                        if (orderPart[5] == "01")
-                            step = "样本";
-                        else if (orderPart[5] == "02")
-                            step = "稀释样本";
-                        else if (orderPart[5] == "03")
-                            step = "试剂1";
-                        else if (orderPart[5] == "04")
-                            step = "试剂2";
-                        else if (orderPart[5] == "05")
-                            step = "试剂3";
-                        else if (orderPart[5] == "06")
-                            step = "稀释液";
-                        else if (orderPart[5] == "07")
-                            step = "磁珠";
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "加液针在加入" + step + "撞针，对应实验已经移除");
-                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "加液针发生多次撞针，在位置" + pos + (isDuilte ? "和" + posTwo.ToString() : "") + "，对应实验已经移除");
-                        //2018-10-25 zlx add
-                        int TestID = lisTestSchedule.Find(ty => ty.AddSamplePos == pos).TestID;
-                        foreach (DataGridViewRow dr in dgvWorkListData.Rows)
-                        {
-                            if (int.Parse(dr.Cells[1].Value.ToString()) == TestID)
-                            {
-                                dr.Cells["TestStatus"].Value = "实验废弃";
-                                //BeginInvoke(TestStatusInfo, new object[] { "实验废弃！", dr.Cells[1].Value.ToString() });
-                                dr.DefaultCellStyle.BackColor = Color.Gray;
-                                SampleNumCurrent = SampleNumCurrent - 1;
-                                break;
-                            }
-                        }
-                        setmainformbutten();
-                    }
-                    else
-                    {
-                        NetCom3.ComWait.Reset();
-                        AddResetEvent.Reset();
-                        IsDoubleTime = true;
-                        orderPart[7] = "00";
-                        String tempstring = null;
-                        foreach (var item in orderPart)
-                        {
-                            tempstring += item + " ";
-                        }
-                        tempstring = tempstring.TrimEnd();
-                        NetCom3.Instance.Send(tempstring, 4);
-                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "警告" + " *** " + "未读" + " *** " + "加液针撞针一次。");
-                        setmainformbutten();
-                    }
-                    
-                }
-            }
-        }
-        private MoveTubeStatus MoveTubeListAddOne(MoveTubeStatus moveTube)//add y 20180727  复制lisMoveTube中出错的那一项，然后将此复制元素增加到lisMoveTube列表头。
-        {
-            if (moveTube == null)
-            {
-                return null;
-            }
-            MoveTubeStatus tubeStatus = new MoveTubeStatus(moveTube);
-            lock (locker2)
-            {
-                if (lisMoveTube.Count == 0)
-                {
-                    lisMoveTube.Insert(0, tubeStatus);
-                }
-                else
-                {
-                    lisMoveTube.Insert(1, tubeStatus);
-                }
-            }
-             return tubeStatus;
-        }
-        private void SortMoveTubeList(int FirstPos , int starPos = 1)//add y 20180727  整理movetubelis
-        {
-            lock (locker2)
-            {
-                int pos = FirstPos;//取管位置
-                for (int j = starPos; j < lisMoveTube.Count; j++)//从某个位置开始
-                {
-                    var item = lisMoveTube[j];
-                    String[] TakeTubeAtring = item.TakeTubePos.Split('-');
-                    if (TakeTubeAtring[0] == "0")
-                    {
-                        item.TakeTubePos = "0-" + pos;
-                        pos++;
-                        if (pos > 352)
-                        {
-                            int tary = -1;
-                            int[] PosTemp = new int[4];
-                            PosTemp[0] = int.Parse(Common.OperateIniFile.ReadIniData("Tube", "Pos1", "1", System.IO.Directory.GetCurrentDirectory() + "\\SubstrateTube.ini")) == 88 ? 0 : -1;
-                            PosTemp[1] = int.Parse(Common.OperateIniFile.ReadIniData("Tube", "Pos2", "1", System.IO.Directory.GetCurrentDirectory() + "\\SubstrateTube.ini")) == 88 ? 1 : -1;
-                            PosTemp[2] = int.Parse(Common.OperateIniFile.ReadIniData("Tube", "Pos3", "1", System.IO.Directory.GetCurrentDirectory() + "\\SubstrateTube.ini")) == 88 ? 2 : -1;
-                            PosTemp[3] = int.Parse(Common.OperateIniFile.ReadIniData("Tube", "Pos4", "1", System.IO.Directory.GetCurrentDirectory() + "\\SubstrateTube.ini")) == 88 ? 3 : -1;
-                            for (int i = 0; i < 4; i++)
-                            {
-                                if (PosTemp[i] != -1)
-                                {
-                                    tary = PosTemp[i];
-                                    break;
-                                }
-                            }
-                            if (tary == -1)
-                            {
-                                AllPause();
-                                MessageBox.Show("缺少反应管，实验已暂停，请装填暂存盘，然后稍后重新开始", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                pos = 1;
-                            }
-                            else pos = tary * 88 + 1;
-                        }
-                    }
-                }
-            }
-        }
-        
-       
-        private int BoardNextPos(int pos,bool moveToNextBoard, out bool isRemoveBoarf)//add y 20180727  返回下一个管位置
-        {
-            if (pos == 0)
-            {
-                int boardPos = int.Parse(OperateIniFile.ReadIniData("Tube", "TubePos", "1", System.IO.Directory.GetCurrentDirectory() + "\\SubstrateTube.ini"));
-                OperateIniFile.WriteIniData("Tube", "TubePos", ((boardPos+1)>352 ? 1: (boardPos + 1)).ToString(), iniPathSubstrateTube);
-                isRemoveBoarf = moveToNextBoard;
-                int platee = boardPos % 88 == 0 ? boardPos / 88 - 1 : boardPos / 88;//2018-09-03 zlx mod
-                int number = int.Parse(Common.OperateIniFile.ReadIniData("Tube", "Pos"+(platee+1).ToString(), "1", System.IO.Directory.GetCurrentDirectory() + "\\SubstrateTube.ini"));
-                if (number <1)
-                {
-                    number = 1;
-                }
-                OperateIniFile.WriteIniData("Tube", "Pos" + (platee + 1).ToString(), (number-1).ToString(), iniPathSubstrateTube);
-                return boardPos;
-            }
-            isRemoveBoarf = moveToNextBoard;
-            int plate = pos % 88 == 0 ? pos / 88 - 1 : pos / 88;//几号板
-            int column = pos % 11 == 0 ? pos / 11 - (plate * 8) : pos / 11 + 1 - (plate * 8);
-            int hole = pos % 11 == 0 ? 11 : pos % 11;
-            if (moveToNextBoard)
-            {
-                plate++;
-                if (plate > 3)
-                {
-                    plate = 0;
-                }
-                column = hole = 1;
-            }
-            else
-            {
-                hole++;
-                if (hole > 11)
-                {
-                    hole = 1;
-                    column++;
-                    if (column > 8)
-                    {
-                        column = 1;
-                        plate++;
-                        isRemoveBoarf = true;
-                        if (plate > 3)
-                        {
-                            plate = 0;
-                        }
-                    }
-                }
-            }
-            if (isRemoveBoarf)
-            {
-                OperateIniFile.WriteIniData("Tube", "Pos" + (plate==0?4:plate).ToString(), (0).ToString(), iniPathSubstrateTube);
-            }
-            OperateIniFile.WriteIniData("Tube", "TubePos", (plate * 88 + (column - 1) * 11 + hole + 1).ToString(), iniPathSubstrateTube);
-            int count = int.Parse(Common.OperateIniFile.ReadIniData("Tube", "Pos" + (plate + 1).ToString(), "1", System.IO.Directory.GetCurrentDirectory() + "\\SubstrateTube.ini"));
-            if (count < 1) count = 1;
-            OperateIniFile.WriteIniData("Tube", "Pos" + (plate + 1).ToString(), (count-1).ToString(), iniPathSubstrateTube);
-            return plate * 88 + (column - 1) * 11 + hole;
-        }
-         */
-        #endregion
         private void MoveTubeListAddTubeDispose(int pos)//add y 20180727  丢掉不用的管,加液针撞针需要的处理
         {
             MoveTubeStatus moveTubeStatus = new MoveTubeStatus();
@@ -8364,25 +7855,27 @@ namespace BioBaseCLIA.Run
             Thread thread;//2019-2-21 zlx mod
             if (TubeStop)
             {
-                thread = new Thread(new ThreadStart(() => { MessageBox.Show("编号为:" + TestnameTemp + " 的实验因稀释缺管已废弃，请稍后重新运行此测试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
+                thread = new Thread(new ThreadStart(() => { MessageBox.Show(getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest") + getString("keywordText.abandonedtReason") + getString("keywordText.LackTube"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Information); }));
                 //thread = new Thread(new ThreadStart(() => { MessageBox.Show("编号为:" + TestnameTemp + " 的实验因为稀释缺管，无法继续，已经排除，请在稍后重新运行此实验", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
             }
             else
             {
                 //thread = new Thread(new ThreadStart(() => { MessageBox.Show("编号为:" + TestnameTemp + " 的实验因为发生故障，无法继续，已经排除，请在稍后重新运行此实验", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
-                thread = new Thread(new ThreadStart(() => { MessageBox.Show("编号为:" + TestnameTemp + " 的实验因发生故障已废弃，请稍后重新运行此测试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
+                thread = new Thread(new ThreadStart(() => { MessageBox.Show(getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Information); }));
             }
-            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "编号为:" + TestnameTemp + " 的实验因发生故障已废弃,废弃实验在温育盘" + testSchedule.AddSamplePos + "号位置" + "," + endReason);
+            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest") + getString("keywordText.abandonedtReason") + endReason + ";" + getString("keywordText.Pos") + testSchedule.AddSamplePos);
             if (thread != null)
             {
                 thread.IsBackground = true;
+                thread.CurrentCulture = Language.AppCultureInfo;//lyq 20210616
+                thread.CurrentUICulture = Language.AppCultureInfo;//lyq 20210616
                 thread.Start();
             }
             foreach (DataGridViewRow dr in dgvWorkListData.Rows)
             {
                 if (int.Parse(dr.Cells[1].Value.ToString()) == testSchedule.TestID)
                 {
-                    dr.Cells["TestStatus"].Value = "实验废弃";
+                    dr.Cells["TestStatus"].Value = getString("keywordText.TestStatusAbondoned");
                     //BeginInvoke(TestStatusInfo, new object[] { "实验废弃！", dr.Cells[1].Value.ToString() });
                     dr.DefaultCellStyle.BackColor = Color.Gray;
                     SampleNumCurrent = SampleNumCurrent - 1;
@@ -8431,13 +7924,13 @@ namespace BioBaseCLIA.Run
             //if (testSchedule == null) MessageBox.Show("未能找到该实验项目");
 
             string TestnameTemp = testSchedule.TestID.ToString();
-            Thread thread = new Thread(new ThreadStart(() => { MessageBox.Show("编号为:" + TestnameTemp + " 的实验因为发生撞针，无法继续，已经排除，请在稍后重新运行此实验", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
+            Thread thread = new Thread(new ThreadStart(() => { MessageBox.Show(getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest") + getString("keywordText.abandonedtReason") + getString("keywordText.Samplingprobe"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Information); }));
             //2018-10-16 zlx mod
             foreach (DataGridViewRow dr in dgvWorkListData.Rows)
             {
                 if (int.Parse(dr.Cells[1].Value.ToString()) == testSchedule.TestID)
                 {
-                    dr.Cells["TestStatus"].Value = "实验废弃";
+                    dr.Cells["TestStatus"].Value = getString("keywordText.TestStatusAbondoned");
                     //BeginInvoke(TestStatusInfo, new object[] { "实验废弃！", dr.Cells[1].Value.ToString() });
                     dr.DefaultCellStyle.BackColor = Color.Gray;
                     SampleNumCurrent = SampleNumCurrent - 1;
@@ -8449,14 +7942,8 @@ namespace BioBaseCLIA.Run
                     break;
                 }
             }
-            //foreach (DataGridViewRow dr in dgvWorkListData.Rows)
-            //{
-            //    if (dr.Cells[3].Value.Equals(pos))
-            //    {
-            //        BeginInvoke(TestStatusInfo, new object[] { "实验废弃！", dr.Cells[1].Value.ToString() });
-            //        dr.DefaultCellStyle.BackColor = Color.Gray;
-            //    }
-            //}
+            thread.CurrentCulture = Language.AppCultureInfo;//lyq 20210616
+            thread.CurrentUICulture = Language.AppCultureInfo;//lyq 20210616
             thread.IsBackground = true;
             thread.Start();
 
@@ -8483,7 +7970,7 @@ namespace BioBaseCLIA.Run
 
             while (true)
             {
-            again:
+                again:
                 Thread.Sleep(30);
                 if (lisMoveTube.Count > 0)
                 {
@@ -8519,51 +8006,8 @@ namespace BioBaseCLIA.Run
                             MoveTubeUseFlag = true;
                             int iNeedCool = 0;
                             int IsKnockedCool = 0;
-                        #region 屏蔽
-                        /*
-                        //移管手到取管位置takepos[1]（暂存盘）取管
-                        takepos[1] = OperateIniFile.ReadIniData("Tube", "TubePos", "1", iniPathSubstrateTube);
-                        //takepos[1] = (int.Parse(OperateIniFile.ReadIniData("Tube", "TubePos", "1", iniPathSubstrateTube)) - 1).ToString(); //2018-09-28
-                        int plate = int.Parse(takepos[1]) % 88 == 0 ? int.Parse(takepos[1]) / 88 - 1 : int.Parse(takepos[1]) / 88;//几号板
-                        int column = int.Parse(takepos[1]) % 11 == 0 ? int.Parse(takepos[1]) / 11 - (plate * 8) : int.Parse(takepos[1]) / 11 + 1 - (plate * 8);
-                        int hole = int.Parse(takepos[1]) % 11 == 0 ? 11 : int.Parse(takepos[1]) % 11;
-                        //更改了取官成功的位置，防止发生处理出现的抓空等问题时，修改完配置文件又被此处覆盖
-                        #region 取管成功
-                        int TubeRack = (int.Parse(takepos[1])) / 88;
-                        int curTube = (int.Parse(takepos[1])) % 88;
-                        if (curTube == 0 && int.Parse(takepos[1]) != 0)
-                        {
-                            TubeRack = TubeRack - 1;
-                            curTube = 88;
-                        }
-                        //那个架子减了一个管
-                        OperateIniFile.WriteIniData("Tube", "Pos" + (TubeRack + 1).ToString(), (88 - curTube).ToString(), iniPathSubstrateTube);
-                        List<int> lisTubeNum = new List<int>();
-                        lisTubeNum = QueryTubeNum();
-                        //移管手要夹的下一个暂存盘位置
-                        int NextPos = int.Parse(takepos[1]) + 1;
-                        //暂存盘中第一个装载暂存盘的索引
-                        //暂存盘中第一个装载暂存盘的索引
-                        int firstTubeIndex = lisTubeNum.FindIndex(ty => ty <= 88 && ty > 0);
-                        if (firstTubeIndex < 0)
-                        {
-                            setmainformbutten();
-                            TubeStop = true;
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "异常" + " *** " + "未读" + " *** " + "暂存盘为空，将停止加样！");
-                        }
-                        for (int i = 1; i <= lisTubeNum.Count; i++)
-                        {
-                            if (NextPos == i * 88 + 1)
-                            {
-                                NextPos = firstTubeIndex * 88 + (88 - lisTubeNum[firstTubeIndex]) + 1;
-                            }
-                        }
-                        OperateIniFile.WriteIniData("Tube", "TubePos", NextPos.ToString(), iniPathSubstrateTube);
-                         */
-                        AgainNewMove:
-                            ///到暂存盘takepos[1]位置取管放到温育盘putpos位置
-                            //NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 01 " + plate.ToString("x2") + " " + column.ToString("x2")
-                            //    + " " + hole.ToString("x2") + " " + int.Parse(putpos[1]).ToString("x2")), 1);
+                            #region 屏蔽
+                            AgainNewMove:
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 01 " + int.Parse(putpos[1]).ToString("x2")), 1);
                             if (!NetCom3.Instance.MoveQuery())
                             {
@@ -8623,16 +8067,11 @@ namespace BioBaseCLIA.Run
                                         NetCom3.Instance.stopsendFlag = true;
                                         ShowWarnInfo("移管手在暂存盘向温育盘移管时取管撞管", "移管", 1);
                                         AllStop();
-                                        //setmainformbutten();
-                                        //NetCom3.Instance.stopsendFlag = true;
-                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向温育盘抓管时取管撞管！");
-                                        //DialogResult tempresult = MessageBox.Show("移管手在暂存盘向温育盘抓管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                                 {
-                                GAgainNewMove:
+                                    GAgainNewMove:
                                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(putpos[1]).ToString("x2")), 1);
                                     if (!NetCom3.Instance.MoveQuery())
                                     {
@@ -8649,11 +8088,6 @@ namespace BioBaseCLIA.Run
                                                 NetCom3.Instance.stopsendFlag = true;
                                                 ShowWarnInfo("移管手在温育盘扔废管时取管发生撞管", "移管", 1);
                                                 AllStop();
-                                                //setmainformbutten();
-                                                //NetCom3.Instance.stopsendFlag = true;
-                                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时取管撞管！");
-                                                //DialogResult tempresult = MessageBox.Show("移管手扔废管时发生撞管！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                                                //AllStop();
                                             }
                                         }
                                         #endregion
@@ -8668,11 +8102,6 @@ namespace BioBaseCLIA.Run
                                         NetCom3.Instance.stopsendFlag = true;
                                         ShowWarnInfo("移管手向温育盘抓新管时发生撞管，实验将进行停止", "移管", 1);
                                         AllStop();
-                                        //setmainformbutten();
-                                        //NetCom3.Instance.stopsendFlag = true;
-                                        //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手向温育盘抓新管时放管撞管！");
-                                        //DialogResult tempresult = MessageBox.Show("移管手向温育盘抓新管时发生撞管，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                                        //AllStop();
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
@@ -8680,11 +8109,6 @@ namespace BioBaseCLIA.Run
                                     NetCom3.Instance.stopsendFlag = true;
                                     ShowWarnInfo("移管手在暂存盘向温育盘抓管时接收数据超时", "移管", 1);
                                     AllStop();
-                                    //setmainformbutten();
-                                    //NetCom3.Instance.stopsendFlag = true;
-                                    //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向温育盘抓管时接收数据超时！");
-                                    //DialogResult tempresult = MessageBox.Show("移管手在暂存盘向温育盘抓管时接收数据超时，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                                    //AllStop();
                                 }
                                 #endregion
                             }
@@ -8694,7 +8118,6 @@ namespace BioBaseCLIA.Run
                                 OperateIniFile.WriteIniData("ReactTrayInfo", "no" + putpos[1], "1", iniPathReactTrayInfo);
                             }
                             #endregion
-                            //NetCom3.Instance.MoveQuery();
                             #endregion
                             lock (locker2)
                             {
@@ -8714,7 +8137,7 @@ namespace BioBaseCLIA.Run
                             WashTrayUseFlag = true;
                             int iNeedCool = 0;
                             int IsKnockedCool = 0;
-                        AgainNewMove:
+                            AgainNewMove:
                             //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
                             //LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss"), "清洗盘夹管到温育盘 movetube  WashTrayUseFlag = true"));
                             ///清洗盘取管放到温育盘putpos[1]位置
@@ -8727,7 +8150,7 @@ namespace BioBaseCLIA.Run
                                     iNeedCool++;
                                     if (iNeedCool < 2)
                                     {
-                                    AgainReSetSend:
+                                        AgainReSetSend:
                                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 08"), 1);
                                         if (!NetCom3.Instance.MoveQuery())
                                         {
@@ -8739,7 +8162,7 @@ namespace BioBaseCLIA.Run
                                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("清洗盘复位返回指令接收超时", "清洗", 1);
+                                                ShowWarnInfo(getString("keywordText.WashResetOver"), getString("keywordText.Wash"), 1);
                                                 AllStop();
                                             }
                                         }
@@ -8748,7 +8171,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("移管手在清洗盘向温育盘移管时取管多次抓空", "移管", 1);
+                                        ShowWarnInfo(getString("keywordText.MWashToReactNullS"), getString("keywordText.Move"), 1);
                                         AllStop();
                                         //setmainformbutten();
                                         //NetCom3.Instance.stopsendFlag = true;
@@ -8773,7 +8196,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("移管手在清洗盘向温育盘移管时多次取管撞管", "移管", 1);
+                                        ShowWarnInfo(getString("keywordText.MWashToReactIsKnocked"), getString("keywordText.Move"), 1);
                                         AllStop();
                                         //setmainformbutten();
                                         //NetCom3.Instance.stopsendFlag = true;
@@ -8797,9 +8220,9 @@ namespace BioBaseCLIA.Run
                                         dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][4] = 0;
                                     }
 
-                                #endregion
+                                    #endregion
 
-                                ClearMove:
+                                    ClearMove:
                                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(putpos[1]).ToString("x2")), 1);
                                     if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
                                     {
@@ -8809,7 +8232,7 @@ namespace BioBaseCLIA.Run
                                         else
                                         {
                                             NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo("移管手温育盘扔管时多次取管撞管", "移管", 1);
+                                            ShowWarnInfo(getString("keywordText.MReactLossIsKnocked"), getString("keywordText.Move"), 1);
                                             AllStop();
                                             //setmainformbutten();
                                             //NetCom3.Instance.stopsendFlag = true;
@@ -8823,7 +8246,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         List<TestSchedule> TestSchedule = lisTestSchedule.FindAll(ty => ty.TestID == TempMoveStatus.TestId);
                                         if (TestSchedule.Count > 0)
-                                            RemoveTestList(TestSchedule[0], "移管手在清洗盘向温育盘移管时放管撞管");
+                                            RemoveTestList(TestSchedule[0], getString("keywordText.MWashToReactPutKnocked"));
                                         TempMoveStatus.isRetransmit = false;
                                         lock (locker2)
                                         {
@@ -8836,7 +8259,7 @@ namespace BioBaseCLIA.Run
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("移管手在清洗盘移管到温育盘时接收数据超时", "移管", 1);
+                                    ShowWarnInfo(getString("keywordText.MWashToReactOver"), getString("keywordText.Move"), 1);
                                     AllStop();
 
                                     //setmainformbutten();
@@ -8895,7 +8318,7 @@ namespace BioBaseCLIA.Run
                             if (tubeHoleNum <= 0)
                                 tubeHoleNum = tubeHoleNum + frmParent.WashTrayNum;
                             LogFile.Instance.Write("  ***  " + "当前时间" + DateTime.Now + "清洗盘takepos[1]取管扔废管取放管位置" + tubeHoleNum + ",washCountNum的值:" + washCountNum + "  ***  ");
-                        AgainNewMove:
+                            AgainNewMove:
                             //LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss"), "到废弃处 movetube  WashTrayUseFlag = true"));
                             ///清洗盘takepos[1]取管扔废管
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 01"), 1);
@@ -8907,7 +8330,7 @@ namespace BioBaseCLIA.Run
                                     iNeedCool++;
                                     if (iNeedCool < 2)
                                     {
-                                    AgainReSetSend:
+                                        AgainReSetSend:
                                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 08"), 1);
                                         if (!NetCom3.Instance.MoveQuery())
                                         {
@@ -8919,7 +8342,7 @@ namespace BioBaseCLIA.Run
                                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                                             {
                                                 NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo("清洗盘复位返回指令接收超时", "清洗", 1);
+                                                ShowWarnInfo(getString("keywordText.WashResetOver"), getString("keywordText.Wash"), 1);
                                                 AllStop();
                                             }
                                         }
@@ -8928,7 +8351,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("移管手在清洗盘扔废管时多次抓空", "移管", 1);
+                                        ShowWarnInfo(getString("keywordText.MWashLossNullS"), getString("keywordText.Move"), 1);
                                         AllStop();
                                         //setmainformbutten();
                                         //NetCom3.Instance.stopsendFlag = true;
@@ -8954,7 +8377,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("移管手在清洗盘扔废管时多次取管撞管", "移管", 1);
+                                        ShowWarnInfo(getString("keywordText.MWashLossIsKnocked"), getString("keywordText.Move"), 1);
                                         AllStop();
                                         //setmainformbutten();
                                         //NetCom3.Instance.stopsendFlag = true;
@@ -8967,7 +8390,7 @@ namespace BioBaseCLIA.Run
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("移管手在清洗盘扔废管时接收数据超时", "移管", 1);
+                                    ShowWarnInfo(getString("keywordText.MWashLossOver"), getString("keywordText.Move"), 1);
                                     AllStop();
 
                                     //setmainformbutten();
@@ -9016,7 +8439,7 @@ namespace BioBaseCLIA.Run
                         MoveTubeUseFlag = true;
                         int iNeedCool = 0;
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
                         ///温育盘takepos[1]取管扔废管
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(takepos[1]).ToString("x2")), 1);
@@ -9033,7 +8456,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("移管手在温育盘扔管时取管多次抓空", "移管", 1);
+                                    ShowWarnInfo(getString("keywordText.MReactLossNulls"), getString("keywordText.Move"), 1);
                                     AllStop();
                                     //setmainformbutten();
                                     //NetCom3.Instance.stopsendFlag = true;
@@ -9059,7 +8482,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("移管手在温育盘扔管时取管多次撞管", "移管", 1);
+                                    ShowWarnInfo(getString("keywordText.MReactLossIsKnocked"), getString("keywordText.Move"), 1);
                                     AllStop();
                                     //setmainformbutten();
                                     //NetCom3.Instance.stopsendFlag = true;
@@ -9072,7 +8495,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("移管手在温育盘扔废管时接收数据超时", "移管", 1);
+                                ShowWarnInfo(getString("keywordText.MReactLossOver"), getString("keywordText.Move"), 1);
                                 AllStop();
                                 //setmainformbutten();
                                 //NetCom3.Instance.stopsendFlag = true;
@@ -9110,9 +8533,9 @@ namespace BioBaseCLIA.Run
                         //WashTurnFlag = true;
                         int iNeedCool = 0;
                         int IsKnockedCool = 0;
-                    #region 指令发送及文件修改（反应盘夹管到清洗盘）
-                    //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
-                    AgainNewMove:
+                        #region 指令发送及文件修改（反应盘夹管到清洗盘）
+                        //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
+                        AgainNewMove:
                         ///从反应盘takepos[1]位取管放到清洗盘putpos[1]位置
                         LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + "取管位置:" + TempMoveStatus.TakeTubePos + ",放管位置:" + TempMoveStatus.putTubePos);
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + int.Parse(takepos[1]).ToString("x2")), 1);
@@ -9146,7 +8569,7 @@ namespace BioBaseCLIA.Run
                                     MoveTubeListAddTubeDispose(Convert.ToInt32(int.Parse(takepos[1])));
                                     List<TestSchedule> TestSchedule = lisTestSchedule.FindAll(ty => ty.TestID == TempMoveStatus.TestId);
                                     if (TestSchedule.Count > 0)
-                                        RemoveTestList(TestSchedule[0], "移管手在温育盘夹管向清洗盘时多次抓空");
+                                        RemoveTestList(TestSchedule[0], getString("keywordText.MReactToWashNulls"));
                                     #endregion
                                 }
                             }
@@ -9166,7 +8589,7 @@ namespace BioBaseCLIA.Run
                                 else
                                 {
                                     NetCom3.Instance.stopsendFlag = true;
-                                    ShowWarnInfo("移管手在温育盘移管到清洗盘时多次取管撞管", "移管", 1);
+                                    ShowWarnInfo(getString("keywordText.MReactToWashIsKnocked"), getString("keywordText.Move"), 1);
                                     AllStop();
                                     //setmainformbutten();
                                     //NetCom3.Instance.stopsendFlag = true;
@@ -9180,7 +8603,7 @@ namespace BioBaseCLIA.Run
                             {
                                 int CIsKnockedCool = 0;
                                 OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
-                            ClearMove:
+                                ClearMove:
                                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                                 if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
                                 {
@@ -9190,7 +8613,7 @@ namespace BioBaseCLIA.Run
                                     else
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo("移管手在清洗盘扔管时多次取管撞管", "移管", 1);
+                                        ShowWarnInfo(getString("keywordText.MWashLossIsKnocked"), getString("keywordText.Move"), 1);
                                         AllStop();
                                         //setmainformbutten();
                                         //NetCom3.Instance.stopsendFlag = true;
@@ -9204,7 +8627,7 @@ namespace BioBaseCLIA.Run
                                 {
                                     List<TestSchedule> TestSchedule = lisTestSchedule.FindAll(ty => ty.TestID == TempMoveStatus.TestId);
                                     if (TestSchedule.Count > 0)
-                                        RemoveTestList(TestSchedule[0], "移管手在温育盘移管到清洗盘时放管撞管");
+                                        RemoveTestList(TestSchedule[0], getString("keywordText.MReactToWashPutKnocked"));
                                     step = "";
                                     lock (locker2)
                                     {
@@ -9217,7 +8640,7 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                             {
                                 NetCom3.Instance.stopsendFlag = true;
-                                ShowWarnInfo("移管手在温育盘移管到清洗盘时接收数据超时", "移管", 1);
+                                ShowWarnInfo(getString("keywordText.MReactToWashOver"), getString("keywordText.Move"), 1);
                                 AllStop();
                                 //setmainformbutten();
                                 //NetCom3.Instance.stopsendFlag = true;
@@ -9270,7 +8693,7 @@ namespace BioBaseCLIA.Run
                                    = Color.Gray;
                             lisProBar[TempMoveStatus.TestId - 1].Invalidate();
 
-                            BeginInvoke(TestStatusInfo, new object[] { "正在清洗", TempMoveStatus.TestId });
+                            BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.Washing"), TempMoveStatus.TestId });
 
                             lisProBar[TempMoveStatus.TestId - 1].BarColor[StepIndex(dgvWorkListData.Rows[TempMoveStatus.TestId - 1].Cells[6].Value.ToString(), "W2")]
                                 = Color.Yellow;
@@ -9284,7 +8707,7 @@ namespace BioBaseCLIA.Run
                                 = Color.Gray;
                             lisProBar[TempMoveStatus.TestId - 1].Invalidate();
 
-                            BeginInvoke(TestStatusInfo, new object[] { "正在清洗", TempMoveStatus.TestId });
+                            BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.Washing"), TempMoveStatus.TestId });
 
                             lisProBar[TempMoveStatus.TestId - 1].BarColor[StepIndex(dgvWorkListData.Rows[TempMoveStatus.TestId - 1].Cells[6].Value.ToString(), "W1")]
                                 = Color.Yellow;
@@ -9311,7 +8734,6 @@ namespace BioBaseCLIA.Run
         /// </summary>
         void washStep()
         {
-
             //是否进行读数
             string read = "0";
             //注液标志位
@@ -9448,9 +8870,11 @@ namespace BioBaseCLIA.Run
                     }
                     ReadThread = new Thread(new ParameterizedThreadStart(Read));
                     ReadThread.IsBackground = true;
+                    ReadThread.CurrentCulture = Language.AppCultureInfo;
+                    ReadThread.CurrentUICulture = Language.AppCultureInfo;
                     ReadThread.Start();
                 }
-            AgainSend:
+                AgainSend:
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 03 " + Imbibition + " " + LiquidInjectionFlag[0] +
                     LiquidInjectionFlag[1] + " " + LiquidInjectionFlag[2] + AddSubstrate + " " + substratePipe + read), 2);
                 if (!NetCom3.Instance.WashQuery())
@@ -9459,9 +8883,9 @@ namespace BioBaseCLIA.Run
                         goto AgainSend;
                     else if (NetCom3.Instance.WasherrorFlag == (int)ErrorState.OverTime)
                     {
- 
+
                         NetCom3.Instance.stopsendFlag = true;
-                        ShowWarnInfo("清洗盘清洗灌注指令接收超时", "清洗", 1);
+                        ShowWarnInfo(getString("keywordText.WashPourOver"), getString("keywordText.Wash"), 1);
                         AllStop();
                     }
                 }
@@ -9479,7 +8903,7 @@ namespace BioBaseCLIA.Run
                 Cells[6].Value.ToString(), "R")]
                = Color.Gray;
                 lisProBar[int.Parse(dtWashTrayTubeStatus.Rows[24][2].ToString()) - 1].Invalidate();
-                BeginInvoke(TestStatusInfo, new object[] { "实验完成", int.Parse(dtWashTrayTubeStatus.Rows[24][2].ToString()) });
+                BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.Testcomplete"), int.Parse(dtWashTrayTubeStatus.Rows[24][2].ToString()) });
                 //completeTestNums++;
             }
             if (ImbibitionFlag.Contains(1))
@@ -9491,7 +8915,7 @@ namespace BioBaseCLIA.Run
                             [StepIndex(dgvWorkListData.Rows[int.Parse(dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][2].ToString()) - 1]
                             .Cells[6].Value.ToString(), "W2")] = Color.Gray;
                     lisProBar[int.Parse(dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][2].ToString()) - 1].Invalidate();
-                    BeginInvoke(TestStatusInfo, new object[] { "正在加底物", int.Parse(dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][2].ToString()) });
+                    BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.AddingSubstrate"), int.Parse(dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][2].ToString()) });
                     lisProBar[int.Parse(dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][2].ToString()) - 1].
                         BarColor[StepIndex(dgvWorkListData.Rows[int.Parse(dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][2].ToString()) - 1].
                         Cells[6].Value.ToString(), "Su")] = Color.Yellow;
@@ -9547,7 +8971,7 @@ namespace BioBaseCLIA.Run
                     BarColor[StepIndex(dgvWorkListData.Rows[int.Parse(dtWashTrayTubeStatus.Rows[18 + isNewCleanTray][2].ToString()) - 1].
                     Cells[6].Value.ToString(), "Su")] = Color.Gray;
                 lisProBar[int.Parse(dtWashTrayTubeStatus.Rows[18 + isNewCleanTray][2].ToString()) - 1].Invalidate();
-                BeginInvoke(TestStatusInfo, new object[] { "正在读数", int.Parse(dtWashTrayTubeStatus.Rows[18 + isNewCleanTray][2].ToString()) });
+                BeginInvoke(TestStatusInfo, new object[] { getString("keywordText.Reading"), int.Parse(dtWashTrayTubeStatus.Rows[18 + isNewCleanTray][2].ToString()) });
                 lisProBar[int.Parse(dtWashTrayTubeStatus.Rows[18 + isNewCleanTray][2].ToString()) - 1].
                     BarColor[StepIndex(dgvWorkListData.Rows[int.Parse(dtWashTrayTubeStatus.Rows[18 + isNewCleanTray][2].ToString()) - 1].
                     Cells[6].Value.ToString(), "R")]
@@ -9666,26 +9090,26 @@ namespace BioBaseCLIA.Run
             if (lis1.Count == lis2.Count)
             {
                 Thread updateStatus = new Thread(() =>
-                 {
-                     DbHelperOleDb db2 = new DbHelperOleDb(1);
-                     DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 1 where SampleID = " + int.Parse
-                                (dgvWorkListData.Rows[testid - 1].Cells["SampleID"].Value.ToString()));
-                     for (int i = 0; i < dtSpInfo.Rows.Count; i++)
-                     {
-                         try
-                         {
-                             if (int.Parse(dtSpInfo.Rows[i]["Position"].ToString())
-                             == int.Parse(dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString()))
-                             {
-                                 dtSpInfo.Rows[i]["Status"] = "1";
-                             }
-                         }
-                         catch (Exception ex)
-                         {
-                             LogFile.Instance.Write("记录添加样本操作相同数据时出现的异常信息，暂时不需要进行处理" + ex.Message + "\n" + ex.StackTrace);
-                         }
-                     }
-                 });
+                {
+                    DbHelperOleDb db2 = new DbHelperOleDb(1);
+                    DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 1 where SampleID = " + int.Parse
+                               (dgvWorkListData.Rows[testid - 1].Cells["SampleID"].Value.ToString()));
+                    for (int i = 0; i < dtSpInfo.Rows.Count; i++)
+                    {
+                        try
+                        {
+                            if (int.Parse(dtSpInfo.Rows[i]["Position"].ToString())
+                            == int.Parse(dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString()))
+                            {
+                                dtSpInfo.Rows[i]["Status"] = "1";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LogFile.Instance.Write("记录添加样本操作相同数据时出现的异常信息，暂时不需要进行处理" + ex.Message + "\n" + ex.StackTrace);
+                        }
+                    }
+                });
                 updateStatus.Start();
                 updateStatus.Join();
             }
@@ -9767,7 +9191,7 @@ namespace BioBaseCLIA.Run
                     dtScalCacResult.Rows.Add(ItemName, 0, points, Batch);
                 }
 
-                if (sampleType.Contains("定标液"))
+                if (sampleType.Contains(getString("keywordText.CalibrationSolution")))
                 {
                     dtScalingPMT.Rows.Add(PMT, 0, ItemName, 0, Batch);
                     //从dtScalingPMT中查询定性的当前项目的定标液信息
@@ -9783,6 +9207,8 @@ namespace BioBaseCLIA.Run
                         //  开启读数计算线程
                         CaculateThread = new Thread(new ParameterizedThreadStart(Calculate));
                         CaculateThread.IsBackground = true;
+                        CaculateThread.CurrentCulture = Language.AppCultureInfo;//lyq 20210616
+                        CaculateThread.CurrentUICulture = Language.AppCultureInfo;//lyq 20210616
                         CaculateThread.Start(dtCacuData);
                     }
                 }
@@ -9801,15 +9227,15 @@ namespace BioBaseCLIA.Run
                         sco = scoValue.ToString();
                         if (scoValue <= 1)
                         {
-                            result = "阳性";
+                            result = getString("keywordText.positive");
                         }
                         else if (scoValue > 1)
                         {
-                            result = "阴性";
+                            result = getString("keywordText.negative");
                         }
                         else
                         {
-                            result = "无法计算";
+                            result = getString("keywordText.NoComputation");
                         }
                     }
                 }
@@ -9864,10 +9290,12 @@ namespace BioBaseCLIA.Run
                         //  开启读数计算线程
                         CaculateThread = new Thread(new ParameterizedThreadStart(Calculate));
                         CaculateThread.IsBackground = true;
+                        CaculateThread.CurrentCulture = Language.AppCultureInfo;//lyq 20210616
+                        CaculateThread.CurrentUICulture = Language.AppCultureInfo;//lyq 20210616
                         CaculateThread.Start(dtCacuData);
                     }
                 }
-                if (sampleType.Contains("标准品"))
+                if (sampleType.Contains(getString("keywordText.Standard")))
                 {
                     if (CurrentScal.Num.Split(',').Length >= 6)
                     {
@@ -9876,31 +9304,31 @@ namespace BioBaseCLIA.Run
                         double conc = 0;
                         string[] concs = CurrentScal.TestConc.Split(',');
                         string[] Num = CurrentScal.Num.Split(',');
-                        if (sampleType == "标准品A")
+                        if (sampleType == getString("keywordText.StandardA"))
                         {
                             conc = double.Parse(concs[0]);
                         }
-                        else if (sampleType == "标准品B")
+                        else if (sampleType == getString("keywordText.StandardB"))
                         {
                             conc = double.Parse(concs[1]);
                         }
-                        else if (sampleType == "标准品C")
+                        else if (sampleType == getString("keywordText.StandardC"))
                         {
                             conc = double.Parse(concs[2]);
                         }
-                        else if (sampleType == "标准品D")
+                        else if (sampleType == getString("keywordText.StandardD"))
                         {
                             conc = double.Parse(concs[3]);
                         }
-                        else if (sampleType == "标准品E")
+                        else if (sampleType == getString("keywordText.StandardE"))
                         {
                             conc = double.Parse(concs[4]);
                         }
-                        else if (sampleType == "标准品F")
+                        else if (sampleType == getString("keywordText.StandardF"))
                         {
                             conc = double.Parse(concs[5]);
                         }
-                        else if (sampleType == "标准品G")
+                        else if (sampleType == getString("keywordText.StandardG"))
                         {
                             conc = double.Parse(concs[6]);
                         }
@@ -9938,6 +9366,8 @@ namespace BioBaseCLIA.Run
                             }
                             CaculateThread = new Thread(new ParameterizedThreadStart(Calculate));
                             CaculateThread.IsBackground = true;
+                            CaculateThread.CurrentCulture = Language.AppCultureInfo;//lyq 20210616
+                            CaculateThread.CurrentUICulture = Language.AppCultureInfo;//lyq 20210616
                             CaculateThread.Start(dtCacuData);
                         }
 
@@ -9953,11 +9383,11 @@ namespace BioBaseCLIA.Run
                         double conc = 0;
                         string[] concs = CurrentScal.TestConc.Split(',');
                         string[] Num = CurrentScal.Num.Split(',');
-                        if (sampleType == "标准品C")
+                        if (sampleType == getString("keywordText.StandardC"))
                         {
                             conc = double.Parse(concs[0]);//默认为标准品C点浓度
                         }
-                        else if (sampleType == "标准品E")
+                        else if (sampleType == getString("keywordText.StandardE"))
                         {
                             conc = double.Parse(concs[1]);//默认为标准品E点浓度
                         }
@@ -10031,6 +9461,8 @@ namespace BioBaseCLIA.Run
                             //  开启读数计算线程
                             CaculateThread = new Thread(new ParameterizedThreadStart(Calculate));
                             CaculateThread.IsBackground = true;
+                            CaculateThread.CurrentCulture = Language.AppCultureInfo;//lyq 20210616
+                            CaculateThread.CurrentUICulture = Language.AppCultureInfo;//lyq 20210616
                             CaculateThread.Start(dtCorrectedCacuData);
                         }
                         #endregion
@@ -10089,17 +9521,17 @@ namespace BioBaseCLIA.Run
                     if (double.IsNaN(double.Parse(concentration)))
                     {
                         concentration = GetNanPmtConcentration(ItemName, Batch, pmt);
-                        result = "不在线性范围之内";
+                        result = getString("keywordText.NotInRange");
                     }
                     else if (double.Parse(concentration) < MinValue)
                     {
                         concentration = "<" + MinValue.ToString("#0.000");
-                        result = "不在线性范围之内";
+                        result = getString("keywordText.NotInRange");
                     }
                     else if (double.Parse(concentration) > (MaxValue))
                     {
                         concentration = ">" + (MaxValue).ToString("#0.000");
-                        result = "不在线性范围之内";
+                        result = getString("keywordText.NotInRange");
                     }
                     else if (VRangeType != "" && int.Parse(VRangeType) > 0)
                         result = "";
@@ -10127,7 +9559,7 @@ namespace BioBaseCLIA.Run
                                     result = "↑";
                                 }
                                 else
-                                    result = "正常";
+                                    result = getString("keywordText.normal");
                             }
                             else if (Range1.Contains("<"))
                             {
@@ -10137,7 +9569,7 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    result = "正常";
+                                    result = getString("keywordText.normal");
                                 }
                             }
                             else if (Range1.Contains("<="))
@@ -10148,7 +9580,7 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    result = "正常";
+                                    result = getString("keywordText.normal");
                                 }
                             }
                             else if (Range1.Contains(">"))
@@ -10159,7 +9591,7 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    result = "正常";
+                                    result = getString("keywordText.normal");
                                 }
 
                             }
@@ -10171,13 +9603,13 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    result = "正常";
+                                    result = getString("keywordText.normal");
                                 }
                             }
                         }
                     }
 
-                    if (sampleType.Contains("质控"))
+                    if (sampleType.Contains(getString("keywordText.Control")))
                     {
                         result = "";
                     }
@@ -10185,7 +9617,7 @@ namespace BioBaseCLIA.Run
                     #endregion
                 }
 
-                if (sampleType.Contains("标准") || sampleType.Contains("质控"))
+                if (sampleType.Contains(getString("keywordText.Calibrator")) || sampleType.Contains(getString("keywordText.Control")))
                 {
                     result = "";
                 }
@@ -10214,7 +9646,6 @@ namespace BioBaseCLIA.Run
             testResult.SubstratePipe = dgvWorkListData.Rows[testid - 1].Cells["SubstratePipe"].Value.ToString();
             testResult.Unit = Unit;//2018-11-10 zlx add
             testResult.ResultDatetime = DateTime.Now;
-
             SaveTestResultData(BToListTi, lis1, lis2);
 
             calNowFlag = false;
@@ -10270,7 +9701,7 @@ namespace BioBaseCLIA.Run
             if (lisTiEnd.Count == BToListTi.Count)
                 frmTestResult.BRun = false;
             LogFile.Instance.Write("*********  发光值  ： " + testResult.PMT + "  **********");
-            
+
             //调度到主线程添加的目的是为了保证结果列表添加刷新，但是有可能丢失数据
             this.Invoke(new Action(() =>
             {
@@ -10278,16 +9709,16 @@ namespace BioBaseCLIA.Run
                 TemporaryTestResult.Add(testResult);
             }));
 
-            if (testResult.SampleType.Contains("标准品"))
+            if (testResult.SampleType.Contains(getString("keywordText.Standard")))
             {
                 GC.KeepAlive(testResult);//防止被回收               
-                List<TestItem> BToList = BToListTi.FindAll(tx => (tx.ItemName == testResult.ItemName && tx.SampleType.Contains("标准品") && tx.RegentBatch == dgvWorkListData.Rows[testResult.TestID - 1].Cells["RegentBatch"].Value.ToString()));
-                List<TestItem> ENDList = lisTiEnd.FindAll(tx => (tx.ItemName == testResult.ItemName && tx.SampleType.Contains("标准品")));
+                List<TestItem> BToList = BToListTi.FindAll(tx => (tx.ItemName == testResult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard")) && tx.RegentBatch == dgvWorkListData.Rows[testResult.TestID - 1].Cells["RegentBatch"].Value.ToString()));
+                List<TestItem> ENDList = lisTiEnd.FindAll(tx => (tx.ItemName == testResult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard"))));
                 if (BToList.Count == ENDList.Count)
                 {
-                    //List<TestResult> ScalingResult = new List<TestResult>(BTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && testResult.SampleType.Contains("标准品")));
+                    //List<TestResult> ScalingResult = new List<TestResult>(BTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && testResult.SampleType.Contains(getString("keywordText.Standard"))));
                     //frmTestResult f = new frmTestResult();
-                    List<TestResult> ScalingResult = new List<TestResult>(TemporaryTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && testResult.SampleType.Contains("标准品")));
+                    List<TestResult> ScalingResult = new List<TestResult>(TemporaryTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && testResult.SampleType.Contains(getString("keywordText.Standard"))));
 
                     Invoke(new Action(() =>
                     {
@@ -10327,41 +9758,73 @@ namespace BioBaseCLIA.Run
             string tranInfo = OperateIniFile.ReadInIPara("LisSet", "TransInfo");
             string SendingApplication = OperateIniFile.ReadInIPara("LisSet", "SendingApplication");
             string SendingFacility = OperateIniFile.ReadInIPara("LisSet", "SendingFacility");
-            switch (CommunicationType)
+            if (CommunicationType == getString("keywordText.NetworkConnection"))
             {
-                case "网口通讯":
-                    if (LisCommunication.Instance.IsConnect() && IsTrueTimeTran && lis1.Count == lis2.Count)
+                if (LisCommunication.Instance.IsConnect() && IsTrueTimeTran && lis1.Count == lis2.Count)
+                {
+                    CMessageParser Cmp = new CMessageParser();
+                    Cmp.SendApplication = SendingApplication;
+                    Cmp.SendFacility = SendingFacility;
+                    List<TestResult> list = new List<TestResult>();
+                    for (int i = 0; i < BTestResult.Count; i++)
                     {
-                        CMessageParser Cmp = new CMessageParser();
-                        Cmp.SendApplication = SendingApplication;
-                        Cmp.SendFacility = SendingFacility;
-                        List<TestResult> list = new List<TestResult>();
-                        for (int i = 0; i < BTestResult.Count; i++)
-                        {
-                            if (BTestResult[i].SampleNo == testResult.SampleNo)
-                                list.Add(BTestResult[i]);
-                        }
-                        Cmp.SendORU(list);
+                        if (BTestResult[i].SampleNo == testResult.SampleNo)
+                            list.Add(BTestResult[i]);
                     }
-                    break;
-                case "串口通讯":
-                    if (LisConnection.Instance.IsOpen() && IsTrueTimeTran && lis1.Count == lis2.Count)
-                    {
-                        CAMessageParser Cmp = new CAMessageParser();
-                        Cmp.SendApplication = SendingApplication;
-                        Cmp.SendFacility = SendingFacility;
-                        List<TestResult> list = new List<TestResult>();
-                        for (int i = 0; i < BTestResult.Count; i++)
-                        {
-                            if (BTestResult[i].SampleNo == testResult.SampleNo)
-                                list.Add(BTestResult[i]);
-                        }
-                        Cmp.SendORU(list);
-                    }
-                    break;
-                default:
-                    break;
+                    Cmp.SendORU(list);
+                }
             }
+            if (CommunicationType == getString("keywordText.SerialConnection"))
+            {
+                if (LisConnection.Instance.IsOpen() && IsTrueTimeTran && lis1.Count == lis2.Count)
+                {
+                    CAMessageParser Cmp = new CAMessageParser();
+                    Cmp.SendApplication = SendingApplication;
+                    Cmp.SendFacility = SendingFacility;
+                    List<TestResult> list = new List<TestResult>();
+                    for (int i = 0; i < BTestResult.Count; i++)
+                    {
+                        if (BTestResult[i].SampleNo == testResult.SampleNo)
+                            list.Add(BTestResult[i]);
+                    }
+                    Cmp.SendORU(list);
+                }
+            }
+            //switch (CommunicationType)
+            //{
+            //    case "网口通讯":
+            //        if (LisCommunication.Instance.IsConnect() && IsTrueTimeTran && lis1.Count == lis2.Count)
+            //        {
+            //            CMessageParser Cmp = new CMessageParser();
+            //            Cmp.SendApplication = SendingApplication;
+            //            Cmp.SendFacility = SendingFacility;
+            //            List<TestResult> list = new List<TestResult>();
+            //            for (int i = 0; i < BTestResult.Count; i++)
+            //            {
+            //                if (BTestResult[i].SampleNo == testResult.SampleNo)
+            //                    list.Add(BTestResult[i]);
+            //            }
+            //            Cmp.SendORU(list);
+            //        }
+            //        break;
+            //    case "串口通讯":
+            //        if (LisConnection.Instance.IsOpen() && IsTrueTimeTran && lis1.Count == lis2.Count)
+            //        {
+            //            CAMessageParser Cmp = new CAMessageParser();
+            //            Cmp.SendApplication = SendingApplication;
+            //            Cmp.SendFacility = SendingFacility;
+            //            List<TestResult> list = new List<TestResult>();
+            //            for (int i = 0; i < BTestResult.Count; i++)
+            //            {
+            //                if (BTestResult[i].SampleNo == testResult.SampleNo)
+            //                    list.Add(BTestResult[i]);
+            //            }
+            //            Cmp.SendORU(list);
+            //        }
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         /// <summary>
@@ -10374,14 +9837,14 @@ namespace BioBaseCLIA.Run
             Model.tbQCResult modelQCResult = new Model.tbQCResult();
 
             //存储质控实验结果到数据库
-            if (result.SampleType.Contains("质控品"))
+            if (result.SampleType.Contains(getString("keywordText.Control")))
             {
                 string QCLevel;
-                if (result.SampleType == "质控品H")
+                if (result.SampleType == getString("keywordText.ControlHigh"))
                 {
                     QCLevel = "0";
                 }
-                else if (result.SampleType == "质控品M")
+                else if (result.SampleType == getString("keywordText.ControlMiddle"))
                 {
                     QCLevel = "1";
                 }
@@ -10571,11 +10034,11 @@ namespace BioBaseCLIA.Run
         /// </summary>
         /// <param name="name">项目名称</param>
         /// <returns></returns>
-        private Calculater GetCalculater(string name) 
+        private Calculater GetCalculater(string name)
         {
             DbHelperOleDb db = new DbHelperOleDb(0);
             int calMode = int.Parse(DbHelperOleDb.GetSingle(0,
-                @"select CalMode from tbProject where ShortName = '"+ name + "'").ToString());
+                @"select CalMode from tbProject where ShortName = '" + name + "'").ToString());
 
             CalculateFactory calculate = new CalculateFactory();
             Calculater er = calculate.getCaler(calMode);
@@ -10589,7 +10052,7 @@ namespace BioBaseCLIA.Run
         /// <param name="name">项目名称</param>
         /// <param name="reagentBatch">试剂批号</param>
         /// <returns></returns>
-        private List<Data_Value> GetScalingResult(string name ,string reagentBatch) 
+        private List<Data_Value> GetScalingResult(string name, string reagentBatch)
         {
             BLL.tbScalingResult bllscalResult = new BLL.tbScalingResult();
             DbHelperOleDb db = new DbHelperOleDb(1);
@@ -10892,7 +10355,7 @@ namespace BioBaseCLIA.Run
                             //对处理过的数据进行纠错
                             if (double.IsNaN(CurveData[i].DataValue) || double.IsNaN(CurveData[i].Data))
                             {
-                                MessageBox.Show("函数计算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(getString("keywordText.CalculationInfo"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                         }
@@ -10910,7 +10373,7 @@ namespace BioBaseCLIA.Run
                         if (double.IsNaN(par) || double.IsInfinity(par))
                         {
                             //dtScalCacResult.Rows.Add(dtCaculate.Rows[0]["ItemName"].ToString(), 1, "");
-                            MessageBox.Show(dtCaculate.Rows[0]["ItemName"].ToString() + "项目回归计算时出现运算错误，可能该数据不适合此回归模型", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(dtCaculate.Rows[0]["ItemName"].ToString() + getString("keywordText.CalculationInfo"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
@@ -11020,7 +10483,7 @@ namespace BioBaseCLIA.Run
                 }
                 catch (ThreadAbortException e)
                 {
-                    frmMsgShow.MessageShow("工作列表", e.Message);
+                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), e.Message);
                 }
                 finally
                 {
@@ -11044,7 +10507,7 @@ namespace BioBaseCLIA.Run
         {
             if (EmergencyFlag || addOrdinaryFlag)
             {
-                frmMsgShow.MessageShow("工作列表", "正在添加急诊或普通样本，请在样本装载界面生成工作列表运行！");
+                frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.AddSWarn"));
                 return;
             }
             LoadingHelper.ShowLoadingScreen();
@@ -11131,7 +10594,7 @@ namespace BioBaseCLIA.Run
             List<TestSchedule> tss = lisTestSchedule.FindAll(tx => tx.StartTime <= sumTime);//2019-04-08 删除等于号
             if (tss.Count > 1)
                 _GaDoingOne = tss[tss.Count - 1];
-            if(EntertRun)//判断在实验调度前点暂停，防止第一个实验不加样 2020/8/13
+            if (EntertRun)//判断在实验调度前点暂停，防止第一个实验不加样 2020/8/13
                 TestStep = GaNextOne();
             LoadingHelper.CloseForm();
             NetCom3.ComWait.Set();
@@ -11242,7 +10705,7 @@ namespace BioBaseCLIA.Run
             {
                 frmTestResult frmTR = (frmTestResult)Application.OpenForms["frmTestResult"];
                 frmTR.Show();
-                frmTR.BringToFront(); 
+                frmTR.BringToFront();
             }
             if (RunFlag == (int)RunFlagStart.Stoped || RunFlag == (int)RunFlagStart.NoStart)//move y 20180528 更改此代码的位置，不然窗体close后，后边的代码执行不到。
             {
@@ -11266,11 +10729,10 @@ namespace BioBaseCLIA.Run
                 {
                     proBar = lisProBar[i];
                 }
-                catch (IndexOutOfRangeException exception) 
+                catch (IndexOutOfRangeException exception)
                 {
                     LogFile.Instance.Write(DateTime.Now.ToString("mm:ss:ms") + " 记录进度条数组越界异常");
                 }
-               
                 #region 获取显示在界面上的进度列表单元格的大小并赋值给进度控件
                 proBar.Tag = dgvWorkListData.Rows[i].Cells[6].Tag;
                 Rectangle rec = this.dgvWorkListData.GetCellDisplayRectangle(6, i, false);
@@ -11359,7 +10821,7 @@ namespace BioBaseCLIA.Run
                 {
                     //2018-09-04 zlx  mod
                     DbHelperOleDb db = new DbHelperOleDb(3);
-                    DbHelperOleDb.ExecuteSql(3,@"update tbReagent set leftoverTestR1 =" + reagentIniInfo.LeftReagent1 + ",leftoverTestR2 = " + reagentIniInfo.LeftReagent2 +
+                    DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + reagentIniInfo.LeftReagent1 + ",leftoverTestR2 = " + reagentIniInfo.LeftReagent2 +
                                               ",leftoverTestR3 = " + reagentIniInfo.LeftReagent3 + ",leftoverTestR4 = " + reagentIniInfo.LeftReagent4 + " where BarCode = '"
                                                   + reagentIniInfo.BarCode + "' and ReagentName = '" + reagentIniInfo.ItemName + "'");
                 }
@@ -11369,7 +10831,7 @@ namespace BioBaseCLIA.Run
             string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
             string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
             DbHelperOleDb dbase = new DbHelperOleDb(3);
-            DbHelperOleDb.ExecuteSql(3,@"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '"
+            DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '"
                                                   + sbCode1 + "'");
             //string sbCode2 = OperateIniFile.ReadIniData("Substrate2", "BarCode", "0", iniPathSubstrateTube);
             //string sbNum2 = OperateIniFile.ReadIniData("Substrate2", "LeftCount", "0", iniPathSubstrateTube);
@@ -11393,7 +10855,7 @@ namespace BioBaseCLIA.Run
             #region 提示
             if (Convert.ToInt16(TimeLabel2.Text) * 60 + Convert.ToInt16(TimeLabel3.Text) < 12)
             {
-                MessageBox.Show("实验即将结束，请稍后再继续添加实验！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.StopAddS"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             //if (frmMain.pauseFlag)
@@ -11403,7 +10865,7 @@ namespace BioBaseCLIA.Run
             //}
             if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2] || frmMain.StopFlag[3] || TubeStop || SubstrateStop)
             {
-                MessageBox.Show("当前供应品缺乏，请保证供应品充足后在进行实验操作！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.LackSupplies"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -11414,7 +10876,7 @@ namespace BioBaseCLIA.Run
 
             if (AddingSampleFlag)
             {
-                MessageBox.Show("正在进行加样操作，请在当前样本加样后进行样本追加！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.StopAddingS"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -11442,7 +10904,7 @@ namespace BioBaseCLIA.Run
             #region 提示
             if (Convert.ToInt16(TimeLabel2.Text) * 60 + Convert.ToInt16(TimeLabel3.Text) < 12)
             {
-                MessageBox.Show("实验即将结束，请稍后再继续添加实验！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.StopAddS"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             //if (frmMain.pauseFlag)
@@ -11452,10 +10914,10 @@ namespace BioBaseCLIA.Run
             //}
             if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2] || frmMain.StopFlag[3] || TubeStop || SubstrateStop)
             {
-                MessageBox.Show("当前供应品缺乏，请保证供应品充足后在进行实验操作！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.LackSupplies"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             //while (AddingSampleFlag)
             //{
             //    NetCom3.Delay(10);//如果正在加样步骤，暂时先不会弹出样本装载界面
@@ -11463,7 +10925,7 @@ namespace BioBaseCLIA.Run
 
             if (AddingSampleFlag)
             {
-                MessageBox.Show("正在进行加样操作，请在当前样本加样后进行样本追加！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.StopAddingS"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -11498,7 +10960,7 @@ namespace BioBaseCLIA.Run
             {
                 string ItemName = ItemNames[i].Key.ToString();
                 DbHelperOleDb db = new DbHelperOleDb(0);
-                DataTable dtDilute = DbHelperOleDb.Query(0,@"select DiluteCount,DiluteName from tbProject where ShortName ='" + ItemName + "'").Tables[0];
+                DataTable dtDilute = DbHelperOleDb.Query(0, @"select DiluteCount,DiluteName from tbProject where ShortName ='" + ItemName + "'").Tables[0];
                 List<TestSchedule> ItemNamelist = list.FindAll(tx => (tx.ItemName == ItemName));
                 int LeftDiu = 0;
                 int leftRg = 0;
@@ -11508,7 +10970,7 @@ namespace BioBaseCLIA.Run
                 {
                     leftRg++;
                     DataRow[] drRunInfo = dtSampleRunInfo.Select("SampleNo='" + test.SampleNo + "' AND ItemName='" + ItemName + "'");
-                    if (!drRunInfo[0]["SampleType"].ToString().Contains("标准品") && !drRunInfo[0]["SampleType"].ToString().Contains("质控品"))
+                    if (!drRunInfo[0]["SampleType"].ToString().Contains(getString("keywordText.Standard")) && !drRunInfo[0]["SampleType"].ToString().Contains(getString("keywordText.Control")))
                     {
                         if (int.Parse(test.dilutionTimes) > 1)
                         {
@@ -11519,7 +10981,7 @@ namespace BioBaseCLIA.Run
                                 DiluteName = DiuInfo.GetDiuInfo(ExtraDiluteC) + ";" + DiluteName;
                             List<string> diuList = GetDiuVol(int.Parse(test.AddLiqud.Split('-')[0].ToString()), DiluteName);
                             for (int j = 0; j < diuList.Count; j++)
-                            {                
+                            {
                                 LeftDiu = LeftDiu + int.Parse(diuList[j].Split(';')[1]);
                             }
                         }
@@ -11586,7 +11048,7 @@ namespace BioBaseCLIA.Run
                             dtSampleRunInfo.Rows.Remove(drr[0]);
                         }
                         db = new DbHelperOleDb(1);
-                        int bDelete = DbHelperOleDb.ExecuteSql(1,@"delete from tbSampleInfo where Status =0 AND SampleNo='" + SampleNo + "'");
+                        int bDelete = DbHelperOleDb.ExecuteSql(1, @"delete from tbSampleInfo where Status =0 AND SampleNo='" + SampleNo + "'");
                         if (bDelete > 0)
                         {
                             var ddr = dtSpInfo.Select("SampleNo='" + SampleNo + "'");
@@ -11872,22 +11334,26 @@ namespace BioBaseCLIA.Run
         {
             for (int i = 0; i < dgvWorkListData.SelectedRows.Count; i++)
             {
-                if (dgvWorkListData.SelectedRows[i].Cells["SampleType"].Value.ToString().Contains("标准品")
-                    || dgvWorkListData.SelectedRows[i].Cells["SampleType"].Value.ToString().Contains("定标液"))
+                if (dgvWorkListData.SelectedRows[i].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Calibrator"))
+                    || dgvWorkListData.SelectedRows[i].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.CalibrationSolution")))
                 {
-                    frmMsgShow.MessageShow("工作列表", "选中的实验中存在标准品，请重新选择！");
+                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.SelectStandards"));
                     return false;
                 }
                 if (dgvWorkListData.SelectedRows[i].Cells["TestStatus"].Value.ToString() != "")
                 {
-                    frmMsgShow.MessageShow("工作列表", "选中的实验中存在已经开始运行的实验，请重新选择！");
+                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.SelectRun"));
                     return false;
                 }
             }
             return true;
         }
         #endregion
-
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmWorkList));
+            return resManager.GetString(key).Replace(@"\n", "\n");
+        }
         private void btnWorkList_Click(object sender, EventArgs e)
         {
 
@@ -11902,18 +11368,17 @@ namespace BioBaseCLIA.Run
         {
 
         }
-
         private void fbtnPatientInfo_Click(object sender, EventArgs e)
         {
             #region 提示
             if (dgvWorkListData.SelectedRows.Count < 1)
             {
-                MessageBox.Show("请选择要进行信息设置样本.", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.SelectSample"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (IsSelectedRowsExitStandard())
             {
-                MessageBox.Show("标准品，质控品请勿操作.", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.Operationforbidden"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             #endregion
@@ -11936,8 +11401,7 @@ namespace BioBaseCLIA.Run
             {
                 string sampleType = dgvWorkListData.SelectedRows[m].Cells["SampleType"].Value.ToString();
 
-                if (sampleType.Contains("标准") || sampleType.Contains("质控")
-                    || sampleType.Contains("校准品") || sampleType.Contains("定标液")) return true;
+                if (sampleType.Contains(getString("keywordText.Standard")) || sampleType.Contains(getString("keywordText.Control")) || sampleType.Contains(getString("keywordText.Calibrator")) || sampleType.Contains(getString("keywordText.CalibrationSolution"))) return true;
             }
 
             return isExitStandard;
