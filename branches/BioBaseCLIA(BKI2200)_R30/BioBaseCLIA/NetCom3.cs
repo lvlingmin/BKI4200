@@ -286,8 +286,14 @@ namespace BioBaseCLIA
             }
             string myip = GetIP();
             //string[] myiparray = myip.Split('.');
+            int tryNum = 0;
+            linkAgain:
+            NetCom3.Delay(30);
             if (!CheckNetWorkLink())
             {
+                tryNum++;
+                if (tryNum < 3)
+                    goto linkAgain;
                 frmMessageShow frmMS = new frmMessageShow();
                 frmMS.MessageShow("", Res.Networkunavailable);
                 frmMS.Dispose();
@@ -295,6 +301,9 @@ namespace BioBaseCLIA
             }
             if (!CheckPort(myip, "5000"))
             {
+                tryNum++;
+                if (tryNum < 3)
+                    goto linkAgain;
                 frmMessageShow frmMS = new frmMessageShow();
                 frmMS.MessageShow("", Res.Portclosed);
                 frmMS.Dispose();
