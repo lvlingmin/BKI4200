@@ -716,6 +716,9 @@
     <EmbeddedResource Include="Run\frmWorkList.en-US.resx">
       <DependentUpon>frmWorkList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Run\frmWorkList.en.resx">
+      <DependentUpon>frmWorkList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Run\frmWorkList.resx">
       <DependentUpon>frmWorkList.cs</DependentUpon>
     </EmbeddedResource>
