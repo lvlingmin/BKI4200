@@ -2888,7 +2888,7 @@ namespace BioBaseCLIA.Run
             mQC.ProjectName = itemName;
             mQC.OperatorName = LoginUserName;
             mQC.AddDate = DateTime.Now.ToLongDateString().Trim();
-            mQC.ValidDate = Convert.ToDateTime(validTime).AddYears(1).AddDays(-1).ToLongDateString().Trim();//DateTime.Now.AddDays(28).ToLongDateString().Trim();
+            mQC.ValidDate = Convert.ToDateTime(validTime).AddMonths(14).AddDays(-1).ToLongDateString().Trim();//DateTime.Now.AddDays(28).ToLongDateString().Trim();
             mQC.QCRules = rule;
             #endregion
             #region QC-DB                
