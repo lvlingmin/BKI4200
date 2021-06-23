@@ -1619,6 +1619,7 @@ namespace BioBaseCLIA
                                 }
                                 if (WhereToReceive == 1)
                                 {
+                                    LogFile.Instance.Write(DateTime.Now + ":thDataHandle 线程");
                                     thDataHandle = new Thread(new ParameterizedThreadStart(HandleMessage));
                                     thDataHandle.IsBackground = true;
                                     if (thDataHandle.CurrentCulture != Language.AppCultureInfo)//lyq
@@ -1631,6 +1632,7 @@ namespace BioBaseCLIA
                                 }
                                 else if (WhereToReceive == 2)
                                 {
+                                    LogFile.Instance.Write(DateTime.Now + ":thDataHandle 线程");
                                     thDataHandle = new Thread(new ParameterizedThreadStart(HandleMessageForTemperatureAndLiquidLevel));
                                     thDataHandle.IsBackground = true;
                                     if (thDataHandle.CurrentCulture != Language.AppCultureInfo)//lyq
