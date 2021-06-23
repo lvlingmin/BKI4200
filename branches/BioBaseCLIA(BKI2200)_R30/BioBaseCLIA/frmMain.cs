@@ -1046,6 +1046,9 @@ namespace BioBaseCLIA
             if (!Selectlist.Contains("EB 90 11 07 04"))
                 Selectlist.Add("EB 90 11 07 04");
             #endregion
+            //制冷片报警查询
+            if (!Selectlist.Contains("EB 90 11 08 08"))
+                Selectlist.Add("EB 90 11 08 08");
             timerStatus.Enabled = true;
         }
         /// <summary>
@@ -1091,6 +1094,9 @@ namespace BioBaseCLIA
                     Action ac = new Action(dbtnRackStatus);
                     this.Invoke(ac);
                     #endregion
+                    break;
+                case "08":
+                    DealRefrigeration(dataRecive);
                     break;
                 default:
                     break;
@@ -1630,7 +1636,44 @@ namespace BioBaseCLIA
                 }
             }
         }
+        /// <summary>
+        /// 制冷报警查询
+        /// </summary>
+        /// <param name="dataRecive"></param>
+        public void DealRefrigeration(string[] dataRecive)
+        {
+            string RefrigerationData = dataRecive[15];
+            if (RefrigerationData != "FF")
+            {
+                Byte bit = Convert.ToByte(RefrigerationData, 16);
+                RefrigerationData = Convert.ToString(bit, 2);
+                while (RefrigerationData.Length < 8)
+                {
+                    RefrigerationData = "0" + RefrigerationData;
+                }
+                string AlarmInfo = "";
+                if (RefrigerationData[0].ToString() == "0")
+                    AlarmInfo = GetString("keywordText.LowCoolPlate1");
+                if (RefrigerationData[1].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.HighCoolPlate1");
+                if (RefrigerationData[2].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.LowCoolPlate2");
+                if (RefrigerationData[3].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.HighCoolPlate2");
+                if (RefrigerationData[4].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.FastSpeeds");
+                if (RefrigerationData[5].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.SlowSpeeds");
+                if (AlarmInfo != "")
+                {
+                    AlarmInfo = GetString("keywordText.RefrigerationAlarm") + AlarmInfo;
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + AlarmInfo);
+                    LogBtnColorChange(1);
+                }
+            }
 
+
+        }
         private void temperatureButton_Click(object sender, EventArgs e)
         {
               TimeSpan ts = DateTime.Now - _BootUpTime;

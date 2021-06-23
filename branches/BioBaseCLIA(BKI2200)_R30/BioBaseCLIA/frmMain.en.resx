@@ -2594,4 +2594,25 @@
   <data name="InitExcetion" xml:space="preserve">
     <value>Upper and lower handshake failed！</value>
   </data>
+  <data name="keywordText.FastSpeeds" xml:space="preserve">
+    <value>The speed of refrigeration pump is too fast (lack of liquid)!</value>
+  </data>
+  <data name="keywordText.HighCoolPlate1" xml:space="preserve">
+    <value>The current of cooling plate I is too high!</value>
+  </data>
+  <data name="keywordText.HighCoolPlate2" xml:space="preserve">
+    <value>The current of cooling plate II is too high!</value>
+  </data>
+  <data name="keywordText.LowCoolPlate1" xml:space="preserve">
+    <value>The current of cooling plate I is too low!</value>
+  </data>
+  <data name="keywordText.LowCoolPlate2" xml:space="preserve">
+    <value>The current of cooling plate II is too low!</value>
+  </data>
+  <data name="keywordText.RefrigerationAlarm" xml:space="preserve">
+    <value>Refrigeration alarm:</value>
+  </data>
+  <data name="keywordText.SlowSpeeds" xml:space="preserve">
+    <value>The speed of refrigeration pump is too slow (blocked)!</value>
+  </data>
 </root>

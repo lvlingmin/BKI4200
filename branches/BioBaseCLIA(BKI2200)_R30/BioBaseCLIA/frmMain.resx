@@ -3302,4 +3302,25 @@
   <data name="AccessInterruption" xml:space="preserve">
     <value>通路中断，请重新确认连接并重启仪器与软件</value>
   </data>
+  <data name="keywordText.FastSpeeds" xml:space="preserve">
+    <value>制冷泵转速过快（缺液）!</value>
+  </data>
+  <data name="keywordText.HighCoolPlate1" xml:space="preserve">
+    <value>制冷片I电流过大!</value>
+  </data>
+  <data name="keywordText.HighCoolPlate2" xml:space="preserve">
+    <value>制冷片II电流过大!</value>
+  </data>
+  <data name="keywordText.LowCoolPlate1" xml:space="preserve">
+    <value>制冷片I电流过小!</value>
+  </data>
+  <data name="keywordText.LowCoolPlate2" xml:space="preserve">
+    <value>制冷片II电流过小!</value>
+  </data>
+  <data name="keywordText.RefrigerationAlarm" xml:space="preserve">
+    <value>制冷报警：</value>
+  </data>
+  <data name="keywordText.SlowSpeeds" xml:space="preserve">
+    <value>制冷泵转速过慢(堵)!</value>
+  </data>
 </root>
