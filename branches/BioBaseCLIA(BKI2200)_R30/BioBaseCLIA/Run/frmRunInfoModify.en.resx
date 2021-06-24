@@ -140,13 +140,16 @@
     <value>98, 29</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 12</value>
+    <value>79, 15</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Fixed Dilution:</value>
   </data>
   <data name="cmbDilutionTimes.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 29</value>
+  </data>
+  <data name="cmbDilutionTimes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 23</value>
   </data>
   <data name="fbtnModify.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -289,7 +292,7 @@
     <value>345, 34</value>
   </data>
   <data name="chkEmergency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 16</value>
+    <value>79, 19</value>
   </data>
   <data name="chkEmergency.Text" xml:space="preserve">
     <value>Emergency</value>
@@ -298,13 +301,16 @@
     <value>170, 35</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 12</value>
+    <value>88, 15</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Dilution Ratio：</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Information Modification</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Run Information Modify</value>

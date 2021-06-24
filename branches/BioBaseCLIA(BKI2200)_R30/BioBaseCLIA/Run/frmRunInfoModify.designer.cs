@@ -32,6 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRunInfoModify));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvSpRunInfoList = new System.Windows.Forms.DataGridView();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DilutionTimes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiluteName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Emergency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDilutionTimes = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,13 +47,6 @@
             this.fbtnOK = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.chkEmergency = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DilutionTimes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiluteName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Emergency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSpRunInfoList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +60,7 @@
             this.dgvSpRunInfoList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSpRunInfoList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -81,6 +81,61 @@
             this.dgvSpRunInfoList.RowTemplate.Height = 23;
             this.dgvSpRunInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSpRunInfoList.SelectionChanged += new System.EventHandler(this.dgvSpRunInfoList_SelectionChanged);
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.FillWeight = 64.83389F;
+            resources.ApplyResources(this.Position, "Position");
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
+            // 
+            // SampleNo
+            // 
+            this.SampleNo.DataPropertyName = "SampleNo";
+            this.SampleNo.FillWeight = 114.756F;
+            resources.ApplyResources(this.SampleNo, "SampleNo");
+            this.SampleNo.Name = "SampleNo";
+            this.SampleNo.ReadOnly = true;
+            // 
+            // SampleType
+            // 
+            this.SampleType.DataPropertyName = "SampleType";
+            this.SampleType.FillWeight = 114.756F;
+            resources.ApplyResources(this.SampleType, "SampleType");
+            this.SampleType.Name = "SampleType";
+            this.SampleType.ReadOnly = true;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            this.ItemName.FillWeight = 114.756F;
+            resources.ApplyResources(this.ItemName, "ItemName");
+            this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
+            // 
+            // DilutionTimes
+            // 
+            this.DilutionTimes.DataPropertyName = "DilutionTimes";
+            this.DilutionTimes.FillWeight = 114.756F;
+            resources.ApplyResources(this.DilutionTimes, "DilutionTimes");
+            this.DilutionTimes.Name = "DilutionTimes";
+            this.DilutionTimes.ReadOnly = true;
+            // 
+            // DiluteName
+            // 
+            this.DiluteName.DataPropertyName = "DiluteName";
+            resources.ApplyResources(this.DiluteName, "DiluteName");
+            this.DiluteName.Name = "DiluteName";
+            this.DiluteName.ReadOnly = true;
+            // 
+            // Emergency
+            // 
+            this.Emergency.DataPropertyName = "Emergency";
+            this.Emergency.FillWeight = 76.14214F;
+            resources.ApplyResources(this.Emergency, "Emergency");
+            this.Emergency.Name = "Emergency";
+            this.Emergency.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -148,61 +203,6 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.FillWeight = 64.83389F;
-            resources.ApplyResources(this.Position, "Position");
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            // 
-            // SampleNo
-            // 
-            this.SampleNo.DataPropertyName = "SampleNo";
-            this.SampleNo.FillWeight = 114.756F;
-            resources.ApplyResources(this.SampleNo, "SampleNo");
-            this.SampleNo.Name = "SampleNo";
-            this.SampleNo.ReadOnly = true;
-            // 
-            // SampleType
-            // 
-            this.SampleType.DataPropertyName = "SampleType";
-            this.SampleType.FillWeight = 114.756F;
-            resources.ApplyResources(this.SampleType, "SampleType");
-            this.SampleType.Name = "SampleType";
-            this.SampleType.ReadOnly = true;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "ItemName";
-            this.ItemName.FillWeight = 114.756F;
-            resources.ApplyResources(this.ItemName, "ItemName");
-            this.ItemName.Name = "ItemName";
-            this.ItemName.ReadOnly = true;
-            // 
-            // DilutionTimes
-            // 
-            this.DilutionTimes.DataPropertyName = "DilutionTimes";
-            this.DilutionTimes.FillWeight = 114.756F;
-            resources.ApplyResources(this.DilutionTimes, "DilutionTimes");
-            this.DilutionTimes.Name = "DilutionTimes";
-            this.DilutionTimes.ReadOnly = true;
-            // 
-            // DiluteName
-            // 
-            this.DiluteName.DataPropertyName = "DiluteName";
-            resources.ApplyResources(this.DiluteName, "DiluteName");
-            this.DiluteName.Name = "DiluteName";
-            this.DiluteName.ReadOnly = true;
-            // 
-            // Emergency
-            // 
-            this.Emergency.DataPropertyName = "Emergency";
-            this.Emergency.FillWeight = 76.14214F;
-            resources.ApplyResources(this.Emergency, "Emergency");
-            this.Emergency.Name = "Emergency";
-            this.Emergency.ReadOnly = true;
             // 
             // frmRunInfoModify
             // 

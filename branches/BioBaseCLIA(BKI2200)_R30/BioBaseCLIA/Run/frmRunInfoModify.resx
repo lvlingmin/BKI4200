@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="keywordText.Update1" xml:space="preserve">
+    <value>修改</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>稀释倍数：</value>
   </data>
@@ -128,12 +131,11 @@
   <data name="fbtnModify.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 31</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
   <data name="&gt;&gt;dgvSpRunInfoList.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="chkEmergency.Location" type="System.Drawing.Point, System.Drawing">
+    <value>333, 34</value>
   </data>
   <data name="&gt;&gt;chkEmergency.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -143,9 +145,6 @@
   </data>
   <data name="fbtnOK.Text" xml:space="preserve">
     <value>保存</value>
-  </data>
-  <data name="txtDilutionTimes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 21</value>
   </data>
   <data name="fbtnOK.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -211,17 +210,21 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="keywordText.PleaseChooseSampleNeededModify1" xml:space="preserve">
+    <value>请选择需要修改的样本！</value>
+  </data>
   <data name="&gt;&gt;SampleNo.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>BioBaseCLIA.frmSmallParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="dgvSpRunInfoList.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 17</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtDilutionTimes.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="keywordText.Yes1" xml:space="preserve">
+    <value>是</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -241,8 +244,14 @@
   <data name="&gt;&gt;fbtnOK.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;cmbDilutionTimes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="keywordText.No1" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="fbtnOK.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="fbtnModify.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="SampleType.HeaderText" xml:space="preserve">
     <value>样本类型</value>
@@ -259,8 +268,8 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
-  <data name="cmbDilutionTimes.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="keywordText.Standard1" xml:space="preserve">
+    <value>标准品</value>
   </data>
   <data name="&gt;&gt;fbtnModify.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.FunctionButton, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -274,17 +283,14 @@
   <data name="keywordText.InsufficientDilute" xml:space="preserve">
     <value>{0}稀释液不足！</value>
   </data>
-  <data name="&gt;&gt;DiluteName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>WindowsDefaultLocation</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="keywordText.Update" xml:space="preserve">
-    <value>修改</value>
+  <data name="fbtnModify.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -298,6 +304,9 @@
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
+  <data name="chkEmergency.Text" xml:space="preserve">
+    <value>急诊</value>
+  </data>
   <data name="&gt;&gt;dgvSpRunInfoList.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -310,9 +319,6 @@
   <data name="Emergency.HeaderText" xml:space="preserve">
     <value>急诊</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 34</value>
-  </data>
   <data name="&gt;&gt;txtDilutionTimes.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -322,11 +328,14 @@
   <data name="&gt;&gt;dgvSpRunInfoList.Name" xml:space="preserve">
     <value>dgvSpRunInfoList</value>
   </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;Emergency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 12</value>
@@ -343,9 +352,6 @@
   <data name="&gt;&gt;txtDilutionTimes.Name" xml:space="preserve">
     <value>txtDilutionTimes</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 34</value>
-  </data>
   <data name="&gt;&gt;fbtnOK.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
@@ -354,6 +360,12 @@
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;ItemName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DilutionTimes.HeaderText" xml:space="preserve">
+    <value>稀释倍数</value>
   </data>
   <data name="&gt;&gt;Position.Name" xml:space="preserve">
     <value>Position</value>
@@ -373,8 +385,8 @@
   <data name="&gt;&gt;cmbDilutionTimes.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="chkEmergency.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="fbtnModify.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 23</value>
@@ -394,23 +406,26 @@
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>624, 66</value>
   </data>
+  <data name="&gt;&gt;DiluteName.Name" xml:space="preserve">
+    <value>DiluteName</value>
+  </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;chkEmergency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;DilutionTimes.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="fbtnOK.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
   </data>
   <data name="keywordText.Control" xml:space="preserve">
     <value>质控品</value>
   </data>
-  <data name="chkEmergency.Text" xml:space="preserve">
-    <value>急诊</value>
+  <data name="&gt;&gt;chkEmergency.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmbDilutionTimes.Location" type="System.Drawing.Point, System.Drawing">
     <value>193, 30</value>
@@ -418,14 +433,17 @@
   <data name="Position.HeaderText" xml:space="preserve">
     <value>位号</value>
   </data>
+  <data name="keywordText.InsufficientDilute1" xml:space="preserve">
+    <value>{0}稀释液不足！</value>
+  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="fbtnModify.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="txtDilutionTimes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 21</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cmbDilutionTimes.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
   </data>
   <data name="&gt;&gt;SampleNo.Name" xml:space="preserve">
     <value>SampleNo</value>
@@ -436,41 +454,38 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 12</value>
   </data>
+  <data name="txtDilutionTimes.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmRunInfoModify</value>
   </data>
   <data name="fbtnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 31</value>
   </data>
-  <data name="&gt;&gt;DiluteName.Name" xml:space="preserve">
-    <value>DiluteName</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 34</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>运行信息修改</value>
   </data>
-  <data name="&gt;&gt;ItemName.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmbDilutionTimes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Emergency.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>固定稀释:</value>
-  </data>
-  <data name="&gt;&gt;DilutionTimes.Name" xml:space="preserve">
-    <value>DilutionTimes</value>
   </data>
   <data name="keywordText.Yes" xml:space="preserve">
     <value>是</value>
   </data>
-  <data name="fbtnModify.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="keywordText.Update" xml:space="preserve">
+    <value>修改</value>
   </data>
-  <data name="txtDilutionTimes.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 34</value>
   </data>
   <data name="chkEmergency.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
-  </data>
-  <data name="&gt;&gt;txtDilutionTimes.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="fbtnModify.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -545,14 +560,20 @@
   <data name="dgvSpRunInfoList.Size" type="System.Drawing.Size, System.Drawing">
     <value>624, 278</value>
   </data>
-  <data name="DilutionTimes.HeaderText" xml:space="preserve">
-    <value>稀释倍数</value>
+  <data name="keywordText.Cancel1" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="chkEmergency.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="DiluteName.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="chkEmergency.Location" type="System.Drawing.Point, System.Drawing">
-    <value>333, 34</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>固定稀释:</value>
+  </data>
+  <data name="&gt;&gt;SampleType.Name" xml:space="preserve">
+    <value>SampleType</value>
   </data>
   <data name="&gt;&gt;Emergency.Name" xml:space="preserve">
     <value>Emergency</value>
@@ -560,11 +581,11 @@
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
+  <data name="&gt;&gt;DilutionTimes.Name" xml:space="preserve">
+    <value>DilutionTimes</value>
   </data>
-  <data name="&gt;&gt;SampleType.Name" xml:space="preserve">
-    <value>SampleType</value>
+  <data name="&gt;&gt;DiluteName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;chkEmergency.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -578,20 +599,26 @@
   <data name="fbtnModify.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
+  <data name="keywordText.Control1" xml:space="preserve">
+    <value>质控品</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>633, 379</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>BioBaseCLIA.frmSmallParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ItemName.Name" xml:space="preserve">
     <value>ItemName</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="keywordText.UpdateRunningInfomation1" xml:space="preserve">
+    <value>运行信息修改</value>
+  </data>
+  <data name="&gt;&gt;txtDilutionTimes.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="fbtnOK.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -602,58 +629,31 @@
   <data name="keywordText.Standard" xml:space="preserve">
     <value>标准品</value>
   </data>
-  <data name="Emergency.UserAddedColumn" type="System.Boolean, mscorlib">
+  <metadata name="Emergency.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="SampleNo.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="SampleNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>en</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="ItemName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="SampleType.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="SampleType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="DiluteName.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="DiluteName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="Position.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="Position.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="DilutionTimes.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="DilutionTimes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="keywordText.Cancel1" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="keywordText.Control1" xml:space="preserve">
-    <value>质控品</value>
-  </data>
-  <data name="keywordText.InsufficientDilute1" xml:space="preserve">
-    <value>{0}稀释液不足！</value>
-  </data>
-  <data name="keywordText.No1" xml:space="preserve">
-    <value>否</value>
-  </data>
-  <data name="keywordText.PleaseChooseSampleNeededModify1" xml:space="preserve">
-    <value>请选择需要修改的样本！</value>
-  </data>
-  <data name="keywordText.Standard1" xml:space="preserve">
-    <value>标准品</value>
-  </data>
-  <data name="keywordText.Update1" xml:space="preserve">
-    <value>修改</value>
-  </data>
-  <data name="keywordText.UpdateRunningInfomation1" xml:space="preserve">
-    <value>运行信息修改</value>
-  </data>
-  <data name="keywordText.Yes1" xml:space="preserve">
-    <value>是</value>
-  </data>
+  </metadata>
 </root>

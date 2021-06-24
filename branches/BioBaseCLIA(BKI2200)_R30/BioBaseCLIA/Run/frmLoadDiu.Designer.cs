@@ -52,6 +52,7 @@
             // 
             // cmbDiuPos
             // 
+            resources.ApplyResources(this.cmbDiuPos, "cmbDiuPos");
             this.cmbDiuPos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDiuPos.FormattingEnabled = true;
             this.cmbDiuPos.Items.AddRange(new object[] {
@@ -72,7 +73,6 @@
             resources.GetString("cmbDiuPos.Items14"),
             resources.GetString("cmbDiuPos.Items15"),
             resources.GetString("cmbDiuPos.Items16")});
-            resources.ApplyResources(this.cmbDiuPos, "cmbDiuPos");
             this.cmbDiuPos.Name = "cmbDiuPos";
             // 
             // label3
@@ -82,8 +82,8 @@
             // 
             // functionButton1
             // 
-            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.functionButton1, "functionButton1");
+            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
             this.functionButton1.EnabledSet = true;
             this.functionButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.functionButton1.FlatAppearance.BorderSize = 0;
@@ -95,8 +95,8 @@
             // 
             // btnLoadSubstrate
             // 
-            this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadSubstrate, "btnLoadSubstrate");
+            this.btnLoadSubstrate.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadSubstrate.EnabledSet = true;
             this.btnLoadSubstrate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadSubstrate.FlatAppearance.BorderSize = 0;

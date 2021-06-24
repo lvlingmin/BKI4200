@@ -122,7 +122,7 @@
     <value>29, 72</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 12</value>
+    <value>71, 15</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>To Be Tested</value>
@@ -131,7 +131,7 @@
     <value>29, 47</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 12</value>
+    <value>77, 15</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Tested Sample</value>
@@ -140,7 +140,7 @@
     <value>29, 22</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
+    <value>53, 15</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>Unloaded</value>
@@ -152,31 +152,31 @@
     <value>Sample Legend</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 12</value>
+    <value>43, 15</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Diluent</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
+    <value>53, 15</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Sufficient</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
+    <value>55, 15</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Depletion</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 12</value>
+    <value>46, 15</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Warning</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
+    <value>53, 15</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Unloaded</value>
@@ -218,7 +218,7 @@
     <value>318, 143</value>
   </data>
   <data name="labUnit2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
+    <value>28, 15</value>
   </data>
   <data name="labUnit2.Text" xml:space="preserve">
     <value>Test</value>
@@ -227,7 +227,7 @@
     <value>166, 143</value>
   </data>
   <data name="labUnit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 12</value>
+    <value>28, 15</value>
   </data>
   <data name="labUnit.Text" xml:space="preserve">
     <value>Test</value>
@@ -239,7 +239,7 @@
     <value>5, 120</value>
   </data>
   <data name="LabValidDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 12</value>
+    <value>64, 15</value>
   </data>
   <data name="LabValidDate.Text" xml:space="preserve">
     <value>Exp.Date：</value>
@@ -252,6 +252,9 @@
   </data>
   <data name="cmbProType.Location" type="System.Drawing.Point, System.Drawing">
     <value>213, 14</value>
+  </data>
+  <data name="cmbProType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 23</value>
   </data>
   <data name="btnAddD.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -330,7 +333,7 @@
     <value>172, 18</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 12</value>
+    <value>36, 15</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>Type:</value>
@@ -415,7 +418,7 @@
     <value>5, 92</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 12</value>
+    <value>47, 15</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Batch：</value>
@@ -424,13 +427,16 @@
     <value>6, 167</value>
   </data>
   <data name="chkManualInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 16</value>
+    <value>142, 19</value>
   </data>
   <data name="chkManualInput.Text" xml:space="preserve">
     <value>Manual Import Barcode</value>
   </data>
   <data name="cmbRgName.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 39</value>
+  </data>
+  <data name="cmbRgName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 23</value>
   </data>
   <data name="txtRgCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>89, 64</value>
@@ -448,7 +454,7 @@
     <value>197, 143</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
+    <value>56, 15</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Surplus：</value>
@@ -457,7 +463,7 @@
     <value>5, 145</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 12</value>
+    <value>81, 15</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Specification：</value>
@@ -466,7 +472,7 @@
     <value>5, 67</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 12</value>
+    <value>58, 15</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Barcode：</value>
@@ -475,13 +481,16 @@
     <value>5, 43</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 12</value>
+    <value>47, 15</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Name：</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 18</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Position：</value>
@@ -723,8 +732,11 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Reagent Information</value>
   </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 21.75pt, style=Bold</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 29</value>
+    <value>187, 32</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Reagent Load</value>
@@ -793,6 +805,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="fbtnTestResult.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt, style=Bold</value>
+  </data>
   <data name="fbtnTestResult.Text" xml:space="preserve">
     <value>Result</value>
   </data>
@@ -859,6 +874,9 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="btnWorkList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="btnWorkList.Text" xml:space="preserve">
     <value>Work List</value>
@@ -927,6 +945,9 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="fbtnReturn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt, style=Bold</value>
+  </data>
   <data name="fbtnReturn.Text" xml:space="preserve">
     <value>Back</value>
   </data>
@@ -993,6 +1014,9 @@
         vNjc7RVu0Y6LLmsngNlKNixblk3LtsOtJ017IPzlIu/X/G0RtzA/4hYXnAMwS8hmZbuyYdlyuo0npX0o
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="btnLoadSample.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="btnLoadSample.Text" xml:space="preserve">
     <value>Sample Load</value>
@@ -1061,8 +1085,14 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnLoadReagent.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt, style=Bold</value>
+  </data>
   <data name="btnLoadReagent.Text" xml:space="preserve">
     <value>Reagent Load</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
   </data>
   <data name="keywordText.AllTestNumIsNull" xml:space="preserve">
     <value>The total count is empty. Please re-enter！</value>
@@ -1131,7 +1161,7 @@
     <value>Successful loading!</value>
   </data>
   <data name="keywordText.LogOfErrorFlag" xml:space="preserve">
-    <value>errorFlag = ： {0}  *****Current {1}</value>
+    <value>errorFlag = ： {0}  *****Current {1}</value>
   </data>
   <data name="keywordText.Low" xml:space="preserve">
     <value>Low</value>
@@ -1224,7 +1254,7 @@
     <value>*** Error *** Unread *** Barcode：{0}Project Name:{1}The reagent has expired, please replace it in time.</value>
   </data>
   <data name="keywordText.ReagentExpiredAlerm2" xml:space="preserve">
-    <value> *** Error *** Unread *** {0}The reagent (diluent) has expired, please uninstall or replace it!</value>
+    <value>*** Error *** Unread *** {0}The reagent (diluent) has expired, please uninstall or replace it!</value>
   </data>
   <data name="keywordText.ReagentExpiredAndPlzrReplace" xml:space="preserve">
     <value>{0}The reagent (diluent) has expired, please uninstall or replace it！</value>

@@ -33,6 +33,7 @@ namespace BioBaseCLIA.InfoSetting
             #endregion
             tabControlMy1.TabPages.Clear();
             tabControlMy1.TabPages.Add(tabNetSet);
+            CommunicationType = OperateIniFile.ReadInIPara("LisSet", "CommunicationType");
             if (IsLisConnect && !CommunicationType.IsNullOrEmpty())
             {
                 if (CommunicationType.Contains("NetConn") || CommunicationType.Contains("网口通讯"))

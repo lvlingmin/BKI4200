@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddScaling));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvScaling = new System.Windows.Forms.DataGridView();
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Conc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRegentBatch = new System.Windows.Forms.TextBox();
@@ -50,9 +53,6 @@
             this.functionButton1 = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.codeTextBox = new BioBaseCLIA.CustomControl.userTextBoxBase();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Conc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScaling)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestPro)).BeginInit();
@@ -75,6 +75,31 @@
             this.dgvScaling.Name = "dgvScaling";
             this.dgvScaling.RowTemplate.Height = 23;
             this.dgvScaling.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvScaling_EditingControlShowing);
+            // 
+            // No
+            // 
+            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.No.DataPropertyName = "No";
+            resources.ApplyResources(this.No, "No");
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            // 
+            // Conc
+            // 
+            this.Conc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Conc.DataPropertyName = "Conc";
+            resources.ApplyResources(this.Conc, "Conc");
+            this.Conc.Name = "Conc";
+            // 
+            // Value
+            // 
+            this.Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Value.DataPropertyName = "Value";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Value.DefaultCellStyle = dataGridViewCellStyle1;
+            resources.ApplyResources(this.Value, "Value");
+            this.Value.Name = "Value";
             // 
             // groupBox1
             // 
@@ -231,31 +256,6 @@
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
-            // 
-            // No
-            // 
-            this.No.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.No.DataPropertyName = "No";
-            resources.ApplyResources(this.No, "No");
-            this.No.Name = "No";
-            this.No.ReadOnly = true;
-            // 
-            // Conc
-            // 
-            this.Conc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Conc.DataPropertyName = "Conc";
-            resources.ApplyResources(this.Conc, "Conc");
-            this.Conc.Name = "Conc";
-            // 
-            // Value
-            // 
-            this.Value.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Value.DataPropertyName = "Value";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Value.DefaultCellStyle = dataGridViewCellStyle1;
-            resources.ApplyResources(this.Value, "Value");
-            this.Value.Name = "Value";
             // 
             // frmAddScaling
             // 

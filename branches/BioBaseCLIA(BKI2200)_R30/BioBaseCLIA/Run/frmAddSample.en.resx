@@ -125,7 +125,7 @@
     <value>230, 36</value>
   </data>
   <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 12</value>
+    <value>58, 15</value>
   </data>
   <data name="label16.Text" xml:space="preserve">
     <value>Number：</value>
@@ -134,7 +134,7 @@
     <value>118, 33</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 12</value>
+    <value>85, 15</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>Start Position：</value>
@@ -349,7 +349,7 @@
     <value>7, 88</value>
   </data>
   <data name="chbMoreSampleScan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 16</value>
+    <value>145, 19</value>
   </data>
   <data name="chbMoreSampleScan.Text" xml:space="preserve">
     <value>Enable Barcode Scanning</value>
@@ -358,7 +358,7 @@
     <value>215, 44</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 12</value>
+    <value>83, 15</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
     <value>Sample Type：</value>
@@ -375,11 +375,14 @@
   <data name="cmbmSpType.Location" type="System.Drawing.Point, System.Drawing">
     <value>299, 40</value>
   </data>
+  <data name="cmbmSpType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 23</value>
+  </data>
   <data name="AutoUploadAndUnload2.Location" type="System.Drawing.Point, System.Drawing">
     <value>264, 88</value>
   </data>
   <data name="AutoUploadAndUnload2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 16</value>
+    <value>129, 19</value>
   </data>
   <data name="AutoUploadAndUnload2.Text" xml:space="preserve">
     <value>Automatic Unloading</value>
@@ -522,7 +525,7 @@
     <value>5, 68</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 12</value>
+    <value>95, 15</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Repeat Number：</value>
@@ -538,6 +541,9 @@
   </data>
   <data name="cmbMorePipeType.Location" type="System.Drawing.Point, System.Drawing">
     <value>107, 40</value>
+  </data>
+  <data name="cmbMorePipeType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 23</value>
   </data>
   <data name="btnMoreSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -680,7 +686,7 @@
     <value>180, 88</value>
   </data>
   <data name="chkMoreEmergency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 16</value>
+    <value>79, 19</value>
   </data>
   <data name="chkMoreEmergency.Text" xml:space="preserve">
     <value>Emergency</value>
@@ -689,7 +695,7 @@
     <value>215, 18</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 12</value>
+    <value>77, 15</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Sample Size：</value>
@@ -699,6 +705,9 @@
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>173, 18</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>14, 15</value>
   </data>
   <data name="txtSpCode2.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 14</value>
@@ -713,7 +722,7 @@
     <value>5, 18</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 12</value>
+    <value>96, 15</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Sample Number：</value>
@@ -722,7 +731,7 @@
     <value>215, 69</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 12</value>
+    <value>96, 15</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Sample Number：</value>
@@ -731,7 +740,7 @@
     <value>5, 44</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 12</value>
+    <value>107, 15</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Sample Cup Type：</value>
@@ -755,10 +764,10 @@
     <value>306, 60</value>
   </data>
   <data name="cmbPipeType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>100, 23</value>
   </data>
   <data name="chbSampleNoScan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 16</value>
+    <value>145, 19</value>
   </data>
   <data name="chbSampleNoScan.Text" xml:space="preserve">
     <value>Enable Barcode Scanning</value>
@@ -770,7 +779,7 @@
     <value>98, 60</value>
   </data>
   <data name="AutoUploadAndUnload1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 16</value>
+    <value>89, 19</value>
   </data>
   <data name="AutoUploadAndUnload1.Text" xml:space="preserve">
     <value>Auto Unload</value>
@@ -779,25 +788,31 @@
     <value>306, 88</value>
   </data>
   <data name="cmbBatch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>100, 23</value>
   </data>
   <data name="lblBatch.Location" type="System.Drawing.Point, System.Drawing">
     <value>207, 91</value>
   </data>
   <data name="lblBatch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 12</value>
+    <value>89, 15</value>
   </data>
   <data name="lblBatch.Text" xml:space="preserve">
     <value>Batch Number：</value>
   </data>
+  <data name="chkScanSampleCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 19</value>
+  </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
     <value>140, 64</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 15</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 64</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 12</value>
+    <value>65, 15</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>Start-End：</value>
@@ -806,7 +821,7 @@
     <value>98, 60</value>
   </data>
   <data name="chkEmergency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 16</value>
+    <value>79, 19</value>
   </data>
   <data name="chkEmergency.Text" xml:space="preserve">
     <value>Emergency</value>
@@ -815,7 +830,7 @@
     <value>8, 39</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 12</value>
+    <value>96, 15</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Sample Number：</value>
@@ -891,7 +906,7 @@
     <value>207, 38</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 12</value>
+    <value>74, 15</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Sample Type:</value>
@@ -967,7 +982,7 @@
     <value>207, 64</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 12</value>
+    <value>107, 15</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Sample Cup Type：</value>
@@ -1042,6 +1057,9 @@
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 64</value>
   </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 15</value>
+  </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Position：</value>
   </data>
@@ -1049,7 +1067,7 @@
     <value>8, 89</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 12</value>
+    <value>95, 15</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Repeat Number：</value>
@@ -1085,7 +1103,7 @@
     <value>306, 35</value>
   </data>
   <data name="cmbSpType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>100, 23</value>
   </data>
   <data name="groupBox5.Text" xml:space="preserve">
     <value>Sample Entry</value>
@@ -1340,6 +1358,9 @@
     <value>Portfolio Project
 
 </value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1775,6 +1796,12 @@
   <data name="keywordText.StartScan" xml:space="preserve">
     <value>Start Scan Code</value>
   </data>
+  <data name="keywordText.Stopload" xml:space="preserve">
+    <value>There are standard or quality control materials in the loaded samples. The loading of samples failed this time</value>
+  </data>
+  <data name="keywordText.StoploadStandard" xml:space="preserve">
+    <value>There are non-standard or non-quality control samples in the loaded samples. The loading of samples failed this time</value>
+  </data>
   <data name="keywordText.Tips" xml:space="preserve">
     <value>Tips</value>
   </data>
@@ -1804,11 +1831,5 @@
   </data>
   <data name="keywordText.Yes" xml:space="preserve">
     <value>Yes</value>
-  </data>
-  <data name="keywordText.Stopload" xml:space="preserve">
-    <value>There are standard or quality control materials in the loaded samples. The loading of samples failed this time</value>
-  </data>
-  <data name="keywordText.StoploadStandard" xml:space="preserve">
-    <value>There are non-standard or non-quality control samples in the loaded samples. The loading of samples failed this time</value>
   </data>
 </root>

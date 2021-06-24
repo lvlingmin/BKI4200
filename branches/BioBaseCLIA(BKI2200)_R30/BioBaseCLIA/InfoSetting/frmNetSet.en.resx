@@ -478,10 +478,10 @@
     <value>Is LIS Connected</value>
   </data>
   <data name="cmbLisType.Items" xml:space="preserve">
-    <value>Network Port Connection</value>
+    <value>NetConn</value>
   </data>
   <data name="cmbLisType.Items1" xml:space="preserve">
-    <value>Serial Port Connection</value>
+    <value>SerialConn</value>
   </data>
   <data name="cmbLisType.Size" type="System.Drawing.Size, System.Drawing">
     <value>205, 30</value>
@@ -602,7 +602,7 @@
     <value>798, 475</value>
   </data>
   <data name="tabNetSet.Text" xml:space="preserve">
-    <value>Network Port Connection</value>
+    <value>SerialConn</value>
   </data>
   <data name="btnDel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
@@ -1303,7 +1303,7 @@
     <value>LIS settings</value>
   </data>
   <data name="NetConn" xml:space="preserve">
-    <value>Network Port Connection</value>
+    <value>NetConn</value>
   </data>
   <data name="NotConnceted" xml:space="preserve">
     <value>Not Connected</value>
@@ -1318,7 +1318,7 @@
     <value>Open</value>
   </data>
   <data name="SerialConn" xml:space="preserve">
-    <value>Serial Port Connection</value>
+    <value>SerialConn</value>
   </data>
   <data name="SerialConnError" xml:space="preserve">
     <value>Abnormal serial port check</value>
