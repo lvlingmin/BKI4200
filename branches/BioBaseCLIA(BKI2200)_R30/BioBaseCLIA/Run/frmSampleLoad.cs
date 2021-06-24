@@ -99,7 +99,11 @@ namespace BioBaseCLIA.Run
                 }
                 if (spacialProList.Find(ty => ty == dtRgInfo.Rows[j]["RgName"].ToString()) != null)//特殊分装项目染色
                 {
-                    if (srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] == srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1])
+                    if(dtRgInfo.Rows[j]["AllTestNumber"].ToString() == "50")
+                    {
+                        ;
+                    }
+                    else if (srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] == srdReagent.RgName[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1])
                     {
                         srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CRgLoaded;
                         srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CBeedsLoaded;
@@ -170,9 +174,16 @@ namespace BioBaseCLIA.Run
 
                 if (spacialProList.Find(ty => ty == dtRgInfo.Rows[i]["RgName"].ToString()) != null)
                 {
-                    int tempNum = int.Parse(dtRgInfo.Rows[i]["leftoverTestR1"].ToString());
-                    srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = (tempNum - 50 > 0 ? 50 : tempNum).ToString();
-                    srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["RgName"].ToString();
+                    if(dtRgInfo.Rows[i]["AllTestNumber"].ToString() == "50")
+                    {
+                        ;
+                    }
+                    else
+                    {
+                        int tempNum = int.Parse(dtRgInfo.Rows[i]["leftoverTestR1"].ToString());
+                        srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = (tempNum - 50 > 0 ? 50 : tempNum).ToString();
+                        srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["RgName"].ToString();
+                    } 
                 }
             }
             //dgvRgInfoList.SelectionChanged -= dgvRgInfoList_SelectionChanged;
