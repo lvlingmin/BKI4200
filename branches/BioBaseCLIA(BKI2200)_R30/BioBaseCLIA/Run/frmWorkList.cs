@@ -9617,7 +9617,7 @@ namespace BioBaseCLIA.Run
                     #endregion
                 }
 
-                if (sampleType.Contains(getString("keywordText.Calibrator")) || sampleType.Contains(getString("keywordText.Control")))
+                if (sampleType.Contains(getString("keywordText.Standard")) || sampleType.Contains(getString("keywordText.Control")))
                 {
                     result = "";
                 }
@@ -11334,7 +11334,7 @@ namespace BioBaseCLIA.Run
         {
             for (int i = 0; i < dgvWorkListData.SelectedRows.Count; i++)
             {
-                if (dgvWorkListData.SelectedRows[i].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Calibrator"))
+                if (dgvWorkListData.SelectedRows[i].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))
                     || dgvWorkListData.SelectedRows[i].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.CalibrationSolution")))
                 {
                     frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.SelectStandards"));
