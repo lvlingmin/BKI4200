@@ -610,13 +610,14 @@ namespace BioBaseCLIA.Run
             else
             {
                 IRow row = sheet.CreateRow(0);//创建行对象，填充表头
+                int tempIndex = 0;
                 for (int i = 0; i < dgvResultData.Columns.Count - 1; i++)
                 {
                     if (dgvResultData.Columns[i].Visible == false)
                     {
                         continue;
                     }
-                    row.CreateCell(i - 1).SetCellValue(dgvResultData.Columns[i].HeaderText);
+                    row.CreateCell(tempIndex++).SetCellValue(dgvResultData.Columns[i].HeaderText);
                     LogFile.Instance.Write(dgvResultData.Columns[i].HeaderText);
                     //sheet.AutoSizeColumn(i);
                 }
@@ -624,6 +625,7 @@ namespace BioBaseCLIA.Run
                 for (int i = 0; i < dgvResultData.Rows.Count; i++)
                 {
                     row = sheet.CreateRow(i + 1);
+                    int tempNum = 0;
                     for (int j = 1; j < dgvResultData.Columns.Count - 1; j++)
                     {
                         if (dgvResultData.Columns[j].Visible == false)
@@ -633,11 +635,11 @@ namespace BioBaseCLIA.Run
                         #region 导出 lyq 20190812 add 
                         if (dgvResultData.Columns[j].HeaderText.ToString().Equals("PMT"))
                         {
-                            row.CreateCell(j - 1).SetCellValue(double.Parse(dgvResultData.Rows[i].Cells[j].Value.ToString()));
+                            row.CreateCell(tempNum++).SetCellValue(double.Parse(dgvResultData.Rows[i].Cells[j].Value.ToString()));
                         }
                         else
                         {
-                            row.CreateCell(j - 1).SetCellValue(dgvResultData.Rows[i].Cells[j].Value.ToString());
+                            row.CreateCell(tempNum++).SetCellValue(dgvResultData.Rows[i].Cells[j].Value.ToString());
                         }
                         #endregion
                         //row.CreateCell(j - 1).SetCellValue(dgvResultData.Rows[i].Cells[j].Value.ToString());
