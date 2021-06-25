@@ -40,6 +40,7 @@ namespace BioBaseCLIA.Run
         /// </summary>
         string iniPathReagentTrayInfo = Directory.GetCurrentDirectory() + "\\ReagentTrayInfo.ini";
         List<string> spacialProList = new List<string>();//两个试剂盒分装的特殊项目
+        bool isClick = false;
         public static DataTable DtItemInfoNoStat
         {
             get { return dtItemInfoNoStat; }
@@ -324,6 +325,11 @@ namespace BioBaseCLIA.Run
             //        }
             //    }
             //}
+            if (isClick == true)
+            {
+                return;
+            }
+            isClick = true;
             btnWorkList.Enabled = false;
 
             if (CheckFormIsOpen("frmWorkList") && frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
@@ -377,10 +383,16 @@ namespace BioBaseCLIA.Run
             //    frmWorkList.EmergencyFlag = false;
             //    frmWorkList.addOrdinaryFlag = false;
             //}
+            isClick = false;
         }
 
         private void fbtnTestResult_Click(object sender, EventArgs e)
         {
+            if (isClick == true)
+            {
+                return;
+            }
+            isClick = true;
             if (!CheckFormIsOpen("frmTestResult"))
             {
                 frmTestResult frmTR = new frmTestResult();
@@ -394,10 +406,16 @@ namespace BioBaseCLIA.Run
                 frmTR.Show();
                 frmTR.BringToFront(); 
             }
+            isClick = false;
         }
 
         private void btnLoadReagent_Click(object sender, EventArgs e)
         {
+            if (isClick == true)
+            {
+                return;
+            }
+            isClick = true;
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
             {
                 MessageBox.Show(getString("keywordText.DontAddReagentWithWorking"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -421,6 +439,7 @@ namespace BioBaseCLIA.Run
                 frmRL.BringToFront();
             }
             this.Close();
+            isClick = false;
         }
 
         private void fbtnReturn_Click(object sender, EventArgs e)
@@ -428,6 +447,11 @@ namespace BioBaseCLIA.Run
             //frmWorkList.addOrdinaryFlag = false;
             //frmWorkList.EmergencyFlag = false;
             //2018-11-02 zlx add
+            if (isClick == true)
+            {
+                return;
+            }
+            isClick = true;
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
                 btnWorkList_Click(sender, e);
             else
@@ -448,6 +472,7 @@ namespace BioBaseCLIA.Run
                 }
             }
             this.Close();
+            isClick = false;
         }
 
         private void btnLoadSp_Click(object sender, EventArgs e)
