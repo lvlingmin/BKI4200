@@ -3323,4 +3323,7 @@
   <data name="keywordText.SlowSpeeds" xml:space="preserve">
     <value>制冷泵转速过慢(堵)!</value>
   </data>
+  <data name="keywordText.RefrigerationNotOn" xml:space="preserve">
+    <value>制冷未打开</value>
+  </data>
 </root>

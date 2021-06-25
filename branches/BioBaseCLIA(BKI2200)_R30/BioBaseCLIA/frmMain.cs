@@ -155,6 +155,10 @@ namespace BioBaseCLIA
         /// 液位温度查询标注
         /// </summary>
         public static bool BQLiquaid =true;
+        /// <summary>
+        /// 制冷是否打开标识
+        /// </summary>
+        public static bool Refrigeration = true;
         public frmMain()
         {
             InitializeComponent();
@@ -1643,7 +1647,22 @@ namespace BioBaseCLIA
         public void DealRefrigeration(string[] dataRecive)
         {
             string RefrigerationData = dataRecive[15];
-            if (RefrigerationData != "FF")
+            if (RefrigerationData == "00")
+            {
+                if (Refrigeration)
+                {
+                    Refrigeration = false;
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + GetString("keywordText.RefrigerationNotOn"));
+                    LogBtnColorChange(1);
+                }
+                return;
+            }
+            else
+            {
+                if (!Refrigeration)
+                    Refrigeration = true;
+            }
+            if (Refrigeration && RefrigerationData != "FF")
             {
                 Byte bit = Convert.ToByte(RefrigerationData, 16);
                 RefrigerationData = Convert.ToString(bit, 2);

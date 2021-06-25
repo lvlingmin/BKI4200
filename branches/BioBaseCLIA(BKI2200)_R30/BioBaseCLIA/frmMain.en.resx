@@ -2615,4 +2615,7 @@
   <data name="keywordText.SlowSpeeds" xml:space="preserve">
     <value>The speed of refrigeration pump is too slow (blocked)!</value>
   </data>
+  <data name="keywordText.RefrigerationNotOn" xml:space="preserve">
+    <value>Refrigeration not on</value>
+  </data>
 </root>
