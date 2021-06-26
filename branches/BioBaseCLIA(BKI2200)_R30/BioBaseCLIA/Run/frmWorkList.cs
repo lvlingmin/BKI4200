@@ -488,6 +488,7 @@ namespace BioBaseCLIA.Run
 
         private void frmWorkList_Load(object sender, EventArgs e)
         {
+            LogFile.Instance.Write("进入工作列表load" + DateTime.Now.ToString("mm:ss:ms"));
             //2018-08-13 zlx add
             if (!frmMain.LiquidQueryFlag)
                 frmMain.LiquidQueryFlag = true;
@@ -10758,6 +10759,7 @@ namespace BioBaseCLIA.Run
         }
         private void frmWorkList_FormClosed(object sender, FormClosedEventArgs e)
         {
+            LogFile.Instance.Write("进入工作列表closed" + DateTime.Now.ToString("mm:ss:ms"));
             if (RunLightFlag)
             {
                 //关闭仪器运行指示灯
