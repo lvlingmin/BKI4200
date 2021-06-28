@@ -50,6 +50,7 @@
             this.fbtnSelectCurve = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnPrintCurve = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.fbtnSave = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.dgvScalingData = new System.Windows.Forms.DataGridView();
             this.colScalPoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colConcentration = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,16 +79,16 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.fbtnScalingQuery);
             this.panel1.Controls.Add(this.fbtnReturn);
             this.panel1.Controls.Add(this.fbtnQCQuery);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // fbtnScalingQuery
             // 
-            resources.ApplyResources(this.fbtnScalingQuery, "fbtnScalingQuery");
             this.fbtnScalingQuery.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnScalingQuery, "fbtnScalingQuery");
             this.fbtnScalingQuery.EnabledSet = true;
             this.fbtnScalingQuery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnScalingQuery.FlatAppearance.BorderSize = 0;
@@ -98,8 +99,8 @@
             // 
             // fbtnReturn
             // 
-            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
@@ -111,8 +112,8 @@
             // 
             // fbtnQCQuery
             // 
-            resources.ApplyResources(this.fbtnQCQuery, "fbtnQCQuery");
             this.fbtnQCQuery.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnQCQuery, "fbtnQCQuery");
             this.fbtnQCQuery.EnabledSet = true;
             this.fbtnQCQuery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnQCQuery.FlatAppearance.BorderSize = 0;
@@ -124,7 +125,6 @@
             // 
             // dgvScalData
             // 
-            resources.ApplyResources(this.dgvScalData, "dgvScalData");
             this.dgvScalData.AllowUserToAddRows = false;
             this.dgvScalData.AllowUserToDeleteRows = false;
             this.dgvScalData.AllowUserToResizeRows = false;
@@ -138,6 +138,7 @@
             this.colActiveDate,
             this.colValidDate,
             this.ExpiryDate});
+            resources.ApplyResources(this.dgvScalData, "dgvScalData");
             this.dgvScalData.Name = "dgvScalData";
             this.dgvScalData.ReadOnly = true;
             this.dgvScalData.RowHeadersVisible = false;
@@ -215,8 +216,8 @@
             // 
             // fbtnAddMainCurve
             // 
-            resources.ApplyResources(this.fbtnAddMainCurve, "fbtnAddMainCurve");
             this.fbtnAddMainCurve.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnAddMainCurve, "fbtnAddMainCurve");
             this.fbtnAddMainCurve.EnabledSet = true;
             this.fbtnAddMainCurve.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnAddMainCurve.FlatAppearance.BorderSize = 0;
@@ -228,19 +229,19 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.fbtnReset);
             this.groupBox1.Controls.Add(this.fbtnSelectCurve);
             this.groupBox1.Controls.Add(this.dgvScalData);
             this.groupBox1.Controls.Add(this.fbtnPrintCurve);
             this.groupBox1.Controls.Add(this.fbtnAddMainCurve);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // fbtnReset
             // 
-            resources.ApplyResources(this.fbtnReset, "fbtnReset");
             this.fbtnReset.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnReset, "fbtnReset");
             this.fbtnReset.EnabledSet = true;
             this.fbtnReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReset.FlatAppearance.BorderSize = 0;
@@ -252,8 +253,8 @@
             // 
             // fbtnSelectCurve
             // 
-            resources.ApplyResources(this.fbtnSelectCurve, "fbtnSelectCurve");
             this.fbtnSelectCurve.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnSelectCurve, "fbtnSelectCurve");
             this.fbtnSelectCurve.EnabledSet = true;
             this.fbtnSelectCurve.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnSelectCurve.FlatAppearance.BorderSize = 0;
@@ -265,8 +266,8 @@
             // 
             // fbtnPrintCurve
             // 
-            resources.ApplyResources(this.fbtnPrintCurve, "fbtnPrintCurve");
             this.fbtnPrintCurve.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnPrintCurve, "fbtnPrintCurve");
             this.fbtnPrintCurve.EnabledSet = true;
             this.fbtnPrintCurve.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnPrintCurve.FlatAppearance.BorderSize = 0;
@@ -278,14 +279,27 @@
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.fbtnSave);
             this.groupBox2.Controls.Add(this.dgvScalingData);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // fbtnSave
+            // 
+            this.fbtnSave.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnSave, "fbtnSave");
+            this.fbtnSave.EnabledSet = true;
+            this.fbtnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnSave.FlatAppearance.BorderSize = 0;
+            this.fbtnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnSave.Name = "fbtnSave";
+            this.fbtnSave.UseVisualStyleBackColor = false;
+            this.fbtnSave.Click += new System.EventHandler(this.fbtnSave_Click);
+            // 
             // dgvScalingData
             // 
-            resources.ApplyResources(this.dgvScalingData, "dgvScalingData");
             this.dgvScalingData.AllowUserToAddRows = false;
             this.dgvScalingData.AllowUserToDeleteRows = false;
             this.dgvScalingData.AllowUserToResizeRows = false;
@@ -295,8 +309,8 @@
             this.colScalPoint,
             this.colConcentration,
             this.colRLU});
+            resources.ApplyResources(this.dgvScalingData, "dgvScalingData");
             this.dgvScalingData.Name = "dgvScalingData";
-            this.dgvScalingData.ReadOnly = true;
             this.dgvScalingData.RowHeadersVisible = false;
             this.dgvScalingData.RowTemplate.Height = 23;
             // 
@@ -306,14 +320,12 @@
             this.colScalPoint.FillWeight = 60F;
             resources.ApplyResources(this.colScalPoint, "colScalPoint");
             this.colScalPoint.Name = "colScalPoint";
-            this.colScalPoint.ReadOnly = true;
             // 
             // colConcentration
             // 
             this.colConcentration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             resources.ApplyResources(this.colConcentration, "colConcentration");
             this.colConcentration.Name = "colConcentration";
-            this.colConcentration.ReadOnly = true;
             this.colConcentration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colRLU
@@ -321,16 +333,15 @@
             this.colRLU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             resources.ApplyResources(this.colRLU, "colRLU");
             this.colRLU.Name = "colRLU";
-            this.colRLU.ReadOnly = true;
             this.colRLU.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.chbShowMainCurve);
             this.groupBox3.Controls.Add(this.lblR);
             this.groupBox3.Controls.Add(this.lblEquation);
             this.groupBox3.Controls.Add(this.definePanal1);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -353,22 +364,22 @@
             // 
             // definePanal1
             // 
-            resources.ApplyResources(this.definePanal1, "definePanal1");
             this.definePanal1.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.definePanal1, "definePanal1");
             this.definePanal1.Name = "definePanal1";
             this.definePanal1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.definePanal1_MouseDown);
             // 
             // MenuCurve
             // 
-            resources.ApplyResources(this.MenuCurve, "MenuCurve");
             this.MenuCurve.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemSave});
             this.MenuCurve.Name = "MenuCurve";
+            resources.ApplyResources(this.MenuCurve, "MenuCurve");
             // 
             // itemSave
             // 
-            resources.ApplyResources(this.itemSave, "itemSave");
             this.itemSave.Name = "itemSave";
+            resources.ApplyResources(this.itemSave, "itemSave");
             this.itemSave.Click += new System.EventHandler(this.itemSave_Click);
             // 
             // timer1
@@ -436,5 +447,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colScalPoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn colConcentration;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRLU;
+        private CustomControl.FunctionButton fbtnSave;
     }
 }

@@ -64,12 +64,19 @@ namespace BioBaseCLIA.ScalingQC
         public frmScaling()
         {
             InitializeComponent();
+            dtScalInfo.Columns.Add("ScalingResultID", typeof(int));
             dtScalInfo.Columns.Add("ItemName", typeof(string));
             dtScalInfo.Columns.Add("RegentBatch", typeof(string));
+            dtScalInfo.Columns.Add("ScalingModel", typeof(int));
+            dtScalInfo.Columns.Add("PointCount", typeof(int));
+            dtScalInfo.Columns.Add("Points", typeof(string));
+            dtScalInfo.Columns.Add("Status", typeof(string));
+            dtScalInfo.Columns.Add("Source", typeof(int));
             dtScalInfo.Columns.Add("MainCurve", typeof(string));
             dtScalInfo.Columns.Add("Scaling", typeof(string));
             dtScalInfo.Columns.Add("CalType", typeof(string));
             dtScalInfo.Columns.Add("ActiveDate", typeof(string));
+            dtScalInfo.Columns.Add("OriginActiveDate", typeof(DateTime));
             dtScalInfo.Columns.Add("ValidDate", typeof(string));
             dtScalInfo.Columns.Add("ExpiryDate", typeof(int));//2018-07-30 zlx add
         }
@@ -90,6 +97,20 @@ namespace BioBaseCLIA.ScalingQC
             //   RefreshUI();
             //})) { IsBackground = true }.Start();
 
+            if (LoginUserType == "1")
+            {
+                dgvScalingData.ReadOnly = false;
+                dgvScalingData.Columns[0].ReadOnly = true;
+                dgvScalingData.Columns[1].ReadOnly = true;
+
+                fbtnSave.Visible = true;
+            }
+            else 
+            {
+                fbtnSave.Visible = false;
+            }
+
+            dgvScalData.AutoGenerateColumns = false;
         }
 
         public void RefreshUI()
@@ -112,13 +133,21 @@ namespace BioBaseCLIA.ScalingQC
                     {
                         bool ExitsMainCurve = dtMainScalCurve.Select("ItemName='" + drScal["ItemName"] + " ' AND RegentBatch='" + drScal["RegentBatch"] + "'").Length > 0;
                         int expiryDate = int.Parse(drProject[0]["ExpiryDate"].ToString());
+                       
                         DataRow dr = dtScalInfo.NewRow();
+                        dr["ScalingResultID"] = drScal["ScalingResultID"];
                         dr["ItemName"] = drScal["ItemName"];
                         dr["RegentBatch"] = drScal["RegentBatch"];
+                        dr["ScalingModel"] = drScal["ScalingModel"];
+                        dr["Status"] = drScal["Status"];
+                        dr["Source"] = drScal["Source"];
+                        dr["PointCount"] = drScal["PointCount"];
+                        dr["Points"] = drScal["Points"];
                         dr["MainCurve"] = ExitsMainCurve ? "Y" : "N";
                         dr["Scaling"] = "Y";
-                        dr["CalType"] = drScal["ScalingModel"].ToString() == "6" ? getString("keywordText.SixPoint") : getString("keywordText.TwoPoint");
+                        dr["CalType"] = drScal["ScalingModel"].ToString() == "6" ? "六点定标" : "两点校准";
                         dr["ActiveDate"] = Convert.ToDateTime(drScal["ActiveDate"]).ToString("yyyy-MM-dd");
+                        dr["OriginActiveDate"] = drScal["ActiveDate"];
                         dr["ValidDate"] = (Convert.ToDateTime(drScal["ActiveDate"]).AddDays(expiryDate)).ToString();
                         dr["ExpiryDate"] = drProject[0]["ExpiryDate"];
                         dtScalInfo.Rows.Add(dr);
@@ -761,6 +790,61 @@ namespace BioBaseCLIA.ScalingQC
         {
             ResourceManager resManager = new ResourceManager(typeof(frmScaling));
             return resManager.GetString(key);
+        }
+
+        private void fbtnSave_Click(object sender, EventArgs e)
+        {
+            if (dgvScalData.SelectedRows.Count < 1) return;
+
+            DataTable resultSource = (DataTable)dgvScalData.DataSource;
+            var scalingResultID = resultSource.Rows[dgvScalData.CurrentRow.Index]["ScalingResultID"].ToString();
+            var itemName = resultSource.Rows[dgvScalData.CurrentRow.Index]["ItemName"].ToString();
+            var regentBatch = resultSource.Rows[dgvScalData.CurrentRow.Index]["RegentBatch"].ToString();
+            var scalingModel = resultSource.Rows[dgvScalData.CurrentRow.Index]["ScalingModel"].ToString();
+            var pointCount = resultSource.Rows[dgvScalData.CurrentRow.Index]["PointCount"].ToString();
+            //var points = resultSource.Rows[dgvScalData.CurrentRow.Index]["Points"].ToString();
+            var status = resultSource.Rows[dgvScalData.CurrentRow.Index]["Status"].ToString();
+            var source = resultSource.Rows[dgvScalData.CurrentRow.Index]["Source"].ToString();
+            var activeDate = resultSource.Rows[dgvScalData.CurrentRow.Index]["OriginActiveDate"].ToString();
+
+            StringBuilder points = new StringBuilder();
+            for (int i = 0; i < dgvScalingData.Rows.Count; i++)
+            {
+                points.Append("(");
+                points.Append(dgvScalingData.Rows[i].Cells[1].Value.ToString().Trim());
+                points.Append(",");
+
+                try
+                {
+                    int.Parse(dgvScalingData.Rows[i].Cells[2].Value.ToString().Trim());
+                }
+                catch (Exception exeception)
+                {
+                    MessageBox.Show(getString("RecordWrongData"));
+                    return;
+                }
+
+                points.Append(dgvScalingData.Rows[i].Cells[2].Value.ToString().Trim());
+                points.Append(")");
+
+                if (i == dgvScalingData.Rows.Count - 1) continue;
+                points.Append(";");
+            }
+
+            Model.tbScalingResult scalingResult = new Model.tbScalingResult();
+            scalingResult.ScalingResultID = int.Parse(scalingResultID);
+            scalingResult.ItemName = itemName;
+            scalingResult.RegentBatch = regentBatch;
+            scalingResult.ScalingModel = int.Parse(scalingModel);
+            scalingResult.PointCount = int.Parse(pointCount);
+            scalingResult.Points = points.ToString();
+            scalingResult.Status = int.Parse(status);
+            scalingResult.Source = int.Parse(source);
+            scalingResult.ActiveDate = DateTime.Parse(activeDate);
+
+            new BLL.tbScalingResult().Update(scalingResult);
+
+            RefreshUI();
         }
     }
 }
