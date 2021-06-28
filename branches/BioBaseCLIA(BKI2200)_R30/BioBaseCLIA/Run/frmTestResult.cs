@@ -13,6 +13,7 @@ using System.IO;
 using NPOI.SS.UserModel;
 using NPOI.HSSF.UserModel;
 using System.Resources;
+using BioBaseCLIA.ScalingQC;
 
 namespace BioBaseCLIA.Run
 {
@@ -870,6 +871,23 @@ namespace BioBaseCLIA.Run
         {
             ResourceManager resManager = new ResourceManager(typeof(frmTestResult));
             return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
+        }
+
+        private void fbtnScaling_Click(object sender, EventArgs e)
+        {
+            if (!CheckFormIsOpen("frmScaling"))
+            {
+                frmScaling frmScaling = new frmScaling();
+                frmScaling.TopLevel = false;
+                frmScaling.Parent = this.Parent;
+                frmScaling.Show();
+            }
+            else
+            {
+                frmScaling frmScaling = (frmScaling)Application.OpenForms["frmScaling"];
+                frmScaling.Show();
+                frmScaling.BringToFront();
+            }
         }
     }
 }
