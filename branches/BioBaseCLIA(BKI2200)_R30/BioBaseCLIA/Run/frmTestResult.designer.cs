@@ -76,6 +76,7 @@
             // 
             // dgvResultData
             // 
+            resources.ApplyResources(this.dgvResultData, "dgvResultData");
             this.dgvResultData.AllowUserToAddRows = false;
             this.dgvResultData.AllowUserToDeleteRows = false;
             this.dgvResultData.AllowUserToOrderColumns = true;
@@ -101,7 +102,6 @@
             this.sco,
             this.SubstratePipe,
             this.ResultDatetime});
-            resources.ApplyResources(this.dgvResultData, "dgvResultData");
             this.dgvResultData.Name = "dgvResultData";
             this.dgvResultData.ReadOnly = true;
             this.dgvResultData.RowHeadersVisible = false;
@@ -253,19 +253,19 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.fbtnScaling);
             this.panel1.Controls.Add(this.fbtnTestResult);
             this.panel1.Controls.Add(this.btnWorkList);
             this.panel1.Controls.Add(this.fbtnReturn);
             this.panel1.Controls.Add(this.btnLoadSample);
             this.panel1.Controls.Add(this.btnLoadReagent);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // fbtnScaling
             // 
-            this.fbtnScaling.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnScaling, "fbtnScaling");
+            this.fbtnScaling.BackColor = System.Drawing.Color.Transparent;
             this.fbtnScaling.EnabledSet = true;
             this.fbtnScaling.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnScaling.FlatAppearance.BorderSize = 0;
@@ -277,8 +277,8 @@
             // 
             // fbtnTestResult
             // 
-            this.fbtnTestResult.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnTestResult, "fbtnTestResult");
+            this.fbtnTestResult.BackColor = System.Drawing.Color.Transparent;
             this.fbtnTestResult.EnabledSet = true;
             this.fbtnTestResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnTestResult.FlatAppearance.BorderSize = 0;
@@ -289,8 +289,8 @@
             // 
             // btnWorkList
             // 
-            this.btnWorkList.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnWorkList, "btnWorkList");
+            this.btnWorkList.BackColor = System.Drawing.Color.Transparent;
             this.btnWorkList.EnabledSet = true;
             this.btnWorkList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnWorkList.FlatAppearance.BorderSize = 0;
@@ -302,8 +302,8 @@
             // 
             // fbtnReturn
             // 
-            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
+            this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
@@ -315,8 +315,8 @@
             // 
             // btnLoadSample
             // 
-            this.btnLoadSample.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadSample, "btnLoadSample");
+            this.btnLoadSample.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadSample.EnabledSet = true;
             this.btnLoadSample.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadSample.FlatAppearance.BorderSize = 0;
@@ -328,8 +328,8 @@
             // 
             // btnLoadReagent
             // 
-            this.btnLoadReagent.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadReagent, "btnLoadReagent");
+            this.btnLoadReagent.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadReagent.EnabledSet = true;
             this.btnLoadReagent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadReagent.FlatAppearance.BorderSize = 0;
@@ -341,6 +341,7 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.functionButton1);
             this.groupBox1.Controls.Add(this.fbtnTestAgain);
             this.groupBox1.Controls.Add(this.fbtnRCalculatResult);
@@ -348,14 +349,13 @@
             this.groupBox1.Controls.Add(this.fbtnPrint);
             this.groupBox1.Controls.Add(this.fbtnExportData);
             this.groupBox1.Controls.Add(this.fbtnSaveResult);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // functionButton1
             // 
-            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.functionButton1, "functionButton1");
+            this.functionButton1.BackColor = System.Drawing.Color.Transparent;
             this.functionButton1.EnabledSet = true;
             this.functionButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.functionButton1.FlatAppearance.BorderSize = 0;
@@ -367,8 +367,8 @@
             // 
             // fbtnTestAgain
             // 
-            this.fbtnTestAgain.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnTestAgain, "fbtnTestAgain");
+            this.fbtnTestAgain.BackColor = System.Drawing.Color.Transparent;
             this.fbtnTestAgain.EnabledSet = true;
             this.fbtnTestAgain.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnTestAgain.FlatAppearance.BorderSize = 0;
@@ -380,8 +380,8 @@
             // 
             // fbtnRCalculatResult
             // 
-            this.fbtnRCalculatResult.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnRCalculatResult, "fbtnRCalculatResult");
+            this.fbtnRCalculatResult.BackColor = System.Drawing.Color.Transparent;
             this.fbtnRCalculatResult.EnabledSet = true;
             this.fbtnRCalculatResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnRCalculatResult.FlatAppearance.BorderSize = 0;
@@ -393,8 +393,8 @@
             // 
             // fbtnRSelectCurve
             // 
-            this.fbtnRSelectCurve.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnRSelectCurve, "fbtnRSelectCurve");
+            this.fbtnRSelectCurve.BackColor = System.Drawing.Color.Transparent;
             this.fbtnRSelectCurve.EnabledSet = true;
             this.fbtnRSelectCurve.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnRSelectCurve.FlatAppearance.BorderSize = 0;
@@ -406,8 +406,8 @@
             // 
             // fbtnPrint
             // 
-            this.fbtnPrint.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnPrint, "fbtnPrint");
+            this.fbtnPrint.BackColor = System.Drawing.Color.Transparent;
             this.fbtnPrint.EnabledSet = true;
             this.fbtnPrint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnPrint.FlatAppearance.BorderSize = 0;
@@ -419,8 +419,8 @@
             // 
             // fbtnExportData
             // 
-            this.fbtnExportData.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnExportData, "fbtnExportData");
+            this.fbtnExportData.BackColor = System.Drawing.Color.Transparent;
             this.fbtnExportData.EnabledSet = true;
             this.fbtnExportData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnExportData.FlatAppearance.BorderSize = 0;
@@ -432,8 +432,8 @@
             // 
             // fbtnSaveResult
             // 
-            this.fbtnSaveResult.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnSaveResult, "fbtnSaveResult");
+            this.fbtnSaveResult.BackColor = System.Drawing.Color.Transparent;
             this.fbtnSaveResult.EnabledSet = true;
             this.fbtnSaveResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnSaveResult.FlatAppearance.BorderSize = 0;
