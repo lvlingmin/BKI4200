@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report StartReportEvent="_StartReport" ReportInfo.Created="11/17/2009 14:37:31" ReportInfo.Modified="06/29/2021 15:52:03" ReportInfo.CreatorVersion="1.2.69.0">
+<Report StartReportEvent="_StartReport" ReportInfo.Created="11/17/2009 14:37:31" ReportInfo.Modified="06/30/2021 10:07:05" ReportInfo.CreatorVersion="1.2.69.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -40,32 +40,32 @@ namespace FastReport
         //Line4.Visible=true;
         PassedRowsCount+=2*cerPageRowsCount;
        
-        Table1.Columns[0].Width=5.49f*37.8f;
-        Table1.Columns[1].Width=2.01f*37.8f;
-        Table1.Columns[2].Width=3.14f*37.8f;
-        Table1.Columns[3].Width=1.56f*37.8f;
-        Table1.Columns[4].Width=6.2f*37.8f;
-        Table3.Columns[0].Width=5.49f*37.8f;
-        Table3.Columns[1].Width=2.01f*37.8f;
-        Table3.Columns[2].Width=3.14f*37.8f;
-        Table3.Columns[3].Width=1.56f*37.8f;
-        Table3.Columns[4].Width=6.2f*37.8f;
+        Table1.Columns[0].Width=5.09f*37.8f;
+        Table1.Columns[1].Width=1.71f*37.8f;
+        Table1.Columns[2].Width=2.54f*37.8f;
+        Table1.Columns[3].Width=1.26f*37.8f;
+        Table1.Columns[4].Width=8.01f*37.8f;
+        Table3.Columns[0].Width=5.09f*37.8f;
+        Table3.Columns[1].Width=1.71f*37.8f;
+        Table3.Columns[2].Width=2.54f*37.8f;
+        Table3.Columns[3].Width=1.26f*37.8f;
+        Table3.Columns[4].Width=8.01f*37.8f;
         Table2.Visible=false;        
       }
       else
       {        
         Page1.Columns.Count=1;
         PassedRowsCount+=cerPageRowsCount;
-        Table1.Columns[0].Width=5.49f*37.8f;
-        Table1.Columns[1].Width=2.01f*37.8f;
-        Table1.Columns[2].Width=3.14f*37.8f;
-        Table1.Columns[3].Width=1.56f*37.8f;
-        Table1.Columns[4].Width=6.2f*37.8f;
-        Table3.Columns[0].Width=5.49f*37.8f;
-        Table3.Columns[1].Width=2.01f*37.8f;
-        Table3.Columns[2].Width=3.14f*37.8f;
-        Table3.Columns[3].Width=1.56f*37.8f;
-        Table3.Columns[4].Width=6.2f*37.8f;
+        Table1.Columns[0].Width=5.09f*37.8f;
+        Table1.Columns[1].Width=1.71f*37.8f;
+        Table1.Columns[2].Width=2.54f*37.8f;
+        Table1.Columns[3].Width=1.26f*37.8f;
+        Table1.Columns[4].Width=8.01f*37.8f;
+        Table3.Columns[0].Width=5.09f*37.8f;
+        Table3.Columns[1].Width=1.71f*37.8f;
+        Table3.Columns[2].Width=2.54f*37.8f;
+        Table3.Columns[3].Width=1.26f*37.8f;
+        Table3.Columns[4].Width=8.01f*37.8f;
         Table2.Visible=false;
       }        
     }
@@ -81,18 +81,18 @@ namespace FastReport
     { 
       if (Page1.Columns.Count==1)
       {
-        Table3.Columns[0].Width=5.49f*37.8f;
-        Table3.Columns[1].Width=2.01f*37.8f;
-        Table3.Columns[2].Width=3.14f*37.8f;
-        Table3.Columns[3].Width=1.56f*37.8f;
-        Table3.Columns[4].Width=6.2f*37.8f;
+        Table3.Columns[0].Width=5.09f*37.8f;
+        Table3.Columns[1].Width=1.71f*37.8f;
+        Table3.Columns[2].Width=2.54f*37.8f;
+        Table3.Columns[3].Width=1.26f*37.8f;
+        Table3.Columns[4].Width=8.01f*37.8f;
       }
       else{
-        Table3.Columns[0].Width=5.49f*37.8f;
-        Table3.Columns[1].Width=2.01f*37.8f;
-        Table3.Columns[2].Width=3.14f*37.8f;
-        Table3.Columns[3].Width=1.56f*37.8f;
-        Table3.Columns[4].Width=6.2f*37.8f;
+        Table3.Columns[0].Width=5.09f*37.8f;
+        Table3.Columns[1].Width=1.71f*37.8f;
+        Table3.Columns[2].Width=2.54f*37.8f;
+        Table3.Columns[3].Width=1.26f*37.8f;
+        Table3.Columns[4].Width=8.01f*37.8f;
       }
     }
   }
@@ -192,28 +192,28 @@ namespace FastReport
           <TableCell Name="Cell3" Text="结果" Padding="0, 1, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
           <TableCell Name="Cell4" Text="标识" Padding="0, 1, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
           <TableCell Name="Cell10" Text="单位" Padding="0, 1, 0, 0" VertAlign="Center" Font="Arial, 8pt"/>
-          <TableCell Name="Cell41" Text="参考值" Font="Arial, 8pt"/>
+          <TableCell Name="Cell41" Text="参考值" VertAlign="Center" Font="Arial, 8pt"/>
         </TableRow>
       </TableObject>
       <LineObject Name="Line2" Top="18.9" Width="699.3" Diagonal="true"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="178.1" Width="718.2" Height="18.9" BeforeLayoutEvent="Data1_BeforeLayout" DataSource="Records" Columns.Count="1">
-      <TableObject Name="Table3" Left="9.45" Width="338.6" Height="18.9">
+    <DataBand Name="Data1" Top="178.1" Width="718.2" Height="20.79" BeforeLayoutEvent="Data1_BeforeLayout" DataSource="Records" Columns.Count="1">
+      <TableObject Name="Table3" Left="9.45" Width="338.6" Height="28.35">
         <TableColumn Name="Column12" Width="62.97"/>
         <TableColumn Name="Column13" Width="63.73"/>
         <TableColumn Name="Column14" Width="59.72"/>
         <TableColumn Name="Column16" Width="86.03"/>
         <TableColumn Name="Column42"/>
-        <TableRow Name="Row3">
-          <TableCell Name="Cell12" Text="[Records.ShortName]" Padding="0, 1, 0, 0" Font="Arial, 8pt"/>
-          <TableCell Name="Cell13" Text="[Records.Concentration]" Padding="0, 1, 0, 0" Font="Arial, 8pt"/>
-          <TableCell Name="Cell14" Text="[Records.Result]" Padding="0, 1, 0, 0" Font="Arial, 8pt"/>
-          <TableCell Name="Cell16" Text="[Records.Range2]" Font="Arial, 8pt"/>
-          <TableCell Name="Cell42" Text="[Records.Range1]" Font="Arial, 8pt"/>
+        <TableRow Name="Row3" Height="28.35">
+          <TableCell Name="Cell12" Text="[Records.ShortName]" Padding="0, 1, 0, 0" Font="Arial, 7pt"/>
+          <TableCell Name="Cell13" Text="[Records.Concentration]" Padding="0, 1, 0, 0" Font="Arial, 7pt"/>
+          <TableCell Name="Cell14" Text="[Records.Result]" Padding="0, 1, 0, 0" Font="Arial, 7pt"/>
+          <TableCell Name="Cell16" Text="[Records.Range2]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell42" Text="[Records.Range1]" Font="Arial, 7pt"/>
         </TableRow>
       </TableObject>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="201" Width="718.2" Height="75.6">
+    <PageFooterBand Name="PageFooter1" Top="202.89" Width="718.2" Height="75.6">
       <TextObject Name="Text14" Left="595.35" Top="37.8" Width="94.5" Height="18.9" Text="[PageN]"/>
       <TextObject Name="Text15" Left="274.05" Top="37.8" Width="189" Height="18.9" Text="**结果仅对本次测试有效**"/>
       <TextObject Name="Text16" Left="18.9" Top="37.8" Width="217.35" Height="18.9" Text="报告日期:[Date]"/>
