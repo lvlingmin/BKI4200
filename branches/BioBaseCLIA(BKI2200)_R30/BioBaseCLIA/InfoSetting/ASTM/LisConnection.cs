@@ -10,6 +10,8 @@ using Localization;
 using Common;
 using System.IO.Ports;
 using Res = BioBaseCLIA.Resources.String.LIS.ASTM.LisConnection;
+using BioBaseCLIA.Run;
+
 namespace BioBaseCLIA.InfoSetting
 {
     /// <summary>
