@@ -5961,10 +5961,16 @@ namespace BioBaseCLIA.Run
                                     //drRg = dtRgInfo.Select("RgName='" + testTempS.ItemName.ToString() + "'");
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 添加
                                     //if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品"))
-                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))
+                                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) || 
+                                        dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Control")))
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString() || int.Parse(drRg[g]["leftoverTestR1"].ToString()) <= 0)
                                             continue;
+                                        else
+                                        {
+                                            rgPos = int.Parse(drRg[g]["Postion"].ToString());
+                                            rgindex = g;
+                                        }
                                     }
                                     /*
                                     if (drRg[g]["Batch"].ToString() ==
@@ -5978,12 +5984,13 @@ namespace BioBaseCLIA.Run
                                     if (int.Parse(drRg[g]["leftoverTestR1"].ToString()) > 0)//判定试剂剩余量是否大于0
                                     {
                                         rgPos = int.Parse(drRg[g]["Postion"].ToString());//获取该试剂位置编号
+                                        string Batch = drRg[g]["Batch"].ToString();
                                         if (dgvWorkListData != null && dgvWorkListData.Rows.Count != 0)
                                         {
                                             this.BeginInvoke(new Action(() =>
                                             {
                                                 dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value =
-                                                    drRg[g]["Batch"].ToString();
+                                                    Batch;
                                                 dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value =
                                                    rgPos;
                                             }));
@@ -6648,7 +6655,7 @@ namespace BioBaseCLIA.Run
                                 {
                                     //标准品、质控品以及其他只能使用它们自身的试剂 2018-08-27 zlx add
                                     if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))
-                                        /*|| dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains("质控品")*/)
+                                        || dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Control")))
                                     {
                                         if (drRg[g]["Batch"].ToString() != dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value.ToString())
                                             continue;
@@ -9498,7 +9505,7 @@ namespace BioBaseCLIA.Run
                     //根据线性范围决定显示类型
                     concentration = CalculationConcentration(ItemName, Batch, pmt).ToString("#0.000");
                     //concentration = GetResultInverse(dbpars, pmt).ToString("#0.000000");//对得出的浓度进行小数点保留 lyn modify 20171118
-                    LogFile.Instance.Write(DateTime.Now + "浓度：" + concentration + "");
+                    LogFile.Instance.Write(DateTime.Now + "浓度：" + concentration + ";ItemName："+ ItemName+ "; Batch: "+ Batch+ "; pmt: "+ pmt);
                     #region 若用户对样本因结果不在线性范围内进行稀释
                     if (dtSampleRunInfo.Rows.Count > 0)
                     {
@@ -9714,12 +9721,13 @@ namespace BioBaseCLIA.Run
             {
                 GC.KeepAlive(testResult);//防止被回收               
                 List<TestItem> BToList = BToListTi.FindAll(tx => (tx.ItemName == testResult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard")) && tx.RegentBatch == dgvWorkListData.Rows[testResult.TestID - 1].Cells["RegentBatch"].Value.ToString()));
-                List<TestItem> ENDList = lisTiEnd.FindAll(tx => (tx.ItemName == testResult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard"))));
+                List<TestItem> ENDList = lisTiEnd.FindAll(tx => (tx.ItemName == testResult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard")) && tx.RegentBatch == dgvWorkListData.Rows[testResult.TestID - 1].Cells["RegentBatch"].Value.ToString()));
                 if (BToList.Count == ENDList.Count)
                 {
                     //List<TestResult> ScalingResult = new List<TestResult>(BTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && testResult.SampleType.Contains(getString("keywordText.Standard"))));
                     //frmTestResult f = new frmTestResult();
-                    List<TestResult> ScalingResult = new List<TestResult>(TemporaryTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && testResult.SampleType.Contains(getString("keywordText.Standard"))));
+                    List<TestResult> ScalingResult = new List<TestResult>(TemporaryTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && 
+                    testResult.SampleType.Contains(getString("keywordText.Standard"))) && testResult.ReagentBeach== testResult.ReagentBeach);
 
                     Invoke(new Action(() =>
                     {

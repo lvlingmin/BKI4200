@@ -1244,8 +1244,8 @@ namespace BioBaseCLIA.Run
                     else if (cmbSpType.Text.Contains(getString("keywordText.Control")))
                     {
                         modelSp.Emergency = 4;
-                        modelSp.RegentBatch = "";
-                        //modelSp.RegentBatch = cmbBatch.SelectedItem.ToString();
+                        //modelSp.RegentBatch = "";
+                        modelSp.RegentBatch = cmbBatch.SelectedItem.ToString();
                     }
                     else if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
                     {
@@ -1697,8 +1697,8 @@ namespace BioBaseCLIA.Run
                     else if (cmbSpType.Text.Contains(getString("keywordText.Control")))
                     {
                         modelSp.Emergency = 4;
-                        modelSp.RegentBatch = "";
-                        //modelSp.RegentBatch = cmbBatch.SelectedItem.ToString();
+                        //modelSp.RegentBatch = "";
+                        modelSp.RegentBatch = cmbBatch.SelectedItem.ToString();
                     }
                     else if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
                     {
@@ -2257,13 +2257,13 @@ namespace BioBaseCLIA.Run
                 cmbBatch.DropDownStyle = ComboBoxStyle.DropDownList;
                 cmbBatch.Items.Clear();
             }
-            else if (cmbSpType.SelectedItem.ToString().Contains(getString("keywordText.Control")))
-            {
-                chkEmergency.Visible = false;
-                lblBatch.Visible = true;
-                cmbBatch.Visible = false;
-                //cmbBatch.DropDownStyle = ComboBoxStyle.DropDown;
-            }
+            //else if (cmbSpType.SelectedItem.ToString().Contains(getString("keywordText.Control")))
+            //{
+            //    chkEmergency.Visible = false;
+            //    lblBatch.Visible = true;
+            //    cmbBatch.Visible = true;
+            //    cmbBatch.DropDownStyle = ComboBoxStyle.DropDown;
+            //}
             else
             {
                 chkEmergency.Visible = false;
@@ -2293,7 +2293,7 @@ namespace BioBaseCLIA.Run
         private void CheckedChanged(object sender, EventArgs e)
         {
             //if (cmbSpType.Text.Contains("标准品") || cmbSpType.Text.Contains("校准品") || cmbSpType.Text.Contains("定标液") || cmbSpType.Text.Contains("质控品") || cmbSpType.Text.Contains("交叉污染"))
-            if (cmbSpType.Text.Contains(getString("keywordText.Standard")) || cmbSpType.Text.Contains(getString("keywordText.Calibrator")) || cmbSpType.Text.Contains(getString("keywordText.CalibrationSolution")) /*|| cmbSpType.Text.Contains("质控品")*/ || cmbSpType.Text.Contains(getString("keywordText.Cross")))
+            if (cmbSpType.Text.Contains(getString("keywordText.Standard")) || cmbSpType.Text.Contains(getString("keywordText.Calibrator")) || cmbSpType.Text.Contains(getString("keywordText.CalibrationSolution")) || cmbSpType.Text.Contains(getString("keywordText.Control")) || cmbSpType.Text.Contains(getString("keywordText.Cross")))
             {
                 cmbBatch.Items.Clear();
                 //CheckBox checkbox = (CheckBox)sender;
