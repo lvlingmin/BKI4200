@@ -180,7 +180,10 @@ namespace BioBaseCLIA.InfoSetting
                 {
                     if (msg.Contains("ACK^R01")&&msg.Contains("AA")) 
                     {
-                        MessageBox.Show(Res.Datasentsuccessfully);
+                        if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
+                        {
+                            MessageBox.Show(Res.Datasentsuccessfully);
+                        }
                     }
 
                     if (msg.Contains("QCK^Q02")) 
