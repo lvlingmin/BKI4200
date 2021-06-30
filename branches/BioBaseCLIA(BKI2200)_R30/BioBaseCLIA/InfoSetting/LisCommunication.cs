@@ -9,6 +9,8 @@ using System.IO;
 using Localization;
 using Common;
 using Res = BioBaseCLIA.Resources.String.LIS.LisCommunication;
+using BioBaseCLIA.Run;
+
 namespace BioBaseCLIA.InfoSetting
 {
     class LisCommunication
@@ -220,7 +222,10 @@ namespace BioBaseCLIA.InfoSetting
                 case "ACK^R01":
                     if (message.Contains("ACK^R01") && message.Contains("AA")) 
                     {
-                        MessageBox.Show(Res.Datasentsuccessfully);
+                        if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
+                        {
+                            MessageBox.Show(Res.Datasentsuccessfully);
+                        }
                     }
                     //LogFile.Write("接受到数据" + "ACK^R01");
                     if (_errorinfo != "")
