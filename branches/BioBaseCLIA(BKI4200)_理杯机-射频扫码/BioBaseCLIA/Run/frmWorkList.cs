@@ -6054,12 +6054,13 @@ namespace BioBaseCLIA.Run
                                     if (int.Parse(drRg[g]["leftoverTestR1"].ToString()) > 0)//判定试剂剩余量是否大于0
                                     {
                                         rgPos = int.Parse(drRg[g]["Postion"].ToString());//获取该试剂位置编号
+                                        string Batch = drRg[g]["Batch"].ToString();
                                         if (dgvWorkListData != null && dgvWorkListData.Rows.Count != 0)
                                         {
                                             this.BeginInvoke(new Action(() =>
                                             {
                                                 dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentBatch"].Value =
-                                                    drRg[g]["Batch"].ToString();
+                                                    Batch;
                                                 dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value =
                                                    rgPos;
                                             }));
