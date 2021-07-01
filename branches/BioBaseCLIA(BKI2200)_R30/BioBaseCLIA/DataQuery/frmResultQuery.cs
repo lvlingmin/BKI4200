@@ -232,7 +232,7 @@ namespace BioBaseCLIA.DataQuery
         {
             string Result = "";
             DbHelperOleDb db = new DbHelperOleDb(1);
-            DataTable tbtbProject = DbHelperOleDb.Query(0, @"select Range from tbAssayResult where AssayResultID = '" + long.Parse(ResultId) + "'").Tables[0];
+            DataTable tbtbProject = DbHelperOleDb.Query(1, @"select Range from tbAssayResult where AssayResultID = " + long.Parse(ResultId) + "").Tables[0];
             if (concentration.Contains("<"))
             {
                 Result = Getstring("NotRangeMessage");
@@ -1372,6 +1372,30 @@ namespace BioBaseCLIA.DataQuery
         private void fbtnPrint_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void fbtnAddSampleResult_Click(object sender, EventArgs e)
+        {
+            if(dgvPatientInfo.SelectedRows.Count < 1)
+            {
+                frmMessageShow msg = new frmMessageShow();
+                msg.MessageShow(Getstring("Tip"), Getstring("AddDataAfterSelect"));
+                return;
+            }
+            string sampleNum = dgvPatientInfo.SelectedRows[0].Cells["SampleNo1"].Value.ToString();//样本编号
+            string sampleId = dgvPatientInfo.SelectedRows[0].Cells["SampleID1"].Value.ToString();//SampleID
+            frmAddSampleResult f = new frmAddSampleResult(sampleNum, sampleId);
+            f.ShowDialog();
+            fbtnQuery_Click(null, null);
+            foreach (DataGridViewRow dgr in dgvPatientInfo.Rows)
+            {
+                if (dgr.Cells["SampleID1"].Value.ToString().Contains(sampleId))
+                {
+                    dgr.Selected = true;
+                    return;
+                }
+                dgr.Selected = false;
+            }
         }
     }
 }

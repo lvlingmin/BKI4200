@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResultQuery));
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.fbtnAddSampleResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnTestAgain = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnExPort = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnImPort = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -98,6 +99,7 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.fbtnAddSampleResult);
             this.groupBox2.Controls.Add(this.fbtnTestAgain);
             this.groupBox2.Controls.Add(this.btnExPort);
             this.groupBox2.Controls.Add(this.btnImPort);
@@ -109,6 +111,19 @@
             this.groupBox2.Controls.Add(this.dgvPatientInfo);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // fbtnAddSampleResult
+            // 
+            resources.ApplyResources(this.fbtnAddSampleResult, "fbtnAddSampleResult");
+            this.fbtnAddSampleResult.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnAddSampleResult.EnabledSet = true;
+            this.fbtnAddSampleResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnAddSampleResult.FlatAppearance.BorderSize = 0;
+            this.fbtnAddSampleResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAddSampleResult.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnAddSampleResult.Name = "fbtnAddSampleResult";
+            this.fbtnAddSampleResult.UseVisualStyleBackColor = false;
+            this.fbtnAddSampleResult.Click += new System.EventHandler(this.fbtnAddSampleResult_Click);
             // 
             // fbtnTestAgain
             // 
@@ -689,5 +704,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SampleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReagentBeach;
+        private CustomControl.FunctionButton fbtnAddSampleResult;
     }
 }
