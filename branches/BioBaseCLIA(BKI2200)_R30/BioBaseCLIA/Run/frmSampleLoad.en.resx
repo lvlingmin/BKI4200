@@ -916,4 +916,13 @@
   <data name="keywordText.UpdateRunningInfomation" xml:space="preserve">
     <value>Run Information Modify</value>
   </data>
+  <data name="DispathchTypeAdd" xml:space="preserve">
+    <value>Sample addition</value>
+  </data>
+  <data name="DispathchTypeSampleProject" xml:space="preserve">
+    <value>Same project</value>
+  </data>
+  <data name="DispathchTypeSpeed" xml:space="preserve">
+    <value>Speed first</value>
+  </data>
 </root>
