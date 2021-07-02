@@ -1336,4 +1336,13 @@
   <data name="keywordText.TipsOfExport" xml:space="preserve">
     <value>Export Prompt</value>
   </data>
+  <data name="keywordText.normal1" xml:space="preserve">
+    <value>normal</value>
+  </data>
+  <data name="keywordText.NotInRange1" xml:space="preserve">
+    <value>Not in the linear range</value>
+  </data>
+  <data name="WarningOprate" xml:space="preserve">
+    <value>Do not do this for non serum samples</value>
+  </data>
 </root>

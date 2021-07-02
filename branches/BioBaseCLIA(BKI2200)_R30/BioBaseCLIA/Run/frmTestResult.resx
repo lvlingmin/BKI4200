@@ -2070,4 +2070,10 @@
   <data name="keywordText.TipsOfExport" xml:space="preserve">
     <value>导出提示</value>
   </data>
+  <data name="keywordText.normal1" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="keywordText.NotInRange" xml:space="preserve">
+    <value>不在线性范围之内</value>
+  </data>
 </root>
