@@ -15,6 +15,7 @@ using System.Timers;
 using System.Windows.Forms;
 using BioBaseCLIA.CalculateCurve;
 using BioBaseCLIA.DataQuery;
+using BioBaseCLIA.Extentions;
 using BioBaseCLIA.InfoSetting;
 using Common;
 using Localization;
@@ -1836,7 +1837,7 @@ namespace BioBaseCLIA.Run
                 temp += numItem;
                 #endregion
             }
-            return TEMPlisTestSchedule;
+            return TEMPlisTestSchedule.SetActionTime().SetIncubateTime();
         }
 
         /// <summary>
@@ -1919,7 +1920,27 @@ namespace BioBaseCLIA.Run
         /// <returns></returns>
         public List<TestSchedule> orderModifyTestID(List<TestSchedule> lisTS)
         {
-            lisTS.Sort(new SortSchedule());
+            #region 可选调度方式
+            string dispatchType = OperateIniFile.ReadIniData("DispatchType", "DispatchType", "", Application.StartupPath + "//InstrumentPara.ini");
+            dispatchType = string.IsNullOrEmpty(dispatchType) ? "0" : dispatchType;
+
+            IComparer<TestSchedule> comparer;
+            switch (dispatchType)
+            {
+                case "0":
+                    comparer = new SortSchedule();
+                    break;
+                case "1":
+                    comparer = new SortScheduleBySammeProject();
+                    break;
+                default:
+                    comparer = new SortScheduleBySpeed();
+                    break;
+            }
+
+            lisTS.Sort(comparer);
+            #endregion
+
             #region 反应盘开始放管位置赋值
             DataTable dtReactTrayInfo = OperateIniFile.ReadConfig(iniPathReactTrayInfo);
             //第一个有管的位置
