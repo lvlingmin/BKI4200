@@ -38,6 +38,8 @@ namespace BioBaseCLIA.Run
             AddSamplePos = temp.AddSamplePos;
             getSamplePos = temp.getSamplePos;
             dilutionTimes = temp.dilutionTimes;
+            AllActionTime = temp.AllActionTime;
+            IncubateTime = temp.IncubateTime;
         }
 
         /// <summary>
@@ -121,7 +123,15 @@ namespace BioBaseCLIA.Run
         /// 稀释倍数
         /// </summary>
         public string dilutionTimes { get; set; }
-    
+        /// <summary>
+        /// 执行动作时间
+        /// </summary>
+        public int AllActionTime { get; set; }
+        /// <summary>
+        /// 温育时间
+        /// </summary>
+        public int IncubateTime { get; set; }
+
         /// <summary>
         /// 实验步骤
         /// </summary>
@@ -214,6 +224,141 @@ namespace BioBaseCLIA.Run
 
                     }
                 }
+            }
+        }
+    }
+    /// <summary>
+    /// 根据相同实验项目排序
+    /// </summary>
+    public class SortScheduleBySammeProject : IComparer<TestSchedule>
+    {
+        public int Compare(TestSchedule x, TestSchedule y)
+        {
+            if (x.Emergency < y.Emergency)
+                return 1;
+            else if (x.Emergency > y.Emergency)
+                return -1;
+            else
+            {
+                if (x.ItemName.CompareTo(y.ItemName) != 0)
+                {
+                    return x.ItemName.CompareTo(y.ItemName);
+                }
+                else
+                {
+                    if (x.SampleID > y.SampleID)
+                    {
+                        return 1;
+                    }
+                    else if (x.SampleID < y.SampleID)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        if (x.TimePro > y.TimePro)
+                            return 1;
+
+                        if (x.TimePro < y.TimePro)
+                            return -1;
+                        else
+                        {
+                            if (x.TestID > y.TestID)
+                                return 1;
+                            if (x.TestID < y.TestID)
+                                return -1;
+                            else
+                            {
+                                if (x.stepNum > y.stepNum)
+                                    return 1;
+
+                                if (x.stepNum < y.stepNum)
+                                    return -1;
+
+                                else
+                                {
+                                    return 0;
+                                }
+                            }
+
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    public class SortScheduleBySpeed : IComparer<TestSchedule>
+    {
+        public int Compare(TestSchedule x, TestSchedule y)
+        {
+            if (x.Emergency < y.Emergency)
+                return 1;
+            else if (x.Emergency > y.Emergency)
+                return -1;
+            else
+            {
+                if (x.IncubateTime > y.IncubateTime)
+                {
+                    return -1;
+                }
+                else if (x.IncubateTime < y.IncubateTime)
+                {
+                    return 1;
+                }
+                else
+                {
+                    if (x.AllActionTime > y.AllActionTime)
+                    {
+                        return 1;
+                    }
+                    else if (x.AllActionTime < y.AllActionTime)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        if (x.SampleID > y.SampleID)
+                        {
+                            return 1;
+                        }
+                        else if (x.SampleID < y.SampleID)
+                        {
+                            return -1;
+                        }
+                        else
+                        {
+                            if (x.TimePro > y.TimePro)
+                                return 1;
+
+                            if (x.TimePro < y.TimePro)
+                                return -1;
+                            else
+                            {
+                                if (x.TestID > y.TestID)
+                                    return 1;
+                                if (x.TestID < y.TestID)
+                                    return -1;
+                                else
+                                {
+                                    if (x.stepNum > y.stepNum)
+                                        return 1;
+
+                                    if (x.stepNum < y.stepNum)
+                                        return -1;
+
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+
             }
         }
     }
