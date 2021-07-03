@@ -176,6 +176,7 @@
     <Compile Include="DataQuery\frmSupplyStatus.designer.cs">
       <DependentUpon>frmSupplyStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extentions\IListExtention.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
