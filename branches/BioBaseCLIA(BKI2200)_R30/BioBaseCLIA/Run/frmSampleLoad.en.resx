@@ -879,7 +879,7 @@
     <value>64, 23</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
-    <value>调度方式：</value>
+    <value>Dispatch：</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
