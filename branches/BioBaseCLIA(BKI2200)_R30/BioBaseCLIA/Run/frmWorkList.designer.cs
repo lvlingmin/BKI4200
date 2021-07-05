@@ -61,6 +61,7 @@
             this.btnLoadSample = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnLoadReagent = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.fbtnPatientInfo = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.fbtnToEmergency = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkListData)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -347,10 +348,24 @@
             this.fbtnPatientInfo.UseVisualStyleBackColor = false;
             this.fbtnPatientInfo.Click += new System.EventHandler(this.fbtnPatientInfo_Click);
             // 
+            // fbtnToEmergency
+            // 
+            resources.ApplyResources(this.fbtnToEmergency, "fbtnToEmergency");
+            this.fbtnToEmergency.BackColor = System.Drawing.Color.Transparent;
+            this.fbtnToEmergency.EnabledSet = true;
+            this.fbtnToEmergency.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.fbtnToEmergency.FlatAppearance.BorderSize = 0;
+            this.fbtnToEmergency.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.fbtnToEmergency.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.fbtnToEmergency.Name = "fbtnToEmergency";
+            this.fbtnToEmergency.UseVisualStyleBackColor = false;
+            this.fbtnToEmergency.Click += new System.EventHandler(this.fbtnToEmergency_Click);
+            // 
             // frmWorkList
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.fbtnToEmergency);
             this.Controls.Add(this.fbtnPatientInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TimeLabel3);
@@ -407,5 +422,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SubstratePipe;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegentPos;
         private CustomControl.FunctionButton fbtnPatientInfo;
+        private CustomControl.FunctionButton fbtnToEmergency;
     }
 }
