@@ -688,5 +688,16 @@ namespace BioBaseCLIA.Run
             ResourceManager resManager = new ResourceManager(typeof(frmSampleLoad));
             return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
         }
+
+        private void cmbDispatchType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            {
+                MessageBox.Show("实验中，请勿在实验中修改调度方式");
+                return;
+            }
+
+            OperateIniFile.WriteIniData("DispatchType", "DispatchType", cmbDispatchType.SelectedIndex.ToString(), Application.StartupPath + "//InstrumentPara.ini");
+        }
     }
 }

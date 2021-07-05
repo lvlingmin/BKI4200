@@ -884,12 +884,6 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
-  <data name="dataGridViewTextBoxColumn1.HeaderText1" xml:space="preserve">
-    <value>Project Name</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.HeaderText1" xml:space="preserve">
-    <value>Emergency</value>
-  </data>
   <data name="DispathchTypeAdd" xml:space="preserve">
     <value>Sample addition</value>
   </data>
