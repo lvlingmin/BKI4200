@@ -78,7 +78,7 @@ namespace BioBaseCLIA.Run
                     srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString()) - 1] = Color.Purple;
                 }
                 else
-                { 
+                {
                     if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) < frmReagentLoad.WarnReagent || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) < frmReagentLoad.WarnReagent)
                     {
                         if (Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR1"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR2"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR3"]) == 0 || Convert.ToInt32(dtRgInfo.Rows[j]["leftoverTestR4"]) == 0)
@@ -100,7 +100,7 @@ namespace BioBaseCLIA.Run
                 }
                 if (spacialProList.Find(ty => ty == dtRgInfo.Rows[j]["RgName"].ToString()) != null)//特殊分装项目染色
                 {
-                    if(dtRgInfo.Rows[j]["AllTestNumber"].ToString() == "50")
+                    if (dtRgInfo.Rows[j]["AllTestNumber"].ToString() == "50")
                     {
                         ;
                     }
@@ -133,13 +133,13 @@ namespace BioBaseCLIA.Run
                 }
             }
             #endregion
-        } 
+        }
         /// <summary>
         /// 显示试剂盘上的试剂信息 2018-10-20 修改
         /// </summary>
         private void ShowRgInfo()
         {
-           
+
             //2018-10-13 zlx add
             //if (dtItemInfo.Rows.Count == 0)
             //    GetItemInfo();
@@ -175,7 +175,7 @@ namespace BioBaseCLIA.Run
 
                 if (spacialProList.Find(ty => ty == dtRgInfo.Rows[i]["RgName"].ToString()) != null)
                 {
-                    if(dtRgInfo.Rows[i]["AllTestNumber"].ToString() == "50")
+                    if (dtRgInfo.Rows[i]["AllTestNumber"].ToString() == "50")
                     {
                         ;
                     }
@@ -184,14 +184,14 @@ namespace BioBaseCLIA.Run
                         int tempNum = int.Parse(dtRgInfo.Rows[i]["leftoverTestR1"].ToString());
                         srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = (tempNum - 50 > 0 ? 50 : tempNum).ToString();
                         srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["RgName"].ToString();
-                    } 
+                    }
                 }
             }
             //dgvRgInfoList.SelectionChanged -= dgvRgInfoList_SelectionChanged;
             DataView dv = dtRgInfo.DefaultView;
             dv.Sort = "Postion";
             dtRgInfo = dv.ToTable();
-            
+
             srdReagent.Invalidate();
             //dgvRgInfoList.SelectionChanged += dgvRgInfoList_SelectionChanged;
             SetDiskProperty();//2018-07-27 zlx add
@@ -249,7 +249,22 @@ namespace BioBaseCLIA.Run
             dtItemInfoNoStat.Columns.Add("RgName", typeof(string));
             dtItemInfoNoStat.Columns.Add("TestRg", typeof(int));
             dtItemInfoNoStat.Columns.Add("TestDiu", typeof(int));
+
+            SetDispatchContent();
+            cmbDispatchType.Visible = false;
+            label7.Visible = false;
         }
+        private void SetDispatchContent()
+        {
+            cmbDispatchType.Items.Clear();
+            cmbDispatchType.Items.Add(getString("DispathchTypeAdd"));
+            cmbDispatchType.Items.Add(getString("DispathchTypeSampleProject"));
+            cmbDispatchType.Items.Add(getString("DispathchTypeSpeed"));
+
+            string dispatchType = OperateIniFile.ReadIniData("DispatchType", "DispatchType", "", Application.StartupPath + "//InstrumentPara.ini");
+            cmbDispatchType.SelectedIndex = int.Parse(string.IsNullOrEmpty(dispatchType) ? "0" : dispatchType);
+        }
+
         private void SetDtSampleInfo()
         {
             DataTable dtSI = dtSpInfo.Clone();

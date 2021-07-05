@@ -39,7 +39,9 @@
             this.btnLoadSample = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnLoadReagent = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.fbtnRunInfoMody = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
+            this.cmbDispatchType = new System.Windows.Forms.ComboBox();
             this.btnCreatWorkList = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnAddPatient = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.btnLoadSp = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -87,18 +89,18 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.fbtnTestResult);
             this.panel1.Controls.Add(this.btnWorkList);
             this.panel1.Controls.Add(this.fbtnReturn);
             this.panel1.Controls.Add(this.btnLoadSample);
             this.panel1.Controls.Add(this.btnLoadReagent);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // fbtnTestResult
             // 
-            resources.ApplyResources(this.fbtnTestResult, "fbtnTestResult");
             this.fbtnTestResult.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnTestResult, "fbtnTestResult");
             this.fbtnTestResult.EnabledSet = true;
             this.fbtnTestResult.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnTestResult.FlatAppearance.BorderSize = 0;
@@ -110,8 +112,8 @@
             // 
             // btnWorkList
             // 
-            resources.ApplyResources(this.btnWorkList, "btnWorkList");
             this.btnWorkList.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnWorkList, "btnWorkList");
             this.btnWorkList.EnabledSet = true;
             this.btnWorkList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnWorkList.FlatAppearance.BorderSize = 0;
@@ -123,8 +125,8 @@
             // 
             // fbtnReturn
             // 
-            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
@@ -136,8 +138,8 @@
             // 
             // btnLoadSample
             // 
-            resources.ApplyResources(this.btnLoadSample, "btnLoadSample");
             this.btnLoadSample.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadSample, "btnLoadSample");
             this.btnLoadSample.EnabledSet = true;
             this.btnLoadSample.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadSample.FlatAppearance.BorderSize = 0;
@@ -148,8 +150,8 @@
             // 
             // btnLoadReagent
             // 
-            resources.ApplyResources(this.btnLoadReagent, "btnLoadReagent");
             this.btnLoadReagent.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadReagent, "btnLoadReagent");
             this.btnLoadReagent.EnabledSet = true;
             this.btnLoadReagent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadReagent.FlatAppearance.BorderSize = 0;
@@ -161,18 +163,25 @@
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.fbtnRunInfoMody);
+            this.groupBox2.Controls.Add(this.cmbDispatchType);
             this.groupBox2.Controls.Add(this.btnCreatWorkList);
             this.groupBox2.Controls.Add(this.btnAddPatient);
             this.groupBox2.Controls.Add(this.btnLoadSp);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
             // fbtnRunInfoMody
             // 
-            resources.ApplyResources(this.fbtnRunInfoMody, "fbtnRunInfoMody");
             this.fbtnRunInfoMody.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnRunInfoMody, "fbtnRunInfoMody");
             this.fbtnRunInfoMody.EnabledSet = true;
             this.fbtnRunInfoMody.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnRunInfoMody.FlatAppearance.BorderSize = 0;
@@ -182,10 +191,17 @@
             this.fbtnRunInfoMody.UseVisualStyleBackColor = false;
             this.fbtnRunInfoMody.Click += new System.EventHandler(this.fbtnRunInfoMody_Click);
             // 
+            // cmbDispatchType
+            // 
+            this.cmbDispatchType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDispatchType.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbDispatchType, "cmbDispatchType");
+            this.cmbDispatchType.Name = "cmbDispatchType";
+            // 
             // btnCreatWorkList
             // 
-            resources.ApplyResources(this.btnCreatWorkList, "btnCreatWorkList");
             this.btnCreatWorkList.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnCreatWorkList, "btnCreatWorkList");
             this.btnCreatWorkList.EnabledSet = true;
             this.btnCreatWorkList.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCreatWorkList.FlatAppearance.BorderSize = 0;
@@ -197,8 +213,8 @@
             // 
             // btnAddPatient
             // 
-            resources.ApplyResources(this.btnAddPatient, "btnAddPatient");
             this.btnAddPatient.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnAddPatient, "btnAddPatient");
             this.btnAddPatient.EnabledSet = true;
             this.btnAddPatient.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAddPatient.FlatAppearance.BorderSize = 0;
@@ -210,8 +226,8 @@
             // 
             // btnLoadSp
             // 
-            resources.ApplyResources(this.btnLoadSp, "btnLoadSp");
             this.btnLoadSp.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnLoadSp, "btnLoadSp");
             this.btnLoadSp.EnabledSet = true;
             this.btnLoadSp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadSp.FlatAppearance.BorderSize = 0;
@@ -223,14 +239,13 @@
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.dgvSpInfoList);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // dgvSpInfoList
             // 
-            resources.ApplyResources(this.dgvSpInfoList, "dgvSpInfoList");
             this.dgvSpInfoList.AllowUserToAddRows = false;
             this.dgvSpInfoList.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -250,6 +265,7 @@
             this.TubeType,
             this.dataGridViewTextBoxColumn2,
             this.Status});
+            resources.ApplyResources(this.dgvSpInfoList, "dgvSpInfoList");
             this.dgvSpInfoList.Name = "dgvSpInfoList";
             this.dgvSpInfoList.ReadOnly = true;
             this.dgvSpInfoList.RowHeadersVisible = false;
@@ -314,7 +330,6 @@
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.textBox8);
             this.groupBox3.Controls.Add(this.label5);
@@ -325,6 +340,7 @@
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.textBox1);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -335,9 +351,9 @@
             // 
             // textBox8
             // 
-            resources.ApplyResources(this.textBox8, "textBox8");
             this.textBox8.BackColor = System.Drawing.Color.Purple;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox8, "textBox8");
             this.textBox8.Name = "textBox8";
             // 
             // label5
@@ -362,41 +378,41 @@
             // 
             // textBox4
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
             this.textBox4.BackColor = System.Drawing.Color.White;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox4, "textBox4");
             this.textBox4.Name = "textBox4";
             // 
             // textBox3
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox3, "textBox3");
             this.textBox3.Name = "textBox3";
             // 
             // textBox2
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.BackColor = System.Drawing.Color.Green;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
             // 
             // textBox1
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.BackColor = System.Drawing.Color.Red;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             // 
             // groupBox4
             // 
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.textBox5);
             this.groupBox4.Controls.Add(this.textBox6);
             this.groupBox4.Controls.Add(this.textBox7);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
@@ -417,28 +433,27 @@
             // 
             // textBox5
             // 
-            resources.ApplyResources(this.textBox5, "textBox5");
             this.textBox5.BackColor = System.Drawing.Color.White;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox5, "textBox5");
             this.textBox5.Name = "textBox5";
             // 
             // textBox6
             // 
-            resources.ApplyResources(this.textBox6, "textBox6");
             this.textBox6.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox6, "textBox6");
             this.textBox6.Name = "textBox6";
             // 
             // textBox7
             // 
-            resources.ApplyResources(this.textBox7, "textBox7");
             this.textBox7.BackColor = System.Drawing.Color.Green;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox7, "textBox7");
             this.textBox7.Name = "textBox7";
             // 
             // srdReagent
             // 
-            resources.ApplyResources(this.srdReagent, "srdReagent");
             this.srdReagent.BackColor = System.Drawing.Color.Transparent;
             this.srdReagent.BdColor = new System.Drawing.Color[] {
         System.Drawing.Color.White,
@@ -496,6 +511,7 @@
             this.srdReagent.BeadsHoleR = 11;
             this.srdReagent.BitCircle = null;
             this.srdReagent.LastCircleSize = 3F;
+            resources.ApplyResources(this.srdReagent, "srdReagent");
             this.srdReagent.Name = "srdReagent";
             this.srdReagent.RgCircleSize = 1.2F;
             this.srdReagent.RgColor = new System.Drawing.Color[] {
@@ -1050,5 +1066,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TubeType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbDispatchType;
     }
 }
