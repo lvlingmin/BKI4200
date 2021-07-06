@@ -5248,25 +5248,25 @@ namespace BioBaseCLIA.Run
                                         else
                                             Message = Message + "," + getString("keywordText.tubeWaste");
                                     }
-                                    this.Invoke(new Action(() =>
-                                    {
+                                    //this.Invoke(new Action(() =>
+                                    //{
                                         MessageBox.Show(Message + "，" + getString("keywordText.finshApartTest") + getString("keywordText.ReadWarn"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-                                    }));
+                                    //}));
                                 }
                                 else
                                 {
-                                    this.Invoke(new Action(() =>
-                                    {
+                                    //this.Invoke(new Action(() =>
+                                    //{
                                         MessageBox.Show(getString("keywordText.LackSupplies") + "," + getString("keywordText.finshApartTest") + getString("keywordText.ReadWarn"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
-                                    }));
+                                    //}));
                                 }
                             }
                             else
                             {
-                                this.Invoke(new Action(() =>
-                                {
+                                //this.Invoke(new Action(() =>
+                                //{
                                     MessageBox.Show(getString("keywordText.Testcomplete"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);//2018-07-13 zlx mod
-                                }));
+                                //}));
                             }
 
                             RunFlag = (int)RunFlagStart.Stoped;
