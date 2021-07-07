@@ -321,8 +321,8 @@ namespace BioBaseCLIA.InfoSetting
             document.Element("QCPoints").Value = document.Element("QCPoints").Value.Replace(" ", "");
             document.Element("RangeType").Value = document.Element("RangeType").Value.Replace(" ", "");
             document.Element("ShortName").Value = document.Element("ShortName").Value.Replace(" ", "");
-            document.Element("ValueRange1").Value = document.Element("ValueRange1").Value.Replace(" ", "");
-            document.Element("ValueRange2").Value = document.Element("ValueRange2").Value.Replace(" ", "");
+            //document.Element("ValueRange1").Value = document.Element("ValueRange1").Value.Replace(" ", "");
+            //document.Element("ValueRange2").Value = document.Element("ValueRange2").Value.Replace(" ", "");
             document.Element("ValueUnit").Value = document.Element("ValueUnit").Value.Replace(" ", "");
             document.Element("MinValue").Value = document.Element("MinValue").Value.Replace(" ", "");
             document.Element("MaxValue").Value = document.Element("MaxValue").Value.Replace(" ", "");
