@@ -6350,7 +6350,7 @@ namespace BioBaseCLIA.Run
                                 string leftR3Vol = (RegentNoUsePro + leftR3 * int.Parse(LiquidVol[j].Trim()) + leftR3 * abanR3Pro).ToString("x4");//2018-10-13 zlx mod
                                                                                                                                                   //string leftR3Vol = (leftR3 * int.Parse(LiquidVol[j].Trim()) + (int)(int.Parse(LiquidVol[j].Trim()) * abanR3Pro)).ToString("x4");
                                 AddErrorCount = 0;
-                                NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 05 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 03 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
@@ -6362,14 +6362,14 @@ namespace BioBaseCLIA.Run
                                         AddErrorCount++;
                                         //重新发送指令
                                         if (againSend == "")
-                                            againSend = "EB 90 31 02 05 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                            againSend = "EB 90 31 02 03 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                                         + " 00 " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2);
                                     }
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                     {
                                         //重新发送指令
                                         if (againSend == "")
-                                            againSend = "EB 90 31 02 05 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                            againSend = "EB 90 31 02 03 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2);
                                     }
                                     else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
@@ -6989,7 +6989,7 @@ namespace BioBaseCLIA.Run
                             int leftR3 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent3", "", iniPathReagentTrayInfo));
                             string leftR3Vol = (RegentNoUsePro + leftR3 * int.Parse(testTempS.AddLiqud) + leftR3 * abanR3Pro).ToString("x4");//2018-10-13 zlx mod
                             AddErrorCount = 0;
-                            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 05 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                            NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 03 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
@@ -7001,14 +7001,14 @@ namespace BioBaseCLIA.Run
                                     AddErrorCount++;
                                     //重新发送指令
                                     if (againSend == "")
-                                        againSend = "EB 90 31 02 05 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                        againSend = "EB 90 31 02 03 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                                 + " 00 " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2);
                                 }
                                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
                                     if (againSend == "")
-                                        againSend = "EB 90 31 02 05 " + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                                        againSend = "EB 90 31 02 03 " + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2);
                                 }
                                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
@@ -7321,8 +7321,8 @@ namespace BioBaseCLIA.Run
                 }
             }
             LogFile.Instance.Write(DateTime.Now + ":strLeftdiuVol的值为" + strLeftdiuVol);
-            string Order = "EB 90 31 02 06 ";
-            NetCom3.Instance.Send(NetCom3.Cover(Order + rgPos.ToString("x2") + " " + pos.ToString("x2")
+            string Order = "EB 90 31 02 04 ";
+            NetCom3.Instance.Send(NetCom3.Cover(Order + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                                           + " " + FirstDiu.ToString("x2") + " " + strLeftdiuVol.Substring(0, 2) + " " + strLeftdiuVol.Substring(2, 2)), 0);
             //指令未执行完成进行等待
             if (!NetCom3.Instance.SPQuery())
@@ -7335,14 +7335,14 @@ namespace BioBaseCLIA.Run
                     AddErrorCount++;
                     //重新发送指令
                     if (againSend == "")
-                        againSend = Order + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                        againSend = Order + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                         + " 00 " + strLeftdiuVol.Substring(0, 2) + " " + strLeftdiuVol.Substring(2, 2);
                 }
                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                 {
                     //重新发送指令
                     if (againSend == "")
-                        againSend = Order + rgPos.ToString("x2") + " " + pos.ToString("x2")
+                        againSend = Order + (rgPos + 1).ToString("x2") + " " + pos.ToString("x2")
                         + " " + FirstDiu.ToString("x2") + " " + strLeftdiuVol.Substring(0, 2) + " " + strLeftdiuVol.Substring(2, 2);
                 }
                 else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
