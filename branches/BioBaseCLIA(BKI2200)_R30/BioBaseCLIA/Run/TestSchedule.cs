@@ -391,7 +391,40 @@ namespace BioBaseCLIA.Run
             #endregion
         }
     }
+    public class SortEmergencyByEmergency : IComparer<TestSchedule>
+    {
+        public int Compare(TestSchedule x, TestSchedule y)
+        {
+            if (x.Emergency < y.Emergency)
+            {
+                return 1;
+            }
+            else if (x.Emergency > y.Emergency)
+            {
+                return -1;
+            }
+            else
+            {
+                if (x.TestID > y.TestID)
+                    return 1;
+                if (x.TestID < y.TestID)
+                    return -1;
+                else
+                {
+                    if (x.stepNum > y.stepNum)
+                        return 1;
 
+                    if (x.stepNum < y.stepNum)
+                        return -1;
+
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+        }
+    }
     public class SortEmergency : IComparer<TestSchedule>
     {
         public int Compare(TestSchedule x, TestSchedule y)
