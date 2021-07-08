@@ -11440,7 +11440,221 @@ namespace BioBaseCLIA.Run
 
         private void fbtnToEmergency_Click(object sender, EventArgs e)
         {
-                        
+            #region 提示
+            if (dgvWorkListData.SelectedRows.Count < 1)
+            {
+                MessageBox.Show(getString("keywordText.SelectSample"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (IsSelectedRowsExitStandard())
+            {
+                MessageBox.Show(getString("keywordText.Operationforbidden"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            for (int m = 0; m < dgvWorkListData.SelectedRows.Count; m++)
+            {
+                string SampleNo = dgvWorkListData.SelectedRows[m].Cells["SampleNo"].Value.ToString();
+                List<TestSchedule> LeftSchedule = lisTestSchedule.FindAll(ty => ty.SampleNo == SampleNo);
+
+                if (LeftSchedule.Where(item => item.Emergency >= 4).Count() > 0)
+                {
+                    MessageBox.Show(getString("keywordText.Operationforbidden"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            #endregion
+
+            NetCom3.ComWait.Reset();
+
+            LoadingHelper.ShowLoadingScreen();
+
+            #region 原有数据删除
+            string[] dgvSelectedID = new string[dgvWorkListData.SelectedRows.Count];
+            DbHelperOleDb db = new DbHelperOleDb(1);
+            for (int m = 0; m < dgvWorkListData.SelectedRows.Count; m++)
+            {
+                string SampleNo = dgvWorkListData.SelectedRows[m].Cells["SampleNo"].Value.ToString();
+                List<TestSchedule> LeftSchedule = lisTestSchedule.FindAll(ty => ty.SampleNo == SampleNo);
+
+                foreach (var item in LeftSchedule)
+                {
+                    item.Emergency = 4;//变成急诊类型4
+                }
+            }
+            #endregion
+
+            //按照testid进行排序
+            lisTestSchedule.Sort(new SortEmergencyByEmergency());
+            lisTestSchedule.SetChangeEmergencyTestID(NoStartTestId);
+
+            #region testid和温育盘位置重新赋值
+            int OldAddSamPos = 3;
+            DataTable dtReactTrayInfo = OperateIniFile.ReadConfig(iniPathReactTrayInfo);
+            //第一个有管的位置
+            string FirstPos = "";
+            DataRow[] dr = dtReactTrayInfo.Select("Pos='no" + ReactTrayNum.ToString() + "'");
+            if (Convert.ToInt32(dr[0][1]) == 1)
+            {
+                for (int i = dtReactTrayInfo.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (dtReactTrayInfo.Rows[i][1].ToString() != "1")
+                    {
+                        FirstPos = dtReactTrayInfo.Rows[i + 1][0].ToString();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dtReactTrayInfo.Rows.Count; i++)
+                {
+                    if (dtReactTrayInfo.Rows[i][1].ToString() == "1")
+                    {
+                        //后一个值一直覆盖前一个最终的赋值为最后一个位置
+                        FirstPos = dtReactTrayInfo.Rows[i][0].ToString();
+                        if (FirstPos == "no1" || FirstPos == "no2" || FirstPos == "no3")
+                            continue;
+                        if (FirstPos == "no4")
+                        {
+                            for (int num = dtReactTrayInfo.Rows.Count - 1; num > 0; num--)
+                            {
+                                if (dtReactTrayInfo.Rows[num][1].ToString() != "0")
+                                {
+                                    if (num == ReactTrayHoleNum - 1)
+                                        FirstPos = dtReactTrayInfo.Rows[3][0].ToString();
+                                    else
+                                    {
+                                        if (num + 1 - toUsedTube > 4)//dtReactTrayInfo.Rows[num + 1 - 15][0].ToString()!= FirstPos
+                                            FirstPos = dtReactTrayInfo.Rows[num + 1][0].ToString();
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if (FirstPos == "")
+                OldAddSamPos = 3;
+            else
+                OldAddSamPos = int.Parse(FirstPos.Substring(2)) - 1;
+            if (NoStartTestId != 1)
+            {
+                //被延后的反应管的所在位置
+                OldAddSamPos = lisTestSchedule.Find(ty => ty.TestID == NoStartTestId - 1 &&
+                    ty.TestScheduleStep == TestSchedule.ExperimentScheduleStep.AddLiquidTube).AddSamplePos;
+            }
+            List<TestSchedule> lisNoStartSchedule = lisTestSchedule.FindAll(tx => tx.TestID >= NoStartTestId);
+            lisTestSchedule.RemoveAll(tx => tx.TestID >= NoStartTestId);
+
+            //温育盘位置赋值
+            for (int i = 0; i < lisNoStartSchedule.Count; i++)
+            {
+                TestSchedule TempTestSchedule = lisNoStartSchedule[i];
+                if (TempTestSchedule.TestScheduleStep == TestSchedule.ExperimentScheduleStep.AddLiquidTube)
+                {
+                    //稀释实验赋值
+                    if (int.Parse(TempTestSchedule.dilutionTimes) > 1)
+                    {
+                        string[] diupos = TempTestSchedule.dilutionPos.Split('-');
+                        if (diupos.Length > 1)
+                        {
+                            string newpos = "";
+                            for (int j = 0; j < diupos.Length; j++)
+                            {
+                                if (newpos == "")
+                                {
+                                    newpos = "1";
+                                }
+                                else
+                                {
+                                    newpos += "-" + (j + 1).ToString(); ;
+                                }
+                            }
+                            TempTestSchedule.dilutionPos = newpos;
+                        }
+                        else
+                        {
+                            TempTestSchedule.dilutionPos = "1";
+                        }
+                        string[] temppos = TempTestSchedule.dilutionPos.Split('-');
+                        TempTestSchedule.getSamplePos = "R" + temppos[temppos.Length - 1];
+                        OldAddSamPos = OldAddSamPos + 1;
+                        if (OldAddSamPos > ReactTrayHoleNum)
+                        {
+                            OldAddSamPos = 4;
+                        }
+                        TempTestSchedule.AddSamplePos = OldAddSamPos;
+                    }
+                    else
+                    {
+                        OldAddSamPos = OldAddSamPos + 1;
+                        if (OldAddSamPos > ReactTrayHoleNum)
+                        {
+                            OldAddSamPos = 4;
+                        }
+                        TempTestSchedule.AddSamplePos = OldAddSamPos;
+                        TempTestSchedule.getSamplePos = "S" + TempTestSchedule.samplePos;
+                    }
+                }
+            }
+            #endregion
+            #region 控件清空还未开始运行的进度条控件
+            while (dgvWorkListData.Controls.Count > 2)
+            {
+                this.dgvWorkListData.Controls.Clear();//清除已有的控件
+            }
+            for (int i = BTestItem.Count - 1; i >= NoStartTestId - 1; i--)
+            {
+                BTestItem.Remove(BTestItem[i]);
+            }
+            //清空之前获取已经开始实验的进度条控件
+            for (int i = lisProBar.Count - 1; i >= NoStartTestId - 1; i--)
+            {
+                lisProBar.Remove(lisProBar[i]);
+            }
+            #endregion
+            BindData(lisNoStartSchedule, NoStartTestId);
+            #region 进度重新计算
+            //获取已经开始运行的样本的进度表
+            List<TestSchedule> RunSchedule = lisTestSchedule;
+            List<string> runFreeTime = GetFreeTime(RunSchedule);
+            //未运行的样本进度计算
+            List<TestSchedule> lisTestNoRun = ExperimentalScheduleAlgorithm(lisNoStartSchedule, runFreeTime);
+            lisTestSchedule.AddRange(lisTestNoRun);
+            lisTestSchedule.Sort(new SortRun());
+            #endregion
+
+            #region 重新为倒计时进行赋值
+            List<TestSchedule> tss = lisTestSchedule.FindAll(tx => tx.StartTime <= sumTime);
+            if (tss.Count != 0)
+            {
+                _GaDoingOne = tss[tss.Count - 1];
+                TestStep = GaNextOne();
+            }
+            LoadingHelper.CloseForm();
+            NetCom3.ComWait.Set();
+            MaxTime = lisTestSchedule.Select(it => it.EndTime).ToList<int>().Max();
+            LastMaxTime = (int)MaxTime;
+            MaxTime = MaxTime - sumTime;
+            MaxTime *= PiusTimes;
+            LastSumTime = sumTime;
+            TimeSpan span = new TimeSpan(0, 0, Convert.ToInt32(MaxTime));
+            while (!this.IsHandleCreated)
+            {
+                Thread.Sleep(30);
+            }
+            TimeLabel2.Invoke(new Action(() =>
+            {
+                TimeLabel2.Text = ((int)span.TotalHours).ToString("00");
+                TimeLabel3.Text = span.Minutes.ToString("00");
+                TimeLabel2.Visible = TimeLabel1.Visible = TimeLabel3.Visible = label2.Visible = label3.Visible = true;
+            }));
+            stopTimer.Start();//倒计时继续
+            #endregion
         }
     }
     public class TestResultInfo
