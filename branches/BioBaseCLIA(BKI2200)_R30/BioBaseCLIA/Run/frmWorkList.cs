@@ -5227,6 +5227,13 @@ namespace BioBaseCLIA.Run
 
                             StopWatchWithUpdateStatus();
 
+                            RunFlag = (int)RunFlagStart.Stoped;
+                            if (frmMain.pauseFlag)
+                                frmMain.pauseFlag = false;
+                            RunLightFlag = false;
+                            buttonEnableRun(false);
+                            fbtnReturn.Enabled = true;//完成全部实验才允许返回按钮可用 
+
                             if (StopList.Count > 0)
                             {
                                 if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2] || frmMain.StopFlag[3])
@@ -5268,13 +5275,7 @@ namespace BioBaseCLIA.Run
                                     MessageBox.Show(getString("keywordText.Testcomplete"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);//2018-07-13 zlx mod
                                 //}));
                             }
-
-                            RunFlag = (int)RunFlagStart.Stoped;
-                            if (frmMain.pauseFlag)
-                                frmMain.pauseFlag = false;
-                            RunLightFlag = false;
-                            buttonEnableRun(false);
-                            fbtnReturn.Enabled = true;//完成全部实验才允许返回按钮可用                    
+                   
                             break;
                         }
                         Thread.Sleep(50);
