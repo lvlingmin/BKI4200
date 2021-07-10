@@ -442,6 +442,7 @@ namespace BioBaseCLIA.Run
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
             {
                 MessageBox.Show(getString("keywordText.DontAddReagentWithWorking"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                isClick = false;
                 return;
             }
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
