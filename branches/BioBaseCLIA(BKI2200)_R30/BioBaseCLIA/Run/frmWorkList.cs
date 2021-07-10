@@ -9549,7 +9549,7 @@ namespace BioBaseCLIA.Run
 
                     if (double.IsNaN(double.Parse(concentration)))
                     {
-                        concentration = GetNanPmtConcentration(ItemName, Batch, pmt);
+                        concentration = GetNanPmtConcentration(ItemName, Batch, pmt, MinValue, MaxValue);
                         result = getString("keywordText.NotInRange");
                     }
                     else if (double.Parse(concentration) < MinValue)
@@ -9687,7 +9687,7 @@ namespace BioBaseCLIA.Run
         /// <param name="batch">批号</param>
         /// <param name="pmt">发光值</param>
         /// <returns>显示.浓度</returns>
-        private string GetNanPmtConcentration(string name, string batch, int pmt)
+        private string GetNanPmtConcentration(string name, string batch, int pmt, double minValue, double maxValue)
         {
             string concentration = string.Empty;
             DbHelperOleDb dbflag = new DbHelperOleDb(0);
@@ -9702,7 +9702,7 @@ namespace BioBaseCLIA.Run
                 }
                 else
                 {
-                    concentration = ">" + scaling[scaling.Count - 1].Data.ToString("#0.000");
+                    concentration = ">" + maxValue.ToString("#0.000");
                 }
             }
             if (calMode == 2)
@@ -9713,7 +9713,7 @@ namespace BioBaseCLIA.Run
                 }
                 else
                 {
-                    concentration = ">" + scaling[scaling.Count - 1].Data.ToString("#0.000");
+                    concentration = ">" + maxValue.ToString("#0.000");
                 }
             }
 
