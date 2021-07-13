@@ -301,10 +301,10 @@ namespace BioBaseCLIA.ScalingQC
 
         private void btnDeleteQC_Click(object sender, EventArgs e)
         {
-            if (dgvQCInfo.SelectedRows.Count < 1) return;
-
             if (btnDeleteQC.Text.Trim() == getString("keywordText.Delete"))
             {
+                if (dgvQCInfo.SelectedRows.Count < 1) return;
+
                 DbHelperOleDb db = new DbHelperOleDb(3);
                 if (bllQC.Delete(int.Parse(dgvQCInfo.SelectedRows[0].Cells[0].Value.ToString())))
                 {
