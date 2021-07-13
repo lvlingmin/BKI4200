@@ -1247,6 +1247,6 @@
     <value>Information updated successfully!</value>
   </data>
   <data name="keywordText.QCRules" xml:space="preserve">
-    <value>请选择质控规则</value>
+    <value>Please select quality control rule</value>
   </data>
 </root>
