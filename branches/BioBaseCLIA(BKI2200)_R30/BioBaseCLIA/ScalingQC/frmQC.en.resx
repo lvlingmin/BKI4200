@@ -1246,4 +1246,7 @@
   <data name="keywordText.UpdateSuccess" xml:space="preserve">
     <value>Information updated successfully!</value>
   </data>
+  <data name="keywordText.QCRules" xml:space="preserve">
+    <value>请选择质控规则</value>
+  </data>
 </root>
