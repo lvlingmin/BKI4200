@@ -476,6 +476,9 @@ namespace BioBaseCLIA.Run
                 return;
             }
             isClick = true;
+
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning) return;
+
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
                 btnWorkList_Click(sender, e);
             else
