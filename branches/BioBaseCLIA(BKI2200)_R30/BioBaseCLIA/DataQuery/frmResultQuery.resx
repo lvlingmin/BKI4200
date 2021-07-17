@@ -2306,4 +2306,10 @@
   <data name="Ward.HeaderText" xml:space="preserve">
     <value>病房</value>
   </data>
+  <data name="NumberWarning" xml:space="preserve">
+    <value>请选择不多于20个病人样本进行传递</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
 </root>

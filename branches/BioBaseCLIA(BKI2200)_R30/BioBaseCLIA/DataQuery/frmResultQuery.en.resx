@@ -1562,4 +1562,10 @@
   <data name="Ward.HeaderText" xml:space="preserve">
     <value>Inpatient Ward</value>
   </data>
+  <data name="NumberWarning" xml:space="preserve">
+    <value>Please select no more than 20 patient samples for transmission</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Tips</value>
+  </data>
 </root>
