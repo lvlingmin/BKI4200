@@ -1345,4 +1345,31 @@
   <data name="WarningOprate" xml:space="preserve">
     <value>Do not do this for non serum samples</value>
   </data>
+  <data name="AddingSample" xml:space="preserve">
+    <value>Sample addition is in progress. Please add the sample after adding the current sample!</value>
+  </data>
+  <data name="ComingStop" xml:space="preserve">
+    <value>The experiment is coming to an end. Please add samples and retest later</value>
+  </data>
+  <data name="CurrentSampleNotDone" xml:space="preserve">
+    <value>The current sample barcode has not been fully completed</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="ExitTestSample" xml:space="preserve">
+    <value>There are samples for conducting experiments</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>position</value>
+  </data>
+  <data name="RetetsItem" xml:space="preserve">
+    <value>Please select a retest entry</value>
+  </data>
+  <data name="Testcomplete" xml:space="preserve">
+    <value>completed</value>
+  </data>
+  <data name="TestStatusAbondoned" xml:space="preserve">
+    <value>abandonment</value>
+  </data>
 </root>

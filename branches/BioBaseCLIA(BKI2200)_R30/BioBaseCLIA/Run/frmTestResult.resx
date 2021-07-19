@@ -2076,4 +2076,31 @@
   <data name="keywordText.NotInRange" xml:space="preserve">
     <value>不在线性范围之内</value>
   </data>
+  <data name="AddingSample" xml:space="preserve">
+    <value>正在进行加样操作，请在当前样本加样后进行样本追加！</value>
+  </data>
+  <data name="ComingStop" xml:space="preserve">
+    <value>实验即将结束，请稍后进行样本添加重测</value>
+  </data>
+  <data name="CurrentSampleNotDone" xml:space="preserve">
+    <value>当前样本条码尚未完全完成</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="ExitTestSample" xml:space="preserve">
+    <value>存在进行实验样本</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="RetetsItem" xml:space="preserve">
+    <value>请选择重测条目</value>
+  </data>
+  <data name="Testcomplete" xml:space="preserve">
+    <value>实验完成</value>
+  </data>
+  <data name="TestStatusAbondoned" xml:space="preserve">
+    <value>实验废弃</value>
+  </data>
 </root>

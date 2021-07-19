@@ -64,6 +64,10 @@ namespace BioBaseCLIA.Run
         /// 底物与管架配置文件地址 2018-10-17 zlx add
         /// </summary>
         string iniPathSubstrateTube = Directory.GetCurrentDirectory() + "\\SubstrateTube.ini";
+        /// <summary>
+        /// 样本重测
+        /// </summary>
+        public static event Action RetestSample;
         public frmTestResult()
         {
             InitializeComponent();
@@ -1098,45 +1102,105 @@ namespace BioBaseCLIA.Run
         //2018-01-10 zlx add
         private void fbtnTestAgain_Click(object sender, EventArgs e)
         {
-            if (dgvResultData.SelectedRows.Count == 0||frmWorkList.RunFlag==(int)RunFlagStart.IsRuning) return;
-
-            if (dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard"))||
-                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Calibrator"))||
-                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Control"))) 
+            #region 提示
+            if (dgvResultData.SelectedRows.Count == 0)
             {
-                MessageBox.Show(getString("keywordText.NotSerumAndPleaseAddManually"),getString("keywordText.Tips"), MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(getString("RetetsItem"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-                bool _boolAgain = false;
-            DbHelperOleDb db = new DbHelperOleDb(1);
-            DataTable _dtSP = bllsp.GetList("SampleID=" + dgvResultData.SelectedRows[0].Cells["SampleID"].Value + "").Tables[0];
-            if (_dtSP.Rows.Count > 0)
+            if (frmWorkList.LeftTestTime < 12)
             {
-                if (Convert.ToInt32(_dtSP.Rows[0]["Status"]) == 1)
-                {
-                    for (int i = 0; i < dtSpInfo.Rows.Count; i++)
-                    {
-                        if (dtSpInfo.Rows[i]["SampleNo"].ToString().Equals(_dtSP.Rows[0]["SampleNo"].ToString()))
-                        {
-                            if (DbHelperOleDb.ExecuteSql(1,@"update tbSampleInfo set Status = 0  where SampleID=" + dgvResultData.SelectedRows[0].Cells["SampleID"].Value + "") > 0)
-                            {
-                                dtSpInfo.Rows[i]["Status"] = 0;
-                                _dtSP.Rows[0]["Status"] = 0;
-                            }
-                        }
-                    }
-                }
-                if (Convert.ToInt32(_dtSP.Rows[0]["Status"]) == 0)
-                    _boolAgain = true;
+                MessageBox.Show(getString("ComingStop"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            int bUpdate = 0;
-                if(_boolAgain)
-                    bUpdate = DbHelperOleDb.ExecuteSql(1,@"update tbAssayResult set Status = -1  where SampleID=" + dgvResultData.SelectedRows[0].Cells["SampleID"].Value + " AND ItemName='" + dgvResultData.SelectedRows[0].Cells["ItemName"].Value + "'AND PMTCounter=" + dgvResultData.SelectedRows[0].Cells["PMT"].Value + "");
-            if (bUpdate > 0)
-                MessageBox.Show(getString("keywordText.SettingSuccessfully"));
-        }
+            if (dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) ||
+                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) ||
+                dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Control")))
+            {
+                MessageBox.Show(getString("keywordText.NotSerumAndPleaseAddManually"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (IsWorklistExithanvingTest(frmWorkList.BTestItem, dgvResultData.SelectedRows))
+            {
+                MessageBox.Show(getString("CurrentSampleNotDone"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (frmWorkList.AddingSampleFlag)
+            {
+                MessageBox.Show(getString("AddingSample"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
+            {
+                int exitNumber = frmWorkList.BTestItem
+                    .Where(item => item.SamplePos == int.Parse(dgvResultData.SelectedRows[index].Cells["Position"].Value.ToString())
+                    && ((!item.TestStatus.Contains(getString("Testcomplete"))) && (!item.TestStatus.Contains(getString("TestStatusAbondoned"))))).Count();
+                if (exitNumber > 0)
+                {
+                    MessageBox.Show(getString("Location") + dgvResultData.SelectedRows[index].Cells["Position"].Value.ToString() + getString("ExitTestSample"));
+                    return;
+                }
+            }
+            #endregion
 
+            fbtnTestAgain.Enabled = false;
+            frmWorkList.RetestFlag = true;
+
+            for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
+            {
+                if (DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 0,Emergency = 6 where SampleID=" +
+                    dgvResultData.SelectedRows[index].Cells["SampleID"].Value + "") > 0)
+                {
+                }
+                DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Status = -1  where SampleID=" +
+                    dgvResultData.SelectedRows[index].Cells["SampleID"].Value + " AND ItemName='" + dgvResultData.SelectedRows[index].Cells["ItemName"].Value + "'");
+            }
+
+            if (CheckFormIsOpen("frmWorkList") && frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            {
+                frmWorkList frmWL = (frmWorkList)Application.OpenForms["frmWorkList"];
+                frmWL.Show();
+                frmWL.BringToFront();
+            }
+            else
+            {
+                frmWorkList frmWL = new frmWorkList();
+                frmWL.TopLevel = false;
+                frmWL.Parent = this.Parent;
+                frmWL.Show();
+            }
+            NetCom3.ComWait.Reset();
+
+            while (RetestSample != null && RetestSample.GetInvocationList().Length > 1)//保证只有一个委托 
+            {
+                RetestSample -= (Action)RetestSample.GetInvocationList()[0];
+            }
+
+            RetestSample();
+
+            fbtnTestAgain.Enabled = true;
+        }
+        /// <summary>
+        /// 判断工作列表是否存在当前样本号未完成样本
+        /// </summary>
+        /// <param name="testItems">工作列表</param>
+        /// <param name="selectedRows">选中重测数据</param>
+        /// <returns></returns>
+        bool IsWorklistExithanvingTest(BindingList<TestItem> testItems, DataGridViewSelectedRowCollection selectedRows)
+        {
+            for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
+            {
+                int sameSampleNoNumber = testItems.Where(item => (item.SampleNo == dgvResultData.SelectedRows[index].Cells["SampleNo"].Value.ToString())
+                 && (!item.TestStatus.Contains("完成") && !item.TestStatus.Contains("废弃"))).Count();
+
+                if (sameSampleNoNumber > 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
         private void functionButton1_Click(object sender, EventArgs e)
         {
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
