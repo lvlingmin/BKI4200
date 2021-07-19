@@ -580,23 +580,24 @@ namespace BioBaseCLIA.Run
                     ModelRg.Postion = txtRgPosition.Text.Trim();
                     ModelRg.ReagentName = cmbRgName.Text.Trim();
                     DateTime date = dateValidDate.Value;
-                    if (validTime < date && validTime > DateTime.Now.Date)
-                        ModelRg.ValidDate = validTime.ToShortDateString();/*DateTime.Now.Date.AddDays(90).ToShortDateString();*/
-                    else
-                    {
-                        //string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + ModelRg.Postion, "DiuFlag", "", iniPathReagentTrayInfo);
-                        if (DiuFlag == 1)
-                        {
-                            ModelRg.ValidDate = date.ToShortDateString();
-                        }
-                        else
-                        {
-                            if (date.Date < DateTime.Now.Date.AddDays(30))
-                                ModelRg.ValidDate = date.ToShortDateString();
-                            else
-                                ModelRg.ValidDate = DateTime.Now.Date.AddDays(30).ToShortDateString();
-                        }
-                    }
+                    ModelRg.ValidDate = date.ToShortDateString();
+                    //if (validTime < date && validTime > DateTime.Now.Date)
+                    //    ModelRg.ValidDate = validTime.ToShortDateString();/*DateTime.Now.Date.AddDays(90).ToShortDateString();*/
+                    //else
+                    //{
+                    //    //string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + ModelRg.Postion, "DiuFlag", "", iniPathReagentTrayInfo);
+                    //    if (DiuFlag == 1)
+                    //    {
+                    //        ModelRg.ValidDate = date.ToShortDateString();
+                    //    }
+                    //    else
+                    //    {
+                    //        if (date.Date < DateTime.Now.Date.AddDays(30))
+                    //            ModelRg.ValidDate = date.ToShortDateString();
+                    //        else
+                    //            ModelRg.ValidDate = DateTime.Now.Date.AddDays(30).ToShortDateString();
+                    //    }
+                    //}
                     if (DateTime.Compare(dateValidDate.Value, DateTime.Now) <= 0)
                     {
                         status = "过期";//getString("keywordText.Expired");
@@ -4370,17 +4371,18 @@ namespace BioBaseCLIA.Run
                     ModelRg.Postion = rgpostion;
                     ModelRg.ReagentName = cmbRgName.Text.Trim();
                     DateTime date = dateValidDate.Value;
-                    if (DiuFlag == 1)
-                    {
-                        ModelRg.ValidDate = date.ToShortDateString();
-                    }
-                    else
-                    {
-                        if (date.Date < DateTime.Now.Date.AddDays(30))
-                            ModelRg.ValidDate = date.ToShortDateString();
-                        else
-                            ModelRg.ValidDate = DateTime.Now.Date.AddDays(30).ToShortDateString();
-                    }
+                    ModelRg.ValidDate = date.ToShortDateString();
+                    //if (DiuFlag == 1)
+                    //{
+                    //    ModelRg.ValidDate = date.ToShortDateString();
+                    //}
+                    //else
+                    //{
+                    //    if (date.Date < DateTime.Now.Date.AddDays(30))
+                    //        ModelRg.ValidDate = date.ToShortDateString();
+                    //    else
+                    //        ModelRg.ValidDate = DateTime.Now.Date.AddDays(30).ToShortDateString();
+                    //}
                     ModelRg.Status = status;/*"正常";*/
                     ModelRg.ReagentNumber = txtRgPosition.Text.Trim();
                     if (bllRg.Add(ModelRg))
