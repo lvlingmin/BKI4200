@@ -1832,4 +1832,16 @@
   <data name="keywordText.Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="ExitSample" xml:space="preserve">
+    <value>exit sample</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Testcomplete" xml:space="preserve">
+    <value>completed</value>
+  </data>
+  <data name="TestStatusAbondoned" xml:space="preserve">
+    <value>abandonment</value>
+  </data>
 </root>

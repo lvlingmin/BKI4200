@@ -1208,6 +1208,13 @@ namespace BioBaseCLIA.Run
                         btnDelete.Enabled = true;
                         return;
                     }
+
+                    if (IsExitCurrentPosition(int.Parse(txtSpPosition.Text.Trim()), 1))
+                    {
+                        btnDelete.Enabled = true;
+                        return;
+                    }
+
                     dgvSampleList.SelectionChanged += dgvSampleList_SelectionChanged;
                     string barNumber = txtSpBarCode.Text.Trim();
                     string item = "";
@@ -1818,6 +1825,22 @@ namespace BioBaseCLIA.Run
             //barCodeHook.Stop();
             //}
         }
+        private bool IsExitCurrentPosition(int position, int number)
+        {
+            for (int i = position; i < position + num; i++)
+            {
+                int exitNumber = frmWorkList.BTestItem
+                    .Where(item => item.SamplePos == position
+                    && ((!item.TestStatus.Contains(getString("Testcomplete"))) && (!item.TestStatus.Contains(getString("TestStatusAbondoned"))))).Count();
+                if (exitNumber > 0)
+                {
+                    MessageBox.Show(getString("Location") + position + getString("ExitSample"));
+                    return true;
+                }
+            }
+
+            return false;
+        }
         /// <summary>
         /// 判断字符串是否是数字
         /// </summary>
@@ -2376,6 +2399,9 @@ namespace BioBaseCLIA.Run
             {
                 return;
             }
+            
+            if (IsExitCurrentPosition(int.Parse(txtSpStartPos.Text.Trim()), int.Parse(txtSpNum.Text.Trim()))) return;
+
             if (int.Parse(txtSpNum.Text) + int.Parse(txtSpStartPos.Text) - 1 > frmParent.SampleNum)//this block y add 20180426
             {
                 var drPos = dtSampleInfo.Select("Position='" + "1" + "' and Status=0");
