@@ -3704,4 +3704,7 @@
   <data name="Running" xml:space="preserve">
     <value>正在运行</value>
   </data>
+  <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
+    <value>暂存盘卡管</value>
+  </data>
 </root>

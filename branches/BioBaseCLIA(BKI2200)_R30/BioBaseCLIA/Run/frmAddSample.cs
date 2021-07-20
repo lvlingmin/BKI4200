@@ -1878,22 +1878,30 @@ namespace BioBaseCLIA.Run
             }
             return true;
         }
+        /// <summary>
+        /// 是否允许添加样本信息
+        /// </summary>
+        /// <param name="SampleType">样本类型</param>
+        /// <returns></returns>
         bool AllowAddSample(string SampleType)
         {
-            if(!SampleType.Contains(getString("keywordText.Standard"))&&!SampleType.Contains(getString("keywordText.Calibrator"))&&!SampleType.Contains(getString("keywordText.Control")))
+            if (SampleType.Contains(getString("keywordText.Control"))) return true;
+
+            if (!SampleType.Contains(getString("keywordText.Standard")) && !SampleType.Contains(getString("keywordText.Calibrator")))// && !SampleType.Contains(getString("keywordText.Control"))
             {
-               DataRow[] dataRow = dtSampleInfo.Select("SampleType like '"+ getString("keywordText.Standard") + "%' or SampleType like '" + getString("keywordText.Calibrator") + "%' or SampleType like '" + getString("keywordText.Control") + "%' ");
+                DataRow[] dataRow = dtSampleInfo.Select("(SampleType like '" + getString("keywordText.Standard") + "%' or SampleType like '" + getString("keywordText.Calibrator") + "%') and Status='0' ");// or SampleType like '" + getString("keywordText.Control") + "%'
                 if (dataRow.Length > 0)
                 {
                     frmMessageShow frmMessageShow = new frmMessageShow();
-                    frmMessageShow.MessageShow(getString("keywordText.SampleLoad"),getString("keywordText.Stopload"));
+                    frmMessageShow.MessageShow(getString("keywordText.SampleLoad"), getString("keywordText.Stopload"));
                     return false;
                 }
             }
-            if (SampleType.Contains(getString("keywordText.Standard")) || SampleType.Contains(getString("keywordText.Calibrator")) || SampleType.Contains(getString("keywordText.Control")))
+            if (SampleType.Contains(getString("keywordText.Standard")) || SampleType.Contains(getString("keywordText.Calibrator")))//|| SampleType.Contains(getString("keywordText.Control"))
             {
-                DataRow[] dataRow = dtSampleInfo.Select("SampleType like '" + getString("keywordText.Standard") + "%' or SampleType like '" + getString("keywordText.Calibrator") + "%' or SampleType like '" + getString("keywordText.Control") + "%' ");
-                if (dtSampleInfo.Rows.Count - dataRow.Length > 0)
+                DataRow[] dataRowSampleInfo = dtSampleInfo.Select(" Status='0'");
+                DataRow[] dataRow = dtSampleInfo.Select("(SampleType like '" + getString("keywordText.Standard") + "%' or SampleType like '" + getString("keywordText.Calibrator") + "%' or SampleType like '" + getString("keywordText.Control") + "%') and Status='0' ");// or SampleType like '" + getString("keywordText.Control") + "% '
+                if (dataRowSampleInfo.Length > 0 && dataRowSampleInfo.Length - dataRow.Length > 0)
                 {
                     frmMessageShow frmMessageShow = new frmMessageShow();
                     frmMessageShow.MessageShow(getString("keywordText.SampleLoad"), getString("keywordText.StoploadStandard"));

@@ -1875,7 +1875,7 @@
     <value>移管手从暂存盘向温育盘移管时在取管位置发生撞管</value>
   </data>
   <data name="keywordText.MAddNewTReactNullS" xml:space="preserve">
-    <value>移管手向温育盘抓新管多次抓空！</value>
+    <value>移管手向温育盘移新管多次抓空！</value>
   </data>
   <data name="keywordText.MAddNewTReactPutKnocked" xml:space="preserve">
     <value>移管手从暂存盘向温育盘移管时在放管位置发生撞管</value>
@@ -2125,5 +2125,8 @@
   </data>
   <data name="keywordText.WashTurnOver" xml:space="preserve">
     <value>清洗盘旋转指令接收超时</value>
+  </data>
+  <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
+    <value>暂存盘卡管</value>
   </data>
 </root>

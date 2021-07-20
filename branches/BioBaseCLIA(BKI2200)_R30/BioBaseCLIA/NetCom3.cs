@@ -1841,7 +1841,7 @@ namespace BioBaseCLIA
     /// 信息传输错误状态
     /// 0-准备发送,1-成功 2-发送失败 3-接收失败 4-抓管撞管（撞针） 5-抓空 6-混匀异常 7-放管撞管 8-理杯机缺管 9-发送超时
     /// </summary>
-    public enum ErrorState { ReadySend = 0, Success = 1, Sendfailure = 2, Recivefailure = 3, IsKnocked = 4, IsNull = 5, BlendUnusua = 6, putKnocked=7,LackTube=8,OverTime = 9 }
+    public enum ErrorState { ReadySend = 0, Success = 1, Sendfailure = 2, Recivefailure = 3, IsKnocked = 4, IsNull = 5, BlendUnusua = 6, putKnocked=7,LackTube=8,OverTime = 9,StuckTube=10 }
     /// <summary>
     /// 液位检测状态
     /// >100  Height

@@ -1951,4 +1951,7 @@
   <data name="txtWashPipeline.Text" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
+    <value>Temporary storage disk card</value>
+  </data>
 </root>

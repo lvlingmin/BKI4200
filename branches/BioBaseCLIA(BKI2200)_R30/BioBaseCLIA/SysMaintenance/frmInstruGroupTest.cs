@@ -3274,6 +3274,12 @@ namespace BioBaseCLIA.SysMaintenance
                     }
 
                 }
+                else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                {
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "暂存盘卡管！");
+                    DialogResult tempresult = MessageBox.Show("暂存盘卡管", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    return false;
+                }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                 {
                     IsKnockedCool++;

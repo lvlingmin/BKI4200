@@ -655,6 +655,14 @@ namespace BioBaseCLIA.SysMaintenance
                     {
                         goto AgainNewMove;
                     }
+                    else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                    {
+                        frmMessageShow frmMessage = new frmMessageShow();
+                        frmMessage.MessageShow(GetString("label6.Text"), GetString("keywordText.TemporaryDiskStuckTube"));
+                        fbtnStart.Enabled = true;
+                        fbtnStop.Enabled = false;
+                        return;
+                    }
                     else
                     {
                         fbtnStart.Enabled = true;
@@ -707,6 +715,14 @@ namespace BioBaseCLIA.SysMaintenance
                             return;
                         }
                         goto AgainNewMove2;
+                    }
+                    else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                    {
+                        frmMessageShow frmMessage = new frmMessageShow();
+                        frmMessage.MessageShow(GetString("label6.Text"), GetString("keywordText.TemporaryDiskStuckTube"));
+                        fbtnStart.Enabled = true;
+                        fbtnStop.Enabled = false;
+                        return;
                     }
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                     {
@@ -768,6 +784,14 @@ namespace BioBaseCLIA.SysMaintenance
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                     {
                         goto AgainNewMove3;
+                    }
+                    else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                    {
+                        frmMessageShow frmMessage = new frmMessageShow();
+                        frmMessage.MessageShow(GetString("label6.Text"), GetString("keywordText.TemporaryDiskStuckTube"));
+                        fbtnStart.Enabled = true;
+                        fbtnStop.Enabled = false;
+                        return;
                     }
                     else
                     {
@@ -1146,6 +1170,14 @@ namespace BioBaseCLIA.SysMaintenance
                     {
                         goto AgainNewMove;
                     }
+                    else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                    {
+                        frmMessageShow frmMessage = new frmMessageShow();
+                        frmMessage.MessageShow(GetString("label6.Text"), GetString("keywordText.TemporaryDiskStuckTube"));
+                        fbtnStart.Enabled = true;
+                        fbtnStop.Enabled = false;
+                        return;
+                    }
                     else
                     {
                         fbtnStart.Enabled = true;
@@ -1423,6 +1455,14 @@ namespace BioBaseCLIA.SysMaintenance
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                     {
                         goto AgainNewMove;
+                    }
+                    else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                    {
+                        frmMessageShow frmMessage = new frmMessageShow();
+                        frmMessage.MessageShow(GetString("label6.Text"), GetString("keywordText.TemporaryDiskStuckTube"));
+                        fbtnStart.Enabled = true;
+                        fbtnStop.Enabled = false;
+                        return;
                     }
                     else
                     {
@@ -2162,6 +2202,11 @@ namespace BioBaseCLIA.SysMaintenance
                                 {
                                     goto AgainNewMove;
                                 }
+                                else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                                {
+                                    NewWashEnd(1);
+                                    return;
+                                }
                                 else
                                 {
                                     NewWashEnd(1);
@@ -2357,6 +2402,11 @@ namespace BioBaseCLIA.SysMaintenance
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                     {
                         goto AgainNewMove;
+                    }
+                    else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                    {
+                        NewWashEnd(1);
+                        return;
                     }
                     else
                     {
@@ -2938,6 +2988,14 @@ namespace BioBaseCLIA.SysMaintenance
                     DialogResult tempresult = MessageBox.Show(GetString("Overtimestop"), GetString("Tip"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     return false;
                 }
+                else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                {
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + GetString("keywordText.TemporaryDiskStuckTube"));
+                    DialogResult tempresult = MessageBox.Show(GetString("keywordText.TemporaryDiskStuckTube"), GetString("Tip"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                    return false;
+                }
+
+
                 #endregion
             }
             return true;

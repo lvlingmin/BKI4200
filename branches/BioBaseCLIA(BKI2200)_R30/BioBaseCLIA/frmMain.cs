@@ -45,11 +45,11 @@ namespace BioBaseCLIA
         /// <summary>
         /// 缺液信息状态
         /// </summary>
-        public static int[] LackLq;
+        public static int[] LackLq ={ -1,-1};
         /// <summary>
-        /// 缺管信息状态 缺管：0 有管：1
+        /// 缺管信息状态 [有管/无管，卡管/正常]
         /// </summary>
-        public static int LackTube=-1;
+        public static int[] LackTube= { -1, -1 };
         #region 状态变量错误值
         /// <summary>
         /// 底物警告最小值
@@ -922,7 +922,7 @@ namespace BioBaseCLIA
             }
 
             #region 检测管架剩余管数状态
-            if (frmWorkList.TubeStop || LackTube < 1)
+            if (frmWorkList.TubeStop || LackTube[0]!=1 || LackTube[1] != 1)
             {
                 WarnTime++;
                 if (!Selectlist.Contains("EB 90 11 01 06"))
@@ -1086,15 +1086,23 @@ namespace BioBaseCLIA
                     #region 处理缺管查询指令
                     if (dataRecive[6] == "FF")
                     {
-                       LackTube = 1;
-                       if (frmWorkList.TubeStop)
-                       {
-                            LackTube = 1;
+                        LackTube[0] = LackTube[1]=1;
+                        if (frmWorkList.TubeStop)
+                        {
                             frmWorkList.TubeStop = false;
-                       }
+                        }
                     }
                     else
-                        LackTube = 0;
+                    {
+                        if (dataRecive[6].Substring(0,1) == "0")
+                            LackTube[0] = 0;
+                        else
+                            LackTube[0] = 1;
+                        if (dataRecive[6].Substring(1, 1) == "0")
+                            LackTube[1] = 0;
+                        else
+                            LackTube[1] = 1;
+                    }
                     Action ac = new Action(dbtnRackStatus);
                     this.Invoke(ac);
                     #endregion
@@ -1111,7 +1119,7 @@ namespace BioBaseCLIA
         /// </summary>
         void dbtnRackStatus()
         {
-            if (frmWorkList.TubeStop || LackTube < 1)
+            if (frmWorkList.TubeStop || LackTube[0]== 0|| LackTube[1] == 0)
             {
                 dbtnRack.BackgroundImage = Properties.Resources._12;//蓝色（红色为_12）
             }
@@ -1806,14 +1814,24 @@ namespace BioBaseCLIA
 
         private void dbtnRack_Click(object sender, EventArgs e)
         {
-            if (LackTube==0)
+            if (LackTube[0] == 0|| LackTube[1]==0)
             {
+                string Err = "";
+                if (LackTube[0] == 0)
+                    Err = GetString("Temporarystorageempty");
+                if (LackTube[1] == 0)
+                {
+                    if (Err != "")
+                        Err = Err + ",";
+                    Err = Err + GetString("keywordText.TemporaryDiskStuckTube");
+                }
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("Tips"),GetString("Temporarystorageempty"));
-                })) { IsBackground = true }.Start();
+                    f.MessageShow(GetString("Tips"), Err);
+                }))
+                { IsBackground = true }.Start();
             }
             else
             {

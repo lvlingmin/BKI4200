@@ -2618,4 +2618,7 @@
   <data name="keywordText.RefrigerationNotOn" xml:space="preserve">
     <value>Refrigeration not on</value>
   </data>
+  <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
+    <value>Temporary storage disk card</value>
+  </data>
 </root>

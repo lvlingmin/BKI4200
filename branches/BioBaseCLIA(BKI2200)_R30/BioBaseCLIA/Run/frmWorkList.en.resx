@@ -1316,4 +1316,7 @@
   <data name="keywordText.WashTurnOver" xml:space="preserve">
     <value>Cleaning disk rotation command receiving timeout</value>
   </data>
+  <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
+    <value>Temporary storage disk card</value>
+  </data>
 </root>

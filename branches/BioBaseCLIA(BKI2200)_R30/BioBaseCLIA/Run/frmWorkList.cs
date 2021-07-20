@@ -303,7 +303,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 稀释样本后弃体积
         /// </summary>
-        int DiuLeftVol = 40;
+        int DiuLeftVol = 60;
         /// <summary>
         /// 试剂获取不到的体积/ul 2019-04-12 zlx add
         /// </summary>
@@ -3185,6 +3185,7 @@ namespace BioBaseCLIA.Run
             //reactTrayTubeClear();
             if (!reactTrayTubeClear(null))
             {
+                string ss = getString("keywordText.Emptytray");
                 MessageBox.Show(getString("keywordText.Emptytray"));
                 return false;
             }
@@ -3259,19 +3260,20 @@ namespace BioBaseCLIA.Run
                 for (int i = 0; i < LackTubeNum; i++)
                 {
                     if (TubeStop) return false;
-                    MoveTubeStatus moveTube1 = new MoveTubeStatus();
-                    moveTube1.StepNum = 0;
+                    //MoveTubeStatus moveTube1 = new MoveTubeStatus();
+                    //moveTube1.StepNum = 0;
                     int putPos = int.Parse(TrayPos.Substring(2)) + i + 1;
                     if (putPos > ReactTrayHoleNum)
                         putPos = putPos - ReactTrayHoleNum + 3;
-                    moveTube1.putTubePos = "1-" + putPos.ToString();
-                    moveTube1.TestId = 0;
-                    bool b;
-                    moveTube1.TakeTubePos = "0-" + 1;
-                    lock (locker2)
-                    {
-                        lisMoveTube.Add(moveTube1);
-                    }
+                    rackToReact(putPos);
+                    //moveTube1.putTubePos = "1-" + putPos.ToString();
+                    //moveTube1.TestId = 0;
+                    //bool b;
+                    //moveTube1.TakeTubePos = "0-" + 1;
+                    //lock (locker2)
+                    //{
+                    //    lisMoveTube.Add(moveTube1);
+                    //}
                 }
             }
             #endregion
@@ -4056,7 +4058,7 @@ namespace BioBaseCLIA.Run
                     else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
                     {
                         NetCom3.Instance.stopsendFlag = true;
-                        ShowWarnInfo(getString("keywordText..MWashLossOver"), getString("keywordText.Move"), 1);
+                        ShowWarnInfo(getString("keywordText.MWashLossOver"), getString("keywordText.Move"), 1);
                         AllStop();
                         //setmainformbutten();
                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在清洗盘扔废管时接收数据超时！");
@@ -4389,6 +4391,11 @@ namespace BioBaseCLIA.Run
                     //DialogResult tempresult = MessageBox.Show("理杯机缺管！实验将停止运行！", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     return false;
                 }
+                else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                {
+                    ShowWarnInfo(getString("keywordText.TemporaryDiskStuckTube"), getString("keywordText.Move"), 1);
+                    return false;
+                }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
                 {
                     if (NetCom3.Instance.waitAndAgainSend != null && NetCom3.Instance.waitAndAgainSend is Thread)
@@ -4661,6 +4668,15 @@ namespace BioBaseCLIA.Run
                             {
                                 //NetCom3.Instance.stopsendFlag = true;
                                 ShowWarnInfo(getString("keywordText.MReactLossOver"), getString("keywordText.Move"), 1);
+                                //AllStop();
+                                //setmainformbutten();
+                                //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
+                                return false;
+                            }
+                            else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                            {
+                                //NetCom3.Instance.stopsendFlag = true;
+                                ShowWarnInfo(getString("keywordText.TemporaryDiskStuckTube"), getString("keywordText.Move"), 1);
                                 //AllStop();
                                 //setmainformbutten();
                                 //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘扔废管时接收数据超时！");
@@ -5813,36 +5829,6 @@ namespace BioBaseCLIA.Run
                                             goto outAddLiquidTube;
                                         }
                                         #endregion
-                                        #region 加稀释液
-                                        AddErrorCount = 0;
-                                        AddErrorCount = AddLiquid(rgPos, pos, DiuVol);
-                                        if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
-                                        {
-                                            NetCom3.Instance.stopsendFlag = true;
-                                            ShowWarnInfo(getString("keywordText.AddDiuOver"), getString("keywordText.Samplingneedle"), 1);
-                                            AllStop();
-                                        }
-                                        if (AddErrorCount > 0)
-                                        {
-                                            if (AddErrorCount > 1)
-                                            {
-                                                NetCom3.Instance.stopsendFlag = true;
-                                                ShowWarnInfo(getString("keywordText.AddDiuOverIsKnocked"), getString("keywordText.Samplingneedle"), 1);
-                                                AllStop();
-                                            }
-                                            else
-                                            {
-                                                MoveTubeListAddTubeDispose(pos);
-                                                RemoveTestList(testTempS, getString("keywordText.AddDiuOverIsKnocked"));
-                                            }
-                                            break;
-                                        }
-                                        DataRow[] drDiu = dtRgInfo.Select("Postion='" + rgPos + "'");
-                                        drDiu[0]["leftoverTestR1"] = OperateIniFile.ReadIniData("ReagentPos" + rgPos, "LeftReagent1", "", iniPathReagentTrayInfo);
-                                        string rgBar = OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
-                                        DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + (drDiu[0]["leftoverTestR1"]).ToString() + " where BarCode = '"
-                                                + rgBar + "' and Postion = '" + rgPos.ToString() + "'");
-                                        #endregion
                                         #region 加需稀释的样本
                                         int samplePos;//获取样本位置。
                                         if (i == 0)
@@ -5858,8 +5844,8 @@ namespace BioBaseCLIA.Run
                                                 + " " + SampleVol.ToString("x2")), 0);
                                         if (!NetCom3.Instance.SPQuery())
                                         {
-                                            #region 异常处理
-                                            Again:
+                                        #region 异常处理
+                                        Again:
                                             string againSend = "";
                                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                             {
@@ -5911,8 +5897,39 @@ namespace BioBaseCLIA.Run
                                             }
                                             break;
                                         }
-                                        //混匀
-                                        AgainMix:
+                                        #endregion
+                                        #region 加稀释液
+                                        AddErrorCount = 0;
+                                        AddErrorCount = AddLiquid(rgPos, pos, DiuVol);
+                                        if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.OverTime)
+                                        {
+                                            NetCom3.Instance.stopsendFlag = true;
+                                            ShowWarnInfo(getString("keywordText.AddDiuOver"), getString("keywordText.Samplingneedle"), 1);
+                                            AllStop();
+                                        }
+                                        if (AddErrorCount > 0)
+                                        {
+                                            if (AddErrorCount > 1)
+                                            {
+                                                NetCom3.Instance.stopsendFlag = true;
+                                                ShowWarnInfo(getString("keywordText.AddDiuOverIsKnocked"), getString("keywordText.Samplingneedle"), 1);
+                                                AllStop();
+                                            }
+                                            else
+                                            {
+                                                MoveTubeListAddTubeDispose(pos);
+                                                RemoveTestList(testTempS, getString("keywordText.AddDiuOverIsKnocked"));
+                                            }
+                                            break;
+                                        }
+                                        DataRow[] drDiu = dtRgInfo.Select("Postion='" + rgPos + "'");
+                                        drDiu[0]["leftoverTestR1"] = OperateIniFile.ReadIniData("ReagentPos" + rgPos, "LeftReagent1", "", iniPathReagentTrayInfo);
+                                        string rgBar = OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
+                                        DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + (drDiu[0]["leftoverTestR1"]).ToString() + " where BarCode = '"
+                                                + rgBar + "' and Postion = '" + rgPos.ToString() + "'");
+                                        #endregion
+                                    //混匀
+                                    AgainMix:
                                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 04 01 " + pos.ToString("x2")), 0);
                                         if (!NetCom3.Instance.SPQuery())//NetCom3.Instance.MoveQuery()
                                         {
@@ -5946,7 +5963,7 @@ namespace BioBaseCLIA.Run
                                     #endregion
                                 }
                             }
-                            #endregion
+                           
                             lisProBar[testTempS.TestID - 1].BarColor[StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "D")]
                                 = Color.Gray;
                             toGray(testTempS.TestID - 1, StepIndex(dgvWorkListData.Rows[testTempS.TestID - 1].Cells[6].Value.ToString(), "D"));
@@ -7723,7 +7740,23 @@ namespace BioBaseCLIA.Run
                     dbtnRackStatus();
                     setmainformbutten();
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Warning") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.LackTube") + "!" + getString("keywordText.TestStopedAddS"));
-                    TubeProblemFlag = false;//2019-08-24 ZLX add
+                    TubeProblemFlag = false;
+                }
+                else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                {
+                    TubeStop = true;
+                    if ((ReactPos != 1 && ReactPos != 2 && ReactPos != 3) && !AddTubeStop.Contains(ReactPos))
+                    {
+                        OperateIniFile.ReadIniData("ReactTrayInfo", "no" + ReactPos, "", iniPathReactTrayInfo);
+                        lock (AddTubeStop)
+                        {
+                            AddTubeStop.Add(ReactPos);
+                        }
+                    }
+                    dbtnRackStatus();
+                    setmainformbutten();
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Warning") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TemporaryDiskStuckTube") + "!" + getString("keywordText.TestStopedAddS"));
+                    TubeProblemFlag = false;
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
                 {
@@ -8235,8 +8268,24 @@ namespace BioBaseCLIA.Run
                                     }
                                     dbtnRackStatus();
                                     setmainformbutten();
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "理杯机缺管!实验暂停加样！");
+                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.LackTube")+"!"+getString("keywordText.TestStopedAddS")+"！");
                                     TubeProblemFlag = false;//2019-08-24 ZLX add
+                                }
+                                else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                                {
+                                    TubeStop = true;
+                                    if ((int.Parse(putpos[1]) != 1 || int.Parse(putpos[1]) != 2 || int.Parse(putpos[1]) != 3) && !AddTubeStop.Contains(int.Parse(putpos[1])))
+                                    {
+                                        lock (AddTubeStop)
+                                        {
+                                            AddTubeStop.Add(int.Parse(putpos[1]));
+                                        }
+                                    }
+                                    dbtnRackStatus();
+                                    setmainformbutten();
+                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TemporaryDiskStuckTube")+"!"+getString("keywordText.TestStopedAddS")+"!");
+
+                                    TubeProblemFlag = false;
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
                                 {
@@ -9919,14 +9968,14 @@ namespace BioBaseCLIA.Run
             if (testresult.SampleType.Contains(getString("keywordText.Standard")))
             {
                 GC.KeepAlive(testresult);//防止被回收               
-                List<TestItem> BToList = BToListTi.FindAll(tx => (tx.ItemName == testresult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard")) && tx.RegentBatch == dgvWorkListData.Rows[testresult.TestID - 1].Cells["RegentBatch"].Value.ToString()));
-                List<TestItem> ENDList = lisTiEnd.FindAll(tx => (tx.ItemName == testresult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard")) && tx.RegentBatch == dgvWorkListData.Rows[testresult.TestID - 1].Cells["RegentBatch"].Value.ToString()));
+                List<TestItem> BToList = BToListTi.FindAll(tx => (tx.ItemName == testresult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard")) && tx.RegentBatch == testresult.ReagentBeach));
+                List<TestItem> ENDList = lisTiEnd.FindAll(tx => (tx.ItemName == testresult.ItemName && tx.SampleType.Contains(getString("keywordText.Standard")) && tx.RegentBatch == testresult.ReagentBeach));
                 if (BToList.Count == ENDList.Count)
                 {
                     //List<TestResult> ScalingResult = new List<TestResult>(BTestResult).FindAll(tx => (tx.ItemName == testResult.ItemName && testResult.SampleType.Contains(getString("keywordText.Standard"))));
                     //frmTestResult f = new frmTestResult();
                     List<TestResult> ScalingResult = new List<TestResult>(TemporaryTestResult).FindAll(tx => (tx.ItemName == testresult.ItemName &&
-                    testresult.SampleType.Contains(getString("keywordText.Standard"))) && testresult.ReagentBeach== testresult.ReagentBeach);
+                    testresult.SampleType.Contains(getString("keywordText.Standard"))) && tx.ReagentBeach== testresult.ReagentBeach);
 
                     Invoke(new Action(() =>
                     {

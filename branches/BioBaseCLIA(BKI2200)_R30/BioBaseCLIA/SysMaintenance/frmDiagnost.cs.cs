@@ -2141,6 +2141,12 @@ namespace BioBaseCLIA.SysMaintenance
                     DialogResult tempresult = frmMsgShow.MessageShow("移管手错误！", "理杯机缺管！实验将停止运行！");
                     return false; ;
                 }
+                else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
+                {
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "理杯机卡管！实验将停止运行！");
+                    DialogResult tempresult = frmMsgShow.MessageShow("移管手错误！", "暂存盘卡管！实验将停止运行！");
+                    return false; ;
+                }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.Sendfailure)
                 {
                     if (NetCom3.Instance.waitAndAgainSend != null && NetCom3.Instance.waitAndAgainSend is Thread)
@@ -3759,7 +3765,7 @@ namespace BioBaseCLIA.SysMaintenance
             {
                 txtReadShow.AppendText("向清洗盘加第" + i + "个管" + Environment.NewLine);
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 06"), 1);
-                if (!NetCom3.Instance.WashQuery())
+                if (!NetCom3.Instance.MoveQuery())
                     return;
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 01"), 2);
                 if (!NetCom3.Instance.WashQuery())

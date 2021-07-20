@@ -542,7 +542,39 @@ namespace BioBaseCLIA.Run
                     }
                     else
                     {
-                        modelScalingResult.Status = 0;
+                        string CPoints = DbHelperOleDb.GetSingle(1, @"select Points from tbScalingResult where ItemName = '"
+                                                                   + ilistStandardResult[0].ItemName + "' AND RegentBatch='" + ilistStandardResult[0].ReagentBeach + "' AND Status=1").ToString();
+                        if (CPoints == "")
+                            modelScalingResult.Status = 0;
+                        else
+                        {
+                            string[] SpPoints = CPoints.Split(';');
+                            string[] spointS = points.ToString().Split(';');
+                            for (int i=0; i < SpPoints.Length; i++)
+                            {
+                                foreach (string temp in spointS)
+                                { 
+                                    if(temp !=null && temp !=" " && temp.Split(',')[0]== SpPoints[i].Split(',')[0])
+                                    {
+                                        SpPoints[i] = temp;
+                                        break;
+                                    }
+                                }
+                            }
+                            points.Clear();
+                            for (int i = 0; i < SpPoints.Length; i++)
+                            {
+                                if (SpPoints[i] != null && SpPoints[i] != "")
+                                {
+                                    points.Append(SpPoints[i] + ";");
+                                }
+                            }
+                            points.Remove(points.Length - 1, 1);
+                            modelScalingResult.Status = 1;
+                             DbHelperOleDb.ExecuteSql(1,@"update tbScalingResult set Status=0 where ItemName = '"
+                                                                   + ilistStandardResult[0].ItemName + "' AND RegentBatch='" + ilistStandardResult[0].ReagentBeach + "'").ToString();
+                            LogFile.Instance.Write("试剂名称："+ ilistStandardResult[0].ItemName +",试剂批次："+ ReagentBatch+",定标点："+ points);
+                        }
                     }
 
                     modelScalingResult.ActiveDate = DateTime.Now;
@@ -555,8 +587,7 @@ namespace BioBaseCLIA.Run
 
                     db1 = new DbHelperOleDb(1);//2018-09-05
                     bool saveresult = bllScalingResult.Add(modelScalingResult);
-                   
-
+                    LogFile.Instance.Write(DateTime.Now + "保存定标曲线，ItemName：" + modelScalingResult.ItemName + ";RegentBatch：" + ReagentBatch);
                 }
 
             }//for cycle end
