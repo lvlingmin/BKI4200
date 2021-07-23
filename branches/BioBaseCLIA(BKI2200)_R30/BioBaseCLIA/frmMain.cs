@@ -1660,7 +1660,7 @@ namespace BioBaseCLIA
                 if (Refrigeration)
                 {
                     Refrigeration = false;
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + GetString("keywordText.RefrigerationNotOn"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("keywordText.RefrigerationNotOn"));
                     LogBtnColorChange(1);
                 }
                 return;
@@ -1694,7 +1694,7 @@ namespace BioBaseCLIA
                 if (AlarmInfo != "")
                 {
                     AlarmInfo = GetString("keywordText.RefrigerationAlarm") + AlarmInfo;
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + AlarmInfo);
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning")+ " *** " + GetString("NotRead") + " *** " + AlarmInfo);
                     LogBtnColorChange(1);
                 }
             }

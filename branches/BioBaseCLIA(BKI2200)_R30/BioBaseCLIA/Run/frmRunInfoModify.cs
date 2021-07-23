@@ -251,7 +251,7 @@ namespace BioBaseCLIA.Run
                 else
                 {
                     
-                    UpdadteDtRgInfoNoStat(DiuName,"", 0, (AddDiuVol * RepeatCount));
+                    UpdadteDtRgInfoNoStat(DiuName,"",(AddDiuVol * RepeatCount),0);
                 }
             }
             else
@@ -266,7 +266,7 @@ namespace BioBaseCLIA.Run
                         break;
                     }
                 }
-                UpdadteDtRgInfoNoStat(DiuName,"", 0, (AddDiuVol * RepeatCount));
+                 UpdadteDtRgInfoNoStat(DiuName,"",(AddDiuVol * RepeatCount),0);
             }
                 
             foreach (DataGridViewRow row in dgvSpRunInfoList.SelectedRows)

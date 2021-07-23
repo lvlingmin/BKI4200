@@ -1249,4 +1249,7 @@
   <data name="keywordText.QCRules" xml:space="preserve">
     <value>Please select quality control rule</value>
   </data>
+  <data name="keywordText.null" xml:space="preserve">
+    <value>The value is empty, this operation failed</value>
+  </data>
 </root>
