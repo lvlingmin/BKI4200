@@ -525,7 +525,7 @@ namespace BioBaseCLIA.Run
                     }
                    
                     //该项目的历史定标  2018-08-27 zlx mod
-                    if (ExitsMainCurve || pointerNumber == PointsNum)
+                    if (pointerNumber == PointsNum)
                     {
                         db1 = new DbHelperOleDb(1);
                         int sameScaling = int.Parse(DbHelperOleDb.GetSingle(1,@"select count(*) from tbScalingResult where ItemName = '"
@@ -542,8 +542,17 @@ namespace BioBaseCLIA.Run
                     }
                     else
                     {
-                        string CPoints = DbHelperOleDb.GetSingle(1, @"select Points from tbScalingResult where ItemName = '"
-                                                                   + ilistStandardResult[0].ItemName + "' AND RegentBatch='" + ilistStandardResult[0].ReagentBeach + "' AND Status=1").ToString();
+                        string CPoints = "";
+                        if (ExitsMainCurve)
+                        {
+                            CPoints = DbHelperOleDb.GetSingle(1, @"select Points from tbMainScalCurve where ItemName = '"
+                                                                                              + ilistStandardResult[0].ItemName + "' AND RegentBatch='" + ilistStandardResult[0].ReagentBeach + "'").ToString();
+                        }
+                        else
+                        {
+                            CPoints = DbHelperOleDb.GetSingle(1, @"select Points from tbScalingResult where ItemName = '"
+                                                                                               + ilistStandardResult[0].ItemName + "' AND RegentBatch='" + ilistStandardResult[0].ReagentBeach + "' AND Status=1").ToString();
+                        }
                         if (CPoints == "")
                             modelScalingResult.Status = 0;
                         else

@@ -902,18 +902,28 @@ namespace BioBaseCLIA.ScalingQC
 
         private void fbtnDelete_Click(object sender, EventArgs e)
         {
-            if (txtQCValue.Text == "" || txtQCNewValue.Text == "")
+            //if (txtQCValue.Text == "" || txtQCNewValue.Text == "")
+            //{
+            //    frmMsgShow.MessageShow(getString("reminder"), getString("DeleteError"));
+            //    return;
+            //}
+            if (dgvQCValue.Rows.Count < 1 && fbtnDelete.Text == getString("keywordText.Delete"))
             {
                 frmMsgShow.MessageShow(getString("reminder"), getString("DeleteError"));
                 return;
             }
-            if (dgvQCValue.Rows.Count < 1)
+            else
             {
-                return;
+                if (txtQCNewValue.Text == "")
+                {
+                    frmMsgShow.MessageShow(getString("reminder"), getString("lbQCValueNew") + getString("keywordText.null"));
+                    return;
+                }
             }
-            int index = dgvQCValue.CurrentRow.Index; //lyq 20190911
-            bool updFlag = false; //lyq 190911
-            
+            int index = 0;
+            if(dgvQCValue.Rows.Count>0)
+                index = dgvQCValue.CurrentRow.Index;
+            bool updFlag = false; 
             DbHelperOleDb db = new DbHelperOleDb(1);
             BLL.tbQCResult bllqcresult = new BLL.tbQCResult();
             Model.tbQCResult mdqcresult = new Model.tbQCResult();
@@ -921,7 +931,14 @@ namespace BioBaseCLIA.ScalingQC
             {
                 if (dgvQCValue.CurrentRow == null) return;
                 if (msd.Confirm(getString("keywordText.DeleteConfirm")) != DialogResult.OK) return;
-                bllqcresult.Delete(int.Parse(dgvQCValue.CurrentRow.Cells["QCResultID"].Value.ToString()));
+                bool uodate = bllqcresult.Delete(int.Parse(dgvQCValue.CurrentRow.Cells["QCResultID"].Value.ToString()));
+                if (uodate)
+                {
+                    dtQCAvgDay.Rows[index].Delete();
+                    dgvQCValue.DataSource  = dtQCAvgDay;
+                    //cmbQClevel_SelectedIndexChanged(sender, e);
+                }
+                    
             }
             else
             {               

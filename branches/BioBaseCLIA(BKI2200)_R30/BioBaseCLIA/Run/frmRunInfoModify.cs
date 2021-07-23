@@ -23,7 +23,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 稀释样本后弃体积
         /// </summary>
-        int DiuLeftVol = 40;
+        int DiuLeftVol = 60;
         /// <summary>
         /// 稀释液获取不到的体积/ul 2019-04-12 zlx add
         /// </summary>
@@ -47,9 +47,13 @@ namespace BioBaseCLIA.Run
         /// <param name="ItemName">项目名称</param>
         /// <param name="upRgcount">试剂增加量</param>
         /// <param name="DiuCount">稀释液增加量</param>
-        private void UpdadteDtRgInfoNoStat(string ItemName, int upRgcount, int DiuCount)
+        private void UpdadteDtRgInfoNoStat(string ItemName,string RgBatch, int upRgcount, int DiuCount)
         {
-            DataRow[] dr = frmSampleLoad.DtItemInfoNoStat.Select("RgName='" + ItemName + "'");
+            DataRow[] dr = null;
+            if(RgBatch=="")
+                dr = frmSampleLoad.DtItemInfoNoStat.Select("RgName='" + ItemName + "' and RgBatch='"+ RgBatch + "'");
+            else
+                dr = frmSampleLoad.DtItemInfoNoStat.Select("RgName='" + ItemName + "'");
             if (dr.Length > 0)
             {
                 dr[0]["TestRg"] = int.Parse(dr[0]["TestRg"].ToString()) + upRgcount;
@@ -59,6 +63,7 @@ namespace BioBaseCLIA.Run
             {
                 DataRow newrow = frmSampleLoad.DtItemInfoNoStat.NewRow();
                 newrow["RgName"] = ItemName;
+                newrow["RgBatch"] = RgBatch;
                 newrow["TestRg"] = upRgcount;
                 newrow["TestDiu"] = DiuCount;
                 frmSampleLoad.DtItemInfoNoStat.Rows.Add(newrow);
@@ -80,7 +85,7 @@ namespace BioBaseCLIA.Run
                 if (!diu)
                     count = count + int.Parse(ddr["TestRg"].ToString());
                 else
-                    count = count + int.Parse(ddr["TestDiu"].ToString());
+                    count = count + int.Parse(ddr["TestRg"].ToString());
             }
             return count;
         }
@@ -230,7 +235,6 @@ namespace BioBaseCLIA.Run
                         {
                             DiuVolleft = DiuVolleft + ReadRegetInfo(DiuName, true, drr["Postion"].ToString()) - DiuNoUsePro;
                         }
-                        break;
                     }
                 }
                 //foreach (DataRow ddr in drRegion)
@@ -247,7 +251,7 @@ namespace BioBaseCLIA.Run
                 else
                 {
                     
-                    UpdadteDtRgInfoNoStat(DiuName, 0, (AddDiuVol * RepeatCount));
+                    UpdadteDtRgInfoNoStat(DiuName,"", 0, (AddDiuVol * RepeatCount));
                 }
             }
             else
@@ -262,7 +266,7 @@ namespace BioBaseCLIA.Run
                         break;
                     }
                 }
-                UpdadteDtRgInfoNoStat(DiuName, 0, (AddDiuVol * RepeatCount));
+                UpdadteDtRgInfoNoStat(DiuName,"", 0, (AddDiuVol * RepeatCount));
             }
                 
             foreach (DataGridViewRow row in dgvSpRunInfoList.SelectedRows)

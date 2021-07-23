@@ -1679,17 +1679,17 @@ namespace BioBaseCLIA
                     RefrigerationData = "0" + RefrigerationData;
                 }
                 string AlarmInfo = "";
-                if (RefrigerationData[0].ToString() == "0")
+                if (RefrigerationData[7].ToString() == "0")
                     AlarmInfo = GetString("keywordText.LowCoolPlate1");
-                if (RefrigerationData[1].ToString() == "0")
+                if (RefrigerationData[6].ToString() == "0")
                     AlarmInfo = AlarmInfo + GetString("keywordText.HighCoolPlate1");
-                if (RefrigerationData[2].ToString() == "0")
-                    AlarmInfo = AlarmInfo + GetString("keywordText.LowCoolPlate2");
-                if (RefrigerationData[3].ToString() == "0")
-                    AlarmInfo = AlarmInfo + GetString("keywordText.HighCoolPlate2");
-                if (RefrigerationData[4].ToString() == "0")
-                    AlarmInfo = AlarmInfo + GetString("keywordText.FastSpeeds");
                 if (RefrigerationData[5].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.LowCoolPlate2");
+                if (RefrigerationData[4].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.HighCoolPlate2");
+                if (RefrigerationData[3].ToString() == "0")
+                    AlarmInfo = AlarmInfo + GetString("keywordText.FastSpeeds");
+                if (RefrigerationData[2].ToString() == "0")
                     AlarmInfo = AlarmInfo + GetString("keywordText.SlowSpeeds");
                 if (AlarmInfo != "")
                 {

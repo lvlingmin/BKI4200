@@ -247,6 +247,7 @@ namespace BioBaseCLIA.Run
             }
             dtItemInfoNoStat = new DataTable();
             dtItemInfoNoStat.Columns.Add("RgName", typeof(string));
+            dtItemInfoNoStat.Columns.Add("RgBatch", typeof(string));
             dtItemInfoNoStat.Columns.Add("TestRg", typeof(int));
             dtItemInfoNoStat.Columns.Add("TestDiu", typeof(int));
 

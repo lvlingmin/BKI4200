@@ -2980,11 +2980,11 @@ namespace BioBaseCLIA.Run
             TrayRemoveAllTube = false;//y add 抓空标志位，确定是否触发抓空异常
             isCleanPipeLineNow = false;//add y 20180727 是否在清洗清洗盘管路标志位
             //2018-07-23
-            if (frmMain.BQLiquaid)
-                frmMain.BQLiquaid = false;
+            //if (frmMain.BQLiquaid)
+            //    frmMain.BQLiquaid = false;
             if (dtSpInfo.Select("SampleType='" + getString("keywordText.CalibrationSolution")+"' and Status='0'").Length > 0 ||
                    dtSpInfo.Select("SampleType like '" + getString("keywordText.Calibrator") + "%' and Status='0'").Length > 0 ||
-                   dtSpInfo.Select("SampleType like '" + getString("keywordText.Control") + "%' and Status='0'").Length > 0 ||
+                   //dtSpInfo.Select("SampleType like '" + getString("keywordText.Control") + "%' and Status='0'").Length > 0 ||
                    dtSpInfo.Select("SampleType like '" + getString("keywordText.Standard") + "%' and Status='0'").Length > 0)
             {
                 if (dtSpInfo.Select("SampleType ='" + getString("keywordText.Serum") + "' and Status='0'").Length > 0 ||
@@ -3104,7 +3104,7 @@ namespace BioBaseCLIA.Run
             {
                 NetCom3.Delay(10);
             }
-            frmMain.BQLiquaid = true;//2018-07-21
+            //frmMain.BQLiquaid = true;//2018-07-21
 
             #region 清洗盘反应管状态表
             DataTable dtIniWashTray = OperateIniFile.ReadConfig(iniPathWashTrayInfo);
@@ -3343,6 +3343,7 @@ namespace BioBaseCLIA.Run
             List<TestItem> lisSameItem = new List<TestItem>();
             List<string> lisRegentBatch = new List<string>();
             #region 检查稀释液和试剂是否够用
+            
             DataTable DtRgInfoNoStat = frmSampleLoad.DtItemInfoNoStat.Copy();
             if (DtRgInfoNoStat.Rows.Count == 0)
             {
@@ -3434,6 +3435,7 @@ namespace BioBaseCLIA.Run
                 }
             }
             frmSampleLoad.DtItemInfoNoStat.Rows.Clear();
+            
             #endregion
             foreach (var item in ItemNames)
             {
@@ -3655,8 +3657,12 @@ namespace BioBaseCLIA.Run
                                     //判断是否有历史定标
                                     if (points == null || points == "")
                                     {
-                                        frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.NoScling"));
-                                        return false;
+                                        int count = lisItem.FindAll(ty =>(ty.RegentBatch == reBNum.Key || ty.RegentBatch == "")).Count;
+                                        if(count > 0)
+                                        {
+                                            frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.Reagentbatch") + reBNum.Key + getString("keywordText.ProjectName") + item.Key + getString("keywordText.NoScling"));
+                                            return false;
+                                        }
                                     }
                                     else if (DateTime.Now.Date.AddDays(-Convert.ToInt32(dtItemInfo.Rows[0][3])).Date > Convert.ToDateTime(ActiveDate))
                                     {
@@ -3874,7 +3880,7 @@ namespace BioBaseCLIA.Run
             }
             return true;
         }
-
+        
         /// <summary>
         /// 获取定标公式信息
         /// </summary>

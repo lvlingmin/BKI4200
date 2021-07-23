@@ -2043,7 +2043,7 @@
     <value>血清</value>
   </data>
   <data name="keywordText.SerumSampleCannotTestWithOther" xml:space="preserve">
-    <value>一般样品不能与标准品、质控品等同时进行实验!</value>
+    <value>一般样品不能与标准品同时进行实验!</value>
   </data>
   <data name="keywordText.Standard" xml:space="preserve">
     <value>标准品</value>

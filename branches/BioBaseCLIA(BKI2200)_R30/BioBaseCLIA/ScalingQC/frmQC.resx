@@ -3264,4 +3264,7 @@
   <data name="keywordText.QCRules" xml:space="preserve">
     <value>请选择质控规则</value>
   </data>
+  <data name="keywordText.null" xml:space="preserve">
+    <value>值为空，此次操作失败</value>
+  </data>
 </root>

@@ -55,7 +55,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 稀释过程获取不到的稀释液体积
         /// </summary>
-        int DiuLeftVol = 40;
+        int DiuLeftVol = 60;
         /// <summary>
         /// 稀释液后弃体积
         /// </summary>
@@ -102,8 +102,11 @@ namespace BioBaseCLIA.Run
                         {
                             int RepeatCount = int.Parse(dtSampleInfo.Rows[i]["RepeatCount"].ToString());
                             int DilutionTimes = int.Parse(ddr["DilutionTimes"].ToString());
+                            string RgBatch = "";
                             int diuvol = 0;
                             string DiuName = "";
+                            if(ddr["SampleType"].ToString().Contains(getString("keywordText.Standard")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Control")))
+                                RgBatch = DbHelperOleDb.GetSingle(1, @"select RegentBatch from tbSampleInfo where SampleNo = '" + SampleNo + "'").ToString();
                             if (!(ddr["SampleType"].ToString().Contains(getString("keywordText.Standard")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Control"))))
                             {
                                 string diuPos = "";
@@ -122,9 +125,9 @@ namespace BioBaseCLIA.Run
                                     }
                                 }
                             }
-                            UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount, 0);
+                            UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RgBatch, RepeatCount, 0);
                             if (diuvol > 0)
-                                UpdadteDtRgInfoNoStat(DiuName, (diuvol * RepeatCount), 0);
+                                UpdadteDtRgInfoNoStat(DiuName,"",(diuvol * RepeatCount), 0);
                             //DataRow[] drReagent = frmParent.dtRgInfo.Select("RgName ='"+ ddr["ItemName"].ToString()+"'");
 
                             //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount, (diuvol * RepeatCount));
@@ -204,9 +207,9 @@ namespace BioBaseCLIA.Run
         /// <param name="ItemName">项目名称</param>
         /// <param name="upRgcount">试剂增加量</param>
         /// <param name="DiuCount">稀释液增加量</param>
-        private void UpdadteDtRgInfoNoStat(string ItemName, int upRgcount, int DiuCount)
+        private void UpdadteDtRgInfoNoStat(string ItemName, string RgBatch ,int upRgcount, int DiuCount)
         {
-            DataRow[] dr = DtRgInfoNoStat.Select("RgName='" + ItemName + "'");
+            DataRow[] dr = DtRgInfoNoStat.Select("RgName='" + ItemName + "'AND RgBatch = '"+ RgBatch + "'");
             if (dr.Length > 0)
             {
                 dr[0]["TestRg"] = int.Parse(dr[0]["TestRg"].ToString()) + upRgcount;
@@ -216,28 +219,34 @@ namespace BioBaseCLIA.Run
             {
                 DataRow newrow = DtRgInfoNoStat.NewRow();
                 newrow["RgName"] = ItemName;
+                newrow["RgBatch"] = RgBatch;
                 newrow["TestRg"] = upRgcount;
                 newrow["TestDiu"] = DiuCount;
                 DtRgInfoNoStat.Rows.Add(newrow);
             }
         }
         /// <summary>
-        /// 查看供应品信息
+        /// 查看待做样本需要的试剂和稀释液
         /// </summary>
         /// <param name="ItemName">项目名称</param>
+        /// <param name="RgBatch">试剂批次</param>
         /// <param name="diu">稀释标志</param>
         /// <param name="DiuCount"></param>
         /// <returns></returns>
-        private int SelectDtRgInfoNoStat(string ItemName, bool diu)
+        private int SelectDtRgInfoNoStat(string ItemName,string RgBatch ,bool diu)
         {
             int count = 0;
-            DataRow[] dr = DtRgInfoNoStat.Select("RgName='" + ItemName + "'");
+            DataRow[] dr = null;
+            if (RgBatch!="")
+                dr = DtRgInfoNoStat.Select("RgName='" + ItemName + "' AND RgBatch='"+ RgBatch + "'");
+            else
+                dr = DtRgInfoNoStat.Select("RgName='" + ItemName + "'");
             foreach (DataRow ddr in dr)
             {
                 if (!diu)
                     count = count + int.Parse(ddr["TestRg"].ToString());
                 else
-                    count = count + int.Parse(ddr["TestDiu"].ToString());
+                    count = count + int.Parse(ddr["TestRg"].ToString());
             }
             return count;
         }
@@ -660,10 +669,12 @@ namespace BioBaseCLIA.Run
                         DbHelperOleDb db = new DbHelperOleDb(1);
                         string SampleNo = txtSpBarCode.Text.Trim();
                         int RepeatCount = int.Parse(txtSpRepetitions.Text);
-
+                        string RgBatch = "";
                         DataTable dtNewAddDtRgInfo = DtRgInfoNoStat.Clone();
                         RepeatCount = int.Parse(txtSpRepetitions.Text);
                         string SpPosition = i.ToString();
+                        if (cmbSpType.Text.Trim().Contains(getString("keywordText.Standard")) || cmbSpType.Text.Trim().Contains(getString("keywordText.Control")))
+                            RgBatch = cmbBatch.SelectedItem.ToString();
                         foreach (CheckBox ch in flpItemName.Controls)
                         {
                             if (ch.Checked)
@@ -674,14 +685,25 @@ namespace BioBaseCLIA.Run
                                     {
                                         string ShortName = dtItemInfo.Rows[j]["ShortName"].ToString();
                                         int regentleft = 0;
+                                        int regentBatchleft = 0;
                                         DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ShortName + "'");
                                         foreach (DataRow ddr in drRegion)
                                         {
+                                            if(RgBatch != "" && ddr["Batch"].ToString()== RgBatch)
+                                                regentBatchleft= regentBatchleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
                                             regentleft = regentleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
                                             //DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
                                         }
-
-                                        int regentNoStart = SelectDtRgInfoNoStat(ShortName, false);
+                                        if (RgBatch != "")
+                                        {
+                                            int regentBatchNoStart = SelectDtRgInfoNoStat(ShortName, RgBatch, false);
+                                            if (regentBatchNoStart + RepeatCount > regentBatchleft)
+                                            {
+                                                MessageBox.Show(getString("lblBatch.Text")+":"+ RgBatch+";"+getString("ProjectGroupNumber.HeaderText")+":" + ShortName + getString("keywordText.RgNotEnough"));
+                                                return;
+                                            }
+                                        }
+                                        int regentNoStart = SelectDtRgInfoNoStat(ShortName, "", false);
 
                                         if (regentNoStart + RepeatCount > regentleft)
                                         {
@@ -715,7 +737,7 @@ namespace BioBaseCLIA.Run
                                             if (DilutionTimes > 1)
                                             {
                                                 diuvol = GetSumDiuVol(ShortName, DilutionTimes);
-                                                int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
+                                                int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, "", true);
                                                 if (DioVolNoStart + (diuvol * RepeatCount) > DiuVolleft)
                                                 {
                                                     MessageBox.Show(DiuName + getString("keywordText.DiluteNotEnough"));
@@ -724,10 +746,10 @@ namespace BioBaseCLIA.Run
                                             }
                                         }
                                         //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, diuvol * RepeatCount);
-                                        dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, 0);
+                                        dtNewAddDtRgInfo.Rows.Add(ShortName , RgBatch , RepeatCount , 0);
                                         if (DiuName != "")
                                         {
-                                            dtNewAddDtRgInfo.Rows.Add(DiuName, diuvol * RepeatCount, 0);
+                                            dtNewAddDtRgInfo.Rows.Add(DiuName,"", diuvol * RepeatCount, 0);
                                         }
                                     }
                                 }
@@ -843,7 +865,7 @@ namespace BioBaseCLIA.Run
 
                         foreach (DataRow dr in dtNewAddDtRgInfo.Rows)
                         {
-                            UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
+                            UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), dr["RgBatch"].ToString() , int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
                         }
                         newSample = true;
                         DataView dvv = dtSampleInfo.DefaultView;
@@ -956,6 +978,11 @@ namespace BioBaseCLIA.Run
                                 int RepeatCount = int.Parse(dgvSampleList.SelectedRows[0].Cells["RepeatCount"].Value.ToString());
                                 int DilutionTimes = int.Parse(ddr["DilutionTimes"].ToString());
                                 int diuvol = 0;
+                                string RgBatch = "";
+                                if (ddr["SampleType"].ToString().Contains(getString("keywordText.Standard")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Calibrator")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Control")))
+                                {
+                                    RgBatch = DbHelperOleDb.GetSingle(1, @"select RegentBatch from tbSampleInfo where SampleNo = '" + SampleNo + "'").ToString();
+                                }
                                 if (!(ddr["SampleType"].ToString().Contains(getString("keywordText.Standard")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Calibrator")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Control"))))
                                 {
                                     if (DilutionTimes > 0)
@@ -963,7 +990,7 @@ namespace BioBaseCLIA.Run
                                 }
 
                                 //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
-                                UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, 0);
+                                UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RgBatch ,- RepeatCount, 0);
                                 if (diuvol > 0)
                                 {
                                     string diuPos = "";
@@ -978,7 +1005,7 @@ namespace BioBaseCLIA.Run
                                             break;
                                         }
                                     }
-                                    UpdadteDtRgInfoNoStat(DiuName, -(diuvol * RepeatCount), 0);
+                                    UpdadteDtRgInfoNoStat(DiuName, " ",-(diuvol * RepeatCount), 0);
                                 }
 
                             }
@@ -1075,6 +1102,7 @@ namespace BioBaseCLIA.Run
                 #region 判断试剂和稀释液是否够用
                 string SampleNo = txtSpBarCode.Text.Trim();
                 int RepeatCount = int.Parse(txtSpRepetitions.Text);
+                string RgBatch = "";
                 if (addOrModify == 1)
                 {
                     #region 减少试剂和稀释液的使用量
@@ -1089,7 +1117,11 @@ namespace BioBaseCLIA.Run
                             if (DilutionTimes > 0)
                                 diuvol = GetSumDiuVol(ddr["ItemName"].ToString(), DilutionTimes);
                         }
-
+                        if (ddr["SampleType"].ToString().Contains(getString("keywordText.Standard")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Calibrator")) || ddr["SampleType"].ToString().Contains(getString("keywordText.Control")))
+                        {
+                            RgBatch = DbHelperOleDb.GetSingle(1, @"select RegentBatch from tbSampleInfo where SampleNo = '" + SampleNo + "'").ToString();
+                        }
+                           
                         if (diuvol > 0)
                         {
                             string diuPos = "";
@@ -1104,8 +1136,8 @@ namespace BioBaseCLIA.Run
                                     break;
                                 }
                             }
-                            UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, 0);
-                            UpdadteDtRgInfoNoStat(DiuName, -(diuvol * RepeatCount), 0);
+                            UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RgBatch, - RepeatCount, 0);
+                            UpdadteDtRgInfoNoStat(DiuName, "", -(diuvol * RepeatCount), 0);
                         }
                         //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
                     }
@@ -1114,6 +1146,8 @@ namespace BioBaseCLIA.Run
                 DataTable dtNewAddDtRgInfo = DtRgInfoNoStat.Clone();
                 RepeatCount = int.Parse(txtSpRepetitions.Text);
                 string SpPosition = txtSpPosition.Text.Trim();
+                if (cmbSpType.Text.Trim().Contains(getString("keywordText.Standard")) || cmbSpType.Text.Trim().Contains(getString("keywordText.Control"))|| cmbSpType.Text.Trim().Contains(getString("keywordText.Calibrator")))
+                    RgBatch = cmbBatch.SelectedItem.ToString();
                 foreach (CheckBox ch in flpItemName.Controls)
                 {
                     if (ch.Checked)
@@ -1124,25 +1158,36 @@ namespace BioBaseCLIA.Run
                             {
                                 string ShortName = dtItemInfo.Rows[j]["ShortName"].ToString();
                                 int regentleft = 0;
+                                int regentBatchleft = 0;
                                 DataRow[] drRegion = frmParent.dtRgInfo.Select("RgName='" + ShortName + "'");
                                 int DiuVolleft = 0;
                                 foreach (DataRow ddr in drRegion)
                                 {
+                                    if (RgBatch != "" && ddr["Batch"].ToString() == RgBatch)
+                                        regentBatchleft = regentBatchleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
                                     regentleft = regentleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
                                     //DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
                                 }
-
-                                int regentNoStart = SelectDtRgInfoNoStat(ShortName, false);
-                                if (cmbSpType.Text.Trim() == ("keywordText.StandardPlasmids"))
+                                int regentNoStart = SelectDtRgInfoNoStat(ShortName, "", false);
+                                if (cmbSpType.Text.Trim() == getString("keywordText.StandardPlasmids"))
                                 {
                                     db = new DbHelperOleDb(0);
                                     DataTable dtProject = bllPj.GetList("ActiveStatus=1 AND ShortName='" + ShortName + "'").Tables[0];
                                     int pointcount = int.Parse(dtProject.Rows[0]["CalPointNumber"].ToString());
                                     RepeatCount = RepeatCount * pointcount;
                                 }
-                                if (cmbSpType.Text.Trim() == (getString("keywordText.Calibrator")))
+                                if (cmbSpType.Text.Trim() == getString("keywordText.Calibrator"))
                                 {
                                     RepeatCount = RepeatCount * 2;
+                                }
+                                if (RgBatch != "")
+                                {
+                                    int regentBatchNoStart = SelectDtRgInfoNoStat(ShortName, RgBatch, false);
+                                    if (regentBatchNoStart + RepeatCount > regentBatchleft)
+                                    {
+                                        MessageBox.Show(getString("lblBatch.Text") + ":" + RgBatch + ";" + getString("ProjectGroupNumber.HeaderText") + ":" + ShortName + getString("keywordText.RgNotEnough"));
+                                        return;
+                                    }
                                 }
                                 if (regentNoStart + RepeatCount > regentleft)
                                 {
@@ -1163,7 +1208,6 @@ namespace BioBaseCLIA.Run
                                         {
                                             DiuVolleft = DiuVolleft + ReadRegetInfo(DiuName, true, dr["Postion"].ToString()) - DiuNoUsePro;
                                         }
-                                        break;
                                     }
                                 }
                                 //if (!cmbSpType.Text.Trim().Contains("标准品") && !cmbSpType.Text.Trim().Contains("质控品"))
@@ -1176,7 +1220,7 @@ namespace BioBaseCLIA.Run
                                     if (DilutionTimes > 1)
                                     {
                                         diuvol = GetSumDiuVol(ShortName, DilutionTimes);
-                                        int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
+                                        int DioVolNoStart = SelectDtRgInfoNoStat(DiuName,"", true);
                                         if (DioVolNoStart + (diuvol * RepeatCount) > DiuVolleft)
                                         {
                                             MessageBox.Show(DiuName + getString("keywordText.DiluteNotEnough"));
@@ -1185,8 +1229,8 @@ namespace BioBaseCLIA.Run
                                     }
                                 }
                                 //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, diuvol * RepeatCount);
-                                dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount, 0);
-                                dtNewAddDtRgInfo.Rows.Add(DiuName, diuvol * RepeatCount, 0);
+                                dtNewAddDtRgInfo.Rows.Add(ShortName, RgBatch,RepeatCount, 0);
+                                dtNewAddDtRgInfo.Rows.Add(DiuName,"", diuvol * RepeatCount, 0);
                             }
                         }
                     }
@@ -1792,7 +1836,7 @@ namespace BioBaseCLIA.Run
                 }
                 foreach (DataRow dr in dtNewAddDtRgInfo.Rows)
                 {
-                    UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
+                    UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), dr["RgBatch"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
                 }
                 newSample = true;
                 btnDelete.Text = getString("keywordText.Delete");
@@ -2459,7 +2503,7 @@ namespace BioBaseCLIA.Run
                                 regentleft = regentleft + ReadRegetInfo(ShortName, false, ddr["Postion"].ToString());
                                 //DiuVolleft = DiuVolleft + ReadRegetInfo(ShortName, true, ddr["Postion"].ToString()) - DiuNoUsePro;
                             }
-                            int regentNoStart = SelectDtRgInfoNoStat(ShortName, false);
+                            int regentNoStart = SelectDtRgInfoNoStat(ShortName,"", false);
                             if (regentNoStart + (RepeatCount * Spcount) > regentleft)
                             {
                                 MessageBox.Show(ShortName + getString("keywordText.RgNotEnough"));
@@ -2491,7 +2535,7 @@ namespace BioBaseCLIA.Run
                                 if (DilutionTimes > 1)
                                 {
                                     diuvol = GetSumDiuVol(ShortName, DilutionTimes);
-                                    int DioVolNoStart = SelectDtRgInfoNoStat(DiuName, true);
+                                    int DioVolNoStart = SelectDtRgInfoNoStat(DiuName,"", true);
                                     if (DioVolNoStart + (diuvol * RepeatCount * Spcount) > DiuVolleft)
                                     {
                                         MessageBox.Show(ShortName + getString("keywordText.DiluteNotEnough"));
@@ -2499,8 +2543,8 @@ namespace BioBaseCLIA.Run
                                     }
                                 }
                             }
-                            dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount * Spcount, 0);
-                            dtNewAddDtRgInfo.Rows.Add(DiuName, diuvol * RepeatCount * Spcount, 0);
+                            dtNewAddDtRgInfo.Rows.Add(ShortName,"", RepeatCount * Spcount, 0);
+                            dtNewAddDtRgInfo.Rows.Add(DiuName,"", diuvol * RepeatCount * Spcount, 0);
                             //dtNewAddDtRgInfo.Rows.Add(ShortName, RepeatCount * Spcount, diuvol * RepeatCount * Spcount);
                         }
                     }
@@ -2591,7 +2635,7 @@ namespace BioBaseCLIA.Run
             }
             foreach (DataRow dr in dtNewAddDtRgInfo.Rows)
             {
-                UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
+                UpdadteDtRgInfoNoStat(dr["RgName"].ToString(),dr["RgBatch"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
             }
             txtSpCode1.Enabled = txtSpCode2.Enabled = txtSpNum.Enabled = txtSpStartPos.Enabled =
             chkMoreEmergency.Enabled = cmbMorePipeType.Enabled = txtMoreSpRepetitions.Enabled = false;
@@ -3161,6 +3205,7 @@ namespace BioBaseCLIA.Run
                         #region 减少试剂和稀释液的使用量
                         string SampleNo = dr[0]["SampleNo"].ToString();
                         var drr = frmParent.dtSpInfo.Select("SampleNo='" + SampleNo + "'");
+                        string RgBatch = DbHelperOleDb.GetSingle(1, @"select RegentBatch from tbSampleInfo where SampleNo = '" + SampleNo + "'").ToString();
                         foreach (DataRow ddr in drr)
                         {
                             int RepeatCount = int.Parse(dr[0]["RepeatCount"].ToString());
@@ -3175,7 +3220,7 @@ namespace BioBaseCLIA.Run
                                     if (DilutionTimes > 1)
                                         diuvol = GetSumDiuVol(ddrRun["ItemName"].ToString(), DilutionTimes);
                                 }
-                                UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), -RepeatCount, 0);
+                                UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), RgBatch,- RepeatCount, 0);
                                 if (diuvol > 0)
                                 {
                                     string diuPos = "";
@@ -3190,7 +3235,7 @@ namespace BioBaseCLIA.Run
                                             break;
                                         }
                                     }
-                                    UpdadteDtRgInfoNoStat(DiuName, -(diuvol * RepeatCount), 0);
+                                    UpdadteDtRgInfoNoStat(DiuName,"", -(diuvol * RepeatCount), 0);
                                 }
                                 //UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
                             }
