@@ -54,6 +54,9 @@ namespace BioBaseCLIA.DataQuery
             }
             cmbSelect.SelectedIndex = 0;//2018-11-20 zlx add
             fbtnQuery_Click(sender, e);
+
+            fbtnModifyResult.Visible = true;
+            fbtnSaveData.Visible = true;
         }
         private void frmResultQuery_SizeChanged(object sender, EventArgs e)
         {
