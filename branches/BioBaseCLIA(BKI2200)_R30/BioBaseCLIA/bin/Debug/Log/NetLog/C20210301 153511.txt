@@ -1,0 +1,22 @@
+15:35:11 User   root Login 
+2021/3/1 15:35:12异常类型：SocketException
+异常消息：由于目标计算机积极拒绝，无法连接。 10.1.20.132:5000
+异常信息：   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 BioBaseCLIA.NetCom3.CheckPort(String myip, String myport) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 245
+
+2021/3/1 15:35:13异常类型：SocketException
+异常消息：由于目标计算机积极拒绝，无法连接。 127.1.1.1:8087
+异常信息：   在 System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   在 System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   在 BioBaseCLIA.NetCom3.ConnectCallback(IAsyncResult ar) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 336
+
+15:35:13:754->:EB 90 F1 01 00 00 00 00 00 00 00 00 00 00 00 00
+2021/3/1 15:35:13Send调用了EventStop
+2021/3/1 15:35:13异常类型：SocketException
+异常消息：由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+异常信息：   在 System.Net.Sockets.Socket.BeginSend(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   在 BioBaseCLIA.NetCom3.Send(String order, Int32 orderType) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 677
+
+MoverrorFlag = ： 0  *****当前 15 - 35 - 15

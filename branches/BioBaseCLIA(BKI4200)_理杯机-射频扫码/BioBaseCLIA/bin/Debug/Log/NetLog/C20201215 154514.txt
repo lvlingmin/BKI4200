@@ -1,0 +1,39 @@
+15:45:14 用户  root 登陆 
+2020/12/15 下午 3:45:16异常类型：SocketException
+异常消息：由于目标计算机积极拒绝，无法连接。 10.1.20.98:5000
+异常信息：   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 BioBaseCLIA.NetCom3.CheckPort(String myip, String myport) 位置 E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 244
+
+15:45:16:127->:EB 90 F1 01 00 00 00 00 00 00 00 00 00 00 00 00
+15:45:16:254<-:EB 90 F1 01 FF FF FF FF FF FF 00 00 00 00 00 00 
+15:45:16:255<-:DiagnostDone.Set释放信号之前
+15:45:16:263->:EB 90 F1 02 00 00 00 00 00 00 00 00 00 00 00 00
+15:45:16:367<-:EB 90 F1 02 FF FF FF FF FF FF FF FF FF FF FF FF 
+15:45:16:367<-:DiagnostDone.Set释放信号之前
+15:45:26:239->:EB 90 31 02 09 01 00 00 00 00 00 00 00 00 00 00
+15:45:26:251<-:EB 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+2020/12/15 下午 3:45:26:0
+15:45:26:351<-:EB 90 31 A2 FF FF 00 00 00 00 00 00 00 00 00 00 
+15:45:36:129->:EB 90 F1 03 00 00 00 00 00 00 00 00 00 00 00 00
+15:45:36:235<-:EB 90 F1 03 FF FF FF FF 00 00 00 00 00 00 00 00 
+15:45:36:235<-:DiagnostDone.Set释放信号之前
+15:45:41:828->:EB 90 11 09 02 00 00 00 00 00 00 00 00 00 00 00
+15:45:41:835<-:EB 90 11 AF 09 02 00 00 00 00 00 00 00 00 00 F0 
+15:45:41:835<-:DiagnostDone.Set释放信号之前
+15:45:41:916->:EB 90 11 01 06 00 00 00 00 00 00 00 00 00 00 00
+15:45:42:018<-:EB 90 11 AF 01 06 FF 00 00 00 00 00 00 00 00 00 
+15:45:42:018<-:DiagnostDone.Set释放信号之前
+15:45:42:071->:EB 90 11 04 04 00 00 00 00 00 00 00 00 00 00 00
+15:45:42:076<-:EB 90 11 AF 04 04 00 00 00 00 00 00 42 10 00 C9 
+15:45:42:076<-:DiagnostDone.Set释放信号之前
+15:45:42:136->:EB 90 11 05 04 00 00 00 00 00 00 00 00 00 00 00
+15:45:42:141<-:EB 90 11 AF 05 04 00 00 00 00 00 00 42 18 00 C9 
+15:45:42:141<-:DiagnostDone.Set释放信号之前
+15:45:42:201->:EB 90 11 06 04 00 00 00 00 00 00 00 00 00 00 00
+15:45:42:205<-:EB 90 11 AF 06 04 00 00 00 00 00 00 42 20 C3 00 
+15:45:42:206<-:DiagnostDone.Set释放信号之前
+15:45:42:266->:EB 90 11 07 04 00 00 00 00 00 00 00 00 00 00 00
+15:45:42:269<-:EB 90 11 AF 07 04 00 00 00 00 00 00 42 28 F6 00 
+15:45:42:269<-:DiagnostDone.Set释放信号之前

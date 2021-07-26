@@ -1,0 +1,20 @@
+17:19:22 用户  root 登陆 
+2020/11/20 下午 5:19:24异常类型：SocketException
+异常消息：由于目标计算机积极拒绝，无法连接。 10.1.20.98:5000
+异常信息：   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 BioBaseCLIA.NetCom3.CheckPort(String myip, String myport) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 244
+
+17:19:24:203->:EB 90 F1 01 00 00 00 00 00 00 00 00 00 00 00 00
+17:19:24:312<-:EB 90 F1 01 FF FF FF FF FF FF 00 00 00 00 00 00 
+17:19:24:312<-:DiagnostDone.Set释放信号之前
+17:19:24:324->:EB 90 F1 02 00 00 00 00 00 00 00 00 00 00 00 00
+2020/11/20 下午 5:19:24client.EndReceive接收数据异常:远程主机强迫关闭了一个现有的连接。
+2020/11/20 下午 5:19:24异常类型：SocketException
+异常消息：远程主机强迫关闭了一个现有的连接。
+异常信息：   在 System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   在 BioBaseCLIA.NetCom3.ReceiveCallback(IAsyncResult ar) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 1227
+
+05:20:24:326DiagnostSendCallback调试指令接收出现异常！
+MoverrorFlag = ： 0  *****当前 17 - 20 - 24

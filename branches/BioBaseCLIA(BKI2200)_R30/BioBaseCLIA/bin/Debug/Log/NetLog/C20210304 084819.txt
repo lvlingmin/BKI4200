@@ -1,0 +1,75 @@
+08:48:19 User   root Login 
+2021/3/4 8:48:22异常类型：SocketException
+异常消息：由于目标计算机积极拒绝，无法连接。 10.1.20.132:5000
+异常信息：   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 BioBaseCLIA.NetCom3.CheckPort(String myip, String myport) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 245
+
+08:48:22:238->:EB 90 F1 01 00 00 00 00 00 00 00 00 00 00 00 00
+08:48:28:274<-:EB 90 F1 01 FF FF FF FF FF FF 00 00 00 00 00 00 
+08:48:28:275<-:DiagnostDone.Set释放信号之前
+08:48:28:290->:EB 90 F1 02 00 00 00 00 00 00 00 00 00 00 00 00
+08:48:34:294<-:EB 90 F1 02 FF FF FF FF FF FF FF FF FF FF FF FF 
+08:48:34:295<-:DiagnostDone.Set释放信号之前
+08:48:42:250->:EB 90 F1 03 00 00 00 00 00 00 00 00 00 00 00 00
+08:48:48:252<-:EB 90 F1 03 FF FF FF FF 00 00 00 00 00 00 00 00 
+08:48:48:252<-:DiagnostDone.Set释放信号之前
+08:48:48:348->:EB 90 31 02 0B B0 00 00 00 00 00 00 00 00 00 00
+08:48:48:362<-:EB 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+2021/3/4 8:48:48:0
+08:48:54:351<-:EB 90 31 A2 FF FF 00 00 00 00 00 00 00 00 00 00 
+开始进行计时操作48:56:4856
+**********计算调度**********
+TESTID 1 开始时间  ： 0
+TESTID 2 开始时间  ： 35
+TESTID 3 开始时间  ： 70
+TESTID 4 开始时间  ： 105
+TESTID 5 开始时间  ： 140
+TESTID 6 开始时间  ： 175
+TESTID 7 开始时间  ： 210
+TESTID 8 开始时间  ： 245
+TESTID 9 开始时间  ： 280
+TESTID 10 开始时间  ： 630
+TESTID 11 开始时间  ： 665
+TESTID 12 开始时间  ： 700
+TESTID 13 开始时间  ： 735
+TESTID 14 开始时间  ： 770
+TESTID 15 开始时间  ： 805
+TESTID 16 开始时间  ： 840
+结束进行计时操作48:57:4857
+3/4/2021 8:48:58 AMpauseFlag的值为:False,btnRunClick的是否为空:NotNUll
+btnRunClick委托个数:1
+进入TestRun
+**********时间更新1：08-48-58 H :00M :36**********
+08:48:58:179->:EB 90 F1 02 00 00 00 00 00 00 00 00 00 00 00 00
+08:49:04:182<-:EB 90 F1 02 FF FF FF FF FF FF FF FF FF FF FF FF 
+08:49:04:182<-:DiagnostDone.Set释放信号之前
+==============复位成功，当前位置  1
+======>清洗盘开始清管
+08:49:04:192->:EB 90 31 01 04 06 00 00 00 00 00 00 00 00 00 00
+==================  位置  1  扔管
+08:49:04:205<-:EB 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+2021/3/4 8:49:04:0
+08:49:10:195<-:EB 90 31 A1 FF FF 00 00 00 00 00 00 00 00 00 00 
+==================  位置  1  扔管
+08:49:10:212->:EB 90 31 03 01 FF 00 00 00 00 00 00 00 00 00 00
+08:49:10:227<-:EB 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+2021/3/4 8:49:10:0
+**********时间更新2：08-49-58 RunFlag :1 MaxTime :2200.00004768372**********
+**********时间更新3：08-49-58 H :00M :35**********
+2021/3/4 8:50:50清洗系统接收数据超时
+MoverrorFlag = ： 1 *****当前 08 - 50 - 50
+**********时间更新2：08-50-58 RunFlag :1 MaxTime :2140.00004768372**********
+**********时间更新3：08-50-58 H :00M :34**********
+**********时间更新2：08-51-58 RunFlag :1 MaxTime :2080.00004768372**********
+**********时间更新3：08-51-58 H :00M :33**********
+**********时间更新2：08-52-58 RunFlag :1 MaxTime :2020.00004768372**********
+**********时间更新4：08-52-58 StopStopWatch
+**********时间更新5：08-52-58
+2021/3/4 8:53:20client.EndReceive接收数据异常:远程主机强迫关闭了一个现有的连接。
+2021/3/4 8:53:20异常类型：SocketException
+异常消息：远程主机强迫关闭了一个现有的连接。
+异常信息：   在 System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   在 BioBaseCLIA.NetCom3.ReceiveCallback(IAsyncResult ar) 位置 E:\博科软件\化学发光项目开发-云端\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 1228
+

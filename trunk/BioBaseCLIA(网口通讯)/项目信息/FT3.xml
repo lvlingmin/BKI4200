@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectXml>
+<ProjectNumber>39</ProjectNumber>
+<ShortName>FT3</ShortName>
+<FullName>FT3</FullName>
+<ProjectType>1</ProjectType>
+<DiluteCount>1</DiluteCount>
+<RangeType>2</RangeType>
+<VRangeType>0</VRangeType>
+<ValueRange1>3.1-6.8</ValueRange1>
+<ValueRange2> </ValueRange2>
+<ValueUnit>pmol/L</ValueUnit>
+<MinValue>0</MinValue>
+<MaxValue>30.8</MaxValue>
+<CalPointNumber>6</CalPointNumber>
+<CalPointConc>0,1.5,3.4,7.7,15.4,30.8</CalPointConc>
+<QCPointNumber>2</QCPointNumber>
+<QCPoints>S3,S5</QCPoints>
+<ProjectProcedure>S-60-ul;R1-60-ul;R2-60-ul;H-15-min;B-30-ul;H-5-min;W-300-ul;T-200-ul;D-10-s</ProjectProcedure>
+<CalMode>0</CalMode>
+<CalMethod>6</CalMethod>
+<CalculateMethod>0</CalculateMethod>
+<LoadType>1</LoadType>
+<ActiveStatus>1</ActiveStatus>
+<DiluteName>1</DiluteName>
+<ExpiryDate>365</ExpiryDate>
+<NoUsePro>500-ul</NoUsePro>
+</ProjectXml>
+

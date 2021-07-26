@@ -1,0 +1,21 @@
+15:27:26 用户  root 登陆 
+2020/12/15 下午 3:27:29异常类型：SocketException
+异常消息：由于目标计算机积极拒绝，无法连接。 10.1.20.98:5000
+异常信息：   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 BioBaseCLIA.NetCom3.CheckPort(String myip, String myport) 位置 E:\codingCheckOut2\BKI4200\branches\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 244
+
+15:27:29:878->:EB 90 F1 01 00 00 00 00 00 00 00 00 00 00 00 00
+15:27:29:989<-:EB 90 F1 01 FF FF FF FF FF FF 00 00 00 00 00 00 
+15:27:29:989<-:DiagnostDone.Set释放信号之前
+15:27:30:039->:EB 90 F1 02 00 00 00 00 00 00 00 00 00 00 00 00
+15:27:30:146<-:EB 90 F1 02 FF FF FF FF FF FF FF FF FF FF FF FF 
+15:27:30:146<-:DiagnostDone.Set释放信号之前
+15:27:38:277->:EB 90 31 02 09 01 00 00 00 00 00 00 00 00 00 00
+15:27:38:292<-:EB 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+2020/12/15 下午 3:27:38:0
+15:27:38:392<-:EB 90 31 A2 FF FF 00 00 00 00 00 00 00 00 00 00 
+15:27:49:885->:EB 90 F1 03 00 00 00 00 00 00 00 00 00 00 00 00
+15:27:49:987<-:EB 90 F1 03 FF FF FF FF 00 00 00 00 00 00 00 00 
+15:27:49:988<-:DiagnostDone.Set释放信号之前
