@@ -1,3 +1,0 @@
-F:\BK3Soft\化学发光项目开发\2软件开发过程\5编码\BioBaseCLIA\CustomControls\obj\Debug\BioBaseCLIA.DataQuery.FunctionButton.resources
-F:\BK3Soft\化学发光项目开发\2软件开发过程\5编码\BioBaseCLIA\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
-F:\BK3Soft\化学发光项目开发\2软件开发过程\5编码\BioBaseCLIA\CustomControls\obj\Debug\CustomControls.csprojResolveAssemblyReference.cache
