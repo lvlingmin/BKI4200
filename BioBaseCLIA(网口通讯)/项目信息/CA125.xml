@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectXml>
+<ProjectNumber>51</ProjectNumber>
+<ShortName>CA125</ShortName>
+<FullName>CA125</FullName>
+<ProjectType>1</ProjectType>
+<DiluteCount>1</DiluteCount>
+<RangeType>2</RangeType>
+<VRangeType>0</VRangeType>
+<ValueRange1>0-35</ValueRange1>
+<ValueRange2> </ValueRange2>
+<ValueUnit>U/mL</ValueUnit>
+<MinValue>1</MinValue>
+<MaxValue>600</MaxValue>
+<CalPointNumber>6</CalPointNumber>
+<CalPointConc>0,12,50,200,350,600</CalPointConc>
+<QCPointNumber>2</QCPointNumber>
+<QCPoints>S3,S5</QCPoints>
+<ProjectProcedure>S-30-ul;R1-60-ul;H-30-min;B-30-ul;H-5-min;W-300-ul;T-200-ul;D-10-s</ProjectProcedure>
+<CalMode>0</CalMode>
+<CalMethod>6</CalMethod>
+<CalculateMethod>0</CalculateMethod>
+<LoadType>1</LoadType>
+<ActiveStatus>1</ActiveStatus>
+<DiluteName>1</DiluteName>
+<ExpiryDate>365</ExpiryDate>
+<NoUsePro>500-ul</NoUsePro>
+</ProjectXml>
+

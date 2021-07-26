@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectXml>
+<ProjectNumber>28</ProjectNumber>
+<ShortName>FSH</ShortName>
+<FullName>FSH</FullName>
+<ProjectType>1</ProjectType>
+<DiluteCount>1</DiluteCount>
+<VRangeType>0</VRangeType>
+<RangeType>1</RangeType>
+<ValueRange1>3-130</ValueRange1>
+<ValueRange2> </ValueRange2>
+<ValueUnit>mIU/mL</ValueUnit>
+<MinValue>0</MinValue>
+<MaxValue>150</MaxValue>
+<CalPointNumber>6</CalPointNumber>
+<CalPointConc>0,1.5,3,15,50,150</CalPointConc>
+<QCPointNumber>2</QCPointNumber>
+<QCPoints>S3,S5</QCPoints>
+<ProjectProcedure>S-15-ul;R1-60-ul;H-15-min;B-30-ul;H-5-min;W-300-ul;T-200-ul;D-10-s</ProjectProcedure>
+<CalMode>0</CalMode>
+<CalMethod>6</CalMethod>
+<CalculateMethod>0</CalculateMethod>
+<LoadType>1</LoadType>
+<ActiveStatus>1</ActiveStatus>
+<DiluteName>1</DiluteName>
+<ExpiryDate>365</ExpiryDate>
+<NoUsePro>500-ul</NoUsePro>
+</ProjectXml>
+
