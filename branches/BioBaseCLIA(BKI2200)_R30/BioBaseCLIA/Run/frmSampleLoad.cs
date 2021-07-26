@@ -252,8 +252,6 @@ namespace BioBaseCLIA.Run
             dtItemInfoNoStat.Columns.Add("TestDiu", typeof(int));
 
             SetDispatchContent();
-            cmbDispatchType.Visible = false;
-            label7.Visible = false;
         }
         private void SetDispatchContent()
         {
