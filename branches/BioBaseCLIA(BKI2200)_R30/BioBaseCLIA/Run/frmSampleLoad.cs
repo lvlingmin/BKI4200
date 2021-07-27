@@ -697,6 +697,7 @@ namespace BioBaseCLIA.Run
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
             {
                 MessageBox.Show("实验中，请勿在实验中修改调度方式");
+                SetDispatchContent();
                 return;
             }
 
