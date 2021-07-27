@@ -696,8 +696,20 @@ namespace BioBaseCLIA.Run
         {
             if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show("实验中，请勿在实验中修改调度方式");
-                SetDispatchContent();
+                string dispatchType = OperateIniFile.ReadIniData("DispatchType", "DispatchType", "", Application.StartupPath + "//InstrumentPara.ini");
+                switch (dispatchType)
+                {
+                    case "0":
+                        cmbDispatchType.Text = getString("DispathchTypeAdd");
+                        break;
+                    case "1":
+                        cmbDispatchType.Text = getString("DispathchTypeSampleProject");
+                        break;
+                    case "2":
+                        cmbDispatchType.Text = getString("DispathchTypeSpeed");
+                        break;
+                }
+
                 return;
             }
 
