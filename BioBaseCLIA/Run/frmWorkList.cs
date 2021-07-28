@@ -10698,13 +10698,6 @@ namespace BioBaseCLIA.Run
                 IniUpdateAccess();//由配置文件同步试剂与底物信息到数据库
                 try
                 {
-                    //if (NetCom3.Instance.MoverrorFlag != (int)ErrorState.Success)
-                    //    MoveTubeUseFlag = false; 
-                    //else
-                    //{
-                    //    while (MoveTubeUseFlag)
-                    //        Thread.Sleep(10);
-                    //}
                     while ((MoveTubeThread != null && MoveTubeThread.ThreadState != ThreadState.Stopped) && MoveTubeThread.IsAlive)//MoveTubeUseFlag||
                     {
                         MoveTubeThread.Abort();
