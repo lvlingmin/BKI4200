@@ -386,6 +386,30 @@ namespace BioBaseCLIA.DataQuery
             }
             else if (fbtnPrint.Text == Getstring("Determine"))
             {
+                #region chart
+                //string[] releaseChartInfo1 =null;
+                //string[] releassChartInfo2 = null;
+                string psaRatio = null;
+                string fshLhRatio = null;
+                string pgiRatio = null;
+
+                string sampleNum = dgvPatientInfo.SelectedRows[0].Cells["SampleNo1"].Value.ToString();//样本编号
+                string name = dgvPatientInfo.SelectedRows[0].Cells["PatientName"].Value.ToString();
+                string sex = dgvPatientInfo.SelectedRows[0].Cells["Sex"].Value.ToString();
+                string age = dgvPatientInfo.SelectedRows[0].Cells["Age"].Value.ToString();
+                string clinicNo = dgvPatientInfo.SelectedRows[0].Cells["ClinicNo"].Value.ToString();
+                string medicaRecordNo = dgvPatientInfo.SelectedRows[0].Cells["MedicaRecordNo"].Value.ToString();
+                DataQuery.frmDataAnalysis f = new DataQuery.frmDataAnalysis(new List<string>() { sampleNum }, name, sex, age, medicaRecordNo, clinicNo);
+                f.ShowDialog();
+                if (frmDataAnalysis.confirmClosed == true)
+                {
+                    //releaseChartInfo1 = frmDataAnalysis.releaseChartInfo1;
+                    //releassChartInfo2 = frmDataAnalysis.releassChartInfo2;
+                    psaRatio = frmDataAnalysis.psaRatio;
+                    fshLhRatio = frmDataAnalysis.fshLhRatio;
+                    pgiRatio = frmDataAnalysis.pgiRatio;
+                }
+                #endregion
                 #region 声明打印变量及属性
                 Report report = new Report();
                 Config.ReportSettings.ShowPerformance = false;
@@ -401,11 +425,11 @@ namespace BioBaseCLIA.DataQuery
                 {
                     modelPath += "A5ZH-模版一.frx";
                 }
-                else if (printModel.Contains("模版二")|| printModel.Contains("2"))
+                else if (printModel.Contains("模版二") || printModel.Contains("2"))
                 {
                     modelPath += "A5ZH-模版二.frx";
                 }
-                else if (printModel.Contains("模版三")|| printModel.Contains("3"))
+                else if (printModel.Contains("模版三") || printModel.Contains("3"))
                 {
                     modelPath += "A5ZH-模版三.frx";
                 }
@@ -511,6 +535,33 @@ namespace BioBaseCLIA.DataQuery
                 report.SetParameterValue("Sex", dgvPatientInfo.SelectedRows[0].Cells["Sex"].Value);
                 report.SetParameterValue("Age", dgvPatientInfo.SelectedRows[0].Cells["Age"].Value);
                 report.SetParameterValue("BedNo", dgvPatientInfo.SelectedRows[0].Cells["BedNo"].Value);
+                #region release Chart
+
+                if (psaRatio != null)
+                {
+                    report.SetParameterValue("RatioPSA", psaRatio);
+                }
+                else
+                {
+                    report.SetParameterValue("RatioPSA", "abc");
+                }
+                if (fshLhRatio != null)
+                {
+                    report.SetParameterValue("RatioFSH", fshLhRatio);
+                }
+                else
+                {
+                    report.SetParameterValue("RatioFSH", "abc");
+                }
+                if (pgiRatio != null)
+                {
+                    report.SetParameterValue("RatioPGI", pgiRatio);
+                }
+                else
+                {
+                    report.SetParameterValue("RatioPGI", "abc");
+                }
+                #endregion
 
                 #region lyq report
                 report.SetParameterValue("MedicaRecordNo", dgvPatientInfo.SelectedRows[0].Cells["MedicaRecordNo"].Value);//病历号
