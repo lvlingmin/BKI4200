@@ -467,9 +467,11 @@ namespace BioBaseCLIA.Run
 
         private void fbtnReturn_Click(object sender, EventArgs e)
         {
-            //frmWorkList.addOrdinaryFlag = false;
-            //frmWorkList.EmergencyFlag = false;
-            //2018-11-02 zlx add
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            {
+                MessageBox.Show("实验中，请点击工作列表按钮生成实验进度");//暂时不在资源中写入
+                return;
+            }
             if (isClick == true)
             {
                 return;
