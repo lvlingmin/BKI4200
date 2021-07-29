@@ -1875,7 +1875,8 @@ namespace BioBaseCLIA.Run
             {
                 int exitNumber = frmWorkList.BTestItem
                     .Where(item => item.SamplePos == position
-                    && ((!item.TestStatus.Contains(getString("Testcomplete"))) && (!item.TestStatus.Contains(getString("TestStatusAbondoned"))))).Count();
+                    && ((!item.TestStatus.Contains(getString("Testcomplete"))) && 
+                    (!item.TestStatus.Contains(getString("TestStatusAbondoned"))))&& !item.TestStatus.Contains("")).Count();
                 if (exitNumber > 0)
                 {
                     MessageBox.Show(getString("Location") + position + getString("ExitSample"));
