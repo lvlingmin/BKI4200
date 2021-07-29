@@ -98,7 +98,7 @@ namespace BioBaseCLIA.Run
             DbHelperOleDb db = new DbHelperOleDb(0);
             DataTable dt = bllProject.GetList(" ShortName='" + itemName + "'").Tables[0];
 
-            if (dt.Rows.Count < 1 || regentBatch=="")
+            if (dt.Rows.Count < 1 || regentBatch == "")
                 return;
             haveItem = true;
             //lyq add 20190814 根据几点定标，来生成几行
@@ -125,8 +125,8 @@ namespace BioBaseCLIA.Run
                     dtConcValue.Rows[ig][2] = point[1];
                     ig++;
                     if (ig == splitPoint.Length - 1)
-                            break;
-                    
+                        break;
+
                     //for (int i = 0; i < dtConcValue.Rows.Count; i++)
                     //{
                     //    if (dtConcValue.Rows[i][1].ToString() == point[0].ToString())
@@ -143,7 +143,7 @@ namespace BioBaseCLIA.Run
             tbxTestPro.Text = itemName;
             string sql = "select ProjectProcedure from tbProject where ShortName = '" + itemName + "'";
             DbHelperOleDb db0 = new DbHelperOleDb(0);
-            DataTable dtTemp = DbHelperOleDb.Query(0,sql).Tables[0];
+            DataTable dtTemp = DbHelperOleDb.Query(0, sql).Tables[0];
             string[] steps = dtTemp.Rows[0][0].ToString().Split(';');
             if (steps.Length < 1 || steps[0] == "")
             {
@@ -260,7 +260,7 @@ namespace BioBaseCLIA.Run
                                         }
                                         else  //i==0，去掉尾部标志，填充第五个浓度
                                         {
-                                            dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1); 
+                                            dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
                                         }
                                     }
                                 }
@@ -278,7 +278,7 @@ namespace BioBaseCLIA.Run
                                         }
                                     }
                                 }
-                                
+
                                 break;
                             case "5":  //发光值第一个条码，两个发光值
                                 sign17 = decryption.Substring(1, 7); //发光值条码，第一个发光值的7位
@@ -404,7 +404,8 @@ namespace BioBaseCLIA.Run
                                 //dtConcValue.Rows[6][2] = double.Parse(sign17);
                                 break;
                             default:
-                                frmMsg.MessageShow("项目更新", getString("keywordText.ScanByStandard"));
+                                frmMessageShow fmsg = new frmMessageShow();
+                                fmsg.MessageShow(getString("projectUpdate"), getString("keywordText.ScanByStandard"));
                                 //Console.WriteLine("请按标准扫描本公司条码");
                                 break;
                         }
@@ -486,7 +487,7 @@ namespace BioBaseCLIA.Run
             if (!haveItem)
                 return;
             //注释这部分的判断，使得可以更新某个项目的信息 jun mod 20190409
-            
+
             ////查询是否存在相应项目名称和试剂批号的主曲线
             //DataTable dt = bllmsc.GetList(" ItemName = '" + itemName + "' and RegentBatch = '" + regentBatch + "'").Tables[0];
             //if (dt.Rows.Count > 0)
@@ -504,6 +505,7 @@ namespace BioBaseCLIA.Run
                 pt += "(" + dtConcValue.Rows[i]["Conc"].ToString() + "," + dtConcValue.Rows[i]["Value"].ToString() + ");";
                 values += dtConcValue.Rows[i]["Value"].ToString() + ",";
             }
+            frmMessageShow frmMsg = new frmMessageShow();
             string[] value = values.Split(',');
             for (int i = 0; i < value.Length - 1; i++)
             {
@@ -516,7 +518,7 @@ namespace BioBaseCLIA.Run
             //lyq add 20190816 
             //在主曲线表，查找id根据批号，如果没有则添加记录
             int mCurve = 0;
-            DbHelperOleDb db ;
+            DbHelperOleDb db;
             mCurve = bllmsc.SelectIdAsRegentBatch(regentBatch);
             if (mCurve == 0)
             {
@@ -540,16 +542,16 @@ namespace BioBaseCLIA.Run
                 return;
             }
 
-            modelMainScalcurve.MainCurveID = mCurve;            
+            modelMainScalcurve.MainCurveID = mCurve;
             //frmMsg.MessageShow(modelMainScalcurve.MainCurveID+"");
             modelMainScalcurve.ItemName = itemName;
             modelMainScalcurve.RegentBatch = regentBatch;
             modelMainScalcurve.Points = pt;
             modelMainScalcurve.ValidPeriod = validDate == "" ? DateTime.Now.AddDays(365) : DateTime.Parse(validDate);//更改为365天 jun mod 20190409
             modelMainScalcurve.ActiveDate = activeDate == "" ? DateTime.Now : DateTime.Parse(activeDate);
-            
+
             //直接用sql更新一条修改的数据 jun add 20190409
-            //更新流程
+            ////更新流程
             //string steps = "";
             //StringBuilder sbSteps = new StringBuilder();
             //for (int i = 0; i < dgvTestPro.Rows.Count; i++)
@@ -567,34 +569,31 @@ namespace BioBaseCLIA.Run
             //}
 
             ////lyq add 20190821 把浓度更新到项目信息表
-            //string ptTotbPro = ""; //浓度
-            //for (int i = 0; i < dtConcValue.Rows.Count; i++)
-            //{
-            //    if (i == dtConcValue.Rows.Count - 1)
-            //    {
-            //        ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString();
-            //        break;
-            //    }
-            //    ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString() + ",";
-            //}
-            //string ptTosql = ",CalPointConc ='" + ptTotbPro + "'";
+            string ptTotbPro = ""; //浓度
+            for (int i = 0; i < dtConcValue.Rows.Count; i++)
+            {
+                if (i == dtConcValue.Rows.Count - 1)
+                {
+                    ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString();
+                    break;
+                }
+                ptTotbPro += dtConcValue.Rows[i]["Conc"].ToString() + ",";
+            }
+            string ptTosql = "CalPointConc ='" + ptTotbPro + "' ";
 
-            //steps = sbSteps.ToString();    
-            //string sql = "update tbProject set ProjectProcedure ='" + steps + "'"+ ptTosql +"where ShortName = '"+itemName+"'";   //lyq mod 20190815 
-            //db = new DbHelperOleDb(0); 
-            //int rows = DbHelperOleDb.ExecuteSql(0,sql);//更新流程到数据库
-            //if (rows > 0)
-            //{
-            //    frmMsg.MessageShow("项目更新",getString("keywordText.UpdateAucceeded"));
-            //}
-            //else
-            //{
-            //    frmMsg.MessageShow("项目更新", getString("keywordText.UpdateFailed"));
-            //}
+            string sql = "update tbProject set " + ptTosql + "where ShortName = '" + itemName + "'";   //lyq mod 20190815 
+            int rows = DbHelperOleDb.ExecuteSql(0, sql);//更新流程到数据库
+            if (rows > 0)
+            {
+                //frmMsg.MessageShow(getString("keywordText.Tips"), getString("keywordText.UpdateAucceeded"));
+            }
+            else
+            {
+                frmMsg.MessageShow(getString("keywordText.Tips"), getString("keywordText.UpdateFailed"));
+                return;
+            }
 
             //更新曲线
-            db = new DbHelperOleDb(1);
-            //if (bllmsc.Add(modelMainScalcurve))
             if (bllmsc.Update(modelMainScalcurve))//更新，不是添加 jun mod 20190409
             {
                 frmMsg.MessageShow(getString("keywordText.AddCurve"), getString("keywordText.AddCurveAucceeded"));
@@ -643,6 +642,7 @@ namespace BioBaseCLIA.Run
                 else
                 {
                     e.Handled = true;
+                    frmMessageShow frmMsg = new frmMessageShow();
                     frmMsg.MessageShow(getString("keywordText.AddCurve"), getString("keywordText.OnlyNum"));
                 }
             }
@@ -802,15 +802,15 @@ namespace BioBaseCLIA.Run
         {
             if (checkBox1.Checked)
             {
-                dgvTestPro.Enabled = true;
-                dgvScaling.Enabled = true;
+                //dgvTestPro.Enabled = true;
+                //dgvScaling.Enabled = true;
                 barCodeHook.Stop();
                 groupBox4.Enabled = true;
             }
             else
             {
-                dgvTestPro.Enabled = false;
-                dgvScaling.Enabled = false;
+                //dgvTestPro.Enabled = false;
+                //dgvScaling.Enabled = false;
                 barCodeHook.Start();
                 groupBox4.Enabled = false;
             }
@@ -828,12 +828,10 @@ namespace BioBaseCLIA.Run
             }
 
             string decryption = StringUtils.instance.ToDecryption(rgCode);
-            string signChar = decryption.Substring(0, 1);
-            //string sign13 = decryption.Substring(1, 3);
-            string sign2 = decryption.Substring(2);
-
-            string sign17;
-            string sign8;
+            string signChar = decryption.Substring(0, 1);  //四种条码的首位是序号，分别是1 2 3 4                    
+            string sign2 = decryption.Substring(2);  //定标浓度条码使用，去掉前两位
+            string sign17;   //发光值条码使用，第一个发光值的7位
+            string sign8;    //发光值条码使用，第二个发光值剩余7位  
 
             try
             {
@@ -843,98 +841,64 @@ namespace BioBaseCLIA.Run
                         DbHelperOleDb db0 = new DbHelperOleDb(0);  //连接数据库ProjectInfo
                         fillDgvProcess(rgCode);   //填充实验流程
 
-                        #region 注释掉
-                        //lyq add 2090820
-                        //string sql = "select ShortName from tbProject where ShortName = '" + itemName + "'";
-                        //DataTable dtTemp = DbHelperOleDb.Query(sql).Tables[0];
-                        //string shortName = dtTemp.Rows[0][0].ToString();
-
-                        //判断该条码是否是已经存在项目
-                        //string sql = "select ProjectNumber from tbProject where ShortName = '" + itemName + "'";
-                        //DataTable dtTemp = DbHelperOleDb.Query(sql).Tables[0];
-                        //string projectNumber = dtTemp.Rows[0][0].ToString();
-                        //if (projectNumber == int.Parse(sign13).ToString())
-                        //{
-                        //    fillDgvProcess(rgCode);
-                        //}
-                        //else
-                        //{
-                        //    frmMsg.MessageShow("该条码与此项目在数据库的编号不匹配！");
-                        //    return;
-                        //}
-                        #endregion
-                        codeTextBox.Text = "";
-                        codeTextBox.Focus();
                         break;
-                    case "3":
-                        string[] decryArray = sign2.Split(new char[3] { 'B', 'C', 'D' });
-                        for (int i = 0; i < decryArray.Length; i++)
+                    case "3":  //定标浓度第一个条码，包含4个浓度
+                        string[] decryArray = sign2.Split(new char[3] { 'B', 'C', 'D' }); //得到四个浓度
+                        for (int i = 0; i < decryArray.Length; i++)  //填充GridView
                         {
                             dtConcValue.Rows[i][1] = decryArray[i].Substring(0, decryArray[i].Length - 1);
                         }
-                        codeTextBox.Text = "";
-                        codeTextBox.Focus();
                         break;
-                    case "4"://lyq add 20190814 扫描枪得到的rgCode不知道什么问题，全是大写字母了
-                        if (rgCode.Contains('x'))
+                    case "4":  //定标浓度第二个条码，包含两个或三个浓度
+                        string[] decryArray2 = sign2.Split(new char[3] { 'f', 'F', 'G' }); //得到几个浓度
+                        if (decryArray2.Length >= 4) //如果是7点定标
                         {
-                            string[] decryArray2 = sign2.Split(new char[2] { 'F', 'G' });
                             for (int i = 0; i < decryArray2.Length; i++)
                             {
-                                dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2.Length); ;
+                                if (i > 0)
+                                {
+                                    if (i == 2)   // split后 ，FG连一块，第三个string块是空的，第四个才是G后浓度
+                                    {
+                                        dtConcValue.Rows[6][1] = decryArray2[3];  //填充第七个浓度
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        dtConcValue.Rows[i + 4][1] = decryArray2[i]; //填充第六个浓度
+                                    }
+                                }
+                                else  //i==0，去掉尾部标志，填充第五个浓度
+                                {
+                                    dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
+                                }
                             }
                         }
-                        else
+                        else  //六点定标
                         {
-                            string[] decryArray2 = sign2.Split(new char[2] { 'F', 'G' });
-                            if (decryArray2.Length >= 4)
+                            for (int i = 0; i < 2; i++)
                             {
-                                for (int i = 0; i < decryArray2.Length; i++)
+                                if (i == 0) //填充第五个浓度
                                 {
-                                    if (i > 0)
-                                    {
-                                        if (i == 2)   // split后 ，FG连一块，第三个string块是空的，第四个才是G后浓度
-                                        {
-                                            dtConcValue.Rows[6][1] = decryArray2[3];
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            dtConcValue.Rows[i + 4][1] = decryArray2[i];
-                                        }
-                                    }
-                                    else
-                                    {
-                                        dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
-                                    }
+                                    dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
                                 }
-                            }
-                            else
-                            {
-                                for (int i = 0; i < 2; i++)
+                                else  //填充第六个浓度
                                 {
-                                    if (i == 0)
-                                    {
-                                        dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
-                                    }
-                                    else
-                                    {
-                                        dtConcValue.Rows[i + 4][1] = decryArray2[i];
-                                    }
+                                    if (decryArray2[i].Contains("f"))
+                                        decryArray2[i] = decryArray2[i].Substring(0, decryArray2[i].Length - 1); ;
+                                    dtConcValue.Rows[i + 4][1] = decryArray2[i];
                                 }
                             }
                         }
-                        codeTextBox.Text = "";
-                        codeTextBox.Focus();
+
                         break;
-                    case "5":
-                        sign17 = decryption.Substring(1, 7);
-                        sign8 = decryption.Substring(8, 7);
+                    case "5":  //发光值第一个条码，两个发光值
+                        sign17 = decryption.Substring(1, 7); //发光值条码，第一个发光值的7位
+                        sign8 = decryption.Substring(8, 7);  //发光值条码，第二个发光值7位
                         if (decryption.Contains("."))  //两个参数中有小数
                         {
                             string[] strSign17 = sign17.Split('.');
                             string[] strSign8 = sign8.Split('.');
-                            if (strSign17.Length == 2) //小数
+                            if (strSign17.Length == 2) //第一个发光值是小数
                             {
                                 sign17 = Convert.ToInt32(strSign17[0], 16).ToString() + "." + Convert.ToInt32(strSign17[1], 16).ToString();
                             }
@@ -942,16 +906,16 @@ namespace BioBaseCLIA.Run
                             {
                                 sign17 = Convert.ToInt32(sign17, 16).ToString();
                             }
-                            if (strSign8.Length == 2)
+                            if (strSign8.Length == 2) //第二个发光值是小数
                             {
                                 sign8 = Convert.ToInt32(strSign8[0], 16).ToString() + "." + Convert.ToInt32(strSign8[1], 16).ToString();
                             }
-                            else if (strSign8.Length == 1)
+                            else if (strSign8.Length == 1) //整数
                             {
                                 sign8 = Convert.ToInt32(sign8, 16).ToString();
                             }
                         }
-                        else
+                        else  //两个发光值都是整数
                         {
                             sign17 = Convert.ToInt32(sign17, 16).ToString();
                             sign8 = Convert.ToInt32(sign8, 16).ToString();
@@ -961,7 +925,7 @@ namespace BioBaseCLIA.Run
                         //dtConcValue.Rows[0][2] = double.Parse(sign17);//去掉前面的0                                                                                            
                         //dtConcValue.Rows[1][2] = double.Parse(sign8);
                         break;
-                    case "6":
+                    case "6":  //发光值第2个条码，两个发光值
                         sign17 = decryption.Substring(1, 7);
                         sign8 = decryption.Substring(8, 7);
                         if (decryption.Contains("."))
@@ -995,7 +959,7 @@ namespace BioBaseCLIA.Run
                         //dtConcValue.Rows[2][2] = double.Parse(sign17);
                         //dtConcValue.Rows[3][2] = double.Parse(sign8);
                         break;
-                    case "7":
+                    case "7":  //发光值第3个条码，两个发光值
                         sign17 = decryption.Substring(1, 7);
                         sign8 = decryption.Substring(8, 7);
                         if (decryption.Contains("."))
@@ -1029,7 +993,7 @@ namespace BioBaseCLIA.Run
                         //dtConcValue.Rows[4][2] = double.Parse(sign17);
                         //dtConcValue.Rows[5][2] = double.Parse(sign8);
                         break;
-                    case "8":
+                    case "8":  //发光值第4个条码，1个发光值
                         sign17 = decryption.Substring(1, 7);
                         if (decryption.Contains("."))
                         {
@@ -1051,11 +1015,13 @@ namespace BioBaseCLIA.Run
                         //dtConcValue.Rows[6][2] = double.Parse(sign17);
                         break;
                     default:
-                        frmMsg.MessageShow("项目更新", getString("keywordText.ScanByStandard"));
+                        frmMessageShow fmsg = new frmMessageShow();
+                        fmsg.MessageShow(getString("projectUpdate"), getString("keywordText.ScanByStandard"));
+                        //Console.WriteLine("请按标准扫描本公司条码");
                         break;
                 }
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 ;
             }
