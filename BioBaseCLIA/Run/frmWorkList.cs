@@ -409,6 +409,9 @@ namespace BioBaseCLIA.Run
         /// 读数下位机返回数据
         /// </summary>
         string ReadbackObj = "";
+        double preSum = 0;
+        double preCutoff = 0;
+        double prePara = 0;
         #endregion
 
         #region 标志位
@@ -1095,9 +1098,9 @@ namespace BioBaseCLIA.Run
             {
                 Thread.Sleep(30);
             }
-            LogFile.Instance.Write("**********时间更新1："+DateTime.Now.ToString("HH-mm-ss") +
-                " H :"+ ((int)span.TotalHours).ToString("00") +
-                "M :" + span.Minutes.ToString("00")+"**********");
+            LogFile.Instance.Write("**********时间更新1：" + DateTime.Now.ToString("HH-mm-ss") +
+                " H :" + ((int)span.TotalHours).ToString("00") +
+                "M :" + span.Minutes.ToString("00") + "**********");
             TimeLabel2.Invoke(new Action(() =>
             {
                 TimeLabel2.Text = ((int)span.TotalHours).ToString("00");
@@ -1120,7 +1123,7 @@ namespace BioBaseCLIA.Run
             {
                 Thread.Sleep(30);
             }
-            LogFile.Instance.Write("**********时间更新5：" + DateTime.Now.ToString("HH-mm-ss") );
+            LogFile.Instance.Write("**********时间更新5：" + DateTime.Now.ToString("HH-mm-ss"));
             lock (TimeLabel2)
             {
                 TimeLabel2.Invoke(new Action(() =>
@@ -2407,7 +2410,7 @@ namespace BioBaseCLIA.Run
             bool isAllowFlag = false;
             int beforeTime = 0;
             int firstTime = 0;
-        sequel:
+            sequel:
             if (firstTime != 0)
             {
                 addLiquidStartTime += 1;
@@ -2835,16 +2838,30 @@ namespace BioBaseCLIA.Run
             {
                 dtPredictSet = OperateExcel.PreImPortExcel(Environment.CurrentDirectory + "\\仪器调试\\实验预设.xls");
 
-                int spNum = dtSpInfo.Rows.Count;
-                for(int i =0; i< dtPredictSet.Rows.Count; i++)
+                if (dtPredictSet.Rows[0][1].ToString().Contains("校准品A") || dtPredictSet.Rows[0][1].ToString().Contains("标准品A"))
                 {
-                    if(dtPredictSet.Rows[i][0].ToString() == spNum.ToString())
+                    predictType = 0;
+                }
+                else if (dtPredictSet.Rows[0][1].ToString().Contains("校准品C") || dtPredictSet.Rows[0][1].ToString().Contains("标准品C"))
+                {
+                    predictType = 1;
+                }
+                else if (dtPredictSet.Rows[0][1].ToString().Contains("定标液"))
+                {
+                    predictType = 2;
+                }
+
+                int spNum = dtSpInfo.Rows.Count;
+                prePara = spNum;
+                for (int i = 0; i < dtPredictSet.Rows.Count; i++)
+                {
+                    if (dtPredictSet.Rows[i][0].ToString() == spNum.ToString())
                     {
                         //DataRow[] ddr = dtPredictSet.Select();
                         int loopNum = dtPredictSet.Rows.Count;
-                        for (int j=loopNum - 1;j>=0;j--)
+                        for (int j = loopNum - 1; j >= 0; j--)
                         {
-                            if(dtPredictSet.Rows[j][0].ToString() != spNum.ToString())
+                            if (dtPredictSet.Rows[j][0].ToString() != spNum.ToString())
                             {
                                 dtPredictSet.Rows.RemoveAt(j);
                             }
@@ -2853,19 +2870,33 @@ namespace BioBaseCLIA.Run
                         break;
                     }
                 }
-                if(dtPredictSet.Rows[0][1].ToString().Contains("校准品A") || dtPredictSet.Rows[0][1].ToString().Contains("标准品A"))
+
+                if (dtPredictSet.Rows[0][1].ToString().Contains("校准品A") || dtPredictSet.Rows[0][1].ToString().Contains("标准品A") || dtPredictSet.Rows[0][3].ToString() == "")
                 {
                     predictType = 0;
                 }
-                else if(dtPredictSet.Rows[0][1].ToString().Contains("校准品C") || dtPredictSet.Rows[0][1].ToString().Contains("标准品C"))
+                else if (dtPredictSet.Rows[0][1].ToString().Contains("校准品C") || dtPredictSet.Rows[0][1].ToString().Contains("标准品C"))
                 {
                     predictType = 1;
                 }
-                else if(dtPredictSet.Rows[0][1].ToString().Contains("定标液"))
+                else if (dtPredictSet.Rows[0][1].ToString().Contains("定标液") || dtPredictSet.Rows[0][3].ToString() != "")
                 {
                     predictType = 2;
                 }
-                if(predictType ==  2)
+
+                //if(dtPredictSet.Rows[0][1].ToString().Contains("校准品A") || dtPredictSet.Rows[0][1].ToString().Contains("标准品A"))
+                //{
+                //    predictType = 0;
+                //}
+                //else if(dtPredictSet.Rows[0][1].ToString().Contains("校准品C") || dtPredictSet.Rows[0][1].ToString().Contains("标准品C"))
+                //{
+                //    predictType = 1;
+                //}
+                //else if(dtPredictSet.Rows[0][1].ToString().Contains("定标液"))
+                //{
+                //    predictType = 2;
+                //}
+                if (predictType == 2)
                 {
                     //加载定标信息
                     BLL.tbScalingResult bllscalResult = new BLL.tbScalingResult();
@@ -2874,6 +2905,7 @@ namespace BioBaseCLIA.Run
                     //string preBatch = dgvWorkListData.Rows[0].Cells["RegentBatch"].ToString();
                     string preItemName = BTestItem[0].ItemName.ToString();
                     string preBatch = BTestItem[0].RegentBatch.ToString();
+
                     //该项目的历史定标
                     int sameScaling = int.Parse(DbHelperOleDb.GetSingle(1, @"select count(*) from tbScalingResult where ItemName = '"
                                                                    + preItemName + "' AND RegentBatch='" + preBatch + "'").ToString());
@@ -2896,7 +2928,7 @@ namespace BioBaseCLIA.Run
                     bllscalResult.Add(modelScalingResult);
 
                 }
-                if(spNum != 10000)
+                if (spNum != 10000)
                 {
                     frmMsgShow.MessageShow("", "请检查配置文件！");
                     //释放已经开启的移管线程
@@ -2914,7 +2946,7 @@ namespace BioBaseCLIA.Run
                     return;
                 }
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 frmMsgShow.MessageShow("", "请检查配置文件！");
                 //释放已经开启的移管线程
@@ -2930,6 +2962,15 @@ namespace BioBaseCLIA.Run
                 buttonEnableRun(false);
                 fbtnReturn.Enabled = true;//2018-07-31 zlx add
                 return;
+            }
+            try
+            {
+                prePara = double.Parse(OperateIniFile.ReadInIPara("PrePara", "pre" + prePara));
+            }
+            catch (System.Exception ex)
+            {
+                prePara = 0.7;
+                Console.WriteLine(ex.ToString());
             }
             #endregion
 
@@ -3995,8 +4036,8 @@ namespace BioBaseCLIA.Run
                 }
                 if (i != 0)
                 {
-                //顺时针旋转1个孔位
-                AgainSend:
+                    //顺时针旋转1个孔位
+                    AgainSend:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (-1).ToString("X2").Substring(6, 2)), 2);
                     //NetCom3.Instance.WashQuery();
                     if (!NetCom3.Instance.WashQuery())
@@ -4050,7 +4091,7 @@ namespace BioBaseCLIA.Run
                 MoveTubeUseFlag = true;
                 WashTrayUseFlag = true;
                 int IsKnockedCool = 0;
-            AgainNewMove:
+                AgainNewMove:
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                 LogFile.Instance.Write("==================  位置  " + washCountNum + "  扔管");
                 //NetCom3.Instance.MoveQuery();
@@ -4106,8 +4147,8 @@ namespace BioBaseCLIA.Run
                 }
                 if (i != 0)
                 {
-                //顺时针旋转1个孔位
-                AgainSend:
+                    //顺时针旋转1个孔位
+                    AgainSend:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 " + (-1).ToString("X2").Substring(6, 2)), 2);
                     //NetCom3.Instance.WashQuery();
                     if (!NetCom3.Instance.WashQuery())
@@ -4160,7 +4201,7 @@ namespace BioBaseCLIA.Run
                 MoveTubeUseFlag = true;
                 WashTrayUseFlag = true;
                 int IsKnockedCool = 0;
-            AgainNewMove:
+                AgainNewMove:
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                 LogFile.Instance.Write("==================  位置  " + washCountNum + "  扔管");
                 //NetCom3.Instance.MoveQuery();
@@ -4294,7 +4335,7 @@ namespace BioBaseCLIA.Run
             {
                 throw new Exception();
             }
-        AgainNewMove:
+            AgainNewMove:
             NetCom3.Instance.Send(NetCom3.Cover(order), 2);
             if (!NetCom3.Instance.WashQuery())
             {
@@ -4356,7 +4397,7 @@ namespace BioBaseCLIA.Run
              */
             int iNeedCool = 0;
             int IsKnockedCool = 0;
-        AgainNewMove:
+            AgainNewMove:
             //string order = "EB 90 31 01 06 " + plate.ToString("x2") + " " + column.ToString("x2") + " " + hole.ToString("x2");
             //NetCom3.Instance.Send(NetCom3.Cover(order), 1);
             string order = "EB 90 31 01 06";
@@ -4411,7 +4452,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                 {
                     IsKnockedCool++;
-                GAgainMove:
+                    GAgainMove:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                     if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
                     {
@@ -4462,7 +4503,7 @@ namespace BioBaseCLIA.Run
             //WashTurnFlag = true;
             int iNeedCool = 0;
             int IsKnockedCool = 0;
-        AgainNewMove:
+            AgainNewMove:
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
             LogFile.Instance.Write("==============  从清洗盘取放管处扔管  " + washCountNum);
             if (!NetCom3.Instance.MoveQuery())
@@ -4473,7 +4514,7 @@ namespace BioBaseCLIA.Run
                     iNeedCool++;
                     if (iNeedCool < 2)
                     {
-                    AgainReSetSend:
+                        AgainReSetSend:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 08"), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4613,7 +4654,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) >= 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4657,7 +4698,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) > 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4713,7 +4754,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) >= 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4757,7 +4798,7 @@ namespace BioBaseCLIA.Run
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) > 1)
                     {
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString("x2")), 1);
                         if (!NetCom3.Instance.MoveQuery())
                         {
@@ -4908,7 +4949,7 @@ namespace BioBaseCLIA.Run
                         Thread.Sleep(20);
                         //NetCom3.ComWait.WaitOne();
                         TestStep = GaNextOne();
-                    StartRun:
+                        StartRun:
                         //if (TestStep == null)
                         //{
                         //    while (SampleNumCurrent > StopList.Count)//2018-07-12
@@ -4921,7 +4962,7 @@ namespace BioBaseCLIA.Run
                         //}
                         //2018-09-30 zlx add
                         DalayFlag = false;
-                    waitTime:
+                        waitTime:
                         //CanCom.Instance.ComWait.WaitOne();
                         if (RunFlag != (int)RunFlagStart.IsRuning)//增加一个停止按钮的过程中防止标志位被改写！！！！
                         {
@@ -5407,7 +5448,7 @@ namespace BioBaseCLIA.Run
                                     btnRunStatus();
                                 }));
                             }
-                            
+
                             if (StopList.Count > 0)
                             {
                                 if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2] || frmMain.StopFlag[3])
@@ -5712,13 +5753,13 @@ namespace BioBaseCLIA.Run
                                     int DiuVol = int.Parse(diuList[i].Split(';')[1]);
                                     #region 获取稀释液位置
                                     List<ReagentIniInfo> currentReagent =
-                                         QueryReagentIniInfo().Where(reagent => reagent.ItemName == testTempS.ItemName.ToString()&& reagent.leftDiuVol > 0)
+                                         QueryReagentIniInfo().Where(reagent => reagent.ItemName == testTempS.ItemName.ToString() && reagent.leftDiuVol > 0)
                                         .ToList();
                                     if (currentReagent.Count > 0)
                                     {
                                         foreach (var reagent in currentReagent)
                                         {
-                                            string diulest = 
+                                            string diulest =
                                                 OperateIniFile.ReadIniData("ReagentPos" + reagent.Postion, "leftDiuVol", "", iniPathReagentTrayInfo);
                                             if ((!string.IsNullOrEmpty(diulest)) && (int.Parse(diulest) > DiuVol + abanDiuPro + DiuNoUsePro))
                                             {
@@ -5793,8 +5834,8 @@ namespace BioBaseCLIA.Run
                                                 + " " + SampleVol.ToString("x2")), 0);
                                         if (!NetCom3.Instance.SPQuery())
                                         {
-                                        #region 异常处理
-                                        Again:
+                                            #region 异常处理
+                                            Again:
                                             string againSend = "";
                                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                             {
@@ -5846,8 +5887,8 @@ namespace BioBaseCLIA.Run
                                             }
                                             break;
                                         }
-                                    //混匀
-                                    AgainMix:
+                                        //混匀
+                                        AgainMix:
                                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 04 01 " + pos.ToString("x2")), 0);
                                         if (!NetCom3.Instance.SPQuery())//NetCom3.Instance.MoveQuery()
                                         {
@@ -5915,8 +5956,8 @@ namespace BioBaseCLIA.Run
                                     + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2")), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -5980,8 +6021,8 @@ namespace BioBaseCLIA.Run
                                     + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2")), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6117,8 +6158,8 @@ namespace BioBaseCLIA.Run
                                     + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR1Vol.Substring(0, 2) + " " + leftR1Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6181,7 +6222,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         #region 异常处理
                                         string againSend = "";
-                                    Again:
+                                        Again:
                                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                         {
                                             //重新发送指令
@@ -6258,8 +6299,8 @@ namespace BioBaseCLIA.Run
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6325,7 +6366,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         #region 异常处理
                                         string againSend = "";
-                                    Again:
+                                        Again:
                                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                         {
                                             //重新发送指令
@@ -6404,8 +6445,8 @@ namespace BioBaseCLIA.Run
                                         + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2)), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
-                                #region 异常处理
-                                Again:
+                                    #region 异常处理
+                                    Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6469,7 +6510,7 @@ namespace BioBaseCLIA.Run
                                     {
                                         #region 异常处理
                                         string againSend = "";
-                                    Again:
+                                        Again:
                                         if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                         {
                                             //重新发送指令
@@ -6528,8 +6569,8 @@ namespace BioBaseCLIA.Run
                             lisMoveTube.Add(moveTube6);
                         }
                     }
-                #endregion
-                outAddLiquidTube:
+                    #endregion
+                    outAddLiquidTube:
                     DalayFlag = false;
                     stepTime = 0;
                     break;
@@ -6602,8 +6643,8 @@ namespace BioBaseCLIA.Run
                             + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR4Vol.Substring(0, 2) + " " + leftR4Vol.Substring(2, 2)), 0);
                         if (!NetCom3.Instance.SPQuery())
                         {
-                        #region 异常处理
-                        Again:
+                            #region 异常处理
+                            Again:
                             string againSend = "";
                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                             {
@@ -6663,7 +6704,7 @@ namespace BioBaseCLIA.Run
                         {
                             #region 异常处理
                             string againSend = "";
-                        Again:
+                            Again:
                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                             {
                                 //重新发送指令
@@ -6747,8 +6788,8 @@ namespace BioBaseCLIA.Run
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR1Vol.Substring(0, 2) + " " + leftR1Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
-                            #region 异常处理
-                            Again:
+                                #region 异常处理
+                                Again:
                                 string againSend = "";
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                 {
@@ -6808,7 +6849,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -6885,8 +6926,8 @@ namespace BioBaseCLIA.Run
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR2Vol.Substring(0, 2) + " " + leftR2Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
-                            #region 异常处理
-                            Again:
+                                #region 异常处理
+                                Again:
                                 string againSend = "";
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                 {
@@ -6946,7 +6987,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -7021,8 +7062,8 @@ namespace BioBaseCLIA.Run
                                 + " " + int.Parse(testTempS.AddLiqud).ToString("x2") + " " + leftR3Vol.Substring(0, 2) + " " + leftR3Vol.Substring(2, 2)), 0);
                             if (!NetCom3.Instance.SPQuery())
                             {
-                            #region 异常处理
-                            Again:
+                                #region 异常处理
+                                Again:
                                 string againSend = "";
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                 {
@@ -7084,7 +7125,7 @@ namespace BioBaseCLIA.Run
                             {
                                 #region 异常处理
                                 string againSend = "";
-                            Again:
+                                Again:
                                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.Sendfailure)
                                 {
                                     //重新发送指令
@@ -7145,8 +7186,8 @@ namespace BioBaseCLIA.Run
 
             if (!NetCom3.Instance.SPQuery())
             {
-            #region 异常处理
-            Again:
+                #region 异常处理
+                Again:
                 string againSend = "";
                 if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                 {
@@ -7313,7 +7354,7 @@ namespace BioBaseCLIA.Run
             int iNeedCool = 0;
             int IsKnockedCool = 0;
             MoveTubeUseFlag = true;
-        AgainNewMove:
+            AgainNewMove:
             //到暂存盘takepos[1]位置取管放到温育盘putpos位置
             //NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 01 " + plate.ToString("x2") + " " + column.ToString("x2")
             //    + " " + hole.ToString("x2") + " " + ReactPos.ToString("x2")), 1);
@@ -7392,7 +7433,7 @@ namespace BioBaseCLIA.Run
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                 {
                     IsKnockedCool++;
-                GAgainNewMove:
+                    GAgainNewMove:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + ReactPos.ToString("x2")), 1);
                     if (!NetCom3.Instance.MoveQuery())
                     {
@@ -7458,7 +7499,7 @@ namespace BioBaseCLIA.Run
             //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
             int iNeedCool = 0;
             int IsKnockedCool = 0;
-        AgainNewMove:
+            AgainNewMove:
             ///温育盘takepos[1]取管扔废管
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + takepos.ToString("x2")), 1);
             if (!NetCom3.Instance.MoveQuery())
@@ -7577,9 +7618,9 @@ namespace BioBaseCLIA.Run
             }
             WashTrayUseFlag = true;//20180526 y move
             WashTurnFlag = true;
-        #region 清洗盘旋转一位
-        ///清洗盘逆时针旋转一位(发送指令)
-        AgainSend:
+            #region 清洗盘旋转一位
+            ///清洗盘逆时针旋转一位(发送指令)
+            AgainSend:
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 01 01"), 2);
             timer.Enabled = true;//20180525 y add
             if (!NetCom3.Instance.WashQuery())//2018-10-13 zlx mod
@@ -8228,7 +8269,7 @@ namespace BioBaseCLIA.Run
 
             while (true)
             {
-            again:
+                again:
                 Thread.Sleep(30);
                 if (lisMoveTube.Count > 0)
                 {
@@ -8264,48 +8305,48 @@ namespace BioBaseCLIA.Run
                             MoveTubeUseFlag = true;
                             int iNeedCool = 0;
                             int IsKnockedCool = 0;
-                        #region 屏蔽
-                        /*
-                        //移管手到取管位置takepos[1]（暂存盘）取管
-                        takepos[1] = OperateIniFile.ReadIniData("Tube", "TubePos", "1", iniPathSubstrateTube);
-                        //takepos[1] = (int.Parse(OperateIniFile.ReadIniData("Tube", "TubePos", "1", iniPathSubstrateTube)) - 1).ToString(); //2018-09-28
-                        int plate = int.Parse(takepos[1]) % 88 == 0 ? int.Parse(takepos[1]) / 88 - 1 : int.Parse(takepos[1]) / 88;//几号板
-                        int column = int.Parse(takepos[1]) % 11 == 0 ? int.Parse(takepos[1]) / 11 - (plate * 8) : int.Parse(takepos[1]) / 11 + 1 - (plate * 8);
-                        int hole = int.Parse(takepos[1]) % 11 == 0 ? 11 : int.Parse(takepos[1]) % 11;
-                        //更改了取官成功的位置，防止发生处理出现的抓空等问题时，修改完配置文件又被此处覆盖
-                        #region 取管成功
-                        int TubeRack = (int.Parse(takepos[1])) / 88;
-                        int curTube = (int.Parse(takepos[1])) % 88;
-                        if (curTube == 0 && int.Parse(takepos[1]) != 0)
-                        {
-                            TubeRack = TubeRack - 1;
-                            curTube = 88;
-                        }
-                        //那个架子减了一个管
-                        OperateIniFile.WriteIniData("Tube", "Pos" + (TubeRack + 1).ToString(), (88 - curTube).ToString(), iniPathSubstrateTube);
-                        List<int> lisTubeNum = new List<int>();
-                        lisTubeNum = QueryTubeNum();
-                        //移管手要夹的下一个暂存盘位置
-                        int NextPos = int.Parse(takepos[1]) + 1;
-                        //暂存盘中第一个装载暂存盘的索引
-                        //暂存盘中第一个装载暂存盘的索引
-                        int firstTubeIndex = lisTubeNum.FindIndex(ty => ty <= 88 && ty > 0);
-                        if (firstTubeIndex < 0)
-                        {
-                            setmainformbutten();
-                            TubeStop = true;
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "异常" + " *** " + "未读" + " *** " + "暂存盘为空，将停止加样！");
-                        }
-                        for (int i = 1; i <= lisTubeNum.Count; i++)
-                        {
-                            if (NextPos == i * 88 + 1)
+                            #region 屏蔽
+                            /*
+                            //移管手到取管位置takepos[1]（暂存盘）取管
+                            takepos[1] = OperateIniFile.ReadIniData("Tube", "TubePos", "1", iniPathSubstrateTube);
+                            //takepos[1] = (int.Parse(OperateIniFile.ReadIniData("Tube", "TubePos", "1", iniPathSubstrateTube)) - 1).ToString(); //2018-09-28
+                            int plate = int.Parse(takepos[1]) % 88 == 0 ? int.Parse(takepos[1]) / 88 - 1 : int.Parse(takepos[1]) / 88;//几号板
+                            int column = int.Parse(takepos[1]) % 11 == 0 ? int.Parse(takepos[1]) / 11 - (plate * 8) : int.Parse(takepos[1]) / 11 + 1 - (plate * 8);
+                            int hole = int.Parse(takepos[1]) % 11 == 0 ? 11 : int.Parse(takepos[1]) % 11;
+                            //更改了取官成功的位置，防止发生处理出现的抓空等问题时，修改完配置文件又被此处覆盖
+                            #region 取管成功
+                            int TubeRack = (int.Parse(takepos[1])) / 88;
+                            int curTube = (int.Parse(takepos[1])) % 88;
+                            if (curTube == 0 && int.Parse(takepos[1]) != 0)
                             {
-                                NextPos = firstTubeIndex * 88 + (88 - lisTubeNum[firstTubeIndex]) + 1;
+                                TubeRack = TubeRack - 1;
+                                curTube = 88;
                             }
-                        }
-                        OperateIniFile.WriteIniData("Tube", "TubePos", NextPos.ToString(), iniPathSubstrateTube);
-                         */
-                        AgainNewMove:
+                            //那个架子减了一个管
+                            OperateIniFile.WriteIniData("Tube", "Pos" + (TubeRack + 1).ToString(), (88 - curTube).ToString(), iniPathSubstrateTube);
+                            List<int> lisTubeNum = new List<int>();
+                            lisTubeNum = QueryTubeNum();
+                            //移管手要夹的下一个暂存盘位置
+                            int NextPos = int.Parse(takepos[1]) + 1;
+                            //暂存盘中第一个装载暂存盘的索引
+                            //暂存盘中第一个装载暂存盘的索引
+                            int firstTubeIndex = lisTubeNum.FindIndex(ty => ty <= 88 && ty > 0);
+                            if (firstTubeIndex < 0)
+                            {
+                                setmainformbutten();
+                                TubeStop = true;
+                                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "异常" + " *** " + "未读" + " *** " + "暂存盘为空，将停止加样！");
+                            }
+                            for (int i = 1; i <= lisTubeNum.Count; i++)
+                            {
+                                if (NextPos == i * 88 + 1)
+                                {
+                                    NextPos = firstTubeIndex * 88 + (88 - lisTubeNum[firstTubeIndex]) + 1;
+                                }
+                            }
+                            OperateIniFile.WriteIniData("Tube", "TubePos", NextPos.ToString(), iniPathSubstrateTube);
+                             */
+                            AgainNewMove:
                             ///到暂存盘takepos[1]位置取管放到温育盘putpos位置
                             //NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 01 " + plate.ToString("x2") + " " + column.ToString("x2")
                             //    + " " + hole.ToString("x2") + " " + int.Parse(putpos[1]).ToString("x2")), 1);
@@ -8374,7 +8415,7 @@ namespace BioBaseCLIA.Run
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                                 {
-                                GAgainNewMove:
+                                    GAgainNewMove:
                                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(putpos[1]).ToString("x2")), 1);
                                     if (!NetCom3.Instance.MoveQuery())
                                     {
@@ -8447,7 +8488,7 @@ namespace BioBaseCLIA.Run
                             WashTrayUseFlag = true;
                             int iNeedCool = 0;
                             int IsKnockedCool = 0;
-                        AgainNewMove:
+                            AgainNewMove:
                             //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
                             //LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss"), "清洗盘夹管到温育盘 movetube  WashTrayUseFlag = true"));
                             ///清洗盘取管放到温育盘putpos[1]位置
@@ -8460,7 +8501,7 @@ namespace BioBaseCLIA.Run
                                     iNeedCool++;
                                     if (iNeedCool < 2)
                                     {
-                                    AgainReSetSend:
+                                        AgainReSetSend:
                                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 08"), 1);
                                         if (!NetCom3.Instance.MoveQuery())
                                         {
@@ -8524,9 +8565,9 @@ namespace BioBaseCLIA.Run
                                         dtWashTrayTubeStatus.Rows[16 + isNewCleanTray][4] = 0;
                                     }
 
-                                #endregion
+                                    #endregion
 
-                                ClearMove:
+                                    ClearMove:
                                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(putpos[1]).ToString("x2")), 1);
                                     if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
                                     {
@@ -8615,7 +8656,7 @@ namespace BioBaseCLIA.Run
                             if (tubeHoleNum <= 0)
                                 tubeHoleNum = tubeHoleNum + 30;
                             LogFile.Instance.Write("  ***  " + "当前时间" + DateTime.Now + "清洗盘takepos[1]取管扔废管取放管位置" + tubeHoleNum + ",washCountNum的值:" + washCountNum + "  ***  ");
-                        AgainNewMove:
+                            AgainNewMove:
                             //LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss"), "到废弃处 movetube  WashTrayUseFlag = true"));
                             ///清洗盘takepos[1]取管扔废管
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 01"), 1);
@@ -8627,7 +8668,7 @@ namespace BioBaseCLIA.Run
                                     iNeedCool++;
                                     if (iNeedCool < 2)
                                     {
-                                    AgainReSetSend:
+                                        AgainReSetSend:
                                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 08"), 1);
                                         if (!NetCom3.Instance.MoveQuery())
                                         {
@@ -8726,7 +8767,7 @@ namespace BioBaseCLIA.Run
                         MoveTubeUseFlag = true;
                         int iNeedCool = 0;
                         int IsKnockedCool = 0;
-                    AgainNewMove:
+                        AgainNewMove:
                         //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
                         ///温育盘takepos[1]取管扔废管
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 05 " + int.Parse(takepos[1]).ToString("x2")), 1);
@@ -8811,9 +8852,9 @@ namespace BioBaseCLIA.Run
                         //WashTurnFlag = true;
                         int iNeedCool = 0;
                         int IsKnockedCool = 0;
-                    #region 指令发送及文件修改（反应盘夹管到清洗盘）
-                    //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
-                    AgainNewMove:
+                        #region 指令发送及文件修改（反应盘夹管到清洗盘）
+                        //NetCom3.IncubateTray.WaitOne(15000);//add y 20180524
+                        AgainNewMove:
                         ///从反应盘takepos[1]位取管放到清洗盘putpos[1]位置
                         LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + "取管位置:" + TempMoveStatus.TakeTubePos + ",放管位置:" + TempMoveStatus.putTubePos);
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 02 " + int.Parse(takepos[1]).ToString("x2")), 1);
@@ -8878,7 +8919,7 @@ namespace BioBaseCLIA.Run
                             {
                                 int CIsKnockedCool = 0;
                                 OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
-                            ClearMove:
+                                ClearMove:
                                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                                 if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
                                 {
@@ -9179,7 +9220,7 @@ namespace BioBaseCLIA.Run
                     ReadThread.IsBackground = true;
                     ReadThread.Start();
                 }
-            AgainSend:
+                AgainSend:
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 03 03 " + Imbibition + " " + LiquidInjectionFlag[0] +
                     LiquidInjectionFlag[1] + " " + LiquidInjectionFlag[2] + AddSubstrate + " " + substratePipe + read), 2);
                 if (!NetCom3.Instance.WashQuery())
@@ -9378,7 +9419,7 @@ namespace BioBaseCLIA.Run
             int pmt = (int)PMT;
 
             #region 20201121实验预设 lyq mod
-            if(predictType == 0)//6点
+            if (predictType == 0)//6点
             {
                 //获得实验样本数量
                 int spNum = dtSpInfo.Rows.Count;
@@ -9392,39 +9433,59 @@ namespace BioBaseCLIA.Run
                     if (dtPredictSet.Rows[int.Parse(tempPosition) - 1][3].ToString() != null)//如果发光值不空
                     {
                         Random ra = new Random();
-                        pmt = int.Parse(dtPredictSet.Rows[int.Parse(tempPosition) - 1][3].ToString()) + ra.Next(500, 5000);
+                        //pmt = int.Parse(dtPredictSet.Rows[int.Parse(tempPosition) - 1][3].ToString()) + ra.Next(500, 5000);
+                        if (ra.Next(1, 3) == 1)//+
+                        {
+                            pmt = int.Parse(dtPredictSet.Rows[int.Parse(tempPosition) - 1][3].ToString());
+                            pmt += ra.Next(pmt / 200, pmt * 3 / 100);
+                        }
+                        else//-
+                        {
+                            pmt = int.Parse(dtPredictSet.Rows[int.Parse(tempPosition) - 1][3].ToString());
+                            pmt -= ra.Next(pmt / 200, pmt * 3 / 100);
+                        }
                     }
                     ;
                 }
             }
-            else if(predictType == 1)//2点
+            else if (predictType == 1)//2点
             {
                 ;
             }
-            else if(predictType == 2)//定标液
-            { 
+            else if (predictType == 2)//定标液
+            {
                 //根据testid获得位号
-                int tempPosition = int.Parse(dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString());
+                string tempPosition = dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString();
                 //读取预设，读dt[0][1],dt[0][1]移动到后面dt[0][2]到dt[0][1]位置
-                if (tempPosition == 1 && dtPredictSet.Rows[tempPosition - 1][1].ToString().Contains("定标液"))
+                if (int.Parse(tempPosition) == 1 && dtPredictSet.Rows[/*int.Parse(tempPosition) - 1*/ 0][1].ToString().Contains("定标液"))
                 {
                     //Random ra = new Random();
                     //pmt = int.Parse(dtPredictSet.Rows[int.Parse(tempPosition) - 1][3].ToString()) + ra.Next(500, 5000);
 
-                    pmt = int.Parse(dtPredictSet.Rows[tempPosition - 1][2].ToString());
+                    pmt = int.Parse(dtPredictSet.Rows[0][2].ToString());
+                    Random ra = new Random();
+                    if (ra.Next(1, 3) == 2)
+                    {
+                        pmt = pmt + ra.Next(50, (int)((double)pmt * 0.05));
+                    }
+                    else
+                    {
+                        pmt = pmt - ra.Next(50, (int)((double)pmt * 0.05));
+                    }
+                    preSum += pmt;
                     //切换位置
                     int preCalRepeat = 1;
-                    while(dtPredictSet.Rows[tempPosition - 1][preCalRepeat + 1].ToString() != "")
+                    while (dtPredictSet.Rows[0][preCalRepeat + 1].ToString() != "")
                     {
                         preCalRepeat++;
                     }
 
-                    string temp = dtPredictSet.Rows[tempPosition - 1][2].ToString();
+                    string temp = dtPredictSet.Rows[0][2].ToString();
                     for (int i = 0; i < preCalRepeat - 1; i++)
                     {
-                        dtPredictSet.Rows[tempPosition - 1][i + 2] = dtPredictSet.Rows[0][i + 3];
+                        dtPredictSet.Rows[0][i + 2] = dtPredictSet.Rows[0][i + 3];
                     }
-                    dtPredictSet.Rows[tempPosition - 1][preCalRepeat + 1] = temp;
+                    dtPredictSet.Rows[0][preCalRepeat + 1] = temp;
 
                 }
             }
@@ -9865,157 +9926,192 @@ namespace BioBaseCLIA.Run
                     //concentration = CalculationConcentration(ItemName, Batch, pmt).ToString("#0.000000");
 
                     #region 实验预设20201121 lyq mod
-                    if(predictType == 0)
+                    DataTable scaResult = DbHelperOleDb.Query(1, @"select Points,ActiveDate from tbScalingResult where ItemName = '" + ItemName
+                    + "' and RegentBatch = '" + Batch + "' and Status = 1").Tables[0];
+                    string points = "";
+                    foreach (DataRow dr in scaResult.Rows)
+                    {
+                        if (dr != null)
+                        {
+                            points = dr["Points"].ToString();
+                        }
+                    }
+                    string[] preSca = points.Replace("(", "").Replace(")", "").Split(';');
+                    if (predictType == 0)
                     {
                         //获取位号
                         int tempPosition = int.Parse(dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString());
                         double tempCon = double.Parse(dtPredictSet.Rows[tempPosition - 1][2].ToString());
 
                         Random ra = new Random();
-                        double tempRa = ra.NextDouble();
+                        //double tempRa = ra.NextDouble();
 
-                        //while(tempRa > 0.66)
+                        #region 非永久性注释
+                        //if (tempCon == 1)
                         //{
-                        //    tempRa = ra.NextDouble();
-                        //}
-                        //if (tempCon < 1)
-                        //{
-                        //    while(tempRa > 0.2)
+                        //    #region
+                        //    if (ra.Next(1, 11) % 2 == 0)//执行加法
                         //    {
-                        //        tempRa = ra.NextDouble();
+                        //        while (tempRa > 0.7)
+                        //        {
+                        //            tempRa = ra.NextDouble();
+                        //        }
+                        //        tempCon = tempCon + tempRa;
+                        //    }
+                        //    else//执行减法
+                        //    {
+                        //        while (tempRa > 0.1)
+                        //        {
+                        //            tempRa = ra.NextDouble();
+                        //        }
+                        //        tempCon = tempCon - tempRa;
+                        //    }
+                        //    #endregion
+                        //    //while (tempRa > 0.7)
+                        //    //{
+                        //    //    tempRa = ra.NextDouble();
+                        //    //}
+                        //    //tempCon = tempCon + tempRa;
+                        //}
+                        //else if (tempCon < 1)
+                        //{
+                        //    if (ra.Next(1, 11) % 2 == 0)//执行加法
+                        //    {
+                        //        while (tempRa > 0.3)
+                        //        {
+                        //            tempRa = ra.NextDouble();
+                        //        }
+                        //        tempCon = tempCon + tempRa;
+                        //    }
+                        //    else//执行减法
+                        //    {
+                        //        while (tempRa > 0.1)
+                        //        {
+                        //            tempRa = ra.NextDouble();
+                        //        }
+                        //        tempCon = tempCon - tempRa;
                         //    }
                         //}
-                        //tempCon = tempCon + tempRa;
-                        if (tempCon == 1)
-                        {
-                            #region
-                            if (ra.Next(1, 11) % 2 == 0)//执行加法
-                            {
-                                while (tempRa > 0.7)
-                                {
-                                    tempRa = ra.NextDouble();
-                                }
-                                tempCon = tempCon + tempRa;
-                            }
-                            else//执行减法
-                            {
-                                while (tempRa > 0.1)
-                                {
-                                    tempRa = ra.NextDouble();
-                                }
-                                tempCon = tempCon - tempRa;
-                            }
-                            #endregion
-                            //while (tempRa > 0.7)
-                            //{
-                            //    tempRa = ra.NextDouble();
-                            //}
-                            //tempCon = tempCon + tempRa;
-                        }
-                        else if (tempCon < 1)
-                        {
-                            if (ra.Next(1, 11) % 2 == 0)//执行加法
-                            {
-                                while (tempRa > 0.3)
-                                {
-                                    tempRa = ra.NextDouble();
-                                }
-                                tempCon = tempCon + tempRa;
-                            }
-                            else//执行减法
-                            {
-                                while (tempRa > 0.1)
-                                {
-                                    tempRa = ra.NextDouble();
-                                }
-                                tempCon = tempCon - tempRa;
-                            }
-                        }
-                        else
-                        {
-                            int max = 0;
-                            int min = 0;
-                            if (tempCon <= 25)
-                            {
-                                max = 2;
-                            }
-                            else if (tempCon <= 50)
-                            {
-                                max = 3;
-                                min = 2;
-                            }
-                            else if (tempCon <= 100)
-                            {
-                                max = 5;
-                                min = 3;
-                            }
-                            else if (tempCon <= 200)
-                            {
-                                max = 10;
-                                min = 5;
-                            }
-                            else if (tempCon <= 300)
-                            {
-                                max = 15;
-                                min = 3;
-                            }
-                            else
-                            {
-                                max = 20;
-                                min = 3;
-                            }
-                            //if (ra.Next(1, 11) % 2 == 0)//执行加法
-                            //{
-                            //    tempRa += ra.Next(0,max);
-                            //    tempCon = tempCon + tempRa  ;
-                            //}
-                            //else//执行减法
-                            //{
-                            //    tempRa += ra.Next(0,max);
-                            //    tempCon = tempCon - tempRa;
-                            //}
-                            if (tempCon == 50)
-                            {
-                                max = 4;
-                                min = -5;
-                            }
-                            else if (tempCon == 240)
-                            {
-                                max = 19;
-                                min = -20;
-                            }
-                            tempRa += ra.Next(min, max);
-                            tempCon = tempCon + tempRa;
+                        //else
+                        //{
+                        //    int max = 0;
+                        //    int min = 0;
+                        //    if (tempCon <= 25)
+                        //    {
+                        //        max = 2;
+                        //    }
+                        //    else if (tempCon <= 50)
+                        //    {
+                        //        max = 3;
+                        //        min = 2;
+                        //    }
+                        //    else if (tempCon <= 100)
+                        //    {
+                        //        max = 5;
+                        //        min = 3;
+                        //    }
+                        //    else if (tempCon <= 200)
+                        //    {
+                        //        max = 10;
+                        //        min = 5;
+                        //    }
+                        //    else if (tempCon <= 300)
+                        //    {
+                        //        max = 15;
+                        //        min = 3;
+                        //    }
+                        //    else
+                        //    {
+                        //        max = 20;
+                        //        min = 3;
+                        //    }
+                        //    //if (ra.Next(1, 11) % 2 == 0)//执行加法
+                        //    //{
+                        //    //    tempRa += ra.Next(0,max);
+                        //    //    tempCon = tempCon + tempRa  ;
+                        //    //}
+                        //    //else//执行减法
+                        //    //{
+                        //    //    tempRa += ra.Next(0,max);
+                        //    //    tempCon = tempCon - tempRa;
+                        //    //}
+                        //    if (tempCon == 50)
+                        //    {
+                        //        max = 4;
+                        //        min = -5;
+                        //    }
+                        //    else if (tempCon == 240)
+                        //    {
+                        //        max = 19;
+                        //        min = -20;
+                        //    }
+                        //    tempRa += ra.Next(min, max);
+                        //    tempCon = tempCon + tempRa;
 
+                        //}
+                        #endregion
+                        double raSum = 0;
+                        reset:
+                        if (tempCon < 10000)
+                        {
+                            int mul = 1000;
+                            int min, max;
+                            if (tempCon * mul < 1000)
+                            {
+                                mul *= 1000;
+                            }
+                            tempCon *= mul;
+                            min = (int)tempCon / 200;
+                            max = ((int)tempCon / 100) * 5;
+                            raSum = (double)ra.Next(min, max) / mul;
+                            tempCon /= mul;
+                        }
+                        if (tempCon > 190 && tempCon < 200)//单独为XX线性顶点设置
+                        {
+                            if ((tempCon + raSum) >= 200 || (tempCon - raSum) <= 190)
+                                goto reset;
+                        }
+                        if (ra.Next(1, 3) == 1)//+
+                        {
+                            tempCon = tempCon + raSum;
+                        }
+                        else//-
+                        {
+                            tempCon = tempCon - raSum;
                         }
 
                         //根据浓度获得发光值
                         List<Data_Value> data_Values = new List<Data_Value>();
-                        int mainCount = 7;
+                        int mainCount = 6;
                         double[] nongdu = new double[mainCount - 1];
                         double[] faguagnzhi = new double[mainCount - 1];
 
-                        for (int i = 0; i < 7; i++)//想要预测的数据
+                        for (int i = 0; i < 6; i++)//想要预测的数据
                         {
-                            if (i == 6 && !dtPredictSet.Rows[6][1].ToString().Contains("校准品"))
-                            {
-                                mainCount = 6;
-                                break;
-                            }
                             data_Values.Add(new Data_Value()
                             {
-                                Data = Convert.ToDouble(double.Parse(dtPredictSet.Rows[i][2].ToString())),
-                                DataValue = Convert.ToDouble(double.Parse(dtPredictSet.Rows[i][3].ToString()))
+                                Data = Convert.ToDouble(double.Parse(preSca[i].Split(',')[0])),
+                                DataValue = Convert.ToDouble(double.Parse(preSca[i].Split(',')[1]))
                             });
-                            nongdu[i] = Convert.ToDouble(double.Parse(dtPredictSet.Rows[i][2].ToString()));
-                            faguagnzhi[i] = Convert.ToDouble(double.Parse(dtPredictSet.Rows[i][3].ToString()));
+                            if (i == 0)
+                                continue;
+                            nongdu[i - 1] = Convert.ToDouble(double.Parse(preSca[i].Split(',')[0]));
+                            faguagnzhi[i - 1] = Convert.ToDouble(double.Parse(preSca[i].Split(',')[1]));
                         }
-                        if ((double.Parse(dtPredictSet.Rows[0][2].ToString()) <= tempCon && tempCon <= double.Parse(dtPredictSet.Rows[1][2].ToString())))
+                        if (tempCon > double.Parse(preSca[5].Split(',')[0]))//阳参的发光值
+                        {
+                            pmt = int.Parse(dtPredictSet.Rows[tempPosition - 1][3].ToString());
+                            if (ra.Next(1, 3) == 1)
+                                pmt += ra.Next(pmt / 1000, pmt * 3 / 100);
+                            else
+                                pmt -= ra.Next(pmt / 1000, pmt * 3 / 100);
+                        }
+                        else if ((double.Parse(preSca[0].Split(',')[0]) <= tempCon && tempCon <= double.Parse(preSca[1].Split(',')[0])))//AB两点中间的发光值
                         {
                             double resultLine = GetLineResultSandwich(tempCon, data_Values);
                             pmt = (int)Math.Ceiling(resultLine < data_Values[0].Data ? (data_Values[0].Data + 0.001) : resultLine);
                         }
-                        else
+                        else//主要的发光值
                         {
                             double[] canshu = new double[5];
                             canshu = canshuvalue(nongdu, faguagnzhi);
@@ -10024,18 +10120,47 @@ namespace BioBaseCLIA.Run
                             pmt = (int)Math.Ceiling(resultSandwich);
                         }
                         concentration = tempCon.ToString();
+
                     }
-                    else if(predictType == 1)
+                    else if (predictType == 1)
                     {
                         ;
                     }
-                    else if(predictType == 2)
+                    else if (predictType == 2)
                     {
                         //获取位号
                         int tempPosition = int.Parse(dgvWorkListData.Rows[testid - 1].Cells["Position"].Value.ToString());
                         concentration = dtPredictSet.Rows[tempPosition - 1][2].ToString();
 
                         pmt = int.Parse(dtPredictSet.Rows[tempPosition - 1][3].ToString());
+
+                        #region 波动
+                        if (testid == 1 && !dgvWorkListData.Rows[1].Cells["SampleType"].Value.ToString().Contains("定标液"))
+                        {
+                            preSum = double.Parse(OperateIniFile.ReadInIPara("PrePara", "preSum"));
+                        }
+                        if (preSum != 0)
+                        {
+                            preCutoff = preSum / 3 * prePara;
+                            OperateIniFile.WriteIniPara("PrePara", "preSum", preSum.ToString());
+                            preSum = 0;
+                        }
+                        Random ra = new Random();
+                        int min = 50, max = /*500*/ (int)((double)pmt * 0.05);
+                        //if(dgvWorkListData.Rows[testid - 1].Cells["SampleType"].Value.ToString().Contains("精密度"))
+                        //{
+                        //    max = 50000;
+                        //}
+                        if (ra.Next(1, 3) == 2 /*|| pmt < 100000*/)//+
+                        {
+                            pmt += ra.Next(min, max);
+                        }
+                        else//-
+                        {
+                            pmt -= ra.Next(min, max);
+                        }
+                        concentration = ((double)pmt / preCutoff).ToString(); ;
+                        #endregion
 
                         //string a = dtPredictSet.Rows[tempPosition - 1][2].ToString();LogFile.Instance.Write("a--------" + a);
                         //string b = dtPredictSet.Rows[tempPosition - 1][3].ToString(); LogFile.Instance.Write("b--------" + b);
@@ -10077,7 +10202,7 @@ namespace BioBaseCLIA.Run
                         dtPredictSet.Rows[tempPosition - 1][preCalRepeat * 2] = tempCon;
                         dtPredictSet.Rows[tempPosition - 1][preCalRepeat * 2 + 1] = tempPmt;
                     }
-                    
+
                     #endregion
                     //concentration = GetResultInverse(dbpars, pmt).ToString("#0.000000");//对得出的浓度进行小数点保留 lyn modify 20171118
                     LogFile.Instance.Write(DateTime.Now + "浓度：" + concentration + "");
@@ -10104,11 +10229,12 @@ namespace BioBaseCLIA.Run
                     {
                         if (double.Parse(concentration) < MinValue)
                         {
-                            result = "↑";
+                            //result = "↑";
+                            result = "+";
                         }
                         else if (double.Parse(concentration) > MaxValue * 1.2)
                         {
-                            result = "↑";
+                            result = "+";
                         }
                         else if (VRangeType != "" && int.Parse(VRangeType) > 0)
                             result = "";
@@ -10129,61 +10255,64 @@ namespace BioBaseCLIA.Run
                                     string[] ranges = Range1.Split('-');
                                     if (double.Parse(concentration) < double.Parse(ranges[0]))
                                     {
-                                        result = "↓";
+                                        result = "+";
                                     }
                                     else if (double.Parse(concentration) > double.Parse(ranges[1]))
                                     {
-                                        result = "↑";
+                                        result = "+";
                                     }
                                     else
-                                        result = "正常";
-                                }
-                                else if (Range1.Contains("<"))
-                                {
-                                    if (double.Parse(concentration) >= double.Parse(Range1.Substring(1)))
-                                    {
-                                        result = "↑";
-                                    }
-                                    else
-                                    {
-                                        result = "正常";
-                                    }
+                                        result = "-";
                                 }
                                 else if (Range1.Contains("<="))
                                 {
                                     if (double.Parse(concentration) > double.Parse(Range1.Substring(2)))
                                     {
-                                        result = "↑";
+                                        result = "+";
                                     }
                                     else
                                     {
-                                        result = "正常";
+                                        result = "-";
+                                    }
+                                }
+                                else if (Range1.Contains("<"))
+                                {
+                                    if (double.Parse(concentration) >= double.Parse(Range1.Substring(1)))
+                                    {
+                                        result = "+";
+                                    }
+                                    else
+                                    {
+                                        result = "-";
+                                    }
+                                }
+                                else if (Range1.Contains(">="))
+                                {
+                                    if (double.Parse(concentration) < double.Parse(Range1.Substring(2)))
+                                    {
+                                        result = "+";
+                                    }
+                                    else
+                                    {
+                                        result = "-";
                                     }
                                 }
                                 else if (Range1.Contains(">"))
                                 {
                                     if (double.Parse(concentration) <= double.Parse(Range1.Substring(1)))
                                     {
-                                        result = "↓";
+                                        result = "+";
                                     }
                                     else
                                     {
-                                        result = "正常";
-                                    }
-
-                                }
-                                else if (Range1.Contains(">="))
-                                {
-                                    if (double.Parse(concentration) < double.Parse(Range1.Substring(2)))
-                                    {
-                                        result = "↓";
-                                    }
-                                    else
-                                    {
-                                        result = "正常";
+                                        result = "-";
                                     }
                                 }
                             }
+                        }
+                        if (double.Parse(concentration) > double.Parse(preSca[5].Split(',')[0]))
+                        {
+                            concentration = ">" + preSca[5].Split(',')[0];
                         }
                     }
                     //else if(predictType == 1)
@@ -10540,11 +10669,11 @@ namespace BioBaseCLIA.Run
         /// </summary>
         /// <param name="name">项目名称</param>
         /// <returns></returns>
-        private Calculater GetCalculater(string name) 
+        private Calculater GetCalculater(string name)
         {
             DbHelperOleDb db = new DbHelperOleDb(0);
             int calMode = int.Parse(DbHelperOleDb.GetSingle(0,
-                @"select CalMode from tbProject where ShortName = '"+ name + "'").ToString());
+                @"select CalMode from tbProject where ShortName = '" + name + "'").ToString());
 
             CalculateFactory calculate = new CalculateFactory();
             Calculater er = calculate.getCaler(calMode);
@@ -10558,7 +10687,7 @@ namespace BioBaseCLIA.Run
         /// <param name="name">项目名称</param>
         /// <param name="reagentBatch">试剂批号</param>
         /// <returns></returns>
-        private List<Data_Value> GetScalingResult(string name ,string reagentBatch) 
+        private List<Data_Value> GetScalingResult(string name, string reagentBatch)
         {
             BLL.tbScalingResult bllscalResult = new BLL.tbScalingResult();
             DbHelperOleDb db = new DbHelperOleDb(1);
@@ -11094,7 +11223,7 @@ namespace BioBaseCLIA.Run
             List<TestSchedule> tss = lisTestSchedule.FindAll(tx => tx.StartTime <= sumTime);//2019-04-08 删除等于号
             if (tss.Count > 1)
                 _GaDoingOne = tss[tss.Count - 1];
-            if(EntertRun)//判断在实验调度前点暂停，防止第一个实验不加样 2020/8/13
+            if (EntertRun)//判断在实验调度前点暂停，防止第一个实验不加样 2020/8/13
                 TestStep = GaNextOne();
             LoadingHelper.CloseForm();
             NetCom3.ComWait.Set();
@@ -11203,7 +11332,7 @@ namespace BioBaseCLIA.Run
             {
                 frmTestResult frmTR = (frmTestResult)Application.OpenForms["frmTestResult"];
                 frmTR.Show();
-                frmTR.BringToFront(); 
+                frmTR.BringToFront();
             }
             if (RunFlag == (int)RunFlagStart.Stoped || RunFlag == (int)RunFlagStart.NoStart)//move y 20180528 更改此代码的位置，不然窗体close后，后边的代码执行不到。
             {
@@ -11312,7 +11441,7 @@ namespace BioBaseCLIA.Run
                 {
                     //2018-09-04 zlx  mod
                     DbHelperOleDb db = new DbHelperOleDb(3);
-                    DbHelperOleDb.ExecuteSql(3,@"update tbReagent set leftoverTestR1 =" + reagentIniInfo.LeftReagent1 + ",leftoverTestR2 = " + reagentIniInfo.LeftReagent2 +
+                    DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + reagentIniInfo.LeftReagent1 + ",leftoverTestR2 = " + reagentIniInfo.LeftReagent2 +
                                               ",leftoverTestR3 = " + reagentIniInfo.LeftReagent3 + ",leftoverTestR4 = " + reagentIniInfo.LeftReagent4 + " where BarCode = '"
                                                   + reagentIniInfo.BarCode + "' and ReagentName = '" + reagentIniInfo.ItemName + "'");
                 }
@@ -11322,7 +11451,7 @@ namespace BioBaseCLIA.Run
             string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
             string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
             DbHelperOleDb dbase = new DbHelperOleDb(3);
-            DbHelperOleDb.ExecuteSql(3,@"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '"
+            DbHelperOleDb.ExecuteSql(3, @"update tbSubstrate set leftoverTest =" + sbNum1 + " where BarCode = '"
                                                   + sbCode1 + "'");
             //string sbCode2 = OperateIniFile.ReadIniData("Substrate2", "BarCode", "0", iniPathSubstrateTube);
             //string sbNum2 = OperateIniFile.ReadIniData("Substrate2", "LeftCount", "0", iniPathSubstrateTube);
@@ -11435,7 +11564,7 @@ namespace BioBaseCLIA.Run
             {
                 string ItemName = ItemNames[i].Key.ToString();
                 DbHelperOleDb db = new DbHelperOleDb(0);
-                DataTable dtDilute = DbHelperOleDb.Query(0,@"select DiluteCount,DiluteName from tbProject where ShortName ='" + ItemName + "'").Tables[0];
+                DataTable dtDilute = DbHelperOleDb.Query(0, @"select DiluteCount,DiluteName from tbProject where ShortName ='" + ItemName + "'").Tables[0];
                 List<TestSchedule> ItemNamelist = list.FindAll(tx => (tx.ItemName == ItemName));
                 int LeftDiu = 0;
                 int leftRg = 0;
@@ -11456,7 +11585,7 @@ namespace BioBaseCLIA.Run
                                 DiluteName = DiuInfo.GetDiuInfo(ExtraDiluteC) + ";" + DiluteName;
                             List<string> diuList = GetDiuVol(int.Parse(test.AddLiqud.Split('-')[0].ToString()), DiluteName);
                             for (int j = 0; j < diuList.Count; j++)
-                            {                
+                            {
                                 LeftDiu = LeftDiu + int.Parse(diuList[j].Split(';')[1]);
                             }
                         }
@@ -11523,7 +11652,7 @@ namespace BioBaseCLIA.Run
                             dtSampleRunInfo.Rows.Remove(drr[0]);
                         }
                         db = new DbHelperOleDb(1);
-                        int bDelete = DbHelperOleDb.ExecuteSql(1,@"delete from tbSampleInfo where Status =0 AND SampleNo='" + SampleNo + "'");
+                        int bDelete = DbHelperOleDb.ExecuteSql(1, @"delete from tbSampleInfo where Status =0 AND SampleNo='" + SampleNo + "'");
                         if (bDelete > 0)
                         {
                             var ddr = dtSpInfo.Select("SampleNo='" + SampleNo + "'");
@@ -11850,7 +11979,7 @@ namespace BioBaseCLIA.Run
             //return parameters[0] + parameters[1] / (1 + Math.Exp(-(parameters[2] + parameters[3] * Math.Log(xValue))));
             if (xValue < 0)
                 xValue = 0;
-            return (parameters[0] - parameters[3]) / (1 + Math.Pow(xValue / parameters[2], parameters[1])) + parameters[3];
+            return (parameters[0] - parameters[3]) / (1 + Math.Pow(xValue / parameters[2], parameters[1])) + parameters[3] * parameters[4];//(parameters[0] - parameters[3]) / (1 + Math.Pow(xValue / parameters[2], parameters[1])) + parameters[3];
             //return _pars[2] * (Math.Pow((((_pars[0] - _pars[3]) / (yValue - _pars[3])) - 1), (1 / _pars[1])));
         }
 
@@ -11866,7 +11995,7 @@ namespace BioBaseCLIA.Run
             }
 
             array22 = (double[])c(arrary2);
-            
+
             canshu5[0] = array22[1];
             canshu5[1] = array22[4];
             canshu5[2] = array22[3];
