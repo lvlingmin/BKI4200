@@ -34,6 +34,10 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.fbtnCancle = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtTDarkMax = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.txtTDarkMin = new BioBaseCLIA.CustomControl.userNumTextBox();
+            this.label56 = new System.Windows.Forms.Label();
             this.txtDiuNum = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -176,6 +180,10 @@
             // groupBox3
             // 
             resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Controls.Add(this.txtTDarkMax);
+            this.groupBox3.Controls.Add(this.label59);
+            this.groupBox3.Controls.Add(this.txtTDarkMin);
+            this.groupBox3.Controls.Add(this.label56);
             this.groupBox3.Controls.Add(this.txtDiuNum);
             this.groupBox3.Controls.Add(this.label57);
             this.groupBox3.Controls.Add(this.label54);
@@ -221,6 +229,50 @@
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            // 
+            // txtTDarkMax
+            // 
+            resources.ApplyResources(this.txtTDarkMax, "txtTDarkMax");
+            this.txtTDarkMax.BackColor = System.Drawing.Color.White;
+            this.txtTDarkMax.IsNull = false;
+            this.txtTDarkMax.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtTDarkMax.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtTDarkMax.Name = "txtTDarkMax";
+            // 
+            // label59
+            // 
+            resources.ApplyResources(this.label59, "label59");
+            this.label59.Name = "label59";
+            // 
+            // txtTDarkMin
+            // 
+            resources.ApplyResources(this.txtTDarkMin, "txtTDarkMin");
+            this.txtTDarkMin.BackColor = System.Drawing.Color.White;
+            this.txtTDarkMin.IsNull = false;
+            this.txtTDarkMin.MaxValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.txtTDarkMin.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.txtTDarkMin.Name = "txtTDarkMin";
+            // 
+            // label56
+            // 
+            resources.ApplyResources(this.label56, "label56");
+            this.label56.Name = "label56";
             // 
             // txtDiuNum
             // 
@@ -1303,5 +1355,9 @@
         private System.Windows.Forms.Label label20;
         private CustomControl.userNumTextBox txtDiuNum;
         private System.Windows.Forms.Label label57;
+        private CustomControl.userNumTextBox txtTDarkMax;
+        private System.Windows.Forms.Label label59;
+        private CustomControl.userNumTextBox txtTDarkMin;
+        private System.Windows.Forms.Label label56;
     }
 }

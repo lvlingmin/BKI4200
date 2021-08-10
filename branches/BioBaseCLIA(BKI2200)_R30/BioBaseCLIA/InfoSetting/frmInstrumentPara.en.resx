@@ -188,6 +188,33 @@
   <data name="fbtnCancle.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="txtTDarkMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>575, 206</value>
+  </data>
+  <data name="txtTDarkMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 30</value>
+  </data>
+  <data name="label59.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 210</value>
+  </data>
+  <data name="label59.Size" type="System.Drawing.Size, System.Drawing">
+    <value>17, 22</value>
+  </data>
+  <data name="txtTDarkMin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>521, 206</value>
+  </data>
+  <data name="txtTDarkMin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 30</value>
+  </data>
+  <data name="label56.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 210</value>
+  </data>
+  <data name="label56.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="label56.Text" xml:space="preserve">
+    <value>Dark room alarm:</value>
+  </data>
   <data name="txtDiuNum.Location" type="System.Drawing.Point, System.Drawing">
     <value>230, 245</value>
   </data>

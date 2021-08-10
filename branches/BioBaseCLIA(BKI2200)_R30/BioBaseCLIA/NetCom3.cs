@@ -49,7 +49,7 @@ namespace BioBaseCLIA
         ///指令接收数组
         /// </summary>
         public string[] ReciveData = new string[16];
-        public string ErrorMessage=null;//2019-02-12 zlx add
+        public string ErrorMessage = null;//2019-02-12 zlx add
         #endregion
         #region 线程、事件
         /// <summary>
@@ -103,7 +103,7 @@ namespace BioBaseCLIA
         ///// </summary>
         public static ManualResetEvent ComWait = new ManualResetEvent(true);
         //2018-09-04 zlx add
-        public int FReciveCallBack = 0;             
+        public int FReciveCallBack = 0;
         #endregion
         #region 各模块标志位
         /// <summary>
@@ -141,11 +141,11 @@ namespace BioBaseCLIA
         /// <summary>
         /// 其他消息报错状态
         /// </summary>
-        public int errorFlag=0;
+        public int errorFlag = 0;
         /// <summary>
         /// 移管消息报错状态
         /// </summary>
-        public int MoverrorFlag=0;
+        public int MoverrorFlag = 0;
         /// <summary>
         /// 加样消息报错状态
         /// </summary>
@@ -253,7 +253,7 @@ namespace BioBaseCLIA
                 tcpClient.Connect(myIpEndPoint);//对远程计算机的指定端口提出TCP连接请求搜索//////////////////***********标记：此处可能会引发多线程异步冲突
                 tcpListen = true;
             }
-            catch(Exception e) 
+            catch (Exception e)
             {
                 writeLog(e);
             }
@@ -263,7 +263,7 @@ namespace BioBaseCLIA
                 udpClient.Connect(myIpEndPoint);//对远程计算机的指定端口提出UDP连接请求
                 udpListen = true;
             }
-            catch(Exception e) 
+            catch (Exception e)
             {
                 writeLog(e);
             }
@@ -287,7 +287,7 @@ namespace BioBaseCLIA
             string myip = GetIP();
             //string[] myiparray = myip.Split('.');
             int tryNum = 0;
-            linkAgain:
+        linkAgain:
             NetCom3.Delay(30);
             if (!CheckNetWorkLink())
             {
@@ -341,7 +341,7 @@ namespace BioBaseCLIA
                     }
                 }
             }
-            catch(Exception e) 
+            catch (Exception e)
             {
                 writeLog(e);
                 isConnect = false;
@@ -361,7 +361,7 @@ namespace BioBaseCLIA
                 // 将连接信号置为终止状态  
                 connectDone.Set();
             }
-            catch(Exception e) 
+            catch (Exception e)
             {
                 writeLog(e);
                 isConnect = false;
@@ -619,7 +619,7 @@ namespace BioBaseCLIA
                                     totalOrderFlag = true;
                                 }
                                 break;
-                            default :
+                            default:
                                 if (errorFlag == (int)ErrorState.ReadySend)
                                 {
                                     errorFlag = (int)ErrorState.Sendfailure;
@@ -651,7 +651,7 @@ namespace BioBaseCLIA
                                             SpReciveFlag = true;
                                             totalOrderFlag = true;
                                         }
-                                        break ;
+                                        break;
                                     case 1:
                                         if (MoverrorFlag == (int)ErrorState.ReadySend)
                                         {
@@ -721,7 +721,7 @@ namespace BioBaseCLIA
                     if (!totalOrderFlag)
                     {
                         switch (orderType)
-                    {
+                        {
                             case 0:
                                 if (AdderrorFlag == (int)ErrorState.ReadySend)
                                 {
@@ -759,7 +759,7 @@ namespace BioBaseCLIA
                     if (!keepaliveFlag)
                     {
                         frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow(Res.Sendfailed+ " "+ orderType + "：", ex.Message);
+                        frmMS.MessageShow(Res.Sendfailed + " " + orderType + "：", ex.Message);
                         frmMS.Dispose();
                     }
                 }
@@ -833,7 +833,7 @@ namespace BioBaseCLIA
                     totalOrderFlag = true;
                     if (!keepaliveFlag)
                     {
-                        MessageBox.Show( Res.Sendfailed + orderType + "：" + ex.Message, "");
+                        MessageBox.Show(Res.Sendfailed + orderType + "：" + ex.Message, "");
                     }
                 }
             }
@@ -869,7 +869,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("",Res.Sendfailed+":" + e.Message);
+                    frmMS.MessageShow("", Res.Sendfailed + ":" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -903,7 +903,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("",Res.Sendfailed+ "：" + e.Message);
+                    frmMS.MessageShow("", Res.Sendfailed + "：" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -937,7 +937,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("",Res.Sendfailed+ "：" + e.Message);
+                    frmMS.MessageShow("", Res.Sendfailed + "：" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -969,15 +969,15 @@ namespace BioBaseCLIA
                         errorFlag = (int)ErrorState.OverTime;
                         totalOrderFlag = true;
                         frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow("",Res.communicationfail);
+                        frmMS.MessageShow("", Res.communicationfail);
                         frmMS.Dispose();
-						if(EventStop!=null)
+                        if (EventStop != null)
                             EventStop.Invoke();
                     }
                 }
                 catch (Exception ex)
                 {
-                    errorFlag =(int)ErrorState.Recivefailure;
+                    errorFlag = (int)ErrorState.Recivefailure;
                     writeLog(ex);
                     if (!keepaliveFlag)
                     {
@@ -985,7 +985,7 @@ namespace BioBaseCLIA
                         {
                             totalOrderFlag = true;
                             frmMessageShow frmMS = new frmMessageShow();
-                            frmMS.MessageShow("","DiagnostSendCallback:"+ex.Message);
+                            frmMS.MessageShow("", "DiagnostSendCallback:" + ex.Message);
                             frmMS.Dispose();
                         }
                     }
@@ -1004,7 +1004,7 @@ namespace BioBaseCLIA
                     if (EventStop != null)
                         EventStop();
                     frmMessageShow frmMS = new frmMessageShow();
-                    frmMS.MessageShow("",Res.Sendfailed+"：" + e.Message);
+                    frmMS.MessageShow("", Res.Sendfailed + "：" + e.Message);
                     frmMS.Dispose();
                 }
             }
@@ -1036,7 +1036,7 @@ namespace BioBaseCLIA
                     FReciveCallBack++;
                     errorFlag = (int)ErrorState.OverTime;
                     totalOrderFlag = true;
-                  
+
                 }
             }
             catch (Exception e)
@@ -1063,9 +1063,9 @@ namespace BioBaseCLIA
             {
                 Delay(10);
             }
-            if (AdderrorFlag !=(int)ErrorState.Success )
+            if (AdderrorFlag != (int)ErrorState.Success)
             {
-                LogFile.Instance.Write("MoverrorFlag = ： " + MoverrorFlag+ " *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
+                LogFile.Instance.Write("MoverrorFlag = ： " + MoverrorFlag + " *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
                 return false;
             }
             else
@@ -1085,7 +1085,7 @@ namespace BioBaseCLIA
             }
             if (MoverrorFlag != (int)ErrorState.Success)
             {
-                LogFile.Instance.Write("MoverrorFlag = ： "+ MoverrorFlag+ "***** 当前 " + DateTime.Now.ToString("HH - mm - ss"));
+                LogFile.Instance.Write("MoverrorFlag = ： " + MoverrorFlag + "***** 当前 " + DateTime.Now.ToString("HH - mm - ss"));
                 return false;
             }
             else
@@ -1105,7 +1105,7 @@ namespace BioBaseCLIA
             }
             if (WasherrorFlag != (int)ErrorState.Success)
             {
-                LogFile.Instance.Write("MoverrorFlag = ： " + MoverrorFlag+ " *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
+                LogFile.Instance.Write("MoverrorFlag = ： " + MoverrorFlag + " *****当前 " + DateTime.Now.ToString("HH - mm - ss"));
                 return false;
             }
             else
@@ -1152,7 +1152,7 @@ namespace BioBaseCLIA
                 client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(ReceiveCallback), state);
                 if (!spreceiveDone.WaitOne(100000, false))
                 {
-                    LogFile.Instance.Write(DateTime.Now+"加样系统接收数据超时");
+                    LogFile.Instance.Write(DateTime.Now + "加样系统接收数据超时");
                     AdderrorFlag = (int)ErrorState.OverTime;
                     SpReciveFlag = true;
                     return;
@@ -1182,16 +1182,16 @@ namespace BioBaseCLIA
                 client.BeginReceive(state.buffer, 0, StateObject.BufferSize, 0, new AsyncCallback(ReceiveCallback), state);
                 if (!movereceiveDone.WaitOne(100000, false))
                 {
-                    LogFile.Instance.Write(DateTime.Now+"移管手通讯接收数据超时");
+                    LogFile.Instance.Write(DateTime.Now + "移管手通讯接收数据超时");
                     MoverrorFlag = (int)ErrorState.OverTime;
-                    MoveReciveFlag=true;
+                    MoveReciveFlag = true;
                     return;
                 }
             }
             catch (Exception ex)
             {
                 MoverrorFlag = (int)ErrorState.Recivefailure;
-                MoveReciveFlag=true;
+                MoveReciveFlag = true;
                 LogFile.Instance.Write(DateTime.Now + "MOVEReciveMessage:" + ex.Message);
                 writeLog(ex);
                 return;
@@ -1240,7 +1240,7 @@ namespace BioBaseCLIA
                 if (!isConnect)
                 {
                     //dw2018.12.24
-                    MessageBox.Show("ReceiveCallback isConnect "+Res.Disconnect);
+                    MessageBox.Show("ReceiveCallback isConnect " + Res.Disconnect);
                     LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "isConnect退出"));
                     //dw2018.12.24
                     return;
@@ -1258,7 +1258,7 @@ namespace BioBaseCLIA
                     }
                     Socket client = state.workSocket;
                     // 读取下位机返回的字节数 
-                    int bytesRead=0;
+                    int bytesRead = 0;
                     try
                     {
                         //保证数据接收完成 Jun add
@@ -1270,7 +1270,7 @@ namespace BioBaseCLIA
                         LogFile.Instance.Write(DateTime.Now + "client.EndReceive接收数据异常:" + e.Message);
                         writeLog(e);
                     }
-                    if ( bytesRead> 0)
+                    if (bytesRead > 0)
                     {
                         //2018-07-20 zlx add 追踪异常
                         try
@@ -1320,7 +1320,7 @@ namespace BioBaseCLIA
                             else
                             {
                                 int len = Convert.ToInt32(response.Substring(response.IndexOf("EB 90 CA"), 14).Substring(12, 2), 16);
-                                int longLength = Convert.ToInt32(response.Substring(response.IndexOf("EB 90 CA"), 17).Substring(12, 5).Replace(" ", ""), 16);                                
+                                int longLength = Convert.ToInt32(response.Substring(response.IndexOf("EB 90 CA"), 17).Substring(12, 5).Replace(" ", ""), 16);
                                 if (len < 11)
                                     len = 11;
                                 len = (len + 5) * 3;
@@ -1360,7 +1360,7 @@ namespace BioBaseCLIA
                                 if (orderTemp.Substring(0, 2) == "CA" || orderTemp == "CA F1" || orderTemp == "11 FF" || orderTemp == "11 AF" || orderTemp == "01 A0" || orderTemp == "11 A0" //"CA F1"射频读卡器初始化返回//"11 FF"版本号返回指令//仪器调教指令处理//仪器调试收到查询温度
                                     || orderTemp == "A1 03" || orderTemp == "F1 01" || orderTemp == "F1 02" || orderTemp == "F1 03")//心跳包上下位机握手动作完毕//仪器初始化完毕   y modify 20180802  zlx mod 2018-08-16
                                 {
-                                    if (orderTemp == "01 A0") 
+                                    if (orderTemp == "01 A0")
                                     {
                                         HandleLocationData(tempResponse);
                                     }
@@ -1379,7 +1379,7 @@ namespace BioBaseCLIA
                                         }
                                         else
                                         {
-                                            tempInt = tempResponse.IndexOf("EB 90 F1 02 00 ");
+                                            tempInt = tempResponse.IndexOf("EB 90 F1 02 ");
                                         }
                                         //int tempInt = tempResponse.IndexOf("EB 90 F1 02 00 ");
                                         //初始化检测II：加样模块光电信号
@@ -1527,7 +1527,7 @@ namespace BioBaseCLIA
                                         waitAndAgainSend.Abort();
                                     }
                                 }
-                                
+
                                 //移管手模块动作执行完毕
                                 else if (orderTemp == "31 A1")//20180717 y 增加了撞针等出错处理
                                 {
@@ -1627,7 +1627,7 @@ namespace BioBaseCLIA
                                         thDataHandle.CurrentCulture = Language.AppCultureInfo;
                                         thDataHandle.CurrentUICulture = Language.AppCultureInfo;
                                     }
-                                   
+
                                     thDataHandle.Start(tempResponse);
                                 }
                                 else if (WhereToReceive == 2)
@@ -1689,7 +1689,7 @@ namespace BioBaseCLIA
         /// 保存下位机返回位置数据
         /// </summary>
         /// <param name="receiveData">返回位置数据</param>
-        private void HandleLocationData(string receiveData) 
+        private void HandleLocationData(string receiveData)
         {
             string stateData = receiveData.Substring(18, 5);
 
@@ -1841,13 +1841,13 @@ namespace BioBaseCLIA
     /// 信息传输错误状态
     /// 0-准备发送,1-成功 2-发送失败 3-接收失败 4-抓管撞管（撞针） 5-抓空 6-混匀异常 7-放管撞管 8-理杯机缺管 9-发送超时
     /// </summary>
-    public enum ErrorState { ReadySend = 0, Success = 1, Sendfailure = 2, Recivefailure = 3, IsKnocked = 4, IsNull = 5, BlendUnusua = 6, putKnocked=7,LackTube=8,OverTime = 9,StuckTube=10 }
+    public enum ErrorState { ReadySend = 0, Success = 1, Sendfailure = 2, Recivefailure = 3, IsKnocked = 4, IsNull = 5, BlendUnusua = 6, putKnocked = 7, LackTube = 8, OverTime = 9, StuckTube = 10 }
     /// <summary>
     /// 液位检测状态
     /// >100  Height
     /// <=100 Low
     /// </summary>
-    public enum LiquidLevelDetectionAlarm :int { Low = 0, Height = 1 };
+    public enum LiquidLevelDetectionAlarm : int { Low = 0, Height = 1 };
     public class StateObject
     {
         // Client socket.     
