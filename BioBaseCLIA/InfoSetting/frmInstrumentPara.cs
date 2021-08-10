@@ -8,6 +8,7 @@ using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 using Common;
+using Localization;
 
 namespace BioBaseCLIA.InfoSetting
 {
@@ -35,6 +36,7 @@ namespace BioBaseCLIA.InfoSetting
                 = txtSubstrateTime.Enabled = txtWarnReagent.Enabled = txtWarnSubstrate.Enabled = txtWarnTube.Enabled = txtWarnWaitSeconds.Enabled
                 = txtTWYMin.Enabled = txtTWYMax.Enabled = txtTWashMax.Enabled = txtTWashMin.Enabled = txtTSubstrateMin.Enabled = txtTSubstrateMax.Enabled//2018-07-13 zlx add
                 = txtTSubstrateMin.Enabled = txtTSubstrateMax.Enabled = txtTQXGLMin.Enabled = txtTQXGLMax.Enabled //2018-07-13 zlx add 
+                = txtTDarkMin.Enabled = txtTDarkMax.Enabled //暗室
                 = txtWashTime.Enabled = txtDiuNum.Enabled = Flag;
         }
 
@@ -108,7 +110,10 @@ namespace BioBaseCLIA.InfoSetting
             txtTSubstrateMin.Text = OperateIniFile.ReadInIPara("temperature", "MinTSubstrate");
             txtTQXGLMax.Text = OperateIniFile.ReadInIPara("temperature", "MaxTQXGL");
             txtTQXGLMin.Text = OperateIniFile.ReadInIPara("temperature", "MinTQXGL");
-        
+
+            //暗室
+            txtTDarkMax.Text = OperateIniFile.ReadInIPara("Darkroom", "MaxTDark");
+            txtTDarkMin.Text = OperateIniFile.ReadInIPara("Darkroom", "MinTDark");
         }
         /// <summary>
         /// 界面控件中的数据写入ini文件
@@ -122,10 +127,10 @@ namespace BioBaseCLIA.InfoSetting
             OperateIniFile.WriteIniPara("Limit", "ErrorTube", txtErrorTube.Text);
             OperateIniFile.WriteIniPara("Time", "FirstCleanNeedleTime", txtFirstCleanTime.Text);
             OperateIniFile.WriteIniPara("OtherPara", "MixNum", txtMixNum.Text);
-            OperateIniFile.WriteIniPara("Time", "NeedleWashTime",txtNeedleCleanTime.Text);
+            OperateIniFile.WriteIniPara("Time", "NeedleWashTime", txtNeedleCleanTime.Text);
             OperateIniFile.WriteIniPara("Time", "readTime", txtReadTime.Text);
             OperateIniFile.WriteIniPara("Time", "RegentTime", txtReagentTime.Text);
-            OperateIniFile.WriteIniPara("Vol", "RgAbandonVol",txtRgAbandonVol.Text);
+            OperateIniFile.WriteIniPara("Vol", "RgAbandonVol", txtRgAbandonVol.Text);
             OperateIniFile.WriteIniPara("Vol", "RgBeforeVol", txtRgBeforeVol.Text);
             OperateIniFile.WriteIniPara("Time", "sampleTime", txtSampleTime.Text);
             OperateIniFile.WriteIniPara("Vol", "SpAbandonVol", txtSpAbandonVol.Text);
@@ -147,6 +152,10 @@ namespace BioBaseCLIA.InfoSetting
             OperateIniFile.WriteIniPara("temperature", "MaxTQXGL", txtTQXGLMax.Text);
             OperateIniFile.WriteIniPara("temperature", "MinTQXGL", txtTQXGLMin.Text);
             OperateIniFile.WriteIniPara("OtherPara", "DiuNum ", txtDiuNum.Text);
+
+            //暗室
+            OperateIniFile.WriteIniPara("Darkroom", "MaxTDark", txtTDarkMax.Text);
+            OperateIniFile.WriteIniPara("Darkroom", "MinTDark", txtTDarkMin.Text);
         }
         private void fbtnModify_Click(object sender, EventArgs e)
         {
@@ -166,7 +175,8 @@ namespace BioBaseCLIA.InfoSetting
             fbtnCancle.Enabled = btnSave.Enabled = false;
             fbtnModify.Enabled = true;
             WriteTxtToIni();
-            frmMsgShow.MessageShow(Getstring("InstrumentParaHead"),Getstring("ParaSaveSucess"));//2018-08-16 zlx mod
+            WriteDarkroom();              //将暗室值写入下位机
+            frmMsgShow.MessageShow(Getstring("InstrumentParaHead"), Getstring("ParaSaveSucess"));//2018-08-16 zlx mod
         }
         private void fbtnCancle_Click(object sender, EventArgs e)
         {
@@ -209,7 +219,7 @@ namespace BioBaseCLIA.InfoSetting
         {
             if (!CheckFormIsOpen("frmInfo"))
             {
-                frmInfo frmif= new frmInfo();
+                frmInfo frmif = new frmInfo();
                 //this.TopLevel = false;
                 frmif.TopLevel = false;
                 frmif.Parent = this.Parent;
@@ -253,9 +263,61 @@ namespace BioBaseCLIA.InfoSetting
 
         }
 
+        /// <summary>
+        /// 向下位机写入暗室高值和低值
+        /// </summary>
+        void WriteDarkroom()
+        {
+            //SetCultureInfo();
+            int MaxDarkroom = int.Parse(OperateIniFile.ReadInIPara("Darkroom", "MaxTDark"));
+            int MinDarkroom = int.Parse(OperateIniFile.ReadInIPara("Darkroom", "MinTDark"));
+            //string[] s = "EB 90 F1 02 FD FF FF FF FF 00 00 00 00 00 00 4A".Split(' ');
+            //string s = MaxDarkroom.ToString("x2");
+            if (MaxDarkroom < 256)
+                NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0D 01 00 " + MaxDarkroom.ToString("X2")), 5);
+            else
+            {
+                string s1 = MaxDarkroom.ToString("X2").Substring(0, 1);
+                string s2 = MaxDarkroom.ToString("X2").Substring(1, 2);
+                NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0D 01 0" + s1 + " " + s2), 5);
+            }
+            //if (!NetCom3.Instance.SingleQuery())
+            //{
+            //    //ConnectServer();
+            //    keepaliveFlag = false;
+            //    isHeartbeatLive = false;
+            //}
+            if (MinDarkroom < 256)
+                NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0D 02 00 " + MinDarkroom.ToString("X2")), 5);
+            else
+            {
+                string s1 = MinDarkroom.ToString("X2").Substring(0, 1);
+                string s2 = MinDarkroom.ToString("X2").Substring(1, 2);
+                NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0D 02 0" + s1 + " " + s2), 5);
+            }
+            //if (!NetCom3.Instance.SingleQuery())
+            //{
+            //    //ConnectServer();
+            //    keepaliveFlag = false;
+            //    isHeartbeatLive = false;
+            //}
+        }
+        private string GetCultureInfo()
+        {
+            if (OperateIniFile.ReadInIPara("CultureInfo", "Culture") == "en")
+            {
+                return "en";
+            }
 
-     
+            return "zh-CN";
+        }
+        private void SetCultureInfo()
+        {
+            Language.AppCultureInfo = new System.Globalization.CultureInfo(GetCultureInfo());
+            //Language.AppCultureInfo = new System.Globalization.CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
+        }
 
-      
     }
 }

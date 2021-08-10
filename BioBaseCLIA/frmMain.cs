@@ -250,9 +250,11 @@ namespace BioBaseCLIA
             thread.CurrentUICulture = Language.AppCultureInfo;
             thread.Start();
             Selectlist = new List<string>();
+            SearchDarkroom();    //暗室查询
             QueryThread = new Thread(new ParameterizedThreadStart(Instance_QueryInfo));
             QueryThread.IsBackground = true;
             QueryThread.Start();
+            NetCom3.Instance.ReceiveHandel += new Action<string>(Darkroom);    //暗室自检
             #region 设置按钮控件查询状态timer的属性
             timerStatus.Start();
             #endregion
@@ -2000,6 +2002,101 @@ namespace BioBaseCLIA
             }
 
             return "zh-CN";
+        }
+        /// <summary>
+        /// 暗室查询
+        /// </summary>
+        public void SearchDarkroom()
+        {
+            //开机自检
+            if (!Selectlist.Contains("EB 90 F1 02"))
+                Selectlist.Add("EB 90 F1 02");
+        }
+        /// <summary>
+        /// 暗室开机自检
+        /// </summary>
+        void Darkroom(string order)
+        {
+            SetCultureInfo();
+            if (!order.Contains("EB 90 F1 02"))
+                return;
+            string[] dataRecive = order.Split(' ');
+            uint readData = uint.Parse(dataRecive[14] + dataRecive[15], System.Globalization.NumberStyles.AllowHexSpecifier);
+            if (dataRecive[4] == "FE")
+            {
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("High") + readData);
+                LogBtnColorChange(1);
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    SetCultureInfo();
+                    frmMessageShow f = new frmMessageShow();
+                    f.MessageShow(GetString("Tips"), GetString("Hightips"));
+                }))
+                { IsBackground = true }.Start();
+            }
+            else if (dataRecive[4] == "FD")
+            {
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Low") + readData);
+                LogBtnColorChange(1);
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    SetCultureInfo();
+                    frmMessageShow f = new frmMessageShow();
+                    f.MessageShow(GetString("Tips"), GetString("Lowtips"));
+                }))
+                { IsBackground = true }.Start();
+            }
+            ////值偏高
+            //if (Selectlist.Contains("EB 90 F1 02 FD"))
+            //{
+            //    //发送查询高值指令
+            //    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0D 03"), 5);
+            //    NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel += new Action<string>(ReadHighDarkroom);
+            //}
+            //else if (Selectlist.Contains("EB 90 F1 02 F1"))
+            //{
+            //    //发送低值查询指令
+            //    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 0D 04"), 5);
+            //    NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel += new Action<string>(ReadLowDarkroom);
+            //}
+        }
+
+        /// <summary>
+        /// 读取发光值高值
+        /// </summary>
+        void ReadHighDarkroom(string order)
+        {
+            SetCultureInfo();
+            if (!order.Contains("EB 90 11 A1"))
+                return;
+            string[] dataRecive = order.Split(' ');
+            decimal readData = Math.Round(Convert.ToDecimal(NetCom3.HexToFloat(dataRecive[15] + dataRecive[16])), 1);
+            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("High") + readData);
+            LogBtnColorChange(1);
+            new Thread(new ParameterizedThreadStart((obj) =>
+            {
+                SetCultureInfo();
+                frmMessageShow f = new frmMessageShow();
+                f.MessageShow(GetString("Tips"), GetString("Hightips"));
+            }))
+            { IsBackground = true }.Start();
+        }
+        void ReadLowDarkroom(string order)
+        {
+            SetCultureInfo();
+            if (!order.Contains("EB 90 11 A1"))
+                return;
+            string[] dataRecive = order.Split(' ');
+            decimal readData = Math.Round(Convert.ToDecimal(NetCom3.HexToFloat(dataRecive[15] + dataRecive[16])), 1);
+            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Low") + readData);
+            LogBtnColorChange(1);
+            new Thread(new ParameterizedThreadStart((obj) =>
+            {
+                SetCultureInfo();
+                frmMessageShow f = new frmMessageShow();
+                f.MessageShow(GetString("Tips"), GetString("Lowtips"));
+            }))
+            { IsBackground = true }.Start();
         }
     }
 

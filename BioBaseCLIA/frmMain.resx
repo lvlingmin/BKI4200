@@ -3329,4 +3329,16 @@
   <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
     <value>暂存盘卡管</value>
   </data>
+<data name="High" xml:space="preserve">
+    <value>暗室值过高，值为：</value>
+  </data>
+  <data name="Hightips" xml:space="preserve">
+    <value>暗室值过高！</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>暗室值过低，值为：</value>
+  </data>
+  <data name="Lowtips" xml:space="preserve">
+    <value>暗室值过低！</value>
+  </data>
 </root>
