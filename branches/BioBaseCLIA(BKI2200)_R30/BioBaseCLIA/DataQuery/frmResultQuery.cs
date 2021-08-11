@@ -839,7 +839,7 @@ namespace BioBaseCLIA.DataQuery
                     #region 串口通讯批量发送实验结果
                     if (LisConnection.Instance.IsOpen())
                     {
-                        if (LisConnection.Instance.BWork)
+                        if (LisConnection.Instance.BWork)            
                         {
                             MessageBox.Show(Getstring("SerialConnWorkMessage"), Getstring("MessageHead"));
                             //MessageBox.Show("串口正在进行数据通讯！请稍后再进行发送！", "信息提示！", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -899,7 +899,11 @@ namespace BioBaseCLIA.DataQuery
         private void btnImPort_Click(object sender, EventArgs e)
         {
             if (dgvPatientInfo.SelectedRows.Count == 0)
+            {
+                frmMessageShow f = new frmMessageShow();
+                f.MessageShow(Getstring("MessageHead"), Getstring("keywordText.SelectSampleMessage"));
                 return;
+            }
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.InitialDirectory = System.Windows.Forms.Application.StartupPath;
             dialog.Filter = "xls" + Getstring("File") + "|*.xls";
@@ -1128,7 +1132,7 @@ namespace BioBaseCLIA.DataQuery
                       + "tbAssayResult.ItemName,tbAssayResult.TestDate,tbAssayResult.PMTCounter,"
                       + "tbAssayResult.Concentration,tbAssayResult.Unit,tbAssayResult.Result,tbAssayResult.Range,tbSampleInfo.SampleType,tbAssayResult.Status,tbAssayResult.Batch from " //2018-08-17  zlx 添加tbAssayResult.Status
                       + "tbAssayResult INNER JOIN tbSampleInfo on tbAssayResult.SampleID = tbSampleInfo.SampleID "
-                      + "where tbAssayResult.SampleID=" + sampleID + " AND  tbAssayResult.TestDate >=#" + dtpStartDate.Value.ToString("yyyy-MM-dd") + "# and tbAssayResult.TestDate < #" + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "# AND tbAssayResult.Status=0";
+                      + "where tbAssayResult.SampleID=" + sampleID + " AND  tbAssayResult.TestDate >=#" + dtpStartDate.Value.ToString("yyyy-MM-dd") + "# and tbAssayResult.TestDate < #" + dtpEndDate.Value.AddDays(1).ToString("yyyy-MM-dd") + "#";// AND tbAssayResult.Status=0
 
             DbHelperOleDb DB = new DbHelperOleDb(1);//2018-5-9 zlx add tbSampleInfo.SampleType
             DataTable dtTestData = DbHelperOleDb.Query(1, @str).Tables[0];
