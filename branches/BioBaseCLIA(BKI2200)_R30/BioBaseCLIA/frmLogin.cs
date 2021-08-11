@@ -139,6 +139,7 @@ namespace BioBaseCLIA.User
             OperateIniFile.WriteIniPara("UsedName", "KeepPwd", KeepPwd);
             paProcess.Visible = true;
             new Thread(new ThreadStart(LoadProgram)).Start();
+            NetCom3.Instance.ReceiveHandel += new Action<string>(Darkroom);    //暗室自检
             btnLogin.Enabled = false;
             btnCancel.Enabled = false;
             txtUserPassword.Enabled = false;
@@ -767,6 +768,45 @@ namespace BioBaseCLIA.User
             }
 
             index++;
+        }
+        /// <summary>
+        /// 暗室开机自检
+        /// </summary>
+        void Darkroom(string order)
+        {
+            SetCultureInfo();
+            if (!order.Contains("EB 90 F1 02"))
+                return;
+            string[] dataRecive = order.Split(' ');
+            uint readData = uint.Parse(dataRecive[14] + dataRecive[15], System.Globalization.NumberStyles.AllowHexSpecifier);
+            if (dataRecive[4] == "FE")
+            {
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + Getstring("Warning") + " *** " + Getstring("NotRead") + " *** " + Getstring("High") + readData);
+                //LogBtnColorChange(1);
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    SetCultureInfo();
+                    frmMessageShow f = new frmMessageShow();
+                    f.MessageShow(Getstring("Tips"), Getstring("Hightips"));
+                }))
+                {
+                    IsBackground = true
+                }.Start();
+            }
+            else if (dataRecive[4] == "FD")
+            {
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + Getstring("Warning") + " *** " + Getstring("NotRead") + " *** " + Getstring("Low") + readData);
+                //LogBtnColorChange(1);
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    SetCultureInfo();
+                    frmMessageShow f = new frmMessageShow();
+                    f.MessageShow(Getstring("Tips"), Getstring("Lowtips"));
+                }))
+                {
+                    IsBackground = true
+                }.Start();
+            }
         }
 
         #region 语言环境设置相关，比较粗糙后面整理一下
