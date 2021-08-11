@@ -1568,4 +1568,7 @@
   <data name="Tips" xml:space="preserve">
     <value>Tips</value>
   </data>
+  <data name="keywordText.SelectSampleMessage" xml:space="preserve">
+    <value>Please select the sample information that needs to import data!</value>
+  </data>
 </root>

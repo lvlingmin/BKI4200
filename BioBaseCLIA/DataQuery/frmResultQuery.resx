@@ -2312,4 +2312,7 @@
   <data name="Tips" xml:space="preserve">
     <value>温馨提示</value>
   </data>
+  <data name="keywordText.SelectSampleMessage" xml:space="preserve">
+    <value>请选择需要导入数据的样本信息！</value>
+  </data>
 </root>
