@@ -1035,4 +1035,25 @@
   <data name="UserNameIsNull" xml:space="preserve">
     <value>用户名输入为空，请重新输入！</value>
   </data>
+  <data name="High" xml:space="preserve">
+    <value>暗室值过高，值为：</value>
+  </data>
+  <data name="Hightips" xml:space="preserve">
+    <value>暗室值过高！</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>暗室值过低，值为：</value>
+  </data>
+  <data name="Lowtips" xml:space="preserve">
+    <value>暗室值过低！</value>
+  </data>
+  <data name="NotRead" xml:space="preserve">
+    <value>未读</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>温馨提示</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
 </root>

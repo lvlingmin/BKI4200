@@ -572,4 +572,25 @@
   <data name="cbLanguage.Items1" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="High" xml:space="preserve">
+    <value>The darkroom value is too high, the value is:</value>
+  </data>
+  <data name="Hightips" xml:space="preserve">
+    <value>The darkroom value is too high!</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>The darkroom value is too low, the value is:</value>
+  </data>
+  <data name="Lowtips" xml:space="preserve">
+    <value>The darkroom value is too low!</value>
+  </data>
+  <data name="NotRead" xml:space="preserve">
+    <value>unread</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
 </root>
