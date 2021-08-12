@@ -1090,7 +1090,7 @@ namespace BioBaseCLIA.Run
             string activedate = DateTime.Now.ToString();
             string validDate = DateTime.Now.AddDays(365).ToString();//试剂的有效期是365天 jun mod 20190407
             frmAddScaling frmAS = new frmAddScaling(cmbRgName.Text.Trim(), txtRgBatch.Text.Trim(), activedate, validDate);
-            frmAS.Show();
+            frmAS.ShowDialog();
         }
 
         private void btnWorkList_Click(object sender, EventArgs e)
