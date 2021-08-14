@@ -1218,7 +1218,7 @@
     <value>Sampling probe</value>
   </data>
   <data name="keywordText.SclingOver" xml:space="preserve">
-    <value>Reagent calibration information has expired, please replace or recalibrate!</value>
+    <value>The above reagent calibration information has expired. Do you want to continue the experiment?</value>
   </data>
   <data name="keywordText.Scnn" xml:space="preserve">
     <value>Upper and lower computer connection</value>
