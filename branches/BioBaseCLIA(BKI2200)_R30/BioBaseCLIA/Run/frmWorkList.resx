@@ -2022,7 +2022,7 @@
     <value>加样针撞针</value>
   </data>
   <data name="keywordText.SclingOver" xml:space="preserve">
-    <value>试剂定标信息已经过期，请进行更换或重新定标！</value>
+    <value>以上试剂定标信息已经过期，是否继续实验?</value>
   </data>
   <data name="keywordText.Scnn" xml:space="preserve">
     <value>上下位机连接</value>
