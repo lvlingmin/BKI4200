@@ -1171,13 +1171,20 @@ namespace BioBaseCLIA.DataQuery
         //2018-12-07 zlx mod
         private void dgvSampleData_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvSampleData.CurrentRow == null || Convert.ToInt32(dgvSampleData.CurrentRow.Cells["Status"].Value) == 9)
-                return;//Result
+            try
+            {
+                if (dgvSampleData.CurrentRow == null || Convert.ToInt32(dgvSampleData.CurrentRow.Cells["Status"].Value) == 9)
+                    return;//Result
+            }
+            catch (Exception ex) { return; }
             if (!Regex.IsMatch(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString(), @"^\d+\.?\d*$"))
             {
                 return;
             }
-            if (dgvSampleData.CurrentCell.Value.ToString() == "")
+
+            if (dgvSampleData.CurrentCell.Value == null) return;
+
+                if (dgvSampleData.CurrentCell.Value.ToString() == "")
                 dgvSampleData.CurrentCell.Value = 0;
             dgvSampleData.CurrentRow.Cells["Result"].ReadOnly = false;
             if (double.Parse(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString()) > 0)
