@@ -437,6 +437,11 @@
             // numExpiryDate
             // 
             resources.ApplyResources(this.numExpiryDate, "numExpiryDate");
+            this.numExpiryDate.Maximum = new decimal(new int[] {
+            370,
+            0,
+            0,
+            0});
             this.numExpiryDate.Name = "numExpiryDate";
             // 
             // label19

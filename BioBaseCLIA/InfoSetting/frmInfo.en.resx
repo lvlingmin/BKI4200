@@ -2438,12 +2438,6 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
-  <data name="cmbFormat.Items" xml:space="preserve">
-    <value>A4</value>
-  </data>
-  <data name="cmbFormat.Items1" xml:space="preserve">
-    <value>A5</value>
-  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -2455,6 +2449,15 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>cancel</value>
+  </data>
+  <data name="cmbFormat.Items" xml:space="preserve">
+    <value>A4</value>
+  </data>
+  <data name="cmbFormat.Items1" xml:space="preserve">
+    <value>A5</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>custom</value>
   </data>
   <data name="D" xml:space="preserve">
     <value>read</value>
@@ -2538,12 +2541,6 @@
   <data name="HospitalName" xml:space="preserve">
     <value>XXX hospital</value>
   </data>
-  <data name="Modify" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="Normal" xml:space="preserve">
-    <value>normal</value>
-  </data>
   <data name="PrinterSelect" xml:space="preserve">
     <value>Please select the default printer</value>
   </data>
@@ -2603,8 +2600,5 @@
   </data>
   <data name="W" xml:space="preserve">
     <value>Wash</value>
-  </data>
-  <data name="Custom" xml:space="preserve">
-    <value>custom</value>
   </data>
 </root>
