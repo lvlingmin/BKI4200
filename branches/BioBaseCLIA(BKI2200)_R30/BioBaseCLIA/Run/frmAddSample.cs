@@ -61,6 +61,10 @@ namespace BioBaseCLIA.Run
         /// </summary>
         int abanDiuPro = 10;
         /// <summary>
+        /// 稀释液最小加液体积
+        /// </summary>
+        int addDiuVol = 5;
+        /// <summary>
         /// 查询底物剩余数量事件
         /// </summary>
         public static event Action ChechSubstreteCount;
@@ -326,8 +330,8 @@ namespace BioBaseCLIA.Run
                     float AddSample = float.Parse(MinSunDiuV.ToString()) / float.Parse(Diutimes[i - 1]);
                     int AddSampleV = 0;
                     int AddDiuV = 0;
-                    if (AddSample < 5)
-                        AddSampleV = 5;
+                    if (AddSample < addDiuVol)
+                        AddSampleV = addDiuVol;
                     else
                     {
                         if ((AddSample - (int)AddSample) != 0)
