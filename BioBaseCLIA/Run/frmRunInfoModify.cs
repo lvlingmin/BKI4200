@@ -21,6 +21,10 @@ namespace BioBaseCLIA.Run
     {
         public string SPSampleNo;
         /// <summary>
+        /// 稀释液后弃体积
+        /// </summary>
+        int abanDiuPro = 10;
+        /// <summary>
         /// 稀释样本后弃体积
         /// </summary>
         int DiuLeftVol = 60;
@@ -28,6 +32,10 @@ namespace BioBaseCLIA.Run
         /// 稀释液获取不到的体积/ul 2019-04-12 zlx add
         /// </summary>
         int DiuNoUsePro = 2000;
+        /// <summary>
+        /// 稀释液最小加液体积
+        /// </summary>
+        int addDiuVol = 5;
         /// <summary>
         /// 试剂盘配置文件地址
         /// </summary>
@@ -133,7 +141,7 @@ namespace BioBaseCLIA.Run
             for (int i = 0; i < diuList.Count; i++)
             {
                 int SampleVol = int.Parse(diuList[i].Split(';')[0]);
-                DiuVol = DiuVol + int.Parse(diuList[i].Split(';')[1]);
+                DiuVol = DiuVol + int.Parse(diuList[i].Split(';')[1] + abanDiuPro);
             }
             return DiuVol;
         }
@@ -156,8 +164,8 @@ namespace BioBaseCLIA.Run
                     float AddSample = float.Parse(MinSunDiuV.ToString()) / float.Parse(Diutimes[i - 1]);
                     int AddSampleV = 0;
                     int AddDiuV = 0;
-                    if (AddSample < 5)
-                        AddSampleV = 5;
+                    if (AddSample < addDiuVol)
+                        AddSampleV = addDiuVol;
                     else
                     {
                         if ((AddSample - (int)AddSample) != 0)
