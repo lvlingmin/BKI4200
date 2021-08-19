@@ -6396,7 +6396,7 @@ namespace BioBaseCLIA.Run
                                 var isCurrentSpecialProject =
                                     File.ReadAllLines(System.Windows.Forms.Application.StartupPath + "//SpacialProjects.txt")
                                     .ToList()
-                                    .Where(item => item.Contains(testTempS.ItemName)).Count() > 0;
+                                    .Where(item => item==testTempS.ItemName).Count() > 0;
                                 int reagentPosition;
                                 int leftReagentTest = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
                                 int leftR2 = 0;
@@ -6864,7 +6864,7 @@ namespace BioBaseCLIA.Run
                     var isSpecialProject =
                         File.ReadAllLines(System.Windows.Forms.Application.StartupPath + "//SpacialProjects.txt")
                         .ToList()
-                        .Where(item => item.Contains(testTempS.ItemName)).Count() > 0;
+                        .Where(item => item==testTempS.ItemName).Count() > 0;
                     if (testTempS.singleStep == "R2" && isSpecialProject &&
                         int.Parse(OperateIniFile.ReadIniData("ReagentPos" + dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString(),
                         "LeftReagent2", "", iniPathReagentTrayInfo)) <= 50)
