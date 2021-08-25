@@ -273,6 +273,7 @@ namespace BioBaseCLIA.SysMaintenance
                 frnIM.BringToFront();
 
             }
+            fbtnReturn_Click(sender, e);
         }
         private void fbtnGroupTest_Click(object sender, EventArgs e)
         {
@@ -291,6 +292,7 @@ namespace BioBaseCLIA.SysMaintenance
                 frnIGT.BringToFront();
 
             }
+            fbtnReturn_Click(sender, e);
         }
 
         private void fbtnReturn_Click(object sender, EventArgs e)
@@ -6452,6 +6454,7 @@ namespace BioBaseCLIA.SysMaintenance
                             {
                                 textSurplusNum.Text = surplusNum.ToString();
                             }));
+                            Thread.Sleep(5000);
                         }
                         TubetempNum = 1;
                         //CurrentTubePos = CurrentTubePos - singleLooPNum < 0 ? CurrentTubePos - singleLooPNum + 352 : CurrentTubePos - singleLooPNum;
@@ -6582,6 +6585,7 @@ namespace BioBaseCLIA.SysMaintenance
                                 ControlIntit();
                                 return;
                             }
+                            Thread.Sleep(5000);
                             //移管手要夹的下一个管架位置
                             //CurrentTubePos = CurrentTubePos + 1 == 353 ? 1 : CurrentTubePos + 1;
                             if (TubetempNum != singleLooPNum)
@@ -6743,6 +6747,7 @@ namespace BioBaseCLIA.SysMaintenance
                         {
                             textSurplusNum.Text = surplusNum.ToString();
                         }));
+                        Thread.Sleep(5000);
                     }
                     #endregion
                 }
@@ -6826,6 +6831,7 @@ namespace BioBaseCLIA.SysMaintenance
                                 txtAgingInfoShow.AppendText("\n管架取管放到清洗盘异常");
                             }));
                             ControlIntit();
+
                             return;
                         }
                         if (LogFileRtest.Instance.Bcount)
@@ -6847,6 +6853,7 @@ namespace BioBaseCLIA.SysMaintenance
                             }
                         }
                         TubetempNum++;
+                        Thread.Sleep(5000);
                     }
                     #endregion
                     for (int j = 0; j < SumNum; j++)

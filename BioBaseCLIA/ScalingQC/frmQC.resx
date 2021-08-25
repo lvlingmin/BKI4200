@@ -3267,4 +3267,7 @@
   <data name="keywordText.null" xml:space="preserve">
     <value>值为空，此次操作失败</value>
   </data>
+  <data name="keywordText.lbQCValueNew" xml:space="preserve">
+    <value>新质控值</value>
+  </data>
 </root>

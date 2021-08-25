@@ -2129,4 +2129,7 @@
   <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
     <value>暂存盘卡管</value>
   </data>
+  <data name="keywordText.MAddNewTReactOvertime" xml:space="preserve">
+    <value>移管手在暂存盘向温育盘抓管时接收数据超时</value>
+  </data>
 </root>

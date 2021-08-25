@@ -145,7 +145,13 @@ namespace BioBaseCLIA.ScalingQC
                         dr["Points"] = drScal["Points"];
                         dr["MainCurve"] = ExitsMainCurve ? "Y" : "N";
                         dr["Scaling"] = "Y";
-                        dr["CalType"] = drScal["ScalingModel"].ToString() == "6" ? "六点定标" : "两点校准";
+                        //dr["CalType"] = drScal["ScalingModel"].ToString() == "6" ? "六点定标" : "两点校准";
+                        if (drScal["ScalingModel"].ToString() == "6")
+                            dr["CalType"] =getString("keywordText.SixPoint");
+                        else if(drScal["ScalingModel"].ToString() == "7")
+                            dr["CalType"] = getString("keywordText.SevenPoint");
+                        else
+                            dr["CalType"] = getString("keywordText.TwoPoint");
                         dr["ActiveDate"] = Convert.ToDateTime(drScal["ActiveDate"]).ToString("yyyy-MM-dd");
                         dr["OriginActiveDate"] = drScal["ActiveDate"];
                         dr["ValidDate"] = (Convert.ToDateTime(drScal["ActiveDate"]).AddDays(expiryDate)).ToString();
@@ -820,7 +826,7 @@ namespace BioBaseCLIA.ScalingQC
                 }
                 catch (Exception exeception)
                 {
-                    MessageBox.Show(getString("RecordWrongData"));
+                    MessageBox.Show(getString("keywordText.RecordWrongData"));
                     return;
                 }
 

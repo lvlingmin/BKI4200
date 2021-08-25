@@ -2621,7 +2621,7 @@
   <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
     <value>Temporary storage disk card</value>
   </data>
-<data name="High" xml:space="preserve">
+  <data name="High" xml:space="preserve">
     <value>The darkroom value is too high, the value is:</value>
   </data>
   <data name="Hightips" xml:space="preserve">
@@ -2632,5 +2632,32 @@
   </data>
   <data name="Lowtips" xml:space="preserve">
     <value>The darkroom value is too low!</value>
+  </data>
+  <data name="ConnectSet" xml:space="preserve">
+    <value>Communication settings</value>
+  </data>
+  <data name="keywordText.Incubation" xml:space="preserve">
+    <value>Incubation plate</value>
+  </data>
+  <data name="keywordText.IPErrorMesage" xml:space="preserve">
+    <value>The LIS communication IP address is incorrect</value>
+  </data>
+  <data name="keywordText.LisSelect" xml:space="preserve">
+    <value>Lis connection method is empty</value>
+  </data>
+  <data name="keywordText.NetConn" xml:space="preserve">
+    <value>Communication connection</value>
+  </data>
+  <data name="keywordText.NullBaud" xml:space="preserve">
+    <value>Baud rate cannot be empty</value>
+  </data>
+  <data name="keywordText.NullPort" xml:space="preserve">
+    <value>The port number cannot be empty</value>
+  </data>
+  <data name="keywordText.SerialConn" xml:space="preserve">
+    <value>Serial communication</value>
+  </data>
+  <data name="keywordText.SerialConnSet" xml:space="preserve">
+    <value>Serial communication settings</value>
   </data>
 </root>

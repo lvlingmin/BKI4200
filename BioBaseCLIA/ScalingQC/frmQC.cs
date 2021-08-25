@@ -916,7 +916,7 @@ namespace BioBaseCLIA.ScalingQC
             {
                 if (txtQCNewValue.Text == "")
                 {
-                    frmMsgShow.MessageShow(getString("reminder"), getString("lbQCValueNew") + getString("keywordText.null"));
+                    frmMsgShow.MessageShow(getString("reminder"), getString("keywordText.lbQCValueNew") + getString("keywordText.null"));
                     return;
                 }
             }

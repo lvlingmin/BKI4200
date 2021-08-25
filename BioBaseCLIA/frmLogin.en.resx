@@ -593,4 +593,7 @@
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="UserNameIsNull" xml:space="preserve">
+    <value>The username input is empty, please re-enter!</value>
+  </data>
 </root>
