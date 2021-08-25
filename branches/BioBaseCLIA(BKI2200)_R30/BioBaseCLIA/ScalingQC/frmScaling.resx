@@ -816,7 +816,7 @@
         RudN65tdA8sHzg46DF645Xrr8m2v29fvrLwzMBQydHc4cnjkLvvu5L2key/vZ9yff7DpIfph4SOpR+WP
         lR7X/aj3Y+uI5ciZUdfRvidBTx6Mscae/5T+04fx/Kfkp+UTqhONk2aTp6fcp24+W/1s/Hnq8/npgp+l
         f65+ofviu18cf+mbWTUz/pL/cuHX4lfyr468Xva6e9Z/9vGb5Dfzc4Vv5d8efcd41/s+7P3EfOYH7IeK
-        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEwAACxMBAJqcGAAAAzFJREFUeF7t2MtL1FEY
+        j3ofuz55f3q4kLyw8Bv3hPP74uYdwgAAAAlwSFlzAAALEgAACxIB0t1+/AAAAzFJREFUeF7t2MtL1FEY
         h/FW/gcRrYIgDEGDoAtFRRRitGtTiYsIohZFIkG2iIjI6GJKU9IgKaUW0c1CmUSN7KZpZlrTZGqllkpE
         CUEQCKfzLqbO4MC71bdn8YE5P87M7vvMMHOcc2llbLmQ6ZV6L7wpzwGY8WSrslnZbma6bYfSPvRvLPJ+
         Hah67OoeJlxX/7jrHpgAMMPJVmWzsl3ZsGw53caTUg7+coYX23oq5m4/G3Sd/RMAZinZsGxZNi3bDree
@@ -1371,7 +1371,7 @@
     <value>六点定标</value>
   </data>
   <data name="keywordText.TwoPoint" xml:space="preserve">
-    <value>七点定标</value>
+    <value>两点校准</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>定标</value>
@@ -1382,7 +1382,10 @@
   <data name="lblR.Text" xml:space="preserve">
     <value>相关系数</value>
   </data>
-  <data name="RecordWrongData" xml:space="preserve">
+  <data name="keywordText.RecordWrongData" xml:space="preserve">
     <value>录入数据有误</value>
+  </data>
+  <data name="keywordText.SevenPoint" xml:space="preserve">
+    <value>七点定标</value>
   </data>
 </root>

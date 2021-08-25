@@ -2829,7 +2829,7 @@ namespace BioBaseCLIA.SysMaintenance
                 {
                     NetCom3.Instance.stopsendFlag = true;
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "清洗指令接收指令超时！");
-                    frmMsgShow.MessageShow("清洗指令错误提示", GetString("Overtimepause"));
+                    frmMsgShow.MessageShow(GetString("keywordText.WashError"), GetString("Overtimepause"));
                 }
                 else
                     return;

@@ -1319,4 +1319,7 @@
   <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
     <value>Temporary storage disk card</value>
   </data>
+  <data name="keywordText.MAddNewTReactOvertime" xml:space="preserve">
+    <value>The transferer has timed out receiving data when grabbing the tube from the temporary storage tray to the incubation tray</value>
+  </data>
 </root>

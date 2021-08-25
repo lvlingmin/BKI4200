@@ -557,20 +557,9 @@ namespace BioBaseCLIA.Run
                             modelScalingResult.Status = 0;
                         else
                         {
-                            string[] SpPoints = CPoints.Split(';');
-                            string[] spointS = points.ToString().Split(';');
-                            for (int i=0; i < SpPoints.Length; i++)
-                            {
-                                foreach (string temp in spointS)
-                                { 
-                                    if(temp !=null && temp !=" " && temp.Split(',')[0]== SpPoints[i].Split(',')[0])
-                                    {
-                                        SpPoints[i] = temp;
-                                        break;
-                                    }
-                                }
-                            }
+                            string NewPoint = GetNewPoint(CPoints, points.ToString(), PointsNum);
                             points.Clear();
+                            string[] SpPoints = NewPoint.Split(';');
                             for (int i = 0; i < SpPoints.Length; i++)
                             {
                                 if (SpPoints[i] != null && SpPoints[i] != "")
@@ -580,9 +569,9 @@ namespace BioBaseCLIA.Run
                             }
                             points.Remove(points.Length - 1, 1);
                             modelScalingResult.Status = 1;
-                             DbHelperOleDb.ExecuteSql(1,@"update tbScalingResult set Status=0 where ItemName = '"
-                                                                   + ilistStandardResult[0].ItemName + "' AND RegentBatch='" + ilistStandardResult[0].ReagentBeach + "'").ToString();
-                            LogFile.Instance.Write("试剂名称："+ ilistStandardResult[0].ItemName +",试剂批次："+ ReagentBatch+",定标点："+ points);
+                            DbHelperOleDb.ExecuteSql(1, @"update tbScalingResult set Status=0 where ItemName = '"
+                                                                  + ilistStandardResult[0].ItemName + "' AND RegentBatch='" + ilistStandardResult[0].ReagentBeach + "'").ToString();
+                            LogFile.Instance.Write("试剂名称：" + ilistStandardResult[0].ItemName + ",试剂批次：" + ReagentBatch + ",定标点：" + points);
                         }
                     }
 
@@ -602,8 +591,68 @@ namespace BioBaseCLIA.Run
             }//for cycle end
 
         }
+        /// <summary>
+        /// 使用两点校准重新计算发光值
+        /// </summary>
+        /// <param name="oldPoint">已有曲线的发光信息</param>
+        /// <param name="newPoint">新检测的发光信息</param>
+        /// <param name="ScalingModel">定标方法</param>
+        /// <returns></returns>
+        string GetNewPoint(string oldPoint, string newPoint, int ScalingModel)
+        {
+            string[] SpoldPoint = oldPoint.Replace('(', ' ').Replace(')', ' ').Split(';');
+            string[] SpnewPoint = newPoint.Replace('(', ' ').Replace(')', ' ').Split(';');
+            List<double> listK = new List<double>();
+            for (int i = 0; i < SpnewPoint.Length; i++)
+            {
+                foreach (string temp in SpoldPoint)
+                {
+                    if (temp != null && temp != "" && temp.Split(',')[0] == SpnewPoint[i].Split(',')[0])
+                    {
+                        double PMTNew = double.Parse(SpnewPoint[i].Split(',')[1]);
+                        double PMTOld = double.Parse(temp.Split(',')[1]);
+                        double k = (PMTNew - PMTOld) / PMTOld;
+                        listK.Add(k);
+                    }
+                }
+            }
+            double k1 = 0;
+            foreach (double k in listK)
+            {
+                k1 = k1 + k;
+            }
+            double k2 = k1 / listK.Count;
+            LogFile.Instance.Write(DateTime.Now + "k2：" + k2 + ";k1：" + k1 + ",listK.Count:" + listK.Count);
+            string[] point = new string[ScalingModel];
+            for (int i = 0; i < point.Length; i++)
+            {
+                //if (i == 0)
+                //{
+                //    point[i] = SpoldPoint[i].Trim();
+                //}
+                //else
+                //{
+                    foreach (string temp in SpnewPoint)
+                    {
+                        if (temp != null && temp.Split(',')[0] == SpoldPoint[i].Split(',')[0])
+                        {
+                            point[i] = temp.Trim();
+                            continue;
+                        }
+                    }
+                    if (point[i] == null && SpoldPoint[i] != null && SpoldPoint[i] != "")
+                        point[i] = SpoldPoint[i].Split(',')[0].Trim() + ',' + Math.Round((double.Parse(SpoldPoint[i].Split(',')[1]) * (k2 + 1)), 0);
+                //}
 
-
+            }
+            string str = "";
+            foreach (string s in point)
+            {
+                str = str + "(" + s + ")" + ";";
+            }
+            str = str.Remove(str.Length - 1, 1);
+            return str;
+        }
         /// <summary>
         /// 移除datatable中同一列中相同的元素 2018-08-28 zlx mod
         /// </summary>

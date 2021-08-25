@@ -1954,4 +1954,7 @@
   <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
     <value>Temporary storage disk card</value>
   </data>
+  <data name="keywordText.WashError" xml:space="preserve">
+    <value>Cleaning instruction error prompt</value>
+  </data>
 </root>

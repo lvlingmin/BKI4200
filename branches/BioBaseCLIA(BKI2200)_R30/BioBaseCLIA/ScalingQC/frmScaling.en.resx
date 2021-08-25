@@ -757,10 +757,10 @@
     <value>Calculation error occurred in regression calculation, so the data may not be suitable for this regression model</value>
   </data>
   <data name="keywordText.SixPoint" xml:space="preserve">
-    <value>Six Point</value>
+    <value>Six-point calibration</value>
   </data>
   <data name="keywordText.TwoPoint" xml:space="preserve">
-    <value>Seven Point</value>
+    <value>Two-point calibration</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Calibration </value>
@@ -771,7 +771,10 @@
   <data name="lblR.Text" xml:space="preserve">
     <value>Correlation Coefficient</value>
   </data>
-  <data name="RecordWrongData" xml:space="preserve">
+  <data name="keywordText.RecordWrongData" xml:space="preserve">
     <value>Wrong data</value>
+  </data>
+  <data name="keywordText.SevenPoint" xml:space="preserve">
+    <value>Seven-point calibration</value>
   </data>
 </root>

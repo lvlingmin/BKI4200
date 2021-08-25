@@ -43,9 +43,9 @@ namespace BioBaseCLIA
         public frmMessageShow frmMsgShow = new frmMessageShow();//提示框
         ComponentResourceManager resources = new ComponentResourceManager(typeof(frmMain));
         /// <summary>
-        /// 缺液信息状态
+        /// 缺液信息状态 [磁珠清洗液，探针清洗液，废液桶，废管盒]
         /// </summary>
-        public static int[] LackLq ={ -1,-1};
+        public static int[] LackLq = { 0, 0, 0, 0 };
         /// <summary>
         /// 缺管信息状态 [有管/无管，卡管/正常]
         /// </summary>
@@ -323,19 +323,19 @@ namespace BioBaseCLIA
             {
                 if (string.IsNullOrEmpty(ConnectType))
                 {
-                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("LisSelect"));
+                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("keywordText.LisSelect"));
                     return;
                 }
 
                 if (Port.Trim() == "")
                 {
-                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("NullPort"));
+                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("keywordText.NullPort"));
                     return;
                 }
 
                 if (!Inspect.InspectIP(IPAddress.Trim()))
                 {
-                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("IPErrorMesage"));
+                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("keywordText.IPErrorMesage"));
                     return;
                 }
 
@@ -358,9 +358,9 @@ namespace BioBaseCLIA
                 if (LisCommunication.Instance.IsConnect())
                 {
                     if (communicationType.Contains("NetConn") || communicationType.Contains("网口通讯"))
-                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("keywordText.NetConn"));
                     else if (communicationType.Contains("SerialConn") || communicationType.Contains("串口通讯"))
-                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("SerialConn"));
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("keywordText.SerialConn"));
                     OperateIniFile.WriteIniPara("LisSet", "IPAddress", IPAddress.Trim());
                     OperateIniFile.WriteIniPara("LisSet", "Port", Port.Trim());
                     OperateIniFile.WriteIniPara("LisSet", "ConnectType", ConnectType);
@@ -372,13 +372,13 @@ namespace BioBaseCLIA
             {
                 if (string.IsNullOrEmpty(IPAddress))
                 {
-                    frmMsgShow.MessageShow(Getstring("SerialConnSet"), Getstring("NullPort"));
+                    frmMsgShow.MessageShow(Getstring("keywordText.SerialConnSet"), Getstring("keywordText.NullPort"));
                     return;
                 }
 
                 if (string.IsNullOrEmpty(Port))
                 {
-                    frmMsgShow.MessageShow(Getstring("SerialConnSet"), Getstring("NullBaud"));
+                    frmMsgShow.MessageShow(Getstring("keywordText.SerialConnSet"), Getstring("keywordText.NullBaud"));
                     return;
                 }
                 wait.Reset();
@@ -392,9 +392,9 @@ namespace BioBaseCLIA
                 if (!LisConnection.Instance.IsOpen())
                 {
                     if (communicationType.Contains("SerialConn") || communicationType.Contains("串口通讯"))
-                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("SerialConn"));
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("keywordText.SerialConn"));
                     else
-                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("NetConn"));
+                        OperateIniFile.WriteIniPara("LisSet", "CommunicationType", Getstring("keywordText.NetConn"));
                     OperateIniFile.WriteIniPara("LisSet", "IPAddress", IPAddress);
                     OperateIniFile.WriteIniPara("LisSet", "Port", Port);
                     OperateIniFile.WriteIniPara("LisSet", "ConnectType", ConnectType);
@@ -1553,7 +1553,7 @@ namespace BioBaseCLIA
                     if (Temp > 55)
                         Temp = 55;
                     st.Append(GetString("Incubationtemperature"));
-                    st2.Append(GetString("Incubation" +" : "+ Temp.ToString() +GetString("Temperaturesign"))+"");
+                    st2.Append(GetString("keywordText.Incubation") +" : "+ Temp.ToString() +GetString("Temperaturesign")+"");
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + 
                         " *** " +GetString("Err") + " *** " +GetString("NotRead") + 
                         " *** " + GetString("Incubationtemperature")+ GetString("Notstandardtemperature")+
@@ -1770,7 +1770,7 @@ namespace BioBaseCLIA
                         {
                             Invoke(new Action(() =>
                             {
-                                MessageBox.Show(GetString("InitExcetion"), GetString("MessageboxTitle"),
+                                MessageBox.Show(GetString("InitExcetion"), GetString("Tips"),
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }));
                             return;

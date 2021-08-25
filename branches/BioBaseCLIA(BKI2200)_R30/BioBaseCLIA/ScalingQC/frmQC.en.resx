@@ -1252,4 +1252,52 @@
   <data name="keywordText.null" xml:space="preserve">
     <value>The value is empty, this operation failed</value>
   </data>
+  <data name="DeleteError" xml:space="preserve">
+    <value>No information, cannot be deleted! </value>
+  </data>
+  <data name="keywordText.Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="keywordText.AddSuccess" xml:space="preserve">
+    <value>Information added successfully! </value>
+  </data>
+  <data name="keywordText.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="keywordText.Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="keywordText.DeleteConfirm" xml:space="preserve">
+    <value>Are you sure to delete this piece of data? </value>
+  </data>
+  <data name="keywordText.DeleteSuccess" xml:space="preserve">
+    <value>successfully deleted! </value>
+  </data>
+  <data name="keywordText.ExceedRemind" xml:space="preserve">
+    <value>Notice! The 31-point drawing area is currently exceeded, and the number of query points is: </value>
+  </data>
+  <data name="keywordText.High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="keywordText.InputBatch" xml:space="preserve">
+    <value>Please enter the quality control batch number! </value>
+  </data>
+  <data name="keywordText.InputCategory" xml:space="preserve">
+    <value>Please enter the quality control category! </value>
+  </data>
+  <data name="keywordText.InputPeople" xml:space="preserve">
+    <value>Please enter the person who entered! </value>
+  </data>
+  <data name="keywordText.InputSD" xml:space="preserve">
+    <value>Please enter the quality control standard deviation! </value>
+  </data>
+  <data name="keywordText.lbQCValueNew" xml:space="preserve">
+    <value>New quality control value</value>
+  </data>
+  <data name="PrintError" xml:space="preserve">
+    <value>No information, unable to print!</value>
+  </data>
+  <data name="reminder" xml:space="preserve">
+    <value>Tips</value>
+  </data>
 </root>

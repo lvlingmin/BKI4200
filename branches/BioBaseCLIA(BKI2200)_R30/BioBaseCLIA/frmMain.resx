@@ -3329,7 +3329,7 @@
   <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
     <value>暂存盘卡管</value>
   </data>
-<data name="High" xml:space="preserve">
+  <data name="High" xml:space="preserve">
     <value>暗室值过高，值为：</value>
   </data>
   <data name="Hightips" xml:space="preserve">
@@ -3340,5 +3340,29 @@
   </data>
   <data name="Lowtips" xml:space="preserve">
     <value>暗室值过低！</value>
+  </data>
+  <data name="ConnectSet" xml:space="preserve">
+    <value>通讯设置</value>
+  </data>
+  <data name="keywordText.Incubation" xml:space="preserve">
+    <value>温育盘</value>
+  </data>
+  <data name="keywordText.LisSelect" xml:space="preserve">
+    <value>Lis连接方式为空</value>
+  </data>
+  <data name="keywordText.NetConn" xml:space="preserve">
+    <value>通讯连接</value>
+  </data>
+  <data name="keywordText.NullBaud" xml:space="preserve">
+    <value>波特率不能为空</value>
+  </data>
+  <data name="keywordText.NullPort" xml:space="preserve">
+    <value>端口号不能为空</value>
+  </data>
+  <data name="keywordText.SerialConn" xml:space="preserve">
+    <value>串口通讯</value>
+  </data>
+  <data name="keywordText.SerialConnSet" xml:space="preserve">
+    <value>串口通讯设置</value>
   </data>
 </root>
