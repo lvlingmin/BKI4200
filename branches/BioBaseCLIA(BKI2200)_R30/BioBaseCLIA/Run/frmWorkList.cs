@@ -474,6 +474,10 @@ namespace BioBaseCLIA.Run
         /// 液位检测报警事件
         /// </summary>
         public static event Action<string, int> LiquidLevelDetectionEvent;
+        /// <summary>
+        /// 发光值校准系数
+        /// </summary>
+        public static string Coefficient = OperateIniFile.ReadInIPara("ResultCoefficient", "Coefficient");
 
         public frmWorkList()
         {
@@ -10173,6 +10177,7 @@ namespace BioBaseCLIA.Run
                 modelQCResult.ConcSPEC = "";
                 modelQCResult.ItemName = result.ItemName;
                 modelQCResult.PMTCounter = result.PMT;
+                modelQCResult.PMTCounter = (int)((double)result.PMT * double.Parse(Coefficient));
                 modelQCResult.QCID = int.Parse(dtQCInfo.Rows[0][0].ToString());
                 modelQCResult.Source = 0;
                 modelQCResult.TestDate = DateTime.Now;
@@ -10200,6 +10205,7 @@ namespace BioBaseCLIA.Run
                 modelAssayResult.DiluteCount = 0;
                 modelAssayResult.ItemName = result.ItemName;
                 modelAssayResult.PMTCounter = result.PMT;
+                modelAssayResult.PMTCounter = (int)((double)result.PMT * double.Parse(Coefficient));
                 modelAssayResult.Range = result.Range1 + " " + result.Range2;
                 modelAssayResult.Result = result.Result;
                 modelAssayResult.Specification = "";
