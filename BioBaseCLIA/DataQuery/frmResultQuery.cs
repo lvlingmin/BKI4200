@@ -43,6 +43,7 @@ namespace BioBaseCLIA.DataQuery
         private void frmResultQuery_Load(object sender, EventArgs e)
         {
             //dgvPatientInfo.MultiSelect = false;
+            fbtnAddSampleResult.Visible = false;
             var item = Getstring("NotRangeMessage");
 
             //2018-5-14 zlx add
