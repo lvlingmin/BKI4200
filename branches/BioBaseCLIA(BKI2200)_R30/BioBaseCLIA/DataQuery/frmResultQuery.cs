@@ -459,16 +459,19 @@ namespace BioBaseCLIA.DataQuery
                     {
                         dgvSampleData.Rows[i].Selected = true;
                         dr = dtTestResult.NewRow();
-                        dr["ShortName"] = dtPro.Select("ShortName = '" + dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString() + "'")[0]["FullName"].ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/
+                        DataRow[] drPro = dtPro.Select("ShortName = '" + dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString() + "'");
+                        if (drPro.Length > 0)
+                            dr["ShortName"] = drPro[0]["FullName"].ToString();
+                        else
+                            dr["ShortName"] = dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/
                         dr["Concentration"] = dgvSampleData.Rows[i].Cells["Concentration"].Value.ToString();
                         dr["Result"] = dgvSampleData.Rows[i].Cells["Result"].Value.ToString();
                         dr["Range1"] = dgvSampleData.Rows[i].Cells["Range"].Value.ToString();
                         dr["Range2"] = dgvSampleData.Rows[i].Cells["Unit"].Value.ToString();//2018-11-02 zlx mod
-                        //string printIndex = OperateIniFile.ReadIniData("RpSort", dr["ShortName"].ToString(), "",
-                        //    Application.StartupPath + "//ReportSort.ini");                                                                    
-
                         string printIndex = OperateIniFile.ReadIniData("RpSort", dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString(), "",
-                             Application.StartupPath + "//ReportSort.ini");
+                            Application.StartupPath + "//ReportSort.ini");
+                        if (printIndex == "")
+                            printIndex = "999";
                         dr["printIndex"] = printIndex;
                         dtTestResult.Rows.Add(dr);
                     }
@@ -1172,7 +1175,7 @@ namespace BioBaseCLIA.DataQuery
         {
             try
             {
-                if (dgvSampleData.CurrentRow == null || Convert.ToInt32(dgvSampleData.CurrentRow.Cells["Status"].Value) == 9)
+                if (dgvSampleData.CurrentRow == null || dgvSampleData.CurrentRow.Cells["Status"].Value.ToString() == "" || Convert.ToInt32(dgvSampleData.CurrentRow.Cells["Status"].Value) == 9)
                     return;//Result
             }
             catch (Exception ex) { return; }
