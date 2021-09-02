@@ -9463,7 +9463,7 @@ namespace BioBaseCLIA.Run
                         }
                     }
 
-                    if (Convert.ToDateTime(ActiveDate).AddDays(ExpiryDate).Date < DateTime.Now.Date)
+                    if (ActiveDate!="" && Convert.ToDateTime(ActiveDate).AddDays(ExpiryDate).Date < DateTime.Now.Date)
                     {
                         //2017-08-17 zlx mod
                         ScalingState = 1;
@@ -9542,7 +9542,7 @@ namespace BioBaseCLIA.Run
                             ActiveDate = dr["ActiveDate"].ToString();
                         }
                     }
-                    if (Convert.ToDateTime(ActiveDate).AddDays(ExpiryDate).Date < DateTime.Now.Date)
+                    if (ActiveDate!="" && Convert.ToDateTime(ActiveDate).AddDays(ExpiryDate).Date < DateTime.Now.Date)
                     {
                         //2018-08-17 zlx mod
                         ScalingState = 1;

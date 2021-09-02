@@ -2258,7 +2258,7 @@ namespace BioBaseCLIA.SysMaintenance
             }
 
             string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
-            if (int.Parse(txtTestSubNum.Text) > int.Parse(LeftCount1))
+            if (LeftCount1 == "" || int.Parse(txtTestSubNum.Text) > int.Parse(LeftCount1))
             {
                 frmMsgShow.MessageShow("仪器调试", "底物不足！");
                 return;

@@ -1914,7 +1914,7 @@
     <value>移管手从温育盘向清洗盘移管时接收数据超时</value>
   </data>
   <data name="keywordText.MReactToWashPutKnocked" xml:space="preserve">
-    <value>移管手从温育盘向清洗盘移管时多次放管撞管</value>
+    <value>移管手从温育盘向清洗盘移管时放管撞管</value>
   </data>
   <data name="keywordText.MWashLossIsKnocked" xml:space="preserve">
     <value>移管手在清洗盘扔废管时多次取管撞管</value>
