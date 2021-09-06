@@ -902,91 +902,89 @@ namespace BioBaseCLIA.Run
                     Regex cn = new Regex("[\u4e00-\u9fa5]+");
 
                     #region 计算标志
+                    string sconcentration = concentration;
                     if (double.IsNaN(double.Parse(concentration)))
                     {
                         concentration = GetNanPmtConcentration(itemName, reagentBeach, int.Parse(pmt));
-                        result = getString("keywordText.NotInRange");
+                        sconcentration = concentration.Substring(1);
                     }
                     else if (double.Parse(concentration) < MinValue)
                     {
                         concentration = "<" + MinValue.ToString("#0.000");
-                        result = getString("keywordText.NotInRange");
+                        sconcentration = concentration.Substring(1);
                     }
                     else if (double.Parse(concentration) > (MaxValue))
                     {
                         concentration = ">" + (MaxValue).ToString("#0.000");
-                        result = getString("keywordText.NotInRange");
+                        sconcentration = concentration.Substring(1);
+                    }
+                    if (cn.IsMatch(Range1))//range1字符串中有中文
+                    {
+                        result = "";
+                    }
+                    else if (Regex.Matches(Range1, "[a-zA-Z]").Count > 0)//range1字符串中有英文
+                    {
+                        result = "";
                     }
                     else
                     {
-                        if (cn.IsMatch(Range1))//range1字符串中有中文
+                        if (Range1.Contains("-"))
                         {
-                            result = "";
+                            string[] ranges = Range1.Split('-');
+                            if (double.Parse(sconcentration) < double.Parse(ranges[0]))
+                            {
+                                result = "↓";
+                            }
+                            else if (double.Parse(sconcentration) > double.Parse(ranges[1]))
+                            {
+                                result = "↑";
+                            }
+                            else
+                                result = getString("keywordText.normal");
                         }
-                        else if (Regex.Matches(Range1, "[a-zA-Z]").Count > 0)//range1字符串中有英文
+                        else if (Range1.Contains("<"))
                         {
-                            result = "";
+                            if (double.Parse(sconcentration) >= double.Parse(Range1.Substring(1)))
+                            {
+                                result = "↑";
+                            }
+                            else
+                            {
+                                result = getString("keywordText.normal");
+                            }
                         }
-                        else
+                        else if (Range1.Contains("<="))
                         {
-                            if (Range1.Contains("-"))
+                            if (double.Parse(sconcentration) > double.Parse(Range1.Substring(2)))
                             {
-                                string[] ranges = Range1.Split('-');
-                                if (double.Parse(concentration) < double.Parse(ranges[0]))
-                                {
-                                    result = "↓";
-                                }
-                                else if (double.Parse(concentration) > double.Parse(ranges[1]))
-                                {
-                                    result = "↑";
-                                }
-                                else
-                                    result = getString("keywordText.normal");
+                                result = "↑";
                             }
-                            else if (Range1.Contains("<"))
+                            else
                             {
-                                if (double.Parse(concentration) >= double.Parse(Range1.Substring(1)))
-                                {
-                                    result = "↑";
-                                }
-                                else
-                                {
-                                    result = getString("keywordText.normal");
-                                }
+                                result = getString("keywordText.normal");
                             }
-                            else if (Range1.Contains("<="))
+                        }
+                        else if (Range1.Contains(">"))
+                        {
+                            if (double.Parse(sconcentration) <= double.Parse(Range1.Substring(1)))
                             {
-                                if (double.Parse(concentration) > double.Parse(Range1.Substring(2)))
-                                {
-                                    result = "↑";
-                                }
-                                else
-                                {
-                                    result = getString("keywordText.normal");
-                                }
+                                result = "↓";
                             }
-                            else if (Range1.Contains(">"))
+                            else
                             {
-                                if (double.Parse(concentration) <= double.Parse(Range1.Substring(1)))
-                                {
-                                    result = "↓";
-                                }
-                                else
-                                {
-                                    result = getString("keywordText.normal");
-                                }
+                                result = getString("keywordText.normal");
+                            }
 
-                            }
-                            else if (Range1.Contains(">="))
+                        }
+                        else if (Range1.Contains(">="))
+                        {
+                            if (double.Parse(sconcentration) < double.Parse(Range1.Substring(2)))
                             {
-                                if (double.Parse(concentration) < double.Parse(Range1.Substring(2)))
-                                {
-                                    result = "↓";
-                                }
-                                else
-                                {
-                                    result = getString("keywordText.normal");
-                                }
+                                result = "↓";
+                            }
+                            else
+                            {
+                                result = getString("keywordText.normal");
                             }
                         }
                     }

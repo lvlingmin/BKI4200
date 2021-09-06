@@ -235,79 +235,88 @@ namespace BioBaseCLIA.DataQuery
             string Result = "";
             DbHelperOleDb db = new DbHelperOleDb(1);
             DataTable tbtbProject = DbHelperOleDb.Query(1, @"select Range from tbAssayResult where AssayResultID = " + long.Parse(ResultId) + "").Tables[0];
-            if (concentration.Contains("<"))
+            string Range = tbtbProject.Rows[0]["Range"].ToString();
+            string[] SpRange = Range.Split(' ');
+            Regex cn = new Regex("[\u4e00-\u9fa5]+");
+            db = new DbHelperOleDb(1);
+            DataTable tbProject = DbHelperOleDb.Query(1, @"select ItemName from tbAssayResult where AssayResultID = " + long.Parse(ResultId) + "").Tables[0];
+            string itemname = tbProject.Rows[0]["ItemName"].ToString();
+            DbHelperOleDb ds = new DbHelperOleDb(0);
+            double MinValue = double.Parse(DbHelperOleDb.GetSingle(0, @"select MinValue from tbProject where ShortName = '" + itemname + "'").ToString());
+            double MaxValue = double.Parse(DbHelperOleDb.GetSingle(0, @"select MaxValue from tbProject where ShortName = '" + itemname + "'").ToString());
+            string sconcentration = concentration;
+            if (concentration.Contains("<") || concentration.Contains(">"))
             {
-                Result = Getstring("NotRangeMessage");
+                sconcentration = concentration.Substring(1);
+                //Result = Getstring("NotRangeMessage");
             }
-            else if (concentration.Contains(">"))
+            if (cn.IsMatch(Range))//range1字符串中有中文
             {
-                Result = Getstring("NotRangeMessage");
+                Result = "";
+            }
+            else if (Regex.Matches(Range, "[a-zA-Z]").Count > 0)//range1字符串中有英文
+            {
+                Result = "";
             }
             else
             {
-                string Range = tbtbProject.Rows[0]["Range"].ToString();
-                string[] SpRange = Range.Split(' ');
-                if (SpRange.Length == 1)
+                double dconcentration = double.Parse(sconcentration);
+                if (Range.Contains("-"))
                 {
-                    string Range1 = SpRange[0];
-                    double dconcentration = double.Parse(concentration);
-                    if (Range1.Contains("-"))
+                    string[] ranges = Range.Split('-');
+                    if (dconcentration < double.Parse(ranges[0]))
                     {
-                        string[] ranges = Range1.Split('-');
-                        if (dconcentration < double.Parse(ranges[0]))
-                        {
-                            Result = "↓";
-                        }
-                        else if (dconcentration > double.Parse(ranges[1]))
-                        {
-                            Result = "↑";
-                        }
-                        else
-                            Result = Getstring("Normal");
+                        Result = "↓";
                     }
-                    else if (Range1.Contains("<"))
+                    else if (dconcentration > double.Parse(ranges[1]))
                     {
-                        if (dconcentration >= double.Parse(Range1.Substring(1)))
-                        {
-                            Result = "↑";
-                        }
-                        else
-                        {
-                            Result = Getstring("Normal");
-                        }
+                        Result = "↑";
                     }
-                    else if (Range1.Contains("<="))
+                    else
+                        Result = Getstring("Normal");
+                }
+                else if (Range.Contains("<"))
+                {
+                    if (dconcentration >= double.Parse(Range.Substring(1)))
                     {
-                        if (dconcentration > double.Parse(Range1.Substring(2)))
-                        {
-                            Result = "↑";
-                        }
-                        else
-                        {
-                            Result = Getstring("Normal");
-                        }
+                        Result = "↑";
                     }
-                    else if (Range1.Contains(">"))
+                    else
                     {
-                        if (dconcentration <= double.Parse(Range1.Substring(1)))
-                        {
-                            Result = "↓";
-                        }
-                        else
-                        {
-                            Result = Getstring("Normal");
-                        }
+                        Result = Getstring("Normal");
                     }
-                    else if (Range1.Contains(">="))
+                }
+                else if (Range.Contains("<="))
+                {
+                    if (dconcentration > double.Parse(Range.Substring(2)))
                     {
-                        if (dconcentration < double.Parse(Range1.Substring(2)))
-                        {
-                            Result = "↓";
-                        }
-                        else
-                        {
-                            Result = Getstring("Normal");
-                        }
+                        Result = "↑";
+                    }
+                    else
+                    {
+                        Result = Getstring("Normal");
+                    }
+                }
+                else if (Range.Contains(">"))
+                {
+                    if (dconcentration <= double.Parse(Range.Substring(1)))
+                    {
+                        Result = "↓";
+                    }
+                    else
+                    {
+                        Result = Getstring("Normal");
+                    }
+                }
+                else if (Range.Contains(">="))
+                {
+                    if (dconcentration < double.Parse(Range.Substring(2)))
+                    {
+                        Result = "↓";
+                    }
+                    else
+                    {
+                        Result = Getstring("Normal");
                     }
                 }
             }
@@ -459,17 +468,18 @@ namespace BioBaseCLIA.DataQuery
                     {
                         dgvSampleData.Rows[i].Selected = true;
                         dr = dtTestResult.NewRow();
-                        DataRow[] drPro = dtPro.Select("ShortName = '" + dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString() + "'");
+						DataRow[] drPro = dtPro.Select("ShortName = '" + dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString() + "'");
                         if (drPro.Length > 0)
                             dr["ShortName"] = drPro[0]["FullName"].ToString();
                         else
-                            dr["ShortName"] = dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/
-                        dr["Concentration"] = dgvSampleData.Rows[i].Cells["Concentration"].Value.ToString();
+                            dr["ShortName"] = dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/                        dr["Concentration"] = dgvSampleData.Rows[i].Cells["Concentration"].Value.ToString();
                         dr["Result"] = dgvSampleData.Rows[i].Cells["Result"].Value.ToString();
                         dr["Range1"] = dgvSampleData.Rows[i].Cells["Range"].Value.ToString();
                         dr["Range2"] = dgvSampleData.Rows[i].Cells["Unit"].Value.ToString();//2018-11-02 zlx mod
                         string printIndex = OperateIniFile.ReadIniData("RpSort", dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString(), "",
                             Application.StartupPath + "//ReportSort.ini");
+                        if (printIndex == "")
+                            printIndex = "999";
                         if (printIndex == "")
                             printIndex = "999";
                         dr["printIndex"] = printIndex;
