@@ -299,7 +299,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 稀释液获取不到的体积/ul 2019-04-12 zlx add
         /// </summary>
-        int DiuNoUsePro = 2000;
+        int DiuNoUsePro = 0;
         /// <summary>
         /// 稀释样本后弃体积
         /// </summary>
@@ -615,6 +615,7 @@ namespace BioBaseCLIA.Run
             #region 生成实验进度
             if (RunFlag == (int)RunFlagStart.IsRuning)
             {
+                string startDate = OperateIniFile.ReadInIPara("Time", "StartRuntime");
                 //运行中加急诊样本
                 if (EmergencyFlag)
                 {
@@ -2799,12 +2800,16 @@ namespace BioBaseCLIA.Run
             {
                 return;
             }
+            string startDate = OperateIniFile.ReadInIPara("Time", "StartRuntime");
             int tempTestBegain = 0;
             DbHelperOleDb db = new DbHelperOleDb(1);
             BLL.tbSampleInfo bllsp = new BLL.tbSampleInfo();
             DataTable dtSample = bllsp.GetList(" SendDateTime  >=#"
-                + DateTime.Now.ToString("yyyy-MM-dd") + "#and SendDateTime <#"
+                +Convert.ToDateTime(startDate).ToString("yyyy-MM-dd")+ "#and SendDateTime <#"
                 + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd") + "# and Status = 0 order by SampleNo").Tables[0];
+            //DataTable dtSample = bllsp.GetList(" SendDateTime  >=#"
+            //    + DateTime.Now.ToString("yyyy-MM-dd") + "#and SendDateTime <#"
+            //    + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd") + "# and Status = 0 order by SampleNo").Tables[0];
             for (int i = nostartid; i <= lisTS[lisTS.Count - 1].TestID; i++)
             {
                 //实验项目步骤数量
@@ -3127,6 +3132,7 @@ namespace BioBaseCLIA.Run
             lisSavedId = new List<int>();//2018-08-21 zlx add
             buttonEnableRun(true);//2018-11-29 zlx mod
             EntertRun = true;
+            OperateIniFile.WriteIniPara("Time", "StartRuntime",DateTime.Now.ToString("yyyy-MM-dd"));
             RunThread = new Thread(new ParameterizedThreadStart(GaTestRun));// GaTestRun  TestRun
             RunThread.CurrentCulture = Language.AppCultureInfo;
             RunThread.CurrentUICulture = Language.AppCultureInfo;
@@ -6673,7 +6679,7 @@ namespace BioBaseCLIA.Run
                         pos1 = pos1 - ReactTrayHoleNum + 3;
                     }
                     string ss = OperateIniFile.ReadIniData("ReactTrayInfo", "no" + pos1, "", iniPathReactTrayInfo);
-                    if (ss == "2" && !AddTubeStop.Contains(pos1))
+                    if ((ss == "2"|| ss == "9") && !AddTubeStop.Contains(pos1))
                         AddTubeStop.Add(pos1);
                     else
                     {
@@ -10020,7 +10026,6 @@ namespace BioBaseCLIA.Run
                     //frmTestResult f = new frmTestResult();
                     List<TestResult> ScalingResult = new List<TestResult>(TemporaryTestResult).FindAll(tx => (tx.ItemName == testresult.ItemName &&
                     testresult.SampleType.Contains(getString("keywordText.Standard"))) && tx.ReagentBeach == testresult.ReagentBeach);
-
                     Invoke(new Action(() =>
                     {
                         frmTestResult f;
@@ -10719,7 +10724,7 @@ namespace BioBaseCLIA.Run
                 }
                 LogFile.Instance.Write(DateTime.Now + "实验调用了终止实验的程序！");
                 StopStopWatch();//终止倒计时
-                frmMain.BQLiquaid = false;//2018-09-14
+                //frmMain.BQLiquaid = false;//2018-09-14
                 buttonEnableRun(false);
                 frmAddSample.newSample = true;
                 if (btnRunStatus != null)
