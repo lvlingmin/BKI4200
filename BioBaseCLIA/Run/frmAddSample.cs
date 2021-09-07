@@ -51,7 +51,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 稀释液获取不到的体积/ul
         /// </summary>
-        int DiuNoUsePro = 2000;
+        int DiuNoUsePro = 0;
         /// <summary>
         /// 稀释过程获取不到的稀释液体积
         /// </summary>
@@ -2209,9 +2209,10 @@ namespace BioBaseCLIA.Run
                         string emergency;
                         try
                         {
+                            string startDate = OperateIniFile.ReadInIPara("Time", "StartRuntime");
                             emergency = DbHelperOleDb.GetSingle(1, "select Emergency from tbSampleInfo where SampleNo = '"
                             + dgvSampleList.SelectedRows[i].Cells["SampleNo"].Value.ToString() + "' and SendDateTime >=#"
-                            + DateTime.Now.ToString("yyyy-MM-dd")
+                            + Convert.ToDateTime(startDate).ToString("yyyy-MM-dd")
                             + "# and SendDateTime <#" + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")
                             + "#").ToString();
                         }
