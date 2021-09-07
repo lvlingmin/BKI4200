@@ -472,14 +472,14 @@ namespace BioBaseCLIA.DataQuery
                         if (drPro.Length > 0)
                             dr["ShortName"] = drPro[0]["FullName"].ToString();
                         else
-                            dr["ShortName"] = dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/                        dr["Concentration"] = dgvSampleData.Rows[i].Cells["Concentration"].Value.ToString();
+                            dr["ShortName"] = dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/
+                        //dr["ShortName"] = dtPro.Select("ShortName = '" + dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString() + "'")[0]["FullName"].ToString();//lyq/*dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString();*/
+                        dr["Concentration"] = dgvSampleData.Rows[i].Cells["Concentration"].Value.ToString();
                         dr["Result"] = dgvSampleData.Rows[i].Cells["Result"].Value.ToString();
                         dr["Range1"] = dgvSampleData.Rows[i].Cells["Range"].Value.ToString();
                         dr["Range2"] = dgvSampleData.Rows[i].Cells["Unit"].Value.ToString();//2018-11-02 zlx mod
                         string printIndex = OperateIniFile.ReadIniData("RpSort", dgvSampleData.Rows[i].Cells["ItemName"].Value.ToString(), "",
                             Application.StartupPath + "//ReportSort.ini");
-                        if (printIndex == "")
-                            printIndex = "999";
                         if (printIndex == "")
                             printIndex = "999";
                         dr["printIndex"] = printIndex;
