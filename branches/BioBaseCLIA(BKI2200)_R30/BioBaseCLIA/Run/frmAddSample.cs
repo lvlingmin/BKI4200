@@ -63,7 +63,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 稀释液最小加液体积
         /// </summary>
-        int addDiuVol = 5;
+        int addDiuVol = 7;
         /// <summary>
         /// 查询底物剩余数量事件
         /// </summary>
@@ -2206,15 +2206,18 @@ namespace BioBaseCLIA.Run
                     {
                         string tesst = dgvSampleList.SelectedRows[i].Cells["SampleNo"].Value.ToString();
                         db = new DbHelperOleDb(1);
-                        string emergency;
+                        string emergency = "";
                         try
                         {
-                            string startDate = OperateIniFile.ReadInIPara("Time", "StartRuntime");
-                            emergency = DbHelperOleDb.GetSingle(1, "select Emergency from tbSampleInfo where SampleNo = '"
+                           
+                            object emergency1 = DbHelperOleDb.GetSingle(1, "select Emergency from tbSampleInfo where SampleNo = '"
                             + dgvSampleList.SelectedRows[i].Cells["SampleNo"].Value.ToString() + "' and SendDateTime >=#"
-                            + Convert.ToDateTime(startDate).ToString("yyyy-MM-dd")
+                            + frmParent.StartRuntime.ToString("yyyy-MM-dd")
                             + "# and SendDateTime <#" + DateTime.Now.AddDays(1).ToString("yyyy-MM-dd")
-                            + "#").ToString();
+                            + "#");
+                            if (emergency1 != null)
+                                emergency = emergency1.ToString();
+
                         }
                         catch (Exception ex)
                         {

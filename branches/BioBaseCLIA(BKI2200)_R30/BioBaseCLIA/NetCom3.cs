@@ -1948,12 +1948,12 @@ namespace BioBaseCLIA
         {
             if (File.Exists(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt"))
             {
-                Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Append, FileAccess.Write, FileShare.Read);
+                Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Open, FileAccess.ReadWrite, FileShare.Read ,100, FileOptions.Asynchronous);
                 //Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Open,FileAccess.ReadWrite,FileShare.Read );
             }
             else
             {
-                Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Create, FileAccess.Write, FileShare.ReadWrite, 100, FileOptions.Asynchronous);
+                Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Create, FileAccess.Write, FileShare.Read, 100, FileOptions.Asynchronous);
             }
         }
         public void Write(string str)

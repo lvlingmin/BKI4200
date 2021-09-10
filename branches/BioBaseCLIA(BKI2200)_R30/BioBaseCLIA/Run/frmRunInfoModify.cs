@@ -35,7 +35,7 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 稀释液最小加液体积
         /// </summary>
-        int addDiuVol = 5;
+        int addDiuVol = 7;
         /// <summary>
         /// 试剂盘配置文件地址
         /// </summary>
