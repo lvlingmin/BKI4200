@@ -60,7 +60,7 @@ namespace Common
                 return null;
             }
 
-            using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) 
+            using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)) 
             {
                 StreamReader sr = new StreamReader(wfile);
                 try
