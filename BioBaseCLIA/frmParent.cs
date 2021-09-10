@@ -86,6 +86,10 @@ namespace BioBaseCLIA
         ///试剂开封有效期(天)
         /// </summary>
         public const int ValidDate = 30;
+        /// <summary>
+        /// 实验开始时间
+        /// </summary>
+        public static DateTime StartRuntime = DateTime.Now;
         public frmParent()
         {
             InitializeComponent();

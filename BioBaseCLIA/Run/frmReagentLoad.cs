@@ -49,6 +49,7 @@ namespace BioBaseCLIA.Run
         public static bool isSp = false;
         bool noSpAddReagent = true;
         List<string> spacialProList = new List<string>();//两个试剂盒分装的特殊项目
+        List<string> TwoReagentProList = new List<string>();//三个或者四个试剂项目
         bool isClick = false;
         /// <summary>
         /// 准备=0，试剂=1，稀释液=2
@@ -93,7 +94,15 @@ namespace BioBaseCLIA.Run
             }
             sr.Close();
             fs.Close();
-
+            fs = new FileStream(Environment.CurrentDirectory + "\\TwoReagentProjects.txt", FileMode.Open, FileAccess.Read);
+            sr = new StreamReader(fs, Encoding.UTF8);
+            tempName = sr.ReadToEnd().Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            foreach (string temp in tempName)
+            {
+                TwoReagentProList.Add(temp);
+            }
+            sr.Close();
+            fs.Close();
             dateValidDate.MinDate = Convert.ToDateTime("2020/01/01");
             dgvRgInfoList.Columns[0].Width = 67;
             dgvRgInfoList.Columns[1].Width = 91;
@@ -478,6 +487,22 @@ namespace BioBaseCLIA.Run
                         return;
                     }
                 }
+                if (TwoReagentProList.Find(ty => ty == cmbRgName.Text.Trim()) != null)
+                {
+                    if (txtRgPosition.Text.Trim() == RegentNum.ToString())
+                    {
+                        frmMessageShow msg = new frmMessageShow();
+                        msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.SpecialItemNotAllowPutLast"));
+                        return;
+                    }
+                    else if (OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(txtRgPosition.Text.Trim()) + 1), "BarCode", "", iniPathReagentTrayInfo) != "")
+                    {
+                        frmMessageShow msg = new frmMessageShow();
+                        msg.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.SpecialItemFirstUnloadNext"));
+                        return;
+                    }
+                }
+                
                 #endregion
                 fbtnReturn.Enabled = false;
                 btnAddR.Enabled = false;
@@ -519,6 +544,10 @@ namespace BioBaseCLIA.Run
                             {
                                 ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()) + 1, new string[9] { "", rg[1], "", "", "", "", "", "", "" });
                             }
+                        }
+                        if (TwoReagentProList.Find(ty => ty == rg[1]) != null)
+                        {
+                            ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()) + 1, new string[9] { "", rg[1], "", "", "", "", "", "", "" });
                         }
                         ShowRgInfo(0);
                         if (NetCom3.isConnect)
@@ -632,6 +661,10 @@ namespace BioBaseCLIA.Run
                             }
                             
                         }
+                        if (TwoReagentProList.Find(ty => ty == rg[1]) != null)
+                        {
+                            ModifyRgIni(int.Parse(txtRgPosition.Text.Trim()) + 1, new string[9] { "", rg[1], "", "", "", "", "", "", "" });
+                        }
                         ShowRgInfo(0);
                         if (NetCom3.isConnect)
                         {
@@ -732,6 +765,11 @@ namespace BioBaseCLIA.Run
                         srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = (tempNum - 50 > 0 ? 50 : tempNum).ToString();
                         srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["RgName"].ToString();
                     }
+                }
+                if (TwoReagentProList.Find(ty => ty == dtRgInfo.Rows[i]["RgName"].ToString()) != null)
+                {
+                    srdReagent.RgTestNum[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["leftoverTestR1"].ToString();
+                    srdReagent.RgName[int.Parse(dtRgInfo.Rows[i]["Postion"].ToString())] = dtRgInfo.Rows[i]["RgName"].ToString();
                 }
             }
             int OverDateC = 0;//2018-07-17 zlx add
@@ -1032,6 +1070,14 @@ namespace BioBaseCLIA.Run
                 }
                
             }
+            if (TwoReagentProList.Find(ty => ty == ModelRg.ReagentName) != null)//卸载掉特殊分装项目的
+            {
+                srdReagent.RgTestNum[int.Parse(ModelRg.Postion)] = "";
+                srdReagent.RgName[int.Parse(ModelRg.Postion)] = "";
+                ModifyRgIni(int.Parse(ModelRg.Postion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
+                ShowRgInfo(0);
+
+            }
             fbtnReturn.Enabled = true;
             btnAddR.Enabled = true;
             btnDelR.Enabled = true;
@@ -1273,6 +1319,11 @@ namespace BioBaseCLIA.Run
                         srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CBeedsLoaded;
                     }
                 }
+                if (TwoReagentProList .Find(ty => ty == dtRgInfo.Rows[j]["RgName"].ToString()) != null)//两个试剂盒
+                {
+                    srdReagent.RgColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CRgLoaded;
+                    srdReagent.BdColor[int.Parse(dtRgInfo.Rows[j]["Postion"].ToString())] = srdReagent.CBeedsLoaded;
+                }
             }
             #endregion
             #region 样本位号颜色设置
@@ -1393,6 +1444,12 @@ namespace BioBaseCLIA.Run
                             barCodeHook.Stop();
                             goto end;
                         }
+                    }
+                    else if (TwoReagentProList.Find(ty => ty == dtRgInfo.Select("Postion='" + (RgSelectedNo) + "'")[0]["RgName"].ToString()) != null)
+                    {
+                        btnAddR.Enabled = false;
+                        barCodeHook.Stop();
+                        goto end;
                     }
                 }
                 if (dtRgInfo.Select("Postion='" + (RgSelectedNo + 1) + "'").Length > 0)
@@ -3722,6 +3779,12 @@ namespace BioBaseCLIA.Run
                                 srdReagent.RgName[i] = "";
                             }
                         }
+                        if (TwoReagentProList.Find(ty => ty == dtRgInfo.Select("Postion='" + i + "'")[0]["RgName"].ToString()) != null)
+                        {
+                            ModifyRgIni(i + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
+                            srdReagent.RgTestNum[i] = "";
+                            srdReagent.RgName[i] = "";
+                        }
                         if (DbHelperOleDb.ExecuteSql(3, @"update tbReagent set Postion='' where Postion = '" + i + "'") > 0)//更改db
                         {
                             //更改ini
@@ -3774,6 +3837,15 @@ namespace BioBaseCLIA.Run
                     //    goto errorEnd;
                     //}
                 }
+                if (TwoReagentProList.Find(ty => ty == cmbRgName.Text) != null)
+                {
+                    if (rgpostion == RegentNum.ToString())
+                    {
+
+                        loopSpFailReason.Add("\n" + i + "：" + getString("keywordText.SpecialItemNotAllowPutLast"));
+                        goto errorEnd;
+                    }
+                }
                 //if (dateValidDate.Value.Date <= DateTime.Today.Date)
                 //{
                 //    frmMessageShow msg = new frmMessageShow();
@@ -3793,6 +3865,13 @@ namespace BioBaseCLIA.Run
                         loopSpFailReason.Add("\n" + i + "：" + getString("keywordText.PleaseStandard"));
                         continue;
                     }
+                }
+                if (rgpostion != "1" && TwoReagentProList.Find(ty =>
+              ty == OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "ItemName", "", iniPathReagentTrayInfo)) != null
+              && OperateIniFile.ReadIniData("ReagentPos" + (int.Parse(rgpostion) - 1), "BarCode", "", iniPathReagentTrayInfo) != "")//如果上一个项目是特殊项目,特殊项目第一盒才有射频卡
+                {
+                    loopSpFailReason.Add("\n" + i + "：" + getString("keywordText.PleaseStandard"));
+                    continue;
                 }
                 //根据条码判断已装载、已卸载、首次装载
                 var spdr = dtAllRS.Select("BarCode ='" + spRgcode + "'");
@@ -3898,6 +3977,13 @@ namespace BioBaseCLIA.Run
                                         srdReagent.RgName[int.Parse(rgpostion)] = "";
                                     }
                                 }
+                                if (TwoReagentProList .Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
+                                {
+
+                                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
+                                    srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
+                                    srdReagent.RgName[int.Parse(rgpostion)] = "";
+                                }
                             }
                             else
                                 goto errorEnd;
@@ -3974,6 +4060,19 @@ namespace BioBaseCLIA.Run
                                             srdReagent.RgName[int.Parse(rgpostion)] = "";
                                             ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                                         }
+                                    }
+                                    if (TwoReagentProList.Find(ty => ty == dtRgInfo.Select("Postion='" + spRgPostion + "'")[0]["RgName"].ToString()) != null)//卸载掉特殊分装项目的
+                                    {
+                                        srdReagent.RgTestNum[int.Parse(spRgPostion)] = "";
+                                        srdReagent.RgName[int.Parse(spRgPostion)] = "";
+                                        ModifyRgIni(int.Parse(spRgPostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
+                                    }
+                                    if (TwoReagentProList.Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
+                                    {
+
+                                        srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
+                                        srdReagent.RgName[int.Parse(rgpostion)] = "";
+                                        ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                                     }
                                     srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
                                     srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
@@ -4302,6 +4401,12 @@ namespace BioBaseCLIA.Run
                                             ModifyRgIni(int.Parse(spRgPostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                                         }
                                     }
+                                    if (TwoReagentProList .Find(ty => ty == dtRgInfo.Select("Postion='" + spRgPostion + "'")[0]["RgName"].ToString()) != null)//卸载掉特殊分装项目的
+                                    {
+                                        srdReagent.RgTestNum[int.Parse(spRgPostion)] = "";
+                                        srdReagent.RgName[int.Parse(spRgPostion)] = "";
+                                        ModifyRgIni(int.Parse(spRgPostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
+                                    }
                                     //OperateIniFile.WriteIniData("ReagentPos" + spRgPostion, "leftDiuVol", "0", iniPathReagentTrayInfo);
                                     srdReagent.RgName[int.Parse(spRgPostion) - 1] = "";
                                     srdReagent.RgTestNum[int.Parse(spRgPostion) - 1] = "";
@@ -4354,6 +4459,12 @@ namespace BioBaseCLIA.Run
                                     srdReagent.RgName[int.Parse(rgpostion)] = "";
                                     ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                                 }
+                            }
+                            if (TwoReagentProList.Find(ty => ty == dtRgInfo.Select("Postion='" + rgpostion + "'")[0]["RgName"].ToString()) != null)
+                            {
+                                srdReagent.RgTestNum[int.Parse(rgpostion)] = "";
+                                srdReagent.RgName[int.Parse(rgpostion)] = "";
+                                ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", "", "", "", "", "", "", "", "" });
                             }
                             srdReagent.RgName[int.Parse(rgpostion) - 1] = "";
                             srdReagent.RgTestNum[int.Parse(rgpostion) - 1] = "";
@@ -4414,6 +4525,10 @@ namespace BioBaseCLIA.Run
                     {
                         ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.Text, "", "", "", "", "", "", "" });
                     }
+                }
+                if (TwoReagentProList.Find(ty => ty == cmbRgName.Text) != null)
+                {
+                    ModifyRgIni(int.Parse(rgpostion) + 1, new string[9] { "", cmbRgName.Text, "", "", "", "", "", "", "" });
                 }
                 #region
                 //NetCom3.Instance.ReceiveHandel += dealSP;

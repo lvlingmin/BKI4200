@@ -76,6 +76,8 @@ namespace BioBaseCLIA.Run
                 {
                     if (allofthis[i].Length < 27) continue;
                     time = allofthis[i].Substring(0, 8).Replace('-', ':');
+                    if (!allofthis[i].Contains("*"))
+                        continue;
                     module = allofthis[i].Substring(allofthis[i].IndexOf('*') + 3, 
                         allofthis[i].NumberIndexOf(4,'*')-(allofthis[i].IndexOf('*') + 3));
                     text = allofthis[i].Substring(allofthis[i].LastIndexOf('*') + 1);
