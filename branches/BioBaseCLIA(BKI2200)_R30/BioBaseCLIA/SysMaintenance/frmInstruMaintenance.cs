@@ -113,6 +113,7 @@ namespace BioBaseCLIA.SysMaintenance
             }
             cmbSelectAct.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
+            cbClearTray.Checked = false;
         }
 
         void Instance_ReceiveHandel(string obj)

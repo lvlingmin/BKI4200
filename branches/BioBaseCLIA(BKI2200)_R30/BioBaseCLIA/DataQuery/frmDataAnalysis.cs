@@ -226,8 +226,16 @@ namespace BioBaseCLIA.DataQuery
                 double max = 0;
                 for (int i = 0; i < dtDgv1.Rows.Count; i++)
                 {
-                    if (max < double.Parse(dtDgv1.Rows[i][1].ToString()))
-                        max = double.Parse(dtDgv1.Rows[i][1].ToString());
+                    try
+                    {
+                        if (max < double.Parse(dtDgv1.Rows[i][1].ToString()))
+                            max = double.Parse(dtDgv1.Rows[i][1].ToString());
+                    }
+                    catch (Exception ee)
+                    { 
+                        return; 
+                    }
+                   
                 }
                 paintReleaseCurve(img1, dtDgv1, dtDgv1.Rows.Count, max, 0, true, false);
                 Bitmap bmp = new Bitmap(img1.Width, img1.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
