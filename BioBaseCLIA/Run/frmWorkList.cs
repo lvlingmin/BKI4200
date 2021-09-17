@@ -5706,8 +5706,8 @@ namespace BioBaseCLIA.Run
                     float AddSample = float.Parse(MinSunDiuV.ToString()) / float.Parse(Diutimes[i - 1]);
                     int AddSampleV = 0;
                     int AddDiuV = 0;
-                    if (AddSample < 5)
-                        AddSampleV = 5;
+                    if (AddSample < ImbibitionMin)
+                        AddSampleV = ImbibitionMin;
                     else
                     {
                         if ((AddSample - (int)AddSample) != 0)
@@ -7652,7 +7652,8 @@ namespace BioBaseCLIA.Run
             }
             #region 体积修改 lyn add 20180611
             DataRow[] drRg = dtRgInfo.Select("Postion=" + rgPos + "");
-            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", (LeftdiuVol - (int)(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
+            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", 
+                (LeftdiuVol-(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
             #endregion
             return AddErrorCount;
         }

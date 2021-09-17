@@ -141,7 +141,7 @@ namespace BioBaseCLIA.Run
             for (int i = 0; i < diuList.Count; i++)
             {
                 int SampleVol = int.Parse(diuList[i].Split(';')[0]);
-                DiuVol = DiuVol + int.Parse(diuList[i].Split(';')[1] + abanDiuPro);
+                DiuVol = DiuVol + int.Parse(diuList[i].Split(';')[1]) + abanDiuPro;
             }
             return DiuVol;
         }
