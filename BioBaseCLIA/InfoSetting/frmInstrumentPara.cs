@@ -121,26 +121,26 @@ namespace BioBaseCLIA.InfoSetting
         void WriteTxtToIni()
         {
             OperateIniFile.WriteIniPara("Vol", "AirVol", txtAirVol.Text);
-            OperateIniFile.WriteIniPara("Time", "beadTime", txtBeadsTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "beadTime", txtBeadsTime.Text);
             OperateIniFile.WriteIniPara("Limit", "ErrorReagent", txtErrorReagent.Text);
             OperateIniFile.WriteIniPara("Limit", "ErrorSubstrate", txtErrorSubstrate.Text);
             OperateIniFile.WriteIniPara("Limit", "ErrorTube", txtErrorTube.Text);
-            OperateIniFile.WriteIniPara("Time", "FirstCleanNeedleTime", txtFirstCleanTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "FirstCleanNeedleTime", txtFirstCleanTime.Text);
             OperateIniFile.WriteIniPara("OtherPara", "MixNum", txtMixNum.Text);
-            OperateIniFile.WriteIniPara("Time", "NeedleWashTime", txtNeedleCleanTime.Text);
-            OperateIniFile.WriteIniPara("Time", "readTime", txtReadTime.Text);
-            OperateIniFile.WriteIniPara("Time", "RegentTime", txtReagentTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "NeedleWashTime", txtNeedleCleanTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "readTime", txtReadTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "RegentTime", txtReagentTime.Text);
             OperateIniFile.WriteIniPara("Vol", "RgAbandonVol", txtRgAbandonVol.Text);
             OperateIniFile.WriteIniPara("Vol", "RgBeforeVol", txtRgBeforeVol.Text);
-            OperateIniFile.WriteIniPara("Time", "sampleTime", txtSampleTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "sampleTime", txtSampleTime.Text);
             OperateIniFile.WriteIniPara("Vol", "SpAbandonVol", txtSpAbandonVol.Text);
             OperateIniFile.WriteIniPara("Vol", "SpBeforeVol", txtSpBeforeVol.Text);
-            OperateIniFile.WriteIniPara("Time", "substrateTime", txtSubstrateTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "substrateTime", txtSubstrateTime.Text);
             OperateIniFile.WriteIniPara("Limit", "WarnReagent", txtWarnReagent.Text);
             OperateIniFile.WriteIniPara("Limit", "WarnSubstrate", txtWarnSubstrate.Text);
             OperateIniFile.WriteIniPara("Limit", "WarnTube", txtWarnTube.Text);
-            OperateIniFile.WriteIniPara("Time", "WarnWaitSeconds", txtWarnWaitSeconds.Text);
-            OperateIniFile.WriteIniPara("Time", "washTime", txtWashTime.Text);
+            //OperateIniFile.WriteIniPara("Time", "WarnWaitSeconds", txtWarnWaitSeconds.Text);
+            //OperateIniFile.WriteIniPara("Time", "washTime", txtWashTime.Text);
 
             //2018-07-13
             OperateIniFile.WriteIniPara("temperature", "MaxTWY", txtTWYMax.Text);
