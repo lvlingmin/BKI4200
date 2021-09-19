@@ -945,15 +945,20 @@ namespace BioBaseCLIA.Run
                 txtRgLastTest.Focus();
                 return;
             }
-            DataRow[] datas = dtSpInfo.Select("Status = 0 ");//and ItemName='" + cmbRgName.Text.ToString() + "'
+            DataRow[] datas = dtSpInfo.Select("Status = 0 ");// and ItemName='" + cmbRgName.Text.ToString() + "'
             foreach (DataRow dr in datas)
             {
-                if (dr["ItemName"].ToString().Contains(cmbRgName.Text.ToString()))
+                String[] SItemName = dr["ItemName"].ToString().Split(' ');
+                foreach (string ItemName in SItemName)
                 {
-                    frmMsgShow.MessageShow(getString("keywordText.ReagentUnload"), getString("keywordText.PealseFirstUnloadSampleAbout"));
-                    txtRgLastTest.Focus();
-                    return;
+                    if (ItemName != "" && ItemName == cmbRgName.Text.ToString())
+                    {
+                        frmMsgShow.MessageShow(getString("keywordText.ReagentUnload"), getString("keywordText.PealseFirstUnloadSampleAbout"));
+                        txtRgLastTest.Focus();
+                        return;
+                    }
                 }
+               
             }
             //if (datas.Length > 0)
             //{
