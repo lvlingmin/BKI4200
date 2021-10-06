@@ -2132,4 +2132,7 @@
   <data name="keywordText.MAddNewTReactOvertime" xml:space="preserve">
     <value>移管手在暂存盘向温育盘抓管时接收数据超时</value>
   </data>
+  <data name="keywordText.AddSPlugneedle" xml:space="preserve">
+    <value>加样针加样本时发生堵针</value>
+  </data>
 </root>
