@@ -36,6 +36,7 @@ namespace BioBaseCLIA.DataQuery
         /// 样本信息表表的bll实例 2019-01-10 zlx add
         /// </summary>
         BLL.tbSampleInfo bllsp = new BLL.tbSampleInfo();
+        List<string> DataAnalysisProList = new List<string>();//释放图项目
         public frmResultQuery()
         {
             InitializeComponent();
@@ -54,6 +55,15 @@ namespace BioBaseCLIA.DataQuery
                 return;
             }
             cmbSelect.SelectedIndex = 0;//2018-11-20 zlx add
+            FileStream fs = new FileStream(Environment.CurrentDirectory + "\\DataAnalysis.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs, Encoding.UTF8);
+            string[] tempName = sr.ReadToEnd().Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            foreach (string temp in tempName)
+            {
+                DataAnalysisProList.Add(temp);
+            }
+            sr.Close();
+            fs.Close();
             fbtnQuery_Click(sender, e);
 
         }
@@ -407,15 +417,25 @@ namespace BioBaseCLIA.DataQuery
                 string age = dgvPatientInfo.SelectedRows[0].Cells["Age"].Value.ToString();
                 string clinicNo = dgvPatientInfo.SelectedRows[0].Cells["ClinicNo"].Value.ToString();
                 string medicaRecordNo = dgvPatientInfo.SelectedRows[0].Cells["MedicaRecordNo"].Value.ToString();
-                DataQuery.frmDataAnalysis f = new DataQuery.frmDataAnalysis(new List<string>() { sampleNum }, name, sex, age, medicaRecordNo, clinicNo);
-                f.ShowDialog();
-                if (frmDataAnalysis.confirmClosed == true)
+                DataTable table = ((DataTable)dgvSampleData.DataSource).Copy();
+                int countProList = 0;
+                foreach (string Pro in DataAnalysisProList)
                 {
-                    //releaseChartInfo1 = frmDataAnalysis.releaseChartInfo1;
-                    //releassChartInfo2 = frmDataAnalysis.releassChartInfo2;
-                    psaRatio = frmDataAnalysis.psaRatio;
-                    fshLhRatio = frmDataAnalysis.fshLhRatio;
-                    pgiRatio = frmDataAnalysis.pgiRatio;
+                    if (Pro != "")
+                    {
+                        countProList = countProList + table.Select("ItemName = '" + Pro + "'").Length;
+                    }
+                }
+                if (countProList > 0)
+                {
+                    DataQuery.frmDataAnalysis f = new DataQuery.frmDataAnalysis(new List<string>() { sampleNum }, name, sex, age, medicaRecordNo, clinicNo);
+                    f.ShowDialog();
+                    if (frmDataAnalysis.confirmClosed == true)
+                    {
+                        psaRatio = frmDataAnalysis.psaRatio;
+                        fshLhRatio = frmDataAnalysis.fshLhRatio;
+                        pgiRatio = frmDataAnalysis.pgiRatio;
+                    }
                 }
                 #endregion
                 #region 声明打印变量及属性
@@ -440,6 +460,10 @@ namespace BioBaseCLIA.DataQuery
                 else if (printModel.Contains("模版三") || printModel.Contains("3"))
                 {
                     modelPath += "A5ZH-模版三.frx";
+                }
+                else if (printModel.Contains("模版六") || printModel.Contains("6"))
+                {
+                    modelPath += "A5ZH-模版六.frx";
                 }
                 report.Load(modelPath);
                 dtTestResult.Columns.Add(new DataColumn("ShortName", typeof(string)));

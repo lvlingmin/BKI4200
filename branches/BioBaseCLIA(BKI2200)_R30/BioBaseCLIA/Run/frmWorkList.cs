@@ -438,6 +438,10 @@ namespace BioBaseCLIA.Run
         /// </summary>
         public static bool TubeStop = false;
         /// <summary>
+        /// 堵针标志 
+        /// </summary>
+        public static bool PlugneedleFalg = false;
+        /// <summary>
         /// 向温育盘夹管失败的位置
         /// </summary>
         List<int> AddTubeStop = new List<int>();
@@ -2973,6 +2977,7 @@ namespace BioBaseCLIA.Run
                 NetCom3.Instance.stopsendFlag = false;
             //2018-09-25 zlx add
             frmMain.StartFlag = true;
+            PlugneedleFalg = false;
             if (dgvWorkListData.RowCount == 0)
             {
                 btnRunStatus();
@@ -5035,11 +5040,19 @@ namespace BioBaseCLIA.Run
                                     GetNoStartList();
                                 }
                             }
+                            if (PlugneedleFalg)
+                            {
+                                if (!frmMain.pauseFlag)
+                                {
+                                    AllPause();
+                                    GetNoStartList();
+                                }
+                            }
                         }
                         else
                         {
                             string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
-                            if ((!frmMain.StopFlag[0] && !frmMain.StopFlag[1] && !frmMain.StopFlag[2] && !frmMain.StopFlag[3]) && StopList.Count > 0 && !TubeStop && (int.Parse(LeftCount1) > SampleNumCurrent) && !BFullReactTray)
+                            if ((!frmMain.StopFlag[0] && !frmMain.StopFlag[1] && !frmMain.StopFlag[2] && !frmMain.StopFlag[3]) && StopList.Count > 0 && !TubeStop && (int.Parse(LeftCount1) > SampleNumCurrent) && !BFullReactTray && !PlugneedleFalg)
                             {
                                 if (SubstrateStop)
                                     SubstrateStop = false;
@@ -5120,6 +5133,7 @@ namespace BioBaseCLIA.Run
                                 {
                                     if (sumTime > TestStep.StartTime)
                                     {
+                                        LogFile.Instance.Write("sumTime的值：" + sumTime + ";TestStep.StartTime的值：" + TestStep.StartTime);
                                         sumTime = TestStep.StartTime;
                                     }
                                     else
@@ -5242,6 +5256,7 @@ namespace BioBaseCLIA.Run
                                 {
                                     if (sumTime > TestStep.StartTime)
                                     {
+                                        
                                         sumTime = TestStep.StartTime;
 
                                     }
@@ -5778,6 +5793,7 @@ namespace BioBaseCLIA.Run
                 case TestSchedule.ExperimentScheduleStep.AddLiquidTube:
                     string[] TestStepSingle = testTempS.singleStep.Split('-');
                     string[] LiquidVol = testTempS.AddLiqud.Split('-');
+                    int PlugneedleCount = 0;
                     for (int j = 0; j < TestStepSingle.Length; j++)
                     {
                         //稀释步骤添加。 LYN add 20171114
@@ -5888,6 +5904,7 @@ namespace BioBaseCLIA.Run
                                         else
                                             samplePos = int.Parse(diupos[i - 1]);
                                         AddErrorCount = 0;
+                                        PlugneedleCount = 0;
                                         if (i == 0)
                                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 01 " + samplePos.ToString("x2") + " " + pos.ToString("x2")
                                                 + " " + SampleVol.ToString("x2")), 0);
@@ -5897,7 +5914,6 @@ namespace BioBaseCLIA.Run
                                         if (!NetCom3.Instance.SPQuery())
                                         {
                                         #region 异常处理
-                                        Again:
                                             string againSend = "";
                                             if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                             {
@@ -5920,11 +5936,78 @@ namespace BioBaseCLIA.Run
                                                 ShowWarnInfo(getString("keywordText.AddSampleOver"), getString("keywordText.Samplingneedle"), 1);
                                                 AllStop();
                                             }
+                                            else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.putKnocked && PlugneedleCount < 2 && i == 0)
+                                            {
+                                                PlugneedleCount++;
+                                                //加样管路灌注 
+                                                againSend = "EB 90 31 02 08";
+                                                int flag = SendAgain(againSend, 0);
+                                                if (flag == (int)ErrorState.Success)
+                                                {
+                                                    ReactToAband(pos);
+                                                    rackToReact(pos);
+                                                    if (TubeStop)
+                                                    {
+                                                        RemoveTestList(testTempS, getString("keywordText.LackTube"));
+                                                        goto outAddLiquidTube;
+                                                    }
+                                                    againSend = "EB 90 31 02 01 " + samplePos.ToString("x2") + " " + pos.ToString("x2")
+                                                        + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2");
+                                                }
+                                                else if (flag == (int)ErrorState.putKnocked)
+                                                {
+                                                    if (testTempS.TestID == 1)
+                                                    {
+                                                        NetCom3.Instance.stopsendFlag = true;
+                                                        ShowWarnInfo(getString("keywordText.AddSPlugneedle"), getString("keywordText.Samplingneedle"), 1);
+                                                        AllStop();
+                                                    }
+                                                    else
+                                                    {
+                                                        PlugneedleCount++;
+                                                        PlugneedleFalg = true;
+                                                        string Message = DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Warning") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + testTempS.TestID + getString("keywordText.AddSPlugneedle") + ";" + getString("keywordText.TestStopedAddS");
+                                                        MoveTubeListAddTubeDispose(pos);
+                                                        RemoveTestList(testTempS, getString("keywordText.AddSPlugneedle"));
+                                                        LogFileAlarm.Instance.Write(Message);
+                                                        AddingSampleFlag = false;
+                                                        goto outAddLiquidTube;
+                                                    }
+                                                }
+                                                else if (flag == (int)ErrorState.IsKnocked)
+                                                {
+                                                    AddErrorCount++;
+                                                    againSend = "EB 90 31 02 08";
+                                                }
+
+                                            }
+                                        Again:
                                             int sendFlag = SendAgain(againSend, 0);
                                             if (sendFlag == (int)ErrorState.Sendfailure)
                                                 goto Again;
                                             else if (sendFlag == (int)ErrorState.IsKnocked)
                                                 AddErrorCount++;
+                                            else if (sendFlag == (int)ErrorState.putKnocked)
+                                            {
+                                                PlugneedleCount++;
+                                                if (testTempS.TestID == 1)
+                                                {
+                                                    NetCom3.Instance.stopsendFlag = true;
+                                                    ShowWarnInfo(getString("keywordText.AddSPlugneedle"), getString("keywordText.Samplingneedle"), 1);
+                                                    AllStop();
+                                                }
+                                                else
+                                                {
+                                                    PlugneedleCount++;
+                                                    PlugneedleFalg = true;
+                                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Warning") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + testTempS.TestID + getString("keywordText.AddSPlugneedle") + ";" + getString("keywordText.TestStopedAddS"));
+                                                    MoveTubeListAddTubeDispose(pos);
+                                                    RemoveTestList(testTempS, getString("keywordText.AddSPlugneedle"));
+                                                    AddingSampleFlag = false;
+                                                    goto outAddLiquidTube;
+                                                }
+
+                                            }
                                             #endregion
                                         }
                                         if (NetCom3.Instance.LiquidLevelDetectionFlag == (int)LiquidLevelDetectionAlarm.Low &&
@@ -6116,13 +6199,13 @@ namespace BioBaseCLIA.Run
                             else
                             {
                                 AddErrorCount = 0;
+                                PlugneedleCount = 0;
                                 ///样本盘转到取样位置SamplePos，加样针加样到反应盘pos位置。
                                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 01 " + samplePos.ToString("x2") + " " + pos.ToString("x2")
                                     + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2")), 0);
                                 if (!NetCom3.Instance.SPQuery())
                                 {
                                 #region 异常处理
-                                Again:
                                     string againSend = "";
                                     if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.IsKnocked && AddErrorCount < 2)
                                     {
@@ -6147,11 +6230,77 @@ namespace BioBaseCLIA.Run
                                         //addLiquiding = false;
                                         AllStop();
                                     }
+                                    else if (NetCom3.Instance.AdderrorFlag == (int)ErrorState.putKnocked && PlugneedleCount < 2)
+                                    {
+                                        PlugneedleCount++;
+                                        //加样管路灌注 
+                                        againSend = "EB 90 31 02 08";
+                                        int flag = SendAgain(againSend, 0);
+                                        if (flag == (int)ErrorState.Success)
+                                        {
+                                            ReactToAband(pos);
+                                            rackToReact(pos);
+                                            if (TubeStop)
+                                            {
+                                                RemoveTestList(testTempS, getString("keywordText.LackTube"));
+                                                goto outAddLiquidTube;
+                                            }
+                                            againSend = "EB 90 31 02 01 " + samplePos.ToString("x2") + " " + pos.ToString("x2")
+                                                + " " + int.Parse(LiquidVol[j].Trim()).ToString("x2");
+                                        }
+                                        else if (flag == (int)ErrorState.putKnocked)
+                                        {
+                                            if (testTempS.TestID == 1)
+                                            {
+                                                NetCom3.Instance.stopsendFlag = true;
+                                                ShowWarnInfo(getString("keywordText.AddSPlugneedle"), getString("keywordText.Samplingneedle"), 1);
+                                                AllStop();
+                                            }
+                                            else
+                                            {
+                                                PlugneedleCount++;
+                                                PlugneedleFalg = true;
+                                                string Message = DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Warning") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + testTempS.TestID + getString("keywordText.AddSPlugneedle") + ";" + getString("keywordText.TestStopedAddS");
+                                                MoveTubeListAddTubeDispose(pos);
+                                                RemoveTestList(testTempS, getString("keywordText.AddSPlugneedle"));
+                                                LogFileAlarm.Instance.Write(Message);
+                                                AddingSampleFlag = false;
+                                                goto outAddLiquidTube;
+                                            }
+                                        }
+                                        else if (flag == (int)ErrorState.IsKnocked)
+                                        {
+                                            AddErrorCount++;
+                                            againSend = "EB 90 31 02 08";
+                                        }
+                                    }
+                                Again:
                                     int sendFlag = SendAgain(againSend, 0);
                                     if (sendFlag == (int)ErrorState.Sendfailure)
                                         goto Again;
                                     else if (sendFlag == (int)ErrorState.IsKnocked)
                                         AddErrorCount++;
+                                    else if (sendFlag == (int)ErrorState.putKnocked)
+                                    {
+                                        PlugneedleCount++;
+                                        if (testTempS.TestID == 1)
+                                        {
+                                            NetCom3.Instance.stopsendFlag = true;
+                                            ShowWarnInfo(getString("keywordText.AddSPlugneedle"), getString("keywordText.Samplingneedle"), 1);
+                                            AllStop();
+                                        }
+                                        else
+                                        {
+                                            PlugneedleCount++;
+                                            PlugneedleFalg = true;
+                                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Warning") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + testTempS.TestID + getString("keywordText.AddSPlugneedle") + ";" + getString("keywordText.TestStopedAddS"));
+                                            MoveTubeListAddTubeDispose(pos);
+                                            RemoveTestList(testTempS, getString("keywordText.AddSPlugneedle"));
+                                            AddingSampleFlag = false;
+                                            goto outAddLiquidTube;
+                                        }
+
+                                    }
                                     #endregion
                                 }
                                 if (NetCom3.Instance.LiquidLevelDetectionFlag == (int)LiquidLevelDetectionAlarm.Low &&

@@ -626,12 +626,12 @@ namespace BioBaseCLIA.Run
             string[] point = new string[ScalingModel];
             for (int i = 0; i < point.Length; i++)
             {
-                //if (i == 0)
-                //{
-                //    point[i] = SpoldPoint[i].Trim();
-                //}
-                //else
-                //{
+                if (i == 0)
+                {
+                    point[i] = SpoldPoint[i].Trim();
+                }
+                else
+                {
                     foreach (string temp in SpnewPoint)
                     {
                         if (temp != null && temp.Split(',')[0] == SpoldPoint[i].Split(',')[0])
@@ -642,7 +642,7 @@ namespace BioBaseCLIA.Run
                     }
                     if (point[i] == null && SpoldPoint[i] != null && SpoldPoint[i] != "")
                         point[i] = SpoldPoint[i].Split(',')[0].Trim() + ',' + Math.Round((double.Parse(SpoldPoint[i].Split(',')[1]) * (k2 + 1)), 0);
-                //}
+                }
 
             }
             string str = "";

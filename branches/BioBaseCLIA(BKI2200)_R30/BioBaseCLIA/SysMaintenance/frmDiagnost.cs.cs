@@ -10537,6 +10537,7 @@ namespace BioBaseCLIA.SysMaintenance
                     a.Abort();
             }
             //2018-08-31 ZLX add 试剂盘加载完成
+            frmMain.BQLiquaid = true;
             fbtnReturn.Enabled = false;
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 02 0B B0 00 00"), 0);
             NetCom3.Instance.SPQuery();
