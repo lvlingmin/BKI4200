@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report StartReportEvent="_StartReport" ReportInfo.Created="11/17/2009 14:37:31" ReportInfo.Modified="07/26/2021 14:40:45" ReportInfo.CreatorVersion="1.2.69.0">
+<Report StartReportEvent="_StartReport" ReportInfo.Created="11/17/2009 14:37:31" ReportInfo.Modified="09/29/2021 14:50:40" ReportInfo.CreatorVersion="1.2.69.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -244,6 +244,48 @@ namespace FastReport
       <TextObject Name="Text3" Left="387.45" Top="113.4" Width="330.75" Height="28.35" Text="检验项目:[InspectionItems]"/>
       <TextObject Name="Text6" Left="491.4" Width="37.8" Height="18.9" Visible="false" Text="采集日期:[AcquisitionTime]"/>
       <TextObject Name="Text24" Left="37.8" Top="-9.45" Width="576.45" Height="47.25" Text="[title]" HorzAlign="Center" VertAlign="Center" Font="Arial, 20pt, style=Bold"/>
+      <TableObject Name="Table4" Left="217.35" Top="-9.45" Width="330.75" Height="94.5">
+        <TableColumn/>
+        <TableColumn/>
+        <TableColumn/>
+        <TableColumn/>
+        <TableColumn/>
+        <TableRow>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+        </TableRow>
+        <TableRow>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+        </TableRow>
+        <TableRow>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+        </TableRow>
+        <TableRow>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+        </TableRow>
+        <TableRow>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+          <TableCell/>
+        </TableRow>
+      </TableObject>
     </ReportTitleBand>
     <PageHeaderBand Name="PageHeader1" Top="155.2" Width="718.2" Height="18.9" BeforeLayoutEvent="PageHeader1_BeforeLayout">
       <TableObject Name="Table1" Left="9.45" Width="338.38" Height="18.9">
@@ -278,21 +320,23 @@ namespace FastReport
         </TableRow>
       </TableObject>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="219.9" Width="718.2" Height="160.65" BeforeLayoutEvent="PageFooter1_BeforeLayout">
-      <TextObject Name="Text14" Left="595.35" Top="141.75" Width="94.5" Height="18.9" Text="[PageN]"/>
-      <TextObject Name="Text15" Left="274.05" Top="141.75" Width="189" Height="18.9" Text="**结果仅对本次测试有效**"/>
-      <TextObject Name="Text16" Left="18.9" Top="141.75" Width="217.35" Height="18.9" Text="报告日期:[Date]"/>
-      <TextObject Name="Text18" Left="18.9" Top="113.4" Width="217.35" Height="18.9" Text="送检时间:[SendDateTime]"/>
-      <TextObject Name="Text23" Left="274.05" Top="113.4" Width="179.55" Height="18.9" Text="检验医生:[InspectDoctor]"/>
-      <LineObject Name="Line3" Width="699.3" EvenStylePriority="UseAll" Diagonal="true"/>
-      <TextObject Name="Text25" Left="510.3" Top="113.4" Width="179.55" Height="18.9" Text="审核医生:[CheckDoctor]"/>
-      <TextObject Name="Text53" Left="18.9" Top="85.05" Width="179.55" Height="18.9" Text="f-PSA/t-PSA:[RatioPSA]"/>
-      <TextObject Name="Text54" Left="274.05" Top="85.05" Width="179.55" Height="18.9" Text="FSH/LH:[RatioFSH]"/>
-      <TextObject Name="Text55" Left="510.3" Top="85.05" Width="179.55" Height="18.9" Text="PGI/PGII:[RatioPGI]"/>
-      <PictureObject Name="Picture1" Left="113.4" Width="160.65" Height="94.5" BeforePrintEvent="Picture1_BeforePrint"/>
-      <PictureObject Name="Picture2" Left="368.55" Width="160.65" Height="94.5" BeforePrintEvent="Picture2_BeforePrint"/>
-      <TextObject Name="Text56" Left="18.9" Top="9.45" Width="94.5" Height="28.35" Text="C-P释放图：" Padding="2, 2, 2, 0"/>
-      <TextObject Name="Text57" Left="274.05" Top="9.45" Width="94.5" Height="28.35" Text="INS释放图：" Padding="2, 2, 2, 0"/>
+    <ReportSummaryBand Name="ReportSummary1" Top="219.9" Width="718.2" Height="132.3">
+      <LineObject Name="Line3" Left="-9.45" Width="699.3" EvenStylePriority="UseAll" Diagonal="true"/>
+      <PictureObject Name="Picture1" Left="103.95" Width="160.65" Height="94.5" BeforePrintEvent="Picture1_BeforePrint"/>
+      <PictureObject Name="Picture2" Left="359.1" Width="160.65" Height="94.5" BeforePrintEvent="Picture2_BeforePrint"/>
+      <TextObject Name="Text56" Left="9.45" Top="9.45" Width="94.5" Height="28.35" Text="C-P释放图：" Padding="2, 2, 2, 0"/>
+      <TextObject Name="Text57" Left="264.6" Top="9.45" Width="94.5" Height="28.35" Text="INS释放图：" Padding="2, 2, 2, 0"/>
+      <TextObject Name="Text53" Top="103.95" Width="179.55" Height="18.9" Text="f-PSA/t-PSA:[RatioPSA]" VertAlign="Center"/>
+      <TextObject Name="Text54" Left="255.15" Top="103.95" Width="179.55" Height="18.9" Text="FSH/LH:[RatioFSH]" VertAlign="Center"/>
+      <TextObject Name="Text55" Left="500.85" Top="103.95" Width="179.55" Height="18.9" Text="PGI/PGII:[RatioPGI]" VertAlign="Center"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="356.2" Width="718.2" Height="75.6" BeforeLayoutEvent="PageFooter1_BeforeLayout">
+      <TextObject Name="Text14" Left="576.45" Top="47.25" Width="94.5" Height="18.9" Text="[PageN]"/>
+      <TextObject Name="Text15" Left="255.15" Top="47.25" Width="189" Height="18.9" Text="**结果仅对本次测试有效**"/>
+      <TextObject Name="Text16" Top="47.25" Width="217.35" Height="18.9" Text="报告日期:[Date]"/>
+      <TextObject Name="Text18" Top="18.9" Width="217.35" Height="18.9" Text="送检时间:[SendDateTime]"/>
+      <TextObject Name="Text23" Left="255.15" Top="18.9" Width="179.55" Height="18.9" Text="检验医生:[InspectDoctor]"/>
+      <TextObject Name="Text25" Left="491.4" Top="18.9" Width="179.55" Height="18.9" Text="审核医生:[CheckDoctor]"/>
     </PageFooterBand>
   </ReportPage>
 </Report>
