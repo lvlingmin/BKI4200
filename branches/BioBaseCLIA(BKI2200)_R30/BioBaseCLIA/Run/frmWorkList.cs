@@ -4275,8 +4275,12 @@ namespace BioBaseCLIA.Run
                 CleanTrayMovePace(5 + isNewCleanTray);
                 for (int i = 0; i < WashTrayCleanTimes; i++)
                 {
-                    if (RunFlag != (int)RunFlagStart.IsRuning &&
-                        RunFlag != (int)RunFlagStart.IsStoping || NetCom3.Instance.stopsendFlag) break;
+                    if (RunFlag != (int)RunFlagStart.IsRuning || NetCom3.Instance.stopsendFlag)
+                    {
+                        return false;
+                    }
+                    //if (RunFlag != (int)RunFlagStart.IsRuning &&
+                    //    RunFlag != (int)RunFlagStart.IsStoping || NetCom3.Instance.stopsendFlag) break;
                     CleanTrayWash(1);
                     CleanTrayMovePace(-1);
                     CleanTrayWash(2);
@@ -4686,7 +4690,11 @@ namespace BioBaseCLIA.Run
             TrayRemoveAllTube = true;//y add 抓空标志位，保证不触发抓空异常
             for (int i = 0; i < dtInTrayIni.Rows.Count; i++)
             {
-                if (NetCom3.Instance.stopsendFlag) return false;
+                if (RunFlag != (int)RunFlagStart.IsRuning || NetCom3.Instance.stopsendFlag)
+                {
+                    return false;
+                }
+                //if (NetCom3.Instance.stopsendFlag) return false;
                 if (i == 0 || i == 1 || i == 2)
                 {
                     if (int.Parse(dtInTrayIni.Rows[i][1].ToString()) >= 1)
