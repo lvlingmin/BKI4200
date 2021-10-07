@@ -16,6 +16,7 @@ using NPOI.SS.UserModel;
 using NPOI.HSSF.UserModel;
 using System.Resources;
 using System.Text.RegularExpressions;
+using BioBaseCLIA.CalculateCurve;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -204,6 +205,8 @@ namespace BioBaseCLIA.DataQuery
             frmHS.RegentBatch = dgvSampleData.SelectedRows[0].Cells["ReagentBeach"].Value.ToString();//2018-10-30 zlx add
             if (frmHS.ShowDialog() == DialogResult.OK)
                 er = frmHS.Caler;
+            else
+                return;
             if (dgvSampleData.CurrentRow == null)
             { return; };
             if (er == null)
@@ -217,23 +220,272 @@ namespace BioBaseCLIA.DataQuery
                     dgvSampleData.SelectedRows[i].Cells["Result"].ReadOnly = false;
                     DbHelperOleDb db = new DbHelperOleDb(0);
                     DataTable tbtbProject = DbHelperOleDb.Query(0, @"select RangeType,ValueRange1,MinValue,MaxValue from tbProject where ShortName = '" + dgvSampleData.SelectedRows[i].Cells["ItemName"].Value + "'").Tables[0];
-                    string concentration = er.GetResultInverse(Convert.ToDouble(
-                    dgvSampleData.SelectedRows[i].Cells[6].Value.ToString())).ToString("0.###");
-                    if (concentration == Getstring("NoNumber"))
+                    //db = new DbHelperOleDb(1);
+                    //DataTable tResult = DbHelperOleDb.Query(1, @"select Batch,DiluteCount from tbAssayResult where AssayResultID = '" + dgvSampleData.SelectedRows[i].Cells["AssayResultID"].Value + "'").Tables[0];
+                    string concentration = CalculationConcentration(dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString(), dgvSampleData.SelectedRows[i].Cells["ReagentBeach"].Value.ToString(), int.Parse(dgvSampleData.SelectedRows[i].Cells["PMTCounter"].Value.ToString())).ToString("#0.000");
+                    #region 稀释
+                    //项目中的稀释倍数
+                    int DiuTimes = int.Parse(DbHelperOleDb.GetSingle(0, @"select DiluteCount from tbProject where ShortName = '" + dgvSampleData.SelectedRows[i].Cells["ItemName"].Value + "'").ToString());
+                    int newDiuTimes = int.Parse(DbHelperOleDb.GetSingle(1, @"select DiluteCount from tbAssayResult where Batch = '" + dgvSampleData.SelectedRows[i].Cells["ReagentBeach"].Value.ToString() + "'").ToString());
+                    //int newDiuTimes = int.Parse(tResult.Rows[0][1].ToString());
+                    if (DiuTimes < newDiuTimes)
                     {
-                        dgvSampleData.SelectedRows[i].Cells[7].Value = 0;
+                        double DiuProportion = (double)newDiuTimes / DiuTimes;
+                        concentration = (double.Parse(concentration) * DiuProportion).ToString("#0.000");
                     }
+                    #endregion
+                    string itemName = dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString();
+                    string batch = dgvSampleData.SelectedRows[i].Cells["ReagentBeach"].Value.ToString();
+                    int pmt = int.Parse(dgvSampleData.SelectedRows[i].Cells["PMTCounter"].Value.ToString());
+                    double minValue = double.Parse(tbtbProject.Rows[0][2].ToString());
+                    double maxValue = double.Parse(tbtbProject.Rows[0][3].ToString());
+                    string Range1 = tbtbProject.Rows[0][1].ToString();
+                    //正则表达式 表示汉字范围;
+                    Regex cn = new Regex("[\u4e00-\u9fa5]+");
+                    string sconcentration = concentration;
+                    string result = dgvSampleData.SelectedRows[i].Cells["Result"].Value.ToString();
+                    if (double.IsNaN(double.Parse(concentration)))
+                    {
+                        concentration = GetNanPmtConcentration(itemName, batch, pmt, minValue, maxValue);
+                        sconcentration = concentration.Substring(1);
+                    }
+                    else if (double.Parse(concentration) < minValue)
+                    {
+                        concentration = "<" + minValue.ToString("#0.000");
+                        sconcentration = concentration.Substring(1);
+                    }
+                    else if (double.Parse(concentration) > (maxValue))
+                    {
+                        concentration = ">" + (maxValue).ToString("#0.000");
+                        sconcentration = concentration.Substring(1);
+                    }
+                    if (dgvSampleData.SelectedRows[i].Cells["Result"].Value.ToString() == "")
+                        result = "";
                     else
                     {
-                        dgvSampleData.SelectedRows[i].Cells[7].Value = concentration;
+                        if (cn.IsMatch(Range1))//range1字符串中有中文
+                        {
+                            result = "";
+                        }
+                        else if (Regex.Matches(Range1, "[a-zA-Z]").Count > 0)//range1字符串中有英文
+                        {
+                            result = "";
+                        }
+                        else
+                        {
+                            if (Range1.Contains("-"))
+                            {
+                                string[] ranges = Range1.Split('-');
+                                if (double.Parse(sconcentration) < double.Parse(ranges[0]))
+                                {
+                                    result = "↓";
+                                }
+                                else if (double.Parse(sconcentration) > double.Parse(ranges[1]))
+                                {
+                                    result = "↑";
+                                }
+                                else
+                                    result = getString("keywordText.normal");
+                            }
+                            else if (Range1.Contains("<"))
+                            {
+                                if (double.Parse(sconcentration) >= double.Parse(Range1.Substring(1)))
+                                {
+                                    result = "↑";
+                                }
+                                else
+                                {
+                                    result = getString("keywordText.normal");
+                                }
+                            }
+                            else if (Range1.Contains("<="))
+                            {
+                                if (double.Parse(sconcentration) > double.Parse(Range1.Substring(2)))
+                                {
+                                    result = "↑";
+                                }
+                                else
+                                {
+                                    result = getString("keywordText.normal");
+                                }
+                            }
+                            else if (Range1.Contains(">"))
+                            {
+                                if (double.Parse(sconcentration) <= double.Parse(Range1.Substring(1)))
+                                {
+                                    result = "↓";
+                                }
+                                else
+                                {
+                                    result = getString("keywordText.normal");
+                                }
+
+                            }
+                            else if (Range1.Contains(">="))
+                            {
+                                if (double.Parse(sconcentration) < double.Parse(Range1.Substring(2)))
+                                {
+                                    result = "↓";
+                                }
+                                else
+                                {
+                                    result = getString("keywordText.normal");
+                                }
+                            }
+                        }
                     }
-                    if (concentration != Getstring("NoNumber") && dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString() != "")
-                        dgvSampleData.SelectedRows[i].Cells["Result"].Value = GetResult(dgvSampleData.SelectedRows[i].Cells["AssayResultID"].Value.ToString(), concentration);
+                    
+                    dgvSampleData.SelectedRows[i].Cells[7].Value = concentration;
+                    //if (!double.IsNaN(double.Parse(concentration)) && dgvSampleData.SelectedRows[i].Cells["ItemName"].Value.ToString() != "")
+                    dgvSampleData.SelectedRows[i].Cells["Result"].Value = result;
+                    //更新重新计算后的结果到数据库
+                    DbHelperOleDb DB = new DbHelperOleDb(1);
+                    DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Concentration = '" +
+                    dgvSampleData.SelectedRows[i].Cells["Concentration"].Value.ToString() + "' where AssayResultID = " + int.Parse
+                    (dgvSampleData.SelectedRows[i].Cells[1].Value.ToString()));
+                    DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Result = '" +
+                    dgvSampleData.SelectedRows[i].Cells["Result"].Value.ToString() + "' where AssayResultID = " + int.Parse
+                    (dgvSampleData.SelectedRows[i].Cells[1].Value.ToString()));
+
                     dgvSampleData.SelectedRows[i].Cells["Result"].ReadOnly = true;
                 }
             }
             //fbtnSaveData.Visible = true;
         }
+        /// <summary>
+        /// 浓度为无法计算的NaN值计算浓度
+        /// </summary>
+        /// <param name="name">项目名称</param>
+        /// <param name="batch">批号</param>
+        /// <param name="pmt">发光值</param>
+        /// <returns>显示.浓度</returns>
+        private string GetNanPmtConcentration(string name, string batch, int pmt, double minValue, double maxValue)
+        {
+            string concentration = string.Empty;
+            DbHelperOleDb dbflag = new DbHelperOleDb(0);
+            int calMode = int.Parse(DbHelperOleDb.GetSingle(0,
+                @"select CalMode from tbProject where ShortName = '" + name + "'").ToString());
+            List<Data_Value> scaling = GetScalingResult(name, batch);
+            if (calMode == 0)
+            {
+                if (pmt > scaling[0].DataValue)
+                {
+                    concentration = "<" + scaling[0].Data.ToString("#0.000");
+                }
+                else
+                {
+                    concentration = ">" + maxValue.ToString("#0.000");
+                }
+            }
+            if (calMode == 2)
+            {
+                if (pmt < scaling[0].DataValue)
+                {
+                    concentration = "<" + scaling[0].Data.ToString("#0.000");
+                }
+                else
+                {
+                    concentration = ">" + maxValue.ToString("#0.000");
+                }
+            }
+
+            return concentration;
+        }
+        #region 计算浓度
+        /// <summary>
+        /// 根据发光值计算浓度
+        /// </summary>
+        /// <param name="name">项目名称</param>
+        /// <param name="reagentBatch">试剂批号</param>
+        /// <param name="yValue">发光值</param>
+        /// <returns></returns>
+        private double CalculationConcentration(string name, string reagentBatch, double yValue)
+        {
+            if (yValue < 0)
+                yValue = 0;
+
+            Calculater er = GetCalculater(name);
+            List<Data_Value> scalingResult = GetScalingResult(name, reagentBatch);
+
+            if (scalingResult == null)
+                return 0;
+
+            if (scalingResult[0].Data == 0)
+                scalingResult[0].Data = 0.0001;
+
+            #region 超出范围
+            if (scalingResult[0].DataValue < scalingResult[1].DataValue)
+            {
+                if (yValue < scalingResult[0].DataValue)
+                    return scalingResult[0].Data - 0.1;
+
+                //if (yValue > scalingResult[scalingResult.Count() - 1].DataValue)
+                //    return scalingResult[scalingResult.Count() - 1].Data;
+            }
+
+            if (scalingResult[0].DataValue > scalingResult[1].DataValue)
+            {
+                if (yValue > scalingResult[0].DataValue)
+                    return scalingResult[0].Data - 0.1;
+
+                //if (yValue < scalingResult[scalingResult.Count() - 1].DataValue)
+                //    return scalingResult[scalingResult.Count() - 1].Data;
+            }
+            #endregion
+
+            er.AddData(scalingResult);
+            er.Fit();
+
+            return er.GetResultInverse(yValue);
+        }
+
+        /// <summary>
+        /// 获取拟合算法实例
+        /// </summary>
+        /// <param name="name">项目名称</param>
+        /// <returns></returns>
+        private Calculater GetCalculater(string name)
+        {
+            DbHelperOleDb db = new DbHelperOleDb(0);
+            int calMode = int.Parse(DbHelperOleDb.GetSingle(0,
+                @"select CalMode from tbProject where ShortName = '" + name + "'").ToString());
+
+            CalculateFactory calculate = new CalculateFactory();
+            Calculater er = calculate.getCaler(calMode);
+
+            return er;
+        }
+
+        /// <summary>
+        /// 获取定标结果
+        /// </summary>
+        /// <param name="name">项目名称</param>
+        /// <param name="reagentBatch">试剂批号</param>
+        /// <returns></returns>
+        private List<Data_Value> GetScalingResult(string name, string reagentBatch)
+        {
+            BLL.tbScalingResult bllscalResult = new BLL.tbScalingResult();
+            DbHelperOleDb db = new DbHelperOleDb(1);
+            DataTable scalingResultTemp = bllscalResult.GetList("ItemName='" + name + "' AND RegentBatch='" + reagentBatch + "' AND Status= 1").Tables[0];
+
+            List<Data_Value> scalingResult = new List<Data_Value>();
+
+            if (scalingResultTemp.Rows.Count > 0)
+            {
+                string[] mainPoint = scalingResultTemp.Rows[scalingResultTemp.Rows.Count - 1]["Points"].ToString().Replace("(", "").Replace(")", "").Split(';');
+                for (int i = 0; i < mainPoint.Length; i++)
+                {
+                    string[] pointinfo = mainPoint[i].Split(',');
+                    if (pointinfo.Length == 2)
+                        scalingResult.Add(new Data_Value() { Data = double.Parse(pointinfo[0]), DataValue = double.Parse(pointinfo[1]) });
+                }
+
+                return scalingResult;
+            }
+
+            return null;
+        }
+        #endregion
         /// <summary>
         /// 获取结果标识  2018-12-07 zlx add
         /// </summary>
@@ -1391,6 +1643,11 @@ namespace BioBaseCLIA.DataQuery
                 }
                 dgr.Selected = false;
             }
+        }
+        private string getString(string key)
+        {
+            ResourceManager resManager = new ResourceManager(typeof(frmWorkList));
+            return resManager.GetString(key);
         }
     }
 }

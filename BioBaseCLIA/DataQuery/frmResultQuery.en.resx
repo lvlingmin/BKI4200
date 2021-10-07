@@ -1571,4 +1571,7 @@
   <data name="keywordText.SelectSampleMessage" xml:space="preserve">
     <value>Please select the sample information that needs to import data!</value>
   </data>
+  <data name="keywordText.normal" xml:space="preserve">
+    <value>normal</value>
+  </data>
 </root>
