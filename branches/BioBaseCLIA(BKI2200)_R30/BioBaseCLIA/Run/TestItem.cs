@@ -117,10 +117,14 @@ namespace BioBaseCLIA.Run
        /// 所使用定标信息状态//2018-08-17
        /// </summary>
        public int Status { get; set; }
+        /// <summary>
+        /// 稀释倍数
+        /// </summary>
+       public int DiluteCount { get; set; }
        /// <summary>
        /// 使用试剂批号  //2018-08-18
        /// </summary>
-       public string ReagentBeach { get; set; }
+        public string ReagentBeach { get; set; }
        /// <summary>
        /// 使用底物位置 2018-10-17 zlx mod
        /// </summary>

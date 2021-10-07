@@ -9580,6 +9580,7 @@ namespace BioBaseCLIA.Run
             double MinValue = 0;
             int ExpiryDate = 0;
             string VRangeType = "";
+            string newDiuTimes = ""; //实验结果中的稀释倍数
             foreach (DataRow dr in tbtbProject.Rows)
             {
                 if (dr != null)
@@ -9949,9 +9950,15 @@ namespace BioBaseCLIA.Run
                         int DiuTimes = int.Parse(DbHelperOleDb.GetSingle(0, @"select DiluteCount from tbProject where ShortName = '" + ItemName + "'").ToString());
                         //该样本编号
                         string SampleNo = dgvWorkListData.Rows[testid - 1].Cells["SampleNo"].Value.ToString();
+                        //DbHelperOleDb DB = new DbHelperOleDb(1);
+                        //string SampleID = DbHelperOleDb.GetSingle(1, @"select SampleID from tbSampleInfo where SampleNo = '" + SampleNo + "'").ToString();
+                        //string SampleID = dgvWorkListData.Rows[testid - 1].Cells["SampleID"].Value.ToString();
                         DataRow[] rows = dtSampleRunInfo.Select("ItemName='" + ItemName + "' and SampleNo='"
                         + SampleNo + "'");
-                        string newDiuTimes = rows[0]["DilutionTimes"].ToString();
+                        newDiuTimes = rows[0]["DilutionTimes"].ToString();
+                        ////更新计算过程中的稀释倍数到数据库
+                        //DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set DiluteCount = '" +
+                        //int.Parse(newDiuTimes) + "' where SampleID = " + SampleID + "and ItemName = " + ItemName);
                         if (DiuTimes < int.Parse(newDiuTimes))
                         {
                             double DiuProportion = double.Parse(newDiuTimes) / DiuTimes;
@@ -10067,6 +10074,7 @@ namespace BioBaseCLIA.Run
                 #endregion
             }
             #endregion
+            testResult.DiluteCount = int.Parse(newDiuTimes);
             testResult.SampleID = int.Parse
                 (dgvWorkListData.Rows[testid - 1].Cells["SampleID"].Value.ToString());
             testResult.TestID = testid;
@@ -10144,6 +10152,7 @@ namespace BioBaseCLIA.Run
             if (lisTiEnd.Count == BToListTi.Count)
                 frmTestResult.BRun = false;
             var testresult = new TestResult();
+            testresult.DiluteCount = testResult.DiluteCount;
             testresult.PMT = testResult.PMT;
             testresult.SampleID = testResult.SampleID;
             testresult.TestID = testResult.TestID;
@@ -10362,7 +10371,7 @@ namespace BioBaseCLIA.Run
                 //    modelAssayResult.Concentration = double.Parse(result.concentration);
                 //}
                 modelAssayResult.ConcSpec = "";
-                modelAssayResult.DiluteCount = 0;
+                modelAssayResult.DiluteCount = result.DiluteCount;
                 modelAssayResult.ItemName = result.ItemName;
                 modelAssayResult.PMTCounter = result.PMT;
                 modelAssayResult.PMTCounter = (int)((double)result.PMT * double.Parse(Coefficient));
