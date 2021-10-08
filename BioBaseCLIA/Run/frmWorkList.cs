@@ -4275,7 +4275,8 @@ namespace BioBaseCLIA.Run
                 CleanTrayMovePace(5 + isNewCleanTray);
                 for (int i = 0; i < WashTrayCleanTimes; i++)
                 {
-                    if (RunFlag != (int)RunFlagStart.IsRuning || NetCom3.Instance.stopsendFlag)
+                    if (RunFlag != (int)RunFlagStart.IsRuning &&
+                        RunFlag != (int)RunFlagStart.IsStoping || NetCom3.Instance.stopsendFlag)
                     {
                         return false;
                     }
@@ -9588,7 +9589,7 @@ namespace BioBaseCLIA.Run
             double MinValue = 0;
             int ExpiryDate = 0;
             string VRangeType = "";
-            string newDiuTimes = ""; //实验结果中的稀释倍数
+            string newDiuTimes = "1"; //实验结果中的稀释倍数
             foreach (DataRow dr in tbtbProject.Rows)
             {
                 if (dr != null)
