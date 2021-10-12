@@ -278,9 +278,9 @@ namespace BioBaseCLIA.Run
         private void SetDispatchContent()
         {
             cmbDispatchType.Items.Clear();
-            cmbDispatchType.Items.Add(getString("DispathchTypeAdd"));
-            cmbDispatchType.Items.Add(getString("DispathchTypeSampleProject"));
-            cmbDispatchType.Items.Add(getString("DispathchTypeSpeed"));
+            cmbDispatchType.Items.Add(getString("keywordText.DispathchTypeAdd"));
+            cmbDispatchType.Items.Add(getString("keywordText.DispathchTypeSampleProject"));
+            cmbDispatchType.Items.Add(getString("keywordText.DispathchTypeSpeed"));
 
             string dispatchType = OperateIniFile.ReadIniData("DispatchType", "DispatchType", "", Application.StartupPath + "//InstrumentPara.ini");
             cmbDispatchType.SelectedIndex = int.Parse(string.IsNullOrEmpty(dispatchType) ? "0" : dispatchType);
@@ -724,13 +724,13 @@ namespace BioBaseCLIA.Run
                 switch (dispatchType)
                 {
                     case "0":
-                        cmbDispatchType.Text = getString("DispathchTypeAdd");
+                        cmbDispatchType.Text = getString("keywordText.DispathchTypeAdd");
                         break;
                     case "1":
-                        cmbDispatchType.Text = getString("DispathchTypeSampleProject");
+                        cmbDispatchType.Text = getString("keywordText.DispathchTypeSampleProject");
                         break;
                     case "2":
-                        cmbDispatchType.Text = getString("DispathchTypeSpeed");
+                        cmbDispatchType.Text = getString("keywordText.DispathchTypeSpeed");
                         break;
                 }
 
@@ -738,6 +738,11 @@ namespace BioBaseCLIA.Run
             }
 
             OperateIniFile.WriteIniData("DispatchType", "DispatchType", cmbDispatchType.SelectedIndex.ToString(), Application.StartupPath + "//InstrumentPara.ini");
+        }
+
+        private void srdReagent_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

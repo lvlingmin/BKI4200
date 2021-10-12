@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSampleLoad));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.fbtnTestResult = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
@@ -47,14 +47,6 @@
             this.btnLoadSp = new BioBaseCLIA.CustomControl.FunctionButton(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSpInfoList = new System.Windows.Forms.DataGridView();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RepeatCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SampleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TubeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -74,6 +66,14 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.srdReagent = new Disk.SampleReagentDisk();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TubeType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RepeatCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SampleNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -249,13 +249,14 @@
             // 
             this.dgvSpInfoList.AllowUserToAddRows = false;
             this.dgvSpInfoList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSpInfoList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvSpInfoList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSpInfoList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSpInfoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSpInfoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Position,
@@ -272,62 +273,6 @@
             this.dgvSpInfoList.RowHeadersVisible = false;
             this.dgvSpInfoList.RowTemplate.Height = 23;
             this.dgvSpInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            resources.ApplyResources(this.Position, "Position");
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            // 
-            // SampleNo
-            // 
-            this.SampleNo.DataPropertyName = "SampleNo";
-            resources.ApplyResources(this.SampleNo, "SampleNo");
-            this.SampleNo.Name = "SampleNo";
-            this.SampleNo.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
-            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // RepeatCount
-            // 
-            this.RepeatCount.DataPropertyName = "RepeatCount";
-            resources.ApplyResources(this.RepeatCount, "RepeatCount");
-            this.RepeatCount.Name = "RepeatCount";
-            this.RepeatCount.ReadOnly = true;
-            // 
-            // SampleType
-            // 
-            this.SampleType.DataPropertyName = "SampleType";
-            resources.ApplyResources(this.SampleType, "SampleType");
-            this.SampleType.Name = "SampleType";
-            this.SampleType.ReadOnly = true;
-            // 
-            // TubeType
-            // 
-            this.TubeType.DataPropertyName = "TubeType";
-            resources.ApplyResources(this.TubeType, "TubeType");
-            this.TubeType.Name = "TubeType";
-            this.TubeType.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Emergency";
-            resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            resources.ApplyResources(this.Status, "Status");
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -992,8 +937,71 @@
         System.Drawing.Color.White,
         System.Drawing.Color.White};
             this.srdReagent.SPGroupNum = 60;
+            this.srdReagent.Load += new System.EventHandler(this.srdReagent_Load);
             this.srdReagent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.srdReagent_MouseDown);
             this.srdReagent.MouseUp += new System.Windows.Forms.MouseEventHandler(this.srdReagent_MouseUp);
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            resources.ApplyResources(this.Status, "Status");
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Emergency";
+            this.dataGridViewTextBoxColumn2.FillWeight = 76.81635F;
+            resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // TubeType
+            // 
+            this.TubeType.DataPropertyName = "TubeType";
+            resources.ApplyResources(this.TubeType, "TubeType");
+            this.TubeType.Name = "TubeType";
+            this.TubeType.ReadOnly = true;
+            // 
+            // SampleType
+            // 
+            this.SampleType.DataPropertyName = "SampleType";
+            this.SampleType.FillWeight = 112.4975F;
+            resources.ApplyResources(this.SampleType, "SampleType");
+            this.SampleType.Name = "SampleType";
+            this.SampleType.ReadOnly = true;
+            // 
+            // RepeatCount
+            // 
+            this.RepeatCount.DataPropertyName = "RepeatCount";
+            this.RepeatCount.FillWeight = 95.11342F;
+            resources.ApplyResources(this.RepeatCount, "RepeatCount");
+            this.RepeatCount.Name = "RepeatCount";
+            this.RepeatCount.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ItemName";
+            this.dataGridViewTextBoxColumn1.FillWeight = 115.1755F;
+            resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // SampleNo
+            // 
+            this.SampleNo.DataPropertyName = "SampleNo";
+            this.SampleNo.FillWeight = 119.2378F;
+            resources.ApplyResources(this.SampleNo, "SampleNo");
+            this.SampleNo.Name = "SampleNo";
+            this.SampleNo.ReadOnly = true;
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.FillWeight = 81.15942F;
+            resources.ApplyResources(this.Position, "Position");
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
             // 
             // frmSampleLoad
             // 
@@ -1059,6 +1067,8 @@
         private CustomControl.FunctionButton fbtnRunInfoMody;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbDispatchType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position;
         private System.Windows.Forms.DataGridViewTextBoxColumn SampleNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1067,7 +1077,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TubeType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbDispatchType;
     }
 }
