@@ -59,47 +59,50 @@ namespace Common
             {
                 return null;
             }
-
-            using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Read, FileShare.Read)) 
+            lock (iniFilePath)
             {
-                StreamReader sr = new StreamReader(wfile);
-                try
+                using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, true))
                 {
-                    DataTable dtIniInfo; dtIniInfo = new DataTable();
-
-                    if (dtIniInfo.Columns.Count < 1)
+                    StreamReader sr = new StreamReader(wfile);
+                    try
                     {
-                        dtIniInfo.Columns.Add("Pos", typeof(string));
-                        dtIniInfo.Columns.Add("Value", typeof(string));
-                    }
+                        DataTable dtIniInfo; dtIniInfo = new DataTable();
 
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        line = line.Trim();
-                        string cName, cValue;
-                        string[] cLine = line.Split('=');
-                        if (cLine.Length == 2 && dtIniInfo.Columns.Count == 2)
+                        if (dtIniInfo.Columns.Count < 1)
                         {
-                            cName = cLine[0].ToLower();
-                            cValue = cLine[1].ToLower();
-                            dtIniInfo.Rows.Add(cName, cValue);
+                            dtIniInfo.Columns.Add("Pos", typeof(string));
+                            dtIniInfo.Columns.Add("Value", typeof(string));
                         }
+
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            line = line.Trim();
+                            string cName, cValue;
+                            string[] cLine = line.Split('=');
+                            if (cLine.Length == 2 && dtIniInfo.Columns.Count == 2)
+                            {
+                                cName = cLine[0].ToLower();
+                                cValue = cLine[1].ToLower();
+                                dtIniInfo.Rows.Add(cName, cValue);
+                            }
+                        }
+                        return dtIniInfo;
                     }
-                    return dtIniInfo;
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("ReadConfig方法读取" + iniFilePath + "出错,错误原因:" + e.Message);
-                    return null;
-                }
-                finally
-                {
-                    sr.Close();
-                    wfile.Close();
-                    wfile.Dispose();
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("ReadConfig方法读取" + iniFilePath + "出错,错误原因:" + e.Message);
+                        return null;
+                    }
+                    finally
+                    {
+                        sr.Close();
+                        wfile.Close();
+                        wfile.Dispose();
+                    }
                 }
             }
+           
         }
 
         /// <summary>
@@ -136,22 +139,26 @@ namespace Common
         /// <returns>写入是否成功</returns>
         public static bool WriteIniData(string Section, string Key, string Value, string iniFilePath)
         {
-            if (File.Exists(iniFilePath))
+            lock (iniFilePath)
             {
-                long OpStation = WritePrivateProfileString(Section, Key, Value, iniFilePath);
-                if (OpStation == 0)
+                if (File.Exists(iniFilePath))
                 {
-                    return false;
+                    long OpStation = WritePrivateProfileString(Section, Key, Value, iniFilePath);
+                    if (OpStation == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
                 else
                 {
-                    return true;
+                    return false;
                 }
             }
-            else
-            {
-                return false;
-            }
+           
         }
 
         /// <summary>
@@ -161,7 +168,9 @@ namespace Common
         /// <returns></returns>
         public static bool WriteConfigToFile(string section, string iniFilePath, DataTable dt)
         {
-            using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Write, FileShare.Read)) 
+            lock(iniFilePath)
+            {
+            using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Write, FileShare.Read,1024,true)) 
             {
                 StreamWriter sw = new StreamWriter(wfile);
                 try
@@ -183,6 +192,7 @@ namespace Common
                     wfile.Dispose();
                 }
                 return true;
+            }
             }
         }
 
