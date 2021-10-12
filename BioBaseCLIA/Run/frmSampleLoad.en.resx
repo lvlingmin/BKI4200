@@ -884,13 +884,13 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
-  <data name="DispathchTypeAdd" xml:space="preserve">
+  <data name="keywordText.DispathchTypeAdd" xml:space="preserve">
     <value>Sample addition</value>
   </data>
-  <data name="DispathchTypeSampleProject" xml:space="preserve">
+  <data name="keywordText.DispathchTypeSampleProject" xml:space="preserve">
     <value>Same project</value>
   </data>
-  <data name="DispathchTypeSpeed" xml:space="preserve">
+  <data name="keywordText.DispathchTypeSpeed" xml:space="preserve">
     <value>Speed first</value>
   </data>
   <data name="keywordText.CalibrationSolution" xml:space="preserve">

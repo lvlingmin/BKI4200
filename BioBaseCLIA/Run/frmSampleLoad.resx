@@ -217,10 +217,10 @@
     <value>4</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>837, 12</value>
+    <value>869, 12</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 505</value>
+    <value>144, 505</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -314,7 +314,7 @@
     <value>NoControl</value>
   </data>
   <data name="fbtnTestResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 315</value>
+    <value>6, 315</value>
   </data>
   <data name="fbtnTestResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
@@ -402,7 +402,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnWorkList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 222</value>
+    <value>6, 222</value>
   </data>
   <data name="btnWorkList.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
@@ -490,7 +490,7 @@
     <value>NoControl</value>
   </data>
   <data name="fbtnReturn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 425</value>
+    <value>6, 425</value>
   </data>
   <data name="fbtnReturn.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 60</value>
@@ -581,7 +581,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnLoadSample.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 124</value>
+    <value>6, 124</value>
   </data>
   <data name="btnLoadSample.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
@@ -669,7 +669,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnLoadReagent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 29</value>
+    <value>6, 29</value>
   </data>
   <data name="btnLoadReagent.Size" type="System.Drawing.Size, System.Drawing">
     <value>130, 61</value>
@@ -681,16 +681,16 @@
     <value>试剂装载</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 38</value>
+    <value>187, 38</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
+    <value>60, 17</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
-    <value>调度方式</value>
+    <value>调度方式:</value>
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
@@ -778,7 +778,7 @@
     <value>NoControl</value>
   </data>
   <data name="fbtnRunInfoMody.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 72</value>
+    <value>251, 72</value>
   </data>
   <data name="fbtnRunInfoMody.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 34</value>
@@ -802,7 +802,7 @@
     <value>1</value>
   </data>
   <data name="cmbDispatchType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 34</value>
+    <value>251, 36</value>
   </data>
   <data name="cmbDispatchType.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 20</value>
@@ -899,7 +899,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCreatWorkList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 32</value>
+    <value>251, 32</value>
   </data>
   <data name="btnCreatWorkList.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 34</value>
@@ -1120,10 +1120,10 @@
     <value>5</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>499, 411</value>
+    <value>443, 411</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 120</value>
+    <value>423, 120</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -1156,10 +1156,10 @@
     <value>0</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>499, 42</value>
+    <value>443, 42</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>334, 363</value>
+    <value>423, 363</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -1185,26 +1185,17 @@
   <data name="Position.HeaderText" xml:space="preserve">
     <value>位号</value>
   </data>
-  <data name="Position.Width" type="System.Int32, mscorlib">
-    <value>70</value>
-  </data>
   <data name="SampleNo.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="SampleNo.HeaderText" xml:space="preserve">
     <value>样本编号</value>
   </data>
-  <data name="SampleNo.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
   <data name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
     <value>项目名称</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
-    <value>120</value>
   </data>
   <data name="RepeatCount.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1224,14 +1215,14 @@
   <data name="TubeType.HeaderText" xml:space="preserve">
     <value>杯类型</value>
   </data>
+  <data name="TubeType.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
     <value>急诊</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.Width" type="System.Int32, mscorlib">
-    <value>70</value>
   </data>
   <data name="Status.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1246,7 +1237,7 @@
     <value>8, 13</value>
   </data>
   <data name="dgvSpInfoList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>320, 344</value>
+    <value>407, 346</value>
   </data>
   <data name="dgvSpInfoList.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -1606,7 +1597,7 @@
     <value>False</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>377, 449</value>
+    <value>319, 449</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 96</value>
@@ -1711,7 +1702,7 @@
     <value>29</value>
   </data>
   <data name="srdReagent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 14</value>
+    <value>-10, 14</value>
   </data>
   <data name="srdReagent.Size" type="System.Drawing.Size, System.Drawing">
     <value>480, 480</value>
@@ -1743,40 +1734,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>frmSampleLoad</value>
   </data>
-  <data name="&gt;&gt;Position.Name" xml:space="preserve">
-    <value>Position</value>
+  <data name="&gt;&gt;Status.Name" xml:space="preserve">
+    <value>Status</value>
   </data>
-  <data name="&gt;&gt;Position.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SampleNo.Name" xml:space="preserve">
-    <value>SampleNo</value>
-  </data>
-  <data name="&gt;&gt;SampleNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RepeatCount.Name" xml:space="preserve">
-    <value>RepeatCount</value>
-  </data>
-  <data name="&gt;&gt;RepeatCount.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SampleType.Name" xml:space="preserve">
-    <value>SampleType</value>
-  </data>
-  <data name="&gt;&gt;SampleType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TubeType.Name" xml:space="preserve">
-    <value>TubeType</value>
-  </data>
-  <data name="&gt;&gt;TubeType.Type" xml:space="preserve">
+  <data name="&gt;&gt;Status.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
@@ -1785,10 +1746,40 @@
   <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Status.Name" xml:space="preserve">
-    <value>Status</value>
+  <data name="&gt;&gt;TubeType.Name" xml:space="preserve">
+    <value>TubeType</value>
   </data>
-  <data name="&gt;&gt;Status.Type" xml:space="preserve">
+  <data name="&gt;&gt;TubeType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SampleType.Name" xml:space="preserve">
+    <value>SampleType</value>
+  </data>
+  <data name="&gt;&gt;SampleType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RepeatCount.Name" xml:space="preserve">
+    <value>RepeatCount</value>
+  </data>
+  <data name="&gt;&gt;RepeatCount.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SampleNo.Name" xml:space="preserve">
+    <value>SampleNo</value>
+  </data>
+  <data name="&gt;&gt;SampleNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Position.Name" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="&gt;&gt;Position.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
@@ -1796,15 +1787,6 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="DispathchTypeAdd" xml:space="preserve">
-    <value>样本添加</value>
-  </data>
-  <data name="DispathchTypeSampleProject" xml:space="preserve">
-    <value>相同项目</value>
-  </data>
-  <data name="DispathchTypeSpeed" xml:space="preserve">
-    <value>速度优先</value>
   </data>
   <data name="keywordText.CalibrationSolution" xml:space="preserve">
     <value>定标液</value>
@@ -1820,6 +1802,15 @@
   </data>
   <data name="keywordText.Control" xml:space="preserve">
     <value>质控品</value>
+  </data>
+  <data name="keywordText.DispathchTypeAdd" xml:space="preserve">
+    <value>样本添加</value>
+  </data>
+  <data name="keywordText.DispathchTypeSampleProject" xml:space="preserve">
+    <value>相同项目</value>
+  </data>
+  <data name="keywordText.DispathchTypeSpeed" xml:space="preserve">
+    <value>速度优先</value>
   </data>
   <data name="keywordText.DontAddReagentWithWorking" xml:space="preserve">
     <value>实验中，请勿添加试剂！</value>

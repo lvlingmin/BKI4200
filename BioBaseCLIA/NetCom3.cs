@@ -978,9 +978,9 @@ namespace BioBaseCLIA
                         LogFile.Instance.Write(DateTime.Now.ToString("hh:mm:ss:fff") + "DiagnostSendCallback调试指令接收出现异常！");
                         errorFlag = (int)ErrorState.OverTime;
                         totalOrderFlag = true;
-                        frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow("",Res.communicationfail);
-                        frmMS.Dispose();
+                        //frmMessageShow frmMS = new frmMessageShow();
+                        //frmMS.MessageShow("",Res.communicationfail);
+                        //frmMS.Dispose();
 						//if(EventStop!=null)
       //                      EventStop.Invoke();
                     }
@@ -1959,14 +1959,21 @@ namespace BioBaseCLIA
         }
         public LogFileAlarm()
         {
-            if (File.Exists(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt"))
+            try
             {
-                Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Append, FileAccess.Write , FileShare.None ,100, FileOptions.Asynchronous);
-                //Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Open,FileAccess.ReadWrite,FileShare.Read );
+                if (File.Exists(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt"))
+                {
+                    Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Append, FileAccess.Write, FileShare.None, 100, FileOptions.Asynchronous);
+                    //Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Open,FileAccess.ReadWrite,FileShare.Read );
+                }
+                else
+                {
+                    Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Create, FileAccess.Write, FileShare.Read, 100, FileOptions.Asynchronous);
+                }
             }
-            else
+            catch (Exception e)
             {
-                Fs = new FileStream(Application.StartupPath + @"\Log\AlarmLog\I" + DateTime.Now.ToString("yyyyMMdd") + ".txt", FileMode.Create, FileAccess.Write, FileShare.Read, 100, FileOptions.Asynchronous);
+                LogFile.Instance.Write(DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + e.Message);
             }
         }
         public void Write(string str)
