@@ -875,7 +875,7 @@ namespace BioBaseCLIA.Run
                 string type = dgvResultData.SelectedRows[i].Cells["SampleType"].Value.ToString();
                 if (type.Contains("定标") || type.Contains("Standard"))
                 {
-                    MessageBox.Show(getString("WarningOprate"));
+                    MessageBox.Show(getString("keywordText.WarningOprate"));
                     return;
                 }
             }
@@ -1192,12 +1192,12 @@ namespace BioBaseCLIA.Run
             #region 提示
             if (dgvResultData.SelectedRows.Count == 0)
             {
-                MessageBox.Show(getString("RetetsItem"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.RetetsItem"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (frmWorkList.LeftTestTime < 12)
             {
-                MessageBox.Show(getString("ComingStop"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.ComingStop"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (dgvResultData.SelectedRows[0].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")) ||
@@ -1209,22 +1209,22 @@ namespace BioBaseCLIA.Run
             }
             if (IsWorklistExithanvingTest(frmWorkList.BTestItem, dgvResultData.SelectedRows))
             {
-                MessageBox.Show(getString("CurrentSampleNotDone"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.CurrentSampleNotDone"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (frmWorkList.AddingSampleFlag)
             {
-                MessageBox.Show(getString("AddingSample"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(getString("keywordText.AddingSample"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
             {
                 int exitNumber = frmWorkList.BTestItem
                     .Where(item => item.SamplePos == int.Parse(dgvResultData.SelectedRows[index].Cells["Position"].Value.ToString())
-                    && ((!item.TestStatus.Contains(getString("Testcomplete"))) && (!item.TestStatus.Contains(getString("TestStatusAbondoned"))))).Count();
+                    && ((!item.TestStatus.Contains(getString("keywordText.Testcomplete"))) && (!item.TestStatus.Contains(getString("keywordText.TestStatusAbondoned"))))).Count();
                 if (exitNumber > 0)
                 {
-                    MessageBox.Show(getString("Location") + dgvResultData.SelectedRows[index].Cells["Position"].Value.ToString() + getString("ExitTestSample"));
+                    MessageBox.Show(getString("keywordText.Location") + dgvResultData.SelectedRows[index].Cells["Position"].Value.ToString() + getString("ExitTestSample"));
                     return;
                 }
             }
