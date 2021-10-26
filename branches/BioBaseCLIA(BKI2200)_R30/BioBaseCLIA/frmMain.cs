@@ -1391,7 +1391,7 @@ namespace BioBaseCLIA
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips") ,GetString("Cleaningfluidempty"));
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
             {
@@ -1403,7 +1403,7 @@ namespace BioBaseCLIA
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"), GetString("Cleaningfluidnormal"));
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
 
@@ -1420,7 +1420,7 @@ namespace BioBaseCLIA
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"),GetString("Probeempty"));
-                })) { IsBackground = true }.Start();
+                })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
             {
@@ -1431,7 +1431,7 @@ namespace BioBaseCLIA
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"), GetString("Probenormal"));
-                })) { IsBackground = true }.Start();
+                })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
 
@@ -1448,7 +1448,7 @@ namespace BioBaseCLIA
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"), GetString("Wastefull"));
-                })) { IsBackground = true }.Start();
+                })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
             {
@@ -1458,7 +1458,7 @@ namespace BioBaseCLIA
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"), GetString("Wastenormal"));
-                })) { IsBackground = true }.Start();
+                })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
         /// <summary>
@@ -1834,7 +1834,7 @@ namespace BioBaseCLIA
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"), Err);
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
             {
@@ -1843,7 +1843,7 @@ namespace BioBaseCLIA
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"),GetString("Temporarystorage"));
-                })) { IsBackground = true }.Start();
+                })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
 
@@ -1903,7 +1903,7 @@ namespace BioBaseCLIA
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"),GetString("Wastepipe") );
-                })) { IsBackground = true }.Start();
+                })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
             {
@@ -1912,7 +1912,7 @@ namespace BioBaseCLIA
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
                     f.MessageShow(GetString("Tips"), GetString("Wastepipenormal") );
-                })) { IsBackground = true }.Start();
+                })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
 

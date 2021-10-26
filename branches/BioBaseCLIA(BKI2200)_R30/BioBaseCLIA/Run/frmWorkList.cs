@@ -9045,7 +9045,7 @@ namespace BioBaseCLIA.Run
                                 {
                                     setmainformbutten();
                                     //NetCom3.Instance.stopsendFlag = true;
-                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在温育盘夹管到清洗盘时多次抓空！");
+                                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " +getString("keywordText.MReactToWashNulls"));
                                     //DialogResult tempresult = MessageBox.Show("移管手在反应盘夹管到清洗盘时多次抓空，实验将进行停止！", "移管手错误", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                                     //AllStop();
                                     #region  当前实验废弃，复位后扔掉 
@@ -9602,6 +9602,8 @@ namespace BioBaseCLIA.Run
                         }
                     }
                 });
+                updateStatus.CurrentCulture = Language.AppCultureInfo;
+                updateStatus.CurrentUICulture = Language.AppCultureInfo;
                 updateStatus.Start();
                 updateStatus.Join();
             }

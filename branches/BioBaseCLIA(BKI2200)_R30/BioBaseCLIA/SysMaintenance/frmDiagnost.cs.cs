@@ -14,6 +14,7 @@ using BioBaseCLIA.Run;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
 using Maticsoft.DBUtility;
+using Localization;
 
 namespace BioBaseCLIA.SysMaintenance
 {
@@ -178,7 +179,11 @@ namespace BioBaseCLIA.SysMaintenance
                     }
                 }
             }))
-            { IsBackground = true }.Start();
+            { 
+                IsBackground = true,
+                //CurrentCulture =Language.AppCultureInfo,
+                //CurrentUICulture= Language.AppCultureInfo
+        }.Start();
             //this block add y 20180816
             new Thread(new ParameterizedThreadStart((obj) =>
             {
@@ -195,7 +200,11 @@ namespace BioBaseCLIA.SysMaintenance
                     }
                 }
             }))
-            { IsBackground = true }.Start();
+            { 
+                IsBackground = true, 
+                //CurrentCulture = Language.AppCultureInfo,
+                //CurrentUICulture = Language.AppCultureInfo
+            }.Start();
             //block end
             //查询清洗盘管信息
             dtWashTrayInfo = OperateIniFile.ReadConfig(iniPathWashTrayInfo);

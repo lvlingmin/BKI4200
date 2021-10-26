@@ -13,6 +13,7 @@ using BioBaseCLIA.CalculateCurve;
 using BioBaseCLIA.DataQuery;
 using System.Timers; //lyq add 20190828
 using System.Resources;
+using Localization;
 
 namespace BioBaseCLIA.ScalingQC
 {
@@ -90,6 +91,8 @@ namespace BioBaseCLIA.ScalingQC
             {
                 RefreshUI();
             }));
+            th.CurrentCulture = Language.AppCultureInfo;
+            th.CurrentUICulture = Language.AppCultureInfo;
             th.IsBackground = true;
             th.Start();
             //new Thread(new ParameterizedThreadStart((obj) =>
@@ -782,6 +785,8 @@ namespace BioBaseCLIA.ScalingQC
                 {
                     RefreshUI();
                 }));
+                th.CurrentCulture = Language.AppCultureInfo;
+                th.CurrentUICulture = Language.AppCultureInfo;
                 th.IsBackground = true;
                 th.Start();
                 resetIsReady(sender, e);

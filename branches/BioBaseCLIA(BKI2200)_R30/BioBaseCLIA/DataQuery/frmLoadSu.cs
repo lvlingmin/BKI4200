@@ -12,6 +12,7 @@ using DBUtility;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Resources;
+using Localization;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -300,7 +301,7 @@ namespace BioBaseCLIA.DataQuery
                     frmMessageShow fr = new frmMessageShow();
                     fr.MessageShow(Getstring("MessageCaption"), Getstring("CheckBarcode"));
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
@@ -316,7 +317,7 @@ namespace BioBaseCLIA.DataQuery
                     frmMessageShow fr = new frmMessageShow();
                     fr.MessageShow(Getstring("MessageCaption"), Getstring("AlreadySubstate"));
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                 Invoke(new Action(() =>
                 {
                     initContr();
@@ -557,7 +558,7 @@ namespace BioBaseCLIA.DataQuery
                     frmMessageShow fr = new frmMessageShow();
                     fr.MessageShow(Getstring("MessageCaption"), Getstring("CheckBarcodeFail"));
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                 BeginInvoke(new Action(() =>
                 {
                     initContr(1);
@@ -572,7 +573,7 @@ namespace BioBaseCLIA.DataQuery
                     frmMessageShow fr = new frmMessageShow();
                     fr.MessageShow(Getstring("MessageCaption"), Getstring("AlreadySubstate") );
                 }))
-                { IsBackground = true }.Start();
+                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                 BeginInvoke(new Action(() =>
                 {
                     initContr(1);
