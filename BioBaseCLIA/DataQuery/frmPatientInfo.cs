@@ -12,6 +12,7 @@ using Common;
 using System.Resources;
 using System.Threading;
 using System.Threading.Tasks;
+using Localization;
 
 namespace BioBaseCLIA.DataQuery
 {
@@ -138,6 +139,8 @@ namespace BioBaseCLIA.DataQuery
             LogFile.Instance.Write("测试");
 
             Thread connectThread = new Thread(connectWork);
+            connectThread.CurrentCulture = Language.AppCultureInfo;
+            connectThread.CurrentUICulture = Language.AppCultureInfo;
             connectThread.Start();
         }
 

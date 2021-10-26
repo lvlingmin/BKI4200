@@ -482,7 +482,7 @@ namespace BioBaseCLIA.User
             new Thread(new ParameterizedThreadStart((obj) =>
           {
               bindUsedName();
-          })) { IsBackground = true }.Start();
+          })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
         }
         /// <summary>
         /// 绑定已使用过的用户名
@@ -713,7 +713,7 @@ namespace BioBaseCLIA.User
                                         hotKeyFreq = 0;
                                     }
                                 }))
-                                { IsBackground = true }.Start();
+                                { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                             }
                             else
                             {
@@ -790,7 +790,9 @@ namespace BioBaseCLIA.User
                     f.MessageShow(Getstring("Tips"), Getstring("Hightips"));
                 }))
                 {
-                    IsBackground = true
+                    IsBackground = true,
+                    CurrentCulture = Language.AppCultureInfo,
+                    CurrentUICulture = Language.AppCultureInfo
                 }.Start();
             }
             else if (dataRecive[4] == "FD")
@@ -804,7 +806,10 @@ namespace BioBaseCLIA.User
                     f.MessageShow(Getstring("Tips"), Getstring("Lowtips"));
                 }))
                 {
-                    IsBackground = true
+                    IsBackground = true,
+                    CurrentCulture = Language.AppCultureInfo,
+                    CurrentUICulture = Language.AppCultureInfo
+
                 }.Start();
             }
         }

@@ -477,8 +477,15 @@
   <data name="btnLoadReagent.Text" xml:space="preserve">
     <value>Reagent Load</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Operation</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 23</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Dispatch：</value>
   </data>
   <data name="fbtnRunInfoMody.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -552,6 +559,9 @@
   </data>
   <data name="fbtnRunInfoMody.Text" xml:space="preserve">
     <value>Modify Experiment Information</value>
+  </data>
+  <data name="cmbDispatchType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
   </data>
   <data name="btnCreatWorkList.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -772,8 +782,8 @@
   <data name="btnLoadSp.Text" xml:space="preserve">
     <value>Loading Sample</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Sample Information</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Operation</value>
   </data>
   <data name="Position.HeaderText" xml:space="preserve">
     <value>Position</value>
@@ -796,14 +806,8 @@
   <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
     <value>Emergency</value>
   </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 421</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 125</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Reagent Legend</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Sample Information</value>
   </data>
   <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 15</value>
@@ -835,14 +839,14 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Unloaded</value>
   </data>
-  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 442</value>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 421</value>
   </data>
-  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 104</value>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 125</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Sample Legend</value>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Reagent Legend</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>29, 75</value>
@@ -871,27 +875,17 @@
   <data name="label9.Text" xml:space="preserve">
     <value>Unloaded</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 442</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 23</value>
+  <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 104</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>Dispatch：</value>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Sample Legend</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
-  </data>
-  <data name="keywordText.DispathchTypeAdd" xml:space="preserve">
-    <value>Sample addition</value>
-  </data>
-  <data name="keywordText.DispathchTypeSampleProject" xml:space="preserve">
-    <value>Same project</value>
-  </data>
-  <data name="keywordText.DispathchTypeSpeed" xml:space="preserve">
-    <value>Speed first</value>
   </data>
   <data name="keywordText.CalibrationSolution" xml:space="preserve">
     <value>Calibration Solution</value>
@@ -907,6 +901,15 @@
   </data>
   <data name="keywordText.Control" xml:space="preserve">
     <value>Control</value>
+  </data>
+  <data name="keywordText.DispathchTypeAdd" xml:space="preserve">
+    <value>Sample addition</value>
+  </data>
+  <data name="keywordText.DispathchTypeSampleProject" xml:space="preserve">
+    <value>Same project</value>
+  </data>
+  <data name="keywordText.DispathchTypeSpeed" xml:space="preserve">
+    <value>Speed first</value>
   </data>
   <data name="keywordText.DontAddReagentWithWorking" xml:space="preserve">
     <value>In the experiment, do not add reagent!</value>
