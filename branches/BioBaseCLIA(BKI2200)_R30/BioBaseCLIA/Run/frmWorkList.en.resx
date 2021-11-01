@@ -1407,4 +1407,7 @@
   <data name="keywordText.WashTurnOver" xml:space="preserve">
     <value>Cleaning disk rotation command receiving timeout</value>
   </data>
+  <data name="keywordText.MAddNewTWashIsKnocked" xml:space="preserve">
+    <value>When the pipe transfer hand moves the pipe from the temporary storage tray to the cleaning tray, the pipe hits the pipe at the position of the pipe</value>
+  </data>
 </root>

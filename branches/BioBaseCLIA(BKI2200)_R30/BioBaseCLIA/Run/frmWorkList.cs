@@ -4473,7 +4473,7 @@ namespace BioBaseCLIA.Run
                         goto AgainNewMove;
                     else
                     {
-                        ShowWarnInfo(getString("keywordText.MAddNewTWashnull"), getString("keywordText.Move"), 1);
+                        ShowWarnInfo(getString("keywordText.MAddNewTWashIsKnocked"), getString("keywordText.Move"), 1);
                         //setmainformbutten();
                         //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "移管手在暂存盘向清洗盘取放管处抓管时取管撞管！");
                         //LogFile.Instance.Write("==============  移管手在暂存盘向清洗盘取放管处抓管发生撞管  " + currentHoleNum);
