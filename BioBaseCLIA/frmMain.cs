@@ -299,10 +299,14 @@ namespace BioBaseCLIA
             timerConnect.Enabled = true;
 
             #region 登录lis逻辑
-            Thread loginThread = new Thread(Work);
-            loginThread.CurrentCulture = Language.AppCultureInfo;
-            loginThread.CurrentUICulture = Language.AppCultureInfo;
-            loginThread.Start();
+            bool isLisConnect = bool.Parse(OperateIniFile.ReadInIPara("LisSet", "IsLisConnect"));
+            if(isLisConnect)
+            {
+                Thread loginThread = new Thread(Work);
+                loginThread.CurrentCulture = Language.AppCultureInfo;
+                loginThread.CurrentUICulture = Language.AppCultureInfo;
+                loginThread.Start();
+            }
             #endregion
         }
 
