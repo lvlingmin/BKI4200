@@ -381,10 +381,10 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="keywordText.Waring1" xml:space="preserve">
-    <value>警告</value>
-  </data>
   <data name="keywordText.Waring2" xml:space="preserve">
-    <value>警告</value>
+    <value>Warning</value>
+  </data>
+  <data name="keywordText.Waring1" xml:space="preserve">
+    <value>warning</value>
   </data>
 </root>

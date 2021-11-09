@@ -2181,7 +2181,7 @@ namespace BioBaseCLIA.SysMaintenance
                 {
                     if (flow[1])
                     {
-                        TExtAppend(GetString("keywordText.Adding") + (tubeNum - temptubenum + 1) + GetString("keywordText.gxg"));
+                        TExtAppend(GetString("keywordText.Adding") + " " + (tubeNum - temptubenum + 1) + " " + GetString("keywordText.gxg"));
                         int iNeedCool = 0;
                         AgainNewMove:
                         NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 06 "), 1);
@@ -2232,7 +2232,9 @@ namespace BioBaseCLIA.SysMaintenance
                     //if (flow[4] && tray.pointer[9].Value[1] == 1)
                     {
                         NetCom3.Instance.ReceiveHandel += GetReadNum2;
-                        TExtAppend(GetString("keywordText.The") + tempread + GetString("keywordText.Holereading"));
+                        //string.Format(getString("keywordText.LoadSampleInTray"), temp, isup)
+                        //TExtAppend(GetString("keywordText.The") + tempread + GetString("keywordText.Holereading"));
+                        TExtAppend(string.Format(GetString("keywordText.Holereading"), tempread));
                         tempread++;
                     }
                     NetCom3.Instance.Send(NetCom3.Cover(tray.GetWashOrder(flow[2], flow[3], flow[4], whichPipe)), 2);
@@ -2270,7 +2272,7 @@ namespace BioBaseCLIA.SysMaintenance
                 if (isNewWashEnd()) return;  //lyq add 20190822
                 if (flow[5] && tray.pointer[10].Value[1] == 1)
                 {
-                    TExtAppend(GetString("keywordText.Throwthe") + tubecount + GetString("keywordText.gxg"));
+                    TExtAppend(string.Format(GetString("keywordText.Throwthe"), tubecount));
                     int iNeedCool = 0;
                     AgainNewMove:
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 01"), 1);

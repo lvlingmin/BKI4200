@@ -1752,7 +1752,7 @@
     <value>校准品</value>
   </data>
   <data name="keywordText.cleanWashEr" xml:space="preserve">
-    <value>清洗盘清洗故障，请检查清洗装置运行状况！</value>
+    <value>程序在执行清洗灌注流程异常，终止实验！异常信息请在报警信息查看！</value>
   </data>
   <data name="keywordText.ConnectErr" xml:space="preserve">
     <value>系统与仪器连接失败，请查看连接设置!</value>
@@ -2089,5 +2089,8 @@
   </data>
   <data name="keywordText.MAddNewTWashIsKnocked" xml:space="preserve">
     <value>移管手从暂存盘向清洗盘移管时在取管位置发生撞管</value>
+  </data>
+  <data name="keywordText.MAddNewTReactStop" xml:space="preserve">
+    <value>移管手从暂存盘向温育盘移新管时出现异常，终止实验！异常信息请在报警信息查看！</value>
   </data>
 </root>

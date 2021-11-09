@@ -2660,4 +2660,7 @@
   <data name="keywordText.SerialConnSet" xml:space="preserve">
     <value>Serial communication settings</value>
   </data>
+  <data name="keywordText.Warning" xml:space="preserve">
+    <value>warning</value>
+  </data>
 </root>

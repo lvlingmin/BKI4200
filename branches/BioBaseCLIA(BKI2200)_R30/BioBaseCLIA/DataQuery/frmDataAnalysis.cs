@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -191,7 +192,7 @@ namespace BioBaseCLIA.DataQuery
                 if (dtDgv1.Rows.Count < 1)
                 {
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("打印", "没有C-P项目信息，请重新选择打印范围！");
+                    f.MessageShow(Getstring("keywordText.Print"), string.Format(Getstring("keywordText.NoProject"), "C-P"));
                     return;
                 }
             }
@@ -200,7 +201,7 @@ namespace BioBaseCLIA.DataQuery
                 if (dtDgv2.Rows.Count < 1)
                 {
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow("打印", "没有INS项目信息，请重新选择打印范围！");
+                    f.MessageShow(Getstring("keywordText.Print"), string.Format(Getstring("keywordText.NoProject"), "INS"));
                     return;
                 }
             }
@@ -565,6 +566,8 @@ namespace BioBaseCLIA.DataQuery
             int tempNum = 0;
             MaxValue = Math.Round(MaxValue);
             AVGVALUE = (int)MaxValue / 2;
+            if (MaxValue < 8)
+                MaxValue = 8;
             DifferenceValue = (int)MaxValue / 8;
 
             #region lyn add 2016.09.19 显示最新pointNum个点的值
@@ -606,10 +609,11 @@ namespace BioBaseCLIA.DataQuery
             Bitmap bmp = new Bitmap(con.Width, con.Height);
             Graphics g = Graphics.FromImage(bmp);
 
-            g.DrawLine(new Pen(Color.Black, 1), zzQC(0, 0, MaxValue, -0), zzQC(0, 8, MaxValue, -0));
-            g.DrawString(MaxValue.ToString(), new Font("宋体", 10), br, zzQC(0, MaxValue.ToString().Length * (-6) - 8, MaxValue*0.97, 9 - 0));
+            //g.DrawLine(new Pen(Color.Black, 1), new Point(0,0), new Point(0,3));
+            g.DrawLine(new Pen(Color.Black, 1), zzQC(0, 0, MaxValue, -0), zzQC(0, 8, MaxValue,-0));
+            g.DrawString(MaxValue.ToString(), new Font(Getstring("keywordText.Font"), 10), br, zzQC(0, MaxValue.ToString().Length * (-6) - 8, MaxValue*0.97, 9 - 0));
             g.DrawLine(new Pen(Color.Black, 1), zzQC(0, 0, AVGVALUE, -0), zzQC(0, 8, AVGVALUE, -0));
-            g.DrawString(AVGVALUE.ToString(), new Font("宋体", 10), br, zzQC(0, AVGVALUE.ToString().Length * (-6) - 8, AVGVALUE*0.97, 9 - 0));
+            g.DrawString(AVGVALUE.ToString(), new Font(Getstring("keywordText.Font"), 10), br, zzQC(0, AVGVALUE.ToString().Length * (-6) - 8, AVGVALUE*0.97, 9 - 0));
 
 
 
@@ -621,7 +625,7 @@ namespace BioBaseCLIA.DataQuery
             for (int i = 1; i < pointNum + 1; i++)
             {
                 g.DrawLine(pn, zzOptical(i * 1, 0, AVGVALUE - 4 * DifferenceValue, 2), zzOptical(i * 1, 0, AVGVALUE - 4 * DifferenceValue, 8));//竖线
-                g.DrawString(i.ToString(), new Font("宋体", 10), br, zzQC(i * 1, -8, AVGVALUE - 4 * DifferenceValue, -2));
+                g.DrawString(i.ToString(), new Font(Getstring("keywordText.Font"), 10), br, zzQC(i * 1, -8, AVGVALUE - 4 * DifferenceValue, -2));
             }
 
             Point[] pts = new Point[dt.Rows.Count];
@@ -710,6 +714,12 @@ namespace BioBaseCLIA.DataQuery
                 default:
                     return Color.Black;
             }
+        }
+        private string Getstring(string key)
+        {
+            ResourceManager resManagerA =
+                    new ResourceManager("BioBaseCLIA.DataQuery.frmDataAnalysis", typeof(frmDataAnalysis).Assembly);
+            return resManagerA.GetString(key);
         }
     }
 

@@ -3365,4 +3365,7 @@
   <data name="keywordText.SerialConnSet" xml:space="preserve">
     <value>串口通讯设置</value>
   </data>
+  <data name="keywordText.Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
 </root>

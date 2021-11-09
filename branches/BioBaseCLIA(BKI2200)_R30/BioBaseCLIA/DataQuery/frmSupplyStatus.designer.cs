@@ -78,26 +78,27 @@
             // 
             // MenuSu
             // 
+            resources.ApplyResources(this.MenuSu, "MenuSu");
             this.MenuSu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ItemUnLoad});
             this.MenuSu.Name = "MenuSu";
-            resources.ApplyResources(this.MenuSu, "MenuSu");
             // 
             // ItemUnLoad
             // 
-            this.ItemUnLoad.Name = "ItemUnLoad";
             resources.ApplyResources(this.ItemUnLoad, "ItemUnLoad");
+            this.ItemUnLoad.Name = "ItemUnLoad";
             this.ItemUnLoad.Click += new System.EventHandler(this.ItemUnLoad_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvDiluteInfo);
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.dgvDiluteInfo);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // dgvDiluteInfo
             // 
+            resources.ApplyResources(this.dgvDiluteInfo, "dgvDiluteInfo");
             this.dgvDiluteInfo.AllowUserToAddRows = false;
             this.dgvDiluteInfo.AllowUserToDeleteRows = false;
             this.dgvDiluteInfo.AllowUserToResizeRows = false;
@@ -110,7 +111,6 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.ValiData});
-            resources.ApplyResources(this.dgvDiluteInfo, "dgvDiluteInfo");
             this.dgvDiluteInfo.Name = "dgvDiluteInfo";
             this.dgvDiluteInfo.ReadOnly = true;
             this.dgvDiluteInfo.RowHeadersVisible = false;
@@ -165,11 +165,11 @@
             // 
             // groupBox5
             // 
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.subBottle1);
             this.groupBox5.Controls.Add(this.lblSuBottle1);
             this.groupBox5.Controls.Add(this.subBottle2);
             this.groupBox5.Controls.Add(this.lblSuBottle2);
-            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
@@ -216,17 +216,17 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dgvRegentInfo);
             resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Controls.Add(this.dgvRegentInfo);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
             // dgvRegentInfo
             // 
+            resources.ApplyResources(this.dgvRegentInfo, "dgvRegentInfo");
             this.dgvRegentInfo.AllowUserToAddRows = false;
             this.dgvRegentInfo.AllowUserToDeleteRows = false;
             this.dgvRegentInfo.AllowUserToResizeRows = false;
-            resources.ApplyResources(this.dgvRegentInfo, "dgvRegentInfo");
             this.dgvRegentInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRegentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegentInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -287,6 +287,7 @@
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.btnLoadRackD);
             this.groupBox2.Controls.Add(this.btnLoadRackC);
             this.groupBox2.Controls.Add(this.btnLoadRackB);
@@ -299,14 +300,13 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
             // btnLoadRackD
             // 
-            this.btnLoadRackD.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadRackD, "btnLoadRackD");
+            this.btnLoadRackD.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadRackD.EnabledSet = true;
             this.btnLoadRackD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadRackD.FlatAppearance.BorderSize = 0;
@@ -318,8 +318,8 @@
             // 
             // btnLoadRackC
             // 
-            this.btnLoadRackC.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadRackC, "btnLoadRackC");
+            this.btnLoadRackC.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadRackC.EnabledSet = true;
             this.btnLoadRackC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadRackC.FlatAppearance.BorderSize = 0;
@@ -331,8 +331,8 @@
             // 
             // btnLoadRackB
             // 
-            this.btnLoadRackB.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadRackB, "btnLoadRackB");
+            this.btnLoadRackB.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadRackB.EnabledSet = true;
             this.btnLoadRackB.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadRackB.FlatAppearance.BorderSize = 0;
@@ -344,8 +344,8 @@
             // 
             // btnLoadRackA
             // 
-            this.btnLoadRackA.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnLoadRackA, "btnLoadRackA");
+            this.btnLoadRackA.BackColor = System.Drawing.Color.Transparent;
             this.btnLoadRackA.EnabledSet = true;
             this.btnLoadRackA.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLoadRackA.FlatAppearance.BorderSize = 0;
@@ -397,8 +397,8 @@
             // 
             // btnReturn
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.btnReturn, "btnReturn");
+            this.btnReturn.BackColor = System.Drawing.Color.Transparent;
             this.btnReturn.EnabledSet = true;
             this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnReturn.FlatAppearance.BorderSize = 0;

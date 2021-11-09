@@ -218,6 +218,13 @@ namespace BioBaseCLIA.Run
         }
         private void frmSampleLoad_Load(object sender, EventArgs e)
         {
+            for (int i = 0; i < dtSpInfo.Rows.Count; i++)
+            {
+                if (dtSpInfo.Rows[i]["Emergency"].ToString() == getString("keywordText.Yes"))
+                    dtSpInfo.Rows[i]["Emergency"] = getString("keywordText.Yes");
+                else
+                    dtSpInfo.Rows[i]["Emergency"] = getString("keywordText.No");
+            }
             dgvSpInfoList.DataSource = dtSpInfo;
 
             FileStream fs = new FileStream(Environment.CurrentDirectory + "\\SpacialProjects.txt", FileMode.Open, FileAccess.Read);

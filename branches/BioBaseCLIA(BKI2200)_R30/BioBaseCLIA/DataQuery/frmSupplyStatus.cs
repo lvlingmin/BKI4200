@@ -233,7 +233,7 @@ namespace BioBaseCLIA.DataQuery
         public void GetReagentInfo()
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
-            //DataTable dtReagentInfo = new BLL.tbReagent().GetList("Status ='" + Getstring("normal") + "'").Tables[0];
+            //DataTable dtReagentInfo = new BLL.tbReagent().GetList("Status ='" + Getstring("keywordText.normal") + "'").Tables[0];
             DataTable dtReagentInfo = new BLL.tbReagent().GetList("Postion<>''").Tables[0];
 
             for (int indexRow = 0; indexRow < dtReagentInfo.Rows.Count; indexRow++) 
@@ -487,14 +487,14 @@ namespace BioBaseCLIA.DataQuery
                 return;
             }
             DbHelperOleDb db = new DbHelperOleDb(3);
-            //DataTable dtSb = bllsb.GetList("Status='"+Getstring("normal") +"'and SubstrateNumber = '" + CurBottle.ToString()+ "'").Tables[0];
+            //DataTable dtSb = bllsb.GetList("Status='"+Getstring("keywordText.normal") +"'and SubstrateNumber = '" + CurBottle.ToString()+ "'").Tables[0];
             DataTable dtSb = bllsb.GetList("Status='正常'and SubstrateNumber = '" + CurBottle.ToString() + "'").Tables[0];
             Model.tbSubstrate modelSb = new Model.tbSubstrate();
             modelSb = bllsb.GetModel(int.Parse(dtSb.Rows[0]["SubstrateID"].ToString()));
-            modelSb.Status = "卸载"/*Getstring("uninstall")*/;
+            modelSb.Status = "卸载"/*Getstring("keywordText.uninstall")*/;
             if (bllsb.Update(modelSb))
             {
-                frmMsgShow.MessageShow(Getstring("MessageHead1"), Getstring("UnstallSubSucess"));
+                frmMsgShow.MessageShow(Getstring("keywordText.MessageHead"), Getstring("keywordText.UnstallSubSucess"));
                 OperateIniFile.WriteIniData("Substrate" + CurBottle.ToString(), "BarCode", "", Application.StartupPath + "//SubstrateTube.ini");
                 OperateIniFile.WriteIniData("Substrate" + CurBottle.ToString(), "TestCount", "", Application.StartupPath + "//SubstrateTube.ini");
                 OperateIniFile.WriteIniData("Substrate" + CurBottle.ToString(), "LeftCount", "", Application.StartupPath + "//SubstrateTube.ini");

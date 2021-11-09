@@ -462,9 +462,9 @@
     <value>en</value>
   </data>
   <data name="keywordText.Warning1" xml:space="preserve">
-    <value>Warning</value>
+    <value>警告</value>
   </data>
   <data name="keywordText.Warning2" xml:space="preserve">
-    <value>warning</value>
+    <value>警告</value>
   </data>
 </root>

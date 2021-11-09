@@ -1033,10 +1033,6 @@
   <data name="fbtnGroupTest.Text" xml:space="preserve">
     <value>Battery of tests</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fbtnGroupTest.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -1176,9 +1172,6 @@
   </data>
   <data name="fbtnInstruDiagnost.Text" xml:space="preserve">
     <value>Instrument debugging</value>
-  </data>
-  <data name="fbtnInstruDiagnost.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="fbtnInstruMaintenance.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1541,7 +1534,7 @@
     <value>When the piper grabs the pipe from the temporary storage tray to the cleaning tray, the experiment will stop!</value>
   </data>
   <data name="keywordText.Holereading" xml:space="preserve">
-    <value>The tube is reading</value>
+    <value>The {0} tube is reading</value>
   </data>
   <data name="keywordText.Idleoperations" xml:space="preserve">
     <value>Please perform this operation when the instrument is idle</value>
@@ -1706,7 +1699,7 @@
     <value>When the piper throws the waste pipe in the cleaning plate, the experiment will stop!</value>
   </data>
   <data name="keywordText.Throwthe" xml:space="preserve">
-    <value>Throwing the second from the cleaning dish</value>
+    <value>Throwing the {0} reaction tube from the cleaning tray!</value>
   </data>
   <data name="keywordText.Tip" xml:space="preserve">
     <value>reminder</value>

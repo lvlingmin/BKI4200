@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Resources;
 using Localization;
+using BioBaseCLIA.Run;
 
 namespace BioBaseCLIA.User
 {
@@ -775,7 +776,7 @@ namespace BioBaseCLIA.User
         void Darkroom(string order)
         {
             SetCultureInfo();
-            if (!order.Contains("EB 90 F1 02"))
+            if (!order.Contains("EB 90 F1 02")|| frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
                 return;
             string[] dataRecive = order.Split(' ');
             uint readData = uint.Parse(dataRecive[14] + dataRecive[15], System.Globalization.NumberStyles.AllowHexSpecifier);

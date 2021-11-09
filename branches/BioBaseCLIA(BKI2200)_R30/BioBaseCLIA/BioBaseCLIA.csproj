@@ -455,6 +455,9 @@
     <EmbeddedResource Include="DataQuery\frmAddSampleResult.en.resx">
       <DependentUpon>frmAddSampleResult.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataQuery\frmDataAnalysis.en.resx">
+      <DependentUpon>frmDataAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataQuery\frmDataAnalysis.resx">
       <DependentUpon>frmDataAnalysis.cs</DependentUpon>
     </EmbeddedResource>
