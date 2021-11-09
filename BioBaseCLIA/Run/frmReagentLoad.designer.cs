@@ -758,7 +758,7 @@
         System.Drawing.Color.Green,
         System.Drawing.Color.Green,
         System.Drawing.Color.Green};
-            this.srdReagent.RgFont = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.srdReagent.RgFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.srdReagent.RgGroupNum = 30F;
             this.srdReagent.RgName = new string[] {
         " ",

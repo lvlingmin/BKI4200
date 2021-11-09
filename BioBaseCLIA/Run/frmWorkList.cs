@@ -578,6 +578,7 @@ namespace BioBaseCLIA.Run
                 lock (dataLocker)
                 {
                     dataRecive = obj.Split(' ');
+                    LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss") + "接收回来的数据为！"+ obj);
                     if (dataRecive[0] != null && dataRecive[3] == "A3" && (dataRecive[15] != "00" || dataRecive[14] != "00" || dataRecive[13] != "00"))
                     {
                         string readData = dataRecive[12] + dataRecive[13] + dataRecive[14] + dataRecive[15];
@@ -587,6 +588,12 @@ namespace BioBaseCLIA.Run
                         }
                         dataRecive[0] = null;
                     }
+                    if (obj.Contains("EB 90 11 AF 01 06 FF"))
+                    {
+                        TubeStop = true;
+                        LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss")+"查询理杯机指令返回数据！");
+                    }
+                       
                 }
             }
         }
@@ -3156,6 +3163,7 @@ namespace BioBaseCLIA.Run
                 return false;
             }
             NetCom3.Instance.ReceiveHandel += new Action<string>(Instance_ReceiveHandel);
+            NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel += new Action<string>(Instance_ReceiveHandel);
             //仪器初始化
             lock (dataLocker)
             {
@@ -3269,7 +3277,11 @@ namespace BioBaseCLIA.Run
                 int OnePos = int.Parse(OperateIniFile.ReadIniData("Tube", "TubePos", "1", iniPathSubstrateTube)) - 1; //2018-09-28
                 for (int i = 0; i < LackTubeNum; i++)
                 {
-                    if (TubeStop) return false;
+                    if (TubeStop)
+                    {
+                        MessageBox.Show(getString("keywordText.MAddNewTReactStop"));
+                        return false;
+                    }
                     //MoveTubeStatus moveTube1 = new MoveTubeStatus();
                     //moveTube1.StepNum = 0;
                     int putPos = int.Parse(TrayPos.Substring(2)) + i + 1;
@@ -3286,6 +3298,7 @@ namespace BioBaseCLIA.Run
                     //}
                 }
             }
+            NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel -= new Action<string>(Instance_ReceiveHandel);
             #endregion
             return true;
         }
@@ -4446,12 +4459,24 @@ namespace BioBaseCLIA.Run
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.LackTube)
                 {
-                    ShowWarnInfo(getString("keywordText.LackTube"), getString("keywordText.Move"), 1);
+                    TubeStop = false;
+                    iNeedCool++;
+                    NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 01 06"), 5);
+                    NetCom3.Instance.SingleQuery();
+                    Thread.Sleep(3000);
+                    if (!TubeStop || iNeedCool >2)
+                    {
+                        LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss") + "由于缺管停止实验！");
+                        ShowWarnInfo(getString("keywordText.LackTube"), getString("keywordText.Move"), 1);
+                        return false;
+                    }
+                    goto AgainNewMove;
+
                     //AllStop();
                     //setmainformbutten();
                     //LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + "错误" + " *** " + "未读" + " *** " + "理杯机缺管，实验停止运行！");
                     //DialogResult tempresult = MessageBox.Show("理杯机缺管！实验将停止运行！", "移管手错误！", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                    return false;
+                    
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.StuckTube)
                 {

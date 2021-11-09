@@ -1805,7 +1805,7 @@
     <value>txtSpStartPos</value>
   </data>
   <data name="keywordText.SampleXExist" xml:space="preserve">
-    <value>样本编号{0}已存在，请重新输入！</value>
+    <value>样本编号 {0} 已存在，请重新输入！</value>
   </data>
   <data name="&gt;&gt;lblBatch.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1844,7 +1844,7 @@
     <value>2</value>
   </data>
   <data name="keywordText.TipsUnload" xml:space="preserve">
-    <value>\t请在样本盘{0}位置卸载样本。\n\n点击“确定”或退出此对话框视为卸载成功并开始进行下一步。</value>
+    <value>\t请在样本盘 {0} 位置卸载样本。\n\n点击“确定”或退出此对话框视为卸载成功并开始进行下一步。</value>
   </data>
   <data name="&gt;&gt;fbLoadRun.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -2022,7 +2022,7 @@
     <value>347, 186</value>
   </data>
   <data name="keywordText.TrayNumMore" xml:space="preserve">
-    <value>样本{0}的最大范围为从1号位到{1}号位。请重新检查输入，以确保“开始孔位”和“数量”之和不超过61。</value>
+    <value>样本 {0} 的最大范围为从1号位到 {1} 号位。请重新检查输入，以确保“开始孔位”和“数量”之和不超过61。</value>
   </data>
   <data name="&gt;&gt;ProjectGroupNumber.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2521,7 +2521,7 @@
     <value>96, 26</value>
   </data>
   <data name="keywordText.SamplePosExist" xml:space="preserve">
-    <value>样本位号{0}重复，请重新输入！</value>
+    <value>样本位号 {0} 重复，请重新输入！</value>
   </data>
   <data name="&gt;&gt;lblBatch.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -2788,7 +2788,7 @@
     <value>323, 162</value>
   </data>
   <data name="keywordText.LoadSampleInTray" xml:space="preserve">
-    <value>\t请在样本盘{0}位置{1}样本。\n\n点击“确定”或退出此对话框视为{1}成功并开始进行下一步。</value>
+    <value>\t请在样本盘 {0} 位置 {1} 样本。\n\n点击“确定”或退出此对话框视为{1}成功并开始进行下一步。</value>
   </data>
   <data name="cmbPipeType.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 20</value>
@@ -3171,7 +3171,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="keywordText.TrayNumLess" xml:space="preserve">
-    <value>样本{0}的最大范围为从1号位到{1}号位。请重新检查输入，以确保“开始孔位”和“数量”都不小于1。</value>
+    <value>样本 {0} 的最大范围为从1号位到 {1} 号位。请重新检查输入，以确保“开始孔位”和“数量”都不小于1。</value>
   </data>
   <data name="btnUnloadSP.Text" xml:space="preserve">
     <value>卸载样本</value>

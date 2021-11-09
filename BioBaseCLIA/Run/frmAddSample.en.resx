@@ -1812,10 +1812,10 @@
     <value>\tPlease unload samples at the {0} position of the sample tray.\n\nClick "confirm" or exit this dialog box as a successful uninstall and proceed to the next step.</value>
   </data>
   <data name="keywordText.TrayNumLess" xml:space="preserve">
-    <value>The maximum range of sample {0} is from 1 to {1}.Please check the input again to make sure that the "start hole" and "quantity" are not less than 1.</value>
+    <value>The maximum range of sample {0} is from 1 to {1} .Please check the input again to make sure that the "start hole" and "quantity" are not less than 1.</value>
   </data>
   <data name="keywordText.TrayNumMore" xml:space="preserve">
-    <value>The maximum range of sample {0} is from 1 to {1}.Please check the input again to ensure that the sum of the start hole and the quantity does not exceed 61.</value>
+    <value>The maximum range of sample {0} is from 1 to {1} .Please check the input again to ensure that the sum of the start hole and the quantity does not exceed 61.</value>
   </data>
   <data name="keywordText.TwoWay" xml:space="preserve">
     <value>Bidirectional</value>

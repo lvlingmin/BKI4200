@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Xml;
 using System.Threading;
 using Common.Extensions;
+using Localization;
 
 namespace BioBaseCLIA.Run
 {
@@ -57,7 +58,16 @@ namespace BioBaseCLIA.Run
             {
                 if (lstFile.Length > 13)
                     continue;
-                string newdate = lstFile.Substring(1, 4) +GetString("Year") + lstFile.Substring(5, 2) + GetString("Month") + lstFile.Substring(7, 2)+GetString("Date");
+                string newdate = "";
+                if (Language.AppCultureInfo.ToString() == "en")
+                {
+                    newdate = lstFile.Substring(5, 2) + GetString("Month") + lstFile.Substring(7, 2) + GetString("Date")
+                        + lstFile.Substring(1, 4) + GetString("Year");
+                }
+                else
+                {
+                    newdate = lstFile.Substring(1, 4) + GetString("Year") + lstFile.Substring(5, 2) + GetString("Month") + lstFile.Substring(7, 2) + GetString("Date");
+                }
                 dateselect.Add(newdate);
                 lOrigin.Add(new LogOfAlarm(imageList1.Images[3], newdate, "----", null));
                 string fileInfo = ReadTxtWarn.ReaderFile(filePath +"\\"+ lstFile);//all text

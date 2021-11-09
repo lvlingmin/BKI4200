@@ -3163,10 +3163,11 @@ namespace BioBaseCLIA.Run
             //NetCom3.Instance.SPQuery();
             string isup = isUpload ? getString("keywordText.Load") : getString("keywordText.Unload");
             string temp = "";
-            if (length == 1) temp = "" + star + getString("keywordText.No.Space");
-            else if (length == 2) temp = " " + star + getString("keywordText.No.Sign") + (star + 1) + getString("keywordText.No.Space");
-            else if (length > 2 && length <= 15) temp = " " + star + getString("keywordText.No.To") + (star + length - 1) + getString("keywordText.No.Space");
-            else if (length > 2 && length > 15) temp = " " + star + getString("keywordText.No.To") + (star + 14) + getString("keywordText.No.Space");
+            if (length == 1) temp = "" + star + " " + getString("keywordText.No.Space");
+            else if (length == 2) temp = " " + star + " " + getString("keywordText.No.Sign") + (star + 1) + " " + getString("keywordText.No.Space");
+            else if (length > 2 && length <= 15) temp = " " + star + " " + getString("keywordText.No.To") + " " + (star + length - 1) +" "+ getString("keywordText.No.Space");
+            else if (length > 2 && length > 15) temp = " " + star +" "+ getString("keywordText.No.To") + " "  + (star + 14)
+                    + " "+getString("keywordText.No.Space");
             frmMsg.MessageShow(getString("keywordText.SampleLoad"), string.Format(getString("keywordText.LoadSampleInTray"), temp, isup));//2018-11-15 zlx mod
             if (!isUpload)
             {

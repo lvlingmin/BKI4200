@@ -52,8 +52,7 @@ namespace BioBaseCLIA.DataQuery
             bool IsLisConnect = bool.Parse(OperateIniFile.ReadInIPara("LisSet", "IsLisConnect"));
             if (!IsLisConnect)
             {
-                tbnSendResult.Visible = false;
-                return;
+                tbnSendResult.Enabled  = false;
             }
             cmbSelect.SelectedIndex = 0;//2018-11-20 zlx add
             FileStream fs = new FileStream(Environment.CurrentDirectory + "\\DataAnalysis.txt", FileMode.Open, FileAccess.Read);
@@ -285,7 +284,7 @@ namespace BioBaseCLIA.DataQuery
                                     result = "↑";
                                 }
                                 else
-                                    result = getString("keywordText.normal");
+                                    result = Getstring("keywordText.normal");
                             }
                             else if (Range1.Contains("<"))
                             {
@@ -295,7 +294,7 @@ namespace BioBaseCLIA.DataQuery
                                 }
                                 else
                                 {
-                                    result = getString("keywordText.normal");
+                                    result = Getstring("keywordText.normal");
                                 }
                             }
                             else if (Range1.Contains("<="))
@@ -306,7 +305,7 @@ namespace BioBaseCLIA.DataQuery
                                 }
                                 else
                                 {
-                                    result = getString("keywordText.normal");
+                                    result = Getstring("keywordText.normal");
                                 }
                             }
                             else if (Range1.Contains(">"))
@@ -317,7 +316,7 @@ namespace BioBaseCLIA.DataQuery
                                 }
                                 else
                                 {
-                                    result = getString("keywordText.normal");
+                                    result = Getstring("keywordText.normal");
                                 }
 
                             }
@@ -329,7 +328,7 @@ namespace BioBaseCLIA.DataQuery
                                 }
                                 else
                                 {
-                                    result = getString("keywordText.normal");
+                                    result = Getstring("keywordText.normal");
                                 }
                             }
                         }
@@ -701,22 +700,32 @@ namespace BioBaseCLIA.DataQuery
                 DataTable dtTestResult = new DataTable();
                 string printModel = OperateIniFile.ReadIniData("PrintSet", "PrintMode", "", Application.StartupPath + "//InstrumentPara.ini");
                 string modelPath = Application.StartupPath + @"\Report\";
-                if (printModel.Contains("模版一") || printModel.Contains("1"))
+                //if (printModel.Contains("模版一") || printModel.Contains("1"))
+                //{
+                //    modelPath += "A5ZH-模版一.frx";
+                //}
+                //else if (printModel.Contains("模版二") || printModel.Contains("2"))
+                //{
+                //    modelPath += "A5ZH-模版二.frx";
+                //}
+                //else if (printModel.Contains("模版三") || printModel.Contains("3"))
+                //{
+                //    modelPath += "A5ZH-模版三.frx";
+                //}
+                //else if (printModel.Contains("模版六") || printModel.Contains("6"))
+                //{
+                //    modelPath += "A5ZH-模版六.frx";
+                //}
+                if (printModel == " ")
                 {
-                    modelPath += "A5ZH-模版一.frx";
+                    if (System.Globalization.CultureInfo.CurrentCulture.ToString() == "en")
+                    {
+                        printModel = "Mode 2";
+                    }
+                    else
+                        printModel = "模版二";
                 }
-                else if (printModel.Contains("模版二") || printModel.Contains("2"))
-                {
-                    modelPath += "A5ZH-模版二.frx";
-                }
-                else if (printModel.Contains("模版三") || printModel.Contains("3"))
-                {
-                    modelPath += "A5ZH-模版三.frx";
-                }
-                else if (printModel.Contains("模版六") || printModel.Contains("6"))
-                {
-                    modelPath += "A5ZH-模版六.frx";
-                }
+                modelPath += "A5ZH-" + printModel + ".frx";
                 report.Load(modelPath);
                 dtTestResult.Columns.Add(new DataColumn("ShortName", typeof(string)));
                 dtTestResult.Columns.Add(new DataColumn("Concentration", typeof(string)));
@@ -767,7 +776,7 @@ namespace BioBaseCLIA.DataQuery
                 dtTestResult = dtTestResult.DefaultView.ToTable();
                 dtTestResult.TableName = "Records";
                 count = dtTestResult.Rows.Count;
-                if (printModel.Contains("模版一"))
+                if (printModel.Contains("模版一")|| printModel.Contains("Mode 1"))
                 {
                     if (count <= 10)
                         ;
@@ -1644,10 +1653,6 @@ namespace BioBaseCLIA.DataQuery
                 dgr.Selected = false;
             }
         }
-        private string getString(string key)
-        {
-            ResourceManager resManager = new ResourceManager(typeof(frmWorkList));
-            return resManager.GetString(key);
-        }
+        
     }
 }

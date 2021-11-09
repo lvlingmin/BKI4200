@@ -391,4 +391,7 @@
   <data name="Is" xml:space="preserve">
     <value>确定</value>
   </data>
+  <data name="keywordText.Font" xml:space="preserve">
+    <value>宋体</value>
+  </data>
 </root>

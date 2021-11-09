@@ -1072,7 +1072,7 @@
     <value>Calibrator</value>
   </data>
   <data name="keywordText.cleanWashEr" xml:space="preserve">
-    <value>Cleaning failure of cleaning disk</value>
+    <value>The program is executing the cleaning and perfusion process abnormally, terminate the experiment! Please check the abnormal information in the alarm information!</value>
   </data>
   <data name="keywordText.ConnectErr" xml:space="preserve">
     <value>The connection between the system and the instrument failed. Please check the connection settings!</value>
@@ -1409,5 +1409,8 @@
   </data>
   <data name="keywordText.MAddNewTWashIsKnocked" xml:space="preserve">
     <value>When the pipe transfer hand moves the pipe from the temporary storage tray to the cleaning tray, the pipe hits the pipe at the position of the pipe</value>
+  </data>
+  <data name="keywordText.MAddNewTReactStop" xml:space="preserve">
+    <value>An abnormality occurred when the pipette hand moved a new pipe from the temporary storage tray to the incubation tray, and the experiment was terminated! Please check the abnormal information in the alarm information!</value>
   </data>
 </root>

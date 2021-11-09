@@ -8,7 +8,9 @@ using System.Drawing;
 using System.Linq;
 using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
 
 namespace BioBaseCLIA
 {
@@ -36,6 +38,8 @@ namespace BioBaseCLIA
             //20180524 zlx mod
             //this.Text = title;
             //this.lblMessage.Text = content;
+            Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+            Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
             string culture = OperateIniFile.ReadInIPara("CultureInfo", "Culture");
             int maxllenth = 0;
             string newcontent = "";
@@ -109,7 +113,7 @@ namespace BioBaseCLIA
             //this.Height = ;
             this.btnOK.Left = this.Width / 2 - 37;//设置弹窗中按钮的位置
             //2018-11-23 zlx add
-            if (this.Text.Contains(getString("keywordText.Warning1")) || this.Text.Contains(getString("keywordText.Warning2")))//lyq
+            if (this.Text.Contains("警告")|| this.Text.Contains("warning") || this.Text.Contains("Warning"))//lyq
                 StartKiller();
             DialogResult dr = this.ShowDialog();//增加DialogResult返回值
             return dr;

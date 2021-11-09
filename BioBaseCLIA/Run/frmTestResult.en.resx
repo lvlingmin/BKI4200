@@ -215,8 +215,11 @@
         /BszvVKvx5MPAzA7yGZlu5nptv2Pm/MHz+N45ZRT+BMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="fbtnScaling.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 14.25pt, style=Bold</value>
+  </data>
   <data name="fbtnScaling.Text" xml:space="preserve">
-    <value>QC/Calibration</value>
+    <value>Calibration/QC</value>
   </data>
   <data name="fbtnTestResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1240,6 +1243,9 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
+  <data name="keywordText.AddingSample" xml:space="preserve">
+    <value>Sample addition is in progress. Please add the sample after adding the current sample!</value>
+  </data>
   <data name="keywordText.CalibrationSolution" xml:space="preserve">
     <value>Calibration Solution</value>
   </data>
@@ -1248,6 +1254,9 @@
   </data>
   <data name="keywordText.CanNotExport" xml:space="preserve">
     <value>No data can be exported！</value>
+  </data>
+  <data name="keywordText.ComingStop" xml:space="preserve">
+    <value>The experiment is coming to an end. Please add samples and retest later</value>
   </data>
   <data name="keywordText.Control" xml:space="preserve">
     <value>Control</value>
@@ -1260,6 +1269,12 @@
   </data>
   <data name="keywordText.ControlPlasmids" xml:space="preserve">
     <value>Control</value>
+  </data>
+  <data name="keywordText.CurrentSampleNotDone" xml:space="preserve">
+    <value>The current sample barcode has not been fully completed</value>
+  </data>
+  <data name="keywordText.ExitTestSample" xml:space="preserve">
+    <value>There are samples for conducting experiments</value>
   </data>
   <data name="keywordText.ExperimentalResult" xml:space="preserve">
     <value>Result</value>
@@ -1279,20 +1294,32 @@
   <data name="keywordText.InsufficientStandardData" xml:space="preserve">
     <value>Insufficient standard data</value>
   </data>
+  <data name="keywordText.Location" xml:space="preserve">
+    <value>position</value>
+  </data>
   <data name="keywordText.NonNumeric" xml:space="preserve">
     <value>NonNumeric</value>
   </data>
   <data name="keywordText.Normal" xml:space="preserve">
     <value>Normal</value>
   </data>
+  <data name="keywordText.normal1" xml:space="preserve">
+    <value>normal</value>
+  </data>
   <data name="keywordText.NotFindInformationOfControl" xml:space="preserve">
     <value>No information about quality control can be found！</value>
+  </data>
+  <data name="keywordText.NotInRange1" xml:space="preserve">
+    <value>Not in the linear range</value>
   </data>
   <data name="keywordText.NotSerumAndPleaseAddManually" xml:space="preserve">
     <value>Manual operation of non serum samples</value>
   </data>
   <data name="keywordText.PleaseEmptyAfterTheExperiment" xml:space="preserve">
     <value>Please empty after the experiment!</value>
+  </data>
+  <data name="keywordText.RetetsItem" xml:space="preserve">
+    <value>Please select a retest entry</value>
   </data>
   <data name="keywordText.SavedSuccessfully" xml:space="preserve">
     <value>The experimental results were saved successfully！</value>
@@ -1330,46 +1357,19 @@
   <data name="keywordText.StandardPlasmids" xml:space="preserve">
     <value>Standard</value>
   </data>
+  <data name="keywordText.Testcomplete" xml:space="preserve">
+    <value>completed</value>
+  </data>
+  <data name="keywordText.TestStatusAbondoned" xml:space="preserve">
+    <value>abandonment</value>
+  </data>
   <data name="keywordText.Tips" xml:space="preserve">
     <value>Tips</value>
   </data>
   <data name="keywordText.TipsOfExport" xml:space="preserve">
     <value>Export Prompt</value>
   </data>
-  <data name="keywordText.normal1" xml:space="preserve">
-    <value>normal</value>
-  </data>
-  <data name="keywordText.NotInRange1" xml:space="preserve">
-    <value>Not in the linear range</value>
-  </data>
   <data name="keywordText.WarningOprate" xml:space="preserve">
     <value>Do not do this for non serum samples</value>
-  </data>
-  <data name="keywordText.AddingSample" xml:space="preserve">
-    <value>Sample addition is in progress. Please add the sample after adding the current sample!</value>
-  </data>
-  <data name="keywordText.ComingStop" xml:space="preserve">
-    <value>The experiment is coming to an end. Please add samples and retest later</value>
-  </data>
-  <data name="keywordText.CurrentSampleNotDone" xml:space="preserve">
-    <value>The current sample barcode has not been fully completed</value>
-  </data>
-  <data name="Done" xml:space="preserve">
-    <value>Done</value>
-  </data>
-  <data name="keywordText.ExitTestSample" xml:space="preserve">
-    <value>There are samples for conducting experiments</value>
-  </data>
-  <data name="keywordText.Location" xml:space="preserve">
-    <value>position</value>
-  </data>
-  <data name="keywordText.RetetsItem" xml:space="preserve">
-    <value>Please select a retest entry</value>
-  </data>
-  <data name="keywordText.Testcomplete" xml:space="preserve">
-    <value>completed</value>
-  </data>
-  <data name="keywordText.TestStatusAbondoned" xml:space="preserve">
-    <value>abandonment</value>
   </data>
 </root>
