@@ -7,6 +7,9 @@ using System.Drawing.Printing;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using Res = Common.Resources.reportCurve;
+using System.Threading;
+using Localization;
 
 namespace BioBaseCLIA.CalculateCurve
 {
@@ -89,20 +92,22 @@ namespace BioBaseCLIA.CalculateCurve
             printDialog1 = new System.Windows.Forms.PrintDialog();
             printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPageScaling);
+            Thread.CurrentThread.CurrentCulture = Language.AppCultureInfo;
+            Thread.CurrentThread.CurrentUICulture = Language.AppCultureInfo;
         }
 
         void printDocument1_PrintPageScaling(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             //报告信息区域
             Rectangle rectInfo = new Rectangle(0, mmTOPix(title), mmTOPix(width), mmTOPix(Infoheight));
-            string strTitle = ItemName + "定标曲线报告";
+            string strTitle = ItemName + " " + Res.SClingReport; //"定标曲线报告";
             SolidBrush br = new SolidBrush(Color.Black);
             if (!strTitle.IsNullOrEmpty())
             {
                 StringFormat sf = new StringFormat();
                 sf.LineAlignment = StringAlignment.Near;
                 sf.Alignment = StringAlignment.Center;
-                e.Graphics.DrawString(strTitle, new Font("黑体", 14), br, new RectangleF(0, mmTOPix(title), rectInfo.Width, rectInfo.Height), sf);
+                e.Graphics.DrawString(strTitle, new Font(Res.FontHei, 14), br, new RectangleF(0, mmTOPix(title), rectInfo.Width, rectInfo.Height), sf);
             }
             #region 画定标曲线
             //曲线图区域
@@ -134,14 +139,14 @@ namespace BioBaseCLIA.CalculateCurve
             pn.DashStyle = DashStyle.Dash;
             //e.Graphics.FillRectangle(new SolidBrush(Color.White), 1, 1, tempRectCurve.Width - 2, tempRectCurve.Height - 2); //填充边框
             e.Graphics.DrawLine(new Pen(Color.Black, 1), zzScaling(minX, minY), zzScaling(minX + rowNum * perXvalue, 20, minY, 0));
-            e.Graphics.DrawString("＞", new Font("宋体", 8), br, zzScaling(minX + rowNum * perXvalue, 15, minY, 6));
+            e.Graphics.DrawString("＞", new Font(Res.FontSong, 8), br, zzScaling(minX + rowNum * perXvalue, 15, minY, 6));
             e.Graphics.DrawLine(new Pen(Color.Black, 1), zzScaling(minX, minY), zzScaling(minX, 0, minY + rowNum * perYvalue, 20));
-            e.Graphics.DrawString("＾", new Font("宋体", 20), br, zzScaling(minX, -18, minY + rowNum * perYvalue, 28));
+            e.Graphics.DrawString("＾", new Font(Res.FontSong, 20), br, zzScaling(minX, -18, minY + rowNum * perYvalue, 28));
             if ((minY + standard) >= 0)
-                e.Graphics.DrawString(Convert.ToDouble(minY + standard) <= -10 ? Convert.ToDouble(minY + standard).ToString() : Convert.ToDouble(minY + standard).ToString(), new Font("宋体", 10), br, zzScaling(minX, -33, minY, 9));
+                e.Graphics.DrawString(Convert.ToDouble(minY + standard) <= -10 ? Convert.ToDouble(minY + standard).ToString() : Convert.ToDouble(minY + standard).ToString(), new Font(Res.FontSong, 10), br, zzScaling(minX, -33, minY, 9));
             else
-                e.Graphics.DrawString(Convert.ToDouble(minY + standard) <= -10 ? Convert.ToDouble(minY + standard).ToString() : Convert.ToDouble(minY + standard).ToString(), new Font("宋体", 10), br, zzScaling(minX, -39, minY, 9));
-            e.Graphics.DrawString(Convert.ToDouble(minX).ToString(), new Font("宋体", 10), br, zzScaling(minX, -8, minY, -1));
+                e.Graphics.DrawString(Convert.ToDouble(minY + standard) <= -10 ? Convert.ToDouble(minY + standard).ToString() : Convert.ToDouble(minY + standard).ToString(), new Font(Res.FontSong, 10), br, zzScaling(minX, -39, minY, 9));
+            e.Graphics.DrawString(Convert.ToDouble(minX).ToString(), new Font(Res.FontSong, 10), br, zzScaling(minX, -8, minY, -1));
             for (int i = 1; i < rowNum + 1; i++)
             {
                 e.Graphics.DrawLine(pn, zzScaling(minX, minY + i * perYvalue), zzScaling(minX + rowNum * perXvalue, 10, minY + i * perYvalue, 0));//横线
@@ -149,17 +154,17 @@ namespace BioBaseCLIA.CalculateCurve
                 if (perYvalue < 1)
                 {
                     if (((minY + i * perYvalue) / scal + standard) >= 0)
-                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f1"), new Font("宋体", 10), br, zzScaling(minX, -35, minY + i * perYvalue, 9));
+                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f1"), new Font(Res.FontSong, 10), br, zzScaling(minX, -35, minY + i * perYvalue, 9));
                     else
-                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f1"), new Font("宋体", 10), br, zzScaling(minX, -42, minY + i * perYvalue, 9));
+                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f1"), new Font(Res.FontSong, 10), br, zzScaling(minX, -42, minY + i * perYvalue, 9));
                 }
                 else
                 {
 
                     if (((minY + i * perYvalue) / scal + standard) >= 0)
-                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f0"), new Font("宋体", 10), br, zzScaling(minX, -30, minY + i * perYvalue, 9));
+                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f0"), new Font(Res.FontSong, 10), br, zzScaling(minX, -30, minY + i * perYvalue, 9));
                     else
-                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f0"), new Font("宋体", 10), br, zzScaling(minX, -37, minY + i * perYvalue, 9));
+                        e.Graphics.DrawString(Convert.ToDouble((minY + i * perYvalue) / scal + standard).ToString("f0"), new Font(Res.FontSong, 10), br, zzScaling(minX, -37, minY + i * perYvalue, 9));
                 }
             }
             for (int i = 1; i < rowNum + 1; i++)
@@ -167,12 +172,12 @@ namespace BioBaseCLIA.CalculateCurve
                 if (perXvalue < 1)
                 {
                     e.Graphics.DrawLine(pn, zzScaling(minX + i * perXvalue, minY), zzScaling(minX + i * perXvalue, 0, minY + rowNum * perYvalue, 10));//竖线
-                    e.Graphics.DrawString(Convert.ToDouble(minX + i * perXvalue).ToString("f1"), new Font("宋体", 10), br, zzScaling(minX + i * perXvalue, -8, minY, -1));
+                    e.Graphics.DrawString(Convert.ToDouble(minX + i * perXvalue).ToString("f1"), new Font(Res.FontSong, 10), br, zzScaling(minX + i * perXvalue, -8, minY, -1));
                 }
                 else
                 {
                     e.Graphics.DrawLine(pn, zzScaling(minX + i * perXvalue, minY), zzScaling(minX + i * perXvalue, 0, minY + rowNum * perYvalue, 10));//竖线
-                    e.Graphics.DrawString(Convert.ToDouble(minX + i * perXvalue).ToString("f0"), new Font("宋体", 10), br, zzScaling(minX + i * perXvalue, -8, minY, -1));
+                    e.Graphics.DrawString(Convert.ToDouble(minX + i * perXvalue).ToString("f0"), new Font(Res.FontSong, 10), br, zzScaling(minX + i * perXvalue, -8, minY, -1));
                 }
             }
             if (dtScaling.Rows.Count > 1)
@@ -235,15 +240,15 @@ namespace BioBaseCLIA.CalculateCurve
             if (dtScaling.Rows.Count > 1)
             {
 
-                e.Graphics.DrawString("标准曲线坐标点：",
-                   new Font("黑体", 12), br, new Point(15, mmTOPix(Curveheight) + 50));
+                e.Graphics.DrawString(Res.Standardpoints,
+                   new Font(Res.FontHei, 12), br, new Point(15, mmTOPix(Curveheight) + 50));
 
                 for (int i = 0; i < dtScaling.Rows.Count; i++)
                 {
                     if (dtScaling.Rows[i][0].ToString() == "0.0001")
                         dtScaling.Rows[i][0] = 0;
                     e.Graphics.DrawString("(" + dtScaling.Rows[i][0].ToString() + "," + dtScaling.Rows[i][1].ToString() + ")",
-                    new Font("宋体", 10), br, new Point(15 + i * 100, mmTOPix(Curveheight) + 80));
+                    new Font(Res.FontSong, 10), br, new Point(15 + i * 100, mmTOPix(Curveheight) + 80));
                 }
                 //存储定标曲线系数
                 string[] strpar = er.StrPars.Split('|');
@@ -251,12 +256,12 @@ namespace BioBaseCLIA.CalculateCurve
                 {
                     strpar[i] = Math.Round(double.Parse(strpar[i]), 2).ToString();
                 }
-                e.Graphics.DrawString("定标曲线方程及相关系数：",
-                   new Font("黑体", 12), br, new Point(15, mmTOPix(Curveheight) + 130));
+                e.Graphics.DrawString(Res.SClingCurve,
+                   new Font(Res.FontHei, 12), br, new Point(15, mmTOPix(Curveheight) + 130));
                 e.Graphics.DrawString("y = " + strpar[3] + "+(" + strpar[0] + "-" + strpar[3] + ")/[1+(x/" + strpar[2] + ")^" + strpar[1] + "]",
-                    new Font("宋体", 10), br, new Point(15, mmTOPix(Curveheight) + 160));
-                e.Graphics.DrawString("相关系数R2=" + er.R2,
-                    new Font("宋体", 10), br, new Point(15, mmTOPix(Curveheight) + 190));
+                    new Font(Res.FontSong, 10), br, new Point(15, mmTOPix(Curveheight) + 160));
+                e.Graphics.DrawString(Res.coefficientR2 + er.R2,
+                    new Font(Res.FontSong, 10), br, new Point(15, mmTOPix(Curveheight) + 190));
 
             }
         }
@@ -311,7 +316,7 @@ namespace BioBaseCLIA.CalculateCurve
 
             double AVG = cmd.AVERAGE(dtQC);
             double SD = cmd.STDEV(dtQC);
-            topName = string.Format("{0}", StringName + (isstd ? "标准" : "相对") + "质控图\r\n　统计信息: N:" + dtQC.Rows.Count + " X:" + AVG.ToString("0.###") + " SD:" + SD.ToString("0.###") + " CV:" + (SD / AVG).ToString("0.###"));
+            topName = string.Format("{0}", StringName + " " + (isstd ? Res.standard : Res.relatively) + " "+Res.Qualitychart + "\r\n" + Res.Statistics +"　 N:" + dtQC.Rows.Count + " X:" + AVG.ToString("0.###") + " SD:" + SD.ToString("0.###") + " CV:" + (SD / AVG).ToString("0.###"));
             //topName += sps[1];
             centerValue = isstd ? AVGValue : double.IsNaN(AVG) || AVG == 0 ? AVGValue : AVG;
             DifferenceValue = isstd ? differenceValue : double.IsNaN(SD) || SD == 0 ? differenceValue : SD;
@@ -338,7 +343,7 @@ namespace BioBaseCLIA.CalculateCurve
             string[] a = topName.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             SizeF sff = e.Graphics.MeasureString(topName.Split(new string[] { "\r\n" }, StringSplitOptions.None)[0], aFont);
             e.Graphics.DrawString(topName.Split(new string[] { "\r\n" }, StringSplitOptions.None)[0], aFont, Brushes.Black, rect, sf);
-            e.Graphics.DrawString("质控值:", aFont, Brushes.Black, new Point(mmTOPix(5), mmTOPix(126)));
+            e.Graphics.DrawString(Res.QualityValue, aFont, Brushes.Black, new Point(mmTOPix(5), mmTOPix(126)));
             //sf.Alignment = StringAlignment.Near;
             rect.Y += (int)sff.Height + 5;
             rect.X += 50;
