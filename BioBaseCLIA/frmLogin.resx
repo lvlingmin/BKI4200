@@ -975,85 +975,85 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>BioBaseCLIA.frmParent, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="Alarmfailed" xml:space="preserve">
+  <data name="keywordText.Alarmfailed" xml:space="preserve">
     <value>报警模块握手失败！</value>
   </data>
-  <data name="Cleanfailed" xml:space="preserve">
+  <data name="keywordText.Cleanfailed" xml:space="preserve">
     <value>清洗模块握手失败！</value>
   </data>
-  <data name="ConnectErr" xml:space="preserve">
+  <data name="keywordText.ConnectErr" xml:space="preserve">
     <value>仪器初始化失败！请确认网线的连接状态和仪器的连接地址是否正确！是否离线运行！</value>
   </data>
-  <data name="Counterfailed" xml:space="preserve">
+  <data name="keywordText.Counterfailed" xml:space="preserve">
     <value>计数器模块握手失败！</value>
   </data>
-  <data name="Cupmanagementfailed" xml:space="preserve">
+  <data name="keywordText.Cupmanagementfailed" xml:space="preserve">
     <value>理杯机模块握手失败！</value>
   </data>
-  <data name="Incubationfailure" xml:space="preserve">
-    <value>温育盘模组握手失败</value>
-  </data>
-  <data name="InitErr" xml:space="preserve">
-    <value>仪器初始化失败！请确认仪器是否开启！是否离线运行！</value>
-  </data>
-  <data name="InitExcetion" xml:space="preserve">
-    <value>仪器初始化异常</value>
-  </data>
-  <data name="InitMsg" xml:space="preserve">
-    <value>初始化进度</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>登录</value>
-  </data>
-  <data name="MessageboxTitle" xml:space="preserve">
-    <value>信息提示</value>
-  </data>
-  <data name="PasswordErr" xml:space="preserve">
-    <value>密码输入为空，请重新输入！</value>
-  </data>
-  <data name="PwdUnexpectedCharacter" xml:space="preserve">
-    <value>密码输入错误！</value>
-  </data>
-  <data name="RestartMsg" xml:space="preserve">
-    <value>语言环境切换，请重新启动软件</value>
-  </data>
-  <data name="Runoffline" xml:space="preserve">
-    <value>是否离线运行！</value>
-  </data>
-  <data name="Samplefailed" xml:space="preserve">
-    <value>加样机模组握手失败！</value>
-  </data>
-  <data name="UnexpectedCharacter" xml:space="preserve">
-    <value>输入错误，请重新输入</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>用户</value>
-  </data>
-  <data name="UsernameErr" xml:space="preserve">
-    <value>信息不正确，请重新输入！</value>
-  </data>
-  <data name="UserNameIsNull" xml:space="preserve">
-    <value>用户名输入为空，请重新输入！</value>
-  </data>
-  <data name="High" xml:space="preserve">
+  <data name="keywordText.High" xml:space="preserve">
     <value>暗室值过高，值为：</value>
   </data>
-  <data name="Hightips" xml:space="preserve">
+  <data name="keywordText.Hightips" xml:space="preserve">
     <value>暗室值过高！</value>
   </data>
-  <data name="Low" xml:space="preserve">
+  <data name="keywordText.Incubationfailure" xml:space="preserve">
+    <value>温育盘模组握手失败</value>
+  </data>
+  <data name="keywordText.InitErr" xml:space="preserve">
+    <value>仪器初始化失败！请确认仪器是否开启！是否离线运行！</value>
+  </data>
+  <data name="keywordText.InitExcetion" xml:space="preserve">
+    <value>仪器初始化异常</value>
+  </data>
+  <data name="keywordText.InitMsg" xml:space="preserve">
+    <value>初始化进度</value>
+  </data>
+  <data name="keywordText.Login" xml:space="preserve">
+    <value>登录</value>
+  </data>
+  <data name="keywordText.Low" xml:space="preserve">
     <value>暗室值过低，值为：</value>
   </data>
-  <data name="Lowtips" xml:space="preserve">
+  <data name="keywordText.Lowtips" xml:space="preserve">
     <value>暗室值过低！</value>
   </data>
-  <data name="NotRead" xml:space="preserve">
+  <data name="keywordText.MessageboxTitle" xml:space="preserve">
+    <value>信息提示</value>
+  </data>
+  <data name="keywordText.NotRead" xml:space="preserve">
     <value>未读</value>
   </data>
-  <data name="Tips" xml:space="preserve">
+  <data name="keywordText.PasswordErr" xml:space="preserve">
+    <value>密码输入为空，请重新输入！</value>
+  </data>
+  <data name="keywordText.PwdUnexpectedCharacter" xml:space="preserve">
+    <value>密码输入错误！</value>
+  </data>
+  <data name="keywordText.RestartMsg" xml:space="preserve">
+    <value>语言环境切换，请重新启动软件</value>
+  </data>
+  <data name="keywordText.Runoffline" xml:space="preserve">
+    <value>是否离线运行！</value>
+  </data>
+  <data name="keywordText.Samplefailed" xml:space="preserve">
+    <value>加样机模组握手失败！</value>
+  </data>
+  <data name="keywordText.Tips" xml:space="preserve">
     <value>温馨提示</value>
   </data>
-  <data name="Warning" xml:space="preserve">
+  <data name="keywordText.UnexpectedCharacter" xml:space="preserve">
+    <value>输入错误，请重新输入</value>
+  </data>
+  <data name="keywordText.User" xml:space="preserve">
+    <value>用户</value>
+  </data>
+  <data name="keywordText.UsernameErr" xml:space="preserve">
+    <value>信息不正确，请重新输入！</value>
+  </data>
+  <data name="keywordText.UserNameIsNull" xml:space="preserve">
+    <value>用户名输入为空，请重新输入！</value>
+  </data>
+  <data name="keywordText.Warning" xml:space="preserve">
     <value>警告</value>
   </data>
 </root>

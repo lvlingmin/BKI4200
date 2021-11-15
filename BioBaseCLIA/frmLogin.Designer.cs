@@ -214,7 +214,7 @@
             // titleofbio
             // 
             this.titleofbio.BackColor = System.Drawing.Color.Transparent;
-            this.titleofbio.BackgroundImage = global::BioBaseCLIA.Properties.Resources.title;
+            this.titleofbio.BackgroundImage = global::BioBaseCLIA.Properties.Resources.title1;
             resources.ApplyResources(this.titleofbio, "titleofbio");
             this.titleofbio.Name = "titleofbio";
             this.titleofbio.TabStop = false;

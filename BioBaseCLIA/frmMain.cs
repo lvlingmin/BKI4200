@@ -175,24 +175,24 @@ namespace BioBaseCLIA
                 label2.Text = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
             else
                 label2.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-            toolTip1.SetToolTip(this.dbtnBuffer,GetString("dbtnBuffer.tip"));
-            toolTip1.SetToolTip(this.dbtnWash, GetString("dbtnWash.tip") );
-            toolTip1.SetToolTip(this.dbtnWaste, GetString("dbtnWaste.tip") );
-            toolTip1.SetToolTip(this.dbtnSubstract, GetString("dbtnSubstract.tip") );
-            toolTip1.SetToolTip(this.dbtnRegent, GetString("dbtnRegent.tip") );
-            toolTip1.SetToolTip(this.dbtnRack, GetString("dbtnRack.tip") );
-            toolTip1.SetToolTip(this.btnWasteRack, GetString("btnWasteRack.tip") );
-            toolTip1.SetToolTip(this.dbtnLog, GetString("dbtnLog.tip") );
+            toolTip1.SetToolTip(this.dbtnBuffer,GetString("keywordText.dbtnBuffer.tip"));
+            toolTip1.SetToolTip(this.dbtnWash, GetString("keywordText.dbtnWash.tip") );
+            toolTip1.SetToolTip(this.dbtnWaste, GetString("keywordText.dbtnWaste.tip") );
+            toolTip1.SetToolTip(this.dbtnSubstract, GetString("keywordText.dbtnSubstract.tip") );
+            toolTip1.SetToolTip(this.dbtnRegent, GetString("keywordText.dbtnRegent.tip") );
+            toolTip1.SetToolTip(this.dbtnRack, GetString("keywordText.dbtnRack.tip") );
+            toolTip1.SetToolTip(this.btnWasteRack, GetString("keywordText.btnWasteRack.tip") );
+            toolTip1.SetToolTip(this.dbtnLog, GetString("keywordText.dbtnLog.tip") );
 
             if (NetCom3.isConnect)
             {
                 dbtnConnect.Enabled = false;
-                toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.connecttip "));
+                toolTip1.SetToolTip(this.dbtnConnect, GetString("keywordText.dbtnConnect.connecttip "));
             }
             else
             {
                 dbtnConnect.Enabled = true;
-                toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.disconnecttip"));
+                toolTip1.SetToolTip(this.dbtnConnect, GetString("keywordText.dbtnConnect.disconnecttip"));
                 fbtnTest.Enabled = false;
                 fbtnMaintenance.Enabled = false;
             }
@@ -213,7 +213,7 @@ namespace BioBaseCLIA
                 if (lstFile.Length > 13 || lstFile.Substring(1,8)!=DateTime.Now.ToString("yyyyMMdd"))
                     continue;
                 string fileInfo = ReadTxtWarn.ReaderFile(Application.StartupPath + @"\Log\AlarmLog" + "\\" + lstFile);//all text
-                if (fileInfo.IndexOf(GetString("NotRead")) > -1)
+                if (fileInfo.IndexOf(GetString("keywordText.NotRead")) > -1)
                 {
                     dbtnLog.BackgroundImage = Properties.Resources._11感叹号;
                     break;
@@ -288,7 +288,7 @@ namespace BioBaseCLIA
                 if (OperateIniFile.ReadConfig(cTempIniPath).Rows.Count != 80)
                 {
                     File.Delete(cTempIniPath);
-                    frmMsgShow.MessageShow(GetString("Tips"),GetString("Abnormalexit") );
+                    frmMsgShow.MessageShow(GetString("keywordText.Tips"),GetString("keywordText.Abnormalexit") );
                     return;
                 }
                 File.Delete(defaultIniPath);
@@ -297,7 +297,7 @@ namespace BioBaseCLIA
             else
             {
                 //提醒检测到非正常退出，请清空温育盘
-                frmMsgShow.MessageShow(GetString("Tips"), GetString("Abnormalexit"));
+                frmMsgShow.MessageShow(GetString("keywordText.Tips"), GetString("keywordText.Abnormalexit"));
             }
             timerConnect.Enabled = true;
 
@@ -330,19 +330,19 @@ namespace BioBaseCLIA
             {
                 if (string.IsNullOrEmpty(ConnectType))
                 {
-                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("keywordText.LisSelect"));
+                    frmMsgShow.MessageShow(Getstring("keywordText.ConnectSet"), Getstring("keywordText.LisSelect"));
                     return;
                 }
 
                 if (Port.Trim() == "")
                 {
-                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("keywordText.NullPort"));
+                    frmMsgShow.MessageShow(Getstring("keywordText.ConnectSet"), Getstring("keywordText.NullPort"));
                     return;
                 }
 
                 if (!Inspect.InspectIP(IPAddress.Trim()))
                 {
-                    frmMsgShow.MessageShow(Getstring("ConnectSet"), Getstring("keywordText.IPErrorMesage"));
+                    frmMsgShow.MessageShow(Getstring("keywordText.ConnectSet"), Getstring("keywordText.IPErrorMesage"));
                     return;
                 }
 
@@ -655,7 +655,7 @@ namespace BioBaseCLIA
       
         private void button11_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show(GetString("ExitTip"), GetString("Tips"), MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+            DialogResult result = MessageBox.Show(GetString("keywordText.ExitTip"), GetString("keywordText.Tips"), MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
                 timerStatus.Stop();
@@ -723,12 +723,12 @@ namespace BioBaseCLIA
             }
             if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show(GetString("NotRun"), GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(GetString("keywordText.NotRun"), GetString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (pauseFlag == true)
             {
-                MessageBox.Show(GetString("Paused"), GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(GetString("keywordText.Paused"), GetString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (btnPauseClick != null)
@@ -751,12 +751,12 @@ namespace BioBaseCLIA
             }
             if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
             {
-                MessageBox.Show(GetString("NotRun") , GetString("Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(GetString("keywordText.NotRun") , GetString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (btnStopClick != null)
             {
-                DialogResult dr =MessageBox.Show(GetString("Stopexperiment"), GetString("Tips"), MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                DialogResult dr =MessageBox.Show(GetString("keywordText.Stopexperiment"), GetString("keywordText.Tips"), MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
                 if (dr == DialogResult.OK)
                 {
                     IniUpdateAccess();
@@ -958,14 +958,14 @@ namespace BioBaseCLIA
                     if (int.Parse(LeftCount1) + int.Parse(LeftCount2) <= ErrorSubstrate)
                     {
                         dbtnSubstract.BackgroundImage = Properties.Resources._07;
-                        string s= GetString("Error");
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Substratesurplus")
+                        string s= GetString("keywordText.Error");
+                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Error") + " *** " + GetString("keywordText.NotRead") + " *** " +GetString("keywordText.Substratesurplus")
                         + (int.Parse(LeftCount1) + int.Parse(LeftCount2)).ToString());
                         LogBtnColorChange(0);
                     }
                     else
                     {
-                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " +GetString("Warning")  + " *** " + GetString("NotRead") + " *** " + GetString("Substratesurplus")
+                        LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " +GetString("keywordText.Warning")  + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Substratesurplus")
                        + (int.Parse(LeftCount1) + int.Parse(LeftCount2)).ToString());
                         LogBtnColorChange(1);
                     }
@@ -1013,7 +1013,7 @@ namespace BioBaseCLIA
                             if (RtlisRIinfo.Find(ty => ty.ItemName == ReagentIniInfo.ItemName) != null && RtlisRIinfo.Find(ty => ty.ItemName == ReagentIniInfo.ItemName).LeftReagent1 == count)
                                 continue;
                             LogBtnColorChange(0);
-                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + ReagentIniInfo.ItemName +GetString("Lefttests") + count.ToString());
+                            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Error") + " *** " + GetString("keywordText.NotRead") + " *** " + ReagentIniInfo.ItemName +GetString("keywordText.Lefttests") + count.ToString());
                         }
                         listItemName.Add(ReagentIniInfo.ItemName);
                         if (RtlisRIinfo.FindAll(ty => ty.ItemName == ReagentIniInfo.ItemName).Count > 0)
@@ -1229,14 +1229,14 @@ namespace BioBaseCLIA
                 //错误存储到Log文件
                 if (LackLq[0] > MaxBuffertime)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Cleaningfluidempty") );
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Error") + " *** " + GetString("keywordText.NotRead") + " *** " +GetString("keywordText.Cleaningfluidempty") );
                     dbtnBuffer.BackgroundImage = Properties.Resources._2;//黄色（红色为_2）
                     LogBtnColorChange(0);
                     StopFlag[0] = true;
                 }
                 else
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Cleaningfluidempty"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Cleaningfluidempty"));
                     dbtnBuffer.BackgroundImage = Properties.Resources._3;//黄色（红色为_2）
                     LogBtnColorChange(1);
                 }
@@ -1262,14 +1262,14 @@ namespace BioBaseCLIA
                 //错误存储到Log文件
                 if (LackLq[1] > MaxWashtime)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " + GetString("Probefluidempty"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Error") + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Probefluidempty"));
                     dbtnWash.BackgroundImage = Properties.Resources._7;//红色（红色为_2）
                     LogBtnColorChange(0);
                     StopFlag[1] = true;
                 }
                 else
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " +GetString("Probefluidempty") );
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " +GetString("keywordText.Probefluidempty") );
                     dbtnWash.BackgroundImage = Properties.Resources._6__2_;//黄色（红色为_7）
                     LogBtnColorChange(1);
                 }
@@ -1297,14 +1297,14 @@ namespace BioBaseCLIA
 
                 if (LackLq[2] > MaxWastetime)
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Wastefull") );
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Error") + " *** " + GetString("keywordText.NotRead") + " *** " +GetString("keywordText.Wastefull") );
                     dbtnWaste.BackgroundImage = Properties.Resources._10;//黄色（红色为_10）
                     LogBtnColorChange(0);
                     StopFlag[2] = true;
                 }
                 else
                 {
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Wastefull"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Wastefull"));
                     dbtnWaste.BackgroundImage = Properties.Resources._11;//黄色（红色为_10）
                     LogBtnColorChange(1);
                 }
@@ -1326,14 +1326,14 @@ namespace BioBaseCLIA
                 if (LackLq[3] > MaxWTubetime)
                 {
                     btnWasteRack.BackgroundImage = Properties.Resources.WasteRack01;//红色
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Error") + " *** " + GetString("NotRead") + " *** " +GetString("Wastetubefull") );
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Error") + " *** " + GetString("keywordText.NotRead") + " *** " +GetString("keywordText.Wastetubefull") );
                     LogBtnColorChange(0);
                     StopFlag[3] = true;
                 }
                 else
                 {
                     btnWasteRack.BackgroundImage = Properties.Resources.WasteRack03;//黄色
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Wastetubefull"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Wastetubefull"));
                     if (dbtnLog.BackgroundImage != Properties.Resources._22感叹号)//红色
                         LogBtnColorChange(1);
                 }
@@ -1392,14 +1392,14 @@ namespace BioBaseCLIA
             if (LackLq[0] > 0)
             {
                 //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " +GetString("Cleaningfluidempty") );
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " +GetString("keywordText.Cleaningfluidempty") );
                 dbtnBuffer.BackgroundImage = Properties.Resources._3;//黄色（红色为_2）
                 LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning") ,GetString("Cleaningfluidempty"));
+                    f.MessageShow(GetString("keywordText.Warning") ,GetString("keywordText.Cleaningfluidempty"));
                 }))
                 { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
@@ -1411,7 +1411,7 @@ namespace BioBaseCLIA
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"), GetString("Cleaningfluidnormal"));
+                    f.MessageShow(GetString("keywordText.Warning"), GetString("keywordText.Cleaningfluidnormal"));
                 }))
                 { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
@@ -1422,14 +1422,14 @@ namespace BioBaseCLIA
             if (LackLq[1] > 0)
             {
                 //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Probefluidempty"));
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Probefluidempty"));
                 dbtnWash.BackgroundImage = Properties.Resources._6__2_;//黄色（红色为_7）
                 LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"),GetString("Probeempty"));
+                    f.MessageShow(GetString("keywordText.Warning"),GetString("keywordText.Probeempty"));
                 })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
@@ -1440,7 +1440,7 @@ namespace BioBaseCLIA
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"), GetString("Probenormal"));
+                    f.MessageShow(GetString("keywordText.Warning"), GetString("keywordText.Probenormal"));
                 })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
@@ -1450,14 +1450,14 @@ namespace BioBaseCLIA
             if (LackLq[2] > 0)
             {
                 //错误存储到Log文件
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("Wastefull"));
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Wastefull"));
                 dbtnWaste.BackgroundImage = Properties.Resources._11;//黄色（红色为_10）
                 LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"), GetString("Wastefull"));
+                    f.MessageShow(GetString("keywordText.Warning"), GetString("keywordText.Wastefull"));
                 })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
@@ -1467,7 +1467,7 @@ namespace BioBaseCLIA
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"), GetString("Wastenormal"));
+                    f.MessageShow(GetString("keywordText.Warning"), GetString("keywordText.Wastenormal"));
                 })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
@@ -1549,14 +1549,14 @@ namespace BioBaseCLIA
         {
             if (Temprrature[0] == 0 || Temprrature[1] == 0 || Temprrature[2] == 0 || Temprrature[3] == 0)
             {
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton, GetString("Temperaturewarning"))));
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton, GetString("keywordText.Temperaturewarning"))));
                 return;
             }
             if (Temprrature[0] < RangeWY[0] || Temprrature[0] > RangeWY[1] || Temprrature[1] < RangeWash[0] || Temprrature[1] > RangeWash[1] || Temprrature[3] < RangeSubstrate[0] || Temprrature[3] > RangeSubstrate[1] || Temprrature[2] < RangeQXGL[0] || Temprrature[2] > RangeQXGL[1])//后期需要更改标准,包括下面的部分
             {
                 StringBuilder st = new StringBuilder();
                 StringBuilder st2 = new StringBuilder();
-                st.Append(GetString("Temperaturewarning") +":");
+                st.Append(GetString("keywordText.Temperaturewarning") +":");
                 st2.Append(" ");
                 int i = st.Length;
                 i = st2.Length;
@@ -1565,12 +1565,12 @@ namespace BioBaseCLIA
                     decimal Temp= Temprrature[0];
                     if (Temp > 55)
                         Temp = 55;
-                    st.Append(GetString("Incubationtemperature"));
-                    st2.Append(GetString("keywordText.Incubation") +" : "+ Temp.ToString() +GetString("Temperaturesign")+"");
+                    st.Append(GetString("keywordText.Incubationtemperature"));
+                    st2.Append(GetString("keywordText.Incubation") +" : "+ Temp.ToString() +GetString("keywordText.Temperaturesign") +"");
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + 
-                        " *** " +GetString("Err") + " *** " +GetString("NotRead") + 
-                        " *** " + GetString("Incubationtemperature")+ GetString("Notstandardtemperature")+
-                        " " + Temp.ToString() +GetString("Temperaturesign"));
+                        " *** " +GetString("keywordText.Err") + " *** " +GetString("keywordText.NotRead") + 
+                        " *** " + GetString("keywordText.Incubationtemperature") + GetString("keywordText.Notstandardtemperature") +
+                        " " + Temp.ToString() +GetString("keywordText.Temperaturesign"));
                 }
                 if (Ttype.Contains("05") && (Temprrature[1] < RangeWash[0] || Temprrature[1] > RangeWash[1]))
                 {
@@ -1579,17 +1579,17 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append(","+  GetString("Cleantemperature") );
-                        st2.Append("," + GetString("Clean") + ":"  + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append(","+  GetString("keywordText.Cleantemperature") );
+                        st2.Append("," + GetString("keywordText.Clean") + ":"  + Temp.ToString() + GetString("keywordText.Temperaturesign"));
                     }
                     else
                     {
-                        st.Append( GetString("Cleantemperature"));
-                        st2.Append(GetString("Clean")  +":" + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append( GetString("keywordText.Cleantemperature"));
+                        st2.Append(GetString("keywordText.Clean")  +":" + Temp.ToString() + GetString("keywordText.Temperaturesign"));
                     }
                     LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " +
-                        GetString("Err") + " *** " + GetString("NotRead") + " *** " +
-                        GetString("Cleantemperature") + GetString("Notstandardtemperature") + ":" + Temp.ToString() + GetString("Temperaturesign"));
+                        GetString("keywordText.Err") + " *** " + GetString("keywordText.NotRead") + " *** " +
+                        GetString("keywordText.Cleantemperature") + GetString("keywordText.Notstandardtemperature") + ":" + Temp.ToString() + GetString("keywordText.Temperaturesign"));
                 }
                 if (Ttype.Contains("07") && (Temprrature[3] < RangeSubstrate[0] || Temprrature[3] > RangeSubstrate[1]))
                 {
@@ -1598,17 +1598,17 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append("," + GetString("Substratetemperature"));
-                        st2.Append("," + GetString("Substrate") + ":"+ Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append("," + GetString("keywordText.Substratetemperature"));
+                        st2.Append("," + GetString("keywordText.Substrate") + ":"+ Temp.ToString() + GetString("keywordText.Temperaturesign"));
                     }
                     else
                     {
-                        st.Append(GetString("Substratetemperature"));
-                        st2.Append(GetString("Substrate") + ":" + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append(GetString("keywordText.Substratetemperature"));
+                        st2.Append(GetString("keywordText.Substrate") + ":" + Temp.ToString() + GetString("keywordText.Temperaturesign"));
                     }
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Err") +
-                        " *** " + GetString("NotRead") + " *** " + GetString("Substrate") + GetString("Notstandardtemperature") +"：" +
-                        Temp.ToString() + GetString("Temperaturesign"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Err") +
+                        " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Substrate") + GetString("keywordText.Notstandardtemperature") +"：" +
+                        Temp.ToString() + GetString("keywordText.Temperaturesign"));
                 }
                 if (Ttype.Contains("06") && (Temprrature[2] < RangeQXGL[0] || Temprrature[2] > RangeQXGL[1]))
                 {
@@ -1617,21 +1617,21 @@ namespace BioBaseCLIA
                         Temp = 55;
                     if (st.Length > 5)
                     {
-                        st.Append(","+ GetString("Pipelinetemperature"));
-                        st2.Append("," + GetString("Pipeline") + ":" + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append(","+ GetString("keywordText.Pipelinetemperature"));
+                        st2.Append("," + GetString("keywordText.Pipeline") + ":" + Temp.ToString() + GetString("keywordText.Temperaturesign"));
                     }
                     else
                     {
-                        st.Append(GetString("Pipelinetemperature"));
-                        st2.Append(GetString("Pipeline") + ":" + Temp.ToString() + GetString("Temperaturesign"));
+                        st.Append(GetString("keywordText.Pipelinetemperature"));
+                        st2.Append(GetString("keywordText.Pipeline") + ":" + Temp.ToString() + GetString("keywordText.Temperaturesign"));
                     }
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Err") +
-                        " *** " + GetString("NotRead") + " *** " + GetString("Pipeline") + GetString("Notstandardtemperature") + "：" +
-                        Temp.ToString() + GetString("Temperaturesign"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Err") +
+                        " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.Pipeline") + GetString("keywordText.Notstandardtemperature") + "：" +
+                        Temp.ToString() + GetString("keywordText.Temperaturesign"));
                 }
-                st.Append(GetString("Notstandardtemperature"));
+                st.Append(GetString("keywordText.Notstandardtemperature"));
                 temperatureButton.BackgroundImage = Properties.Resources.temperature_2;
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton,GetString("Temperaturewarning") +"\n" + st.ToString())));
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton,GetString("keywordText.Temperaturewarning") +"\n" + st.ToString())));
                 //此时停止机器，不允许运行
                 if (bo)
                 {
@@ -1639,7 +1639,7 @@ namespace BioBaseCLIA
                     {
                         SetCultureInfo();
                         frmMessageShow f = new frmMessageShow();
-                        f.MessageShow(GetString("Temperaturewarning"),st.ToString() +st2.ToString());
+                        f.MessageShow(GetString("keywordText.Temperaturewarning"),st.ToString() +st2.ToString());
                     })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
                     
                 }
@@ -1647,7 +1647,7 @@ namespace BioBaseCLIA
             else
             {
                 temperatureButton.BackgroundImage = Properties.Resources.temperature_1;
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton,GetString("temperatureButton.ToolTip"))));//2018-07-20 zlx mod
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(temperatureButton,GetString("keywordText.temperatureButton.ToolTip"))));//2018-07-20 zlx mod
                 //此时更新标志，指示可以运行
                 if (bo)
                 {
@@ -1655,7 +1655,7 @@ namespace BioBaseCLIA
                     {
                         SetCultureInfo();
                         frmMessageShow f = new frmMessageShow();
-                        f.MessageShow(GetString("Temperaturewarning"),GetString("Standardtemperature"));
+                        f.MessageShow(GetString("keywordText.Temperaturewarning"),GetString("keywordText.Standardtemperature"));
                     })) { IsBackground = true ,CurrentCulture = Language.AppCultureInfo,CurrentUICulture = Language.AppCultureInfo}.Start();
                    
                 }
@@ -1673,7 +1673,7 @@ namespace BioBaseCLIA
                 if (Refrigeration)
                 {
                     Refrigeration = false;
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning") + " *** " + GetString("NotRead") + " *** " + GetString("keywordText.RefrigerationNotOn"));
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " + GetString("keywordText.RefrigerationNotOn"));
                     LogBtnColorChange(1);
                 }
                 return;
@@ -1707,7 +1707,7 @@ namespace BioBaseCLIA
                 if (AlarmInfo != "")
                 {
                     AlarmInfo = GetString("keywordText.RefrigerationAlarm") + AlarmInfo;
-                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("Warning")+ " *** " + GetString("NotRead") + " *** " + AlarmInfo);
+                    LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + GetString("keywordText.Warning") + " *** " + GetString("keywordText.NotRead") + " *** " + AlarmInfo);
                     LogBtnColorChange(1);
                 }
             }
@@ -1752,7 +1752,7 @@ namespace BioBaseCLIA
             else
             {
                 dbtnConnect.Enabled = true;
-                toolTip1.SetToolTip(this.dbtnConnect, GetString("Disconnect" ));
+                toolTip1.SetToolTip(this.dbtnConnect, GetString("keywordText.Disconnect"));
             }
         }
 
@@ -1771,7 +1771,7 @@ namespace BioBaseCLIA
 
                     {
                         frmMessageShow frmMS = new frmMessageShow();
-                        frmMS.MessageShow(GetString("Tips"), GetString("Unableconnect"));
+                        frmMS.MessageShow(GetString("keywordText.Tips"), GetString("keywordText.Unableconnect"));
                         frmMS.Dispose();
                         return;
                     }
@@ -1783,7 +1783,7 @@ namespace BioBaseCLIA
                         {
                             Invoke(new Action(() =>
                             {
-                                MessageBox.Show(GetString("InitExcetion"), GetString("Tips"),
+                                MessageBox.Show(GetString("keywordText.InitExcetion"), GetString("keywordText.Tips"),
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }));
                             return;
@@ -1798,7 +1798,7 @@ namespace BioBaseCLIA
             }
             catch (Exception exception)
             {
-                MessageBox.Show(GetString("AccessInterruption"), GetString("Tips"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                MessageBox.Show(GetString("keywordText.AccessInterruption"), GetString("keywordText.Tips"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
 
@@ -1831,7 +1831,7 @@ namespace BioBaseCLIA
             {
                 string Err = "";
                 //if (LackTube[0] == 0)
-                Err = GetString("Temporarystorageempty");
+                Err = GetString("keywordText.Temporarystorageempty");
                 //if (LackTube[1] == 0)
                 //{
                 //    if (Err != "")
@@ -1842,7 +1842,7 @@ namespace BioBaseCLIA
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("Tips"), Err);
+                    f.MessageShow(GetString("keywordText.Tips"), Err);
                 }))
                 { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
@@ -1852,7 +1852,7 @@ namespace BioBaseCLIA
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"),GetString("Temporarystorage"));
+                    f.MessageShow(GetString("keywordText.Warning"),GetString("keywordText.Temporarystorage"));
                 })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
@@ -1912,7 +1912,7 @@ namespace BioBaseCLIA
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"),GetString("Wastepipe") );
+                    f.MessageShow(GetString("keywordText.Warning"),GetString("keywordText.Wastepipe") );
                 })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
             else
@@ -1921,7 +1921,7 @@ namespace BioBaseCLIA
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(GetString("keywordText.Warning"), GetString("Wastepipenormal") );
+                    f.MessageShow(GetString("keywordText.Warning"), GetString("keywordText.Wastepipenormal") );
                 })) { IsBackground = true, CurrentCulture = Language.AppCultureInfo, CurrentUICulture = Language.AppCultureInfo }.Start();
             }
         }
@@ -1983,12 +1983,12 @@ namespace BioBaseCLIA
             if ((sender as Button).Enabled)
             {
                 dbtnConnect.BackgroundImage = Properties.Resources.未连接;
-                BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.connecttip"))));
+                BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, GetString("keywordText.dbtnConnect.connecttip"))));
                 return;
             }
 
             dbtnConnect.BackgroundImage = Properties.Resources.已连接;
-            BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, GetString("dbtnConnect.disconnecttip"))));
+            BeginInvoke(new Action(() => toolTip1.SetToolTip(this.dbtnConnect, GetString("keywordText.dbtnConnect.disconnecttip"))));
         }
 
         private string GetString(string key)

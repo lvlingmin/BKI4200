@@ -121,6 +121,9 @@
   <data name="cbLanguage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 9pt</value>
   </data>
+  <data name="cbLanguage.Items" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
   <data name="cbLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
@@ -309,9 +312,6 @@
   </data>
   <data name="lbLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 22</value>
-  </data>
-  <data name="lbLanguage.Text" xml:space="preserve">
-    <value>语言</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -509,91 +509,85 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="Alarmfailed" xml:space="preserve">
+  <data name="keywordText.Alarmfailed" xml:space="preserve">
     <value>The alarm module handshake failed!</value>
   </data>
-  <data name="Cleanfailed" xml:space="preserve">
+  <data name="keywordText.Cleanfailed" xml:space="preserve">
     <value>The cleaning module handshake failed!</value>
   </data>
-  <data name="ConnectErr" xml:space="preserve">
+  <data name="keywordText.ConnectErr" xml:space="preserve">
     <value>Instrument initialization failed! Please confirm whether the connection status of the network cable and the connection address of the instrument are correct! Whether to run offline!</value>
   </data>
-  <data name="Counterfailed" xml:space="preserve">
+  <data name="keywordText.Counterfailed" xml:space="preserve">
     <value>Counter module handshake failed!</value>
   </data>
-  <data name="Cupmanagementfailed" xml:space="preserve">
+  <data name="keywordText.Cupmanagementfailed" xml:space="preserve">
     <value>The handshake of the cup processor module failed!</value>
   </data>
-  <data name="Incubationfailure" xml:space="preserve">
-    <value>The incubation plate module handshake failed!</value>
-  </data>
-  <data name="InitErr" xml:space="preserve">
-    <value>Instrument initialization failed! Please confirm whether the instrument is turned on! Whether to run offline!</value>
-  </data>
-  <data name="InitExcetion" xml:space="preserve">
-    <value>Instrument initialization abnormal</value>
-  </data>
-  <data name="InitMsg" xml:space="preserve">
-    <value>Initialization progress</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="MessageboxTitle" xml:space="preserve">
-    <value>Tips</value>
-  </data>
-  <data name="PasswordErr" xml:space="preserve">
-    <value>The password input is empty, please re-enter!</value>
-  </data>
-  <data name="PwdUnexpectedCharacter" xml:space="preserve">
-    <value>Unexpected characters in password</value>
-  </data>
-  <data name="RestartMsg" xml:space="preserve">
-    <value>Language environment switch, please restart the software</value>
-  </data>
-  <data name="Runoffline" xml:space="preserve">
-    <value>Whether to run offline!</value>
-  </data>
-  <data name="Samplefailed" xml:space="preserve">
-    <value>Handshake failed to add prototype module!</value>
-  </data>
-  <data name="UnexpectedCharacter" xml:space="preserve">
-    <value>Unexpected characters, please re-enter</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>User </value>
-  </data>
-  <data name="UsernameErr" xml:space="preserve">
-    <value>The information is incorrect, please re-enter!</value>
-  </data>
-  <data name="cbLanguage.Items" xml:space="preserve">
-    <value>Chinese</value>
-  </data>
-  <data name="cbLanguage.Items1" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="High" xml:space="preserve">
+  <data name="keywordText.High" xml:space="preserve">
     <value>The darkroom value is too high, the value is:</value>
   </data>
-  <data name="Hightips" xml:space="preserve">
+  <data name="keywordText.Hightips" xml:space="preserve">
     <value>The darkroom value is too high!</value>
   </data>
-  <data name="Low" xml:space="preserve">
+  <data name="keywordText.Incubationfailure" xml:space="preserve">
+    <value>The incubation plate module handshake failed!</value>
+  </data>
+  <data name="keywordText.InitErr" xml:space="preserve">
+    <value>Instrument initialization failed! Please confirm whether the instrument is turned on! Whether to run offline!</value>
+  </data>
+  <data name="keywordText.InitExcetion" xml:space="preserve">
+    <value>Instrument initialization abnormal</value>
+  </data>
+  <data name="keywordText.InitMsg" xml:space="preserve">
+    <value>Initialization Progress</value>
+  </data>
+  <data name="keywordText.Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="keywordText.Low" xml:space="preserve">
     <value>The darkroom value is too low, the value is:</value>
   </data>
-  <data name="Lowtips" xml:space="preserve">
+  <data name="keywordText.Lowtips" xml:space="preserve">
     <value>The darkroom value is too low!</value>
   </data>
-  <data name="NotRead" xml:space="preserve">
-    <value>unread</value>
-  </data>
-  <data name="Tips" xml:space="preserve">
+  <data name="keywordText.MessageboxTitle" xml:space="preserve">
     <value>Tips</value>
   </data>
-  <data name="Warning" xml:space="preserve">
-    <value>Warning</value>
+  <data name="keywordText.NotRead" xml:space="preserve">
+    <value>unread</value>
   </data>
-  <data name="UserNameIsNull" xml:space="preserve">
+  <data name="keywordText.PasswordErr" xml:space="preserve">
+    <value>The password input is empty, please re-enter!</value>
+  </data>
+  <data name="keywordText.PwdUnexpectedCharacter" xml:space="preserve">
+    <value>Unexpected characters in password</value>
+  </data>
+  <data name="keywordText.RestartMsg" xml:space="preserve">
+    <value>Language environment switch, please restart the software</value>
+  </data>
+  <data name="keywordText.Runoffline" xml:space="preserve">
+    <value>Whether to run offline!</value>
+  </data>
+  <data name="keywordText.Samplefailed" xml:space="preserve">
+    <value>Handshake failed to add prototype module!</value>
+  </data>
+  <data name="keywordText.Tips" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+  <data name="keywordText.UnexpectedCharacter" xml:space="preserve">
+    <value>Unexpected characters, please re-enter</value>
+  </data>
+  <data name="keywordText.User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="keywordText.UsernameErr" xml:space="preserve">
+    <value>The information is incorrect, please re-enter!</value>
+  </data>
+  <data name="keywordText.UserNameIsNull" xml:space="preserve">
     <value>The username input is empty, please re-enter!</value>
+  </data>
+  <data name="keywordText.Warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
 </root>

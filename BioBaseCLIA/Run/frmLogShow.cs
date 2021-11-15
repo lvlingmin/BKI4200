@@ -61,12 +61,12 @@ namespace BioBaseCLIA.Run
                 string newdate = "";
                 if (Language.AppCultureInfo.ToString() == "en")
                 {
-                    newdate = lstFile.Substring(5, 2) + GetString("Month") + lstFile.Substring(7, 2) + GetString("Date")
-                        + lstFile.Substring(1, 4) + GetString("Year");
+                    newdate = lstFile.Substring(5, 2) + "/" + lstFile.Substring(7, 2) + "/"
+                        + lstFile.Substring(1, 4);
                 }
                 else
                 {
-                    newdate = lstFile.Substring(1, 4) + GetString("Year") + lstFile.Substring(5, 2) + GetString("Month") + lstFile.Substring(7, 2) + GetString("Date");
+                    newdate = lstFile.Substring(1, 4) + "/" + lstFile.Substring(5, 2) + "/" + lstFile.Substring(7, 2);
                 }
                 dateselect.Add(newdate);
                 lOrigin.Add(new LogOfAlarm(imageList1.Images[3], newdate, "----", null));

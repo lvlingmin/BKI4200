@@ -128,6 +128,9 @@
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
   </data>
+  <data name="Status.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -238,9 +241,6 @@
   <data name="btnSaveQC.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="keywordText.InputBatch" xml:space="preserve">
-    <value>请输入质控批号！</value>
-  </data>
   <data name="fbtnPrint.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -282,6 +282,9 @@
   </data>
   <data name="txtQCNewValue.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
+  </data>
+  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
+    <value>groupBox6</value>
   </data>
   <data name="fbtnScalingQuery.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -390,9 +393,6 @@
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="textSDc.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
   </data>
   <data name="&gt;&gt;chk13s.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -544,9 +544,6 @@
   <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="keywordText.QcRulesAlertInfo" xml:space="preserve">
-    <value>{0}号点违反{1}质控规则!</value>
-  </data>
   <data name="btnSaveQC.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -671,14 +668,14 @@
   <data name="&gt;&gt;tabPage2.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>375, 102</value>
+  </data>
   <data name="btnSaveQC.Location" type="System.Drawing.Point, System.Drawing">
     <value>443, 153</value>
   </data>
   <data name="&gt;&gt;fbtnPrint.Parent" xml:space="preserve">
     <value>groupBox6</value>
-  </data>
-  <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
   </data>
   <data name="&gt;&gt;label11.Name" xml:space="preserve">
     <value>label11</value>
@@ -691,9 +688,6 @@
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
-  </data>
-  <data name="keywordText.InputPeople" xml:space="preserve">
-    <value>请输入录入者！</value>
   </data>
   <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
     <value>tabQCCurve</value>
@@ -746,8 +740,8 @@
   <data name="dtpQCTime.CustomFormat" xml:space="preserve">
     <value>yyyy-MM-dd</value>
   </data>
-  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="keywordText.InputBatch" xml:space="preserve">
+    <value>请输入质控批号！</value>
   </data>
   <data name="txtSD.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -972,9 +966,6 @@
   <data name="&gt;&gt;TestDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 197</value>
-  </data>
   <data name="keywordText.Keep" xml:space="preserve">
     <value>保存</value>
   </data>
@@ -1059,6 +1050,9 @@
   </data>
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="tabPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -1237,6 +1231,9 @@
   <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
+  <data name="keywordText.InputPeople" xml:space="preserve">
+    <value>请输入录入者！</value>
+  </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 12</value>
   </data>
@@ -1388,11 +1385,11 @@
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 64</value>
   </data>
-  <data name="&gt;&gt;label13.Parent" xml:space="preserve">
-    <value>groupBox6</value>
+  <data name="keywordText.DeleteSuccess" xml:space="preserve">
+    <value>删除成功！</value>
   </data>
-  <data name="&gt;&gt;rtxtLoseControl.Parent" xml:space="preserve">
-    <value>tabQCCurve</value>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
   </data>
   <data name="&gt;&gt;ValidDate.Name" xml:space="preserve">
     <value>ValidDate</value>
@@ -1414,6 +1411,9 @@
   </data>
   <data name="keywordText.Update" xml:space="preserve">
     <value>修改</value>
+  </data>
+  <data name="keywordText.lbQCValueNew" xml:space="preserve">
+    <value>新质控值</value>
   </data>
   <data name="&gt;&gt;cmbQClevel.Parent" xml:space="preserve">
     <value>groupBox6</value>
@@ -1620,6 +1620,9 @@
   <data name="&gt;&gt;cmbQCBatch.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
+  <data name="XValue.HeaderText" xml:space="preserve">
+    <value>靶值</value>
+  </data>
   <data name="fbtnPrint.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -1741,11 +1744,11 @@
   <data name="&gt;&gt;dtpAddDate.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
+  <data name="&gt;&gt;chk41s.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="keywordText.DeleteSuccess" xml:space="preserve">
-    <value>删除成功！</value>
   </data>
   <data name="keywordText.InputSD" xml:space="preserve">
     <value>请输入质控标准差！</value>
@@ -1833,9 +1836,6 @@
   </data>
   <data name="&gt;&gt;dtpAddDate.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 92</value>
   </data>
   <data name="&gt;&gt;chk12s.Name" xml:space="preserve">
     <value>chk12s</value>
@@ -2132,8 +2132,8 @@
   <data name="&gt;&gt;fbtnPrint.Name" xml:space="preserve">
     <value>fbtnPrint</value>
   </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>436, 279</value>
+  <data name="keywordText.High" xml:space="preserve">
+    <value>高</value>
   </data>
   <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2213,9 +2213,6 @@
   <data name="functionButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="keywordText.High" xml:space="preserve">
-    <value>高</value>
-  </data>
   <data name="cmbProName.Location" type="System.Drawing.Point, System.Drawing">
     <value>680, 26</value>
   </data>
@@ -2269,6 +2266,9 @@
   </data>
   <data name="Status.HeaderText" xml:space="preserve">
     <value>状态</value>
+  </data>
+  <data name="keywordText.QCRules" xml:space="preserve">
+    <value>请选择质控规则</value>
   </data>
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2393,6 +2393,9 @@
   </data>
   <data name="rbtnStandardQC.Text" xml:space="preserve">
     <value>标准质控图</value>
+  </data>
+  <data name="keywordText.null" xml:space="preserve">
+    <value>值为空，此次操作失败</value>
   </data>
   <data name="chk10x.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2547,8 +2550,8 @@
   <data name="&gt;&gt;btnModifyQC.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="XValue.HeaderText" xml:space="preserve">
-    <value>靶值</value>
+  <data name="keywordText.QcRulesAlertInfo" xml:space="preserve">
+    <value>{0}号点违反{1}质控规则!</value>
   </data>
   <data name="&gt;&gt;txtQCNewValue.Name" xml:space="preserve">
     <value>txtQCNewValue</value>
@@ -2604,6 +2607,9 @@
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
+  <data name="&gt;&gt;rtxtLoseControl.Parent" xml:space="preserve">
+    <value>tabQCCurve</value>
+  </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>430, 30</value>
   </data>
@@ -2652,6 +2658,9 @@
   <data name="&gt;&gt;lbQCValueNew.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="txtBatch.Location" type="System.Drawing.Point, System.Drawing">
     <value>97, 26</value>
   </data>
@@ -2694,8 +2703,8 @@
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
   </data>
-  <data name="&gt;&gt;chk41s.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="fbtnDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;rtxtLoseControl.Type" xml:space="preserve">
     <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2885,8 +2894,8 @@
   <data name="&gt;&gt;ProjectName.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 197</value>
   </data>
   <data name="&gt;&gt;txtXValue.Type" xml:space="preserve">
     <value>BioBaseCLIA.CustomControl.userNumTextBox, BioBaseCLIA, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
@@ -2903,8 +2912,8 @@
   <data name="&gt;&gt;chk10x.Name" xml:space="preserve">
     <value>chk10x</value>
   </data>
-  <data name="Status.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 92</value>
   </data>
   <data name="&gt;&gt;XValue.Name" xml:space="preserve">
     <value>XValue</value>
@@ -2984,6 +2993,9 @@
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>436, 279</value>
+  </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 354</value>
   </data>
@@ -3017,11 +3029,8 @@
   <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="fbtnDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>375, 102</value>
+  <data name="textSDc.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
   </data>
   <data name="&gt;&gt;label10.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -3207,67 +3216,58 @@
   <data name="&gt;&gt;txtQCValue.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="QCBatch.UserAddedColumn" type="System.Boolean, mscorlib">
+  <metadata name="QCBatch.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="QCNO.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="QCNO.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="XValue.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="XValue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="AddDate.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="AddDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="TestDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="TestDate.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="OperatorName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="OperatorName.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="QCResultID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="QCResultID.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="Concentration.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Status.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="QCRule.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="QCID.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ValidDate.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="QCLevel.UserAddedColumn" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>en</value>
-  </data>
-  <data name="SD.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="QCRule.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  </metadata>
+  <metadata name="ProjectName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="QCID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ValidDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="QCLevel.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SD.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="ProjectName.UserAddedColumn" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="Concentration.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="keywordText.QCRules" xml:space="preserve">
-    <value>请选择质控规则</value>
-  </data>
-  <data name="keywordText.null" xml:space="preserve">
-    <value>值为空，此次操作失败</value>
-  </data>
-  <data name="keywordText.lbQCValueNew" xml:space="preserve">
-    <value>新质控值</value>
-  </data>
+  </metadata>
 </root>

@@ -212,7 +212,11 @@ namespace BioBaseCLIA.InfoSetting
                         //string shortName = proInfoXml.ShortName;
                         try
                         {
-                            document = XmlRemoveSpaces(document); //lyq add 20191029
+
+                            if (OperateIniFile.ReadInIPara("CultureInfo", "Culture") == "zh-CN")
+                            {
+                                document = XmlRemoveSpaces(document);
+                            }
                             mProject = XmlToModelNew(document);
                         }
                         catch (Exception ex)
@@ -1565,7 +1569,7 @@ namespace BioBaseCLIA.InfoSetting
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
             frmMessageShow frmMsgShow = new frmMessageShow();
-            frmMsgShow.MessageShow("SVN", "552");
+            frmMsgShow.MessageShow("SVN", "554");
         }
     }
 }
