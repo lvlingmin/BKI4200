@@ -72,13 +72,13 @@ namespace BioBaseCLIA.User
         {
             if (cmbUserName.Text.Trim() == "")
             {
-                frmMsgShow.MessageShow(Getstring("MessageboxTitle"), Localization.LanguageManager.Instance.getLocaltionStr("UserNameIsNull"));// "用户名输入为空，请重新输入！");
+                frmMsgShow.MessageShow(Getstring("keywordText.MessageboxTitle"), Localization.LanguageManager.Instance.getLocaltionStr("keywordText.UserNameIsNull"));// "用户名输入为空，请重新输入！");
                 cmbUserName.Focus();
                 return;
             }
             if (txtUserPassword.Text.Trim() == "")
             {
-                frmMsgShow.MessageShow(Getstring("MessageboxTitle"), Getstring("PasswordErr"));
+                frmMsgShow.MessageShow(Getstring("keywordText.MessageboxTitle"), Getstring("keywordText.PasswordErr"));
                 txtUserPassword.Focus();
                 return;
             }
@@ -86,13 +86,13 @@ namespace BioBaseCLIA.User
             string password = txtUserPassword.Text.Trim();
             if (!BioBaseCLIA.InfoSetting.Inspect.NameOnlycharacter3(cmbUserName.Text.Trim()))//this y add 20180528
             {
-                frmMsgShow.MessageShow(Getstring("MessageboxTitle"), Getstring("UnexpectedCharacter"));
+                frmMsgShow.MessageShow(Getstring("keywordText.MessageboxTitle"), Getstring("keywordText.UnexpectedCharacter"));
                 cmbUserName.Focus();
                 return;
             }
             if (!BioBaseCLIA.InfoSetting.Inspect.PasswordOnlycharacter(txtUserPassword.Text.Trim()))
             {
-                frmMsgShow.MessageShow(Getstring("MessageboxTitle"), Getstring("PwdUnexpectedCharacter"));
+                frmMsgShow.MessageShow(Getstring("keywordText.MessageboxTitle"), Getstring("keywordText.PwdUnexpectedCharacter"));
                 txtUserPassword.Focus();
                 return;
             }//this end
@@ -102,7 +102,7 @@ namespace BioBaseCLIA.User
            
             if (dtUser.Rows.Count < 1)
             {
-                frmMsgShow.MessageShow(Getstring("MessageboxTitle"), Getstring("UsernameErr"));
+                frmMsgShow.MessageShow(Getstring("keywordText.MessageboxTitle"), Getstring("keywordText.UsernameErr"));
                 cmbUserName.Focus();
                 return;
             }
@@ -112,7 +112,7 @@ namespace BioBaseCLIA.User
                 var dr = dtUser.Select("UserPassword='" + password + "'");
                 if (dr.Length < 1)
                 {
-                    frmMsgShow.MessageShow(Getstring("MessageboxTitle"), Getstring("UsernameErr"));
+                    frmMsgShow.MessageShow(Getstring("keywordText.MessageboxTitle"), Getstring("keywordText.UsernameErr"));
                     txtUserPassword.Text = "";
                     txtUserPassword.Focus();
                     return;
@@ -154,7 +154,7 @@ namespace BioBaseCLIA.User
             BeginInvoke(new Action(() =>
             {
                 progressData.Value = 1;
-                lblDescribe.Text = Getstring("InitMsg") + " " + progressData.Value.ToString() + "%";
+                lblDescribe.Text = Getstring("keywordText.InitMsg") + " " + progressData.Value.ToString() + "%";
             }));
             //初始化样本数据
             GetItemInfo();
@@ -162,14 +162,14 @@ namespace BioBaseCLIA.User
             BeginInvoke(new Action(() =>
             {
                 progressData.Value = 10;
-                lblDescribe.Text = Getstring("InitMsg") + " " + progressData.Value.ToString() + "%";
+                lblDescribe.Text = Getstring("keywordText.InitMsg") + " " + progressData.Value.ToString() + "%";
             }));
             //初始化样本运行信息
             InitSpRunInfo();
             BeginInvoke(new Action(() =>
             {
                 progressData.Value = 30;
-                lblDescribe.Text = Getstring("InitMsg") + " " + progressData.Value.ToString() + "%";
+                lblDescribe.Text = Getstring("keywordText.InitMsg") + " " + progressData.Value.ToString() + "%";
             }));
             //同步试剂、底物数据到数据库
             IniUpdateAccess();
@@ -177,7 +177,7 @@ namespace BioBaseCLIA.User
             BeginInvoke(new Action(() =>
             {
                 progressData.Value = 40;
-                lblDescribe.Text = Getstring("InitMsg") + " " + progressData.Value.ToString() + "%";
+                lblDescribe.Text = Getstring("keywordText.InitMsg") + " " + progressData.Value.ToString() + "%";
             }));
             if (!NetCom3.isConnect)
             {
@@ -188,7 +188,7 @@ namespace BioBaseCLIA.User
                     if (!NetCom3.isConnect)
                     {
                         DialogResult r = 
-                            MessageBox.Show(Getstring("InitErr"), Getstring("MessageboxTitle"), 
+                            MessageBox.Show(Getstring("keywordText.InitErr"), Getstring("keywordText.MessageboxTitle"), 
                             MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         DialogResult = r;
                         goto complete;
@@ -198,7 +198,7 @@ namespace BioBaseCLIA.User
                 else
                 {
                     DialogResult r = 
-                        MessageBox.Show(Getstring("ConnectErr"), Getstring("MessageboxTitle"),
+                        MessageBox.Show(Getstring("keywordText.ConnectErr"), Getstring("keywordText.MessageboxTitle"),
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     DialogResult = r;
                     goto complete;
@@ -208,7 +208,7 @@ namespace BioBaseCLIA.User
             BeginInvoke(new Action(() =>
             {
                 progressData.Value = 45;
-                lblDescribe.Text = Getstring("InitMsg") + " " + progressData.Value.ToString() + "%";
+                lblDescribe.Text = Getstring("keywordText.InitMsg") + " " + progressData.Value.ToString() + "%";
             }));
             if (NetCom3.isConnect)
             {
@@ -227,33 +227,33 @@ namespace BioBaseCLIA.User
                 StringBuilder err = new StringBuilder();
                 if (HandData[4] != 255)
                 {
-                    err.Append(Getstring("Counterfailed"));
+                    err.Append(Getstring("keywordText.Counterfailed"));
                 }
                 if (HandData[5] != 255)
                 {
-                    err.Append(Getstring("Samplefailed"));
+                    err.Append(Getstring("keywordText.Samplefailed"));
                 }
                 if (HandData[6] != 255)
                 {
-                    err.Append(Getstring("Cupmanagementfailed"));
+                    err.Append(Getstring("keywordText.Cupmanagementfailed"));
                 }
                 if (HandData[7] != 255)
                 {
-                    err.Append(Getstring("Cleanfailed"));
+                    err.Append(Getstring("keywordText.Cleanfailed"));
                 }
                 if (HandData[8] != 255)
                 {
-                    err.Append(Getstring("Alarmfailed"));
+                    err.Append(Getstring("keywordText.Alarmfailed"));
                 }
                 if (HandData[9] != 255)
                 {
-                    err.Append(Getstring("Incubationfailure"));
+                    err.Append(Getstring("keywordText.Incubationfailure"));
                 }
                 if (!string.IsNullOrEmpty(err.ToString())) 
                 {
                     Invoke(new Action(() =>
                     {
-                        MessageBox.Show(Getstring("InitExcetion") + err.ToString(),Getstring("MessageboxTitle"),
+                        MessageBox.Show(Getstring("keywordText.InitExcetion") + err.ToString(),Getstring("keywordText.MessageboxTitle"),
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }));
                     //管理员账号握手初始化失败也能进入软件
@@ -268,7 +268,7 @@ namespace BioBaseCLIA.User
                 BeginInvoke(new Action(() =>
                 {
                     progressData.Value = 70;
-                    lblDescribe.Text = Getstring("InitMsg") + " " + progressData.Value.ToString() + "%";
+                    lblDescribe.Text = Getstring("keywordText.InitMsg") + " " + progressData.Value.ToString() + "%";
                 }));
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 F1 02"), 5);
                 if (!NetCom3.Instance.SingleQuery())
@@ -280,7 +280,7 @@ namespace BioBaseCLIA.User
                 {
                     Invoke(new Action(() =>
                     {
-                        DialogResult r = MessageBox.Show(NetCom3.Instance.ErrorMessage + Getstring("Runoffline"), Getstring("MessageboxTitle"), MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        DialogResult r = MessageBox.Show(NetCom3.Instance.ErrorMessage + Getstring("keywordText.Runoffline"), Getstring("keywordText.MessageboxTitle"), MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         DialogResult = r;
                     }));
                     goto complete;
@@ -290,7 +290,7 @@ namespace BioBaseCLIA.User
                 BeginInvoke(new Action(() =>
                 {
                     progressData.Value = 100;
-                    lblDescribe.Text = Getstring("InitMsg") + " " + progressData.Value.ToString() + "%";
+                    lblDescribe.Text = Getstring("keywordText.InitMsg") + " " + progressData.Value.ToString() + "%";
                 }));
             }
             Thread.Sleep(5000);
@@ -761,7 +761,7 @@ namespace BioBaseCLIA.User
 
             if (index > 0)
             {
-                if (DialogResult.Yes == MessageBox.Show(Getstring("RestartMsg"), "", MessageBoxButtons.YesNo))
+                if (DialogResult.Yes == MessageBox.Show(Getstring("keywordText.RestartMsg"), "", MessageBoxButtons.YesNo))
                 {
                     DialogResult = DialogResult.Cancel;
                     Close();
@@ -782,13 +782,13 @@ namespace BioBaseCLIA.User
             uint readData = uint.Parse(dataRecive[14] + dataRecive[15], System.Globalization.NumberStyles.AllowHexSpecifier);
             if (dataRecive[4] == "FE")
             {
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + Getstring("Warning") + " *** " + Getstring("NotRead") + " *** " + Getstring("High") + readData);
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + Getstring("keywordText.Warning") + " *** " + Getstring("keywordText.NotRead") + " *** " + Getstring("keywordText.High") + readData);
                 //LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(Getstring("Tips"), Getstring("Hightips"));
+                    f.MessageShow(Getstring("keywordText.Tips"), Getstring("keywordText.Hightips"));
                 }))
                 {
                     IsBackground = true,
@@ -798,13 +798,13 @@ namespace BioBaseCLIA.User
             }
             else if (dataRecive[4] == "FD")
             {
-                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + Getstring("Warning") + " *** " + Getstring("NotRead") + " *** " + Getstring("Low") + readData);
+                LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + Getstring("keywordText.Warning") + " *** " + Getstring("keywordText.NotRead") + " *** " + Getstring("keywordText.Low") + readData);
                 //LogBtnColorChange(1);
                 new Thread(new ParameterizedThreadStart((obj) =>
                 {
                     SetCultureInfo();
                     frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(Getstring("Tips"), Getstring("Lowtips"));
+                    f.MessageShow(Getstring("keywordText.Tips"), Getstring("keywordText.Lowtips"));
                 }))
                 {
                     IsBackground = true,

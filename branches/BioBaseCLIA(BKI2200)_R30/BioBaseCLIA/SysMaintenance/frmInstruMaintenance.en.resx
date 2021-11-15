@@ -961,7 +961,7 @@
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="functionButton1.Text" xml:space="preserve">
-    <value>Instrument initialization</value>
+    <value>Instrument Initialization</value>
   </data>
   <data name="fbtnGroupTest.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1031,7 +1031,7 @@
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="fbtnGroupTest.Text" xml:space="preserve">
-    <value>Battery of tests</value>
+    <value>Battery Of Tests</value>
   </data>
   <data name="fbtnReturn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1171,7 +1171,7 @@
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="fbtnInstruDiagnost.Text" xml:space="preserve">
-    <value>Instrument debugging</value>
+    <value>Instrument Debugging</value>
   </data>
   <data name="fbtnInstruMaintenance.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1241,7 +1241,7 @@
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="fbtnInstruMaintenance.Text" xml:space="preserve">
-    <value>Instrument maintenance</value>
+    <value>Instrument Maintenance</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 21.75pt, style=Bold</value>

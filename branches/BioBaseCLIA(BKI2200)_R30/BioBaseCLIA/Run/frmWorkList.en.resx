@@ -489,7 +489,7 @@
     <value>Times New Roman, 14.25pt, style=Bold</value>
   </data>
   <data name="fbtnfrmResultQuery.Text" xml:space="preserve">
-    <value>Historical data</value>
+    <value>Historical Data</value>
   </data>
   <data name="fbtnTestResult.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1158,6 +1158,12 @@
   <data name="keywordText.MAddNewTReactPutKnocked" xml:space="preserve">
     <value>When the piper transferred the tube from the temporary storage tray to the incubator tray, it collided with the tube at the position where the tube was placed</value>
   </data>
+  <data name="keywordText.MAddNewTReactStop" xml:space="preserve">
+    <value>An abnormality occurred when the pipette hand moved a new pipe from the temporary storage tray to the incubation tray, and the experiment was terminated! Please check the abnormal information in the alarm information!</value>
+  </data>
+  <data name="keywordText.MAddNewTWashIsKnocked" xml:space="preserve">
+    <value>When the pipe transfer hand moves the pipe from the temporary storage tray to the cleaning tray, the pipe hits the pipe at the position of the pipe</value>
+  </data>
   <data name="keywordText.MAddNewTWashnull" xml:space="preserve">
     <value>The piper moves a new pipe from the temporary storage tray to the cleaning tray and grabs the empty pipe</value>
   </data>
@@ -1406,11 +1412,5 @@
   </data>
   <data name="keywordText.WashTurnOver" xml:space="preserve">
     <value>Cleaning disk rotation command receiving timeout</value>
-  </data>
-  <data name="keywordText.MAddNewTWashIsKnocked" xml:space="preserve">
-    <value>When the pipe transfer hand moves the pipe from the temporary storage tray to the cleaning tray, the pipe hits the pipe at the position of the pipe</value>
-  </data>
-  <data name="keywordText.MAddNewTReactStop" xml:space="preserve">
-    <value>An abnormality occurred when the pipette hand moved a new pipe from the temporary storage tray to the incubation tray, and the experiment was terminated! Please check the abnormal information in the alarm information!</value>
   </data>
 </root>

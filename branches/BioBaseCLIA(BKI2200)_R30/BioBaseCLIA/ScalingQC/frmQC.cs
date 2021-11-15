@@ -826,7 +826,7 @@ namespace BioBaseCLIA.ScalingQC
                 cmbItem.SelectedItem.ToString() == "" || cmbQCBatch.SelectedItem == null ||
                 cmbQCBatch.SelectedItem.ToString() == "" || cmbQClevel.SelectedItem == null || cmbQClevel.SelectedItem.ToString() == "")
             {
-                frmMsgShow.MessageShow(getString("reminder"), getString("PrintError"));
+                frmMsgShow.MessageShow(getString("keywordText.reminder"), getString("keywordText.PrintError"));
                 return;
             }
             if (dgvQCValue.Rows.Count < 1)
@@ -904,19 +904,19 @@ namespace BioBaseCLIA.ScalingQC
         {
             //if (txtQCValue.Text == "" || txtQCNewValue.Text == "")
             //{
-            //    frmMsgShow.MessageShow(getString("reminder"), getString("DeleteError"));
+            //    frmMsgShow.MessageShow(getString("keywordText.reminder"), getString("keywordText.DeleteError"));
             //    return;
             //}
             if (dgvQCValue.Rows.Count < 1 && fbtnDelete.Text == getString("keywordText.Delete"))
             {
-                frmMsgShow.MessageShow(getString("reminder"), getString("DeleteError"));
+                frmMsgShow.MessageShow(getString("keywordText.reminder"), getString("keywordText.DeleteError"));
                 return;
             }
             else
             {
                 if (txtQCNewValue.Text == "")
                 {
-                    frmMsgShow.MessageShow(getString("reminder"), getString("keywordText.lbQCValueNew") + getString("keywordText.null"));
+                    frmMsgShow.MessageShow(getString("keywordText.reminder"), getString("keywordText.lbQCValueNew") + getString("keywordText.null"));
                     return;
                 }
             }

@@ -216,11 +216,13 @@
             // dtpValidity
             // 
             resources.ApplyResources(this.dtpValidity, "dtpValidity");
+            this.dtpValidity.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpValidity.Name = "dtpValidity";
             // 
             // dtpAddDate
             // 
             resources.ApplyResources(this.dtpAddDate, "dtpAddDate");
+            this.dtpAddDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAddDate.Name = "dtpAddDate";
             // 
             // cmbBype
@@ -775,7 +777,7 @@
             // dtpQCTime
             // 
             resources.ApplyResources(this.dtpQCTime, "dtpQCTime");
-            this.dtpQCTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpQCTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpQCTime.Name = "dtpQCTime";
             // 
             // lbQCTime
@@ -847,7 +849,7 @@
             // dtpEnd
             // 
             resources.ApplyResources(this.dtpEnd, "dtpEnd");
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpEnd.Name = "dtpEnd";
             // 
             // textSDc
@@ -872,7 +874,7 @@
             // dtpStart
             // 
             resources.ApplyResources(this.dtpStart, "dtpStart");
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.ValueChanged += new System.EventHandler(this.chbVis_CheckedChanged);
             // 

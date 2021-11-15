@@ -71,83 +71,90 @@
             // 
             // pnlPublic
             // 
+            resources.ApplyResources(this.pnlPublic, "pnlPublic");
             this.pnlPublic.BackColor = System.Drawing.Color.LightBlue;
             this.pnlPublic.Controls.Add(this.pnlSidebar);
-            resources.ApplyResources(this.pnlPublic, "pnlPublic");
             this.pnlPublic.Name = "pnlPublic";
+            this.toolTip1.SetToolTip(this.pnlPublic, resources.GetString("pnlPublic.ToolTip"));
             // 
             // pnlSidebar
             // 
+            resources.ApplyResources(this.pnlSidebar, "pnlSidebar");
             this.pnlSidebar.Controls.Add(this.fbtnScalQc);
             this.pnlSidebar.Controls.Add(this.fbtnSet);
             this.pnlSidebar.Controls.Add(this.fbtnDataQuery);
             this.pnlSidebar.Controls.Add(this.fbtnMaintenance);
             this.pnlSidebar.Controls.Add(this.fbtnTest);
-            resources.ApplyResources(this.pnlSidebar, "pnlSidebar");
             this.pnlSidebar.Name = "pnlSidebar";
+            this.toolTip1.SetToolTip(this.pnlSidebar, resources.GetString("pnlSidebar.ToolTip"));
             // 
             // fbtnScalQc
             // 
-            this.fbtnScalQc.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnScalQc, "fbtnScalQc");
+            this.fbtnScalQc.BackColor = System.Drawing.Color.Transparent;
             this.fbtnScalQc.EnabledSet = true;
             this.fbtnScalQc.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnScalQc.FlatAppearance.BorderSize = 0;
             this.fbtnScalQc.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.fbtnScalQc.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnScalQc.Name = "fbtnScalQc";
+            this.toolTip1.SetToolTip(this.fbtnScalQc, resources.GetString("fbtnScalQc.ToolTip"));
             this.fbtnScalQc.UseVisualStyleBackColor = false;
             this.fbtnScalQc.Click += new System.EventHandler(this.fbtnScalQc_Click);
             // 
             // fbtnSet
             // 
-            this.fbtnSet.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnSet, "fbtnSet");
+            this.fbtnSet.BackColor = System.Drawing.Color.Transparent;
             this.fbtnSet.EnabledSet = true;
             this.fbtnSet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnSet.FlatAppearance.BorderSize = 0;
             this.fbtnSet.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.fbtnSet.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnSet.Name = "fbtnSet";
+            this.toolTip1.SetToolTip(this.fbtnSet, resources.GetString("fbtnSet.ToolTip"));
             this.fbtnSet.UseVisualStyleBackColor = false;
             this.fbtnSet.Click += new System.EventHandler(this.fbtnSet_Click);
             // 
             // fbtnDataQuery
             // 
-            this.fbtnDataQuery.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnDataQuery, "fbtnDataQuery");
+            this.fbtnDataQuery.BackColor = System.Drawing.Color.Transparent;
             this.fbtnDataQuery.EnabledSet = true;
             this.fbtnDataQuery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnDataQuery.FlatAppearance.BorderSize = 0;
             this.fbtnDataQuery.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.fbtnDataQuery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnDataQuery.Name = "fbtnDataQuery";
+            this.toolTip1.SetToolTip(this.fbtnDataQuery, resources.GetString("fbtnDataQuery.ToolTip"));
             this.fbtnDataQuery.UseVisualStyleBackColor = false;
             this.fbtnDataQuery.Click += new System.EventHandler(this.fbtnDataQuery_Click);
             // 
             // fbtnMaintenance
             // 
-            this.fbtnMaintenance.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnMaintenance, "fbtnMaintenance");
+            this.fbtnMaintenance.BackColor = System.Drawing.Color.Transparent;
             this.fbtnMaintenance.EnabledSet = true;
             this.fbtnMaintenance.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnMaintenance.FlatAppearance.BorderSize = 0;
             this.fbtnMaintenance.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.fbtnMaintenance.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnMaintenance.Name = "fbtnMaintenance";
+            this.toolTip1.SetToolTip(this.fbtnMaintenance, resources.GetString("fbtnMaintenance.ToolTip"));
             this.fbtnMaintenance.UseVisualStyleBackColor = false;
             this.fbtnMaintenance.Click += new System.EventHandler(this.fbtnMaintenance_Click);
             // 
             // fbtnTest
             // 
-            this.fbtnTest.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.fbtnTest, "fbtnTest");
+            this.fbtnTest.BackColor = System.Drawing.Color.Transparent;
             this.fbtnTest.EnabledSet = true;
             this.fbtnTest.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnTest.FlatAppearance.BorderSize = 0;
             this.fbtnTest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.fbtnTest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.fbtnTest.Name = "fbtnTest";
+            this.toolTip1.SetToolTip(this.fbtnTest, resources.GetString("fbtnTest.ToolTip"));
             this.fbtnTest.UseVisualStyleBackColor = false;
             this.fbtnTest.Click += new System.EventHandler(this.fbtnTest_Click);
             // 
@@ -178,9 +185,9 @@
             // 
             // pnlbarDown
             // 
+            resources.ApplyResources(this.pnlbarDown, "pnlbarDown");
             this.pnlbarDown.BackColor = System.Drawing.Color.Transparent;
             this.pnlbarDown.BackgroundImage = global::BioBaseCLIA.Properties.Resources.其他界面按钮22;
-            resources.ApplyResources(this.pnlbarDown, "pnlbarDown");
             this.pnlbarDown.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlbarDown.Controls.Add(this.dbtnSound);
             this.pnlbarDown.Controls.Add(this.btnVersion);
@@ -189,28 +196,31 @@
             this.pnlbarDown.Controls.Add(this.btnHelp);
             this.pnlbarDown.Controls.Add(this.btnExit);
             this.pnlbarDown.Name = "pnlbarDown";
+            this.toolTip1.SetToolTip(this.pnlbarDown, resources.GetString("pnlbarDown.ToolTip"));
             // 
             // dbtnSound
             // 
-            this.dbtnSound.BackgroundImage = global::BioBaseCLIA.Properties.Resources.声音启用;
             resources.ApplyResources(this.dbtnSound, "dbtnSound");
+            this.dbtnSound.BackgroundImage = global::BioBaseCLIA.Properties.Resources.声音启用;
             this.dbtnSound.FlatAppearance.BorderSize = 0;
             this.dbtnSound.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.dbtnSound.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.dbtnSound.Name = "dbtnSound";
+            this.toolTip1.SetToolTip(this.dbtnSound, resources.GetString("dbtnSound.ToolTip"));
             this.dbtnSound.UseVisualStyleBackColor = true;
             this.dbtnSound.Click += new System.EventHandler(this.dbtnSound_Click);
             // 
             // btnVersion
             // 
+            resources.ApplyResources(this.btnVersion, "btnVersion");
             this.btnVersion.BackColor = System.Drawing.Color.Transparent;
             this.btnVersion.BackgroundImage = global::BioBaseCLIA.Properties.Resources.主界面按钮;
-            resources.ApplyResources(this.btnVersion, "btnVersion");
             this.btnVersion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnVersion.FlatAppearance.BorderSize = 0;
             this.btnVersion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnVersion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnVersion.Name = "btnVersion";
+            this.toolTip1.SetToolTip(this.btnVersion, resources.GetString("btnVersion.ToolTip"));
             this.btnVersion.UseVisualStyleBackColor = false;
             this.btnVersion.Click += new System.EventHandler(this.btnVersion_Click);
             // 
@@ -218,15 +228,17 @@
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
+            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // dbtnConnect
             // 
-            this.dbtnConnect.BackgroundImage = global::BioBaseCLIA.Properties.Resources.未连接;
             resources.ApplyResources(this.dbtnConnect, "dbtnConnect");
+            this.dbtnConnect.BackgroundImage = global::BioBaseCLIA.Properties.Resources.未连接;
             this.dbtnConnect.FlatAppearance.BorderSize = 0;
             this.dbtnConnect.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.dbtnConnect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.dbtnConnect.Name = "dbtnConnect";
+            this.toolTip1.SetToolTip(this.dbtnConnect, resources.GetString("dbtnConnect.ToolTip"));
             this.dbtnConnect.UseVisualStyleBackColor = true;
             this.dbtnConnect.EnabledChanged += new System.EventHandler(this.dbtnConnect_EnabledChanged);
             this.dbtnConnect.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dbtnConnect_MouseDown);
@@ -235,14 +247,15 @@
             // 
             // btnHelp
             // 
+            resources.ApplyResources(this.btnHelp, "btnHelp");
             this.btnHelp.BackColor = System.Drawing.Color.Transparent;
             this.btnHelp.BackgroundImage = global::BioBaseCLIA.Properties.Resources.主界面按钮;
-            resources.ApplyResources(this.btnHelp, "btnHelp");
             this.btnHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnHelp.FlatAppearance.BorderSize = 0;
             this.btnHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnHelp.Name = "btnHelp";
+            this.toolTip1.SetToolTip(this.btnHelp, resources.GetString("btnHelp.ToolTip"));
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             this.btnHelp.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -250,14 +263,15 @@
             // 
             // btnExit
             // 
+            resources.ApplyResources(this.btnExit, "btnExit");
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImage = global::BioBaseCLIA.Properties.Resources.主界面按钮;
-            resources.ApplyResources(this.btnExit, "btnExit");
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnExit.Name = "btnExit";
+            this.toolTip1.SetToolTip(this.btnExit, resources.GetString("btnExit.ToolTip"));
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.button11_Click);
             this.btnExit.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -265,9 +279,9 @@
             // 
             // pnlbarUP
             // 
+            resources.ApplyResources(this.pnlbarUP, "pnlbarUP");
             this.pnlbarUP.BackColor = System.Drawing.Color.Transparent;
             this.pnlbarUP.BackgroundImage = global::BioBaseCLIA.Properties.Resources.其他界面按钮2;
-            resources.ApplyResources(this.pnlbarUP, "pnlbarUP");
             this.pnlbarUP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlbarUP.Controls.Add(this.btnWasteRack);
             this.pnlbarUP.Controls.Add(this.logo);
@@ -283,13 +297,14 @@
             this.pnlbarUP.Controls.Add(this.dbtnWash);
             this.pnlbarUP.Controls.Add(this.dbtnBuffer);
             this.pnlbarUP.Name = "pnlbarUP";
+            this.toolTip1.SetToolTip(this.pnlbarUP, resources.GetString("pnlbarUP.ToolTip"));
             this.pnlbarUP.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlbarUP_Paint);
             // 
             // btnWasteRack
             // 
+            resources.ApplyResources(this.btnWasteRack, "btnWasteRack");
             this.btnWasteRack.BackColor = System.Drawing.Color.Transparent;
             this.btnWasteRack.BackgroundImage = global::BioBaseCLIA.Properties.Resources.WasteRack02;
-            resources.ApplyResources(this.btnWasteRack, "btnWasteRack");
             this.btnWasteRack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnWasteRack.FlatAppearance.BorderSize = 0;
             this.btnWasteRack.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -297,6 +312,7 @@
             this.btnWasteRack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.btnWasteRack.ForeColor = System.Drawing.Color.Transparent;
             this.btnWasteRack.Name = "btnWasteRack";
+            this.toolTip1.SetToolTip(this.btnWasteRack, resources.GetString("btnWasteRack.ToolTip"));
             this.btnWasteRack.UseVisualStyleBackColor = false;
             this.btnWasteRack.Click += new System.EventHandler(this.btnWasteRack_Click);
             this.btnWasteRack.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -304,17 +320,18 @@
             // 
             // logo
             // 
+            resources.ApplyResources(this.logo, "logo");
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.BackgroundImage = global::BioBaseCLIA.Properties.Resources.logo;
-            resources.ApplyResources(this.logo, "logo");
             this.logo.Name = "logo";
             this.logo.TabStop = false;
+            this.toolTip1.SetToolTip(this.logo, resources.GetString("logo.ToolTip"));
             // 
             // defineButton1
             // 
+            resources.ApplyResources(this.defineButton1, "defineButton1");
             this.defineButton1.BackColor = System.Drawing.Color.Transparent;
             this.defineButton1.BackgroundImage = global::BioBaseCLIA.Properties.Resources.blue_play_128px_569342_easyicon_net;
-            resources.ApplyResources(this.defineButton1, "defineButton1");
             this.defineButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.defineButton1.FlatAppearance.BorderSize = 0;
             this.defineButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -322,6 +339,7 @@
             this.defineButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.defineButton1.ForeColor = System.Drawing.Color.Transparent;
             this.defineButton1.Name = "defineButton1";
+            this.toolTip1.SetToolTip(this.defineButton1, resources.GetString("defineButton1.ToolTip"));
             this.defineButton1.UseVisualStyleBackColor = false;
             this.defineButton1.Click += new System.EventHandler(this.defineButton1_Click);
             this.defineButton1.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -329,9 +347,9 @@
             // 
             // defineButton3
             // 
+            resources.ApplyResources(this.defineButton3, "defineButton3");
             this.defineButton3.BackColor = System.Drawing.Color.Transparent;
             this.defineButton3.BackgroundImage = global::BioBaseCLIA.Properties.Resources.blue_stop_play_back_128px_569353_easyicon_net;
-            resources.ApplyResources(this.defineButton3, "defineButton3");
             this.defineButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.defineButton3.FlatAppearance.BorderSize = 0;
             this.defineButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -339,6 +357,7 @@
             this.defineButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.defineButton3.ForeColor = System.Drawing.Color.Transparent;
             this.defineButton3.Name = "defineButton3";
+            this.toolTip1.SetToolTip(this.defineButton3, resources.GetString("defineButton3.ToolTip"));
             this.defineButton3.UseVisualStyleBackColor = false;
             this.defineButton3.Click += new System.EventHandler(this.defineButton3_Click);
             this.defineButton3.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -346,9 +365,9 @@
             // 
             // defineButton2
             // 
+            resources.ApplyResources(this.defineButton2, "defineButton2");
             this.defineButton2.BackColor = System.Drawing.Color.Transparent;
             this.defineButton2.BackgroundImage = global::BioBaseCLIA.Properties.Resources.blue_pause_128px_569341_easyicon_net;
-            resources.ApplyResources(this.defineButton2, "defineButton2");
             this.defineButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.defineButton2.FlatAppearance.BorderSize = 0;
             this.defineButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -356,6 +375,7 @@
             this.defineButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.defineButton2.ForeColor = System.Drawing.Color.Transparent;
             this.defineButton2.Name = "defineButton2";
+            this.toolTip1.SetToolTip(this.defineButton2, resources.GetString("defineButton2.ToolTip"));
             this.defineButton2.UseVisualStyleBackColor = false;
             this.defineButton2.Click += new System.EventHandler(this.defineButton2_Click);
             this.defineButton2.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -363,9 +383,9 @@
             // 
             // dbtnLog
             // 
+            resources.ApplyResources(this.dbtnLog, "dbtnLog");
             this.dbtnLog.BackColor = System.Drawing.Color.Transparent;
             this.dbtnLog.BackgroundImage = global::BioBaseCLIA.Properties.Resources._33感叹号;
-            resources.ApplyResources(this.dbtnLog, "dbtnLog");
             this.dbtnLog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dbtnLog.FlatAppearance.BorderSize = 0;
             this.dbtnLog.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -373,6 +393,7 @@
             this.dbtnLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.dbtnLog.ForeColor = System.Drawing.Color.Transparent;
             this.dbtnLog.Name = "dbtnLog";
+            this.toolTip1.SetToolTip(this.dbtnLog, resources.GetString("dbtnLog.ToolTip"));
             this.dbtnLog.UseVisualStyleBackColor = false;
             this.dbtnLog.Click += new System.EventHandler(this.dbtnLog_Click);
             this.dbtnLog.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -380,9 +401,9 @@
             // 
             // dbtnRack
             // 
+            resources.ApplyResources(this.dbtnRack, "dbtnRack");
             this.dbtnRack.BackColor = System.Drawing.Color.Transparent;
             this.dbtnRack.BackgroundImage = global::BioBaseCLIA.Properties.Resources._14;
-            resources.ApplyResources(this.dbtnRack, "dbtnRack");
             this.dbtnRack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dbtnRack.FlatAppearance.BorderSize = 0;
             this.dbtnRack.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -390,6 +411,7 @@
             this.dbtnRack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.dbtnRack.ForeColor = System.Drawing.Color.Transparent;
             this.dbtnRack.Name = "dbtnRack";
+            this.toolTip1.SetToolTip(this.dbtnRack, resources.GetString("dbtnRack.ToolTip"));
             this.dbtnRack.UseVisualStyleBackColor = false;
             this.dbtnRack.Click += new System.EventHandler(this.dbtnRack_Click);
             this.dbtnRack.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -397,9 +419,9 @@
             // 
             // dbtnRegent
             // 
+            resources.ApplyResources(this.dbtnRegent, "dbtnRegent");
             this.dbtnRegent.BackColor = System.Drawing.Color.Transparent;
             this.dbtnRegent.BackgroundImage = global::BioBaseCLIA.Properties.Resources._14__2_;
-            resources.ApplyResources(this.dbtnRegent, "dbtnRegent");
             this.dbtnRegent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dbtnRegent.FlatAppearance.BorderSize = 0;
             this.dbtnRegent.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -407,6 +429,7 @@
             this.dbtnRegent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.dbtnRegent.ForeColor = System.Drawing.Color.Transparent;
             this.dbtnRegent.Name = "dbtnRegent";
+            this.toolTip1.SetToolTip(this.dbtnRegent, resources.GetString("dbtnRegent.ToolTip"));
             this.dbtnRegent.UseVisualStyleBackColor = false;
             this.dbtnRegent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dbtnSubstract_MouseClick);
             this.dbtnRegent.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -414,8 +437,8 @@
             // 
             // dbtnSubstract
             // 
-            this.dbtnSubstract.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.dbtnSubstract, "dbtnSubstract");
+            this.dbtnSubstract.BackColor = System.Drawing.Color.Transparent;
             this.dbtnSubstract.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dbtnSubstract.FlatAppearance.BorderSize = 0;
             this.dbtnSubstract.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -423,6 +446,7 @@
             this.dbtnSubstract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.dbtnSubstract.ForeColor = System.Drawing.Color.Transparent;
             this.dbtnSubstract.Name = "dbtnSubstract";
+            this.toolTip1.SetToolTip(this.dbtnSubstract, resources.GetString("dbtnSubstract.ToolTip"));
             this.dbtnSubstract.UseVisualStyleBackColor = false;
             this.dbtnSubstract.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dbtnSubstract_MouseClick);
             this.dbtnSubstract.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -430,8 +454,8 @@
             // 
             // dbtnWaste
             // 
-            this.dbtnWaste.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.dbtnWaste, "dbtnWaste");
+            this.dbtnWaste.BackColor = System.Drawing.Color.Transparent;
             this.dbtnWaste.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dbtnWaste.FlatAppearance.BorderSize = 0;
             this.dbtnWaste.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -439,6 +463,7 @@
             this.dbtnWaste.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.dbtnWaste.ForeColor = System.Drawing.Color.Transparent;
             this.dbtnWaste.Name = "dbtnWaste";
+            this.toolTip1.SetToolTip(this.dbtnWaste, resources.GetString("dbtnWaste.ToolTip"));
             this.dbtnWaste.UseVisualStyleBackColor = false;
             this.dbtnWaste.Click += new System.EventHandler(this.dbtnWaste_Click);
             this.dbtnWaste.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -446,9 +471,9 @@
             // 
             // dbtnWash
             // 
+            resources.ApplyResources(this.dbtnWash, "dbtnWash");
             this.dbtnWash.BackColor = System.Drawing.Color.Transparent;
             this.dbtnWash.BackgroundImage = global::BioBaseCLIA.Properties.Resources._8;
-            resources.ApplyResources(this.dbtnWash, "dbtnWash");
             this.dbtnWash.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dbtnWash.FlatAppearance.BorderSize = 0;
             this.dbtnWash.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -456,6 +481,7 @@
             this.dbtnWash.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.dbtnWash.ForeColor = System.Drawing.Color.Transparent;
             this.dbtnWash.Name = "dbtnWash";
+            this.toolTip1.SetToolTip(this.dbtnWash, resources.GetString("dbtnWash.ToolTip"));
             this.dbtnWash.UseVisualStyleBackColor = false;
             this.dbtnWash.Click += new System.EventHandler(this.dbtnWash_Click);
             this.dbtnWash.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -463,8 +489,8 @@
             // 
             // dbtnBuffer
             // 
-            this.dbtnBuffer.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.dbtnBuffer, "dbtnBuffer");
+            this.dbtnBuffer.BackColor = System.Drawing.Color.Transparent;
             this.dbtnBuffer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dbtnBuffer.FlatAppearance.BorderSize = 0;
             this.dbtnBuffer.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -472,6 +498,7 @@
             this.dbtnBuffer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
             this.dbtnBuffer.ForeColor = System.Drawing.Color.Transparent;
             this.dbtnBuffer.Name = "dbtnBuffer";
+            this.toolTip1.SetToolTip(this.dbtnBuffer, resources.GetString("dbtnBuffer.ToolTip"));
             this.dbtnBuffer.UseVisualStyleBackColor = false;
             this.dbtnBuffer.Click += new System.EventHandler(this.dbtnBuffer_Click);
             this.dbtnBuffer.MouseEnter += new System.EventHandler(this.dbtnBuffer_MouseEnter);
@@ -489,15 +516,16 @@
             // 
             // frmMain
             // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.pnlPublic);
             this.Controls.Add(this.pnlbarDown);
             this.Controls.Add(this.pnlbarUP);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "frmMain";
+            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
