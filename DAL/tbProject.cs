@@ -87,7 +87,7 @@ namespace BioBaseCLIA.DAL
 			OleDbParameter[] parameters = {
 					new OleDbParameter("@ProjectNumber", OleDbType.VarChar,30),
 					new OleDbParameter("@ShortName", OleDbType.VarChar,30),
-					new OleDbParameter("@FullName", OleDbType.VarChar,30),
+					new OleDbParameter("@FullName", OleDbType.VarChar,255),
 					new OleDbParameter("@ProjectType", OleDbType.VarChar,30),
 					new OleDbParameter("@DiluteName", OleDbType.VarChar,30),
 					new OleDbParameter("@DiluteCount", OleDbType.Integer,4),
@@ -178,7 +178,7 @@ namespace BioBaseCLIA.DAL
 			OleDbParameter[] parameters = {
 					new OleDbParameter("@ProjectNumber", OleDbType.VarChar,30),
 					new OleDbParameter("@ShortName", OleDbType.VarChar,30),
-					new OleDbParameter("@FullName", OleDbType.VarChar,30),
+					new OleDbParameter("@FullName", OleDbType.VarChar,255),
 					new OleDbParameter("@ProjectType", OleDbType.VarChar,30),
 					new OleDbParameter("@DiluteName", OleDbType.VarChar,30),//2018-07-30 
 					new OleDbParameter("@DiluteCount", OleDbType.Integer,4),
