@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Common</RootNamespace>
     <AssemblyName>Common</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,10 +31,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>dlls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Localization">
+      <HintPath>..\Localization\bin\Debug\Localization.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
       <HintPath>dlls\NPOI.dll</HintPath>
@@ -87,11 +92,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QCRules.cs" />
     <Compile Include="ReadTxtWarn.cs" />
+    <Compile Include="Resources\reportCurve.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reportCurve.resx</DependentUpon>
+    </Compile>
     <Compile Include="SerializerHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dlls\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="dlls\Localization.dll" />
+    <Content Include="dlls\NPOI.dll" />
+    <Content Include="dlls\NPOI.OOXML.dll" />
+    <Content Include="dlls\NPOI.OpenXml4Net.dll" />
+    <Content Include="dlls\NPOI.OpenXmlFormats.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\reportCurve.en.resx" />
+    <EmbeddedResource Include="Resources\reportCurve.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>reportCurve.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DBUtility\DBUtility.csproj">
-      <Project>{76173D02-5984-42B8-9D44-B0CDA5A6E049}</Project>
+      <Project>{76173d02-5984-42b8-9d44-b0cda5a6e049}</Project>
       <Name>DBUtility</Name>
     </ProjectReference>
   </ItemGroup>

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Maticsoft.DBUtility;
+//using Maticsoft.DBUtility;
+using DBUtility;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace Common
 {
