@@ -62,6 +62,10 @@
     <Reference Include="Bar">
       <HintPath>dlls\Bar.dll</HintPath>
     </Reference>
+    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common\bin\Debug\Common.dll</HintPath>
+    </Reference>
     <Reference Include="Disk">
       <HintPath>dlls\Disk.dll</HintPath>
     </Reference>
@@ -919,10 +923,6 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{6B9935D3-AE5D-47E2-8DDB-05DE62C7DC30}</Project>
       <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{51C7AC04-D2AA-4C58-94A2-8C5597DA0783}</Project>
-      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\DBUtility\DBUtility.csproj">
       <Project>{76173D02-5984-42B8-9D44-B0CDA5A6E049}</Project>
