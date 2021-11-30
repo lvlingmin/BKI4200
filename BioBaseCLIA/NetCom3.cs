@@ -1980,6 +1980,7 @@ namespace BioBaseCLIA
         {
             lock (myObject)
             {
+                if (Fs == null) return;
                 StreamWriter sw = new StreamWriter(Fs, System.Text.Encoding.Default);//转码
                 sw.WriteLine(str);
                 sw.Flush();
