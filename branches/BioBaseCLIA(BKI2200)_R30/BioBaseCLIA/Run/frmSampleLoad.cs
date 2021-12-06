@@ -47,6 +47,10 @@ namespace BioBaseCLIA.Run
             get { return dtItemInfoNoStat; }
             set { dtItemInfoNoStat = value; }
         }
+        /// <summary>
+        /// 可装载样本底物限制数量
+        /// </summary>
+        public static int SubstrateLeft = 0;
         public frmSampleLoad()
         {
             InitializeComponent();
@@ -279,7 +283,6 @@ namespace BioBaseCLIA.Run
             dtItemInfoNoStat.Columns.Add("RgBatch", typeof(string));
             dtItemInfoNoStat.Columns.Add("TestRg", typeof(int));
             dtItemInfoNoStat.Columns.Add("TestDiu", typeof(int));
-
             SetDispatchContent();
         }
         private void SetDispatchContent()

@@ -1,22 +1,22 @@
-﻿using System;
+﻿using BioBaseCLIA.CalculateCurve;
+using BioBaseCLIA.DataQuery;
+using BioBaseCLIA.ScalingQC;
+using Common;
+using Maticsoft.DBUtility;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Maticsoft.DBUtility;
-using BioBaseCLIA.DataQuery;
-using Common;
 using System.IO;
-using NPOI.SS.UserModel;
-using NPOI.HSSF.UserModel;
+using System.Linq;
 using System.Resources;
-using BioBaseCLIA.ScalingQC;
+using System.Text;
 using System.Text.RegularExpressions;
-using BioBaseCLIA.CalculateCurve;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BioBaseCLIA.Run
 {
@@ -1195,7 +1195,7 @@ namespace BioBaseCLIA.Run
                 MessageBox.Show(getString("keywordText.RetetsItem"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (frmWorkList.LeftTestTime < 12)
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning && frmWorkList.LeftTestTime < 12)
             {
                 MessageBox.Show(getString("keywordText.ComingStop"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -1212,9 +1212,15 @@ namespace BioBaseCLIA.Run
                 MessageBox.Show(getString("keywordText.CurrentSampleNotDone"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
             if (frmWorkList.AddingSampleFlag)
             {
                 MessageBox.Show(getString("keywordText.AddingSample"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (frmWorkList.bReagentDiuLess || frmWorkList.StopList.Count > 0)
+            {
+                MessageBox.Show(getString("keywordText.bReagentDiuLess"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
@@ -1227,17 +1233,50 @@ namespace BioBaseCLIA.Run
                     MessageBox.Show(getString("keywordText.Location") + dgvResultData.SelectedRows[index].Cells["Position"].Value.ToString() + getString("ExitTestSample"));
                     return;
                 }
+                
+            }
+            int testNumber = frmWorkList.BTestItem
+                    .Where(item =>(!item.TestStatus.Contains(getString("keywordText.Testcomplete"))) && (!item.TestStatus.Contains(getString("keywordText.TestStatusAbondoned"))) && (!item.TestStatus.Contains(getString("keywordText.Reading")))).Count();
+            string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
+            if (LeftCount1 == "") LeftCount1 = "0";
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning && (int.Parse(LeftCount1) - testNumber - 3) <= 0)
+            {
+                MessageBox.Show(getString("keywordText.SubLess"));
+                return;
+            }
+            else
+            {
+                if ((int.Parse(LeftCount1) - testNumber - 6) <= 0)
+                {
+                    MessageBox.Show(getString("keywordText.SubLess"));
+                    return;
+                }
             }
             #endregion
 
             fbtnTestAgain.Enabled = false;
             frmWorkList.RetestFlag = true;
-
+            //frmMain.pauseFlag = true;
             for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
             {
                 if (DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 0,Emergency = 6 where SampleID=" +
                     dgvResultData.SelectedRows[index].Cells["SampleID"].Value + "") > 0)
                 {
+                    for (int i = 0; i < dtSpInfo.Rows.Count; i++)
+                    {
+                        try
+                        {
+                            if (int.Parse(dtSpInfo.Rows[i]["Position"].ToString())
+                            == int.Parse(dgvResultData.SelectedRows[index].Cells["Position"].Value.ToString()))
+                            {
+                                dtSpInfo.Rows[i]["Status"] = "0";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LogFile.Instance.Write("记录添加样本操作相同数据时出现的异常信息，暂时不需要进行处理" + ex.Message + "\n" + ex.StackTrace);
+                        }
+                    }
                 }
                 DbHelperOleDb.ExecuteSql(1, @"update tbAssayResult set Status = -1  where SampleID=" +
                     dgvResultData.SelectedRows[index].Cells["SampleID"].Value + " AND ItemName='" + dgvResultData.SelectedRows[index].Cells["ItemName"].Value + "'");
@@ -1278,7 +1317,7 @@ namespace BioBaseCLIA.Run
             for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
             {
                 int sameSampleNoNumber = testItems.Where(item => (item.SampleNo == dgvResultData.SelectedRows[index].Cells["SampleNo"].Value.ToString())
-                 && (!item.TestStatus.Contains("完成") && !item.TestStatus.Contains("废弃"))).Count();
+                 && (!item.TestStatus.Contains(getString("keywordText.Testcomplete")) && !item.TestStatus.Contains(getString("keywordText.TestStatusAbondoned")))).Count();
 
                 if (sameSampleNoNumber > 0)
                 {

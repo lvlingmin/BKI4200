@@ -734,4 +734,10 @@
   <data name="uninstall" xml:space="preserve">
     <value>uninstall</value>
   </data>
+  <data name="keywordText.IsRunTest" xml:space="preserve">
+    <value>The test is in progress, and it is forbidden to change the substrate</value>
+  </data>
+  <data name="keywordText.SubChangeWarn" xml:space="preserve">
+    <value>Substrate replacement warning</value>
+  </data>
 </root>

@@ -1413,4 +1413,10 @@
   <data name="keywordText.WashTurnOver" xml:space="preserve">
     <value>Cleaning disk rotation command receiving timeout</value>
   </data>
+  <data name="keywordText.bReagentDiuLess" xml:space="preserve">
+    <value>Insufficient supplies, this operation is invalid!</value>
+  </data>
+  <data name="keywordText.SubLessNoAddS" xml:space="preserve">
+    <value>The number of substrates tested is not enough for this experiment, so no more samples can be added!</value>
+  </data>
 </root>

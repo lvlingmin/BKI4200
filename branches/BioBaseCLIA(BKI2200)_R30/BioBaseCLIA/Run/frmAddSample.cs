@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Maticsoft.DBUtility;
-using System.Threading;
-using System.Text.RegularExpressions;
+﻿using BioBaseCLIA.InfoSetting;
 using Common;
-using BioBaseCLIA.InfoSetting;
-using System.IO;
-using FastReport;
+using Maticsoft.DBUtility;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Linq;
 using System.Resources;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace BioBaseCLIA.Run
 {
@@ -40,6 +35,7 @@ namespace BioBaseCLIA.Run
         frmMessageShow frmMsg = new frmMessageShow();
         List<string> ls = new List<string>();
         DataTable DtRgInfoNoStat;
+        int SubstrateCount = 0;
         int addSpCodeFlag = 0;
         string[] strSpTypeAll;
         string[] strSpTypePart = new string[3];
@@ -94,6 +90,7 @@ namespace BioBaseCLIA.Run
             DtRgInfoNoStat = frmSampleLoad.DtItemInfoNoStat.Copy();
             if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
             {
+                int SubstrateCount1 = 0;
                 DtRgInfoNoStat = frmSampleLoad.DtItemInfoNoStat.Clone();
                 for (int i = dtSampleInfo.Rows.Count - 1; i >= 0; i--)
                 {
@@ -132,6 +129,7 @@ namespace BioBaseCLIA.Run
                             UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RgBatch, RepeatCount, 0);
                             if (diuvol > 0)
                                 UpdadteDtRgInfoNoStat(DiuName,"",(diuvol * RepeatCount), 0);
+                            SubstrateCount1 = SubstrateCount1 + RepeatCount;
                             //DataRow[] drReagent = frmParent.dtRgInfo.Select("RgName ='"+ ddr["ItemName"].ToString()+"'");
 
                             //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RepeatCount, (diuvol * RepeatCount));
@@ -140,6 +138,9 @@ namespace BioBaseCLIA.Run
                         #endregion
                     }
                 }
+                string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
+                if (LeftCount1 == "") LeftCount1 = "0";
+                frmSampleLoad.SubstrateLeft = (int.Parse(LeftCount1)- SubstrateCount1 - 6);
             }
             else
             {
@@ -679,6 +680,7 @@ namespace BioBaseCLIA.Run
                         string SpPosition = i.ToString();
                         if (cmbSpType.Text.Trim().Contains(getString("keywordText.Standard")) || cmbSpType.Text.Trim().Contains(getString("keywordText.Control")))
                             RgBatch = cmbBatch.SelectedItem.ToString();
+                        int SubstrateCount1 = 0;
                         foreach (CheckBox ch in flpItemName.Controls)
                         {
                             if (ch.Checked)
@@ -714,6 +716,13 @@ namespace BioBaseCLIA.Run
                                             MessageBox.Show(ShortName + getString("keywordText.RgNotEnough"));
                                             return;
                                         }
+                                        SubstrateCount1 = SubstrateCount1 + RepeatCount;
+                                        if (SubstrateCount + SubstrateCount1 > frmSampleLoad.SubstrateLeft)
+                                        {
+                                            MessageBox.Show(getString("keywordText.SubNotEnough"));
+                                            return;
+                                        }
+                                       
                                         int DiuVolleft = 0;
                                         string diuPos = "";
                                         string DiuName = "";
@@ -871,6 +880,7 @@ namespace BioBaseCLIA.Run
                         {
                             UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), dr["RgBatch"].ToString() , int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
                         }
+                        SubstrateCount = SubstrateCount + SubstrateCount1;
                         newSample = true;
                         DataView dvv = dtSampleInfo.DefaultView;
 
@@ -994,6 +1004,7 @@ namespace BioBaseCLIA.Run
                                 }
 
                                 //UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), -RepeatCount, -(diuvol * RepeatCount));
+                                SubstrateCount = SubstrateCount - RepeatCount;
                                 UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RgBatch ,- RepeatCount, 0);
                                 if (diuvol > 0)
                                 {
@@ -1140,6 +1151,7 @@ namespace BioBaseCLIA.Run
                                     break;
                                 }
                             }
+                            SubstrateCount = SubstrateCount - RepeatCount;
                             UpdadteDtRgInfoNoStat(ddr["ItemName"].ToString(), RgBatch, - RepeatCount, 0);
                             UpdadteDtRgInfoNoStat(DiuName, "", -(diuvol * RepeatCount), 0);
                         }
@@ -1152,6 +1164,7 @@ namespace BioBaseCLIA.Run
                 string SpPosition = txtSpPosition.Text.Trim();
                 if (cmbSpType.Text.Trim().Contains(getString("keywordText.Standard")) || cmbSpType.Text.Trim().Contains(getString("keywordText.Control"))|| cmbSpType.Text.Trim().Contains(getString("keywordText.Calibrator")))
                     RgBatch = cmbBatch.SelectedItem.ToString();
+                int SubstrateCount1 = 0;
                 foreach (CheckBox ch in flpItemName.Controls)
                 {
                     if (ch.Checked)
@@ -1198,6 +1211,13 @@ namespace BioBaseCLIA.Run
                                     MessageBox.Show(ShortName + getString("keywordText.RgNotEnough"));
                                     return;
                                 }
+                                SubstrateCount1 = SubstrateCount1 + RepeatCount;
+                                if (SubstrateCount + SubstrateCount1 > frmSampleLoad.SubstrateLeft)
+                                {
+                                    MessageBox.Show(getString("keywordText.SubNotEnough"));
+                                    return;
+                                }
+                               
                                 int diuvol = 0;
                                 string diuPos = "";
                                 string DiuName = "";
@@ -1838,6 +1858,7 @@ namespace BioBaseCLIA.Run
                     btnModify.Text = getString("keywordText.Update");
                     #endregion
                 }
+                SubstrateCount = SubstrateCount + SubstrateCount1;
                 foreach (DataRow dr in dtNewAddDtRgInfo.Rows)
                 {
                     UpdadteDtRgInfoNoStat(dr["RgName"].ToString(), dr["RgBatch"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
@@ -2495,6 +2516,7 @@ namespace BioBaseCLIA.Run
             DataTable dtNewAddDtRgInfo = DtRgInfoNoStat.Clone();
             int RepeatCount = int.Parse(txtMoreSpRepetitions.Text);
             int Spcount = int.Parse(txtSpNum.Text.Trim());
+            int SubstrateCount1 = 0;
             foreach (CheckBox ch in flpItemName.Controls)
             {
                 if (ch.Checked)
@@ -2516,6 +2538,12 @@ namespace BioBaseCLIA.Run
                             if (regentNoStart + (RepeatCount * Spcount) > regentleft)
                             {
                                 MessageBox.Show(ShortName + getString("keywordText.RgNotEnough"));
+                                return;
+                            }
+                            SubstrateCount1 = SubstrateCount1 + RepeatCount * Spcount;
+                            if (SubstrateCount + SubstrateCount1 > frmSampleLoad.SubstrateLeft)
+                            {
+                                MessageBox.Show(getString("keywordText.SubNotEnough"));
                                 return;
                             }
                             string diuPos = "";
@@ -2646,6 +2674,7 @@ namespace BioBaseCLIA.Run
             {
                 UpdadteDtRgInfoNoStat(dr["RgName"].ToString(),dr["RgBatch"].ToString(), int.Parse(dr["TestRg"].ToString()), int.Parse(dr["TestDiu"].ToString()));
             }
+            SubstrateCount = SubstrateCount + SubstrateCount1;
             txtSpCode1.Enabled = txtSpCode2.Enabled = txtSpNum.Enabled = txtSpStartPos.Enabled =
             chkMoreEmergency.Enabled = cmbMorePipeType.Enabled = txtMoreSpRepetitions.Enabled = false;
             btnMoreAdd.Text = getString("keywordText.BatchAdd");
@@ -3230,6 +3259,7 @@ namespace BioBaseCLIA.Run
                                     if (DilutionTimes > 1)
                                         diuvol = GetSumDiuVol(ddrRun["ItemName"].ToString(), DilutionTimes);
                                 }
+                                SubstrateCount = SubstrateCount - RepeatCount;
                                 UpdadteDtRgInfoNoStat(ddrRun["ItemName"].ToString(), RgBatch,- RepeatCount, 0);
                                 if (diuvol > 0)
                                 {
