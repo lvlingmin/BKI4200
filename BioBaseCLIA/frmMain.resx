@@ -3294,7 +3294,7 @@
     <value>是否确定关闭正在运行的系统！</value>
   </data>
   <data name="keywordText.FastSpeeds" xml:space="preserve">
-    <value>制冷泵转速过快（缺液）!</value>
+    <value>制冷液不足，请添加!</value>
   </data>
   <data name="keywordText.High" xml:space="preserve">
     <value>暗室值过高，值为：</value>

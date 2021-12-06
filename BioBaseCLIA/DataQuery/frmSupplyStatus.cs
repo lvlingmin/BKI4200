@@ -438,15 +438,16 @@ namespace BioBaseCLIA.DataQuery
 
         private void subBottle1_MouseDown(object sender, MouseEventArgs e)
         {
-            //if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
-            //{
-            //    new Thread(new ParameterizedThreadStart((obj) =>
-            //    {
-            //        frmMessageShow message = new frmMessageShow();
-            //        message.MessageShow("底物更换警告", "正在进行实验检测,禁止更换底物！");
-            //    })) { IsBackground = true }.Start();
-            //    return;
-            //}
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    frmMessageShow message = new frmMessageShow();
+                    message.MessageShow(Getstring("keywordText.SubChangeWarn"), Getstring("keywordText.IsRunTest"));
+                }))
+                { IsBackground = true }.Start();
+                return;
+            }
             if (e.Button == MouseButtons.Left)
             {
                 if (!CheckFormIsOpen("frmLoadSu"))

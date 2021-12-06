@@ -2453,7 +2453,7 @@
     <value>Are you sure to shut down the running system!</value>
   </data>
   <data name="keywordText.FastSpeeds" xml:space="preserve">
-    <value>The speed of refrigeration pump is too fast (lack of liquid)!</value>
+    <value>Insufficient refrigerant, please add!</value>
   </data>
   <data name="keywordText.High" xml:space="preserve">
     <value>The darkroom value is too high, the value is:</value>

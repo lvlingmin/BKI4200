@@ -10288,7 +10288,9 @@ namespace BioBaseCLIA.SysMaintenance
                 frmMsgShow.MessageShow("仪器调试", "仪器正在运动，请稍等！");
                 return;
             }
-
+            DialogResult result = GetReply();
+            if (result == DialogResult.No)
+                return;
             fbtnASSave2.Enabled = false;
             List<string> data = GetData("02");
             if (data == null) data = new List<string>();
@@ -10310,7 +10312,11 @@ namespace BioBaseCLIA.SysMaintenance
             }
             fbtnASSave2.Enabled = true;
         }
-
+        DialogResult GetReply()
+        {
+            DialogResult result = MessageBox.Show("是否确认下载位置信息?", "下载提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return result;
+        }
         private void btnSaveHand2_Click(object sender, EventArgs e)
         {
             if (!NetCom3.totalOrderFlag)
@@ -10318,7 +10324,9 @@ namespace BioBaseCLIA.SysMaintenance
                 frmMsgShow.MessageShow("仪器调试", "仪器正在运动，请稍等！");
                 return;
             }
-
+            DialogResult result = GetReply();
+            if (result == DialogResult.No)
+                return;
             btnSaveHand2.Enabled = false;
             List<string> data = GetData("01");
 
@@ -10342,7 +10350,9 @@ namespace BioBaseCLIA.SysMaintenance
                 frmMsgShow.MessageShow("仪器调试", "仪器正在运动，请稍等！");
                 return;
             }
-
+            DialogResult result = GetReply();
+            if (result == DialogResult.No)
+                return;
             btnISave2.Enabled = false;
             List<string> data = GetData("04");
 
@@ -10366,7 +10376,9 @@ namespace BioBaseCLIA.SysMaintenance
                 frmMsgShow.MessageShow("仪器调试", "仪器正在运动，请稍等！");
                 return;
             }
-
+            DialogResult result = GetReply();
+            if (result == DialogResult.No)
+                return;
             fbtnWashSave2.Enabled = false;
             List<string> data = GetData("03");
 

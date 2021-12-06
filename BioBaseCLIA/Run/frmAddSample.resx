@@ -3627,4 +3627,7 @@
   <data name="TestStatusAbondoned" xml:space="preserve">
     <value>废弃</value>
   </data>
+  <data name="keywordText.SubNotEnough" xml:space="preserve">
+    <value>底物不足，此次装载不成功!</value>
+  </data>
 </root>
