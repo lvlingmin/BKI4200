@@ -947,4 +947,7 @@
   <data name="keywordText.Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="keywordText.AppentSample" xml:space="preserve">
+    <value>After the sample has been added, Please click the work list button to enter the experiment interface!</value>
+  </data>
 </root>

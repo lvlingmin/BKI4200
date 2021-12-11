@@ -80,7 +80,7 @@ namespace BioBaseCLIA.Run
         {
             //2018-08-15 zlx add
             
-            if (BRun)
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning || frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
                 btnLoadReagent.Enabled = btnLoadSample.Enabled = false;
             else
                 btnLoadReagent.Enabled = btnLoadSample.Enabled = true;
@@ -1163,7 +1163,7 @@ namespace BioBaseCLIA.Run
         private void dgvResultData_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
            
-            if (!BRun)
+            if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning && frmWorkList.RunFlag != (int)RunFlagStart.IsStoping)
                 btnLoadReagent.Enabled = btnLoadSample.Enabled = true;
             else
                 btnLoadReagent.Enabled = btnLoadSample.Enabled = false;
@@ -1190,6 +1190,7 @@ namespace BioBaseCLIA.Run
         private void fbtnTestAgain_Click(object sender, EventArgs e)
         {
             #region 提示
+            if (!frmWorkList.EntertRun) return;
             if (dgvResultData.SelectedRows.Count == 0)
             {
                 MessageBox.Show(getString("keywordText.RetetsItem"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1239,14 +1240,17 @@ namespace BioBaseCLIA.Run
                     .Where(item =>(!item.TestStatus.Contains(getString("keywordText.Testcomplete"))) && (!item.TestStatus.Contains(getString("keywordText.TestStatusAbondoned"))) && (!item.TestStatus.Contains(getString("keywordText.Reading")))).Count();
             string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
             if (LeftCount1 == "") LeftCount1 = "0";
-            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning && (int.Parse(LeftCount1) - testNumber - 3) <= 0)
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning )
             {
-                MessageBox.Show(getString("keywordText.SubLess"));
-                return;
+                if((int.Parse(LeftCount1) - testNumber - dgvResultData.SelectedRows.Count) < 0)
+                {
+                    MessageBox.Show(getString("keywordText.SubLess"));
+                    return;
+                }
             }
             else
             {
-                if ((int.Parse(LeftCount1) - testNumber - 6) <= 0)
+                if ((int.Parse(LeftCount1) - testNumber - 3) <= 0)
                 {
                     MessageBox.Show(getString("keywordText.SubLess"));
                     return;

@@ -140,7 +140,7 @@ namespace BioBaseCLIA.Run
                 }
                 string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
                 if (LeftCount1 == "") LeftCount1 = "0";
-                frmSampleLoad.SubstrateLeft = (int.Parse(LeftCount1)- SubstrateCount1 - 6);
+                frmSampleLoad.SubstrateLeft = (int.Parse(LeftCount1)- SubstrateCount1 - 3);
             }
             else
             {
