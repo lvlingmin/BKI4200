@@ -1851,4 +1851,7 @@
   <data name="keywordText.Yes" xml:space="preserve">
     <value>是</value>
   </data>
+  <data name="keywordText.AppentSample" xml:space="preserve">
+    <value>样本追加完毕，请点击工作列表按钮进入实验界面！</value>
+  </data>
 </root>

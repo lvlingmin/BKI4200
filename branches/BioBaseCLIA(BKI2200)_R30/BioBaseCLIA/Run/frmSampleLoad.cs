@@ -446,6 +446,12 @@ namespace BioBaseCLIA.Run
             {
                 return;
             }
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow(getString("keywordText.SampleLoad"),getString("keywordText.AppentSample"));
+                return;
+            }
             isClick = true;
             if (!CheckFormIsOpen("frmTestResult"))
             {
