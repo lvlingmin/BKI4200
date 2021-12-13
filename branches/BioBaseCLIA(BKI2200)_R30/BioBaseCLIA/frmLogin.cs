@@ -776,7 +776,7 @@ namespace BioBaseCLIA.User
         void Darkroom(string order)
         {
             SetCultureInfo();
-            if (!order.Contains("EB 90 F1 02")|| frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            if (!order.Contains("EB 90 F1 02") || frmWorkList.RunFlag == (int)RunFlagStart.IsRuning || frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
                 return;
             string[] dataRecive = order.Split(' ');
             uint readData = uint.Parse(dataRecive[14] + dataRecive[15], System.Globalization.NumberStyles.AllowHexSpecifier);
