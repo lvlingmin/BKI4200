@@ -6693,7 +6693,7 @@ namespace BioBaseCLIA.Run
                                     if (AddErrorCount > 1)
                                     {
                                         NetCom3.Instance.stopsendFlag = true;
-                                        ShowWarnInfo(getString("keywordText.AddSampleIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
+                                        ShowWarnInfo(getString("keywordText.AddRIsKnockedS"), getString("keywordText.Samplingneedle"), 1);
                                         //MessageBox.Show("加样针撞针未能修复，实验已终止", "加样错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         //addLiquiding = false;
                                         AllStop();

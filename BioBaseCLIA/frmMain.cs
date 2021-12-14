@@ -1050,15 +1050,18 @@ namespace BioBaseCLIA
                 }
             }
             #region 温度监控 //2018-07-5
-            TimeSpan ts = DateTime.Now - _BootUpTime;
-            if (!Selectlist.Contains("EB 90 11 04 04"))
-                Selectlist.Add("EB 90 11 04 04");
-            if (!Selectlist.Contains("EB 90 11 05 04"))
-                Selectlist.Add("EB 90 11 05 04");
-            if (!Selectlist.Contains("EB 90 11 06 04"))
-                Selectlist.Add("EB 90 11 06 04");
-            if (!Selectlist.Contains("EB 90 11 07 04"))
-                Selectlist.Add("EB 90 11 07 04");
+            if (frmWorkList.RunFlag != (int)RunFlagStart.IsRuning)
+            {
+                TimeSpan ts = DateTime.Now - _BootUpTime;
+                if (!Selectlist.Contains("EB 90 11 04 04"))
+                    Selectlist.Add("EB 90 11 04 04");
+                if (!Selectlist.Contains("EB 90 11 05 04"))
+                    Selectlist.Add("EB 90 11 05 04");
+                if (!Selectlist.Contains("EB 90 11 06 04"))
+                    Selectlist.Add("EB 90 11 06 04");
+                if (!Selectlist.Contains("EB 90 11 07 04"))
+                    Selectlist.Add("EB 90 11 07 04");
+            }
             #endregion
             //制冷片报警查询
             if (!Selectlist.Contains("EB 90 11 08 08"))
