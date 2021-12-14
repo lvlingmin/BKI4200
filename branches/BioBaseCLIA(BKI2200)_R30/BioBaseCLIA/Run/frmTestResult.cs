@@ -782,6 +782,8 @@ namespace BioBaseCLIA.Run
 
         private void btnLoadSample_Click(object sender, EventArgs e)
         {
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning || frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
+                return;
             if (!CheckFormIsOpen("frmSampleLoad"))
             {
                 frmSampleLoad frmSL = new frmSampleLoad();
@@ -824,6 +826,8 @@ namespace BioBaseCLIA.Run
 
         private void btnLoadReagent_Click(object sender, EventArgs e)
         {
+            if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning || frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
+                return;
             if (!CheckFormIsOpen("frmReagentLoad"))
             {
                 frmReagentLoad frmRL = new frmReagentLoad();
@@ -1236,6 +1240,7 @@ namespace BioBaseCLIA.Run
                 }
                 
             }
+            
             int testNumber = frmWorkList.BTestItem
                     .Where(item =>(!item.TestStatus.Contains(getString("keywordText.Testcomplete"))) && (!item.TestStatus.Contains(getString("keywordText.TestStatusAbondoned"))) && (!item.TestStatus.Contains(getString("keywordText.Reading")))).Count();
             string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
@@ -1263,6 +1268,8 @@ namespace BioBaseCLIA.Run
             //frmMain.pauseFlag = true;
             for (int index = 0; index < dgvResultData.SelectedRows.Count; index++)
             {
+                DataTable Table = DbHelperOleDb.Query(1, @"select * from tbSampleInfo where Status = 1 and SampleID=" + dgvResultData.SelectedRows[index].Cells["SampleID"].Value + "").Tables[0];
+                if (Table == null || Table.Rows.Count == 0) continue;
                 if (DbHelperOleDb.ExecuteSql(1, @"update tbSampleInfo set Status = 0,Emergency = 6 where SampleID=" +
                     dgvResultData.SelectedRows[index].Cells["SampleID"].Value + "") > 0)
                 {
