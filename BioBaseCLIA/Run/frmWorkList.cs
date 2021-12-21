@@ -607,6 +607,8 @@ namespace BioBaseCLIA.Run
             dtSampleInfo.Columns.Add("ProjectProcedure", typeof(string));
             dtSampleInfo.Columns.Add("ShortName", typeof(string));
             #region 生成实验进度
+            if (RunFlag != (int)RunFlagStart.IsRuning)
+                lisTestSchedule.Clear();
             if (RunFlag == (int)RunFlagStart.IsRuning)
             {
                 
@@ -1195,7 +1197,7 @@ namespace BioBaseCLIA.Run
                 lisTestSchedule.Sort(new SortRun());
             }
             #endregion
-            if (EmergencyFlag || addOrdinaryFlag|| RetestFlag)
+            if ((EmergencyFlag || addOrdinaryFlag|| RetestFlag) && (RunFlag == (int)RunFlagStart.IsRuning))
             {
                 List<TestSchedule> tss = lisTestSchedule.FindAll(tx => tx.StartTime <= sumTime);
                 _GaDoingOne = tss[tss.Count - 1];
@@ -5505,14 +5507,10 @@ namespace BioBaseCLIA.Run
                             #endregion
 
                             StopWatchWithUpdateStatus();
-
-                            RunFlag = (int)RunFlagStart.Stoped;
                             if (frmMain.pauseFlag)
                                 frmMain.pauseFlag = false;
                             RunLightFlag = false;
                             buttonEnableRun(false);
-                            fbtnReturn.Enabled = true;//完成全部实验才允许返回按钮可用 
-
                             if (StopList.Count > 0)
                             {
                                 if (frmMain.StopFlag[0] || frmMain.StopFlag[1] || frmMain.StopFlag[2] || frmMain.StopFlag[3])
@@ -5554,7 +5552,8 @@ namespace BioBaseCLIA.Run
                                 MessageBox.Show(getString("keywordText.Testcomplete"), getString("keywordText.Detectionstatus"), MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);//2018-07-13 zlx mod
                                 //}));
                             }
-
+                            RunFlag = (int)RunFlagStart.Stoped;
+                            fbtnReturn.Enabled = true;//完成全部实验才允许返回按钮可用 
                             break;
                         }
                         Thread.Sleep(50);

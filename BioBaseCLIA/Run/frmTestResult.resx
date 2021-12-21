@@ -2115,4 +2115,7 @@
   <data name="keywordText.Reading" xml:space="preserve">
     <value>正在读数</value>
   </data>
+  <data name="keywordText.NoAddSample" xml:space="preserve">
+    <value>实验未开始加样本，此次操作无效！</value>
+  </data>
 </root>

@@ -752,6 +752,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Run\frmWorkList.resx">
       <DependentUpon>frmWorkList.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Run\LoaderForm.en.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>

@@ -1381,4 +1381,7 @@
   <data name="keywordText.Reading" xml:space="preserve">
     <value>Reading</value>
   </data>
+  <data name="keywordText.NoAddSample" xml:space="preserve">
+    <value>The experiment has not started to add samples, this operation is invalid!</value>
+  </data>
 </root>

@@ -2144,21 +2144,22 @@ namespace BioBaseCLIA.Run
                 }
                 else
                 {
-                    if (Convert.ToDateTime(tbScalingResult.Rows[0]["ActiveDate"]) < DateTime.Now.AddDays(-ExpiryDate))
-                    {
-                        frmMsg.MessageShow(getString("keywordText.SampleLoad"), string.Format(getString("keywordText.NoCalInfo"), dr["Batch"], itemname));
-                        return false;
-                    }
-                    else
-                    {
-                        ScalingInfo scalingInfo = new ScalingInfo();
-                        scalingInfo.ItemName = itemname;
-                        scalingInfo.RegenBatch = dr["Batch"].ToString();
-                        scalingInfo.Num = "0";
-                        scalingInfo.TestConc = dtItemInfo.Rows[0][1].ToString();
-                        scalingInfo.testType = int.Parse(dtItemInfo.Rows[0][0].ToString());
-                        frmWorkList.lisScalingInfo.Add(scalingInfo);
-                    }
+                    //if (Convert.ToDateTime(tbScalingResult.Rows[0]["ActiveDate"]) < DateTime.Now.AddDays(-ExpiryDate))
+                    //{
+                    //    frmMsg.MessageShow(getString("keywordText.SampleLoad"), string.Format(getString("keywordText.NoCalInfo"), dr["Batch"], itemname));
+                    //    return false;
+                    //}
+                    //else
+                    //{
+                       
+                    //}
+                    ScalingInfo scalingInfo = new ScalingInfo();
+                    scalingInfo.ItemName = itemname;
+                    scalingInfo.RegenBatch = dr["Batch"].ToString();
+                    scalingInfo.Num = "0";
+                    scalingInfo.TestConc = dtItemInfo.Rows[0][1].ToString();
+                    scalingInfo.testType = int.Parse(dtItemInfo.Rows[0][0].ToString());
+                    frmWorkList.lisScalingInfo.Add(scalingInfo);
                 }
             }
             return true;
