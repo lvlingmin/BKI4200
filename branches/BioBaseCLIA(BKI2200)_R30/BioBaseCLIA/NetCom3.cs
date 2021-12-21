@@ -333,6 +333,7 @@ namespace BioBaseCLIA
                     else
                     {
                         isConnect = false;
+                        client.Dispose();
                         //frmMessageShow frmMS = new frmMessageShow();
                         //frmMS.MessageShow("", "无法连接到服务器！");
                         //frmMS.Dispose();
@@ -367,6 +368,7 @@ namespace BioBaseCLIA
                 isConnect = false;
                 // 将连接信号置为终止状态  
                 connectDone.Set();
+                client.Dispose();
                 return;
             }
         }
@@ -1790,6 +1792,7 @@ namespace BioBaseCLIA
                 client.Shutdown(SocketShutdown.Both);
                 client.Close();
                 isConnect = false;
+                client.Dispose();
             }
         }
         /// <summary>
@@ -1857,7 +1860,9 @@ namespace BioBaseCLIA
             {
                 LogFile.Instance.Write(DateTime.Now + "connectCatchENd");
                 writeLog(e);
+                client.Dispose();
                 isConnect = false;
+                
                 return;
             }
         }

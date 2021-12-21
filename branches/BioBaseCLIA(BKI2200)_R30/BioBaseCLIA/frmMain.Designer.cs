@@ -160,7 +160,7 @@
             // 
             // timerStatus
             // 
-            this.timerStatus.Interval = 20000;
+            this.timerStatus.Interval = 60000;
             this.timerStatus.Tick += new System.EventHandler(this.timerStatus_Tick);
             // 
             // toolTip1

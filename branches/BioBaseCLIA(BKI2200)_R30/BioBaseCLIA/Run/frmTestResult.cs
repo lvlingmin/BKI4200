@@ -1194,7 +1194,11 @@ namespace BioBaseCLIA.Run
         private void fbtnTestAgain_Click(object sender, EventArgs e)
         {
             #region 提示
-            if (!frmWorkList.EntertRun) return;
+            if (!frmWorkList.EntertRun && frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+            {
+                MessageBox.Show(getString("keywordText.NoAddSample"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (dgvResultData.SelectedRows.Count == 0)
             {
                 MessageBox.Show(getString("keywordText.RetetsItem"), getString("keywordText.Tips"), MessageBoxButtons.OK, MessageBoxIcon.Warning);

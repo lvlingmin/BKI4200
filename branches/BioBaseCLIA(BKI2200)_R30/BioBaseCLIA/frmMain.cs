@@ -109,10 +109,10 @@ namespace BioBaseCLIA
         /// </summary>
         public static bool LiquidQueryFlag = true;
         // 缺液3分钟暂停加样
-        private const int MaxBuffertime = 9;//磁珠清洗液报警最大次数
-        private const int MaxWashtime = 9;//探针清洗液报警最大次数
-        private const int MaxWastetime = 9;//废液报警最大次数
-        private const int MaxWTubetime = 9;//废管报警最大次数
+        private const int MaxBuffertime = 3;//磁珠清洗液报警最大次数
+        private const int MaxWashtime = 3;//探针清洗液报警最大次数
+        private const int MaxWastetime = 3;//废液报警最大次数
+        private const int MaxWTubetime = 3;//废管报警最大次数
         private int NumWTubettime = 0;//报警指令连续发送废管满的次数
         Thread QueryThread;
         /// <summary>
