@@ -2293,4 +2293,244 @@
         //////////////////////////////////8=
 </value>
   </data>
+  <data name="keywordText.Abnormalexit" xml:space="preserve">
+    <value>Abnormal exit software detected, please empty the incubator disk!</value>
+  </data>
+  <data name="keywordText.AccessInterruption" xml:space="preserve">
+    <value>Please reconfirm the connection and restart the instrument and software</value>
+  </data>
+  <data name="keywordText.Alarmfailed" xml:space="preserve">
+    <value>Alarm module handshake failed！</value>
+  </data>
+  <data name="keywordText.Clean" xml:space="preserve">
+    <value>Cleaning plate</value>
+  </data>
+  <data name="keywordText.Cleanfailed" xml:space="preserve">
+    <value>Washing module handshake failed！</value>
+  </data>
+  <data name="keywordText.Cleaningfluidempty" xml:space="preserve">
+    <value>Magnetic bead cleaning solution is empty</value>
+  </data>
+  <data name="keywordText.Cleaningfluidnormal" xml:space="preserve">
+    <value>Magnetic bead cleaning solution is normal</value>
+  </data>
+  <data name="keywordText.Cleantemperature" xml:space="preserve">
+    <value>Temperature of cleaning plate</value>
+  </data>
+  <data name="keywordText.Connect" xml:space="preserve">
+    <value>Network connected</value>
+  </data>
+  <data name="keywordText.ConnectSet" xml:space="preserve">
+    <value>Communication settings</value>
+  </data>
+  <data name="keywordText.Counterfailed" xml:space="preserve">
+    <value>Counter module handshake failure！</value>
+  </data>
+  <data name="keywordText.Cupmanagementfailed" xml:space="preserve">
+    <value>Cup handshake failure！</value>
+  </data>
+  <data name="keywordText.dbtnBuffer.tip" xml:space="preserve">
+    <value>Magnetic bead cleaning solution query</value>
+  </data>
+  <data name="keywordText.dbtnConnect.connecttip" xml:space="preserve">
+    <value>Network connected</value>
+  </data>
+  <data name="keywordText.dbtnConnect.disconnecttip" xml:space="preserve">
+    <value>Network not connected</value>
+  </data>
+  <data name="keywordText.dbtnLog.tip" xml:space="preserve">
+    <value>Alarm information</value>
+  </data>
+  <data name="keywordText.dbtnRack.tip" xml:space="preserve">
+    <value>Information of cup machine</value>
+  </data>
+  <data name="keywordText.dbtnRegent.tip" xml:space="preserve">
+    <value>Reagent information</value>
+  </data>
+  <data name="keywordText.dbtnSubstract.tip" xml:space="preserve">
+    <value>Substrate information</value>
+  </data>
+  <data name="keywordText.dbtnWash.tip" xml:space="preserve">
+    <value>Probe cleaning solution query</value>
+  </data>
+  <data name="keywordText.dbtnWaste.tip" xml:space="preserve">
+    <value>Waste liquid inquiry</value>
+  </data>
+  <data name="keywordText.Disconnect" xml:space="preserve">
+    <value>Network not connected</value>
+  </data>
+  <data name="keywordText.Err" xml:space="preserve">
+    <value>error</value>
+  </data>
+  <data name="keywordText.Error" xml:space="preserve">
+    <value>error</value>
+  </data>
+  <data name="keywordText.ExitTip" xml:space="preserve">
+    <value>Are you sure to shut down the running system!</value>
+  </data>
+  <data name="keywordText.FastSpeeds" xml:space="preserve">
+    <value>Insufficient refrigerant, please add!</value>
+  </data>
+  <data name="keywordText.High" xml:space="preserve">
+    <value>The darkroom value is too high, the value is:</value>
+  </data>
+  <data name="keywordText.HighCoolPlate1" xml:space="preserve">
+    <value>The current of cooling plate I is too high!</value>
+  </data>
+  <data name="keywordText.HighCoolPlate2" xml:space="preserve">
+    <value>The current of cooling plate II is too high!</value>
+  </data>
+  <data name="keywordText.Hightips" xml:space="preserve">
+    <value>The darkroom value is too high!</value>
+  </data>
+  <data name="keywordText.Incubation" xml:space="preserve">
+    <value>Incubation plate</value>
+  </data>
+  <data name="keywordText.Incubation1" xml:space="preserve">
+    <value>Incubation plate</value>
+  </data>
+  <data name="keywordText.Incubationfailure" xml:space="preserve">
+    <value>Handshake failure of Wen pan module</value>
+  </data>
+  <data name="keywordText.Incubationtemperature" xml:space="preserve">
+    <value>Incubation plate temperature</value>
+  </data>
+  <data name="keywordText.InitExcetion" xml:space="preserve">
+    <value>Upper and lower handshake failed！</value>
+  </data>
+  <data name="keywordText.IPErrorMesage" xml:space="preserve">
+    <value>The LIS communication IP address is incorrect</value>
+  </data>
+  <data name="keywordText.Lefttests" xml:space="preserve">
+    <value>The remaining number of reagents in the project is</value>
+  </data>
+  <data name="keywordText.LisSelect" xml:space="preserve">
+    <value>Lis connection method is empty</value>
+  </data>
+  <data name="keywordText.LowCoolPlate1" xml:space="preserve">
+    <value>The current of cooling plate I is too low!</value>
+  </data>
+  <data name="keywordText.LowCoolPlate11" xml:space="preserve">
+    <value>The darkroom value is too low, the value is:</value>
+  </data>
+  <data name="keywordText.LowCoolPlate2" xml:space="preserve">
+    <value>The current of cooling plate II is too low!</value>
+  </data>
+  <data name="keywordText.Lowtips" xml:space="preserve">
+    <value>The darkroom value is too low!</value>
+  </data>
+  <data name="keywordText.NetConn" xml:space="preserve">
+    <value>Communication connection</value>
+  </data>
+  <data name="keywordText.NotRead" xml:space="preserve">
+    <value>unread</value>
+  </data>
+  <data name="keywordText.NotRun" xml:space="preserve">
+    <value>The experiment is not running, please do not pause!</value>
+  </data>
+  <data name="keywordText.Notstandardtemperature" xml:space="preserve">
+    <value>Not up to standard</value>
+  </data>
+  <data name="keywordText.NullBaud" xml:space="preserve">
+    <value>Baud rate cannot be empty</value>
+  </data>
+  <data name="keywordText.NullPort" xml:space="preserve">
+    <value>The port number cannot be empty</value>
+  </data>
+  <data name="keywordText.Paused" xml:space="preserve">
+    <value>The experiment is suspended!</value>
+  </data>
+  <data name="keywordText.Pipeline" xml:space="preserve">
+    <value>Clean pipeline</value>
+  </data>
+  <data name="keywordText.Pipelinetemperature" xml:space="preserve">
+    <value>Temperature of cleaning pipeline</value>
+  </data>
+  <data name="keywordText.Probeempty" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="keywordText.Probefluidempty" xml:space="preserve">
+    <value>Probe cleaning solution is empty</value>
+  </data>
+  <data name="keywordText.Probenormal" xml:space="preserve">
+    <value>Probe cleaning solution is normal</value>
+  </data>
+  <data name="keywordText.RefrigerationAlarm" xml:space="preserve">
+    <value>Refrigeration alarm:</value>
+  </data>
+  <data name="keywordText.RefrigerationNotOn" xml:space="preserve">
+    <value>Refrigeration not on</value>
+  </data>
+  <data name="keywordText.Samplefailed" xml:space="preserve">
+    <value>Add prototype module handshake failed!</value>
+  </data>
+  <data name="keywordText.SerialConn" xml:space="preserve">
+    <value>Serial communication</value>
+  </data>
+  <data name="keywordText.SerialConnSet" xml:space="preserve">
+    <value>Serial communication settings</value>
+  </data>
+  <data name="keywordText.SlowSpeeds" xml:space="preserve">
+    <value>The speed of refrigeration pump is too slow (blocked)!</value>
+  </data>
+  <data name="keywordText.Standardtemperature" xml:space="preserve">
+    <value>The temperature has reached the operating standard</value>
+  </data>
+  <data name="keywordText.Stopexperiment" xml:space="preserve">
+    <value>Stopping the experiment will invalidate this experiment, confirm whether you want to stop this experiment!</value>
+  </data>
+  <data name="keywordText.Substrate" xml:space="preserve">
+    <value>Substrate</value>
+  </data>
+  <data name="keywordText.Substratesurplus" xml:space="preserve">
+    <value>Substrate remaining test is</value>
+  </data>
+  <data name="keywordText.Substratetemperature" xml:space="preserve">
+    <value>Ambient temperature of substrate</value>
+  </data>
+  <data name="keywordText.temperatureButton.ToolTip" xml:space="preserve">
+    <value>Temperature query</value>
+  </data>
+  <data name="keywordText.Temperaturesign" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="keywordText.Temperaturewarning" xml:space="preserve">
+    <value>Temperature warning</value>
+  </data>
+  <data name="keywordText.TemporaryDiskStuckTube" xml:space="preserve">
+    <value>Temporary storage disk card</value>
+  </data>
+  <data name="keywordText.Temporarystorage" xml:space="preserve">
+    <value>Temporary storage location has control</value>
+  </data>
+  <data name="keywordText.Temporarystorageempty" xml:space="preserve">
+    <value>Temporary disk location is missing</value>
+  </data>
+  <data name="keywordText.Tips" xml:space="preserve">
+    <value>Tips</value>
+  </data>
+  <data name="keywordText.Unableconnect" xml:space="preserve">
+    <value>Cannot connect to the instrument!</value>
+  </data>
+  <data name="keywordText.Warning" xml:space="preserve">
+    <value>warning</value>
+  </data>
+  <data name="keywordText.Warning1" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="keywordText.Wastefull" xml:space="preserve">
+    <value>Waste liquid tank full</value>
+  </data>
+  <data name="keywordText.Wastenormal" xml:space="preserve">
+    <value>Waste liquid bucket is normal</value>
+  </data>
+  <data name="keywordText.Wastepipe" xml:space="preserve">
+    <value>Waste tube box is full</value>
+  </data>
+  <data name="keywordText.Wastepipenormal" xml:space="preserve">
+    <value>The waste tube box is normal</value>
+  </data>
+  <data name="keywordText.Wastetubefull" xml:space="preserve">
+    <value>Waste tube box is full</value>
+  </data>
 </root>
