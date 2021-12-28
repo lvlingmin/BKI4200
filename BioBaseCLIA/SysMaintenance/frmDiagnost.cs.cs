@@ -9553,7 +9553,7 @@ namespace BioBaseCLIA.SysMaintenance
             //清洗注液测试
             else if (testIndex == 4)
             {
-                int needPos = InjectionNum * 4;//一组需要4个孔位
+                int needPos = InjectionNum * 3;//一组需要4个孔位
                 DialogResult r = MessageBox.Show("确认反应盘1-" + needPos + "号位置是否已添加反应管，点击确定马上开始测试。", "仪器调试", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (r == DialogResult.Cancel)
                 {
@@ -9670,7 +9670,7 @@ namespace BioBaseCLIA.SysMaintenance
                 //for循环，温育盘-》清洗盘（旋转），注液，清洗盘=》温育盘
                 for (int i = 0; i < InjectionNum; i++)
                 {
-                    int actPos = 4 * i + 1;//1 5 9
+                    int actPos = 3 * i + 1;//1 5 9
                     int second = 0;
 
                     actPos += 2;

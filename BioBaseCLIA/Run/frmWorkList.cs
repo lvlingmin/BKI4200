@@ -8367,7 +8367,7 @@ namespace BioBaseCLIA.Run
                 //thread = new Thread(new ThreadStart(() => { MessageBox.Show("编号为:" + TestnameTemp + " 的实验因为发生故障，无法继续，已经排除，请在稍后重新运行此实验", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
                 thread = new Thread(new ThreadStart(() => { MessageBox.Show(getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Information); }));
             }
-            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest") + getString("keywordText.abandonedtReason") + endReason + ";" + getString("keywordText.Pos") + testSchedule.AddSamplePos);
+            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest") + getString("keywordText.abandonedtReason") + endReason + ";"+getString("keywordText.Pos") + testSchedule.samplePos);// + 
             if (thread != null)
             {
                 thread.IsBackground = true;
@@ -9668,8 +9668,9 @@ namespace BioBaseCLIA.Run
             double PMT = double.Parse(System.Convert.ToInt32("0x" + readData, 16).ToString());
             PMT = GetPMT(PMT);
             int pmt = (int)PMT;
-            LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "实验" + testid + "读数发光值为:" + pmt));
-            CalculatResult(testid, pmt);
+            int NewPMT = (int)((double)pmt * double.Parse(Coefficient));
+            LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "实验" + testid + "读数发光值为:" + pmt+",通过校准系数校准后的读数发光值为："+ NewPMT));
+            CalculatResult(testid, NewPMT);
         }
         /// <summary>
         /// 反应管完成结果计算
@@ -9679,6 +9680,7 @@ namespace BioBaseCLIA.Run
         void CalculatResult(int testid, int pmt)
         {
             #region 当前项目的所有样本完成时更新样本状态
+            if (dgvWorkListData.Rows.Count == 0) return;
             TestItem ti = new TestItem();
             ti.ItemName = dgvWorkListData.Rows[testid - 1].Cells["ItemName"].Value.ToString();
             ti.RegentBatch = dgvWorkListData.Rows[testid - 1].Cells["RegentBatch"].Value.ToString();
@@ -10376,6 +10378,7 @@ namespace BioBaseCLIA.Run
                         List<TestResult> SScalingResult = new List<TestResult>();
                         foreach (TestResult tr in ScalingResult)
                         {
+                            //tr.PMT = (int)((double)tr.PMT * double.Parse(Coefficient));
                             SScalingResult.Add(tr);
                         }
                         f.SaveStandardResult(ScalingResult);
@@ -10518,7 +10521,7 @@ namespace BioBaseCLIA.Run
                 modelQCResult.ConcSPEC = "";
                 modelQCResult.ItemName = result.ItemName;
                 modelQCResult.PMTCounter = result.PMT;
-                modelQCResult.PMTCounter = (int)((double)result.PMT * double.Parse(Coefficient));
+                //modelQCResult.PMTCounter = (int)((double)result.PMT * double.Parse(Coefficient));
                 modelQCResult.QCID = int.Parse(dtQCInfo.Rows[0][0].ToString());
                 modelQCResult.Source = 0;
                 modelQCResult.TestDate = DateTime.Now;
@@ -10546,7 +10549,7 @@ namespace BioBaseCLIA.Run
                 modelAssayResult.DiluteCount = result.DiluteCount;
                 modelAssayResult.ItemName = result.ItemName;
                 modelAssayResult.PMTCounter = result.PMT;
-                modelAssayResult.PMTCounter = (int)((double)result.PMT * double.Parse(Coefficient));
+                //modelAssayResult.PMTCounter = (int)((double)result.PMT * double.Parse(Coefficient));
                 modelAssayResult.Range = result.Range1 + " " + result.Range2;
                 modelAssayResult.Result = result.Result;
                 modelAssayResult.Specification = "";
