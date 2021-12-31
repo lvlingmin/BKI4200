@@ -8367,7 +8367,7 @@ namespace BioBaseCLIA.Run
                 //thread = new Thread(new ThreadStart(() => { MessageBox.Show("编号为:" + TestnameTemp + " 的实验因为发生故障，无法继续，已经排除，请在稍后重新运行此实验", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
                 thread = new Thread(new ThreadStart(() => { MessageBox.Show(getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Information); }));
             }
-            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest") + getString("keywordText.abandonedtReason") + endReason + ";"+getString("keywordText.Pos") + testSchedule.samplePos);// + 
+            LogFileAlarm.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + " *** " + getString("keywordText.Error") + " *** " + getString("keywordText.Notread") + " *** " + getString("keywordText.TestId") + TestnameTemp + getString("keywordText.abandonedtTest") + getString("keywordText.abandonedtReason") + endReason + ";"+getString("keywordText.Pos") + testSchedule.AddSamplePos);// + 
             if (thread != null)
             {
                 thread.IsBackground = true;

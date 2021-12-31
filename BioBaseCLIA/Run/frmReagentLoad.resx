@@ -2310,7 +2310,7 @@
     <value>False</value>
   </data>
   <data name="keywordText.LoadBreak" xml:space="preserve">
-    <value>装载中断！\n</value>
+    <value>装载完成！\n</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>试剂图例</value>
