@@ -1158,7 +1158,7 @@
     <value>The remaining measurements are empty. Please re-enter！</value>
   </data>
   <data name="keywordText.LoadBreak" xml:space="preserve">
-    <value>Load interrupt！\n</value>
+    <value>Load Complete！\n</value>
   </data>
   <data name="keywordText.LoadSuccess" xml:space="preserve">
     <value>Successful loading!</value>
