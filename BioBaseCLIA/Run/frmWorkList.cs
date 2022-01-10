@@ -3923,24 +3923,30 @@ namespace BioBaseCLIA.Run
             foreach (TestItem item in QCList)
             {
                 string QCLevel;
+                string QcBatch = item.RegentBatch;
                 if (item.SampleType == getString("keywordText.ControlHigh"))
                 {
                     QCLevel = "0";
+                    QcBatch = QcBatch + "-H";
                 }
                 else if (item.SampleType == getString("keywordText.ControlMiddle"))
                 {
                     QCLevel = "1";
+                    QcBatch = QcBatch + "-M";
                 }
                 else
                 {
                     QCLevel = "2";
+                    QcBatch = QcBatch + "-L";
                 }
                 DbHelperOleDb db = new DbHelperOleDb(3);
                 DataTable dtQCInfo = DbHelperOleDb.Query(3, @"select QCID,Batch,QCLevel from tbQC where status = '1' and ProjectName = '"
-                                                            + item.ItemName + "'and QCLevel = '" + QCLevel + "' and Status = '1'").Tables[0];
+                                                            + item.ItemName + "'and QCLevel = '" + QCLevel + "' and Batch = '" +
+                                                             QcBatch + "' and Status = '1'").Tables[0];
                 if (dtQCInfo == null || dtQCInfo.Rows.Count == 0)
                 {
-                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.ProjectName") + item.ItemName + "," + getString("keywordText.controltype") + item.SampleType + getString("keywordText.controlInfo"));
+                    //frmMsgShow.MessageShow(getString("btnWorkList.Text"), getString("keywordText.ProjectName") + item.ItemName + "," + getString("keywordText.controltype") + item.SampleType + getString("keywordText.controlInfo"));
+                    frmMsgShow.MessageShow(getString("btnWorkList.Text"), string.Format(getString("keywordText.NocontrolInfo"),item.ItemName, QcBatch, item.SampleType));
                     return false;
                 }
             }
@@ -10485,27 +10491,32 @@ namespace BioBaseCLIA.Run
             if (result.SampleType.Contains(getString("keywordText.Control")))
             {
                 string QCLevel;
+                string QcBatch = result.ReagentBeach;
                 if (result.SampleType == getString("keywordText.ControlHigh"))
                 {
                     QCLevel = "0";
+                    QcBatch = QcBatch + "-H";
                 }
                 else if (result.SampleType == getString("keywordText.ControlMiddle"))
                 {
                     QCLevel = "1";
+                    QcBatch = QcBatch + "-M";
                 }
                 else
                 {
                     QCLevel = "2";
+                    QcBatch = QcBatch + "-L";
                 }
                 DbHelperOleDb db = new DbHelperOleDb(3);
                 DataTable dtQCInfo = DbHelperOleDb.Query(3, @"select QCID,Batch,QCLevel from tbQC where status = '1' and ProjectName = '"
-                                                            + result.ItemName + "'and QCLevel = '" + QCLevel + "' and Status = '1'").Tables[0];
+                                                            + result.ItemName + "'and QCLevel = '" + QCLevel + "' and Batch = '" + QcBatch + "' and Status = '1'").Tables[0];
                 if (dtQCInfo == null || dtQCInfo.Rows.Count == 0)
                 {
                     //frmMsgShow.MessageShow("实验结果", "查找不到相关质控的信息！");
                     return;
                 }
                 modelQCResult.Batch = dtQCInfo.Rows[0][1].ToString();
+                modelQCResult.Batch = QcBatch;
                 if (result.concentration == "")
                 {
                     modelQCResult.Concentration = 0;

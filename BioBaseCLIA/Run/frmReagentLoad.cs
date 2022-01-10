@@ -3013,7 +3013,7 @@ namespace BioBaseCLIA.Run
                     rule += i.ToString();
                 }
             }
-            string validTime = year2 + "/" + month2 + "/" + day2;
+            //string validTime = year2 + "/" + month2 + "/" + day2;
             //录入者
             mQC.Batch = qcBatch;
             mQC.QCNumber = "No Use";//无用
@@ -3023,8 +3023,8 @@ namespace BioBaseCLIA.Run
             mQC.XValue = qcX;
             mQC.ProjectName = itemName;
             mQC.OperatorName = LoginUserName;
-            mQC.AddDate = DateTime.Now.ToLongDateString().Trim();
-            mQC.ValidDate = Convert.ToDateTime(validTime).AddMonths(14).AddDays(-1).ToLongDateString().Trim();//DateTime.Now.AddDays(28).ToLongDateString().Trim();
+            mQC.AddDate = DateTime.Now.ToString("yyyy-MM-dd");
+            mQC.ValidDate = dateValidDate.Value.ToString("yyyy-MM-dd");//DateTime.Now.AddDays(28).ToLongDateString().Trim();
             mQC.QCRules = rule;
             #endregion
             #region QC-DB                
@@ -3463,7 +3463,7 @@ namespace BioBaseCLIA.Run
             if (RgType == (int)ReagentType.ready)
                 return false;
 
-            DataTable dtable = bllRg.GetList("BarCode='" + txtRgBatch.Text + "'").Tables[0];
+            DataTable dtable = bllRg.GetList("BarCode='" + txtRgCode.Text + "'").Tables[0];
             if (loadItem.Substring(1, 1) == "1" && dtable.Rows.Count <= 0 && RgType == (int)ReagentType.reagent)//首次装载
             {
                 //pro

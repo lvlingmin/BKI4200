@@ -1419,4 +1419,7 @@
   <data name="keywordText.SubLessNoAddS" xml:space="preserve">
     <value>The number of substrates tested is not enough for this experiment, so no more samples can be added!</value>
   </data>
+  <data name="keywordText.NocontrolInfo" xml:space="preserve">
+    <value>The project name is {0}, the quality control batch number is {1}, and the quality control category is {2} quality control information!</value>
+  </data>
 </root>
