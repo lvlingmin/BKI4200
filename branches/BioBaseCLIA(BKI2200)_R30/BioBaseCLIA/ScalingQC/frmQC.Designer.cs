@@ -35,6 +35,7 @@
             this.tabControlMy1 = new BioBaseCLIA.CustomControl.TabControlMy();
             this.tabQCManage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbBatch = new System.Windows.Forms.ComboBox();
             this.txtXValue = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.cmbProName = new System.Windows.Forms.ComboBox();
             this.dtpValidity = new System.Windows.Forms.DateTimePicker();
@@ -59,7 +60,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtSD = new BioBaseCLIA.CustomControl.userNumTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtBatch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvQCInfo = new System.Windows.Forms.DataGridView();
             this.QCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -147,24 +147,24 @@
             // 
             // tabControlMy1
             // 
-            resources.ApplyResources(this.tabControlMy1, "tabControlMy1");
             this.tabControlMy1.Controls.Add(this.tabQCManage);
             this.tabControlMy1.Controls.Add(this.tabQCCurve);
+            resources.ApplyResources(this.tabControlMy1, "tabControlMy1");
             this.tabControlMy1.Name = "tabControlMy1";
             this.tabControlMy1.SelectedIndex = 0;
             this.tabControlMy1.SelectedIndexChanged += new System.EventHandler(this.tabControlMy1_SelectedIndexChanged);
             // 
             // tabQCManage
             // 
-            resources.ApplyResources(this.tabQCManage, "tabQCManage");
             this.tabQCManage.BackColor = System.Drawing.Color.LightBlue;
             this.tabQCManage.Controls.Add(this.groupBox1);
             this.tabQCManage.Controls.Add(this.dgvQCInfo);
+            resources.ApplyResources(this.tabQCManage, "tabQCManage");
             this.tabQCManage.Name = "tabQCManage";
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.cmbBatch);
             this.groupBox1.Controls.Add(this.txtXValue);
             this.groupBox1.Controls.Add(this.cmbProName);
             this.groupBox1.Controls.Add(this.dtpValidity);
@@ -184,16 +184,24 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtSD);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtBatch);
             this.groupBox1.Controls.Add(this.label2);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // cmbBatch
+            // 
+            this.cmbBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBatch.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbBatch, "cmbBatch");
+            this.cmbBatch.Name = "cmbBatch";
+            this.cmbBatch.SelectedIndexChanged += new System.EventHandler(this.cmbBatch_SelectedIndexChanged);
+            // 
             // txtXValue
             // 
-            resources.ApplyResources(this.txtXValue, "txtXValue");
             this.txtXValue.IsDecimal = true;
             this.txtXValue.IsNull = false;
+            resources.ApplyResources(this.txtXValue, "txtXValue");
             this.txtXValue.MaxValue = new decimal(new int[] {
             10000000,
             0,
@@ -208,38 +216,41 @@
             // 
             // cmbProName
             // 
-            resources.ApplyResources(this.cmbProName, "cmbProName");
             this.cmbProName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProName.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbProName, "cmbProName");
             this.cmbProName.Name = "cmbProName";
+            this.cmbProName.SelectedIndexChanged += new System.EventHandler(this.cmbProName_SelectedIndexChanged);
             // 
             // dtpValidity
             // 
-            resources.ApplyResources(this.dtpValidity, "dtpValidity");
             this.dtpValidity.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.dtpValidity, "dtpValidity");
             this.dtpValidity.Name = "dtpValidity";
+            this.dtpValidity.ValueChanged += new System.EventHandler(this.dtpValidity_ValueChanged);
             // 
             // dtpAddDate
             // 
-            resources.ApplyResources(this.dtpAddDate, "dtpAddDate");
             this.dtpAddDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.dtpAddDate, "dtpAddDate");
             this.dtpAddDate.Name = "dtpAddDate";
             // 
             // cmbBype
             // 
-            resources.ApplyResources(this.cmbBype, "cmbBype");
             this.cmbBype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBype.FormattingEnabled = true;
             this.cmbBype.Items.AddRange(new object[] {
             resources.GetString("cmbBype.Items"),
             resources.GetString("cmbBype.Items1"),
             resources.GetString("cmbBype.Items2")});
+            resources.ApplyResources(this.cmbBype, "cmbBype");
             this.cmbBype.Name = "cmbBype";
+            this.cmbBype.SelectedIndexChanged += new System.EventHandler(this.cmbProName_SelectedIndexChanged);
             // 
             // btnSaveQC
             // 
-            resources.ApplyResources(this.btnSaveQC, "btnSaveQC");
             this.btnSaveQC.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnSaveQC, "btnSaveQC");
             this.btnSaveQC.EnabledSet = true;
             this.btnSaveQC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnSaveQC.FlatAppearance.BorderSize = 0;
@@ -251,8 +262,8 @@
             // 
             // btnDeleteQC
             // 
-            resources.ApplyResources(this.btnDeleteQC, "btnDeleteQC");
             this.btnDeleteQC.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnDeleteQC, "btnDeleteQC");
             this.btnDeleteQC.EnabledSet = true;
             this.btnDeleteQC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDeleteQC.FlatAppearance.BorderSize = 0;
@@ -264,8 +275,8 @@
             // 
             // btnModifyQC
             // 
-            resources.ApplyResources(this.btnModifyQC, "btnModifyQC");
             this.btnModifyQC.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnModifyQC, "btnModifyQC");
             this.btnModifyQC.EnabledSet = true;
             this.btnModifyQC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnModifyQC.FlatAppearance.BorderSize = 0;
@@ -277,8 +288,8 @@
             // 
             // btnAddQC
             // 
-            resources.ApplyResources(this.btnAddQC, "btnAddQC");
             this.btnAddQC.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.btnAddQC, "btnAddQC");
             this.btnAddQC.EnabledSet = true;
             this.btnAddQC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAddQC.FlatAppearance.BorderSize = 0;
@@ -290,12 +301,12 @@
             // 
             // groupBox2
             // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.chk41s);
             this.groupBox2.Controls.Add(this.chk10x);
             this.groupBox2.Controls.Add(this.chk22s);
             this.groupBox2.Controls.Add(this.chk13s);
             this.groupBox2.Controls.Add(this.chk12s);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -366,9 +377,9 @@
             // 
             // txtSD
             // 
-            resources.ApplyResources(this.txtSD, "txtSD");
             this.txtSD.IsDecimal = true;
             this.txtSD.IsNull = false;
+            resources.ApplyResources(this.txtSD, "txtSD");
             this.txtSD.MaxValue = new decimal(new int[] {
             10000,
             0,
@@ -386,11 +397,6 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // txtBatch
-            // 
-            resources.ApplyResources(this.txtBatch, "txtBatch");
-            this.txtBatch.Name = "txtBatch";
-            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
@@ -398,7 +404,6 @@
             // 
             // dgvQCInfo
             // 
-            resources.ApplyResources(this.dgvQCInfo, "dgvQCInfo");
             this.dgvQCInfo.AllowUserToAddRows = false;
             this.dgvQCInfo.AllowUserToDeleteRows = false;
             this.dgvQCInfo.AllowUserToResizeRows = false;
@@ -416,6 +421,7 @@
             this.ValidDate,
             this.OperatorName,
             this.AddDate});
+            resources.ApplyResources(this.dgvQCInfo, "dgvQCInfo");
             this.dgvQCInfo.Name = "dgvQCInfo";
             this.dgvQCInfo.ReadOnly = true;
             this.dgvQCInfo.RowHeadersVisible = false;
@@ -535,7 +541,6 @@
             // 
             // tabQCCurve
             // 
-            resources.ApplyResources(this.tabQCCurve, "tabQCCurve");
             this.tabQCCurve.BackColor = System.Drawing.Color.LightBlue;
             this.tabQCCurve.Controls.Add(this.rtxtLoseControl);
             this.tabQCCurve.Controls.Add(this.label15);
@@ -543,6 +548,7 @@
             this.tabQCCurve.Controls.Add(this.groupBox4);
             this.tabQCCurve.Controls.Add(this.groupBox3);
             this.tabQCCurve.Controls.Add(this.groupBox6);
+            resources.ApplyResources(this.tabQCCurve, "tabQCCurve");
             this.tabQCCurve.Name = "tabQCCurve";
             // 
             // rtxtLoseControl
@@ -558,14 +564,13 @@
             // 
             // groupBox5
             // 
-            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Controls.Add(this.dgvQCValue);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
             // dgvQCValue
             // 
-            resources.ApplyResources(this.dgvQCValue, "dgvQCValue");
             this.dgvQCValue.AllowUserToAddRows = false;
             this.dgvQCValue.BackgroundColor = System.Drawing.Color.White;
             this.dgvQCValue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -573,6 +578,7 @@
             this.QCResultID,
             this.Concentration,
             this.TestDate});
+            resources.ApplyResources(this.dgvQCValue, "dgvQCValue");
             this.dgvQCValue.Name = "dgvQCValue";
             this.dgvQCValue.ReadOnly = true;
             this.dgvQCValue.RowHeadersVisible = false;
@@ -606,47 +612,47 @@
             // 
             // groupBox4
             // 
-            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Controls.Add(this.tabControl1);
             this.groupBox4.Controls.Add(this.rbtnRelativeQC);
             this.groupBox4.Controls.Add(this.chbVis);
             this.groupBox4.Controls.Add(this.rbtnStandardQC);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
             // tabControl1
             // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.dpnlQCcurve);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dpnlQCcurve
             // 
-            resources.ApplyResources(this.dpnlQCcurve, "dpnlQCcurve");
             this.dpnlQCcurve.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.dpnlQCcurve, "dpnlQCcurve");
             this.dpnlQCcurve.Name = "dpnlQCcurve";
             // 
             // tabPage2
             // 
-            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Controls.Add(this.dpnlQCcurveDay);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dpnlQCcurveDay
             // 
-            resources.ApplyResources(this.dpnlQCcurveDay, "dpnlQCcurveDay");
             this.dpnlQCcurveDay.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.dpnlQCcurveDay, "dpnlQCcurveDay");
             this.dpnlQCcurveDay.Name = "dpnlQCcurveDay";
             // 
             // rbtnRelativeQC
@@ -674,7 +680,6 @@
             // 
             // groupBox3
             // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.fbtnDelete);
             this.groupBox3.Controls.Add(this.fbtnModify);
             this.groupBox3.Controls.Add(this.txtQCNewValue);
@@ -684,13 +689,14 @@
             this.groupBox3.Controls.Add(this.lbQCValue);
             this.groupBox3.Controls.Add(this.dtpQCTime);
             this.groupBox3.Controls.Add(this.lbQCTime);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
             // fbtnDelete
             // 
-            resources.ApplyResources(this.fbtnDelete, "fbtnDelete");
             this.fbtnDelete.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnDelete, "fbtnDelete");
             this.fbtnDelete.EnabledSet = true;
             this.fbtnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnDelete.FlatAppearance.BorderSize = 0;
@@ -702,8 +708,8 @@
             // 
             // fbtnModify
             // 
-            resources.ApplyResources(this.fbtnModify, "fbtnModify");
             this.fbtnModify.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnModify, "fbtnModify");
             this.fbtnModify.EnabledSet = true;
             this.fbtnModify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnModify.FlatAppearance.BorderSize = 0;
@@ -715,10 +721,10 @@
             // 
             // txtQCNewValue
             // 
-            resources.ApplyResources(this.txtQCNewValue, "txtQCNewValue");
             this.txtQCNewValue.BackColor = System.Drawing.Color.White;
             this.txtQCNewValue.IsDecimal = true;
             this.txtQCNewValue.IsNull = false;
+            resources.ApplyResources(this.txtQCNewValue, "txtQCNewValue");
             this.txtQCNewValue.MaxValue = new decimal(new int[] {
             10000000,
             0,
@@ -734,8 +740,8 @@
             // 
             // fbtnAdd
             // 
-            resources.ApplyResources(this.fbtnAdd, "fbtnAdd");
             this.fbtnAdd.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnAdd, "fbtnAdd");
             this.fbtnAdd.EnabledSet = true;
             this.fbtnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnAdd.FlatAppearance.BorderSize = 0;
@@ -747,10 +753,10 @@
             // 
             // txtQCValue
             // 
-            resources.ApplyResources(this.txtQCValue, "txtQCValue");
             this.txtQCValue.BackColor = System.Drawing.Color.White;
             this.txtQCValue.IsDecimal = true;
             this.txtQCValue.IsNull = false;
+            resources.ApplyResources(this.txtQCValue, "txtQCValue");
             this.txtQCValue.MaxValue = new decimal(new int[] {
             10000000,
             0,
@@ -787,7 +793,6 @@
             // 
             // groupBox6
             // 
-            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Controls.Add(this.functionButton1);
             this.groupBox6.Controls.Add(this.fbtnPrint);
             this.groupBox6.Controls.Add(this.cmbQClevel);
@@ -804,13 +809,14 @@
             this.groupBox6.Controls.Add(this.label13);
             this.groupBox6.Controls.Add(this.cmbItem);
             this.groupBox6.Controls.Add(this.label14);
+            resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
             // functionButton1
             // 
-            resources.ApplyResources(this.functionButton1, "functionButton1");
             this.functionButton1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.functionButton1, "functionButton1");
             this.functionButton1.EnabledSet = true;
             this.functionButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.functionButton1.FlatAppearance.BorderSize = 0;
@@ -822,8 +828,8 @@
             // 
             // fbtnPrint
             // 
-            resources.ApplyResources(this.fbtnPrint, "fbtnPrint");
             this.fbtnPrint.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnPrint, "fbtnPrint");
             this.fbtnPrint.EnabledSet = true;
             this.fbtnPrint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnPrint.FlatAppearance.BorderSize = 0;
@@ -835,9 +841,9 @@
             // 
             // cmbQClevel
             // 
-            resources.ApplyResources(this.cmbQClevel, "cmbQClevel");
             this.cmbQClevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbQClevel.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbQClevel, "cmbQClevel");
             this.cmbQClevel.Name = "cmbQClevel";
             this.cmbQClevel.SelectedIndexChanged += new System.EventHandler(this.cmbQClevel_SelectedIndexChanged);
             // 
@@ -854,10 +860,10 @@
             // 
             // textSDc
             // 
-            resources.ApplyResources(this.textSDc, "textSDc");
             this.textSDc.BackColor = System.Drawing.Color.White;
             this.textSDc.IsDecimal = true;
             this.textSDc.IsNull = false;
+            resources.ApplyResources(this.textSDc, "textSDc");
             this.textSDc.MaxValue = new decimal(new int[] {
             10000,
             0,
@@ -880,10 +886,10 @@
             // 
             // txtMean
             // 
-            resources.ApplyResources(this.txtMean, "txtMean");
             this.txtMean.BackColor = System.Drawing.Color.White;
             this.txtMean.IsDecimal = true;
             this.txtMean.IsNull = false;
+            resources.ApplyResources(this.txtMean, "txtMean");
             this.txtMean.MaxValue = new decimal(new int[] {
             10000000,
             0,
@@ -919,9 +925,9 @@
             // 
             // cmbQCBatch
             // 
-            resources.ApplyResources(this.cmbQCBatch, "cmbQCBatch");
             this.cmbQCBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbQCBatch.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbQCBatch, "cmbQCBatch");
             this.cmbQCBatch.Name = "cmbQCBatch";
             this.cmbQCBatch.SelectedIndexChanged += new System.EventHandler(this.cmbQCBatch_SelectedIndexChanged);
             // 
@@ -932,9 +938,9 @@
             // 
             // cmbItem
             // 
-            resources.ApplyResources(this.cmbItem, "cmbItem");
             this.cmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItem.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbItem, "cmbItem");
             this.cmbItem.Name = "cmbItem";
             this.cmbItem.SelectedIndexChanged += new System.EventHandler(this.cmbItem_SelectedIndexChanged);
             // 
@@ -945,16 +951,16 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.fbtnQCQuery);
             this.panel1.Controls.Add(this.fbtnReturn);
             this.panel1.Controls.Add(this.fbtnScalingQuery);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // fbtnQCQuery
             // 
-            resources.ApplyResources(this.fbtnQCQuery, "fbtnQCQuery");
             this.fbtnQCQuery.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnQCQuery, "fbtnQCQuery");
             this.fbtnQCQuery.EnabledSet = true;
             this.fbtnQCQuery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnQCQuery.FlatAppearance.BorderSize = 0;
@@ -965,8 +971,8 @@
             // 
             // fbtnReturn
             // 
-            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnReturn, "fbtnReturn");
             this.fbtnReturn.EnabledSet = true;
             this.fbtnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnReturn.FlatAppearance.BorderSize = 0;
@@ -978,8 +984,8 @@
             // 
             // fbtnScalingQuery
             // 
-            resources.ApplyResources(this.fbtnScalingQuery, "fbtnScalingQuery");
             this.fbtnScalingQuery.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.fbtnScalingQuery, "fbtnScalingQuery");
             this.fbtnScalingQuery.EnabledSet = true;
             this.fbtnScalingQuery.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.fbtnScalingQuery.FlatAppearance.BorderSize = 0;
@@ -1062,7 +1068,6 @@
         private System.Windows.Forms.Label label4;
         private BioBaseCLIA.CustomControl.userNumTextBox txtSD;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtBatch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvQCInfo;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1121,5 +1126,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn QCResultID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Concentration;
         private System.Windows.Forms.DataGridViewTextBoxColumn TestDate;
+        private System.Windows.Forms.ComboBox cmbBatch;
     }
 }

@@ -73,8 +73,7 @@ namespace BioBaseCLIA.ScalingQC
             SetControlStatus(false);
             dgvQCInfo.SelectionChanged -= dgvQCInfo_SelectionChanged;
             db = new DbHelperOleDb(3);
-            dtQI = bllQC.GetAllList().Tables[0];
-
+            dtQI = bllQC.GetList("Status='1'").Tables[0];
             for (int i = 0; i < dtQI.Rows.Count; i++)
             {
                 dtQI.Rows[i]["QCLevel"] = dtQI.Rows[i]["QCLevel"].ToString() == "0" ? getString("keywordText.High") : (dtQI.Rows[i]["QCLevel"].ToString() == "1" ? getString("keywordText.Middle") : getString("keywordText.Low"));
@@ -92,18 +91,45 @@ namespace BioBaseCLIA.ScalingQC
             rbtnStandardQC.Checked = true;
             #endregion
             #region 查询并显示所有的项目名称
-            db = new DbHelperOleDb(0);
-            DataTable dtItemName = DbHelperOleDb.Query(0,@"select * from tbProject").Tables[0];
-            if (dtItemName.Rows.Count == 0)
+            //db = new DbHelperOleDb(0);
+            //DataTable dtItemName = DbHelperOleDb.Query(0,@"select * from tbProject").Tables[0];
+            //if (dtItemName.Rows.Count == 0)
+            //{
+            //    return;
+            //}
+            //foreach (DataRow row in dtItemName.Rows)
+            //{
+            //    cmbItem.Items.Add(row["ShortName"].ToString());
+            //    cmbProName.Items.Add(row["ShortName"].ToString());
+            //}
+            if (frmParent.dtRgInfo.Rows.Count == 0)
             {
-                return;
+                db = new DbHelperOleDb(3);
+                var Rginfos = new BLL.tbReagent().GetAllList().Tables[0].Select("Postion<>''");
+                foreach (DataRow dr in Rginfos)
+                {
+                    DataRow drRg =  dtRgInfo.NewRow();
+                    drRg["Postion"] = dr["Postion"];
+                    drRg["RgName"] = dr["ReagentName"];
+                    drRg["AllTestNumber"] = dr["AllTestNumber"];
+                    drRg["leftoverTestR1"] = dr["leftoverTestR1"];
+                    drRg["leftoverTestR2"] = dr["leftoverTestR2"];
+                    drRg["leftoverTestR3"] = dr["leftoverTestR3"];
+                    drRg["leftoverTestR4"] = dr["leftoverTestR4"];
+                    drRg["BarCode"] = dr["BarCode"];
+                    drRg["Batch"] = dr["Batch"];
+                    drRg["ValidDate"] = dr["ValidDate"];//2018-08-18 zlx add
+                    dtRgInfo.Rows.Add(drRg);
+                }
             }
-            foreach (DataRow row in dtItemName.Rows)
+            foreach (DataRow row in frmParent.dtRgInfo.Rows)
             {
-                cmbItem.Items.Add(row["ShortName"].ToString());
-                cmbProName.Items.Add(row["ShortName"].ToString());
+                if (cmbItem.Items.Contains(row["RgName"]))
+                    continue;
+                cmbItem.Items.Add(row["RgName"].ToString());
+                cmbProName.Items.Add(row["RgName"].ToString());
             }
-            #endregion            
+            #endregion
             #endregion
             fbtnAdd.Visible = true;
             cmbBype.DataSource = new string[3] { getString("keywordText.High"), getString("keywordText.Middle"), getString("keywordText.Low") };
@@ -115,7 +141,7 @@ namespace BioBaseCLIA.ScalingQC
         /// <param name="status">true or false</param>
         private void SetControlStatus(bool status)
         {
-            txtBatch.Enabled = cmbBype.Enabled = dtpAddDate.Enabled = txtOperator.Enabled =
+            cmbBatch.Enabled = cmbBype.Enabled = dtpAddDate.Enabled = txtOperator.Enabled =
                cmbProName.Enabled = txtSD.Enabled = txtXValue.Enabled = dtpValidity.Enabled =
                chk10x.Enabled = chk12s.Enabled = chk13s.Enabled = chk22s.Enabled = chk41s.Enabled = status;
             btnAddQC.Enabled = !status;
@@ -125,10 +151,9 @@ namespace BioBaseCLIA.ScalingQC
         }
         private void ClearControlContext()
         {
-            txtBatch.Text = cmbBype.Text = dtpAddDate.Text = txtOperator.Text =
+            cmbBatch.Text = cmbBype.Text = dtpAddDate.Text = txtOperator.Text =
                cmbProName.Text = txtSD.Text = txtXValue.Text = dtpValidity.Text = "";
             chk10x.Enabled = chk12s.Enabled = chk13s.Enabled = chk22s.Enabled = chk41s.Enabled = true;
-            txtBatch.Focus();
         }
         private void btnAddQC_Click(object sender, EventArgs e)
         {
@@ -152,17 +177,16 @@ namespace BioBaseCLIA.ScalingQC
             SetControlStatus(true);
             btnDeleteQC.Text = getString("keywordText.Cancel");
             btnDeleteQC.Enabled = true;
-            txtBatch.Enabled = cmbProName.Enabled = cmbBype.Enabled = dtpValidity.Enabled = dtpAddDate.Enabled = false;
+            cmbBatch.Enabled = cmbProName.Enabled = cmbBype.Enabled = dtpValidity.Enabled = dtpAddDate.Enabled = false;
             addOrModify = 2;
         }
 
         private void btnSaveQC_Click(object sender, EventArgs e)
         {
             DbHelperOleDb db = new DbHelperOleDb(3);
-            if (txtBatch.Text == "")
+            if (cmbBatch.SelectedItem == null)
             {
                 frmMsgShow.MessageShow(getString("keywordText.QcManagement"), getString("keywordText.InputBatch"));
-                txtBatch.Focus();
                 return;
             }
             if (txtXValue.Text == "")
@@ -198,7 +222,7 @@ namespace BioBaseCLIA.ScalingQC
 
             if (addOrModify == 1)//添加质控
             {
-                mQC.Batch = txtBatch.Text.Trim();
+                mQC.Batch = cmbBatch.SelectedItem.ToString();
                 mQC.QCNumber = "No Use";//无用
                 mQC.Status = "1";//无用
                 mQC.QCLevel = cmbBype.SelectedIndex.ToString();
@@ -246,6 +270,17 @@ namespace BioBaseCLIA.ScalingQC
                     rl = rl.Substring(1, rl.Length - 1);
                 }
                 mQC.QCRules = rl;
+                var QC =bllQC.GetModelList("Batch='" + mQC.Batch + "'and Status='1'");
+                if (QC != null && QC.Count !=0)
+                {
+                    DialogResult result = MessageBox.Show(getString("keywordText.SaveNewQC"), getString("keywordText.QcManagement"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (result == DialogResult.OK)
+                    {
+                        DbHelperOleDb.ExecuteSql(3, @"update tbQC set Status='0' where QCID="+ QC[0].QCID+ "");
+                    }
+                    else
+                        return;
+                }
                 if (bllQC.Add(mQC))
                 {
                     dgvQCInfo.SelectionChanged -= dgvQCInfo_SelectionChanged;
@@ -257,15 +292,16 @@ namespace BioBaseCLIA.ScalingQC
                     dgvQCInfo.DataSource = dtQI;
                     dgvQCInfo.SelectionChanged += dgvQCInfo_SelectionChanged;
                     int s = dgvQCInfo.SelectedRows[0].Index;
-                    ShowQCInfo(s + 1);
+                    //ShowQCInfo(s + 1);
                     frmMsgShow.MessageShow(getString("keywordText.QcManagement"), getString("keywordText.AddSuccess"));
+                    frmQC_Load(sender,e);
                 }
             }
             else if (addOrModify == 2)//修改质控
             {
 
                 mQC.QCID = int.Parse(dgvQCInfo.SelectedRows[0].Cells[0].Value.ToString());
-                mQC.Batch = txtBatch.Text.Trim();
+                mQC.Batch = cmbBatch.SelectedItem.ToString();
                 mQC.QCNumber = "No Use";//无用
                 mQC.Status = "1";//无用
                 mQC.QCLevel = cmbBype.SelectedIndex.ToString();
@@ -334,7 +370,11 @@ namespace BioBaseCLIA.ScalingQC
             if (btnDeleteQC.Text.Trim() == getString("keywordText.Delete"))
             {
                 if (dgvQCInfo.SelectedRows.Count < 1) return;
-
+                DialogResult result = MessageBox.Show(getString("keywordText.DeleteConfirm"), getString("keywordText.QcManagement"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (result != DialogResult.OK)
+                {
+                    return;
+                }
                 DbHelperOleDb db = new DbHelperOleDb(3);
                 if (bllQC.Delete(int.Parse(dgvQCInfo.SelectedRows[0].Cells[0].Value.ToString())))
                 {
@@ -370,7 +410,7 @@ namespace BioBaseCLIA.ScalingQC
             var dr = dtQI.Select("QCID=" + selectedID.ToString());
             if (dr.Length > 0)
             {
-                txtBatch.Text = dr[0]["Batch"].ToString();
+                cmbBatch.SelectedItem = dr[0]["Batch"].ToString();
                 cmbBype.SelectedIndex = int.Parse(dr[0]["QCLevel"].ToString() == getString("keywordText.High") ? "0" : (dr[0]["QCLevel"].ToString() == getString("keywordText.Middle") ? "1" : "2"));
                 cmbProName.Text = dr[0]["ProjectName"].ToString();
                 txtSD.Text = dr[0]["SD"].ToString();
@@ -1095,6 +1135,53 @@ namespace BioBaseCLIA.ScalingQC
         {
             ResourceManager resManager = new ResourceManager(typeof(frmQC));
             return resManager.GetString(key);
+        }
+
+        private void cmbProName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbProName.SelectedItem == null) return;
+            string RgName = cmbProName.SelectedItem.ToString();
+            DataRow[] rows = frmParent.dtRgInfo.Select("RgName = '" + RgName + "'");
+            if (rows.Length == 0)
+                return;
+            string QcBatch = "";
+            if (cmbBype.SelectedItem.ToString() == getString("keywordText.High"))
+            {
+                QcBatch = QcBatch + "-H";
+            }
+            else if (cmbBype.SelectedItem.ToString() == getString("keywordText.Middle"))
+            {
+                QcBatch = QcBatch + "-M";
+            }
+            else
+            {
+                QcBatch = QcBatch + "-L";
+            }
+            cmbBatch.Items.Clear();
+            foreach (DataRow row in rows)
+            {
+                string Batch = row["Batch"] + QcBatch;
+                if (cmbBatch.Items.Contains(Batch))
+                    continue;
+                cmbBatch.Items.Add(Batch);
+            }
+            cmbBatch.SelectedIndex = 0;
+        }
+
+        private void dtpValidity_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBatch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(addOrModify == 1)
+            {
+                string RgName = cmbProName.SelectedItem.ToString();
+                string RgBatch = cmbBatch.SelectedItem.ToString().Trim().Substring(0, cmbBatch.SelectedItem.ToString().Trim().Length - 2);
+                DataRow[] rows = frmParent.dtRgInfo.Select("RgName = '" + RgName + "' and Batch ='" + RgBatch + "'");
+                dtpValidity.Value = Convert.ToDateTime(rows[0]["ValidDate"].ToString());
+            }
         }
     }
 }

@@ -2102,4 +2102,7 @@
   <data name="keywordText.SubLessNoAddS" xml:space="preserve">
     <value>底物测数不够本次实验测试，不能再追加样本！</value>
   </data>
+  <data name="keywordText.NocontrolInfo" xml:space="preserve">
+    <value>未找到项目名称是 {0}，质控批号是 {1},质控类别是{2}的质控信息！</value>
+  </data>
 </root>

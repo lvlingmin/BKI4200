@@ -2166,6 +2166,7 @@ namespace BioBaseCLIA.Run
         }
         private void btnReturn_Click(object sender, EventArgs e)//this block modify y 20180426
         {
+            frmSampleLoad.SubstrateLeft = frmSampleLoad.SubstrateLeft - SubstrateCount;
             this.Close();
         }
 
