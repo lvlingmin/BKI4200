@@ -104,7 +104,7 @@ namespace BioBaseCLIA.SysMaintenance
             {
                 //fbtnInstruMaintenance.Enabled = false;
                 fbtnInstruDiagnost.Enabled = false;
-                fbtnGroupTest.Enabled = true;
+                fbtnGroupTest.Enabled = false;
             }
             else if (LoginUserType == "2") // normal 用户
             {
