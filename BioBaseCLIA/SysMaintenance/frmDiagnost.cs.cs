@@ -9427,14 +9427,14 @@ namespace BioBaseCLIA.SysMaintenance
                                     goto again;
                                 else
                                 {
-                                    MessageBox.Show("从温育怕向清洗盘移管异常，请重试");
+                                    MessageBox.Show("从温育盘向清洗盘移管异常，请重试");
                                     goto enzymaticActivityTestEnd;
                                 }
 
                             }
                             else
                             {
-                                MessageBox.Show("从温育怕向清洗盘移管异常，请重试");
+                                MessageBox.Show("从温育盘向清洗盘移管异常，请重试");
                                 goto enzymaticActivityTestEnd;
                             }
                         }
