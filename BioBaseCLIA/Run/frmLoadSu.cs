@@ -38,7 +38,8 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 无焦点获取扫码信息钩子
         /// </summary>
-        BarCodeHook barCodeHook = new BarCodeHook();
+        //BarCodeHook barCodeHook = new BarCodeHook();
+        ScanerHook barCodeHook = new ScanerHook();
         public frmLoadSu()
         {
             InitializeComponent();
@@ -87,7 +88,8 @@ namespace BioBaseCLIA.Run
 
             changeFlag = true;
 
-            barCodeHook.BarCodeEvent += new BarCodeHook.BarCodeDelegate(BarCode_BarCodeEvent);
+            //barCodeHook.BarCodeEvent += new BarCodeHook.BarCodeDelegate(BarCode_BarCodeEvent);
+            barCodeHook.BarCodeEvent += new ScanerHook.BarCodeDelegate(BarCode_BarCodeEvent);
             this.txtDiluteNumber.TextChanged += new EventHandler(txtDiluteNumber_TextChanged);
             barCodeHook.Start();
         }
@@ -95,16 +97,40 @@ namespace BioBaseCLIA.Run
         /// 钩子回调方法 j
         /// </summary>
         /// <param name="barCode">条码</param>
-        void BarCode_BarCodeEvent(BarCodeHook.BarCodes barCode)
+        //void BarCode_BarCodeEvent(BarCodeHook.BarCodes barCode)
+        //{
+        //    HandleBarCode(barCode);
+        //}
+        void BarCode_BarCodeEvent(ScanerHook.ScanerCodes barCode)
         {
             HandleBarCode(barCode);
         }
-        private delegate void ShowInfoDelegate(BarCodeHook.BarCodes barCode);
+        //private delegate void ShowInfoDelegate(BarCodeHook.BarCodes barCode);
+        private delegate void ShowInfoDelegate(ScanerHook.ScanerCodes barCode);
         /// <summary>
         /// 扫码信息处理函数 j
         /// </summary>
         /// <param name="barCode">条码</param>
-        private void HandleBarCode(BarCodeHook.BarCodes barCode)
+        //private void HandleBarCode(BarCodeHook.BarCodes barCode)
+        //{
+        //    if (this.InvokeRequired)
+        //    {
+        //        this.BeginInvoke(new ShowInfoDelegate(HandleBarCode), new object[] { barCode });
+        //    }
+        //    else
+        //    {
+        //        if (barCode.IsValid)
+        //        {
+        //            //使用一个正则，使得里面的空格，制表符等去除,把信息写到条码框里
+        //            string rgCode = Regex.Replace(barCode.BarCode, @"\s", "");
+        //            if (rgCode != null && rgCode != "")
+        //            {
+        //                this.txtDiluteNumber.Text = rgCode;
+        //            }
+        //        }
+        //    }
+        //}
+        private void HandleBarCode(ScanerHook.ScanerCodes barCode)
         {
             if (this.InvokeRequired)
             {
@@ -112,18 +138,13 @@ namespace BioBaseCLIA.Run
             }
             else
             {
-                if (barCode.IsValid)
+                string rgCode = Regex.Replace(barCode.Result, @"\s", "");
+                if (rgCode != null && rgCode != "")
                 {
-                    //使用一个正则，使得里面的空格，制表符等去除,把信息写到条码框里
-                    string rgCode = Regex.Replace(barCode.BarCode, @"\s", "");
-                    if (rgCode != null && rgCode != "")
-                    {
-                        this.txtDiluteNumber.Text = rgCode;
-                    }
+                    this.txtDiluteNumber.Text = rgCode;
                 }
             }
         }
-
         private void btnLoadSubstrate_Click(object sender, EventArgs e)
         {
             frmMessageShow frmMsgShow = new frmMessageShow();

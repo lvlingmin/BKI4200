@@ -27,7 +27,8 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 无焦点获取键盘事件钩子
         /// </summary>
-        private BarCodeHook barCodeHook = new BarCodeHook();
+        //private BarCodeHook barCodeHook = new BarCodeHook();
+        private ScanerHook barCodeHook = new ScanerHook();
         /// <summary>
         /// 存储实验流程 jun add 20190409
         /// </summary>
@@ -166,22 +167,30 @@ namespace BioBaseCLIA.Run
             dgvTestPro.Columns[2].Width = 65;  //50
 
             //为扫码委托增加一个钩子回调方法
-            barCodeHook.BarCodeEvent += new BarCodeHook.BarCodeDelegate(BarCode_BarCodeEvent);
+            //barCodeHook.BarCodeEvent += new BarCodeHook.BarCodeDelegate(BarCode_BarCodeEvent);
+            barCodeHook.BarCodeEvent += new ScanerHook.BarCodeDelegate(BarCode_BarCodeEvent);
             barCodeHook.Start();//打开钩子
         }
         /// <summary>
         /// 钩子回调方法 j
         /// </summary>
         /// <param name="barCode">条码</param>
-        void BarCode_BarCodeEvent(BarCodeHook.BarCodes barCode)
+        //void BarCode_BarCodeEvent(BarCodeHook.BarCodes barCode)
+        //{
+        //    HandleBarCode(barCode);
+        //}
+        void BarCode_BarCodeEvent(ScanerHook.ScanerCodes barCode)
         {
             HandleBarCode(barCode);
         }
-        private delegate void ShowInfoDelegate(BarCodeHook.BarCodes barCode);
+        //private delegate void ShowInfoDelegate(BarCodeHook.BarCodes barCode);
+        private delegate void ShowInfoDelegate(ScanerHook.ScanerCodes barCode);
         /// <summary>
         /// 扫码信息处理函数 j
         /// </summary>
         /// <param name="barCode">条码</param>
+        #region 屏蔽BarCodeHook处理
+        /*
         private void HandleBarCode(BarCodeHook.BarCodes barCode)
         {
             if (this.InvokeRequired)
@@ -415,6 +424,249 @@ namespace BioBaseCLIA.Run
                                 //}));
                                 break;
                         }
+                    }
+                }
+            }
+        }
+        */
+        #endregion
+        private void HandleBarCode(ScanerHook.ScanerCodes barCode)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new ShowInfoDelegate(HandleBarCode), new object[] { barCode });
+            }
+            else
+            {
+                string rgCode = Regex.Replace(barCode.Result, @"\s", "");  //扫描得到条码
+
+                string decryption = StringUtils.instance.ToDecryption(rgCode); //得到解密后条码
+                string signChar = decryption.Substring(0, 1);  //四种条码的首位是序号，分别是1 2 3 4                    
+                string sign2 = decryption.Substring(2);  //定标浓度条码使用，去掉前两位
+                                                         //string sign13 = decryption.Substring(1, 3);
+
+                string sign17;   //发光值条码使用，第一个发光值的7位
+                string sign8;    //发光值条码使用，第二个发光值剩余7位                    
+
+                if (rgCode != null && rgCode != "")
+                {
+                    switch (signChar)
+                    {
+                        case "2":  //实验流程的条码
+                            try
+                            {
+                                DbHelperOleDb db0 = new DbHelperOleDb(0);  //连接数据库ProjectInfo
+                                fillDgvProcess(rgCode);   //填充实验流程
+                            }
+                            catch (Exception e)
+                            {
+                                frmMessageShow frmMessage = new frmMessageShow();
+                                frmMessage.MessageShow(getString("$this.Text"),getString("keywordText.UpdateFailed"));
+                                return;
+                            }
+
+                            #region 注释掉
+                            //lyq add 2090820
+                            //string sql = "select ShortName from tbProject where ShortName = '" + itemName + "'";
+                            //DataTable dtTemp = DbHelperOleDb.Query(sql).Tables[0];
+                            //string shortName = dtTemp.Rows[0][0].ToString();
+
+                            //判断该条码是否是已经存在项目
+                            //string sql = "select ProjectNumber from tbProject where ShortName = '" + itemName + "'";
+                            //DataTable dtTemp = DbHelperOleDb.Query(sql).Tables[0];
+                            //string projectNumber = dtTemp.Rows[0][0].ToString();
+                            //if (projectNumber == int.Parse(sign13).ToString())
+                            //{
+                            //    fillDgvProcess(rgCode);
+                            //}
+                            //else
+                            //{
+                            //    frmMsg.MessageShow("该条码与此项目在数据库的编号不匹配！");
+                            //    return;
+                            //}
+                            #endregion
+                            break;
+                        case "3":  //定标浓度第一个条码，包含4个浓度
+                            string[] decryArray = sign2.Split(new char[3] { 'B', 'C', 'D' }); //得到四个浓度
+                            for (int i = 0; i < decryArray.Length; i++)  //填充GridView
+                            {
+                                dtConcValue.Rows[i][1] = decryArray[i].Substring(0, decryArray[i].Length - 1);
+                            }
+                            break;
+                        case "4":  //定标浓度第二个条码，包含两个或三个浓度
+                            string[] decryArray2 = sign2.Split(new char[3] { 'F','f','G'}); //得到几个浓度
+                                                                                          //扫描枪得到的rgCode不知道什么问题，全是大写字母了
+                            if (decryArray2.Length >= 4) //如果是7点定标
+                            {
+                                for (int i = 0; i < decryArray2.Length; i++)
+                                {
+                                    if (i > 0)
+                                    {
+                                        if (i == 2)   // split后 ，FG连一块，第三个string块是空的，第四个才是G后浓度
+                                        {
+                                            dtConcValue.Rows[6][1] = decryArray2[3];  //填充第七个浓度
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            dtConcValue.Rows[i + 4][1] = decryArray2[i]; //填充第六个浓度
+                                        }
+                                    }
+                                    else  //i==0，去掉尾部标志，填充第五个浓度
+                                    {
+                                        dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
+                                    }
+                                }
+                            }
+                            else  //六点定标
+                            {
+                                for (int i = 0; i < 2; i++)
+                                {
+                                    if (i == 0) //填充第五个浓度
+                                    {
+                                        dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
+                                    }
+                                    else  //填充第六个浓度
+                                    {
+                                        dtConcValue.Rows[i + 4][1] = decryArray2[i];
+                                    }
+                                }
+                            }
+
+                            break;
+                        case "5":  //发光值第一个条码，两个发光值
+                            sign17 = decryption.Substring(1, 7); //发光值条码，第一个发光值的7位
+                            sign8 = decryption.Substring(8, 7);  //发光值条码，第二个发光值7位
+                            if (decryption.Contains("."))  //两个参数中有小数
+                            {
+                                string[] strSign17 = sign17.Split('.');
+                                string[] strSign8 = sign8.Split('.');
+                                if (strSign17.Length == 2) //第一个发光值是小数
+                                {
+                                    sign17 = Convert.ToInt32(strSign17[0], 16).ToString() + "." + Convert.ToInt32(strSign17[1], 16).ToString();
+                                }
+                                else if (strSign17.Length == 1)  //整数
+                                {
+                                    sign17 = Convert.ToInt32(sign17, 16).ToString();
+                                }
+                                if (strSign8.Length == 2) //第二个发光值是小数
+                                {
+                                    sign8 = Convert.ToInt32(strSign8[0], 16).ToString() + "." + Convert.ToInt32(strSign8[1], 16).ToString();
+                                }
+                                else if (strSign8.Length == 1) //整数
+                                {
+                                    sign8 = Convert.ToInt32(sign8, 16).ToString();
+                                }
+                            }
+                            else  //两个发光值都是整数
+                            {
+                                sign17 = Convert.ToInt32(sign17, 16).ToString();
+                                sign8 = Convert.ToInt32(sign8, 16).ToString();
+                            }
+                            dtConcValue.Rows[0][2] = sign17;
+                            dtConcValue.Rows[1][2] = sign8;
+                            //dtConcValue.Rows[0][2] = double.Parse(sign17);//去掉前面的0                                                                                            
+                            //dtConcValue.Rows[1][2] = double.Parse(sign8);
+                            break;
+                        case "6":  //发光值第2个条码，两个发光值
+                            sign17 = decryption.Substring(1, 7);
+                            sign8 = decryption.Substring(8, 7);
+                            if (decryption.Contains("."))
+                            {
+                                string[] strSign17 = sign17.Split('.');
+                                string[] strSign8 = sign8.Split('.');
+                                if (strSign17.Length == 2) //小数
+                                {
+                                    sign17 = Convert.ToInt32(strSign17[0], 16).ToString() + "." + Convert.ToInt32(strSign17[1], 16).ToString();
+                                }
+                                else if (strSign17.Length == 1)  //整数
+                                {
+                                    sign17 = Convert.ToInt32(sign17, 16).ToString();
+                                }
+                                if (strSign8.Length == 2)
+                                {
+                                    sign8 = Convert.ToInt32(strSign8[0], 16).ToString() + "." + Convert.ToInt32(strSign8[1], 16).ToString();
+                                }
+                                else if (strSign8.Length == 1)
+                                {
+                                    sign8 = Convert.ToInt32(sign8, 16).ToString();
+                                }
+                            }
+                            else
+                            {
+                                sign17 = Convert.ToInt32(sign17, 16).ToString();
+                                sign8 = Convert.ToInt32(sign8, 16).ToString();
+                            }
+                            dtConcValue.Rows[2][2] = sign17;
+                            dtConcValue.Rows[3][2] = sign8;
+                            //dtConcValue.Rows[2][2] = double.Parse(sign17);
+                            //dtConcValue.Rows[3][2] = double.Parse(sign8);
+                            break;
+                        case "7":  //发光值第3个条码，两个发光值
+                            sign17 = decryption.Substring(1, 7);
+                            sign8 = decryption.Substring(8, 7);
+                            if (decryption.Contains("."))
+                            {
+                                string[] strSign17 = sign17.Split('.');
+                                string[] strSign8 = sign8.Split('.');
+                                if (strSign17.Length == 2) //小数
+                                {
+                                    sign17 = Convert.ToInt32(strSign17[0], 16).ToString() + "." + Convert.ToInt32(strSign17[1], 16).ToString();
+                                }
+                                else if (strSign17.Length == 1)  //整数
+                                {
+                                    sign17 = Convert.ToInt32(sign17, 16).ToString();
+                                }
+                                if (strSign8.Length == 2)
+                                {
+                                    sign8 = Convert.ToInt32(strSign8[0], 16).ToString() + "." + Convert.ToInt32(strSign8[1], 16).ToString();
+                                }
+                                else if (strSign8.Length == 1)
+                                {
+                                    sign8 = Convert.ToInt32(sign8, 16).ToString();
+                                }
+                            }
+                            else
+                            {
+                                sign17 = Convert.ToInt32(sign17, 16).ToString();
+                                sign8 = Convert.ToInt32(sign8, 16).ToString();
+                            }
+                            dtConcValue.Rows[4][2] = sign17;
+                            dtConcValue.Rows[5][2] = sign8;
+                            //dtConcValue.Rows[4][2] = double.Parse(sign17);
+                            //dtConcValue.Rows[5][2] = double.Parse(sign8);
+                            break;
+                        case "8":  //发光值第4个条码，1个发光值
+                            sign17 = decryption.Substring(1, 7);
+                            if (decryption.Contains("."))
+                            {
+                                string[] strSign17 = sign17.Split('.');
+                                if (strSign17.Length == 2) //小数
+                                {
+                                    sign17 = Convert.ToInt32(strSign17[0], 16).ToString() + "." + Convert.ToInt32(strSign17[1], 16).ToString();
+                                }
+                                else if (strSign17.Length == 1)  //整数
+                                {
+                                    sign17 = Convert.ToInt32(sign17, 16).ToString();
+                                }
+                            }
+                            else
+                            {
+                                sign17 = Convert.ToInt32(sign17, 16).ToString();
+                            }
+                            dtConcValue.Rows[6][2] = sign17;
+                            //dtConcValue.Rows[6][2] = double.Parse(sign17);
+                            break;
+                        default:
+                            //BeginInvoke(new Action(()=>
+                            //{
+                            //    if (!CheckFormIsOpen("frmMessageShow"))
+                            //    {
+                            //        frmMessageShow fmsg = new frmMessageShow();
+                            //        fmsg.MessageShow(getString("projectUpdate"),getString("keywordText.ScanByStandard"));
+                            //    }
+                            //}));
+                            break;
                     }
                 }
             }
@@ -857,9 +1109,17 @@ namespace BioBaseCLIA.Run
                 switch (signChar)
                 {
                     case "2":  //实验流程的条码
-                        DbHelperOleDb db0 = new DbHelperOleDb(0);  //连接数据库ProjectInfo
-                        fillDgvProcess(rgCode);   //填充实验流程
-
+                        try
+                        {
+                            DbHelperOleDb db0 = new DbHelperOleDb(0);  //连接数据库ProjectInfo
+                            fillDgvProcess(rgCode);   //填充实验流程
+                        }
+                        catch (Exception)
+                        {
+                            frmMessageShow frmMessage = new frmMessageShow();
+                            frmMessage.MessageShow(getString("$this.Text"), getString("keywordText.UpdateFailed"));
+                            return;
+                        }
                         break;
                     case "3":  //定标浓度第一个条码，包含4个浓度
                         string[] decryArray = sign2.Split(new char[3] { 'B', 'C', 'D' }); //得到四个浓度

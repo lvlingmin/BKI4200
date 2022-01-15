@@ -2230,6 +2230,12 @@ namespace BioBaseCLIA.SysMaintenance
 
         private void fbtnInstruMaintenance_Click(object sender, EventArgs e)
         {
+            if (isNewWashRun)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("组合测试", "请在仪器空闲时执行此操作！");
+                return;
+            }
             if (!CheckFormIsOpen("frmInstruMaintenance"))
             {
                 frmInstruMaintenance frnIM = new frmInstruMaintenance();
@@ -2249,6 +2255,12 @@ namespace BioBaseCLIA.SysMaintenance
 
         private void fbtnInstruDiagnost_Click(object sender, EventArgs e)
         {
+            if (isNewWashRun)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("组合测试", "请在仪器空闲时执行此操作！");
+                return;
+            }
             if (!CheckFormIsOpen("frmDiagnost"))
             {
                 frmDiagnost frnID = new frmDiagnost();
@@ -2268,6 +2280,12 @@ namespace BioBaseCLIA.SysMaintenance
 
         private void fbtnReturn_Click(object sender, EventArgs e)
         {
+            if (isNewWashRun)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow("组合测试", "请在仪器空闲时执行此操作！");
+                return;
+            }
             this.Close();
         }
 

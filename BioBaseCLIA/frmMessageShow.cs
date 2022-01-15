@@ -56,23 +56,25 @@ namespace BioBaseCLIA
                     maxllenth = 125;
                     if (content.Length > maxllenth)
                     {
-                        int beginPos = 0;
-                        while (beginPos < content.Length)
+                        string[] spstr = content.Trim().Split(new char[2] { '\r', '\n' });
+                        foreach (string SS in spstr)
                         {
-                            int endpos = beginPos + maxllenth;
-                            if (endpos > content.Length)
-                            {
-                                endpos = content.Length;
-                                newcontent = newcontent + content.Substring(beginPos, endpos - beginPos) + "\r";
-                            }
+                            if (SS.Length < maxllenth)
+                                newcontent = newcontent + SS + '\r';
                             else
                             {
-                                string str = content.Substring(beginPos, endpos - beginPos);
-                                endpos = str.LastIndexOf(' ') + beginPos;
-                                newcontent = newcontent + content.Substring(beginPos, endpos - beginPos) + "\r";
-
+                                int beginPos = 0;
+                                int endpos = maxllenth;
+                                while (beginPos < SS.Length)
+                                {
+                                    if (endpos > SS.Length)
+                                        endpos = SS.Length;
+                                    newcontent = newcontent + SS.Substring(beginPos, endpos - beginPos) + "\r";
+                                    beginPos = endpos;
+                                    endpos = endpos + maxllenth;
+                                }
                             }
-                            beginPos = endpos;
+
                         }
                     }
                     else
@@ -86,14 +88,25 @@ namespace BioBaseCLIA
                     maxllenth = 50;
                     if (content.Length > maxllenth)
                     {
-                        int beginPos = 0;
-                        while (beginPos < content.Length)
+                        string[] spstr = content.Trim().Split(new char[2] { '\r', '\n' });
+                        foreach (string SS in spstr)
                         {
-                            int endpos = beginPos + maxllenth;
-                            if (endpos > content.Length)
-                                endpos = content.Length;
-                            newcontent = newcontent + content.Substring(beginPos, endpos - beginPos) + "\r";
-                            beginPos = endpos;
+                            if(SS.Length< maxllenth)
+                                newcontent = newcontent + SS+ '\r';
+                            else
+                            {
+                                int beginPos = 0;
+                                int endpos = maxllenth;
+                                while (beginPos < SS.Length)
+                                {
+                                    if (endpos > SS.Length)
+                                        endpos = SS.Length;
+                                    newcontent = newcontent + SS.Substring(beginPos, endpos - beginPos) + "\r";
+                                    beginPos = endpos;
+                                    endpos = endpos + maxllenth;
+                                }
+                            }
+                            
                         }
                     }
                     else
@@ -107,10 +120,13 @@ namespace BioBaseCLIA
                 this.Text = title;
                 this.lblMessage.Text = newcontent;
                 this.Width = 6 * maxllenth + 80;
+                string[] sp = newcontent.Split(new char[2] { '\r', '\n' });
+                this.Height = 200 + sp.Length*8;
             }
             //根据提示信息长短确定弹窗大小。
             //this.Width = 8 * maxllenth+80;
             //this.Height = ;
+            this.btnOK.Top = this.Height - btnOK.Height*3 ;
             this.btnOK.Left = this.Width / 2 - 37;//设置弹窗中按钮的位置
             //2018-11-23 zlx add
             if (this.Text.Contains("警告")|| this.Text.Contains("warning") || this.Text.Contains("Warning"))//lyq

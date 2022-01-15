@@ -67,8 +67,10 @@ namespace BioBaseCLIA.Run
         /// <summary>
         /// 无焦点获取扫码信息钩子
         /// </summary>
-        BarCodeHook barCodeHook = new BarCodeHook();
-        private delegate void ShowInfoDelegate(BarCodeHook.BarCodes barCode);
+        //BarCodeHook barCodeHook = new BarCodeHook();
+        ScanerHook barCodeHook = new ScanerHook();
+        //private delegate void ShowInfoDelegate(BarCodeHook.BarCodes barCode);
+        private delegate void ShowInfoDelegate(ScanerHook.ScanerCodes barCode);
         public frmAddSample()
         {
             InitializeComponent();
@@ -437,7 +439,34 @@ namespace BioBaseCLIA.Run
             //barCodeHook.BarCodeEvent -= new BarCodeHook.BarCodeDelegate(BarCodeEventHandler);
             //barCodeHook.BarCodeEvent += new BarCodeHook.BarCodeDelegate(BarCodeEventHandler);
         }
-        private void BarCodeEventHandler(BarCodeHook.BarCodes barCode)
+        //private void BarCodeEventHandler(BarCodeHook.BarCodes barCode)
+        //{
+        //    this.txtSpBarCode.Text = string.Empty;
+        //    if (this.InvokeRequired)
+        //    {
+        //        this.BeginInvoke(new ShowInfoDelegate(BarCodeEventHandler), new object[] { barCode });
+        //    }
+        //    else
+        //    {
+        //        if (barCode.IsValid)
+        //        {
+        //            //使用一个正则，使得里面的空格，制表符等去除,把信息写到条码框里
+        //            string rgCode = Regex.Replace(barCode.BarCode, @"\s", "");
+        //            if (rgCode != null && rgCode != "")
+        //            {
+        //                if (chbSampleNoScan.Checked)
+        //                {
+        //                    this.txtSpBarCode.Text = rgCode;
+        //                }
+        //                if (chbMoreSampleScan.Checked)
+        //                {
+        //                    this.txtSpCode1.Text = rgCode;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+        private void BarCodeEventHandler(ScanerHook.ScanerCodes barCode)
         {
             this.txtSpBarCode.Text = string.Empty;
             if (this.InvokeRequired)
@@ -446,20 +475,16 @@ namespace BioBaseCLIA.Run
             }
             else
             {
-                if (barCode.IsValid)
+                string rgCode = Regex.Replace(barCode.Result, @"\s", "");
+                if (rgCode != null && rgCode != "")
                 {
-                    //使用一个正则，使得里面的空格，制表符等去除,把信息写到条码框里
-                    string rgCode = Regex.Replace(barCode.BarCode, @"\s", "");
-                    if (rgCode != null && rgCode != "")
+                    if (chbSampleNoScan.Checked)
                     {
-                        if (chbSampleNoScan.Checked)
-                        {
-                            this.txtSpBarCode.Text = rgCode;
-                        }
-                        if (chbMoreSampleScan.Checked)
-                        {
-                            this.txtSpCode1.Text = rgCode;
-                        }
+                        this.txtSpBarCode.Text = rgCode;
+                    }
+                    if (chbMoreSampleScan.Checked)
+                    {
+                        this.txtSpCode1.Text = rgCode;
                     }
                 }
             }
