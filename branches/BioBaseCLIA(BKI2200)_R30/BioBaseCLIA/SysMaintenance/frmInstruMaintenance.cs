@@ -1649,11 +1649,23 @@ namespace BioBaseCLIA.SysMaintenance
         }
         private void fbtnReturn_Click(object sender, EventArgs e)
         {
+            if (isNewWashRun)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow(GetString("fbtnInstruMaintenance.Text"), GetString("keywordText.Idleoperations"));
+                return;
+            }
             this.Hide();
         }
 
         private void fbtnInstruDiagnost_Click(object sender, EventArgs e)
         {
+            if (isNewWashRun)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow(GetString("fbtnInstruMaintenance.Text"), GetString("keywordText.Idleoperations"));
+                return;
+            }
             if (!CheckFormIsOpen("frmDiagnost"))
             {
                 frmDiagnost frnID = new frmDiagnost();
@@ -1669,6 +1681,12 @@ namespace BioBaseCLIA.SysMaintenance
         }
         private void fbtnGroupTest_Click(object sender, EventArgs e)
         {
+            if (isNewWashRun)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow(GetString("fbtnInstruMaintenance.Text"), GetString("keywordText.Idleoperations"));
+                return;
+            }
             if (!CheckFormIsOpen("frmInstruGroupTest"))
             {
                 frmInstruGroupTest frnIGT = new frmInstruGroupTest();
@@ -1695,6 +1713,12 @@ namespace BioBaseCLIA.SysMaintenance
 
         private void functionButton1_Click(object sender, EventArgs e)//20180516 y 仪器初始化点击事件
         {
+            if (isNewWashRun)
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow(GetString("fbtnInstruMaintenance.Text"), GetString("keywordText.Idleoperations"));
+                return;
+            }
             //int X = Convert.ToInt32((this.Width - dfInitializers.Width) / 2);
             //int Y = Convert.ToInt32((this.Height - dfInitializers.Height)/2);
             //dfInitializers.Location = new Point(X, Y);
