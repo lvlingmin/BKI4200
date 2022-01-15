@@ -97,6 +97,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>reportCurve.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScanerHook.cs" />
     <Compile Include="SerializerHelper.cs" />
   </ItemGroup>
   <ItemGroup>
