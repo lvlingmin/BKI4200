@@ -2988,6 +2988,17 @@ namespace BioBaseCLIA.Run
                 //质控规则
                 rule16 = decryption.Substring(18, 4);
             }
+            else if (rgcode.Length == 23)
+            {
+                //质控靶值
+                tempX = decryption.Substring(7, 5);
+                //质控标准差
+                tempSD = decryption.Substring(12, 6);
+                //质控类别
+                qcLevel = decryption.Substring(18, 1);
+                //质控规则
+                rule16 = decryption.Substring(19, 4);
+            }
             else
                 return true;
 
@@ -3003,14 +3014,28 @@ namespace BioBaseCLIA.Run
             tempX = Convert.ToInt32(tempX.Substring(0, 3), 16).ToString() + "." + temp;
 
             double qcX = double.Parse(tempX);
-            temp = Convert.ToInt32(tempSD.Substring(2, 3), 16).ToString();
-            while (temp.Length < 3)
-            {
-                temp = "0" + temp;
-            }
+
             //倒转
-            temp = temp.Substring(2, 1) + temp.Substring(1, 1) + temp.Substring(0, 1);
-            tempSD = Convert.ToInt32(tempSD.Substring(0, 2), 16).ToString() + "." + temp;
+            if (tempSD.Length == 6)
+            {
+                temp = Convert.ToInt32(tempSD.Substring(3, 3), 16).ToString();
+                while (temp.Length < 3)
+                {
+                    temp = "0" + temp;
+                }
+                temp = temp.Substring(2, 1) + temp.Substring(1, 1) + temp.Substring(0, 1);
+                tempSD = Convert.ToInt32(tempSD.Substring(0, 3), 16).ToString() + "." + temp;
+            }
+            else
+            {
+                temp = Convert.ToInt32(tempSD.Substring(2, 3), 16).ToString();
+                while (temp.Length < 3)
+                {
+                    temp = "0" + temp;
+                }
+                temp = temp.Substring(2, 1) + temp.Substring(1, 1) + temp.Substring(0, 1);
+                tempSD = Convert.ToInt32(tempSD.Substring(0, 2), 16).ToString() + "." + temp;
+            }
             double qcSD = double.Parse(tempSD);
             //质控批号
             string strLevel = qcLevel == "0" ? "H" : (qcLevel == "1" ? "M" : "L");
