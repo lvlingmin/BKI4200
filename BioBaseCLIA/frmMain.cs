@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Common;
-using Maticsoft.DBUtility;
-using System.IO;
-using System.Threading;
-using BioBaseCLIA.Run;
-using BioBaseCLIA.DataQuery;
+﻿using BioBaseCLIA.DataQuery;
 using BioBaseCLIA.InfoSetting;
+using BioBaseCLIA.Run;
 using BioBaseCLIA.ScalingQC;
 using BioBaseCLIA.SysMaintenance;
-using System.Runtime.InteropServices;
-using System.Timers;
 using BioBaseCLIA.User;
-using System.Reflection;
-using BioBaseCLIA;
+using Common;
 using Localization;
+using Maticsoft.DBUtility;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Resources;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Timers;
+using System.Windows.Forms;
 
 namespace BioBaseCLIA
 {
@@ -169,7 +166,7 @@ namespace BioBaseCLIA
         private void Form1_Load(object sender, EventArgs e)
         {
             frmWorkList.LiquidLevelDetectionEvent += LiquidLevelDetectionAlarm;
-            SoundFlag = (int)SoundFlagStart.IsOpen;
+            SoundFlag = (int)SoundFlagStart.isClose;
             _BootUpTime = DateTime.Now;
             if(System.Globalization.CultureInfo.CurrentCulture.ToString() == "en")
                 label2.Text = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
@@ -259,7 +256,7 @@ namespace BioBaseCLIA
             #region 设置按钮控件查询状态timer的属性
             timerStatus.Start();
             #endregion
-            timeWarnSound.Start();
+            //timeWarnSound.Start();
             #region 区分出normal、admin 、root权限
             switch (frmParent.LoginUserType) 
             {
@@ -1066,6 +1063,26 @@ namespace BioBaseCLIA
             //制冷片报警查询
             if (!Selectlist.Contains("EB 90 11 08 08"))
                 Selectlist.Add("EB 90 11 08 08");
+            if (SoundFlag == (int)SoundFlagStart.IsOpen)
+            {
+                SoundFlag = (int)SoundFlagStart.isClose;
+                timeWarnSound.Stop();
+                Thread.Sleep(1000);
+            }
+            if (LackLq[0] > 0 || LackLq[1] > 0 || LackLq[2] > 0 || LackLq[3] > 0 || frmWorkList.TubeStop || (RtSubstract != -1 && RtSubstract < WarnSubstrate))//|| WarnRgent
+            {
+                if (SoundFlag == (int)SoundFlagStart.isClose && BQLiquaid)
+                {
+                    SoundFlag = (int)SoundFlagStart.IsOpen;
+                    timeWarnSound.Start();
+                }
+            }
+            else
+            {
+                LogFile.Instance.Write("报警状态解除，关闭声音报警定时器！");
+                SoundFlag = (int)SoundFlagStart.isClose;
+                timeWarnSound.Stop();
+            }
             timerStatus.Enabled = true;
         }
         /// <summary>
@@ -1863,10 +1880,10 @@ namespace BioBaseCLIA
         #region 声音报警功能信息 2019-06-29 zlx add
         private void dbtnSound_Click(object sender, EventArgs e)
         {
-            if (SoundFlag == (int)SoundFlagStart.isClose)
+            if (SoundFlag == (int)SoundFlagStart.isStop)
                 SoundFlag = (int)SoundFlagStart.IsOpen;
             else
-                SoundFlag = (int)SoundFlagStart.isClose;
+                SoundFlag = (int)SoundFlagStart.isStop;
             if (SoundFlag == (int)SoundFlagStart.IsOpen)
             {
                 dbtnSound.BackgroundImage = Properties.Resources.声音启用;
@@ -1891,17 +1908,17 @@ namespace BioBaseCLIA
         bool Iswarn = false;
         private void timeWarnSound_Tick(object sender, EventArgs e)
         {
-            if (SoundFlag == (int)SoundFlagStart.isClose) return;
+            if (SoundFlag == (int)SoundFlagStart.isClose || SoundFlag == (int)SoundFlagStart.isStop) return;
             timeWarnSound.Enabled = false;
-            bool WarnRgent = false;
-            foreach (ReagentIniInfo ReagentIniInfo in RtlisRIinfo)
-            {
-                if (RtlisRIinfo.Find(ty => ty.ItemName == ReagentIniInfo.ItemName).LeftReagent1 < ErrorReagent)
-                    WarnRgent = true;
-            }
+            //foreach (ReagentIniInfo ReagentIniInfo in RtlisRIinfo)
+            //{
+            //    if (RtlisRIinfo.Find(ty => ty.ItemName == ReagentIniInfo.ItemName).LeftReagent1 < ErrorReagent)
+            //        WarnRgent = true;
+            //}
             if (LackLq[0] > 0 || LackLq[1] > 0 || LackLq[2] > 0 || LackLq[3] > 0 || frmWorkList.TubeStop || (RtSubstract != -1 && RtSubstract < WarnSubstrate))//|| WarnRgent
             {
                 BeepUp.Beep(392, 500);
+                //GC.Collect();
             }
             timeWarnSound.Enabled = true;
         }
@@ -2021,7 +2038,7 @@ namespace BioBaseCLIA
     }
 
     /// <summary>
-    /// 声音报警状态 isClose-禁止状态 IsOpen-开启状态 isStarTime=正在报警
+    /// 声音报警状态 isClose-停止报警 IsOpen-开启状态 isStop-禁止状态
     /// </summary>
-    public enum SoundFlagStart { isClose = 0, IsOpen = 1, isStarTime = 2 }
+    public enum SoundFlagStart { isClose = 0, IsOpen = 1, isStop = 2 }
 }
