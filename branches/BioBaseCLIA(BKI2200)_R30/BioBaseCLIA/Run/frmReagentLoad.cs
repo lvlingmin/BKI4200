@@ -1230,6 +1230,20 @@ namespace BioBaseCLIA.Run
         }
         private void btnAddCurve_Click(object sender, EventArgs e)
         {
+            string DiuFlag = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "DiuFlag", "", iniPathReagentTrayInfo);
+            if (DiuFlag == "1")
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow(getString("btnAddCurve.Text"), getString("keywordText.DiluteNoAddCurve"));
+                return;
+            }
+            string ItemName = OperateIniFile.ReadIniData("ReagentPos" + int.Parse(txtRgPosition.Text).ToString(), "ItemName", "", iniPathReagentTrayInfo);
+            if (ItemName == "")
+            {
+                frmMessageShow frmMessage = new frmMessageShow();
+                frmMessage.MessageShow(getString("btnAddCurve.Text"), getString("keywordText.NoReagentAddCurve"));
+                return;
+            }
             //关闭当前的钩子，在addScaling中重新建立钩子 jun add 20190410
             barCodeHook.Stop();
             string activedate = DateTime.Now.ToString();

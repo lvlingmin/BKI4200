@@ -1301,4 +1301,10 @@
   <data name="keywordText.UnloadSuccess" xml:space="preserve">
     <value>Uninstall successfully！</value>
   </data>
+  <data name="keywordText.DiluteNoAddCurve" xml:space="preserve">
+    <value>This position is the diluent, this operation is invalid!</value>
+  </data>
+  <data name="keywordText.NoReagentAddCurve" xml:space="preserve">
+    <value>Reagent information is not detected, this operation is invalid!</value>
+  </data>
 </root>
