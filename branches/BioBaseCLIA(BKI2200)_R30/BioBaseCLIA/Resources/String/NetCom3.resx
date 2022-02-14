@@ -150,6 +150,12 @@
   <data name="Incubateverticalabnormal" xml:space="preserve">
     <value>温育盘模块垂直光电开关异常!</value>
   </data>
+  <data name="keywordText.Hightips" xml:space="preserve">
+    <value>暗室值过高！</value>
+  </data>
+  <data name="keywordText.Lowtips" xml:space="preserve">
+    <value>暗室值过低！</value>
+  </data>
   <data name="Measureabnormal" xml:space="preserve">
     <value>清洗模块计量泵光耦异常!</value>
   </data>

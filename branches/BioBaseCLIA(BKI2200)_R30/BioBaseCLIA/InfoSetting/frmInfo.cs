@@ -1569,7 +1569,7 @@ namespace BioBaseCLIA.InfoSetting
         private void panel1_DoubleClick(object sender, EventArgs e)
         {
             frmMessageShow frmMsgShow = new frmMessageShow();
-            frmMsgShow.MessageShow("SVN", "554");
+            frmMsgShow.MessageShow("SVN", "CS-589");
         }
     }
 }

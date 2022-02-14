@@ -66,6 +66,8 @@ namespace BioBaseCLIA.User
             InitializeComponent();
 
             cbLanguage.Text = (GetCultureInfo() == "zh-CN" || string.IsNullOrEmpty(GetCultureInfo())) ? "中文" : "English";
+            //if(cbLanguage.Text== "English")
+            //    logo.Visible = false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -139,8 +141,9 @@ namespace BioBaseCLIA.User
                 KeepPwd = "0";
             OperateIniFile.WriteIniPara("UsedName", "KeepPwd", KeepPwd);
             paProcess.Visible = true;
-            new Thread(new ThreadStart(LoadProgram)).Start();
-            NetCom3.Instance.ReceiveHandel += new Action<string>(Darkroom);    //暗室自检
+            new Thread(new ThreadStart(LoadProgram)) 
+            {CurrentUICulture = Language.AppCultureInfo,CurrentCulture= Language.AppCultureInfo }.Start();
+            //NetCom3.Instance.ReceiveHandel += new Action<string>(Darkroom);    //暗室自检
             btnLogin.Enabled = false;
             btnCancel.Enabled = false;
             txtUserPassword.Enabled = false;
@@ -285,7 +288,20 @@ namespace BioBaseCLIA.User
                     }));
                     goto complete;
                 }
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    SetCultureInfo();
+                    frmMessageShow f = new frmMessageShow();
+                    f.MessageShow(Getstring("keywordText.Tips"), NetCom3.Instance.DarkroomInfo);
+                }))
+                {
+                    IsBackground = true,
+                    CurrentCulture = Language.AppCultureInfo,
+                    CurrentUICulture = Language.AppCultureInfo
+
+                }.Start();
                 #endregion
+
                 currentHoleNum = int.Parse(OperateIniFile.ReadInIPara("OtherPara", "washCurrentHoleNum"));
                 BeginInvoke(new Action(() =>
                 {
@@ -578,6 +594,7 @@ namespace BioBaseCLIA.User
         private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             NetCom3.Instance.ReceiveHandel -= new Action<string>(Instance_ReceiveHandel);
+            //NetCom3.Instance.ReceiveHandel -= new Action<string>(Darkroom);
         }
 
         //2018-08-04 zlx add
@@ -775,6 +792,23 @@ namespace BioBaseCLIA.User
         /// </summary>
         void Darkroom(string order)
         {
+            
+            if (NetCom3.Instance.DarkroomInfo!=null && NetCom3.Instance.DarkroomInfo != "")
+            {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    SetCultureInfo();
+                    frmMessageShow f = new frmMessageShow();
+                    f.MessageShow(Getstring("keywordText.Tips"), NetCom3.Instance.DarkroomInfo);
+                }))
+                {
+                    IsBackground = true,
+                    CurrentCulture = Language.AppCultureInfo,
+                    CurrentUICulture = Language.AppCultureInfo
+                }.Start();
+            }
+            #region 暂时屏蔽
+            /*
             SetCultureInfo();
             if (!order.Contains("EB 90 F1 02") || frmWorkList.RunFlag == (int)RunFlagStart.IsRuning || frmWorkList.RunFlag == (int)RunFlagStart.IsStoping)
                 return;
@@ -813,6 +847,8 @@ namespace BioBaseCLIA.User
 
                 }.Start();
             }
+            */
+            #endregion
         }
 
         #region 语言环境设置相关，比较粗糙后面整理一下

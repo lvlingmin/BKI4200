@@ -1510,7 +1510,7 @@ namespace BioBaseCLIA.DataQuery
         {
             if (dgvSampleData.SelectedRows.Count == 0)
                 return;
-            if (!Regex.IsMatch(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString(), @"^\d+\.?\d*$"))
+            if (dgvSampleData.CurrentRow == null||!Regex.IsMatch(dgvSampleData.CurrentRow.Cells["Concentration"].Value.ToString(), @"^\d+\.?\d*$"))
             {
                 return;
             }

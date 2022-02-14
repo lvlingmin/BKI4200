@@ -565,22 +565,23 @@ namespace BioBaseCLIA.Run
                 lock (dataLocker)
                 {
                     dataRecive = obj.Split(' ');
-                    LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss") + "接收回来的数据为！"+ obj);
+                    obj = "";
                     if (dataRecive[0] != null && dataRecive[3] == "A3" && (dataRecive[15] != "00" || dataRecive[14] != "00" || dataRecive[13] != "00"))
                     {
                         string readData = dataRecive[12] + dataRecive[13] + dataRecive[14] + dataRecive[15];
                         lock (DataReciveNumberRead)
                         {
                             DataReciveNumberRead.Enqueue(readData);
+                            LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss") + "返回的读数为：" + readData+ ",DataReciveNumberRead的值为："+ DataReciveNumberRead.Count);
                         }
-                        dataRecive[0] = null;
+                        dataRecive = new string[16];
                     }
-                    if (obj.Contains("EB 90 11 AF 01 06 FF"))
-                    {
-                        TubeStop = true;
-                        LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss")+"查询理杯机指令返回数据！");
-                    }
-                       
+                    //if (obj.Contains("EB 90 11 AF 01 06 FF"))
+                    //{
+                    //    TubeStop = false;
+                    //    LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss")+"查询理杯机指令返回数据！");
+                    //}
+                    
                 }
             }
         }
@@ -3079,6 +3080,13 @@ namespace BioBaseCLIA.Run
             //开启仪器运行指示灯 2018-07-07
             //NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 08 00"), 5);
             //NetCom3.Instance.SingleQuery();
+            if (timer.Enabled)
+            {
+                timer.Enabled = false;
+                timer.Stop();
+                LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss")+"清洗线程定时器状态："+ timer.Enabled);
+            }
+            TubeProblemFlag = false;
             RunFlag = (int)RunFlagStart.IsRuning;
             frmTestResult.BRun = true;//2018-08-15 zlx add
             btnLoadReagent.Enabled = btnLoadSample.Enabled = fbtnReturn.Enabled = fbtnReturn.Enabled = false;//2018-07-26 zlx add
@@ -3163,8 +3171,10 @@ namespace BioBaseCLIA.Run
             {
                 return false;
             }
+            NetCom3.Instance.ReceiveHandel -= new Action<string>(Instance_ReceiveHandel);
+            DataReciveNumberRead.Clear();
             NetCom3.Instance.ReceiveHandel += new Action<string>(Instance_ReceiveHandel);
-            NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel += new Action<string>(Instance_ReceiveHandel);
+            //NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel += new Action<string>(Instance_ReceiveHandel);
             //仪器初始化
             lock (dataLocker)
             {
@@ -3221,7 +3231,11 @@ namespace BioBaseCLIA.Run
             LogFile.Instance.Write("1温育盘有管数量" + sumReactTubeNum);
             if (sumReactTubeNum == 0)
             {
-                OperateIniFile.WriteIniData("Tube", "ReacTrayTub", "", iniPathSubstrateTube);
+                lock (iniPathSubstrateTube)
+                { 
+                    OperateIniFile.WriteIniData("Tube", "ReacTrayTub", "", iniPathSubstrateTube); 
+                }
+                
             }
             else
             {
@@ -3299,7 +3313,7 @@ namespace BioBaseCLIA.Run
                     //}
                 }
             }
-            NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel -= new Action<string>(Instance_ReceiveHandel);
+            //NetCom3.Instance.ReceiveHandelForQueryTemperatureAndLiquidLevel -= new Action<string>(Instance_ReceiveHandel);
             #endregion
             return true;
         }
@@ -4179,8 +4193,10 @@ namespace BioBaseCLIA.Run
                             dtWashTrayIni.Rows[k][j] = dtTemp.Rows[k + 1][j];
                         }
                     }
-
-                    OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayIni);
+                    lock(iniPathWashTrayInfo)
+                    { 
+                        OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayIni);
+                    }
                 }
                 #region 移管手取放管位置取管扔废管
                 MoveTubeUseFlag = true;
@@ -4222,7 +4238,10 @@ namespace BioBaseCLIA.Run
                     #endregion
                 }
                 LogFile.Instance.Write("==================  位置  " + washCountNum + "  扔管");
-                OperateIniFile.WriteIniData("TubePosition", "No1", "0", iniPathWashTrayInfo);
+                lock (iniPathWashTrayInfo)
+                {
+                    OperateIniFile.WriteIniData("TubePosition", "No1", "0", iniPathWashTrayInfo);
+                }
                 MoveTubeUseFlag = false;
                 WashTrayUseFlag = false;
                 #endregion
@@ -4292,8 +4311,10 @@ namespace BioBaseCLIA.Run
                             dtWashTrayIni.Rows[k][j] = dtTemp.Rows[k + 1][j];
                         }
                     }
-
-                    OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayIni);
+                    lock(iniPathWashTrayInfo)
+                    {
+                        OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayIni);
+                    }
                 }
                 #region 移管手取放管位置取管扔废管
                 MoveTubeUseFlag = true;
@@ -4339,7 +4360,10 @@ namespace BioBaseCLIA.Run
                     #endregion
                 }
                 LogFile.Instance.Write("==================  位置  " + washCountNum + "  扔管");
-                OperateIniFile.WriteIniData("TubePosition", "No1", "0", iniPathWashTrayInfo);
+                lock (iniPathWashTrayInfo)
+                {
+                    OperateIniFile.WriteIniData("TubePosition", "No1", "0", iniPathWashTrayInfo);
+                }
                 MoveTubeUseFlag = false;
                 WashTrayUseFlag = false;
                 #endregion
@@ -4472,7 +4496,10 @@ namespace BioBaseCLIA.Run
                     #region 底物减少逻辑
                     substrateNum1 = int.Parse(OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube));
                     substrateNum1 = (substrateNum1 - 1) > 0 ? (substrateNum1 - 1) : 0;
-                    OperateIniFile.WriteIniData("Substrate1", "LeftCount", substrateNum1.ToString(), iniPathSubstrateTube);
+                    lock(iniPathSubstrateTube)
+                    {
+                        OperateIniFile.WriteIniData("Substrate1", "LeftCount", substrateNum1.ToString(), iniPathSubstrateTube);
+                    }
                     string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
                     string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
                     DbHelperOleDb dbase = new DbHelperOleDb(3);
@@ -4545,12 +4572,12 @@ namespace BioBaseCLIA.Run
                 }
                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.LackTube)
                 {
-                    TubeStop = false;
+                    TubeStop = true;
                     iNeedCool++;
                     NetCom3.Instance.Send(NetCom3.Cover("EB 90 11 01 06"), 5);
                     NetCom3.Instance.SingleQuery();
                     Thread.Sleep(3000);
-                    if (!TubeStop || iNeedCool >2)
+                    if (TubeStop || iNeedCool >2)
                     {
                         LogFile.Instance.Write(DateTime.Now.ToString("HH:mm:ss") + "由于缺管停止实验！");
                         ShowWarnInfo(getString("keywordText.LackTube"), getString("keywordText.Move"), 1);
@@ -4792,7 +4819,10 @@ namespace BioBaseCLIA.Run
                     dtWashTrayIni.Rows[k][j] = dtTemp.Rows[k + 1][j];
                 }
             }
-            OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayIni);
+            lock(iniPathWashTrayInfo)
+            { 
+                OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayIni);
+            }
             return true;
         }
         /// <summary>
@@ -4864,7 +4894,11 @@ namespace BioBaseCLIA.Run
                             #endregion
                         }
                         //修改反应盘信息
-                        OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+                        lock(iniPathReactTrayInfo)
+                        {
+                            OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+                        }
+                        
                     }
                 }
                 else
@@ -4914,7 +4948,11 @@ namespace BioBaseCLIA.Run
                             //return;
                         }
                         //修改反应盘信息
-                        OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+                        lock(iniPathReactTrayInfo)
+                        {
+                            OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+                        }
+                        
                     }
                 }
             }
@@ -4972,7 +5010,11 @@ namespace BioBaseCLIA.Run
                             #endregion
                         }
                         //修改反应盘信息
-                        OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+                        lock (iniPathReactTrayInfo)
+                        {
+                            OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+
+                        }
                     }
                 }
                 else
@@ -5020,7 +5062,11 @@ namespace BioBaseCLIA.Run
                             //return;
                         }
                         //修改反应盘信息
-                        OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+                        lock (iniPathReactTrayInfo)
+                        {
+                            OperateIniFile.WriteIniData("ReactTrayInfo", "no" + int.Parse(dtInTrayIni.Rows[i][0].ToString().Substring(2)).ToString(), "0", iniPathReactTrayInfo);
+                        }
+                        
                     }
                 }
             }
@@ -5152,7 +5198,11 @@ namespace BioBaseCLIA.Run
                                     AllPause();
                                     GetNoStartList();
                                 }
-                                OperateIniFile.WriteIniData("Tube", "TubePos", "1", Application.StartupPath + "//SubstrateTube.ini");
+                                lock (iniPathSubstrateTube)
+                                {
+                                    OperateIniFile.WriteIniData("Tube", "TubePos", "1", iniPathSubstrateTube);
+                                }
+                                
                             }
                             if (SubstrateStop)
                             {
@@ -5574,6 +5624,7 @@ namespace BioBaseCLIA.Run
                             }
                             timeReckon.Stop();
                             timer.Enabled = false;
+                            timer.Close();
                             #region 实验完成进行仪器初始化 2018-07-04 zlx add
                             NetCom3.Instance.Send(NetCom3.Cover("EB 90 F1 02"), 5);
                             NetCom3.Instance.SingleQuery();
@@ -6138,7 +6189,10 @@ namespace BioBaseCLIA.Run
                                             LiquidLevelDetectionEvent(getString("keywordText.SamplePos") + samplePos + "：" + getString("keywordText.SampleClot"), 2);
                                         //配置文件进行修改
                                         //diupos[0] = pos.ToString();
-                                        OperateIniFile.WriteIniData("ReactTrayInfo", "no" + diupos[0], "2", iniPathReactTrayInfo);
+                                        lock (iniPathReactTrayInfo)
+                                        {
+                                            OperateIniFile.WriteIniData("ReactTrayInfo", "no" + diupos[0], "2", iniPathReactTrayInfo);
+                                        }
                                         if (AddErrorCount > 0)
                                         {
                                             if (AddErrorCount > 1)
@@ -6300,7 +6354,10 @@ namespace BioBaseCLIA.Run
                                    (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))))
                                     LiquidLevelDetectionEvent(getString("keywordText.SamplePos") + samplePos + getString("keywordText.SampleClot"), 2);
                                 //该位置信息写入配置文件
-                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + pos.ToString(), "2", iniPathReactTrayInfo);
+                                lock (iniPathReactTrayInfo)
+                                {
+                                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + pos.ToString(), "2", iniPathReactTrayInfo);
+                                }
                                 if (AddErrorCount > 0)
                                 {
                                     if (AddErrorCount > 1)
@@ -6430,7 +6487,10 @@ namespace BioBaseCLIA.Run
                                     (!(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["SampleType"].Value.ToString().Contains(getString("keywordText.Standard")))))
                                     LiquidLevelDetectionEvent(getString("keywordText.SamplePos") + samplePos + "：" + getString("keywordText.SampleClot"), 2);
                                 //该位置信息写入配置文件
-                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + pos.ToString(), "2", iniPathReactTrayInfo);
+                                lock(iniPathReactTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + pos.ToString(), "2", iniPathReactTrayInfo);
+                                }
                                 if (AddErrorCount > 0)
                                 {
                                     if (AddErrorCount > 1)
@@ -6573,7 +6633,10 @@ namespace BioBaseCLIA.Run
                                 }
                                 //以下设置moveTube，即反应盘对应需加新管位置（testTempS.TestID+DValue+10）到放管位置
                                 drRg[rgindex]["leftoverTestR1"] = leftR1 - 1;
-                                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", (leftR1 - 1).ToString(), iniPathReagentTrayInfo);
+                                lock (iniPathReagentTrayInfo)
+                                {
+                                    OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", (leftR1 - 1).ToString(), iniPathReagentTrayInfo);
+                                }
                                 //lyq
                                 string rgBar = OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                                 DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + (leftR1 - 1).ToString() + " where BarCode = '"
@@ -6680,7 +6743,7 @@ namespace BioBaseCLIA.Run
                                     .Where(item => item == testTempS.ItemName).Count() > 0;
                                 int reagentPosition;
                                 int leftReagentTest
-                                     = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
+                                     = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos, "LeftReagent2", "", iniPathReagentTrayInfo));
 
                                 bool isSinglebottle = false;
                                 if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString() == "30")
@@ -6689,9 +6752,9 @@ namespace BioBaseCLIA.Run
                                 }
                                 else
                                 {
-                                    int position = int.Parse(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString());
-                                    string name = OperateIniFile.ReadIniData("ReagentPos" + (position + 1), "ItemName", "", iniPathReagentTrayInfo);
-                                    string barCode = OperateIniFile.ReadIniData("ReagentPos" + (position + 1), "BarCode", "", iniPathReagentTrayInfo);
+                                    //int position = int.Parse(dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString());
+                                    string name = OperateIniFile.ReadIniData("ReagentPos" + (rgPos + 1), "ItemName", "", iniPathReagentTrayInfo);
+                                    string barCode = OperateIniFile.ReadIniData("ReagentPos" + (rgPos + 1), "BarCode", "", iniPathReagentTrayInfo);
                                     if (!string.IsNullOrEmpty(name) && string.IsNullOrEmpty(barCode))
                                     {
                                         isSinglebottle = false;
@@ -6770,7 +6833,10 @@ namespace BioBaseCLIA.Run
                                         drRg[i]["leftoverTestR2"] = leftR2 - 1;
                                 }
                                 leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
-                                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
+                                lock(iniPathReagentTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
+                                }
                                 if (AddErrorCount > 0)
                                 {
                                     if (AddErrorCount > 1)
@@ -6915,7 +6981,10 @@ namespace BioBaseCLIA.Run
                                     if (int.Parse(drRg[i]["Postion"].ToString()) == rgPos)
                                         drRg[i]["leftoverTestR3"] = leftR3 - 1;
                                 }
-                                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent3", (leftR3 - 1).ToString(), iniPathReagentTrayInfo);
+                                lock(iniPathReagentTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent3", (leftR3 - 1).ToString(), iniPathReagentTrayInfo);
+                                }
                                 if (AddErrorCount > 0)
                                 {
                                     if (AddErrorCount > 1)
@@ -7108,7 +7177,10 @@ namespace BioBaseCLIA.Run
                             if (int.Parse(drRg[i]["Postion"].ToString()) == rgPos)
                                 drRg[i]["leftoverTestR4"] = leftR4 - 1;
                         }
-                        OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent4", (leftR4 - 1).ToString(), iniPathReagentTrayInfo);
+                        lock(iniPathReagentTrayInfo)
+                        { 
+                            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent4", (leftR4 - 1).ToString(), iniPathReagentTrayInfo);
+                        }
                         if (AddErrorCount > 0)
                         {
                             if (AddErrorCount > 1)
@@ -7164,7 +7236,8 @@ namespace BioBaseCLIA.Run
                 case TestSchedule.ExperimentScheduleStep.AddSingleR:
                     #region 特殊项目装在两个试剂瓶,试剂2装载两个试剂船
                     bool isSinglebottle2 = false;
-                    if (dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString() == "30")
+                    string RegentPos = dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString();
+                    if (RegentPos == "30")
                     {
                         isSinglebottle2 = true;
                     }
@@ -7187,7 +7260,7 @@ namespace BioBaseCLIA.Run
                         .ToList()
                         .Where(item => item == testTempS.ItemName).Count() > 0;
                     if (testTempS.singleStep == "R2" && isSpecialProject &&
-                        int.Parse(OperateIniFile.ReadIniData("ReagentPos" + dgvWorkListData.Rows[testTempS.TestID - 1].Cells["RegentPos"].Value.ToString(),
+                        int.Parse(OperateIniFile.ReadIniData("ReagentPos" + RegentPos,
                         "LeftReagent2", "", iniPathReagentTrayInfo)) <= 50 && !isSinglebottle2)
                         testTempS.singleStep = "NextLocationR2";
                     #endregion
@@ -7284,7 +7357,10 @@ namespace BioBaseCLIA.Run
                                 if (int.Parse(drRg[i]["Postion"].ToString()) == rgPos)
                                     drRg[i]["leftoverTestR1"] = leftR1 - 1;
                             }
-                            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", (leftR1 - 1).ToString(), iniPathReagentTrayInfo);
+                            lock(iniPathReagentTrayInfo)
+                            { 
+                                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", (leftR1 - 1).ToString(), iniPathReagentTrayInfo);
+                            }
                             //lyq
                             string rgBar = OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "BarCode", "", iniPathReagentTrayInfo);
                             DbHelperOleDb.ExecuteSql(3, @"update tbReagent set leftoverTestR1 =" + (leftR1 - 1).ToString() + " where BarCode = '"
@@ -7436,7 +7512,10 @@ namespace BioBaseCLIA.Run
                                     drRg[i]["leftoverTestR2"] = leftR2 - 1;
                             }
                             leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
-                            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
+                            lock(iniPathReagentTrayInfo)
+                            { 
+                                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
+                            }
                             if (AddErrorCount > 0)
                             {
                                 if (AddErrorCount > 1)
@@ -7573,7 +7652,10 @@ namespace BioBaseCLIA.Run
                                 if (int.Parse(drRg[i]["Postion"].ToString()) == rgPos)
                                     drRg[i]["leftoverTestR3"] = leftR3 - 1;
                             }
-                            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent3", (leftR3 - 1).ToString(), iniPathReagentTrayInfo);
+                            lock(iniPathReagentTrayInfo)
+                            { 
+                                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent3", (leftR3 - 1).ToString(), iniPathReagentTrayInfo);
+                            }
                             if (AddErrorCount > 0)
                             {
                                 if (AddErrorCount > 1)
@@ -7784,7 +7866,10 @@ namespace BioBaseCLIA.Run
                                     drRg[i]["leftoverTestR2"] = leftR2 - 1;
                             }
                             leftR2 = int.Parse(OperateIniFile.ReadIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", "", iniPathReagentTrayInfo));
-                            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
+                            lock (iniPathReagentTrayInfo)
+                            {
+                                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent2", (leftR2 - 1).ToString(), iniPathReagentTrayInfo);
+                            }
                             if (AddErrorCount > 0)
                             {
                                 if (AddErrorCount > 1)
@@ -7963,8 +8048,11 @@ namespace BioBaseCLIA.Run
             }
             #region 体积修改 lyn add 20180611
             DataRow[] drRg = dtRgInfo.Select("Postion=" + rgPos + "");
-            OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", 
-                (LeftdiuVol-(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
+            lock (iniPathReagentTrayInfo)
+            { 
+                OperateIniFile.WriteIniData("ReagentPos" + rgPos.ToString(), "LeftReagent1", 
+                    (LeftdiuVol-(FirstDiu + abanDiuPro)).ToString(), iniPathReagentTrayInfo);
+            }
             #endregion
             return AddErrorCount;
         }
@@ -8207,7 +8295,10 @@ namespace BioBaseCLIA.Run
             else
             {
                 TubeProblemFlag = false;
-                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + ReactPos, "1", iniPathReactTrayInfo);
+                lock(iniPathReactTrayInfo)
+                { 
+                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + ReactPos, "1", iniPathReactTrayInfo);
+                }
             }
             MoveTubeUseFlag = false;
             #endregion
@@ -8285,7 +8376,10 @@ namespace BioBaseCLIA.Run
             else
             {
                 ///取管成功
-                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos.ToString(), "0", iniPathReactTrayInfo);
+                lock(iniPathReactTrayInfo)
+                { 
+                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos.ToString(), "0", iniPathReactTrayInfo);
+                }
             }
             MoveTubeUseFlag = false;
         }
@@ -8396,7 +8490,10 @@ namespace BioBaseCLIA.Run
                     dtWashTrayTubeStatus.Rows[i][j] = dtTemp.Rows[i - 1][j];
                 }
             }
-            OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayTubeStatus);
+            lock(iniPathWashTrayInfo)
+            {
+                OperateIniFile.WriteConfigToFile("[TubePosition]", iniPathWashTrayInfo, dtWashTrayTubeStatus);
+            }
             WashTurnFlag = false;
             washStep();
             WashTrayUseFlag = false;
@@ -8719,7 +8816,10 @@ namespace BioBaseCLIA.Run
                             else
                             {
                                 TubeProblemFlag = false;
-                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + putpos[1], "1", iniPathReactTrayInfo);
+                                lock(iniPathReactTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + putpos[1], "1", iniPathReactTrayInfo);
+                                }
                             }
                             #endregion
                             #endregion
@@ -8814,7 +8914,10 @@ namespace BioBaseCLIA.Run
 
                                     int CIsKnockedCool = 0;
                                     #region 清洗盘向温育盘放管时发生撞管
-                                    OperateIniFile.WriteIniData("TubePosition", "no" + takepos[1], "0", iniPathWashTrayInfo);
+                                    lock(iniPathWashTrayInfo)
+                                    { 
+                                        OperateIniFile.WriteIniData("TubePosition", "no" + takepos[1], "0", iniPathWashTrayInfo);
+                                    }
                                     LogFile.Instance.Write("==============清洗盘夹管  " + washCountNum);
                                     if (dtWashTrayTubeStatus.Rows.Count > 0)
                                     {
@@ -8857,7 +8960,10 @@ namespace BioBaseCLIA.Run
                                             ///取放管失败
                                             lisMoveTube.Remove(TempMoveStatus);
                                         }
-                                        OperateIniFile.WriteIniData("ReactTrayInfo", "no" + putpos[1], "0", iniPathReactTrayInfo);
+                                        lock(iniPathReactTrayInfo)
+                                        { 
+                                            OperateIniFile.WriteIniData("ReactTrayInfo", "no" + putpos[1], "0", iniPathReactTrayInfo);
+                                        }
                                     }
                                 }
                                 else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.OverTime)
@@ -8877,7 +8983,10 @@ namespace BioBaseCLIA.Run
                             else
                             {
                                 #region 取放管成功
-                                OperateIniFile.WriteIniData("TubePosition", "no" + takepos[1], "0", iniPathWashTrayInfo);
+                                lock(iniPathWashTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("TubePosition", "no" + takepos[1], "0", iniPathWashTrayInfo);
+                                }
                                 LogFile.Instance.Write("==============清洗盘夹管  " + washCountNum);
                                 //LogFile.Instance.Write("==============夹管到温育盘  " + takepos[1] + "  扔管");
                                 //if (!CatchVacancyThisTime)
@@ -8891,7 +9000,10 @@ namespace BioBaseCLIA.Run
                                 }
                                 //}
                                 //CatchVacancyThisTime = false;
-                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + putpos[1], "2", iniPathReactTrayInfo);
+                                lock(iniPathReactTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + putpos[1], "2", iniPathReactTrayInfo);
+                                }
                                 #endregion
                             }
                             //WashTurnFlag = false;//2018-10-24 zlx mod
@@ -8921,7 +9033,7 @@ namespace BioBaseCLIA.Run
                             tubeHoleNum = washCountNum - 2;
                             if (tubeHoleNum <= 0)
                                 tubeHoleNum = tubeHoleNum + frmParent.WashTrayNum;
-                            LogFile.Instance.Write("  ***  " + "当前时间" + DateTime.Now + "清洗盘takepos[1]取管扔废管取放管位置" + tubeHoleNum + ",washCountNum的值:" + washCountNum + "  ***  ");
+                            LogFile.Instance.Write("  ***  " + "当前时间" + DateTime.Now + "定时器发送清洗盘takepos[1]取管扔废管取放管位置" + tubeHoleNum + ",washCountNum的值:" + washCountNum + "  ***  ");
                         AgainNewMove:
                             //LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss"), "到废弃处 movetube  WashTrayUseFlag = true"));
                             ///清洗盘takepos[1]取管扔废管
@@ -9008,7 +9120,10 @@ namespace BioBaseCLIA.Run
                             else
                             {
                                 #region 取管成功
-                                OperateIniFile.WriteIniData("TubePosition", "no" + takepos[1], "0", iniPathWashTrayInfo);
+                                lock (iniPathWashTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("TubePosition", "no" + takepos[1], "0", iniPathWashTrayInfo);
+                                }
                                 LogFile.Instance.Write("==============  " + washCountNum + "  扔管");
                                 //LogFile.Instance.Write("==============  " + currentHoleNum + "  扔管");
                                 //LogFile.Instance.Write("==============  " + takepos[1] + "  扔管");
@@ -9113,7 +9228,10 @@ namespace BioBaseCLIA.Run
                         else
                         {
                             ///取管成功
-                            OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
+                            lock (iniPathReactTrayInfo)
+                            { 
+                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
+                            }
                             if (BFullReactTray)
                                 BFullReactTray = false;
                         }
@@ -9163,7 +9281,10 @@ namespace BioBaseCLIA.Run
                                     //AllStop();
                                     #region  当前实验废弃，复位后扔掉 
                                     lisMoveTube.Remove(TempMoveStatus);
-                                    OperateIniFile.WriteIniData("TubePosition", "No1", "0", iniPathWashTrayInfo);
+                                    lock (iniPathWashTrayInfo)
+                                    { 
+                                        OperateIniFile.WriteIniData("TubePosition", "No1", "0", iniPathWashTrayInfo);
+                                    }
                                     dtWashTrayTubeStatus.Rows[0][1] = "0";
                                     dtWashTrayTubeStatus.Rows[0][2] = 0;
                                     dtWashTrayTubeStatus.Rows[0][3] = 0;
@@ -9206,7 +9327,10 @@ namespace BioBaseCLIA.Run
                             else if (NetCom3.Instance.MoverrorFlag == (int)ErrorState.putKnocked)
                             {
                                 int CIsKnockedCool = 0;
-                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
+                                lock(iniPathReactTrayInfo)
+                                {
+                                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
+                                }
                             ClearMove:
                                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 06"), 1);
                                 if (!NetCom3.Instance.MoveQuery() && NetCom3.Instance.MoverrorFlag == (int)ErrorState.IsKnocked)
@@ -9266,15 +9390,26 @@ namespace BioBaseCLIA.Run
                             //LogFile.Instance.Write("==============  温育向清洗盘放管  " + currentHoleNum);
                             LogFile.Instance.Write("==============  反应盘向清洗盘放管  " + washCountNum);
                             if (step == "Wash1")//2018-06-04 两步法移管留位置 zlx add
-                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "9", iniPathReactTrayInfo);
+                            {
+                                lock(iniPathReactTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "9", iniPathReactTrayInfo);
+                                }
+                            }
                             else
                             {
-                                OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
+                                lock(iniPathReactTrayInfo)
+                                { 
+                                    OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
+                                }
                                 if (BFullReactTray)
                                     BFullReactTray = false;
                             }
                             //OperateIniFile.WriteIniData("ReactTrayInfo", "no" + takepos[1], "0", iniPathReactTrayInfo);
-                            OperateIniFile.WriteIniData("TubePosition", "No1", "1", iniPathWashTrayInfo);
+                            lock (iniPathWashTrayInfo)
+                            { 
+                                OperateIniFile.WriteIniData("TubePosition", "No1", "1", iniPathWashTrayInfo);
+                            }
                             //if (!CatchVacancyThisTime)
                             //{
                             dtWashTrayTubeStatus.Rows[0][1] = "1";
@@ -9563,7 +9698,10 @@ namespace BioBaseCLIA.Run
             if (AddSubstrate == "1")
             {
                 string LeftCount1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "", iniPathSubstrateTube);
-                OperateIniFile.WriteIniData("Substrate1", "LeftCount", (int.Parse(LeftCount1) - 1).ToString(), iniPathSubstrateTube);
+                lock (iniPathSubstrateTube)
+                {
+                    OperateIniFile.WriteIniData("Substrate1", "LeftCount", (int.Parse(LeftCount1) - 1).ToString(), iniPathSubstrateTube);
+                }
                 string sbCode1 = OperateIniFile.ReadIniData("Substrate1", "BarCode", "0", iniPathSubstrateTube);
                 string sbNum1 = OperateIniFile.ReadIniData("Substrate1", "LeftCount", "0", iniPathSubstrateTube);
                 DbHelperOleDb dbase = new DbHelperOleDb(3);
@@ -9596,10 +9734,11 @@ namespace BioBaseCLIA.Run
                 int time = 0;
                 while (MoveTubeUseFlag)
                 {
-                    Thread.Sleep(50);
-                    time = time + 50;
+                    Thread.Sleep(30);
+                    time = time + 30;
                 }
                 LogFile.Instance.Write("清洗盘扔管间隔时间为："+ time+ ",WashTrayUseFlag的值："+ WashTrayUseFlag);
+                MoveTubeUseFlag = true;
             AgainNewMove:
                 NetCom3.Instance.Send(NetCom3.Cover("EB 90 31 01 04 01"), 1);
                 if (!NetCom3.Instance.MoveQuery())// && !NetCom3.Instance.MoveQuery()
@@ -9666,7 +9805,10 @@ namespace BioBaseCLIA.Run
                 else
                 {
                     #region 取管成功
-                    OperateIniFile.WriteIniData("TubePosition", "no" + dtWashTrayTubeStatus.Rows[28][0].ToString().Substring(2), "0", iniPathWashTrayInfo);
+                    lock(iniPathWashTrayInfo)
+                    {
+                        OperateIniFile.WriteIniData("TubePosition", "no" + dtWashTrayTubeStatus.Rows[28][0].ToString().Substring(2), "0", iniPathWashTrayInfo);
+                    }
                     LogFile.Instance.Write("==============  " + washCountNum + "  扔管");
                     if (dtWashTrayTubeStatus.Rows.Count > 0)
                     {
@@ -9678,7 +9820,7 @@ namespace BioBaseCLIA.Run
                     #endregion
                 }
                 LogFile.Instance.Write(washCountNum+"扔管指令执行完成！抓管移管状态："+ NetCom3.Instance.MoverrorFlag);
-
+                MoveTubeUseFlag = false;
                 //moveTube.putTubePos = "0-0";
                 //moveTube.StepNum = int.Parse(dtWashTrayTubeStatus.Rows[28][3].ToString());
                 //moveTube.TakeTubePos = "2-" + dtWashTrayTubeStatus.Rows[28][0].ToString().Substring(2);
@@ -9719,6 +9861,7 @@ namespace BioBaseCLIA.Run
             //    dataRecive[0] = null;
             //}
             string readData;
+            LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "DataReciveNumberRead的长度为："+ DataReciveNumberRead.Count));
             lock (readLocker)
             {
                 while (DataReciveNumberRead.Count < 1)
@@ -11210,6 +11353,7 @@ namespace BioBaseCLIA.Run
                     CaculateThread = null;
                     timeReckon.Stop();
                     timer.Enabled = false;
+                    timer.Close();
                 }
                 catch (ThreadAbortException e)
                 {
@@ -11510,6 +11654,7 @@ namespace BioBaseCLIA.Run
             AddResetEvent.Set();//add y 20180727
             timeReckon.Stop();
             timer.Enabled = false;
+            timer.Close();
             try
             {
                 if (RunFlag == (int)RunFlagStart.IsRuning)
@@ -11581,7 +11726,10 @@ namespace BioBaseCLIA.Run
                     AddTubeString = AddTubeString + AddTube + ";";
                 }
             }
-            OperateIniFile.WriteIniData("Tube", "ReacTrayTub", AddTubeString, iniPathSubstrateTube);
+            lock (iniPathSubstrateTube)
+            { 
+                OperateIniFile.WriteIniData("Tube", "ReacTrayTub", AddTubeString, iniPathSubstrateTube);
+            }
         }
         #endregion
 

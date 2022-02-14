@@ -130,6 +130,21 @@
   <data name="label15.Text" xml:space="preserve">
     <value>Information settings</value>
   </data>
+  <data name="tabInfo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9.75pt</value>
+  </data>
+  <data name="tabPPro.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 9.75pt</value>
+  </data>
+  <data name="tabPPro.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tabPPro.Size" type="System.Drawing.Size, System.Drawing">
+    <value>828, 438</value>
+  </data>
+  <data name="tabPPro.Text" xml:space="preserve">
+    <value>Project Information</value>
+  </data>
   <data name="btnLoadItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -270,6 +285,12 @@
   <data name="btnUnLoadItem.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Scaling Information</value>
+  </data>
   <data name="btnSaveItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAA6CAYAAABf5IcZAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
@@ -346,11 +367,11 @@
   <data name="conc.HeaderText" xml:space="preserve">
     <value>Concentration</value>
   </data>
-  <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Scaling Information</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Experimental Steps</value>
   </data>
   <data name="btnModifyStep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -431,11 +452,11 @@
   <data name="ParaUnit.HeaderText" xml:space="preserve">
     <value>Unit</value>
   </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Experimental Steps</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Project Information</value>
   </data>
   <data name="NumResult.Location" type="System.Drawing.Point, System.Drawing">
     <value>491, 86</value>
@@ -453,13 +474,13 @@
     <value>Precision:</value>
   </data>
   <data name="numExpiryDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 53</value>
+    <value>96, 53</value>
   </data>
   <data name="numExpiryDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 25</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 57</value>
+    <value>151, 57</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 17</value>
@@ -468,7 +489,7 @@
     <value>Day</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 57</value>
+    <value>8, 57</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 17</value>
@@ -477,7 +498,7 @@
     <value>Scaling Data:</value>
   </data>
   <data name="chkItemUseOrNot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 123</value>
+    <value>491, 123</value>
   </data>
   <data name="chkItemUseOrNot.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 21</value>
@@ -498,22 +519,26 @@
     <value>111, 25</value>
   </data>
   <data name="txtItemFullName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 20</value>
+    <value>96, 20</value>
   </data>
   <data name="txtItemFullName.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 25</value>
   </data>
   <data name="txtDilutionFactor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 53</value>
+    <value>310, 53</value>
   </data>
   <data name="txtDilutionFactor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 25</value>
+    <value>108, 25</value>
   </data>
   <data name="txtValueRange2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 86</value>
+    <value>310, 86</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtValueRange2.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="txtValueRange2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 25</value>
+    <value>108, 60</value>
   </data>
   <data name="txtValueUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>491, 53</value>
@@ -522,16 +547,19 @@
     <value>111, 25</value>
   </data>
   <data name="txtValueRange1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 86</value>
+    <value>96, 86</value>
+  </data>
+  <data name="txtValueRange1.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="txtValueRange1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 25</value>
+    <value>142, 60</value>
   </data>
   <data name="txtItemShortName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 20</value>
+    <value>310, 20</value>
   </data>
   <data name="txtItemShortName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 25</value>
+    <value>108, 25</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
     <value>450, 24</value>
@@ -543,7 +571,7 @@
     <value>Type:</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 90</value>
+    <value>250, 90</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 17</value>
@@ -561,7 +589,7 @@
     <value>Unit:</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 90</value>
+    <value>34, 90</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 17</value>
@@ -570,7 +598,7 @@
     <value>Range 1:</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>251, 57</value>
+    <value>224, 57</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 17</value>
@@ -579,7 +607,7 @@
     <value>Dilution ratio:</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 24</value>
+    <value>1, 24</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 17</value>
@@ -588,7 +616,7 @@
     <value>Project Name:</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 24</value>
+    <value>268, 24</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 17</value>
@@ -596,26 +624,23 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Short:</value>
   </data>
-  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 11.25pt</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Project Information</value>
-  </data>
   <data name="colShortName.HeaderText" xml:space="preserve">
     <value>Short</value>
   </data>
-  <data name="tabPPro.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 9.75pt</value>
-  </data>
-  <data name="tabPPro.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPBaseInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
-  <data name="tabPPro.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPBaseInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>828, 438</value>
   </data>
-  <data name="tabPPro.Text" xml:space="preserve">
-    <value>Project Information</value>
+  <data name="tabPBaseInfo.Text" xml:space="preserve">
+    <value>Basic Information</value>
+  </data>
+  <data name="groupBox5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 11.25pt</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Doctor</value>
   </data>
   <data name="btnSaveDoc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -927,20 +952,20 @@
   <data name="label10.Text" xml:space="preserve">
     <value>Name:</value>
   </data>
+  <data name="dgvDoctor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 149</value>
+  </data>
   <data name="Doctor.HeaderText" xml:space="preserve">
     <value>Doctor</value>
   </data>
   <data name="Department.HeaderText" xml:space="preserve">
     <value>Department</value>
   </data>
-  <data name="dgvDoctor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 149</value>
-  </data>
-  <data name="groupBox5.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="groupBox4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
   </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>Doctor</value>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Portfolio project Information</value>
   </data>
   <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1225,18 +1250,17 @@
   <data name="label12.Text" xml:space="preserve">
     <value>Name:</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lbGroupItem.ItemHeight" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
   <data name="lbGroupItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 157</value>
   </data>
-  <data name="groupBox4.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="groupBox8.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 11.25pt</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>Portfolio project Information</value>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Departments</value>
   </data>
   <data name="btnSaveDep.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1536,20 +1560,23 @@
   <data name="lbDep.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 140</value>
   </data>
-  <data name="groupBox8.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 11.25pt</value>
-  </data>
-  <data name="groupBox8.Text" xml:space="preserve">
-    <value>Departments</value>
-  </data>
-  <data name="tabPBaseInfo.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPint.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
-  <data name="tabPBaseInfo.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPint.Size" type="System.Drawing.Size, System.Drawing">
     <value>828, 438</value>
   </data>
-  <data name="tabPBaseInfo.Text" xml:space="preserve">
-    <value>Basic Information</value>
+  <data name="tabPint.Text" xml:space="preserve">
+    <value>Print Settings</value>
+  </data>
+  <data name="groupBox7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 15pt</value>
+  </data>
+  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>489, 3</value>
+  </data>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Print Order</value>
   </data>
   <data name="btnMoveDown.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1700,14 +1727,14 @@
   <data name="ItemName.HeaderText" xml:space="preserve">
     <value>Project Name</value>
   </data>
-  <data name="groupBox7.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="groupBox6.Font" type="System.Drawing.Font, System.Drawing">
     <value>Times New Roman, 15pt</value>
   </data>
-  <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>489, 3</value>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>467, 415</value>
   </data>
-  <data name="groupBox7.Text" xml:space="preserve">
-    <value>Print Order</value>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Print report settings</value>
   </data>
   <data name="cmbPrintMode.Items" xml:space="preserve">
     <value>Mode 1</value>
@@ -1730,6 +1757,9 @@
   <data name="label21.Text" xml:space="preserve">
     <value>Print Mode：</value>
   </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Print content position adjustment (unit: cm)</value>
+  </data>
   <data name="nudRight.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 30</value>
   </data>
@@ -1741,9 +1771,6 @@
   </data>
   <data name="nudUP.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 30</value>
-  </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>Print content position adjustment (unit: cm)</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rdbClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1893,27 +1920,6 @@
   </data>
   <data name="txtHospitalName.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 30</value>
-  </data>
-  <data name="groupBox6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt</value>
-  </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>467, 415</value>
-  </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Print report settings</value>
-  </data>
-  <data name="tabPint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 24</value>
-  </data>
-  <data name="tabPint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>828, 438</value>
-  </data>
-  <data name="tabPint.Text" xml:space="preserve">
-    <value>Print Settings</value>
-  </data>
-  <data name="tabInfo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 9.75pt</value>
   </data>
   <data name="btnUserInfo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2441,164 +2447,325 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="Add1" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="B" xml:space="preserve">
+    <value>Add beads</value>
+  </data>
+  <data name="B1" xml:space="preserve">
     <value>Add beads</value>
   </data>
   <data name="BasicSetHead" xml:space="preserve">
     <value>Basic information settings</value>
   </data>
+  <data name="BasicSetHead1" xml:space="preserve">
+    <value>Basic information settings</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>cancel</value>
   </data>
-  <data name="cmbFormat.Items" xml:space="preserve">
-    <value>A4</value>
-  </data>
-  <data name="cmbFormat.Items1" xml:space="preserve">
-    <value>A5</value>
+  <data name="Cancel1" xml:space="preserve">
+    <value>cancel</value>
   </data>
   <data name="Custom" xml:space="preserve">
+    <value>custom</value>
+  </data>
+  <data name="Custom1" xml:space="preserve">
     <value>custom</value>
   </data>
   <data name="D" xml:space="preserve">
     <value>read</value>
   </data>
+  <data name="D1" xml:space="preserve">
+    <value>read</value>
+  </data>
   <data name="DepartAddInfo" xml:space="preserve">
+    <value>Please add department information first</value>
+  </data>
+  <data name="DepartAddInfo1" xml:space="preserve">
     <value>Please add department information first</value>
   </data>
   <data name="DepartAddSucess" xml:space="preserve">
     <value>Department information added successfully</value>
   </data>
+  <data name="DepartAddSucess1" xml:space="preserve">
+    <value>Department information added successfully</value>
+  </data>
   <data name="DepartAlterSucess" xml:space="preserve">
+    <value>Department information modified successfully</value>
+  </data>
+  <data name="DepartAlterSucess1" xml:space="preserve">
     <value>Department information modified successfully</value>
   </data>
   <data name="DepartDeleteInfo" xml:space="preserve">
     <value>There is doctor information in the Department. You need to delete all doctor information in the Department before deleting the Department information</value>
   </data>
+  <data name="DepartDeleteInfo1" xml:space="preserve">
+    <value>There is doctor information in the Department. You need to delete all doctor information in the Department before deleting the Department information</value>
+  </data>
   <data name="DepartDeleteSucess" xml:space="preserve">
+    <value>Department information deleted successfully</value>
+  </data>
+  <data name="DepartDeleteSucess1" xml:space="preserve">
     <value>Department information deleted successfully</value>
   </data>
   <data name="DepartNameSet" xml:space="preserve">
     <value>Department name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,..., underscores!</value>
   </data>
+  <data name="DepartNameSet1" xml:space="preserve">
+    <value>Department name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,..., underscores!</value>
+  </data>
   <data name="DepartReName" xml:space="preserve">
-    <value>Department information cannot have the same name
-</value>
+    <value>Department information cannot have the same name</value>
+  </data>
+  <data name="DepartReName1" xml:space="preserve">
+    <value>Department information cannot have the same name</value>
   </data>
   <data name="DepartSDeleteInfo" xml:space="preserve">
+    <value>Please select the information to delete</value>
+  </data>
+  <data name="DepartSDeleteInfo1" xml:space="preserve">
     <value>Please select the information to delete</value>
   </data>
   <data name="DepartSelectInfo" xml:space="preserve">
     <value>Please select the modified item</value>
   </data>
+  <data name="DepartSelectInfo1" xml:space="preserve">
+    <value>Please select the modified item</value>
+  </data>
   <data name="DoctorAddSucess" xml:space="preserve">
+    <value>Doctor information added successfully</value>
+  </data>
+  <data name="DoctorAddSucess1" xml:space="preserve">
     <value>Doctor information added successfully</value>
   </data>
   <data name="DoctorDeleteSucess" xml:space="preserve">
     <value>Doctor information deleted successfully</value>
   </data>
+  <data name="DoctorDeleteSucess1" xml:space="preserve">
+    <value>Doctor information deleted successfully</value>
+  </data>
   <data name="DoctorModifySucess" xml:space="preserve">
+    <value>Doctor information modified successfully</value>
+  </data>
+  <data name="DoctorModifySucess1" xml:space="preserve">
     <value>Doctor information modified successfully</value>
   </data>
   <data name="DoctorNameSet" xml:space="preserve">
     <value>Doctor's name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,. Or underscores!</value>
   </data>
+  <data name="DoctorNameSet1" xml:space="preserve">
+    <value>Doctor's name can only be composed of two to ten Chinese characters, letters, numbers, asterisks,. Or underscores!</value>
+  </data>
   <data name="DoctorReName" xml:space="preserve">
+    <value>There are doctors with the same name in the same department</value>
+  </data>
+  <data name="DoctorReName1" xml:space="preserve">
     <value>There are doctors with the same name in the same department</value>
   </data>
   <data name="DoctorSelectInfo" xml:space="preserve">
     <value>Please select the doctor information to be modified</value>
   </data>
+  <data name="DoctorSelectInfo1" xml:space="preserve">
+    <value>Please select the doctor information to be modified</value>
+  </data>
   <data name="File" xml:space="preserve">
+    <value>file</value>
+  </data>
+  <data name="File1" xml:space="preserve">
     <value>file</value>
   </data>
   <data name="GroupAddSucess" xml:space="preserve">
     <value>Portfolio item added successfully</value>
   </data>
+  <data name="GroupAddSucess1" xml:space="preserve">
+    <value>Portfolio item added successfully</value>
+  </data>
   <data name="GroupDeleteSucess" xml:space="preserve">
+    <value>Combination item deleted successfully</value>
+  </data>
+  <data name="GroupDeleteSucess1" xml:space="preserve">
     <value>Combination item deleted successfully</value>
   </data>
   <data name="GroupModifySucess" xml:space="preserve">
     <value>Modification of combination project succeeded!</value>
   </data>
+  <data name="GroupModifySucess1" xml:space="preserve">
+    <value>Modification of combination project succeeded!</value>
+  </data>
   <data name="GroupNameInfo" xml:space="preserve">
+    <value>The combination item name can only be composed of two to ten Chinese characters, letters, asterisks, numbers,..., and underscores</value>
+  </data>
+  <data name="GroupNameInfo1" xml:space="preserve">
     <value>The combination item name can only be composed of two to ten Chinese characters, letters, asterisks, numbers,..., and underscores</value>
   </data>
   <data name="GroupReName" xml:space="preserve">
     <value>Portfolio items cannot have the same name</value>
   </data>
+  <data name="GroupReName1" xml:space="preserve">
+    <value>Portfolio items cannot have the same name</value>
+  </data>
   <data name="GroupSDeleteInfo" xml:space="preserve">
+    <value>Please select the combination item to delete</value>
+  </data>
+  <data name="GroupSDeleteInfo1" xml:space="preserve">
     <value>Please select the combination item to delete</value>
   </data>
   <data name="GroupSItemInfo" xml:space="preserve">
     <value>No experiment item selected, please select</value>
   </data>
+  <data name="GroupSItemInfo1" xml:space="preserve">
+    <value>No experiment item selected, please select</value>
+  </data>
   <data name="GroupSModify" xml:space="preserve">
+    <value>Please select the modification item before modifying the combination item</value>
+  </data>
+  <data name="GroupSModify1" xml:space="preserve">
     <value>Please select the modification item before modifying the combination item</value>
   </data>
   <data name="H" xml:space="preserve">
     <value>Incubation</value>
   </data>
+  <data name="H1" xml:space="preserve">
+    <value>Incubation</value>
+  </data>
   <data name="HospitalName" xml:space="preserve">
+    <value>XXX hospital</value>
+  </data>
+  <data name="HospitalName1" xml:space="preserve">
     <value>XXX hospital</value>
   </data>
   <data name="PrinterSelect" xml:space="preserve">
     <value>Please select the default printer</value>
   </data>
+  <data name="PrinterSelect1" xml:space="preserve">
+    <value>Please select a default printer </value>
+  </data>
+  <data name="PrinterSelect2" xml:space="preserve">
+    <value>Please select the default printer</value>
+  </data>
+  <data name="PrinterSelect3" xml:space="preserve">
+    <value>Please select a default printer </value>
+  </data>
   <data name="PrinterSetFail" xml:space="preserve">
     <value>Setting default printer failed!</value>
   </data>
+  <data name="PrinterSetFail1" xml:space="preserve">
+    <value>Failed to set as default printer! </value>
+  </data>
+  <data name="PrinterSetFail2" xml:space="preserve">
+    <value>Setting default printer failed!</value>
+  </data>
+  <data name="PrinterSetFail3" xml:space="preserve">
+    <value>Failed to set as default printer! </value>
+  </data>
   <data name="PrintHead" xml:space="preserve">
+    <value>Print settings</value>
+  </data>
+  <data name="PrintHead1" xml:space="preserve">
     <value>Print settings</value>
   </data>
   <data name="PrintMode" xml:space="preserve">
     <value>Please select print template</value>
   </data>
+  <data name="PrintMode1" xml:space="preserve">
+    <value>Please select print template</value>
+  </data>
   <data name="PrintParaSetSucess" xml:space="preserve">
+    <value>Print parameters set successfully</value>
+  </data>
+  <data name="PrintParaSetSucess1" xml:space="preserve">
     <value>Print parameters set successfully</value>
   </data>
   <data name="ProjectDeleteSucess" xml:space="preserve">
     <value>project deleted successfully</value>
   </data>
+  <data name="ProjectDeleteSucess1" xml:space="preserve">
+    <value>project deleted successfully</value>
+  </data>
   <data name="ProjectHead" xml:space="preserve">
+    <value>project management</value>
+  </data>
+  <data name="ProjectHead1" xml:space="preserve">
     <value>project management</value>
   </data>
   <data name="ProjectImportSucess" xml:space="preserve">
     <value>Import project succeeded</value>
   </data>
+  <data name="ProjectImportSucess1" xml:space="preserve">
+    <value>Import project succeeded</value>
+  </data>
   <data name="ProjectIPFormat" xml:space="preserve">
+    <value>Import format error</value>
+  </data>
+  <data name="ProjectIPFormat1" xml:space="preserve">
     <value>Import format error</value>
   </data>
   <data name="ProjectReAdd" xml:space="preserve">
     <value>The project already exists. Importing will delete the original project. Do you want to continue</value>
   </data>
+  <data name="ProjectReAdd1" xml:space="preserve">
+    <value>The project already exists. Importing will delete the original project. Do you want to continue</value>
+  </data>
   <data name="ProjectSaveError" xml:space="preserve">
+    <value>Error importing project, please import again</value>
+  </data>
+  <data name="ProjectSaveError1" xml:space="preserve">
     <value>Error importing project, please import again</value>
   </data>
   <data name="ProjectSaveSucess" xml:space="preserve">
     <value>Project information saved successfully</value>
   </data>
+  <data name="ProjectSaveSucess1" xml:space="preserve">
+    <value>Project information saved successfully</value>
+  </data>
   <data name="R1" xml:space="preserve">
+    <value>Reagent 1</value>
+  </data>
+  <data name="R11" xml:space="preserve">
     <value>Reagent 1</value>
   </data>
   <data name="R2" xml:space="preserve">
     <value>Reagent 2</value>
   </data>
+  <data name="R21" xml:space="preserve">
+    <value>Reagent 2</value>
+  </data>
   <data name="R3" xml:space="preserve">
+    <value>Reagent 3</value>
+  </data>
+  <data name="R31" xml:space="preserve">
     <value>Reagent 3</value>
   </data>
   <data name="RD" xml:space="preserve">
     <value>Reagent D</value>
   </data>
+  <data name="RD1" xml:space="preserve">
+    <value>Reagent D</value>
+  </data>
   <data name="ReportNameSet" xml:space="preserve">
+    <value>The report name can only be composed of Chinese characters, letters, numbers, asterisks,. Or underscores, and cannot be empty!</value>
+  </data>
+  <data name="ReportNameSet1" xml:space="preserve">
     <value>The report name can only be composed of Chinese characters, letters, numbers, asterisks,. Or underscores, and cannot be empty!</value>
   </data>
   <data name="S" xml:space="preserve">
     <value>Add sample</value>
   </data>
+  <data name="S1" xml:space="preserve">
+    <value>Add sample</value>
+  </data>
   <data name="T" xml:space="preserve">
     <value>Adding substrate</value>
   </data>
+  <data name="T1" xml:space="preserve">
+    <value>Adding substrate</value>
+  </data>
   <data name="W" xml:space="preserve">
+    <value>Wash</value>
+  </data>
+  <data name="W1" xml:space="preserve">
     <value>Wash</value>
   </data>
 </root>
