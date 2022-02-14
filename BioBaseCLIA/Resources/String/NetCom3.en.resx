@@ -150,6 +150,12 @@
   <data name="Incubateverticalabnormal" xml:space="preserve">
     <value>The vertical photoelectric switch of the incubation tray module is abnormal!</value>
   </data>
+  <data name="keywordText.Hightips" xml:space="preserve">
+    <value>The darkroom value is too high!</value>
+  </data>
+  <data name="keywordText.Lowtips" xml:space="preserve">
+    <value>The darkroom value is too low!</value>
+  </data>
   <data name="Measureabnormal" xml:space="preserve">
     <value>The optocoupler of the cleaning module metering pump is abnormal!</value>
   </data>

@@ -1748,6 +1748,7 @@ namespace BioBaseCLIA.SysMaintenance
                 pbinitializers.Value = 50;
                 lainitializers.Text = GetString("keywordText.Init") + " " + pbinitializers.Value.ToString() + "%";
             }));
+            NetCom3.Instance.DarkroomInfo = null;
             Array.Clear(dataRecive, 0, 15);//2018-09-17
             NetCom3.Instance.Send(NetCom3.Cover("EB 90 F1 02"), 5);
             if (!NetCom3.Instance.SingleQuery())
@@ -1762,6 +1763,20 @@ namespace BioBaseCLIA.SysMaintenance
                 //2018-09-06 zlx mod
                 frmMsgShow.MessageShow(GetString("keywordText.Init"), NetCom3.Instance.ErrorMessage);
                 goto complete;
+            }
+            if (NetCom3.Instance.DarkroomInfo != null && NetCom3.Instance.DarkroomInfo != "")
+            {
+                new Thread(new ParameterizedThreadStart((obj) =>
+                {
+                    SetCultureInfo();
+                    frmMessageShow f = new frmMessageShow();
+                    f.MessageShow(GetString("keywordText.Init"), NetCom3.Instance.DarkroomInfo);
+                }))
+                {
+                    IsBackground = true,
+                    CurrentCulture = Language.AppCultureInfo,
+                    CurrentUICulture = Language.AppCultureInfo
+                }.Start();
             }
             #endregion
 

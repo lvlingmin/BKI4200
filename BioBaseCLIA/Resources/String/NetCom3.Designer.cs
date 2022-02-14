@@ -160,6 +160,24 @@ namespace BioBaseCLIA.Resources.String {
         }
         
         /// <summary>
+        ///   查找类似 暗室值过高！ 的本地化字符串。
+        /// </summary>
+        internal static string keywordText_Hightips {
+            get {
+                return ResourceManager.GetString("keywordText.Hightips", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 暗室值过低！ 的本地化字符串。
+        /// </summary>
+        internal static string keywordText_Lowtips {
+            get {
+                return ResourceManager.GetString("keywordText.Lowtips", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 清洗模块计量泵光耦异常! 的本地化字符串。
         /// </summary>
         internal static string Measureabnormal {

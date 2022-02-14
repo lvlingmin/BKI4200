@@ -424,6 +424,7 @@ namespace BioBaseCLIA.Run
                 chkEmergency.Enabled = false;
                 btnDelete.Enabled = false;
                 btnMoreDelete.Enabled = false;
+                btnUnloadSP.Enabled = false;
                 fbLoadAll.Enabled = false;//2018-10-18 zlx add
             }
             //chkEmergency.Visible = false;
@@ -565,8 +566,24 @@ namespace BioBaseCLIA.Run
                 btnDelete.Text = getString("keywordText.Delete");
                 ((Button)sender).Text = getString("keywordText.Add");
                 if (dtSampleInfo.Rows.Count != 0)
-                    btnModify.Enabled = true;//y add 20180424
-                else btnDelete.Enabled = false;//y add 20180425
+                {
+                    if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+                    {
+                        btnModify.Enabled = false;//y add 20180424
+                        btnDelete.Enabled = btnMoreDelete.Enabled =false;//y add 20180425
+                    }
+                    else
+                    {
+                        btnModify.Enabled = true;//y add 20180424
+                        btnDelete.Enabled = btnMoreDelete.Enabled = true;//y add 20180425
+                    }
+                    
+                }
+                else
+                {
+                    btnModify.Enabled = false;//y add 20180424
+                    btnDelete.Enabled = btnMoreDelete.Enabled = false;//y add 20180425
+                }
                 txtSpBarCode.Text = "";//y add 20180424
                 txtSpPosition.Text = GetPos().ToString();//y add 20180424
                 txtSpRepetitions.Text = "1";//y add 20180424
@@ -966,6 +983,14 @@ namespace BioBaseCLIA.Run
                 btnDelete.Text = getString("keywordText.Delete");
                 ((Button)sender).Text = getString("keywordText.Update");
                 btnAdd.Enabled = true;//y add 20180424
+                if (frmWorkList.RunFlag == (int)RunFlagStart.IsRuning)
+                {
+                    btnMoreDelete.Enabled = btnMoreDelete.Enabled = false;
+                }
+                else
+                {
+                    btnMoreDelete.Enabled = btnMoreDelete.Enabled = true;
+                }
                 chkScanSampleCode.Enabled = true;//y add 20180424
                 groupBox6.Enabled = true;//y add 20180425
             }
@@ -2488,7 +2513,13 @@ namespace BioBaseCLIA.Run
                 txtSpCode1.Enabled = txtSpCode2.Enabled = txtSpNum.Enabled = txtSpStartPos.Enabled =
                            chkMoreEmergency.Enabled = cmbMorePipeType.Enabled = txtMoreSpRepetitions.Enabled = cmbmSpType.Enabled = false;//2018-11-14 zlx add cmbSpType
                 if (dtSampleInfo.Rows.Count != 0)
-                    btnMoreDelete.Enabled = true;//y add 20170425
+                {
+                    if(frmWorkList.RunFlag ==(int)RunFlagStart.IsRuning)
+                        btnMoreDelete.Enabled = false;
+                    else
+                        btnMoreDelete.Enabled = true;
+                }
+                    
                 btnMoreSave.Enabled = false;//y add 20170425
                 groupBox5.Enabled = true;//y add 20170425
             }

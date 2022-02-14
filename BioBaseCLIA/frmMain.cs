@@ -1077,12 +1077,12 @@ namespace BioBaseCLIA
                     timeWarnSound.Start();
                 }
             }
-            else
-            {
-                LogFile.Instance.Write("报警状态解除，关闭声音报警定时器！");
-                SoundFlag = (int)SoundFlagStart.isClose;
-                timeWarnSound.Stop();
-            }
+            //else
+            //{
+            //    LogFile.Instance.Write("报警状态解除，关闭声音报警定时器！");
+            //    SoundFlag = (int)SoundFlagStart.isClose;
+            //    timeWarnSound.Stop();
+            //}
             timerStatus.Enabled = true;
         }
         /// <summary>

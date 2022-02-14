@@ -50,6 +50,7 @@ namespace BioBaseCLIA
         /// </summary>
         public string[] ReciveData = new string[16];
         public string ErrorMessage=null;//2019-02-12 zlx add
+        public string DarkroomInfo = null;
         #endregion
         #region 线程、事件
         /// <summary>
@@ -1450,9 +1451,13 @@ namespace BioBaseCLIA
                                                     ErrorMessage = ErrorMessage + Res.Plungerabnormal + "\n";
                                                 }
                                             }
-
-                                            //初始化检测JJ：抓手模块光电信号
-                                            string tempJJ = tempResponse.Substring(tempInt + 18, 2);
+                                            tempII = tempResponse.Substring(tempInt + 12, 2);
+                                        if (tempII == "FE")
+                                            DarkroomInfo = Res.keywordText_Hightips;
+                                        else if (tempII == "FD")
+                                            DarkroomInfo = Res.keywordText_Lowtips; 
+                                        //初始化检测JJ：抓手模块光电信号
+                                     string tempJJ = tempResponse.Substring(tempInt + 18, 2);
                                             //判断JJ位为FF
                                             if (tempJJ != "3F")
                                             {
