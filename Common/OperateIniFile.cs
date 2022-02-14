@@ -139,26 +139,23 @@ namespace Common
         /// <returns>写入是否成功</returns>
         public static bool WriteIniData(string Section, string Key, string Value, string iniFilePath)
         {
-            lock (iniFilePath)
+            if (File.Exists(iniFilePath))
             {
-                if (File.Exists(iniFilePath))
-                {
-                    long OpStation = WritePrivateProfileString(Section, Key, Value, iniFilePath);
-                    if (OpStation == 0)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-                else
+                long OpStation = WritePrivateProfileString(Section, Key, Value, iniFilePath);
+                if (OpStation == 0)
                 {
                     return false;
                 }
+                else
+                {
+                    return true;
+                }
             }
-           
+            else
+            {
+                return false;
+            }
+
         }
 
         /// <summary>
@@ -168,9 +165,7 @@ namespace Common
         /// <returns></returns>
         public static bool WriteConfigToFile(string section, string iniFilePath, DataTable dt)
         {
-            lock(iniFilePath)
-            {
-            using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Write, FileShare.Read,1024,true)) 
+            using (FileStream wfile = new FileStream(iniFilePath, FileMode.Open, FileAccess.Write, FileShare.Read, 1024, true))
             {
                 StreamWriter sw = new StreamWriter(wfile);
                 try
@@ -192,7 +187,6 @@ namespace Common
                     wfile.Dispose();
                 }
                 return true;
-            }
             }
         }
 
