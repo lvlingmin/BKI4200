@@ -2665,4 +2665,10 @@
   <data name="keywordText.NoReagentAddCurve" xml:space="preserve">
     <value>未检测到试剂信息，此次操作无效！</value>
   </data>
+  <data name="keywordText.AddMainFailed" xml:space="preserve">
+    <value>添加主曲线信息失败！</value>
+  </data>
+  <data name="keywordText.UpdateConFailed" xml:space="preserve">
+    <value>更新项目信息失败！</value>
+  </data>
 </root>

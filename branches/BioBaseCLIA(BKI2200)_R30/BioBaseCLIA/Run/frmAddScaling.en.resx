@@ -777,8 +777,14 @@
   <data name="keywordText.UpdateAucceeded" xml:space="preserve">
     <value>The project process has been updated successfully</value>
   </data>
+  <data name="keywordText.UpdateConFailed" xml:space="preserve">
+    <value>The concentration information update failed, please use the correct barcode information to scan the code!</value>
+  </data>
   <data name="keywordText.UpdateFailed" xml:space="preserve">
     <value>The project flow update failed</value>
+  </data>
+  <data name="keywordText.UpdatePMTFailed" xml:space="preserve">
+    <value>The update of the luminous value information failed, please use the correct barcode information to scan the code!</value>
   </data>
   <data name="keywordText.ValueNone" xml:space="preserve">
     <value>There is a point with an empty luminous value, please enter it again!</value>

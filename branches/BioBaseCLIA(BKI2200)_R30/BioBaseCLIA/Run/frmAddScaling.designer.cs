@@ -274,6 +274,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmAddScaling";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddScaling_FormClosing);
             this.Load += new System.EventHandler(this.frmAddScaling_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvScaling)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -9896,7 +9896,7 @@ namespace BioBaseCLIA.Run
             PMT = GetPMT(PMT);
             int pmt = (int)PMT;
             int NewPMT = (int)((double)pmt * double.Parse(Coefficient));
-            LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "实验" + testid + "读数发光值为:" + pmt+",通过校准系数校准后的读数发光值为："+ NewPMT));
+            LogFile.Instance.Write(string.Format("{0}<-:{1}", DateTime.Now.ToString("HH:mm:ss:fff"), "实验(test)" + testid + "读数发光值为(PMTFirst):" + pmt+ ",通过校准系数校准后的读数发光值为(PMTLast)：" + NewPMT));
             CalculatResult(testid, NewPMT);
         }
         /// <summary>
