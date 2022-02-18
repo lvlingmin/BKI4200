@@ -1307,4 +1307,10 @@
   <data name="keywordText.NoReagentAddCurve" xml:space="preserve">
     <value>Reagent information is not detected, this operation is invalid!</value>
   </data>
+  <data name="keywordText.AddMainFailed" xml:space="preserve">
+    <value>Failed to add main curve information!</value>
+  </data>
+  <data name="keywordText.UpdateConFailed" xml:space="preserve">
+    <value>Failed to update project information!</value>
+  </data>
 </root>

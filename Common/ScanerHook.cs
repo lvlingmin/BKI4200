@@ -54,6 +54,8 @@ namespace Common
                 //  hKeyboardHook = SetWindowsHookEx(13, hookproc, Marshal.GetHINSTANCE(Assembly.GetExecutingAssembly().GetModules()[0]), 0);  
                 //hKeyboardHook = SetWindowsHookEx(13, hookproc, modulePtr, 0);
                 hKeyboardHook = SetWindowsHookEx(13, hookproc, GetModuleHandle(Process.GetCurrentProcess().MainModule.ModuleName), 0);
+                GC.KeepAlive(hookproc);
+                GC.KeepAlive(hKeyboardHook);
             }
             return (hKeyboardHook != 0);
         }
@@ -73,7 +75,7 @@ namespace Common
 
             EventMsg msg = (EventMsg)Marshal.PtrToStructure(lParam, typeof(EventMsg));
             codes.Add(msg);
-            if (BarCodeEvent != null && msg.message == 13 && msg.paramH > 0 && !string.IsNullOrEmpty(codes.Result))
+            if (BarCodeEvent != null && msg.message == 13 && msg.paramH > 0 && (!string.IsNullOrEmpty(codes.Result) && codes.Result != ""))
             {
                 BarCodeEvent(codes);
             }
@@ -144,6 +146,11 @@ namespace Common
                         return null;
                     }
                 }
+            }
+            public void ClearResult()
+            {
+                _result = new List<string>();
+                _result.Add(string.Empty);
             }
             public string CurrentKey
             {
@@ -217,7 +224,7 @@ namespace Common
                 {
                     _key = strKeyName.ToString().Trim(new char[] { ' ', '\0' });
                     GetKeyboardState(_state);
-                    if (_key.Length == 1 && msg.paramH == 0)// && msg.paramH == 0
+                    if (_key.Length == 1 && msg.paramH == 0 && _result.Count>0)// && msg.paramH == 0
                     {
                         // 根据键盘状态和shift缓存判断输出字符  
                         _cur = ShiftChar(_key, isShift, _state).ToString();

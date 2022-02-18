@@ -139,6 +139,7 @@ namespace BioBaseCLIA.Run
             else
             {
                 string rgCode = Regex.Replace(barCode.Result, @"\s", "");
+                barCode.ClearResult();
                 if (rgCode != null && rgCode != "")
                 {
                     this.txtDiluteNumber.Text = rgCode;
@@ -235,6 +236,7 @@ namespace BioBaseCLIA.Run
             }
             txtSubstrateAllTest.Enabled = txtDiluteNumber.Enabled = txtSubstrateLastTest.Enabled = false;
             btnLoadSubstrate.Enabled = false;
+            barCodeHook.Stop();
             this.Close();
         }
 

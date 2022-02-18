@@ -213,6 +213,8 @@ namespace BioBaseCLIA.Run
             else
             {
                 string rgCode = Regex.Replace(barCode.Result, @"\s", "");
+                barCode.ClearResult();
+                //this.txtRgCode.Text = "";
                 if (rgCode != null && rgCode != "")
                 {
                     this.txtRgCode.Text = rgCode;
@@ -307,6 +309,7 @@ namespace BioBaseCLIA.Run
                 if (txtRgCode.Text.Trim() == BarCode && cmbRgName.Text.Trim() == ItemName && ItemName != "" && BarCode != "")
                 {
                     frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), string.Format(getString("keywordText.ReagentBarcodeRepeat"), i));
+                    txtRgCode.TextChanged += new EventHandler(txtRgCode_TextChanged);
                     return;
                 }
             }
@@ -318,12 +321,14 @@ namespace BioBaseCLIA.Run
             {
                 frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.PleaseUnloadReagent"));
                 dgvRgInfoList_SelectionChanged(null, null);
+                txtRgCode.TextChanged += new EventHandler(txtRgCode_TextChanged);
                 return;
             }
             if (dt.Rows.Count > 0)
             {
                 frmMsgShow.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.ThisBarcodeLoaded"));
                 dgvRgInfoList_SelectionChanged(null, null);
+                txtRgCode.TextChanged += new EventHandler(txtRgCode_TextChanged);
                 return;
                 #region 屏蔽
                 //if (dt.Rows[0]["Status"].ToString() == "卸载")
@@ -1250,6 +1255,8 @@ namespace BioBaseCLIA.Run
             string validDate = DateTime.Now.AddDays(365).ToString();//试剂的有效期是365天 jun mod 20190407
             frmAddScaling frmAS = new frmAddScaling(cmbRgName.Text.Trim(), txtRgBatch.Text.Trim(), activedate, validDate);
             frmAS.ShowDialog();
+            barCodeHook.Start();
+
         }
 
         private void btnWorkList_Click(object sender, EventArgs e)
@@ -1777,6 +1784,7 @@ namespace BioBaseCLIA.Run
             {
                 Invoke(new Action(() =>
                 {
+                    //txtRgCode.Text = "";
                     txtRgCode.Text = rgcode;//条码
                     txtRgBatch.Text = dt.Rows[0]["Batch"].ToString();//批号
                     if (txtRgBatch.Text.Substring(0, 2) == "SD")
@@ -1824,6 +1832,7 @@ namespace BioBaseCLIA.Run
                 //}
                 Invoke(new Action(() =>
                 {
+                    //txtRgCode.Text = "";
                     txtRgCode.Text = rgcode;//条码
                     txtRgBatch.Text = batch;//批号
                     if (txtRgBatch.Text.Substring(0, 2) == "SD")
@@ -2124,6 +2133,7 @@ namespace BioBaseCLIA.Run
                 //{
                 //    return false;
                 //}
+                if (decryption.Length < 12) return false;
                 if (decryption.Substring(11, 1) == "0" || code.Length == 18)//old version
                 {
                     string productDay = decryption.Substring(6, 3);
@@ -2645,67 +2655,76 @@ namespace BioBaseCLIA.Run
             string decryption = StringUtils.instance.ToDecryption(rgcode);
             if ((decryption.Substring(4, 1) == "f") || (decryption.Substring(4, 1) == "F"))//之所以加一个大写，是因为传输后全是大写，后期会改进
             {
+                try
+                { 
                 //明文字符串删掉已经用完的字符
-                decryption = decryption.Substring(5);
-                string pro = "";
-                foreach (string step in tempPro)
-                {
-                    string[] flag = step.Split('-');
-                    switch (flag[0]) //这是通过判断界面 gridView中的流程每一项，再更新条码中特定位置的数。  这是更新值，不是更新流程。
+                    decryption = decryption.Substring(5);
+                    string pro = "";
+                    foreach (string step in tempPro)
                     {
-                        case "S":                                          //所以需要条码生成中用到的数据库 中的项目流程，和软件数据库中的项目流程 顺序保持一致
-                            pro += "S-" + int.Parse(decryption.Substring(0, 2)) * 5 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(2);
-                            break;
-                        case "R1":
-                            pro += "R1-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(2);
-                            break;
-                        case "R2":
-                            pro += "R2-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(2);
-                            break;
-                        case "R3":
-                            pro += "R3-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(2);
-                            break;
-                        case "R4":
-                            pro += "R4-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(2);
-                            break;
-                        case "H":
-                            string time16 = decryption.Substring(0, 3);
-                            int timeSecond10 = Convert.ToInt32(time16, 16);
-                            int timeMin = timeSecond10 / 60;
-                            pro += "H-" + timeMin + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(3);
-                            break;
-                        case "B":
-                            pro += "B-" + int.Parse(decryption.Substring(0, 1)) * 10 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(1);
-                            break;
-                        case "W":
-                            pro += "W-" + int.Parse(decryption.Substring(0, 1)) * 100 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(1);
-                            break;
-                        case "T":
-                            pro += "T-" + int.Parse(decryption.Substring(0, 1)) * 100 + "-" + flag[2] + ";";
-                            decryption = decryption.Substring(1);
-                            break;
-                        case "D":
-                            pro += "D-" + int.Parse(decryption.Substring(0, 1)) * 10 + "-" + flag[2];
-                            break;
-                        default:
-                            break;
+                        string[] flag = step.Split('-');
+                        switch (flag[0]) //这是通过判断界面 gridView中的流程每一项，再更新条码中特定位置的数。  这是更新值，不是更新流程。
+                        {
+                            case "S":                                          //所以需要条码生成中用到的数据库 中的项目流程，和软件数据库中的项目流程 顺序保持一致
+                                pro += "S-" + int.Parse(decryption.Substring(0, 2)) * 5 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(2);
+                                break;
+                            case "R1":
+                                pro += "R1-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(2);
+                                break;
+                            case "R2":
+                                pro += "R2-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(2);
+                                break;
+                            case "R3":
+                                pro += "R3-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(2);
+                                break;
+                            case "R4":
+                                pro += "R4-" + int.Parse(decryption.Substring(0, 2)) * 10 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(2);
+                                break;
+                            case "H":
+                                string time16 = decryption.Substring(0, 3);
+                                int timeSecond10 = Convert.ToInt32(time16, 16);
+                                int timeMin = timeSecond10 / 60;
+                                pro += "H-" + timeMin + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(3);
+                                break;
+                            case "B":
+                                pro += "B-" + int.Parse(decryption.Substring(0, 1)) * 10 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(1);
+                                break;
+                            case "W":
+                                pro += "W-" + int.Parse(decryption.Substring(0, 1)) * 100 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(1);
+                                break;
+                            case "T":
+                                pro += "T-" + int.Parse(decryption.Substring(0, 1)) * 100 + "-" + flag[2] + ";";
+                                decryption = decryption.Substring(1);
+                                break;
+                            case "D":
+                                pro += "D-" + int.Parse(decryption.Substring(0, 1)) * 10 + "-" + flag[2];
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    pro = pro.Trim();
+                    string sql = "update tbProject set ProjectProcedure ='" + pro + "'" + "where ShortName = '" + itemName + "'";
+
+                    int rows = DbHelperOleDb.ExecuteSql(0, sql);//更新流程到数据库
+                    if (rows <= 0)
+                    {
+                        //MessageBox.Show("项目流程更新失败,请重新装载！");
+                        return false;
                     }
                 }
-                pro = pro.Trim();
-                string sql = "update tbProject set ProjectProcedure ='" + pro + "'" + "where ShortName = '" + itemName + "'";
-
-                int rows = DbHelperOleDb.ExecuteSql(0, sql);//更新流程到数据库
-                if (rows <= 0)
+                catch (Exception e)
                 {
-                    //MessageBox.Show("项目流程更新失败,请重新装载！");
+                    frmMessageShow frm = new frmMessageShow();
+                    frm.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.UpdateConFailed"));
                     return false;
                 }
                 //addR[1] = true;
@@ -2744,31 +2763,50 @@ namespace BioBaseCLIA.Run
             string sign2 = decryption.Substring(2);
             if (signChar == "3")
             {
-                string[] decryArray = sign2.Split(new char[3] { 'B', 'C', 'D' });
-                for (int i = 0; i < decryArray.Length; i++)
+                try
                 {
-                    conc += decryArray[i].Substring(0, decryArray[i].Length - 1) + ",";
+                    conc = "";
+                    string[] decryArray = sign2.Split(new char[3] { 'B', 'C', 'D' });
+                    for (int i = 0; i < decryArray.Length; i++)
+                    {
+                        conc += double.Parse(decryArray[i].Substring(0, decryArray[i].Length - 1)) + ",";
+                    }
+                }
+                catch (Exception ex)
+                { 
+                    frmMessageShow frm = new frmMessageShow();
+                    frm.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.UpdateConFailed"));
+                    return false;
                 }
                 //addR[2] = true;
             }
             else if (signChar == "4")
             {
-                string[] decryArray2 = sign2.Split(new char[2] { 'F', 'G' });
-                foreach (string x in decryArray2)
+                try
                 {
-                    conc += x.Substring(0, x.Length - 1) + ",";
-                }
-                conc = conc.Trim().Substring(0, conc.Length - 1);
-
-                if (dtRgInfo.Rows.Count == 0 || dtRgInfo.Select("RgName='" + itemName + "' and ValidDate >'" + dateValidDate.Value + "'").Length < 1)//如果已装载试剂中，“不存在”同项目且有效期更长的，则更新
-                {
-                    string sql = "update tbProject set CalPointConc ='" + conc + "'" + "where ShortName = '" + itemName + "'";
-                    int rows = DbHelperOleDb.ExecuteSql(0, sql);
-                    if (rows <= 0)
+                    string[] decryArray2 = sign2.Split(new char[2] { 'F', 'G' });
+                    foreach (string x in decryArray2)
                     {
-                        //MessageBox.Show("项目标准定标浓度更新失败,请重新装载！");
-                        return false;
+                        conc += double.Parse(x.Substring(0, x.Length - 1)) + ",";
                     }
+                    conc = conc.Trim().Substring(0, conc.Length - 1);
+
+                    if (dtRgInfo.Rows.Count == 0 || dtRgInfo.Select("RgName='" + itemName + "' and ValidDate >'" + dateValidDate.Value + "'").Length < 1)//如果已装载试剂中，“不存在”同项目且有效期更长的，则更新
+                    {
+                        string sql = "update tbProject set CalPointConc ='" + conc + "'" + "where ShortName = '" + itemName + "'";
+                        int rows = DbHelperOleDb.ExecuteSql(0, sql);
+                        if (rows <= 0)
+                        {
+                            //MessageBox.Show("项目标准定标浓度更新失败,请重新装载！");
+                            return false;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    frmMessageShow frm = new frmMessageShow();
+                    frm.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.UpdateConFailed"));
+                    return false;
                 }
                 //addR[3] = true;
             }
@@ -2797,34 +2835,125 @@ namespace BioBaseCLIA.Run
             #region 处理条码取得数据
             string decryption = StringUtils.instance.ToDecryption(rgcode);
             string signChar = decryption.Substring(0, 1);
-            if (signChar == "5")
+            try
             {
-                string[] tempConc = conc.Split(',');
-                string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
-                string v2 = Convert.ToUInt32(decryption.Substring(8, 7), 16).ToString();
-                pmtValue = "(" + tempConc[0] + "," + v1 + ")" + ";"
-                    + "(" + tempConc[1] + "," + v2 + ")" + ";";
-            }
-            else if (signChar == "6")
-            {
-                string[] tempConc = conc.Split(',');
-                string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
-                string v2 = Convert.ToUInt32(decryption.Substring(8, 7), 16).ToString();
-                pmtValue += "(" + tempConc[2] + "," + v1 + ")" + ";"
-                    + "(" + tempConc[3] + "," + v2 + ")" + ";";
-            }
-            else if (signChar == "7")
-            {
-                string[] tempConc = conc.Split(',');
-                string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
-                string v2 = Convert.ToUInt32(decryption.Substring(8, 7), 16).ToString();
-
-
-                pmtValue += "(" + tempConc[4] + "," + v1 + ")" + ";"
-                    + "(" + tempConc[5] + "," + v2 + ")" + ";";
-
-                if (tempConc.Length == 6)
+                if (signChar == "5")
                 {
+                    pmtValue = "";
+                    string[] tempConc = conc.Split(',');
+                    string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
+                    string v2 = Convert.ToUInt32(decryption.Substring(8, 7), 16).ToString();
+                    pmtValue = "(" + tempConc[0] + "," + v1 + ")" + ";"
+                        + "(" + tempConc[1] + "," + v2 + ")" + ";";
+                }
+                else if (signChar == "6")
+                {
+                    string[] tempConc = conc.Split(',');
+                    string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
+                    string v2 = Convert.ToUInt32(decryption.Substring(8, 7), 16).ToString();
+                    pmtValue += "(" + tempConc[2] + "," + v1 + ")" + ";"
+                        + "(" + tempConc[3] + "," + v2 + ")" + ";";
+                }
+                else if (signChar == "7")
+                {
+                    string[] tempConc = conc.Split(',');
+                    string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
+                    string v2 = Convert.ToUInt32(decryption.Substring(8, 7), 16).ToString();
+
+
+                    pmtValue += "(" + tempConc[4] + "," + v1 + ")" + ";"
+                        + "(" + tempConc[5] + "," + v2 + ")" + ";";
+
+                    if (tempConc.Length == 6)
+                    {
+                        string itemName = "";
+                        string itemBatch = "";
+                        Invoke(new Action(() =>
+                        {
+                            itemName = cmbRgName.Text;
+                            itemBatch = txtRgBatch.Text;
+                        }));
+
+                        Model.tbMainScalCurve modelMainScalcurve = new Model.tbMainScalCurve();
+                        int mCurve = 0;
+                        BLL.tbMainScalCurve bllmsc = new BLL.tbMainScalCurve();
+                        DateTime activeDate = DateTime.Now;
+                        DateTime validDate = DateTime.Now.AddDays(365);
+
+                        mCurve = bllmsc.SelectIdAsRegentBatch(itemBatch);
+                        if (mCurve == 0)
+                        {
+                            Model.tbMainScalCurve modelMSC = new Model.tbMainScalCurve();
+                            modelMSC.ItemName = itemName;
+                            modelMSC.RegentBatch = itemBatch;
+                            modelMSC.Points = pmtValue;
+                            modelMSC.ValidPeriod = validDate;
+                            modelMSC.ActiveDate = activeDate;
+                            if (!bllmsc.Add(modelMSC))
+                            {
+                                throw new Exception();
+                            }
+                            mCurve = bllmsc.SelectIdAsRegentBatch(itemBatch);
+                        }
+
+                        if (mCurve == 0)
+                        {
+                            //MessageBox.Show("添加主曲线失败，请重新装载!");
+                            return false;
+                        }
+
+                        modelMainScalcurve.MainCurveID = mCurve;
+                        modelMainScalcurve.ItemName = itemName;
+                        modelMainScalcurve.RegentBatch = itemBatch;
+                        modelMainScalcurve.Points = pmtValue;
+                        modelMainScalcurve.ValidPeriod = validDate;
+                        modelMainScalcurve.ActiveDate = activeDate;
+
+                        //更新曲线
+                        if (!bllmsc.Update(modelMainScalcurve))
+                        {
+                            //MessageBox.Show("添加主曲线失败，请重新装载!");
+                            return false;
+                        }
+
+                        //被反映需要可以作为定标曲线使用
+                        #region 定标曲线
+                        //Model.tbScalingResult modelScalingResult = new Model.tbScalingResult();
+                        //modelScalingResult.ItemName = itemName;
+                        //modelScalingResult.RegentBatch = itemBatch;
+                        //modelScalingResult.ScalingModel = 6;
+                        //modelScalingResult.ActiveDate = activeDate;
+                        //modelScalingResult.PointCount = 6;
+                        //modelScalingResult.Points = pmtValue;
+
+                        ////status
+                        //int sameScaling = int.Parse(DbHelperOleDb.GetSingle(1, @"select count(*) from tbScalingResult where ItemName = '"
+                        //                                              + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString());
+                        ////将已有定标的状态设为非正在使用的状态
+                        //if (sameScaling > 0)
+                        //{
+                        //    DbHelperOleDb.ExecuteSql(1, @"update tbScalingResult set Status=0 where ItemName = '"
+                        //                                           + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString();
+                        //}
+                        //modelScalingResult.Status = 1;
+
+                        //modelScalingResult.Source = 2;
+                        //BLL.tbScalingResult bllScalingResult = new BLL.tbScalingResult();
+                        //if (!bllScalingResult.Add(modelScalingResult))
+                        //{
+                        //    MessageBox.Show("添加定标曲线失败，请重新装载!");
+                        //    return false;
+                        //}
+                        #endregion
+                    }
+                }
+                else if (signChar == "8")
+                {
+                    string[] tempConc = conc.Split(',');
+                    string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
+                    pmtValue += "(" + tempConc[6] + "," + v1 + ")" + ";";
+
+                    //db更新
                     string itemName = "";
                     string itemBatch = "";
                     Invoke(new Action(() =>
@@ -2832,9 +2961,9 @@ namespace BioBaseCLIA.Run
                         itemName = cmbRgName.Text;
                         itemBatch = txtRgBatch.Text;
                     }));
-
                     Model.tbMainScalCurve modelMainScalcurve = new Model.tbMainScalCurve();
                     int mCurve = 0;
+                    DbHelperOleDb db;
                     BLL.tbMainScalCurve bllmsc = new BLL.tbMainScalCurve();
                     DateTime activeDate = DateTime.Now;
                     DateTime validDate = DateTime.Now.AddDays(365);
@@ -2869,6 +2998,7 @@ namespace BioBaseCLIA.Run
                     modelMainScalcurve.ActiveDate = activeDate;
 
                     //更新曲线
+                    db = new DbHelperOleDb(1);
                     if (!bllmsc.Update(modelMainScalcurve))
                     {
                         //MessageBox.Show("添加主曲线失败，请重新装载!");
@@ -2906,93 +3036,11 @@ namespace BioBaseCLIA.Run
                     #endregion
                 }
             }
-            else if (signChar == "8")
+            catch (Exception e)
             {
-                string[] tempConc = conc.Split(',');
-                string v1 = Convert.ToUInt32(decryption.Substring(1, 7), 16).ToString();
-                pmtValue += "(" + tempConc[6] + "," + v1 + ")" + ";";
-
-                //db更新
-                string itemName = "";
-                string itemBatch = "";
-                Invoke(new Action(() =>
-                {
-                    itemName = cmbRgName.Text;
-                    itemBatch = txtRgBatch.Text;
-                }));
-                Model.tbMainScalCurve modelMainScalcurve = new Model.tbMainScalCurve();
-                int mCurve = 0;
-                DbHelperOleDb db;
-                BLL.tbMainScalCurve bllmsc = new BLL.tbMainScalCurve();
-                DateTime activeDate = DateTime.Now;
-                DateTime validDate = DateTime.Now.AddDays(365);
-
-                mCurve = bllmsc.SelectIdAsRegentBatch(itemBatch);
-                if (mCurve == 0)
-                {
-                    Model.tbMainScalCurve modelMSC = new Model.tbMainScalCurve();
-                    modelMSC.ItemName = itemName;
-                    modelMSC.RegentBatch = itemBatch;
-                    modelMSC.Points = pmtValue;
-                    modelMSC.ValidPeriod = validDate;
-                    modelMSC.ActiveDate = activeDate;
-                    if (!bllmsc.Add(modelMSC))
-                    {
-                        throw new Exception();
-                    }
-                    mCurve = bllmsc.SelectIdAsRegentBatch(itemBatch);
-                }
-
-                if (mCurve == 0)
-                {
-                    //MessageBox.Show("添加主曲线失败，请重新装载!");
-                    return false;
-                }
-
-                modelMainScalcurve.MainCurveID = mCurve;
-                modelMainScalcurve.ItemName = itemName;
-                modelMainScalcurve.RegentBatch = itemBatch;
-                modelMainScalcurve.Points = pmtValue;
-                modelMainScalcurve.ValidPeriod = validDate;
-                modelMainScalcurve.ActiveDate = activeDate;
-
-                //更新曲线
-                db = new DbHelperOleDb(1);
-                if (!bllmsc.Update(modelMainScalcurve))
-                {
-                    //MessageBox.Show("添加主曲线失败，请重新装载!");
-                    return false;
-                }
-
-                //被反映需要可以作为定标曲线使用
-                #region 定标曲线
-                //Model.tbScalingResult modelScalingResult = new Model.tbScalingResult();
-                //modelScalingResult.ItemName = itemName;
-                //modelScalingResult.RegentBatch = itemBatch;
-                //modelScalingResult.ScalingModel = 6;
-                //modelScalingResult.ActiveDate = activeDate;
-                //modelScalingResult.PointCount = 6;
-                //modelScalingResult.Points = pmtValue;
-
-                ////status
-                //int sameScaling = int.Parse(DbHelperOleDb.GetSingle(1, @"select count(*) from tbScalingResult where ItemName = '"
-                //                                              + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString());
-                ////将已有定标的状态设为非正在使用的状态
-                //if (sameScaling > 0)
-                //{
-                //    DbHelperOleDb.ExecuteSql(1, @"update tbScalingResult set Status=0 where ItemName = '"
-                //                                           + itemName + "' AND RegentBatch='" + itemBatch + "'").ToString();
-                //}
-                //modelScalingResult.Status = 1;
-
-                //modelScalingResult.Source = 2;
-                //BLL.tbScalingResult bllScalingResult = new BLL.tbScalingResult();
-                //if (!bllScalingResult.Add(modelScalingResult))
-                //{
-                //    MessageBox.Show("添加定标曲线失败，请重新装载!");
-                //    return false;
-                //}
-                #endregion
+                frmMessageShow frm = new frmMessageShow();
+                frm.MessageShow(getString("keywordText.ReagentLoad"), getString("keywordText.AddMainFailed"));
+                return false;
             }
             return true;
             #endregion
@@ -3247,6 +3295,7 @@ namespace BioBaseCLIA.Run
             this.txtRgCode.TextChanged -= new EventHandler(txtRgCode_TextChanged);//加载时试剂条码改变不触发
             Invoke(new Action(() =>
             {
+                //txtRgCode.Text = "";
                 txtRgCode.Text = rgcode;
                 //addRFlag = (int)addRFlagState.success;
             }));

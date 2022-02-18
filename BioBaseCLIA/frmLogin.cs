@@ -288,18 +288,21 @@ namespace BioBaseCLIA.User
                     }));
                     goto complete;
                 }
-                new Thread(new ParameterizedThreadStart((obj) =>
+                if(NetCom3.Instance.DarkroomInfo!=null && NetCom3.Instance.DarkroomInfo!="")
                 {
-                    SetCultureInfo();
-                    frmMessageShow f = new frmMessageShow();
-                    f.MessageShow(Getstring("keywordText.Tips"), NetCom3.Instance.DarkroomInfo);
-                }))
-                {
-                    IsBackground = true,
-                    CurrentCulture = Language.AppCultureInfo,
-                    CurrentUICulture = Language.AppCultureInfo
+                    new Thread(new ParameterizedThreadStart((obj) =>
+                    {
+                        SetCultureInfo();
+                        frmMessageShow f = new frmMessageShow();
+                        f.MessageShow(Getstring("keywordText.Tips"), NetCom3.Instance.DarkroomInfo);
+                    }))
+                    {
+                        IsBackground = true,
+                        CurrentCulture = Language.AppCultureInfo,
+                        CurrentUICulture = Language.AppCultureInfo
 
-                }.Start();
+                    }.Start();
+                }
                 #endregion
 
                 currentHoleNum = int.Parse(OperateIniFile.ReadInIPara("OtherPara", "washCurrentHoleNum"));

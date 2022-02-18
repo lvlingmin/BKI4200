@@ -135,6 +135,7 @@ namespace BioBaseCLIA.DataQuery
             else
             {
                 string rgCode = Regex.Replace(barCode.Result, @"\s", "");
+                barCode.ClearResult();
                 if (rgCode != null && rgCode != "")
                 {
                     this.txtSubstrateCode.Text = rgCode;
