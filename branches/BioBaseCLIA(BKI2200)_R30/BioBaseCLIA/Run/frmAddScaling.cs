@@ -1185,7 +1185,7 @@ namespace BioBaseCLIA.Run
                         string[] decryArray = sign2.Split(new char[3] { 'B', 'C', 'D' }); //得到四个浓度
                         for (int i = 0; i < decryArray.Length; i++)  //填充GridView
                         {
-                            dtConcValue.Rows[i][1] = decryArray[i].Substring(0, decryArray[i].Length - 1);
+                            dtConcValue.Rows[i][1] = decimal.Parse(decryArray[i].Substring(0, decryArray[i].Length - 1)).ToString();
                         }
                         break;
                     case "4":  //定标浓度第二个条码，包含两个或三个浓度
@@ -1198,17 +1198,17 @@ namespace BioBaseCLIA.Run
                                 {
                                     if (i == 2)   // split后 ，FG连一块，第三个string块是空的，第四个才是G后浓度
                                     {
-                                        dtConcValue.Rows[6][1] = decryArray2[3];  //填充第七个浓度
+                                        dtConcValue.Rows[6][1] =decimal.Parse(decryArray2[3]).ToString();  //填充第七个浓度
                                         break;
                                     }
                                     else
                                     {
-                                        dtConcValue.Rows[i + 4][1] = decryArray2[i]; //填充第六个浓度
+                                        dtConcValue.Rows[i + 4][1] =decimal.Parse(decryArray2[i]).ToString(); //填充第六个浓度
                                     }
                                 }
                                 else  //i==0，去掉尾部标志，填充第五个浓度
                                 {
-                                    dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
+                                    dtConcValue.Rows[i + 4][1] =decimal.Parse(decryArray2[i].Substring(0, decryArray2[i].Length - 1));
                                 }
                             }
                         }
@@ -1218,13 +1218,13 @@ namespace BioBaseCLIA.Run
                             {
                                 if (i == 0) //填充第五个浓度
                                 {
-                                    dtConcValue.Rows[i + 4][1] = decryArray2[i].Substring(0, decryArray2[i].Length - 1);
+                                    dtConcValue.Rows[i + 4][1] = decimal.Parse( decryArray2[i].Substring(0, decryArray2[i].Length - 1));
                                 }
                                 else  //填充第六个浓度
                                 {
                                     if (decryArray2[i].Contains("f"))
                                         decryArray2[i] = decryArray2[i].Substring(0, decryArray2[i].Length - 1); ;
-                                    dtConcValue.Rows[i + 4][1] = decryArray2[i];
+                                    dtConcValue.Rows[i + 4][1] =decimal.Parse(decryArray2[i]);
                                 }
                             }
                         }

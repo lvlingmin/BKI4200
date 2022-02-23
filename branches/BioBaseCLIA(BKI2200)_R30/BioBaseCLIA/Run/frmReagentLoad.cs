@@ -78,6 +78,10 @@ namespace BioBaseCLIA.Run
             GetSelectedNo = 0;//2018-12-08 zlx mod
             dateValidDate.MinDate = Convert.ToDateTime("2020/01/01");
             ShowRgInfo(1);
+            if (ReagentDev == "1")
+                SetButton(true);
+            else
+                SetButton(false);
         }
         private void frmLoadReagent_Load(object sender, EventArgs e)
         {
@@ -1631,6 +1635,10 @@ namespace BioBaseCLIA.Run
             if (chkManualInput.Checked)
             {
                 txtRgCode.Enabled = true;
+                if (frmParent.ReagentDev == "1")
+                {
+                    SetButton(true);
+                }
                 //txtRgAllTest.Enabled = true;
                 //txtRgLastTest.Enabled = true;
                 //txtRgBatch.Enabled = true;
@@ -1644,6 +1652,10 @@ namespace BioBaseCLIA.Run
             else
             {
                 txtRgCode.Enabled = false;
+                if (frmParent.ReagentDev == "1")
+                {
+                    SetButton(false);
+                }
                 //txtRgAllTest.Enabled = false;
                 //txtRgLastTest.Enabled = false;
                 //txtRgBatch.Enabled = false;
@@ -2380,6 +2392,7 @@ namespace BioBaseCLIA.Run
             {
                 return;
             }
+            if (ReagentDev == "1") return;
             string rgCode = txtRgCode.Text.Trim();
             if (!judgeBarCode(rgCode))
             {
@@ -5019,5 +5032,14 @@ namespace BioBaseCLIA.Run
             return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
         }
 
+        /// <summary>
+        /// 设置控件是否可编辑
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void  SetButton(bool isEnable)
+        {
+            cmbProType.Enabled = cmbRgName.Enabled = txtRgCode.Enabled = txtRgBatch.Enabled = dateValidDate.Enabled
+                = txtRgAllTest.Enabled = txtRgLastTest.Enabled = isEnable;
+        }
     }
 }

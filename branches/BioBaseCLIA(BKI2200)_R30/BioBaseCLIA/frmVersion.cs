@@ -18,6 +18,7 @@ namespace BioBaseCLIA
             InitializeComponent();
             //label5.Text = "CL-BKI2200-V" + AssemblyInfor.AssemblyVersion.Substring(0,5);
             //label8.Text = AssemblyInfor.AssemblyCompany;
+            label5.Text = "CL-"+ frmParent.InstrumentModel+ "-V1.0.0";
         }
         
 

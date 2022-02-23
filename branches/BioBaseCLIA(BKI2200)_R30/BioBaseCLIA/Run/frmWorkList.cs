@@ -3000,22 +3000,25 @@ namespace BioBaseCLIA.Run
             //2018-07-23
             //if (frmMain.BQLiquaid)
             //    frmMain.BQLiquaid = false;
-            if (dtSpInfo.Select("SampleType='" + getString("keywordText.CalibrationSolution") + "' and Status='0'").Length > 0 ||
-                   dtSpInfo.Select("SampleType like '" + getString("keywordText.Calibrator") + "%' and Status='0'").Length > 0 ||
-                   //dtSpInfo.Select("SampleType like '" + getString("keywordText.Control") + "%' and Status='0'").Length > 0 ||
-                   dtSpInfo.Select("SampleType like '" + getString("keywordText.Standard") + "%' and Status='0'").Length > 0)
+            if(frmParent.ReagentDev!="1")
             {
-                if (dtSpInfo.Select("SampleType ='" + getString("keywordText.Serum") + "' and Status='0'").Length > 0 ||
-                    dtSpInfo.Select("SampleType ='" + getString("keywordText.Urine") + "' and Status='0'").Length > 0 ||
-                    dtSpInfo.Select("SampleType ='" + getString("keywordText.BodyFluid") + "' and Status='0'").Length > 0)
+                if (dtSpInfo.Select("SampleType='" + getString("keywordText.CalibrationSolution") + "' and Status='0'").Length > 0 ||
+                       dtSpInfo.Select("SampleType like '" + getString("keywordText.Calibrator") + "%' and Status='0'").Length > 0 ||
+                       //dtSpInfo.Select("SampleType like '" + getString("keywordText.Control") + "%' and Status='0'").Length > 0 ||
+                       dtSpInfo.Select("SampleType like '" + getString("keywordText.Standard") + "%' and Status='0'").Length > 0)
                 {
-                    MessageBox.Show(getString("keywordText.SerumSampleCannotTestWithOther") + getString("keywordText.testNoStart"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (btnRunStatus != null)
+                    if (dtSpInfo.Select("SampleType ='" + getString("keywordText.Serum") + "' and Status='0'").Length > 0 ||
+                        dtSpInfo.Select("SampleType ='" + getString("keywordText.Urine") + "' and Status='0'").Length > 0 ||
+                        dtSpInfo.Select("SampleType ='" + getString("keywordText.BodyFluid") + "' and Status='0'").Length > 0)
                     {
-                        btnRunStatus();
+                        MessageBox.Show(getString("keywordText.SerumSampleCannotTestWithOther") + getString("keywordText.testNoStart"), getString("keywordText.tip"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if (btnRunStatus != null)
+                        {
+                            btnRunStatus();
+                        }
+                        buttonEnableRun(false);
+                        return;
                     }
-                    buttonEnableRun(false);
-                    return;
                 }
             }
             //2018-07-18

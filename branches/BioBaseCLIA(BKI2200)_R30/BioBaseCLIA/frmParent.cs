@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,7 +70,7 @@ namespace BioBaseCLIA
         /// <summary>
         /// 温育盘位置数
         /// </summary>
-        protected const int ReactTrayNum = 80;//2019-02-26  zlx add
+        public static int ReactTrayNum = 80;//2019-02-26  zlx add
         /// <summary>
         /// 清洗盘位置数
         /// </summary>
@@ -90,8 +91,30 @@ namespace BioBaseCLIA
         /// 实验开始时间
         /// </summary>
         public static DateTime StartRuntime = DateTime.Now;
+        /// <summary>
+        /// 仪器型号
+        /// </summary>
+        public static string InstrumentModel;
+        /// <summary>
+        /// 隐藏公司log标识 0-显示 1-不显示
+        /// </summary>
+        public static string Hidelogo = "0";
+        /// <summary>
+        /// 试剂研发使用
+        /// </summary>
+        public static string ReagentDev = "0";
+        #region 配置文件地址
+        string InstrumentParaIni = Application.StartupPath + "//InstrumentPara.ini";
+        #endregion
         public frmParent()
         {
+            InstrumentModel = OperateIniFile.ReadIniData("LisSet", "SendingFacility", "", InstrumentParaIni);
+            if (InstrumentModel.Contains("1100"))
+                ReactTrayNum = 50;
+            else
+                ReactTrayNum = 80;
+            Hidelogo = OperateIniFile.ReadIniData("OtherPara", "Hidelogo", "", InstrumentParaIni);
+            ReagentDev = OperateIniFile.ReadIniData("OtherPara", "ReagentDev", "", InstrumentParaIni);
             InitializeComponent();
             X = this.Width;
             Y = this.Height;

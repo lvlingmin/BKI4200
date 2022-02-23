@@ -72,14 +72,21 @@ namespace Common
         }
         private int KeyboardHookProc(int nCode, Int32 wParam, IntPtr lParam)
         {
-
-            EventMsg msg = (EventMsg)Marshal.PtrToStructure(lParam, typeof(EventMsg));
-            codes.Add(msg);
-            if (BarCodeEvent != null && msg.message == 13 && msg.paramH > 0 && (!string.IsNullOrEmpty(codes.Result) && codes.Result != ""))
+            try
             {
-                BarCodeEvent(codes);
+                EventMsg msg = (EventMsg)Marshal.PtrToStructure(lParam, typeof(EventMsg));
+                codes.Add(msg);
+                if (BarCodeEvent != null && msg.message == 13 && msg.paramH > 0 && (!string.IsNullOrEmpty(codes.Result) && codes.Result != ""))
+                {
+                    BarCodeEvent(codes);
+                }
+                return CallNextHookEx(hKeyboardHook, nCode, wParam, lParam);
             }
-            return CallNextHookEx(hKeyboardHook, nCode, wParam, lParam);
+            catch (Exception e)
+            {
+                return -1;
+            }
+            
         }
         public class ScanerCodes
         {
