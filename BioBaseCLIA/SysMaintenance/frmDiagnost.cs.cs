@@ -3816,6 +3816,7 @@ namespace BioBaseCLIA.SysMaintenance
                             if (int.Parse(temp) > Math.Pow(10, 5))
                                 temp = ((int)GetPMT(double.Parse(temp))).ToString();
                             txtReadShow.AppendText(DateTime.Now.ToString("HH-mm-ss") + ": " + "PMT背景值：" + temp + Environment.NewLine);
+                            LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + "第" + i + "个管读数：" + "PMT背景值：" + temp + Environment.NewLine);
                         }
                     }
                 }
@@ -8722,6 +8723,7 @@ namespace BioBaseCLIA.SysMaintenance
                                 BeginInvoke(new Action(() =>
                                 {
                                     textBox3.AppendText(DateTime.Now.ToString("HH-mm-ss") + ": " + "PMT背景值:" + temp + Environment.NewLine);
+                                    LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + "第" + (i+1) + "个管读数：" + "PMT背景值：" + temp + Environment.NewLine);
                                 }));
 
                             }
@@ -9505,6 +9507,7 @@ namespace BioBaseCLIA.SysMaintenance
                                     BeginInvoke(new Action(() =>
                                     {
                                         textBox3.AppendText(DateTime.Now.ToString("HH-mm-ss") + ": " + "PMT背景值:" + temp + Environment.NewLine);
+                                        LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + "第" + (i+1) + "个管读数： " + "PMT背景值：" + temp + Environment.NewLine);
                                     }));
                                 }
                             }
@@ -10074,6 +10077,7 @@ namespace BioBaseCLIA.SysMaintenance
                             BeginInvoke(new Action(() =>
                             {
                                 textBox3.AppendText(DateTime.Now.ToString("HH-mm-ss") + ": " + "PMT背景值:" + readTemp + Environment.NewLine);
+                                LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + "第" + (i+1) + "个管读数：" + "PMT背景值：" + temp + Environment.NewLine);
                             }));
 
                         }
@@ -10258,6 +10262,7 @@ namespace BioBaseCLIA.SysMaintenance
                 if (int.Parse(temp) > Math.Pow(10, 5))
                     temp = ((int)GetPMT(double.Parse(temp))).ToString();
                 TExtAppend(DateTime.Now.ToString("HH-mm-ss") + ": " + "PMT背景值：" + temp);
+                LogFile.Instance.Write(DateTime.Now.ToString("HH-mm-ss") + "：" + "PMT背景值：" + temp + Environment.NewLine);
             }
         }
 

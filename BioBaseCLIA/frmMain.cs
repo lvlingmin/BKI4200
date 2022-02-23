@@ -172,6 +172,10 @@ namespace BioBaseCLIA
                 label2.Text = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
             else
                 label2.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+            if (frmParent.Hidelogo == "1")
+                logo.Visible = false;
+            else
+                logo.Visible = true;
             toolTip1.SetToolTip(this.dbtnBuffer,GetString("keywordText.dbtnBuffer.tip"));
             toolTip1.SetToolTip(this.dbtnWash, GetString("keywordText.dbtnWash.tip") );
             toolTip1.SetToolTip(this.dbtnWaste, GetString("keywordText.dbtnWaste.tip") );
@@ -282,7 +286,7 @@ namespace BioBaseCLIA
             string cTempIniPath = @"C:\temp\ReactTrayInfo.ini";//放在C盘temp文件夹的临时温育盘ini文件地址
             if (File.Exists(cTempIniPath))
             {
-                if (OperateIniFile.ReadConfig(cTempIniPath).Rows.Count != 80)
+                if (OperateIniFile.ReadConfig(cTempIniPath).Rows.Count != frmParent.ReactTrayNum)
                 {
                     File.Delete(cTempIniPath);
                     frmMsgShow.MessageShow(GetString("keywordText.Tips"),GetString("keywordText.Abnormalexit") );

@@ -73,6 +73,7 @@ namespace BioBaseCLIA.Run
         private delegate void ShowInfoDelegate(ScanerHook.ScanerCodes barCode);
         public frmAddSample()
         {
+           
             InitializeComponent();
             dtSampleInfo = frmParent.dtSpInfo;//将dtSpInfo与dtSampleInfo联系起来
             dtSampleAllInfo = bllsp.GetList("").Tables[0];
@@ -148,7 +149,10 @@ namespace BioBaseCLIA.Run
             {
                 DtRgInfoNoStat = frmSampleLoad.DtItemInfoNoStat.Copy();
             }
-
+            if (frmParent.ReagentDev == "1")
+            {
+                AddSampleType();
+            }
             //lyq add 20201104
             ArrayList spTypeList = new ArrayList();
             foreach (string item in cmbSpType.Items)
@@ -1117,14 +1121,17 @@ namespace BioBaseCLIA.Run
             }
             else if (((Button)sender).Text == getString("keywordText.Save"))
             {
-                if (!ALlowAddStanard())
+                if(frmParent.ReagentDev !="1")
                 {
-                    return;
-                }
-                if (!AllowAddSample(cmbSpType.SelectedItem.ToString()))
-                {
-                    frmMessageShow frmMessageShow = new frmMessageShow();
-                    return;
+                    if (!ALlowAddStanard())
+                    {
+                        return;
+                    }
+                    if (!AllowAddSample(cmbSpType.SelectedItem.ToString()))
+                    {
+                        frmMessageShow frmMessageShow = new frmMessageShow();
+                        return;
+                    }
                 }
                 //lyq add 20190828
                 //if (txtSpPosition.Text == "")
@@ -2552,7 +2559,7 @@ namespace BioBaseCLIA.Run
                 txtSpNum.Text = Convert.ToString(frmParent.SampleNum - int.Parse(txtSpStartPos.Text) + 1);
                 return;
             }
-            if (!AllowAddSample(cmbmSpType.SelectedItem.ToString()))
+            if (frmParent.ReagentDev!="1" && !AllowAddSample(cmbmSpType.SelectedItem.ToString()))
             {
                 return;
             }
@@ -3557,6 +3564,11 @@ namespace BioBaseCLIA.Run
         {
             ResourceManager resManager = new ResourceManager(typeof(frmAddSample));
             return resManager.GetString(key).Replace(@"\n", "\n").Replace(@"\t", "\t");
+        }
+        private void AddSampleType()
+        {
+            string[] AddItems = new string[] {"标准品A", "标准品B", "标准品C", "标准品D", "标准品E", "标准品F", "标准品G" };
+            cmbSpType.Items.AddRange(AddItems);
         }
     }
 }

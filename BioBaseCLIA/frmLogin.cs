@@ -66,8 +66,10 @@ namespace BioBaseCLIA.User
             InitializeComponent();
 
             cbLanguage.Text = (GetCultureInfo() == "zh-CN" || string.IsNullOrEmpty(GetCultureInfo())) ? "中文" : "English";
-            //if(cbLanguage.Text== "English")
-            //    logo.Visible = false;
+            if (frmParent.Hidelogo =="1")
+                logo.Visible = false;
+            else
+                logo.Visible = true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

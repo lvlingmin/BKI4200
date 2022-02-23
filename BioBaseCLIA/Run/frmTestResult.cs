@@ -70,10 +70,16 @@ namespace BioBaseCLIA.Run
         public static event Action RetestSample;
         public frmTestResult()
         {
+            
             InitializeComponent();
+            
             CheckForIllegalCrossThreadCalls = false;
 
             dgvResultData.AutoGenerateColumns = false;
+            if (frmParent.ReagentDev == "1")
+            {
+                dgvResultData.Columns["PMT"].Visible = true;
+            }
         }
 
         private void frmTestResult_Load(object sender, EventArgs e)

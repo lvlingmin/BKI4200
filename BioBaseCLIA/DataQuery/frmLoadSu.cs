@@ -185,7 +185,7 @@ namespace BioBaseCLIA.DataQuery
                 frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("InputBarcode") );
                 return;
             }
-            if (!judgeSubBarCode(txtSubstrateCode.Text.Trim()))
+            if (frmParent.ReagentDev!="1" && !judgeSubBarCode(txtSubstrateCode.Text.Trim()))
             {
                 initContr();
                 frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("CheckBarcode") );
@@ -196,7 +196,7 @@ namespace BioBaseCLIA.DataQuery
                 frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("AlreadySubstate") );
                 return;
             }
-            if (!fillFlag)
+            if (frmParent.ReagentDev != "1" && !fillFlag)
             {
                 txtSubstrateCode.Focus();
                 frmMsgShow.MessageShow(Getstring("MessageCaption"), Getstring("InputBarcodeEnter") );
@@ -305,11 +305,19 @@ namespace BioBaseCLIA.DataQuery
             {
                 initContr();
                 txtSubstrateCode.Enabled = true;
+                if (frmParent.ReagentDev == "1")
+                {
+                    txtSubstrateAllTest.Enabled = txtSubstrateLastTest.Enabled = ValidDate.Enabled = true;
+                }
             }
             else
             {
                 initContr(1);
                 txtSubstrateCode.Enabled = false;
+                if (frmParent.ReagentDev == "1")
+                {
+                    txtSubstrateAllTest.Enabled = txtSubstrateLastTest.Enabled = ValidDate.Enabled = false;
+                }
             }
         }
 
