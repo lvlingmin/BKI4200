@@ -1,0 +1,33 @@
+15:13:07 用户  root 登陆 
+2020/11/23 下午 3:13:09异常类型：SocketException
+异常消息：由于目标计算机积极拒绝，无法连接。 10.1.20.98:5000
+异常信息：   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   在 System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   在 BioBaseCLIA.NetCom3.CheckPort(String myip, String myport) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\NetCom3.cs:行号 244
+
+15:13:09:840->:EB 90 F1 01 00 00 00 00 00 00 00 00 00 00 00 00
+15:13:09:949<-:EB 90 F1 01 FF FF FF FF FF FF 00 00 00 00 00 00 
+15:13:09:949<-:DiagnostDone.Set释放信号之前
+15:13:09:965->:EB 90 F1 02 00 00 00 00 00 00 00 00 00 00 00 00
+15:13:10:076<-:EB 90 F1 02 FF FF FF FF FF FF FF FF FF FF FF FF 
+15:13:10:076<-:DiagnostDone.Set释放信号之前
+15:13:17:520->:EB 90 31 02 0B B0 00 00 00 00 00 00 00 00 00 00
+15:13:17:551<-:EB 90 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+2020/11/23 下午 3:13:17:0
+15:13:17:660<-:EB 90 31 A2 FF FF 00 00 00 00 00 00 00 00 00 00 
+开始进行计时操作13:19:1319
+**********计算调度**********
+TESTID 1 开始时间  ： 0
+TESTID 2 开始时间  ： 25
+TESTID 3 开始时间  ： 50
+TESTID 4 开始时间  ： 150
+TESTID 5 开始时间  ： 175
+TESTID 6 开始时间  ： 200
+TESTID 7 开始时间  ： 300
+TESTID 8 开始时间  ： 325
+TESTID 9 开始时间  ： 350
+TESTID 10 开始时间  ： 450
+结束进行计时操作13:19:1319
+2020/11/23 下午 3:13:20pauseFlag的值为:False,btnRunClick的是否为空:NotNUll
+**********时间更新1：15-13-20 H :00M :26**********

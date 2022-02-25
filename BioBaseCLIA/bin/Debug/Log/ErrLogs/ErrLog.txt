@@ -1,0 +1,882 @@
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/10 15:14:21
+异常类型：NullReferenceException
+异常消息：未将对象引用设置到对象的实例。
+异常信息：   在 System.Windows.Forms.Internal.WindowsGraphics.DrawText(String text, WindowsFont font, Rectangle bounds, Color foreColor, Color backColor, IntTextFormatFlags flags)
+   在 System.Windows.Forms.Internal.WindowsGraphics.DrawText(String text, WindowsFont font, Rectangle bounds, Color color, IntTextFormatFlags flags)
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/10 15:21:37
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.CheckErrorStatus(Int32 status)
+   在 System.Drawing.Graphics.DrawRectangle(Pen pen, Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawDefaultBorder(Graphics g, Rectangle r, Color c, Boolean isDefault)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/10 15:32:50
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.GetHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper..ctor(IDeviceContext idc, TextFormatFlags flags)
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/12 15:39:35
+异常类型：Win32Exception
+异常消息：创建窗口句柄时出错。
+异常信息：   在 System.Windows.Forms.NativeWindow.CreateHandle(CreateParams cp)
+   在 System.Windows.Forms.Control.CreateHandle()
+   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.Control.get_WindowText()
+   在 System.Windows.Forms.Control.set_CacheTextInternal(Boolean value)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.MdiClient.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/13 15:45:34
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.CheckErrorStatus(Int32 status)
+   在 System.Drawing.Graphics.DrawRectangle(Pen pen, Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawDefaultBorder(Graphics g, Rectangle r, Color c, Boolean isDefault)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/17 8:15:19
+Application UnhandledException:参数无效。;
+堆栈信息:   在 System.Drawing.Graphics.ReleaseHdcInternal(IntPtr hdc)
+   在 System.Drawing.Graphics.ReleaseHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose(Boolean disposing)
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Finalize()
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2019/12/17 8:15:19
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.ReleaseHdcInternal(IntPtr hdc)
+   在 System.Drawing.Graphics.ReleaseHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose(Boolean disposing)
+   在 System.Windows.Forms.WindowsGraphicsWrapper.Dispose()
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/21 下午 3:10:34
+Application UnhandledException:表达式包含无效的字符串常量: '1。;
+堆栈信息:   在 System.Data.ExpressionParser.ScanString(Char escape)
+   在 System.Data.ExpressionParser.Scan()
+   在 System.Data.ExpressionParser.Parse()
+   在 System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   在 System.Data.DataTable.Select(String filterExpression)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9343
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/21 下午 3:28:13
+Application UnhandledException:未找到列 [TestID]。;
+堆栈信息:   在 System.Data.NameNode.Bind(DataTable table, List`1 list)
+   在 System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   在 System.Data.DataExpression.Bind(DataTable table)
+   在 System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   在 System.Data.DataTable.Select(String filterExpression)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9343
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/21 下午 3:28:38
+Application UnhandledException:未找到列 [TestID]。;
+堆栈信息:   在 System.Data.NameNode.Bind(DataTable table, List`1 list)
+   在 System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   在 System.Data.DataExpression.Bind(DataTable table)
+   在 System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   在 System.Data.DataTable.Select(String filterExpression)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9343
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/21 下午 3:29:04
+Application UnhandledException:未找到列 [TestID]。;
+堆栈信息:   在 System.Data.NameNode.Bind(DataTable table, List`1 list)
+   在 System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   在 System.Data.DataExpression.Bind(DataTable table)
+   在 System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   在 System.Data.DataTable.Select(String filterExpression)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9343
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/21 下午 3:54:42
+Application UnhandledException:在位置 -1 处没有任何行。;
+堆栈信息:   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   在 System.Data.DataRowCollection.get_Item(Int32 index)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9347
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/21 下午 4:07:03
+Application UnhandledException:在位置 -1 处没有任何行。;
+堆栈信息:   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   在 System.Data.DataRowCollection.get_Item(Int32 index)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9347
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 8:50:04
+Application UnhandledException:在位置 -1 处没有任何行。;
+堆栈信息:   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   在 System.Data.DataRowCollection.get_Item(Int32 index)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9348
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 8:55:43
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9948
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9932
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9356
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 10:18:47
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9971
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9955
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9356
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 10:41:17
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9975
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9959
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9356
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 10:41:42
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9975
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9959
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9356
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 10:57:26
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9975
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9959
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9356
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 10:57:50
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9975
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9959
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9356
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 上午 11:59:57
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9848
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9357
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 下午 12:00:22
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9848
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9357
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 下午 12:00:48
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9848
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9357
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 下午 12:02:29
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9848
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9357
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 下午 12:02:55
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9848
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9357
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 下午 12:03:19
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9840
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9357
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/23 下午 1:29:18
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10004
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9988
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9357
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/24 15:47:47
+Application UnhandledException:在位置 19 处没有任何行。;
+堆栈信息:   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   在 System.Data.DataRowCollection.get_Item(Int32 index)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 F:\lyqTest\20201120柜式机实验预设20201123.4\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9790
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 F:\lyqTest\20201120柜式机实验预设20201123.4\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9360
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/25 11:01:10
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.ParseDouble(String value, NumberStyles options, NumberFormatInfo numfmt)
+   在 System.Double.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 F:\lyqTest\20201120柜式机实验预设20201123.4\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9914
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 F:\lyqTest\20201120柜式机实验预设20201123.4\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9360
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/25 13:42:02
+Application UnhandledException:“minValue”不能大于 maxValue。
+参数名: minValue;
+堆栈信息:   在 System.Random.Next(Int32 minValue, Int32 maxValue)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 F:\lyqTest\20201120柜式机实验预设20201123.4\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9905
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 F:\lyqTest\20201120柜式机实验预设20201123.4\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9360
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/11/28 上午 11:53:11
+异常类型：ArgumentException
+异常消息：参数无效。
+异常信息：   在 System.Drawing.Graphics.GetHdc()
+   在 System.Windows.Forms.WindowsGraphicsWrapper..ctor(IDeviceContext idc, TextFormatFlags flags)
+   在 System.Windows.Forms.TextRenderer.DrawText(IDeviceContext dc, String text, Font font, Rectangle bounds, Color foreColor, TextFormatFlags flags)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.DrawText(Graphics g, LayoutData layout, Color c, ColorData colors)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.PaintField(PaintEventArgs e, LayoutData layout, ColorData colors, Color foreColor, Boolean drawFocus)
+   在 System.Windows.Forms.ButtonInternal.ButtonFlatAdapter.PaintUp(PaintEventArgs e, CheckState state)
+   在 System.Windows.Forms.ButtonInternal.ButtonBaseAdapter.Paint(PaintEventArgs pevent)
+   在 System.Windows.Forms.ButtonBase.OnPaint(PaintEventArgs pevent)
+   在 System.Windows.Forms.Control.PaintWithErrorHandling(PaintEventArgs e, Int16 layer)
+   在 System.Windows.Forms.Control.WmPaint(Message& m)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/9 上午 10:53:32
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201209.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10105
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201209.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10081
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201209.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9360
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 3:27:58
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10036
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9438
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 3:28:22
+Application UnhandledException:输入字符串的格式不正确。不能在 测试样本数量 列中存储 <>。所需类型是 Double。;
+堆栈信息:   在 System.Data.DataColumn.set_Item(Int32 record, Object value)
+   在 System.Data.DataRow.set_Item(DataColumn column, Object value)
+   在 System.Data.DataRow.set_Item(Int32 columnIndex, Object value)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10068
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9438
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 3:28:47
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9412
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 3:39:44
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10032
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9434
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 3:48:04
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10032
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9434
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 4:22:21
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9412
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 4:50:07
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9412
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 5:49:50
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10244
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10220
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9438
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/28 下午 5:57:53
+Application UnhandledException:输入字符串的格式不正确。;
+堆栈信息:   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.Int32.Parse(String s)
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9416
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/29 下午 12:02:52
+Application UnhandledException:在位置 3 处没有任何行。;
+堆栈信息:   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   在 System.Data.DataRowCollection.get_Item(Int32 index)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10003
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9434
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/29 下午 12:03:15
+Application UnhandledException:在位置 3 处没有任何行。;
+堆栈信息:   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   在 System.Data.DataRowCollection.get_Item(Int32 index)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10003
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9434
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/29 下午 12:03:41
+Application UnhandledException:在位置 3 处没有任何行。;
+堆栈信息:   在 System.Data.RBTree`1.GetNodeByIndex(Int32 userIndex)
+   在 System.Data.DataRowCollection.get_Item(Int32 index)
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10003
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9434
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
+
+************************************************************************
+出现应用程序未处理的异常：2020/12/29 下午 2:15:43
+Application UnhandledException:线程间操作无效: 从不是创建控件“dgvResultData”的线程访问它。;
+堆栈信息:   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.DataGridView.FlushDisplayedChanged()
+   在 System.Windows.Forms.DataGridView.PerformLayoutPrivate(Boolean useRowShortcut, Boolean computeVisibleRows, Boolean invalidInAdjustFillingColumns, Boolean repositionEditingControl)
+   在 System.Windows.Forms.DataGridView.ResetUIState(Boolean useRowShortcut, Boolean computeVisibleRows)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged_PreNotification(CollectionChangeAction cca, Int32 rowIndex, Int32 rowCount, DataGridViewRow& dataGridViewRow, Boolean changeIsInsertion)
+   在 System.Windows.Forms.DataGridViewRowCollection.OnCollectionChanged(CollectionChangeEventArgs e, Int32 rowIndex, Int32 rowCount, Boolean changeIsDeletion, Boolean changeIsInsertion, Boolean recreateNewRow, Point newCurrentCell)
+   在 System.Windows.Forms.DataGridViewRowCollection.InsertInternal(Int32 rowIndex, DataGridViewRow dataGridViewRow, Boolean force)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.ProcessListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.DataGridView.DataGridViewDataConnection.currencyManager_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.OnListChanged(ListChangedEventArgs e)
+   在 System.Windows.Forms.CurrencyManager.List_ListChanged(Object sender, ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.OnListChanged(ListChangedEventArgs e)
+   在 System.ComponentModel.BindingList`1.FireListChanged(ListChangedType type, Int32 index)
+   在 System.ComponentModel.BindingList`1.InsertItem(Int32 index, T item)
+   在 System.Collections.ObjectModel.Collection`1.Add(T item)
+   在 BioBaseCLIA.Run.frmWorkList.SaveTestResultData(List`1 BToListTi, List`1 lis1, List`1 lis2) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10247
+   在 BioBaseCLIA.Run.frmWorkList.CalculatResult(Int32 testid, Int32 pmt) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 10223
+   在 BioBaseCLIA.Run.frmWorkList.Read(Object readInfo) 位置 C:\Users\Administrator\Desktop\新建文件夹\20201120柜式机实验预设\20201120柜式机实验预设20201222.1\BKI4200\BioBaseCLIA(BKI4200)_理杯机\BioBaseCLIA\Run\frmWorkList.cs:行号 9434
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart(Object obj)
+************************************************************************
+
